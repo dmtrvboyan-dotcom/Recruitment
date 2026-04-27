@@ -2,10 +2,12 @@ import {
     Code2,
     Users,
     Globe,
-    CreditCard,
     Gamepad2,
     Briefcase,
-    Building2
+    Building2,
+    Layers,
+    Heart,         
+    Truck  // example for new card
 } from "lucide-react";
 
 export const EXPERTISE_AREAS = [
@@ -39,11 +41,33 @@ export const EXPERTISE_AREAS = [
         href: "/expertise-services/aiml-recruitment",
         icon: Users,
     },
-
     {
         title: "Cybersecurity Recruitment",
         description: "Cybersecurity recruitment for security engineers, SOC analysts, and DevSecOps teams.",
         href: "/expertise-services/cybersecurity-recruitment",
         icon: Building2,
     },
-];
+    // New 7th card
+
+]
+
+export const EXPERTISE_FEATURED_AREA = {
+    title: "More specialized industries",
+    description:
+        "Our recruitment networks extend across diverse technical and logistical landscapes, ensuring a perfect fit for niche requirements.",
+    href: "/expertise-services/specialized-industries",
+    icon: Layers,
+
+    tags: [
+        "Manufacturing (IT-focused)",
+        "Renewable Energy",
+        "Logistics & Supply Chain",
+        "Hospitality",
+        "Retail",
+        "Media & Entertainment",
+        "Legal (LegalTech)",
+        "Banking Tech",
+        "EdTech",
+    ],
+    cta: "Learn more about our reach",
+};
