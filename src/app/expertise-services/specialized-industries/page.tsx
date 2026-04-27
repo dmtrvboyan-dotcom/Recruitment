@@ -88,51 +88,51 @@ export default function SpecializedIndustries() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {INDUSTRIES.map((industry, index) => {
-                const Icon = industry.icon
-                return (
-                  <article
-                    key={index}
-                    className="group p-8 bg-white rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300"
-                    id={industry.slug}
-                  >
-                    <div className="flex items-start gap-6 mb-6">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
-                          <Icon className="w-8 h-8" />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-2xl text-black mb-2 leading-tight group-hover:text-[#085689] transition-colors">
-                          {industry.title}
-                        </h3>
-                        <p className="text-slate-600 text-[15px] leading-relaxed">
-                          {industry.description}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="pl-0 lg:pl-22">
-                      <p className="text-sm font-medium text-[#085689] mb-3 uppercase tracking-wide">
-                        Key Focus Areas
-                      </p>
-                      <ul className="space-y-2">
-                        {industry.highlights.map((highlight, hIndex) => (
-                          <li
-                            key={hIndex}
-                            className="flex items-start gap-3 text-slate-600 text-[15px]"
-                          >
-                            <CheckCircle2 className="w-5 h-5 text-[#78B6D9] flex-shrink-0 mt-0.5" />
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </article>
-                )
-              })}
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  {INDUSTRIES.map((industry, index) => {
+    const Icon = industry.icon
+    return (
+      <article
+        key={index}
+        className="group p-8 bg-white rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300"
+        id={industry.slug}
+      >
+        <div className="flex items-start justify-between gap-6 mb-6">
+          <div>
+            <h3 className="font-semibold text-2xl text-black mb-2 leading-tight group-hover:text-[#085689] transition-colors">
+              {industry.title}
+            </h3>
+            <p className="text-slate-600 text-[15px] leading-relaxed">
+              {industry.description}
+            </p>
+          </div>
+          <div className="flex-shrink-0 ml-auto">
+            <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+              <Icon className="w-6 h-6" />
             </div>
+          </div>
+        </div>
+
+        <div className="pl-0">
+          {/* <p className="text-sm font-medium text-[#085689] mb-3 uppercase tracking-wide">
+            Key Focus Areas
+          </p> */}
+          <ul className="space-y-2">
+            {industry.highlights.map((highlight, hIndex) => (
+              <li
+                key={hIndex}
+                className="flex items-start gap-3 text-slate-600 text-[15px]"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#78B6D9] flex-shrink-0 mt-0.5" />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    )
+  })}
+</div>
           </div>
         </section>
       </ScrollReveal>
