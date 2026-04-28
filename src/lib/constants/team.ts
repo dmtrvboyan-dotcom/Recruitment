@@ -103,9 +103,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Boyan Dimitrov",
     image: "/members/boyan.png",
-    linkedin: "https://linkedin.com/in/yulia-rapinchuk",
+    linkedin: "",
     quote:
-      "Just do your thing and let the rest happen.",
+      "Just keep doing your thing and let the rest happen.",
   },
 ]
 
