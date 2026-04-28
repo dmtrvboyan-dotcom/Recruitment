@@ -75,6 +75,10 @@ export const SmartRSection = memo(function SmartRSection() {
                 <RiCheckLine className="text-[#085689]" size={16} />
                 <span>Hiring manager tools</span>
               </div>
+              <div className="flex items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
+                <RiCheckLine className="text-[#085689]" size={16} />
+                <span>GDPR Ready</span>
+              </div>
 
               
 
