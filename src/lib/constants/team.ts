@@ -12,7 +12,7 @@ export interface TeamMember {
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Veselin Raykov",
-    image: "/members/ai/veselin.jpg",
+    image: "/members/veselin.jpg",
     linkedin: "https://bg.linkedin.com/in/veselinraykovhr",
     quote:
       "I still believe in people. Go for results, not excuses.",
@@ -25,26 +25,26 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Svetlana Manolova",
-    image: "/members/ai/svetlana1.png",
+    image: "/members/svetlana1.png",
     linkedin: "https://bg.linkedin.com/in/svetlana-manolova-62051b197",
     quote:
       "Believe in people. It’s all about good conversations and helping people succeed.",
   },
   {
     name: "Mirela Nikolova",
-    image: "/members/ai/mirela.png",
+    image: "/members/mirela.png",
     linkedin: "https://bg.linkedin.com/in/mirela-nikolova",
     quote: "I am fair by nature, lives in the nature.",
   },
   {
     name: "Silvia Markova",
-    image: "/members/ai/silvia1.png",
+    image: "/members/silvia1.png",
     linkedin: "https://bg.linkedin.com/in/silvia-markova-b98470233",
     quote: "Reliable person who recharges with books, hiking, coffee and successful hires.",
   },
   {
     name: "Irina Tojeva",
-    image: "/members/ai/irina1.png",
+    image: "/members/irina1.png",
     linkedin: "https://linkedin.com/in/irina-tojeva",
     quote: "A rebellious empath who cuts through bad hiring and makes the right matches happen.",
   },
@@ -56,7 +56,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Gabriela Vejinova",
-    image: "/members/ai/gabi2.png",
+    image: "/members/gabi2.png",
     linkedin: "https://www.linkedin.com/in/gabriela-vezhinova-80886a371/",
     quote: "I care about clarity, honest dialogue and work that actually leads somewhere.",
   },
@@ -69,13 +69,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Gabriela Ignatova",
-    image: "/members/ai/gabi1.png",
+    image: "/members/gabi1.png",
     linkedin: "https://linkedin.com/in/gabriela-ignatova",
     quote: "Not a corporate lady, just a human. Researcher, parent, village life, mountain lover.",
   },
   {
     name: "Andrea Miteva",
-    image: "/members/ai/andrea.jpg",
+    image: "/members/andrea.jpg",
     linkedin:
       "https://bg.linkedin.com/in/andrea-miteva-70b7ab366?trk=people-guest_people_search-card",
     quote:
@@ -83,22 +83,29 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Kalin Motovilkov",
-    image: "/members/ai/kalin.jpg",
+    image: "/members/kalin.jpg",
     linkedin: "https://bg.linkedin.com/in/kalin-motovilkov",
     quote: "Serious about results, slightly amused by how perfect they are.",
   },
   {
     name: "Tania Danilenko",
-    image: "/members/ai/tania.png",
+    image: "/members/tania.png",
     linkedin: "https://bg.linkedin.com/in/tanya-danilenko-8221391a9",
     quote: "Consistent, reliable, and kind. I value respectful people.",
   },
   {
     name: "Yulia Rapinchuk",
-    image: "/members/ai/yulia.jpg",
+    image: "/members/yulia.jpg",
     linkedin: "https://linkedin.com/in/yulia-rapinchuk",
     quote:
       "I am respectful, kind and people-oriented. Until I am not.",
+  },
+  {
+    name: "Boyan Dimitrov",
+    image: "/members/boyan.png",
+    linkedin: "https://linkedin.com/in/yulia-rapinchuk",
+    quote:
+      "Just do your thing and let the rest happen.",
   },
 ]
 

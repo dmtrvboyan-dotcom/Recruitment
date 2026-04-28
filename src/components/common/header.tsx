@@ -154,7 +154,7 @@ export function Header() {
             style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
 
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 xl:px-12r">
+        <div className="max-w-[1500px] mx-auto px-6 lg:px-10 xl:px-12r">
           <nav className="relative flex items-center justify-between h-14">
             <Link href="/" onClick={handleLogoClick} className="block flex-shrink-0">
               <img

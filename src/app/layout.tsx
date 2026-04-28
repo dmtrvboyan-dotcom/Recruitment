@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Recruitment.bg" }],
   openGraph: {
-    title: "Recruitment.bg - Executive Search & IT Headhunting",
+    title: "IT recruitment agency in Bulgaria & executive headhunting",
     description:
       "Bulgaria's premier executive search and IT headhunting agency.",
     type: "website",

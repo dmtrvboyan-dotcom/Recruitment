@@ -230,22 +230,65 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
         )}
 
         {/* Message */}
+        {/* Message */}
         <FormField
           control={form.control}
           name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormMessage />
-              <FormLabel>Your Message</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder={messagePlaceholder}
-                  className="min-h-[140px] resize-none"
-                  {...field}
-                />
-              </FormControl>
-            </FormItem>
-          )}
+          render={({ field }) => {
+            const tagMap: Record<Interest, string[]> = {
+              hiring: ["positions", "roles", "budget", "timeline"],
+              demo: ["ATS/CRM", "demo", "pricing", "features"],
+              salary: ["experience", "levels", "location", "job titles"],
+            }
+
+            const [activeTags, setActiveTags] = React.useState<string[]>(tagMap[interest])
+
+            React.useEffect(() => {
+              setActiveTags(tagMap[interest])
+            }, [interest])
+
+            const removeTag = (tag: string) => {
+              setActiveTags((prev) => prev.filter((t) => t !== tag))
+            }
+
+            return (
+              <FormItem>
+                <FormLabel>Your Message</FormLabel>
+                <FormControl>
+                  <div className="flex flex-col gap-2 rounded-md border border-input bg-background px-3 py-2 text-sm focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
+                   
+                    <Textarea
+                      placeholder={messagePlaceholder}
+                      className="min-h-[120px] resize-none border-0 p-0 shadow-none focus-visible:ring-0"
+                      {...field}
+                    />
+
+                      {activeTags.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5">
+                        {activeTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-medium text-blue-700 border border-blue-200"
+                          >
+                            {tag}
+                            <button
+                              type="button"
+                              onClick={() => removeTag(tag)}
+                              className="text-blue-500 hover:text-blue-800 leading-none"
+                              aria-label={`Remove ${tag}`}
+                            >
+                              &#x2715;
+                            </button>
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )
+          }}
         />
 
         {/* === CAPTCHA SECTION === */}

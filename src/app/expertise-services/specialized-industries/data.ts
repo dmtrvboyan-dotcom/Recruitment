@@ -181,8 +181,8 @@ export const CTA_DATA: CtaData = {
 }
 
 export const STATS = [
-  { value: "9+", label: "Industries Covered" },
-  { value: "500+", label: "Specialists Placed" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "45", label: "Days Avg. Time-to-Hire" },
+  { value: "650+", label: "Hires" },
+  { value: "75%", label: "Hires From Passive Candidates" },
+  { value: "80%", label: "Offer Acceptance Rate" },
+  { value: "4-8", label: "Days to Present Candidates" },
 ]
