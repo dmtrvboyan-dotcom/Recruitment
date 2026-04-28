@@ -1,8 +1,8 @@
 export const heroData = {
   tagline: "Smart.R",
-  title: "",
+  title: "The All In One ATS",
   subtitle:
-    "Built for Modern Recruiters",
+    "Built for modern recruiter teams who want to hire smarter, move faster, and scale with confidence",
   description:
     "Built by recruiters with 15+ years of hands-on experience. Used by teams who want to hire smarter, not harder.",
   primaryCta: {

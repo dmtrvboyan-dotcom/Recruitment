@@ -40,10 +40,10 @@ export function ShowcaseSection() {
     <section className="w-full  bg-gradient-to-b from-white to-[#ededed] pt-25 pb-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 text-md font-bold text-[#085689] uppercase tracking-[0.2em] mb-5">
-            <span className="block w-6 h-px bg-[#085689]/40" />
+          <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
+            <span className="block w-6 h-px bg-[#000]/40" />
             {showcaseData.tagline}
-            <span className="block w-6 h-px bg-[#085689]/40" />
+            <span className="block w-6 h-px bg-[#000]/40" />
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
             {showcaseData.title}
@@ -78,7 +78,7 @@ export function ShowcaseSection() {
           <button
             onClick={handleClose}
             className={cn(
-              "absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-gray-600 hover:bg-white transition-all shadow-lg",
+              "absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-white/90  backdrop-blur-sm flex items-center justify-center  hover:bg-white transition-all shadow-lg",
               activeIdx >= 0 ? "opacity-100" : "opacity-0 pointer-events-none",
             )}
             aria-label="Close"
@@ -105,7 +105,7 @@ export function ShowcaseSection() {
                       )}
                     >
                       <Plus
-                        className="w-4 h-4 text-gray-500 flex-shrink-0"
+                        className="w-4 h-4 text-[#ff9204] flex-shrink-0"
                         strokeWidth={2}
                       />
                       <span className="text-sm font-medium text-gray-800 whitespace-nowrap">
@@ -137,7 +137,7 @@ export function ShowcaseSection() {
         </div>
 
         {/* Mobile Layout — bottom pills row with horizontal scroll */}
-        <div className="md:hidden relative mx-4 h-[70vh] max-h-[600px] w-full overflow-hidden rounded-2xl">
+        <div className="md:hidden relative mx-4 h-screen max-h-[700px]  overflow-hidden rounded-2xl">
           {items.map((item, i) => (
             <div
               key={item.id}
@@ -150,7 +150,7 @@ export function ShowcaseSection() {
                 src={item.image || "/placeholder.svg"}
                 alt={item.label}
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[65%_top]"
                 priority={i === 0}
                 sizes="100vw"
               />
@@ -223,7 +223,7 @@ export function ShowcaseSection() {
                   <Plus
                     className={cn(
                       "w-3.5 h-3.5 flex-shrink-0 transition-colors",
-                      activeIdx === i ? "text-gray-600" : "text-white/80",
+                      activeIdx === i ? "text-gray-600" : "text-[#ff9204]",
                     )}
                   />
                   <span

@@ -24,10 +24,10 @@ export function BenefitsSection() {
             <div className="max-w-6xl mx-auto">
 
                 <div className="text-center mb-6">
-                       <span className="inline-flex items-center gap-2 text-md font-bold text-[#085689] uppercase tracking-[0.2em] mb-5">
-                                <span className="block w-6 h-px bg-[#085689]/40" />
+                       <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
+                                <span className="block w-6 h-px bg-[#000]/40" />
                                 {benefitsData.tagline}
-                                <span className="block w-6 h-px bg-[#085689]/40" />
+                                <span className="block w-6 h-px bg-[#000]/40" />
                               </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
                         {benefitsData.title}
@@ -64,7 +64,7 @@ export function BenefitsSection() {
                                     <div
                                         className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 border-[1.5px] transition-all duration-300 ${
                                             active === index
-                                                ? "bg-[#085689] border-[#085689] text-white shadow-[0_4px_12px_rgba(8,86,137,0.3)]"
+                                                ? "bg-[#ff9204] border-[#ff9204]/20 text-white shadow-[0_4px_12px_rgba(255,146,4,0.3)]"
                                                 : "border-slate-300 text-slate-400"
                                         }`}
                                     >

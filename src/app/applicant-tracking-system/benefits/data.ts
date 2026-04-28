@@ -19,7 +19,7 @@ export interface Benefit {
 
 
 export const benefitsData = {
-  tagline: "Hire better.",
+  tagline: "Hire better",
   title: "Why Smart.R",
   subtitle: "Enhance your candidate experience with seamless communication.",
   items: [

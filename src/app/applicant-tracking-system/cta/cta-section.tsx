@@ -8,14 +8,14 @@ export function CTASection() {
   return (
     <section className="py-20 md:py-40  bg-gradient-to-br from-[#085689] to-[#064266]">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6 text-balance">
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white text-balanc">
           {ctaData.title}
         </h2>
-        <p className="text-xl text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto">
+        <p className="sm:text-xl text-md text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto p-4 ">
           {ctaData.description}
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4 pb-20">
+        <div className="flex flex-wrap justify-center gap-4 sm:pb-20 pb-30">
           <a
             href={ctaData.primaryCta.href}
             target="_blank"

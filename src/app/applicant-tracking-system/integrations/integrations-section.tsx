@@ -22,10 +22,10 @@ export function IntegrationsSection() {
       <div className="max-w-6xl mx-auto relative z-10 ">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 text-md font-bold text-[#085689] uppercase tracking-[0.2em] mb-5">
-            <span className="block w-6 h-px bg-[#085689]/40" />
+          <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
+            <span className="block w-6 h-px bg-[#000]/40" />
             {integrationsData.tagline}
-            <span className="block w-6 h-px bg-[#085689]/40" />
+            <span className="block w-6 h-px bg-[#000]/40" />
           </span>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-5 text-balance">
@@ -81,11 +81,13 @@ export function IntegrationsSection() {
                     />
                   </div>
 
+              
+
                   <span
                     className="text-xs font-bold tabular-nums transition-colors duration-300"
                     style={{
                       color: isHovered
-                        ? "rgba(8,86,137,0.5)"
+                        ? "#ff9204"
                         : "rgba(8,86,137,0.2)",
                       fontVariantNumeric: "tabular-nums",
                       letterSpacing: "0.06em",

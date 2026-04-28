@@ -18,10 +18,10 @@ export function FeaturesSection() {
     <section className="py-20 md:py-32 px-6 bg-gradient-to-b from-white to-[#ededed] -mt-25">
       <div className="max-w-6xl mx-auto mt-15">
         <div className="text-center mb-16">
-           <span className="inline-flex items-center gap-2 text-md font-bold text-[#085689] uppercase tracking-[0.2em] mb-5">
-                    <span className="block w-6 h-px bg-[#085689]/40" />
+           <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
+                    <span className="block w-6 h-px bg-[#000]/40" />
                     {featuresData.tagline}
-                    <span className="block w-6 h-px bg-[#085689]/40" />
+                    <span className="block w-6 h-px bg-[#000]/40" />
                   </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
             {featuresData.title}
@@ -74,7 +74,7 @@ export function FeaturesSection() {
                 {/* Corner accent dot */}
                 <div className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full bg-white/0
                                transition-all duration-500 delay-100
-                               group-hover:bg-white/70 group-hover:shadow-[0_0_8px_2px_rgba(255,255,255,0.4)]" />
+                               group-hover:bg-[#ff9204]/70 group-hover:shadow-[0_0_8px_2px_rgba(255,255,255,0.4)]" />
               </div>
 
               {/* Feature Description */}
@@ -86,7 +86,7 @@ export function FeaturesSection() {
                 </p>
 
                 {/* Animated underline accent */}
-                <div className="mt-3 h-px w-0 bg-gradient-to-r from-[#085689] to-[#085689]/0
+                <div className="mt-3 h-px w-0 bg-gradient-to-r from-[#ff9204] to-[#085689]/0
                                transition-all duration-500 ease-out
                                group-hover:w-12" />
               </div>

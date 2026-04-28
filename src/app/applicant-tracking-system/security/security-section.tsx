@@ -9,10 +9,10 @@ export function SecuritySection() {
 
         {/* Header — same pattern as BenefitsSection & IntegrationsSection */}
         <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 text-xs font-bold text-[#085689] uppercase tracking-[0.2em] mb-5">
-            <span className="block w-6 h-px bg-[#085689]/40" />
+          <span className="inline-flex items-center gap-2 text-xs font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
+            <span className="block w-6 h-px bg-[#000]/40" />
             {securityData.tagline}
-            <span className="block w-6 h-px bg-[#085689]/40" />
+            <span className="block w-6 h-px bg-[#000]/40" />
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black text-balance">
             {securityData.title}
@@ -33,7 +33,7 @@ export function SecuritySection() {
 
               {/* Icon — same treatment as IntegrationsSection */}
               <div className="w-10 h-10 rounded-xl bg-[#085689]/10 flex items-center justify-center shrink-0">
-                <item.icon className="w-5 h-5 text-[#085689]" />
+                <item.icon className="w-5 h-5 text-[#ff9204]" />
               </div>
 
               {/* Text */}

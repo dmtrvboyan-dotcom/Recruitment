@@ -15,7 +15,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: "/members/ai/veselin.jpg",
     linkedin: "https://bg.linkedin.com/in/veselinraykovhr",
     quote:
-      "After countless meetings, one thing hasn't changed—I still believe in people. Results, no excuses.",
+      "I still believe in people. Go for results, not excuses.",
   },
   {
     name: "Diana Tosheva",
@@ -28,7 +28,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: "/members/ai/svetlana1.png",
     linkedin: "https://bg.linkedin.com/in/svetlana-manolova-62051b197",
     quote:
-      "I keep it simple: trust people, talk honestly, and help them succeed along the way.",
+      "Believe in people. It’s all about good conversations and helping people succeed.",
   },
   {
     name: "Mirela Nikolova",
@@ -52,7 +52,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Victor Stefanov",
     image: "/members/victor.png",
     linkedin: "https://linkedin.com/in/victor-stefanov",
-    quote: "Great companies hire talent. Smart ones build relationships first.",
+    quote: "I love reading, history and football. And a bit of philosophy.",
   },
   {
     name: "Gabriela Vejinova",
@@ -98,7 +98,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: "/members/ai/yulia.jpg",
     linkedin: "https://linkedin.com/in/yulia-rapinchuk",
     quote:
-      "I build relationships strong enough to survive both market crashes and group-chat memes.",
+      "I am respectful, kind and people-oriented. Until I am not.",
   },
 ]
 

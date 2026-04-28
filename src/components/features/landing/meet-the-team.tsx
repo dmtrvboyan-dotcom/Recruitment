@@ -300,7 +300,7 @@ function TeamCarousel() {
 
 export function MeetTheTeam() {
   return (
-    <section id="about" className="py-14 sm:py-20 lg:py-28 lg:mb-[120px] md:mb-[50px]">
+    <section id="about" className="py-14 sm:py-20 lg:py-28 lg:pb-[120px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
