@@ -55,7 +55,7 @@ export default function CandidatesPage() {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 mt-20">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 mt-20 bg-[#085689]">
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-4">
@@ -91,6 +91,20 @@ function HeroSection() {
           </div>
         </div>
       </div>
+        {/* White wave at bottom of hero */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <svg
+            viewBox="0 0 1440 80"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full block md:h-20 h-12"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="white"
+              d="M0,80 L0,50 Q360,0 720,30 Q1080,60 1440,20 L1440,80 Z"
+            />
+          </svg>
+        </div>
     </section>
   )
 }
@@ -114,6 +128,7 @@ function HowItWorksSection() {
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               {howItWorksData.subtitle}
             </p>
+            
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">

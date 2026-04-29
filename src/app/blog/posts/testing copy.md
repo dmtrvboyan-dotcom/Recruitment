@@ -2,7 +2,7 @@
 title: "Checking this thing if it works"
 description: "asd."
 date: "Apr 29, 2026"
-category: "DEI"
+category: "All"
 tab: "companies"
 ---
 

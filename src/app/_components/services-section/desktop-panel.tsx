@@ -1,11 +1,10 @@
 "use client"
 
 import { memo, useCallback } from "react"
-import { X, Users, Search } from "lucide-react"
+import { X, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { EXECUTIVE_STATS, HIRE_STATS, REMOTE_STATS, type Service } from "@/lib/constants/services"
+import { type Service } from "@/lib/constants/services"
 import { scrollToSection } from "@/lib/utils/scroll"
-import { ServiceStatsLarge } from "./service-stats"
 
 export const DesktopPanel = memo(function DesktopPanel({
   service,
@@ -20,20 +19,23 @@ export const DesktopPanel = memo(function DesktopPanel({
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${service ? "visible" : "invisible"
-        }`}
+      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${
+        service ? "visible" : "invisible"
+      }`}
     >
       {/* Backdrop */}
       <div
-        className={`absolute inset-0 bg-[#ededed]/90 backdrop-blur-md transition-opacity duration-300 ${service ? "opacity-100" : "opacity-0"
-          }`}
+        className={`absolute inset-0 bg-[#ededed]/90 backdrop-blur-md transition-opacity duration-300 ${
+          service ? "opacity-100" : "opacity-0"
+        }`}
         onClick={onClose}
       />
 
       {/* Sliding panel */}
       <div
-        className={`relative h-full w-full md:w-[50%] bg-[#efeeef] shadow-xl transform transition-transform duration-500 ease-out overflow-y-auto ${service ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`relative h-full w-full md:w-[50%] bg-[#efeeef] shadow-xl transform transition-transform duration-500 ease-out overflow-y-auto ${
+          service ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         {service && (
           <div className="p-6 md:p-8">
@@ -76,62 +78,23 @@ export const DesktopPanel = memo(function DesktopPanel({
               ))}
             </div>
 
-            {/* Action buttons */}
-            <div className="mt-12 flex flex-col sm:flex-row gap-4">
-              {service.title === "Permanent IT Recruitment" && (
-                <Button
-                  onClick={() => handleNavigate("#companies")}
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-medium bg-[#085689] hover:bg-[#0a6a9c] text-white rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2 cursor-pointer"
-                >
-                  Learn more <Users className="w-4 h-4" />
-                </Button>
-              )}
-
-              {service.title === "IT Salary Benchmarking & Hiring Insights" && (
-                <Button
-                  onClick={() => handleNavigate("#contact")}
-                  className="w-full sm:w-auto px-8 py-3.5 text-base font-medium bg-[#085689] hover:bg-[#0a6a9c] text-white rounded-xl shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2 cursor-pointer"
-                >
-                  Learn more <Search className="w-4 h-4" />
-                </Button>
-              )}
-            </div>
-
-            {/* Stats sections */}
-            {service.title === "Executive Search & Headhunting" && (
-              <div className="mt-16 border-t border-gray-200 pt-8">
-                <ServiceStatsLarge stats={EXECUTIVE_STATS} />
-              </div>
-            )}
-
-            {service.title === "Remote IT Hiring & Global Talent" && (
-              <div className="mt-16 border-t border-gray-200 pt-8">
-                <ServiceStatsLarge stats={REMOTE_STATS} />
-              </div>
-            )}
-
-            {service.title === "Hire Contract or Freelance Developers" && (
-              <div className="mt-10 flex flex-row lg:flex-row gap-8 lg:gap-0 items-start">
-                <div className="lg:w-[260px] lg:shrink-0 mt-8 lg:pt-2">
-                  <Button
-                    onClick={() => handleNavigate("#specialized")}
-                    className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 rounded-xl text-base font-medium cursor-pointer"
-                  >
-                    Learn more <Users className="w-4 h-4 ml-2" />
-                  </Button>
-                </div>
-                <div className="flex">
-                  <div className="grid grid-cols-1 pl-8">
-                    {HIRE_STATS.map((stat, idx) => (
-                      <div key={idx} className="text-center">
-                        <div className="text-[2rem] font-bold text-[#085689]">{stat.value}</div>
-                        <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-                      </div>
-                    ))}
+            {/* Stats + button — unified for all services */}
+            <div className="mt-10 border-t border-gray-200 pt-8 flex flex-col sm:flex-row sm:items-center gap-8">
+              <div className="grid grid-cols-3 gap-6 flex-1">
+                {service.stats.map((stat, idx) => (
+                  <div key={idx} className="text-center">
+                    <div className="text-[2rem] font-bold text-[#085689]">{stat.value}</div>
+                    <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
                   </div>
-                </div>
+                ))}
               </div>
-            )}
+              <Button
+                onClick={() => handleNavigate(service.learnMoreHref ?? "#contact")}
+                className="shrink-0 bg-[#085689] hover:bg-[#0a6a9c] text-white py-3.5 px-8 rounded-xl text-base font-medium cursor-pointer"
+              >
+                Learn more <Users className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
           </div>
         )}
       </div>

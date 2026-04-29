@@ -1,11 +1,10 @@
 "use client"
 
 import { memo, useCallback } from "react"
-import { ChevronDown, Users, Search } from "lucide-react"
+import { ChevronDown, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { EXECUTIVE_STATS, HIRE_STATS, REMOTE_STATS, type Service } from "@/lib/constants/services"
+import { type Service } from "@/lib/constants/services"
 import { scrollToSection } from "@/lib/utils/scroll"
-import { ServiceStats } from "./service-stats"
 
 export const MobileServiceItem = memo(function MobileServiceItem({
   service,
@@ -46,7 +45,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
 
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[1400px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-6 pb-8">
@@ -54,6 +53,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             <p className="text-[#085689] font-medium mb-4">{service.subtitle}</p>
           )}
 
+          {/* Sections */}
           <div className="space-y-6">
             {service.sections.map((section, idx) => (
               <div key={idx}>
@@ -77,49 +77,23 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             ))}
           </div>
 
-          {service.title === "Executive Search & Headhunting" && (
-            <ServiceStats stats={EXECUTIVE_STATS} layout="grid" className="mt-8" />
-          )}
-
-          {service.title === "Remote IT Hiring & Global Talent" && (
-            <ServiceStats stats={REMOTE_STATS} layout="grid" className="mt-8" />
-          )}
-
-          {service.title === "Hire Contract or Freelance Developers" && (
-            <div className="mt-8 flex flex-col gap-4">
-              <div className="flex justify-center">
-                <ServiceStats stats={HIRE_STATS} layout="grid" />
-              </div>
-              <Button
-                onClick={() => handleNavigate("#companies")}
-                className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3 rounded-xl"
-              >
-                Hire contract <Users className="w-4 h-4 ml-2" />
-              </Button>
+          {/* Stats + button — unified for all services */}
+          <div className="mt-8 border-t border-gray-200 pt-6 flex flex-col gap-6">
+            <div className="grid grid-cols-3 gap-4">
+              {service.stats.map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className="text-2xl font-bold text-[#085689]">{stat.value}</div>
+                  <div className="text-xs text-gray-600 mt-1 leading-snug">{stat.label}</div>
+                </div>
+              ))}
             </div>
-          )}
-
-          {service.title === "Permanent IT Recruitment" && (
-            <div className="mt-8">
-              <Button
-                onClick={() => handleNavigate("#companies")}
-                className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3 rounded-xl cursor-pointer"
-              >
-                Learn more <Users className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-          )}
-
-          {service.title === "IT Salary Benchmarking & Hiring Insights" && (
-            <div className="mt-8">
-              <Button
-                onClick={() => handleNavigate("#contact")}
-                className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3 rounded-xl cursor-pointer"
-              >
-                Learn more <Search className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-          )}
+            <Button
+              onClick={() => handleNavigate(service.learnMoreHref ?? "#contact")}
+              className="w-full bg-[#085689] hover:bg-[#0a6a9c] text-white py-3 rounded-xl text-base font-medium cursor-pointer"
+            >
+              Learn more <Users className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>

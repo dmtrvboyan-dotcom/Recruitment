@@ -9,12 +9,19 @@ export interface ServiceSection {
   points: string[]
 }
 
+export interface ServiceStat {
+  value: string
+  label: string
+}
+
 export interface Service {
   icon: LucideIcon
   title: string
   subtitle: string
   intro: string
   sections: ServiceSection[]
+  stats: ServiceStat[]
+  learnMoreHref?: string
 }
 
 export const SERVICES: Service[] = [
@@ -43,6 +50,12 @@ export const SERVICES: Service[] = [
         ],
       },
     ],
+    stats: [
+      { value: "2x", label: "Longer Retention" },
+      { value: "89%", label: "Stronger Cultural Alignment" },
+      { value: "70%+", label: "Reduced Hiring Risk" },
+    ],
+    learnMoreHref: "#companies",
   },
   {
     icon: Briefcase,
@@ -69,6 +82,12 @@ export const SERVICES: Service[] = [
         ],
       },
     ],
+    stats: [
+      { value: "100+", label: "Vetted Contractors" },
+      { value: "3-5", label: "Days to Hire" },
+      { value: "90%+", label: "Offer Acceptance Rate" },
+    ],
+    learnMoreHref: "#contact",
   },
   {
     icon: Clock,
@@ -95,6 +114,12 @@ export const SERVICES: Service[] = [
         ],
       },
     ],
+    stats: [
+      { value: "48h", label: "Avg. First Shortlist" },
+      { value: "5-7", label: "Days to Place" },
+      { value: "80%+", label: "Project Success Rate" },
+    ],
+    learnMoreHref: "#contact",
   },
   {
     icon: Globe,
@@ -121,6 +146,12 @@ export const SERVICES: Service[] = [
         ],
       },
     ],
+    stats: [
+      { value: "65%+", label: "Wider Pool of Professionals" },
+      { value: "4-6", label: "Candidates Per Role" },
+      { value: "2-6", label: "Days to Present Candidates" },
+    ],
+    learnMoreHref: "#contact",
   },
   {
     icon: Search,
@@ -147,34 +178,14 @@ export const SERVICES: Service[] = [
         ],
       },
     ],
+    stats: [
+      { value: "25", label: "Senior Roles" },
+      { value: "85%", label: "Offer Acceptance Rate" },
+      { value: "6-15", label: "Days to Present Candidates" },
+    ],
+    learnMoreHref: "#contact",
   },
-  // {
-  //   icon: UserCheck,
-  //   title: "For Candidates",
-  //   subtitle: "Find a Role That Actually Fits",
-  //   intro: "",
-  //   sections: [
-  //     {
-  //       heading: "Your Goals Come First",
-  //       points: [
-  //         "Clear conversation about your skills and direction",
-  //         "Honest feedback and realistic opportunities",
-  //         "Roles aligned with your expectations and lifestyle",
-  //         "Support throughout the entire hiring process",
-  //       ],
-  //     },
-  //     {
-  //       heading: "What You Get",
-  //       points: [
-  //         "Relevant job opportunities",
-  //         "Transparent communication",
-  //         "Faster feedback",
-  //         "Long-term career support",
-  //       ],
-  //     },
-  //   ],
-  // },
-   {
+  {
     icon: UserCheck,
     title: "IT Salary Benchmarking & Hiring Insights",
     subtitle: "",
@@ -199,21 +210,11 @@ export const SERVICES: Service[] = [
         ],
       },
     ],
+    stats: [
+      { value: "3x", label: "Faster Offer Decisions" },
+      { value: "Live", label: "Market Salary Data" },
+      { value: "100%", label: "Role & Stack Specific" },
+    ],
+    learnMoreHref: "#contact",
   },
-]
-
-export const EXECUTIVE_STATS = [
-  { value: "25", label: "Senior Roles" },
-  { value: "85%", label: "Offer Acceptance Rate" },
-  { value: "6-15", label: "Days to Present Candidates" },
-]
-
-export const HIRE_STATS = [
-  { value: "100+", label: "Vetted Contractors"}
-]
-
-export const REMOTE_STATS = [
-  { value: "65%+", label: "Wider Pool of Professionals"},
-  { value: "4-6", label: "Candidates Per Role"},
-  { value: "2-6", label: "Days to Present Candidates"},
 ]

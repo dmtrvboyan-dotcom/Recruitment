@@ -34,7 +34,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-4">
@@ -49,6 +49,8 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
           </div>
         </div>
       </section>
+
+    
 
       {/* Tabs + Chips + Cards */}
       <ScrollReveal>
