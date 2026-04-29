@@ -2,13 +2,11 @@
 
 import { memo, useCallback } from "react"
 import Link from "next/link"
+import { Phone } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { FOOTER_LINKS, SOCIAL_LINKS, COMPANY_INFO } from "@/lib/constants/footer"
 import { scrollToSection } from "@/lib/utils/scroll"
 
-/**
- * Footer link section component
- */
 const FooterLinkSection = memo(function FooterLinkSection({
   title,
   links,
@@ -26,12 +24,23 @@ const FooterLinkSection = memo(function FooterLinkSection({
       <ul className="flex flex-col gap-3">
         {links.map((link) => (
           <li key={link.label}>
-            <button
-              onClick={() => onNavigate(link.href)}
-              className="text-sm text-slate-500 hover:text-[#78B6D9] text-left transition-colors cursor-pointer"
-            >
-              {link.label}
-            </button>
+            {link.href.startsWith("/") ? (
+              <Link
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-slate-500 hover:text-[#78B6D9] text-left transition-colors cursor-pointer block"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <button
+                onClick={() => onNavigate(link.href)}
+                className="text-sm text-slate-500 hover:text-[#78B6D9] text-left transition-colors cursor-pointer"
+              >
+                {link.label}
+              </button>
+            )}
           </li>
         ))}
       </ul>
@@ -39,12 +48,18 @@ const FooterLinkSection = memo(function FooterLinkSection({
   )
 })
 
-/**
- * Social links component
- */
-const SocialLinks = memo(function SocialLinks() {
+const SocialLinks = memo(function SocialLinks({ phoneHref }: { phoneHref: string }) {
   return (
     <div className="flex items-center gap-4">
+      {/* Phone icon — only on mobile, sits alongside social icons */}
+      <a
+        href={phoneHref}
+        aria-label="Call us"
+        className="md:hidden w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer"
+      >
+        <Phone className="w-5 h-5 text-[#78B6D9] group-hover:scale-110 transition-transform" />
+      </a>
+
       {SOCIAL_LINKS.map((social) => {
         const IconComponent = social.icon
         return (
@@ -64,9 +79,6 @@ const SocialLinks = memo(function SocialLinks() {
   )
 })
 
-/**
- * Main footer component
- */
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -92,11 +104,20 @@ export function Footer() {
               {COMPANY_INFO.description}
             </p>
 
-            <p className="text-[#085689] font-medium text-sm mb-6">
+            <p className="text-[#085689] font-medium text-sm mb-4">
               {COMPANY_INFO.location}
             </p>
 
-            <SocialLinks />
+            {/* Phone — icon + number on desktop only */}
+            <a
+              href={COMPANY_INFO.phoneHref}
+              className="hidden md:inline-flex items-center gap-2 text-sm text-slate-500 hover:text-[#085689] transition-colors mb-6 group"
+            >
+              <Phone className="w-4 h-4 text-[#085689] flex-shrink-0" />
+              <span>{COMPANY_INFO.phoneNumber}</span>
+            </a>
+
+            <SocialLinks phoneHref={COMPANY_INFO.phoneHref} />
           </div>
 
           <FooterLinkSection

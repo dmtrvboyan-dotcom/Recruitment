@@ -3,10 +3,16 @@
 import { useState, useCallback, memo } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react"
 import { NAV_ITEMS, type NavItem } from "@/lib/constants/navigation"
 import { scrollToSection, scrollToTop } from "@/lib/utils/scroll"
 import { useScrollState, useEscapeKey, useBodyScrollLock } from "@/lib/hooks"
+
+// ── Contact details ──────────────────────────────────────────────────────────
+const PHONE_NUMBER = "+359 876 449 229‬"   
+const PHONE_HREF   = "tel:+359 876 449 229‬"    
+const EMAIL_HREF   = "mailto:office@recruitment.bg" 
+// ─────────────────────────────────────────────────────────────────────────────
 
 
 const DesktopDropdown = memo(function DesktopDropdown({
@@ -22,23 +28,21 @@ const DesktopDropdown = memo(function DesktopDropdown({
 }) {
   return (
     <div className="relative group ">
-      
       <button
         onClick={onToggle}
         className="group flex items-center gap-1.5 text-md text-foreground/80 hover:text-primary transition-colors duration-200 py-1 cursor-pointer"
       >
         {item.label}
-        
         <ChevronDown
           className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""} `}
         />
       </button>
 
       <div
-        className={`absolute top-full left-0 mt-3 w-56 bg-[#f5f5f5] rounded-2xl shadow-xl py-3 px-2 transition-all duration-300 origin-top ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none cursor-pointer"
-          }`}
+        className={`absolute top-full left-0 mt-3 w-56 bg-[#f5f5f5] rounded-2xl shadow-xl py-3 px-2 transition-all duration-300 origin-top ${
+          isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none cursor-pointer"
+        }`}
       >
-        
         {item.dropdownItems?.map((subItem) => (
           <button
             key={subItem.label}
@@ -53,9 +57,6 @@ const DesktopDropdown = memo(function DesktopDropdown({
   )
 })
 
-/**
- * Mobile dropdown menu component
- */
 const MobileDropdown = memo(function MobileDropdown({
   item,
   isOpen,
@@ -80,8 +81,9 @@ const MobileDropdown = memo(function MobileDropdown({
       </button>
 
       <div
-        className={`pl-6 mt-2 transition-all duration-300 overflow-hidden ${isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0 "
-          }`}
+        className={`pl-6 mt-2 transition-all duration-300 overflow-hidden ${
+          isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0 "
+        }`}
       >
         {item.dropdownItems?.map((subItem) => (
           <button
@@ -97,9 +99,6 @@ const MobileDropdown = memo(function MobileDropdown({
   )
 })
 
-/**
- * Main header component with navigation
- */
 export function Header() {
   const isScrolled = useScrollState()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -117,15 +116,12 @@ export function Header() {
     if (openInNewTab) {
       window.open(href, "_blank", "noopener,noreferrer")
     } else if (href.startsWith("#")) {
-      // If we're on the homepage, scroll to section
-      // If we're on a sub-page, navigate to homepage with anchor
       if (window.location.pathname === "/") {
         scrollToSection(href)
       } else {
         window.location.href = "/" + href
       }
     } else {
-      // Regular page navigation
       window.location.href = href
     }
     setIsMenuOpen(false)
@@ -136,23 +132,20 @@ export function Header() {
     setOpenDropdown((prev) => (prev === label ? null : label))
   }, [])
 
-  const handleLogoClick = useCallback(
-    (e: React.MouseEvent) => {
-      if (window.location.pathname === "/") {
-        e.preventDefault()
-        scrollToTop()
-      }
-    },
-    []
-  )
+  const handleLogoClick = useCallback((e: React.MouseEvent) => {
+    if (window.location.pathname === "/") {
+      e.preventDefault()
+      scrollToTop()
+    }
+  }, [])
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "backdrop-blur-md py-3 shadow-sm" : "bg-transparent py-6"
-          }`}
-            style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
-
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled ? "backdrop-blur-md py-3 shadow-sm" : "bg-transparent py-6"
+        }`}
+        style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
       >
         <div className="max-w-[1500px] mx-auto px-6 lg:px-10 xl:px-12r">
           <nav className="relative flex items-center justify-between h-14">
@@ -164,10 +157,11 @@ export function Header() {
               />
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation — hidden when scrolled */}
             <div
-              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-8 transition-opacity duration-300 ${isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
-                }`}
+              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-8 transition-opacity duration-300 ${
+                isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
             >
               {NAV_ITEMS.map((item) =>
                 item.hasDropdown ? (
@@ -183,7 +177,6 @@ export function Header() {
                     key={item.label}
                     onClick={() => handleNavigate(item.href!)}
                     className="group relative text-md text-foreground/80 hover:text-primary transition-colors duration-200 py-1 cursor-pointer"
-
                   >
                     {item.label}
                   </button>
@@ -198,39 +191,56 @@ export function Header() {
               </Button>
             </div>
 
-            {/* Hamburger Button */}
-            <button
-              onClick={() => setIsMenuOpen(true)}
-              className={`p-2 text-foreground transition-transform duration-300 hover:scale-110 ${isScrolled ? "block" : "block lg:hidden"
+            {/* ── Scrolled-state: phone number + hamburger ── */}
+            <div className="flex items-center gap-3">
+              {/* Phone number — only visible on desktop when scrolled */}
+              <a
+                href={PHONE_HREF}
+                className={`hidden lg:flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-[#085689] transition-all duration-300 ${
+                  isScrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                 }`}
-              aria-label="Open menu"
-            >
-              <Menu size={22} />
-            </button>
+              >
+                <Phone size={15} className="text-[#085689]" />
+                {PHONE_NUMBER}
+              </a>
+
+              {/* Hamburger */}
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className={`p-2 text-foreground transition-transform duration-300 hover:scale-110 ${
+                  isScrolled ? "block" : "block lg:hidden"
+                }`}
+                aria-label="Open menu"
+              >
+                <Menu size={22} />
+              </button>
+            </div>
           </nav>
         </div>
       </header>
 
       {/* Mobile / Slide Menu */}
       <div
-        className={`fixed inset-0 z-[999] transition-all duration-500 ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
-          }`}
+        className={`fixed inset-0 z-[999] transition-all duration-500 ${
+          isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+        }`}
       >
         <div className="absolute inset-0 bg-black/50" onClick={closeMenu} />
 
         <div
-          className={`absolute top-0 right-0 h-full w-full lg:w-1/2 bg-[#085689] shadow-2xl transform transition-transform duration-500  ease-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-            }`}
+          className={`absolute top-0 right-0 h-full w-full lg:w-1/2 bg-[#085689] shadow-2xl transform transition-transform duration-500 ease-out ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         >
-          <div className="flex flex-col h-full p-8 pt-20 relative ">
+          <div className="flex flex-col h-full p-8 pt-20 relative">
             <button
               onClick={closeMenu}
-              className="absolute top-8 right-8 text-white hover:scale-110 transition-transform duration-200 "
+              className="absolute top-8 right-8 text-white hover:scale-110 transition-transform duration-200"
             >
               <X size={24} strokeWidth={2.5} />
             </button>
 
-            <div className="flex flex-col gap-6 text-lg text-white ">
+            <div className="flex flex-col gap-6 text-lg text-white">
               {NAV_ITEMS.map((item) =>
                 item.hasDropdown ? (
                   <MobileDropdown
@@ -252,7 +262,29 @@ export function Header() {
               )}
             </div>
 
-            <div className="mt-auto pt-12">
+            {/* ── Contact icons + button ── */}
+            <div className="mt-auto pt-12 flex flex-col gap-4">
+              {/* Phone & Email icons — right-aligned */}
+              <div className="flex items-center justify-end gap-3">
+                {/* Phone — tapping prompts the OS to call */}
+                <a
+                  href={PHONE_HREF}
+                  className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white/90 hover:text-white"
+                  aria-label="Call us"
+                >
+                  <Phone size={16} />
+                </a>
+
+                {/* Email */}
+                <a
+                  href={EMAIL_HREF}
+                  className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white/90 hover:text-white"
+                  aria-label="Send us an email"
+                >
+                  <Mail size={16} />
+                </a>
+              </div>
+
               <Button
                 onClick={() => handleNavigate("#contact")}
                 className="w-full bg-white text-[#000000] hover:bg-white/90 rounded-xl py-6 text-base font-medium cursor-pointer"

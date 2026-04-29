@@ -123,11 +123,11 @@ export const DIFFERENTIATORS: DifferentiatorItem[] = [
 ]
 
 export const CTA_DATA: CtaData = {
-  title: "Ready to Hire Gaming Expert?",
+  title: "Ready to Hire iGaming / Gambling professionals?",
   description:
     "Let us help you build your gaming team with Bulgaria's best iGaming professionals.",
   primaryButton: {
-    text: "Hire Gaming Expert",
+    text: "Contact Us",
     href: "/#contact",
   },
   secondaryButton: {

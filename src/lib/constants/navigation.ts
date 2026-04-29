@@ -43,7 +43,6 @@ export const NAV_ITEMS: NavItem[] = [
   },
   { label: "Analyses", href: "/blog", openInNewTab: true },
   { label: "About Us", href: "#about" },
-  // { label: "smart.R ATS / CRM", href: "#smartr" },
 
 ]
 

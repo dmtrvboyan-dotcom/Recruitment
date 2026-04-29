@@ -149,7 +149,7 @@ export default function IGamingRecruitmentPage() {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
-              <Button
+              {/* <Button
                 asChild
                 variant="outline"
                 className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-xl px-8 py-6 border-2 border-[#78B6D9]/50 text-base font-medium"
@@ -157,7 +157,7 @@ export default function IGamingRecruitmentPage() {
                 <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </section>

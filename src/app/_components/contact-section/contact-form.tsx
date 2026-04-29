@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { contactFormSchema, type ContactFormData } from "@/lib/schemas"
 import { MessageField } from "./message-field"
 import { TagInput } from "./tag-input"
+import { Phone } from "lucide-react"
 
 type Mode = "candidate" | "company"
 type Interest = "hiring" | "demo" | "salary"
@@ -244,6 +245,17 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
         <p className="text-center text-sm text-slate-500 mt-6">
           We typically reply within 24 hours during business days
         </p>
+        <div className="flex justify-center">
+          <a
+            href="tel:+359888123456"
+            className="flex items-center gap-2 text-[#085689] hover:text-[#0a6a9c] transition-colors"
+          >
+            <Phone className="w-5 h-5" />
+            <span className="hidden sm:inline text-sm font-medium">
+              +359 888 123 456
+            </span>
+          </a>
+        </div>
 
         <Button
           type="submit"
