@@ -1,4 +1,5 @@
-import { memo } from "react"
+"use client"
+
 import { Button } from "@/components/ui/button"
 
 interface TabButtonProps {
@@ -7,7 +8,7 @@ interface TabButtonProps {
   onClick: () => void
 }
 
-export const TabButton = memo(function TabButton({ label, isActive, onClick }: TabButtonProps) {
+export function TabButton({ label, isActive, onClick }: TabButtonProps) {
   return (
     <Button
       variant={isActive ? "default" : "ghost"}
@@ -21,4 +22,4 @@ export const TabButton = memo(function TabButton({ label, isActive, onClick }: T
       {label}
     </Button>
   )
-})
+}

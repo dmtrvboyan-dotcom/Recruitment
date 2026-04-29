@@ -31,6 +31,7 @@ export const FOOTER_LINKS: FooterLinks = {
     { label: "IT Salary Benchmarking & Hiring Insights", href: "#services" },
   ],
   company: [
+    { label: "Analyses", href: "/blog", openInNewTab: true},
     { label: "About Us", href: "#about" },
     { label: "Contact", href: "#contact" },
   ],

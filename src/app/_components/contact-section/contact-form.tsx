@@ -11,8 +11,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { contactFormSchema, type ContactFormData } from "@/lib/schemas"
 import { MessageField } from "./message-field"
+import { TagInput } from "./tag-input"
 
-type Mode     = "candidate" | "company"
+type Mode = "candidate" | "company"
 type Interest = "hiring" | "demo" | "salary"
 
 interface ContactFormProps {
@@ -20,30 +21,41 @@ interface ContactFormProps {
 }
 
 const CAPTCHA_QUESTION = "8 + 5?"
-const CAPTCHA_ANSWER   = "13"
+const CAPTCHA_ANSWER = "13"
 
-export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX.Element {
+const SHARED_TAGS = ["urgent", "follow-up", "question", "custom-request"]
+
+const INTEREST_TAGS: Record<Interest, string[]> = {
+  hiring: ["hiring", "recruitment", "open-roles", "budget", "timeline", ...SHARED_TAGS],
+  demo: ["demo", "product-tour", "sales", "pricing", "meeting", ...SHARED_TAGS],
+  salary: ["salary", "benchmarking", "compensation", "market-data", ...SHARED_TAGS],
+}
+
+export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [isSubmitted,  setIsSubmitted]  = React.useState(false)
-  const [interest,     setInterest]     = React.useState<Interest>("hiring")
-  const [file,         setFile]         = React.useState<File | null>(null)
+  const [isSubmitted, setIsSubmitted] = React.useState(false)
+  const [interest, setInterest] = React.useState<Interest>("hiring")
+  const [tags, setTags] = React.useState<string[]>([])
+  const [file, setFile] = React.useState<File | null>(null)
   const [captchaInput, setCaptchaInput] = React.useState("")
   const [captchaError, setCaptchaError] = React.useState("")
+
+  const handleInterestChange = (v: string) => {
+    setInterest(v as Interest)
+    setTags([])
+  }
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", phone: "", title: "", message: "" },
   })
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.[0]) setFile(e.target.files[0])
-  }
-
   const resetForm = () => {
     setIsSubmitted(false)
     setCaptchaInput("")
     setCaptchaError("")
     setFile(null)
+    setTags([])
   }
 
   async function onSubmit(data: ContactFormData) {
@@ -59,7 +71,10 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
       const formData = new FormData()
       Object.entries(data).forEach(([key, val]) => formData.append(key, val))
       formData.append("mode", mode)
-      if (mode === "company")   formData.append("interest", interest)
+      if (mode === "company") {
+        formData.append("interest", interest)
+        formData.append("tags", JSON.stringify(tags))
+      }
       if (mode === "candidate" && file) formData.append("cv", file)
 
       const response = await fetch("/api/contact", { method: "POST", body: formData })
@@ -69,6 +84,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
       form.reset()
       setCaptchaInput("")
       setFile(null)
+      setTags([])
     } catch (error) {
       console.error(error)
       alert("Failed to send message. Please try again.")
@@ -95,8 +111,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-
-        {/* Name + Email */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <FormField control={form.control} name="name" render={({ field }) => (
             <FormItem>
@@ -119,7 +133,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
           )} />
         </div>
 
-        {/* Phone + Title */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <FormField control={form.control} name="phone" render={({ field }) => (
             <FormItem>
@@ -135,33 +148,50 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
             <FormItem>
               <FormLabel>Job Title / Position</FormLabel>
               <FormControl>
-                <Input placeholder={mode === "company" ? "Hiring Manager" : "Senior Frontend Developer"} {...field} />
+                <Input
+                  placeholder={mode === "company" ? "Hiring Manager" : "Senior Frontend Developer"}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )} />
         </div>
 
-        {/* Company interest dropdown */}
         {mode === "company" && (
-          <div>
-            <FormLabel>I&apos;m interested in:</FormLabel>
-            <Select value={interest} onValueChange={(v) => setInterest(v as Interest)}>
-              <SelectTrigger className="h-12 w-full mt-2">
-                <SelectValue placeholder="Select an option" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="hiring">Hiring for my company</SelectItem>
-                <SelectItem value="demo">Smart.r ATS/CRM demonstration</SelectItem>
-                <SelectItem value="salary">Salary Benchmarking</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="space-y-4">
+            <div>
+              <FormLabel>I&apos;m interested in:</FormLabel>
+              <Select value={interest} onValueChange={handleInterestChange}>
+                <SelectTrigger className="h-12 w-full mt-2">
+                  <SelectValue placeholder="Select an option" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="hiring">Hiring for my company</SelectItem>
+                  <SelectItem value="demo">Smart.r ATS/CRM demonstration</SelectItem>
+                  <SelectItem value="salary">Salary Benchmarking</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <FormLabel className="text-sm font-medium text-slate-700 mb-2 block">
+                Topics / Tags
+                <span className="ml-2 text-[11px] font-normal text-slate-400">(optional)</span>
+              </FormLabel>
+              <TagInput
+                value={tags}
+                onChange={setTags}
+                suggestions={INTEREST_TAGS[interest]}
+                maxTags={5}
+                placeholder="Add relevant tags…"
+              />
+            </div>
           </div>
         )}
 
         <MessageField form={form} interest={interest} mode={mode} />
 
-        {/* Captcha */}
         <div className="pt-4 border-t border-slate-200">
           <FormLabel className="text-sm font-medium text-slate-700 mb-2 block">
             Security Check
@@ -188,7 +218,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
           </p>
         </div>
 
-        {/* CV upload — candidate only */}
         {mode === "candidate" && (
           <div className="pt-6 border-t border-slate-200">
             <FormLabel className="text-sm font-medium text-slate-700 mb-2 block">
@@ -197,7 +226,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
             <Input
               type="file"
               accept=".pdf,.doc,.docx"
-              onChange={handleFileChange}
+              onChange={(e) => e.target.files?.[0] && setFile(e.target.files[0])}
               className="h-12 file:bg-[#085689] file:text-white file:border-0 file:rounded-md file:px-4 file:mr-4 file:h-full cursor-pointer"
             />
             {file && (
@@ -224,7 +253,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX
         >
           {isSubmitting ? <><Spinner className="mr-2" /> Sending...</> : "Send Message"}
         </Button>
-
       </form>
     </Form>
   )
