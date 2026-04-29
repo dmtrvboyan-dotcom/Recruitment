@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ScrollReveal } from "@/components/common"
+import { ScrollReveal } from "@/components/layout"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle2, Globe } from "lucide-react"
 import { HERO_DATA, INDUSTRIES, CTA_DATA, STATS } from "./data"

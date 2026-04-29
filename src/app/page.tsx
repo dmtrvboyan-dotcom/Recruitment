@@ -5,9 +5,9 @@ import {
   Header,
   Footer,
   ScrollReveal,
-  DynamicBackground,
+  // DynamicBackground,
   SocialSidebar,
-} from "@/components/common"
+} from "@/components/layout"
 
 // Landing page feature components
 import {
@@ -24,7 +24,7 @@ import {
   CallToAction,
   ContactForm,
   ExpertiseSection,
-} from "@/components/features/landing"
+} from "@/app/_components"
 
 /**
  * Landing page component for Recruitment.bg

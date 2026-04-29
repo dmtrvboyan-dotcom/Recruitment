@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { ArrowRight } from "lucide-react"
-import { ScrollReveal } from "@/components/common"
+import { ScrollReveal } from "@/components/layout"
 import { HERO_DATA, TABS, TAB_CHIPS, type TabKey, type BlogPost } from "./data"
 import type { Post } from "./lib/posts"
 

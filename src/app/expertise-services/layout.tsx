@@ -1,7 +1,7 @@
-import { Header } from "@/components/common/header"
-import { Footer } from "@/components/common/footer"
+import { Header } from "@/components/layout/header"
+import { Footer } from "@/components/layout/footer"
 // import DynamicBackground from "@/components/common/dynamic-background"
-import { SocialSidebar } from "@/components/common/social-sidebar"
+import { SocialSidebar } from "@/components/layout/social-sidebar"
 
 export default function ServicesLayout({
     children,

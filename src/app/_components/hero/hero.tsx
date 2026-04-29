@@ -2,7 +2,6 @@
 
 import { useCallback, memo } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { TRUST_METRICS } from "@/lib/constants/metrics"
 import { useAnimatedCounter } from "@/lib/hooks/use-animated-counter"
@@ -37,7 +36,7 @@ export const Hero = memo(function Hero() {
   }, [])
 
   return (
-<section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20 bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20 bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
       <div
         className="absolute inset-0 bg-[size:4rem_4rem]"
         aria-hidden="true"

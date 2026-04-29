@@ -1,4 +1,4 @@
-import { DynamicBackground, Header, SocialSidebar, Footer } from "@/components/common"
+import { DynamicBackground, Header, SocialSidebar, Footer } from "@/components/layout"
 
 
 export default function ATSLayout({

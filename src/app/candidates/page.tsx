@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ScrollReveal } from "@/components/common"
+import { ScrollReveal } from "@/components/layout"
 import { Button } from "@/components/ui/button"
 import {
   CheckCircle,

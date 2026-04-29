@@ -1,0 +1,231 @@
+"use client"
+
+import * as React from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { CheckCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Spinner } from "@/components/ui/spinner"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { contactFormSchema, type ContactFormData } from "@/lib/schemas"
+import { MessageField } from "./message-field"
+
+type Mode     = "candidate" | "company"
+type Interest = "hiring" | "demo" | "salary"
+
+interface ContactFormProps {
+  mode?: Mode
+}
+
+const CAPTCHA_QUESTION = "8 + 5?"
+const CAPTCHA_ANSWER   = "13"
+
+export function ContactForm({ mode = "candidate" }: ContactFormProps): React.JSX.Element {
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [isSubmitted,  setIsSubmitted]  = React.useState(false)
+  const [interest,     setInterest]     = React.useState<Interest>("hiring")
+  const [file,         setFile]         = React.useState<File | null>(null)
+  const [captchaInput, setCaptchaInput] = React.useState("")
+  const [captchaError, setCaptchaError] = React.useState("")
+
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { name: "", email: "", phone: "", title: "", message: "" },
+  })
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.[0]) setFile(e.target.files[0])
+  }
+
+  const resetForm = () => {
+    setIsSubmitted(false)
+    setCaptchaInput("")
+    setCaptchaError("")
+    setFile(null)
+  }
+
+  async function onSubmit(data: ContactFormData) {
+    setCaptchaError("")
+
+    if (captchaInput.trim() !== CAPTCHA_ANSWER) {
+      setCaptchaError("Incorrect answer. Please try again.")
+      return
+    }
+
+    setIsSubmitting(true)
+    try {
+      const formData = new FormData()
+      Object.entries(data).forEach(([key, val]) => formData.append(key, val))
+      formData.append("mode", mode)
+      if (mode === "company")   formData.append("interest", interest)
+      if (mode === "candidate" && file) formData.append("cv", file)
+
+      const response = await fetch("/api/contact", { method: "POST", body: formData })
+      if (!response.ok) throw new Error("Failed to send message")
+
+      setIsSubmitted(true)
+      form.reset()
+      setCaptchaInput("")
+      setFile(null)
+    } catch (error) {
+      console.error(error)
+      alert("Failed to send message. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12 text-center">
+        <div className="w-16 h-16 rounded-full bg-[#085689]/10 flex items-center justify-center mb-6">
+          <CheckCircle className="w-8 h-8 text-[#085689]" />
+        </div>
+        <h3 className="text-2xl font-semibold mb-2">Thank you!</h3>
+        <p className="text-slate-600">We&apos;ll get back to you within 24 hours.</p>
+        <Button variant="outline" className="mt-6" onClick={resetForm}>
+          Send another message
+        </Button>
+      </div>
+    )
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+
+        {/* Name + Email */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <FormField control={form.control} name="name" render={({ field }) => (
+            <FormItem>
+              <FormLabel>{mode === "company" ? "Company Name" : "Full Name"}</FormLabel>
+              <FormControl>
+                <Input placeholder={mode === "company" ? "Company Name" : "John Doe"} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )} />
+
+          <FormField control={form.control} name="email" render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email Address</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="your@email.com" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )} />
+        </div>
+
+        {/* Phone + Title */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <FormField control={form.control} name="phone" render={({ field }) => (
+            <FormItem>
+              <FormLabel>Phone Number</FormLabel>
+              <FormControl>
+                <Input type="tel" placeholder="+359 888 123 456" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )} />
+
+          <FormField control={form.control} name="title" render={({ field }) => (
+            <FormItem>
+              <FormLabel>Job Title / Position</FormLabel>
+              <FormControl>
+                <Input placeholder={mode === "company" ? "Hiring Manager" : "Senior Frontend Developer"} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )} />
+        </div>
+
+        {/* Company interest dropdown */}
+        {mode === "company" && (
+          <div>
+            <FormLabel>I&apos;m interested in:</FormLabel>
+            <Select value={interest} onValueChange={(v) => setInterest(v as Interest)}>
+              <SelectTrigger className="h-12 w-full mt-2">
+                <SelectValue placeholder="Select an option" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="hiring">Hiring for my company</SelectItem>
+                <SelectItem value="demo">Smart.r ATS/CRM demonstration</SelectItem>
+                <SelectItem value="salary">Salary Benchmarking</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        )}
+
+        <MessageField form={form} interest={interest} mode={mode} />
+
+        {/* Captcha */}
+        <div className="pt-4 border-t border-slate-200">
+          <FormLabel className="text-sm font-medium text-slate-700 mb-2 block">
+            Security Check
+          </FormLabel>
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <div className="bg-slate-100 border border-slate-300 rounded-xl px-5 py-3 text-lg font-mono tracking-wider flex-shrink-0">
+              {CAPTCHA_QUESTION}
+            </div>
+            <div className="flex-1 w-full">
+              <Input
+                type="text"
+                placeholder="Enter answer here"
+                value={captchaInput}
+                onChange={(e) => setCaptchaInput(e.target.value)}
+                className="h-12"
+              />
+              {captchaError && (
+                <p className="text-red-600 text-sm mt-1.5">{captchaError}</p>
+              )}
+            </div>
+          </div>
+          <p className="text-xs text-slate-500 mt-2">
+            Please solve this simple math question to prove you&apos;re not a robot.
+          </p>
+        </div>
+
+        {/* CV upload — candidate only */}
+        {mode === "candidate" && (
+          <div className="pt-6 border-t border-slate-200">
+            <FormLabel className="text-sm font-medium text-slate-700 mb-2 block">
+              Upload your CV
+            </FormLabel>
+            <Input
+              type="file"
+              accept=".pdf,.doc,.docx"
+              onChange={handleFileChange}
+              className="h-12 file:bg-[#085689] file:text-white file:border-0 file:rounded-md file:px-4 file:mr-4 file:h-full cursor-pointer"
+            />
+            {file && (
+              <div className="mt-3 flex items-center text-sm text-green-600 font-medium">
+                <CheckCircle className="w-4 h-4 mr-2" />
+                <span>{file.name} uploaded successfully</span>
+              </div>
+            )}
+            <p className="text-xs text-slate-500 mt-2">
+              Accepted formats: PDF, DOCX. Max size: 5MB.
+            </p>
+          </div>
+        )}
+
+        <p className="text-center text-sm text-slate-500 mt-6">
+          We typically reply within 24 hours during business days
+        </p>
+
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full bg-[#085689] hover:bg-[#0a6a9c] cursor-pointer"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? <><Spinner className="mr-2" /> Sending...</> : "Send Message"}
+        </Button>
+
+      </form>
+    </Form>
+  )
+}

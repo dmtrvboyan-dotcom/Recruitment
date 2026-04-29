@@ -1,61 +1,12 @@
 "use client"
 
-import { useCallback, memo } from "react"
-import { CheckCircle } from "lucide-react"
+import { useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { WHY_CHOOSE_US_POINTS, HIRE_WITH_CLARITY_POINTS } from "@/lib/constants/companies"
 import { scrollToSection } from "@/lib/utils/scroll"
+import { CheckListItem } from "./check-list-item"
+import { SectionHeader } from "./section-header"
 
-/**
- * List item with checkmark icon
- */
-const CheckListItem = memo(function CheckListItem({
-  item,
-  variant = "dark",
-}: {
-  item: string
-  variant?: "dark" | "brand"
-}) {
-  const bgColor = variant === "dark" ? "bg-slate-900" : "bg-[#085689]/10"
-  const iconColor = variant === "dark" ? "text-white" : "text-[#085689]"
-
-  return (
-    <li className="flex gap-4">
-      <div
-        className={`mt-1 w-6 h-6 rounded-full ${bgColor} flex-shrink-0 flex items-center justify-center`}
-      >
-        <CheckCircle className={`w-4 h-4 ${iconColor}`} />
-      </div>
-      <p className="text-lg text-slate-700 leading-relaxed">{item}</p>
-    </li>
-  )
-})
-
-/**
- * Section header with label
- */
-const SectionHeader = memo(function SectionHeader({
-  label,
-  variant = "dark",
-}: {
-  label: string
-  variant?: "dark" | "brand"
-}) {
-  const bgColor = variant === "dark" ? "bg-slate-900 text-white" : "bg-[#085689]/10 text-[#085689]"
-
-  return (
-    <div className="flex justify-center lg:justify-start mb-8">
-      <div className={`inline-flex items-center gap-2 ${bgColor} px-4 py-2 rounded-full`}>
-        {variant === "brand" && <CheckCircle className="w-5 h-5" />}
-        <span className="font-semibold">{label}</span>
-      </div>
-    </div>
-  )
-})
-
-/**
- * Companies section showing why companies should choose us
- */
 export function CompaniesSection() {
   const handleNavigate = useCallback(() => {
     scrollToSection("#contact")
@@ -72,19 +23,12 @@ export function CompaniesSection() {
           <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
             Who we work with
           </p>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
             Why Companies Work With Us
           </h2>
-
-          {/* <p className="text-xl text-slate-600 leading-relaxed">
-            With deep industry expertise and a personalized approach, we connect
-            companies with pre-vetted senior developers and engineers who truly fit
-            your culture and drive long-term success.
-          </p> */}
         </div>
 
-        {/* Two Column Content */}
+        {/* Two-column content */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
             <SectionHeader label="Why Companies Choose Us" variant="dark" />
@@ -105,6 +49,7 @@ export function CompaniesSection() {
           </div>
         </div>
 
+        {/* CTA */}
         <div className="flex justify-center mt-16">
           <Button
             onClick={handleNavigate}
