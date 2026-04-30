@@ -10,16 +10,15 @@ interface TabButtonProps {
 
 export function TabButton({ label, isActive, onClick }: TabButtonProps) {
   return (
-    <Button
-      variant={isActive ? "default" : "ghost"}
+    <button
       onClick={onClick}
-      className={`rounded-full px-8 py-3 transition-all ${
+      className={`rounded-full px-8 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
         isActive
-          ? "bg-[#085689] text-white shadow hover:bg-[#78B6D9]"
-          : "hover:bg-white hover:text-slate-900"
+          ? "bg-brand-navy text-white shadow-lg"
+          : "text-brand-navy/50 hover:text-brand-navy hover:bg-white/80"
       }`}
     >
       {label}
-    </Button>
+    </button>
   )
 }

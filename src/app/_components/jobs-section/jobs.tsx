@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { Search, X } from "lucide-react"
+import { Search, X, SlidersHorizontal } from "lucide-react"
 import { SAMPLE_JOBS, type Job } from "@/lib/data/jobs"
 import { filterJobs } from "@/lib/utils/filters"
 import { JobCard } from "./job-card"
@@ -40,43 +40,44 @@ export function JobsSection() {
   )
 
   return (
-    <section id="jobs" className="py-16 lg:py-24 lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12">
+    <section id="jobs" className="py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {selectedJob && (
           <JobModal job={selectedJob} onClose={() => setSelectedJob(null)} />
         )}
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">Careers</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black mb-6">Job Positions</h2>
-        </div>
+        {/* Header Content */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <p className="text-xs font-bold tracking-[0.3em] uppercase text-brand-coral mb-4">
+        Careers
+          </p>
+          <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-brand-navy leading-[1.1] mb-10">
+           Job Positions
+          </h2>
 
-        {/* Search */}
-        <div className="flex justify-center mb-10">
-          <div className="w-full md:w-[50%]">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Search jobs by title or technology..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white border border-slate-200 pl-12 pr-12 py-4 rounded-3xl text-lg focus:outline-none focus:border-[#78B6D9] transition-colors"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              )}
-            </div>
+          {/* Styled Search Bar */}
+          <div className="relative group max-w-xl mx-auto">
+            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-brand-navy/30 group-focus-within:text-brand-blue w-5 h-5 transition-colors" />
+            <input
+              type="text"
+              placeholder="Search by role or tech stack..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-brand-bg border border-brand-navy/5 pl-14 pr-14 py-5 rounded-3xl text-brand-navy focus:outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/5 transition-all text-lg shadow-sm"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-6 top-1/2 -translate-y-1/2 text-brand-navy/20 hover:text-brand-coral transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-10">
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Sidebar */}
           <JobFilters
             selectedLocations={selectedLocations}
             setSelectedLocations={setSelectedLocations}
@@ -90,14 +91,14 @@ export function JobsSection() {
             setSelectedContracts={setSelectedContracts}
           />
 
-          {/* Job cards + pagination */}
+          {/* Results Area */}
           <div className="flex-1">
-            <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div className="flex items-baseline gap-3">
-                <span className="text-2xl font-semibold">{filteredJobs.length} positions</span>
-                {searchQuery && (
-                  <span className="text-slate-500 text-sm">matching &quot;{searchQuery}&quot;</span>
-                )}
+            <div className="mb-10 flex items-center justify-between border-b border-brand-navy/5 pb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-brand-coral animate-pulse" />
+                <span className="text-lg font-bold text-brand-navy">
+                  {filteredJobs.length} <span className="text-brand-navy/40 font-medium uppercase text-xs tracking-widest ml-2">Openings Found</span>
+                </span>
               </div>
               <JobsPagination
                 currentPage={currentPage}
@@ -106,15 +107,27 @@ export function JobsSection() {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {paginatedJobs.map((job) => (
                 <JobCard key={job.id} job={job} onSelect={() => setSelectedJob(job)} />
               ))}
             </div>
 
             {filteredJobs.length === 0 && (
-              <div className="text-center py-20 text-slate-500">
-                No jobs found matching your criteria.
+              <div className="text-center py-32 bg-brand-bg rounded-[40px] border border-dashed border-brand-navy/10">
+                <SlidersHorizontal className="w-12 h-12 text-brand-navy/10 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-brand-navy mb-2">No results found</h3>
+                <p className="text-brand-navy/50">Try adjusting your filters or search terms.</p>
+                <button 
+                  onClick={() => {
+                    setSearchQuery("");
+                    setSelectedTech("all");
+                    setSelectedSeniorities([]);
+                  }}
+                  className="mt-6 text-brand-blue font-bold uppercase text-xs tracking-widest hover:underline"
+                >
+                  Clear all filters
+                </button>
               </div>
             )}
           </div>

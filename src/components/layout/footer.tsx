@@ -18,7 +18,7 @@ const FooterLinkSection = memo(function FooterLinkSection({
 }) {
   return (
     <div>
-      <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#085689]">
+      <h4 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-brand-navy">
         {title}
       </h4>
       <ul className="flex flex-col gap-3">
@@ -29,14 +29,14 @@ const FooterLinkSection = memo(function FooterLinkSection({
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-slate-500 hover:text-[#78B6D9] text-left transition-colors cursor-pointer block"
+                className="text-sm text-brand-navy/60 hover:text-brand-coral transition-colors cursor-pointer block font-medium"
               >
                 {link.label}
               </Link>
             ) : (
               <button
                 onClick={() => onNavigate(link.href)}
-                className="text-sm text-slate-500 hover:text-[#78B6D9] text-left transition-colors cursor-pointer"
+                className="text-sm text-brand-navy/60 hover:text-brand-coral text-left transition-colors cursor-pointer font-medium"
               >
                 {link.label}
               </button>
@@ -50,14 +50,14 @@ const FooterLinkSection = memo(function FooterLinkSection({
 
 const SocialLinks = memo(function SocialLinks({ phoneHref }: { phoneHref: string }) {
   return (
-    <div className="flex items-center gap-4">
-      {/* Phone icon — only on mobile, sits alongside social icons */}
+    <div className="flex items-center gap-3">
+      {/* Mobile Phone Toggle */}
       <a
         href={phoneHref}
         aria-label="Call us"
-        className="md:hidden w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer"
+        className="md:hidden w-10 h-10 rounded-full bg-brand-navy/5 flex items-center justify-center hover:bg-brand-coral/10 transition-all group"
       >
-        <Phone className="w-5 h-5 text-[#78B6D9] group-hover:scale-110 transition-transform" />
+        <Phone className="w-4 h-4 text-brand-blue group-hover:text-brand-coral transition-colors" />
       </a>
 
       {SOCIAL_LINKS.map((social) => {
@@ -68,10 +68,10 @@ const SocialLinks = memo(function SocialLinks({ phoneHref }: { phoneHref: string
             href={social.href}
             target={social.href.startsWith("http") ? "_blank" : undefined}
             rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all group cursor-pointer"
+            className="w-10 h-10 rounded-full bg-brand-navy/5 flex items-center justify-center hover:bg-brand-coral hover:text-white transition-all duration-300 group cursor-pointer"
             aria-label={social.label}
           >
-            <IconComponent className="w-5 h-5 text-[#78B6D9] group-hover:scale-110 transition-transform" />
+            <IconComponent className="w-4 h-4 text-brand-navy/40 group-hover:text-inherit group-hover:scale-110 transition-transform" />
           </a>
         )
       })}
@@ -83,43 +83,55 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   const handleNavigate = useCallback((href: string) => {
-    scrollToSection(href, { highlightDuration: 1400, highlightColor: "rgba(8, 86, 137, 0.25)" })
+    scrollToSection(href, { 
+      highlightDuration: 1400, 
+      highlightColor: "rgba(255, 93, 119, 0.1)" // Subtle Brand Coral highlight
+    })
   }, [])
 
   return (
-    <footer className="bg-[#f9f9f9] text-black border-t border-white/10 mt-[-150px]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand / Logo */}
+    <footer className="bg-brand-bg text-brand-navy border-t border-brand-navy/5">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+        
+        {/* Coral Signature Accent Line */}
+        <div className="w-12 h-[2px] bg-brand-coral mb-12" />
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-16">
+          {/* Brand Info Column */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-8 transition-opacity hover:opacity-80">
               <img
                 src="/uploaded/recr-logo.png"
                 alt={COMPANY_INFO.name}
-                className="h-10 w-auto"
+                className="h-9 w-auto"
               />
             </Link>
 
-            <p className="text-black text-sm leading-relaxed mb-2 max-w-xs">
+            <p className="text-brand-navy/60 text-sm leading-relaxed mb-8 max-w-[260px] font-medium">
               {COMPANY_INFO.description}
             </p>
 
-            <p className="text-[#085689] font-medium text-sm mb-4">
-              {COMPANY_INFO.location}
-            </p>
+            <div className="flex flex-col gap-5 mb-8">
+              {/* Location Note in Coral */}
+              <p className="text-brand-coral font-bold text-[10px] uppercase tracking-[0.25em]">
+                {COMPANY_INFO.location}
+              </p>
 
-            {/* Phone — icon + number on desktop only */}
-            <a
-              href={COMPANY_INFO.phoneHref}
-              className="hidden md:inline-flex items-center gap-2 text-sm text-slate-500 hover:text-[#085689] transition-colors mb-6 group"
-            >
-              <Phone className="w-4 h-4 text-[#085689] flex-shrink-0" />
-              <span>{COMPANY_INFO.phoneNumber}</span>
-            </a>
+              <a
+                href={COMPANY_INFO.phoneHref}
+                className="inline-flex items-center gap-3 text-sm text-brand-navy/60 hover:text-brand-coral transition-colors font-semibold group"
+              >
+                <div className="w-9 h-9 rounded-full bg-brand-navy/5 flex items-center justify-center group-hover:bg-brand-coral group-hover:text-white transition-all duration-300">
+                  <Phone className="w-3.5 h-3.5" />
+                </div>
+                <span>{COMPANY_INFO.phoneNumber}</span>
+              </a>
+            </div>
 
             <SocialLinks phoneHref={COMPANY_INFO.phoneHref} />
           </div>
 
+          {/* Link Sections */}
           <FooterLinkSection
             title="Services"
             links={FOOTER_LINKS.services}
@@ -139,22 +151,24 @@ export function Footer() {
           />
         </div>
 
-        <Separator className="my-12 bg-white/10" />
+        <Separator className="my-16 bg-brand-navy/5" />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-          <p className="text-slate-500">
-            &copy; {currentYear} {COMPANY_INFO.name}. All rights reserved.
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-brand-navy/40 text-[11px] font-bold uppercase tracking-wider">
+            &copy; {currentYear} {COMPANY_INFO.name}. <span className="hidden sm:inline opacity-50 ml-1">Excellence in IT Recruitment.</span>
           </p>
-          <div className="flex items-center gap-6">
+          
+          <div className="flex items-center gap-10">
             <Link
               href="#"
-              className="text-slate-500 hover:text-[#78B6D9] transition-colors cursor-pointer"
+              className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-navy/40 hover:text-brand-coral transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-slate-500 hover:text-[#78B6D9] transition-colors cursor-pointer"
+              className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-navy/40 hover:text-brand-coral transition-colors"
             >
               Terms of Service
             </Link>

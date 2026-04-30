@@ -5,7 +5,7 @@ export const TechPill = memo(function TechPill({ tech }: { tech: string }) {
   return (
     <Badge
       variant="secondary"
-      className="px-4 py-1.5 text-sm font-medium bg-[#085689] hover:text-black hover:bg-[#78B6D9] text-[#fff] border border-[#c5daf0] rounded-full transition-all duration-200 cursor-default"
+      className="px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider bg-white text-brand-navy/60 border border-brand-navy/10 rounded-full transition-all duration-200 hover:border-brand-blue hover:text-brand-blue cursor-default"
     >
       {tech}
     </Badge>

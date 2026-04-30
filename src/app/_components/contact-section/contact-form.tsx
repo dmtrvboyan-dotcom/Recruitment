@@ -94,15 +94,21 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
     }
   }
 
-  if (isSubmitted) {
+ if (isSubmitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 text-center">
-        <div className="w-16 h-16 rounded-full bg-[#085689]/10 flex items-center justify-center mb-6">
-          <CheckCircle className="w-8 h-8 text-[#085689]" />
+      <div className="flex flex-col items-center justify-center py-12 text-center animate-fade-in">
+        <div className="w-20 h-20 rounded-full bg-emerald-50 flex items-center justify-center mb-6 ring-8 ring-emerald-50/50">
+          <CheckCircle className="w-10 h-10 text-emerald-500" />
         </div>
-        <h3 className="text-2xl font-semibold mb-2">Thank you!</h3>
-        <p className="text-slate-600">We&apos;ll get back to you within 24 hours.</p>
-        <Button variant="outline" className="mt-6" onClick={resetForm}>
+        <h3 className="text-2xl font-bold text-brand-navy mb-3">Message Sent!</h3>
+        <p className="text-brand-navy/60 max-w-xs mx-auto">
+          Thanks for reaching out. A senior partner will contact you within 24 hours.
+        </p>
+        <Button 
+          variant="outline" 
+          className="mt-10 rounded-full px-8 border-brand-navy/20 text-brand-navy hover:bg-brand-navy hover:text-white transition-all" 
+          onClick={resetForm}
+        >
           Send another message
         </Button>
       </div>
@@ -111,13 +117,15 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <FormField control={form.control} name="name" render={({ field }) => (
             <FormItem>
-              <FormLabel>{mode === "company" ? "Company Name" : "Full Name"}</FormLabel>
+              <FormLabel className="text-xs font-bold uppercase tracking-widest text-brand-navy/70">
+                {mode === "company" ? "Company Name" : "Full Name"}
+              </FormLabel>
               <FormControl>
-                <Input placeholder={mode === "company" ? "Company Name" : "John Doe"} {...field} />
+                <Input className="h-12 rounded-xl border-brand-navy/10 focus:border-brand-blue focus:ring-brand-blue/20 bg-brand-bg/50" placeholder={mode === "company" ? "e.g. TechCorp" : "John Doe"} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -125,21 +133,22 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
           <FormField control={form.control} name="email" render={({ field }) => (
             <FormItem>
-              <FormLabel>Email Address</FormLabel>
+              <FormLabel className="text-xs font-bold uppercase tracking-widest text-brand-navy/70">Email Address</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="your@email.com" {...field} />
+                <Input className="h-12 rounded-xl border-brand-navy/10 focus:border-brand-blue focus:ring-brand-blue/20 bg-brand-bg/50" type="email" placeholder="name@work.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )} />
         </div>
 
+        {/* Shared styling for phone/title */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <FormField control={form.control} name="phone" render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone Number</FormLabel>
+              <FormLabel className="text-xs font-bold uppercase tracking-widest text-brand-navy/70">Phone Number</FormLabel>
               <FormControl>
-                <Input type="tel" placeholder="+359 888 123 456" {...field} />
+                <Input className="h-12 rounded-xl border-brand-navy/10 focus:border-brand-blue focus:ring-brand-blue/20 bg-brand-bg/50" type="tel" placeholder="+359..." {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -147,12 +156,9 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
           <FormField control={form.control} name="title" render={({ field }) => (
             <FormItem>
-              <FormLabel>Job Title / Position</FormLabel>
+              <FormLabel className="text-xs font-bold uppercase tracking-widest text-brand-navy/70">Position</FormLabel>
               <FormControl>
-                <Input
-                  placeholder={mode === "company" ? "Hiring Manager" : "Senior Frontend Developer"}
-                  {...field}
-                />
+                <Input className="h-12 rounded-xl border-brand-navy/10 focus:border-brand-blue focus:ring-brand-blue/20 bg-brand-bg/50" placeholder={mode === "company" ? "Hiring Manager" : "Lead Developer"} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -160,32 +166,30 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
         </div>
 
         {mode === "company" && (
-          <div className="space-y-4">
+          <div className="space-y-6 animate-fade-in">
             <div>
-              <FormLabel>I&apos;m interested in:</FormLabel>
+              <FormLabel className="text-xs font-bold uppercase tracking-widest text-brand-navy/70">I'm interested in:</FormLabel>
               <Select value={interest} onValueChange={handleInterestChange}>
-                <SelectTrigger className="h-12 w-full mt-2">
-                  <SelectValue placeholder="Select an option" />
+                <SelectTrigger className="h-12 w-full mt-2 rounded-xl border-brand-navy/10 bg-brand-bg/50">
+                  <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="rounded-xl border-brand-navy/10">
                   <SelectItem value="hiring">Hiring for my company</SelectItem>
-                  <SelectItem value="demo">Smart.r ATS/CRM demonstration</SelectItem>
+                  <SelectItem value="demo">Smart.r ATS demonstration</SelectItem>
                   <SelectItem value="salary">Salary Benchmarking</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <FormLabel className="text-sm font-medium text-slate-700 mb-2 block">
-                Topics / Tags
-                <span className="ml-2 text-[11px] font-normal text-slate-400">(optional)</span>
+              <FormLabel className="text-[11px] font-bold uppercase tracking-widest text-brand-navy/70 mb-2 block">
+                Topics <span className="ml-1 opacity-40 font-normal">(Select up to 5)</span>
               </FormLabel>
               <TagInput
                 value={tags}
                 onChange={setTags}
                 suggestions={INTEREST_TAGS[interest]}
-                maxTags={5}
-                placeholder="Add relevant tags…"
+                placeholder="Add focus areas..."
               />
             </div>
           </div>
@@ -193,78 +197,58 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
         <MessageField form={form} interest={interest} mode={mode} />
 
-        <div className="pt-4 border-t border-slate-200">
-          <FormLabel className="text-sm font-medium text-slate-700 mb-2 block">
-            Security Check
-          </FormLabel>
-          <div className="flex flex-col sm:flex-row gap-4 items-start">
-            <div className="bg-slate-100 border border-slate-300 rounded-xl px-5 py-3 text-lg font-mono tracking-wider flex-shrink-0">
-              {CAPTCHA_QUESTION}
-            </div>
-            <div className="flex-1 w-full">
-              <Input
-                type="text"
-                placeholder="Enter answer here"
-                value={captchaInput}
-                onChange={(e) => setCaptchaInput(e.target.value)}
-                className="h-12"
-              />
-              {captchaError && (
-                <p className="text-red-600 text-sm mt-1.5">{captchaError}</p>
-              )}
-            </div>
+        {/* Security / Proof of life */}
+        <div className="p-6 bg-brand-bg rounded-2xl border border-brand-navy/5 flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex-shrink-0">
+             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-navy/40 mb-2">Security Check</p>
+             <div className="bg-white border border-brand-navy/10 rounded-lg px-4 py-2 font-mono text-xl font-bold text-brand-blue">
+                {CAPTCHA_QUESTION}
+             </div>
           </div>
-          <p className="text-xs text-slate-500 mt-2">
-            Please solve this simple math question to prove you&apos;re not a robot.
-          </p>
+          <div className="flex-1 w-full">
+            <Input
+              placeholder="Result"
+              value={captchaInput}
+              onChange={(e) => setCaptchaInput(e.target.value)}
+              className="h-12 bg-white rounded-xl border-brand-navy/10"
+            />
+            {captchaError && <p className="text-brand-coral text-xs font-bold mt-2 uppercase tracking-wide">{captchaError}</p>}
+          </div>
         </div>
 
         {mode === "candidate" && (
-          <div className="pt-6 border-t border-slate-200">
-            <FormLabel className="text-sm font-medium text-slate-700 mb-2 block">
-              Upload your CV
-            </FormLabel>
-            <Input
-              type="file"
-              accept=".pdf,.doc,.docx"
-              onChange={(e) => e.target.files?.[0] && setFile(e.target.files[0])}
-              className="h-12 file:bg-[#085689] file:text-white file:border-0 file:rounded-md file:px-4 file:mr-4 file:h-full cursor-pointer"
-            />
+          <div className="pt-2 animate-fade-in">
+            <FormLabel className="text-xs font-bold uppercase tracking-widest text-brand-navy/70 mb-3 block">Upload CV (PDF/DOCX)</FormLabel>
+            <div className="relative group">
+              <Input
+                type="file"
+                accept=".pdf,.doc,.docx"
+                onChange={(e) => e.target.files?.[0] && setFile(e.target.files[0])}
+                className="h-14 cursor-pointer file:bg-brand-navy file:text-white file:border-0 file:rounded-lg file:px-4 file:mr-4 file:text-xs file:uppercase file:tracking-widest file:font-bold hover:border-brand-blue transition-colors"
+              />
+            </div>
             {file && (
-              <div className="mt-3 flex items-center text-sm text-green-600 font-medium">
-                <CheckCircle className="w-4 h-4 mr-2" />
-                <span>{file.name} uploaded successfully</span>
+              <div className="mt-3 flex items-center text-xs text-brand-blue font-bold uppercase tracking-widest">
+                <CheckCircle className="w-4 h-4 mr-2" /> {file.name} attached
               </div>
             )}
-            <p className="text-xs text-slate-500 mt-2">
-              Accepted formats: PDF, DOCX. Max size: 5MB.
-            </p>
           </div>
         )}
 
-        <p className="text-center text-sm text-slate-500 mt-6">
-          We typically reply within 24 hours during business days
-        </p>
-        <div className="flex justify-center">
-          <a
-            href="tel:+359888123456"
-            className="flex items-center gap-2 text-[#085689] hover:text-[#0a6a9c] transition-colors"
-          >
-            <Phone className="w-5 h-5" />
-            <span className="hidden sm:inline text-sm font-medium">
-              +359 888 123 456
-            </span>
-          </a>
+        <div className="pt-4 flex flex-col items-center gap-6">
+            <Button
+              type="submit"
+              className="w-full h-14 bg-brand-coral hover:bg-brand-coral-hover text-white rounded-full text-sm font-bold uppercase tracking-[0.2em] shadow-xl shadow-brand-coral/20 cursor-pointer transition-all hover:scale-[1.02] active:scale-100"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? <><Spinner className="mr-2 h-4 w-4" /> Processing...</> : "Send Message"}
+            </Button>
+            
+            <a href="tel:+359888123456" className="group flex items-center gap-3 text-brand-navy/40 hover:text-brand-blue transition-colors duration-300">
+                <Phone className="w-4 h-4 transition-transform group-hover:rotate-12" />
+                <span className="text-xs font-bold uppercase tracking-widest">+359 888 123 456</span>
+            </a>
         </div>
-
-        <Button
-          type="submit"
-          size="lg"
-          className="w-full bg-[#085689] hover:bg-[#0a6a9c] cursor-pointer"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? <><Spinner className="mr-2" /> Sending...</> : "Send Message"}
-        </Button>
       </form>
     </Form>
   )

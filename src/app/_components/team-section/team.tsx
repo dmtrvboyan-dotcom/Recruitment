@@ -16,22 +16,26 @@ export function MeetTheTeam() {
   return (
     <section
       id="about"
-      className="py-14 sm:py-20 lg:py-28 lg:pb-[120px] md:pb-[50px] bg-linear-to-b from-[#f9f9f9] to-[#085689]/12"
+      className="relative py-24 lg:py-3 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* Decorative background similar to Hero */}
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-brand-blue/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
-            Meet the Team
+        <div className="text-center mb-20">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-brand-coral mb-4">
+            Our Culture
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6">
-            Nice to meet you
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-brand-navy mb-8">
+            The faces behind the <span className="text-brand-blue">talent</span>
           </h2>
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-6 text-xs sm:text-sm text-gray-600 font-medium">
+          
+          <div className="flex flex-wrap items-center justify-center gap-y-3 gap-x-8">
             {STATS.map((stat) => (
-              <div key={stat} className="flex items-center gap-2">
-                <RiCheckLine className="text-[#085689]" size={16} />
-                <span>{stat}</span>
+              <div key={stat} className="flex items-center gap-2.5 px-4 py-2 bg-white rounded-full border border-brand-navy/5 shadow-sm">
+                <RiCheckLine className="text-brand-coral" size={18} />
+                <span className="text-xs font-semibold text-brand-navy/70 uppercase tracking-wider">{stat}</span>
               </div>
             ))}
           </div>
@@ -39,21 +43,23 @@ export function MeetTheTeam() {
 
         <PhotoGallery />
 
-        {/* Company values */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-8 lg:gap-y-10 max-w-4xl mx-auto mb-12">
-          <div className="space-y-6">
+        {/* Company values - refined spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-5xl mx-auto mb-24 mt-20">
+          <div className="space-y-10">
             {VALUES_LEFT.map((value, i) => (
               <ValueItem key={i} title={value.title} description={value.description} />
             ))}
           </div>
-          <div className="space-y-6">
+          <div className="space-y-10">
             {VALUES_RIGHT.map((value, i) => (
               <ValueItem key={i} title={value.title} description={value.description} />
             ))}
           </div>
         </div>
 
-        <TeamCarousel />
+        <div className="pt-16 border-t border-brand-navy/5">
+           <TeamCarousel />
+        </div>
       </div>
     </section>
   )

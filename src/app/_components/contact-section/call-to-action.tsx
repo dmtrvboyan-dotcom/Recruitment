@@ -17,26 +17,29 @@ export function CallToAction() {
   return (
     <section
       id="contact"
-      className="py-24 lg:py-32 lg:pb-[170px] md:pb-[50px] mb-50 bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
+      className="relative py-24 lg:py-32overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      {/* Decorative logic consistent with Hero */}
+      <div className="absolute bottom-0 right-0 w-[40vw] h-[40vw] bg-brand-coral/5 rounded-full blur-[120px] pointer-events-none" />
+      
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-medium text-[#085689] uppercase tracking-widest mb-3">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-brand-coral mb-4">
             Get in Touch
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black mb-6">
-            Let&apos;s Start a Conversation
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-tight text-brand-navy leading-tight mb-6">
+            Let's start a <span className="text-brand-blue">conversation</span>
           </h2>
-          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            Whether you&apos;re looking to hire top IT talent or seeking your next career
-            opportunity, we&apos;re here to help.
+          <p className="text-lg text-brand-navy/60 leading-relaxed max-w-2xl mx-auto">
+            Whether you're scaling a tech team or looking for your next challenge, 
+            our senior recruiters are ready to help.
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex rounded-full p-1 bg-slate-100">
+        {/* Tabs - Pill style */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex rounded-full p-1.5 bg-brand-navy/5 border border-brand-navy/5 backdrop-blur-sm">
             {TABS.map((tab) => (
               <TabButton
                 key={tab.value}
@@ -48,9 +51,12 @@ export function CallToAction() {
           </div>
         </div>
 
-        {/* Form */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-[#f5f5f5] border border-slate-200 p-8 lg:p-12 shadow-sm rounded-3xl">
+        {/* Form Container */}
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white border border-brand-navy/5 p-8 lg:p-14 shadow-2xl shadow-brand-navy/5 rounded-[2.5rem] relative overflow-hidden">
+            {/* Subtle corner accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 rounded-bl-[100%] pointer-events-none" />
+            
             <ContactForm key={activeTab} mode={activeTab} />
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { memo } from "react"
 import * as ReactDOM from "react-dom"
-import { MapPin, X } from "lucide-react"
+import { MapPin, X, Briefcase, Globe, Layers, CheckCircle2 } from "lucide-react"
 import { JOB_DETAILS, type Job } from "@/lib/data/jobs"
 import { useEscapeKey, useBodyScrollLockWithPosition } from "@/lib/hooks"
 import { BulletList } from "./bullet-list"
@@ -16,126 +16,125 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
   useEscapeKey(onClose)
   useBodyScrollLockWithPosition(true)
 
+  // Ensure we don't crash if details are missing for a specific ID
+  if (!details) return null
+
   const modalContent = (
     <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 99999,
-        background: "rgba(0,0,0,0.5)",
-        display: "flex",
-        alignItems: "flex-end",
-        justifyContent: "center",
-      }}
+      className="fixed inset-0 z-[99999] bg-brand-navy/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
       onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
     >
       <style>{`
         @keyframes slideUp {
           from { transform: translateY(100%); opacity: 0; }
-          to   { transform: translateY(0);    opacity: 1; }
+          to   { transform: translateY(0); opacity: 1; }
         }
-        @media (min-width: 640px) {
-          .modal-panel {
-            align-self: center !important;
-            max-width: 72rem !important;
-            height: 90dvh !important;
-          }
+        .animate-modal { 
+          animation: slideUp 0.4s cubic-bezier(0.32, 0.72, 0, 1) forwards; 
         }
       `}</style>
 
-      <div
-        className="modal-panel bg-white w-full flex flex-col"
-        style={{
-          height: "100dvh",
-          maxHeight: "100dvh",
-          animation: "slideUp 0.35s cubic-bezier(0.32, 0.72, 0, 1) forwards",
-          overflow: "hidden",
-        }}
-      >
-        {/* Header */}
-        <div className="bg-[#085689] p-6 text-white relative shrink-0">
+      <div className="animate-modal bg-white w-full max-w-6xl h-[100dvh] sm:h-[90dvh] sm:rounded-[40px] flex flex-col overflow-hidden shadow-2xl">
+        
+        {/* Header: Brand Navy Background */}
+        <div className="bg-brand-navy p-8 md:p-12 text-white relative shrink-0">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center transition-colors"
-            style={{ background: "rgba(255,255,255,0.15)" }}
-            onMouseOver={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.3)")}
-            onMouseOut={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
+            className="absolute top-6 right-6 w-12 h-12 rounded-full flex items-center justify-center bg-white/10 hover:bg-brand-coral transition-all active:scale-90 z-10"
           >
-            <X className="w-4 h-4" />
+            <X className="w-6 h-6" />
           </button>
 
-          <h2 className="text-xl font-bold leading-tight pr-12 mb-1 text-white">{job.title}</h2>
-          <p className="text-sm opacity-75 mb-4">{job.seniority}</p>
-
-          <div className="flex flex-wrap gap-2">
-            {[
-              { label: <><MapPin className="w-3 h-3" /> {job.location}</>, inline: true },
-              { label: job.type },
-              { label: job.contract, capitalize: true },
-            ].map((badge, i) => (
-              <span
-                key={i}
-                className={`flex items-center gap-1 text-xs px-3 py-1 rounded-full ${badge.capitalize ? "capitalize" : ""}`}
-                style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.25)" }}
-              >
-                {badge.label}
-              </span>
-            ))}
-            {job.techStack.map((t, i) => (
-              <span
-                key={i}
-                className="text-xs px-3 py-1 rounded-full"
-                style={{ background: "rgba(120,182,217,0.35)", border: "1px solid rgba(120,182,217,0.5)" }}
-              >
-                {t}
-              </span>
-            ))}
+          <div className="space-y-4">
+            <span className="text-brand-coral font-bold uppercase tracking-[0.2em] text-xs">
+              {job.seniority} Position
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight pr-12">
+              {job.title}
+            </h2>
+            
+            <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-xs font-bold border border-white/10">
+                <MapPin className="w-3.5 h-3.5 text-brand-coral" /> {job.location}
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-xs font-bold border border-white/10">
+                <Briefcase className="w-3.5 h-3.5 text-brand-blue" /> {job.contract}
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-brand-blue/30 rounded-full text-xs font-bold border border-brand-blue/50">
+                <Layers className="w-3.5 h-3.5 text-white" /> {job.techStack.join(" • ")}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Body */}
-        <div className="flex-1 overflow-y-auto p-5 space-y-4" style={{ WebkitOverflowScrolling: "touch" }}>
-          <div className="bg-slate-50 p-4">
-            <p className="text-xs font-semibold text-[#085689] uppercase tracking-widest mb-2">
-              Position Overview
+        {/* Scrollable Body Content */}
+        <div className="flex-1 overflow-y-auto p-8 md:p-12 space-y-12 bg-white">
+          
+          {/* Overview Section */}
+          <section>
+            <h4 className="flex items-center gap-3 text-xs font-bold text-brand-blue uppercase tracking-widest mb-6">
+              <div className="w-10 h-[2px] bg-brand-coral" /> Role Overview
+            </h4>
+            <p className="text-lg text-brand-navy/80 leading-relaxed max-w-4xl">
+              {details.overview}
             </p>
-            <p className="text-sm text-slate-700 leading-relaxed">{details.overview}</p>
-          </div>
+          </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-slate-50 rounded-2xl p-4">
-              <p className="text-xs font-semibold text-[#085689] uppercase tracking-widest mb-1">Responsibilities</p>
-              <BulletList items={details.responsibilities} color="#78B6D9" />
+          {/* Primary Details Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-brand-bg rounded-3xl p-8 border border-brand-navy/5">
+              <h5 className="font-bold text-brand-navy text-lg mb-6 flex items-center gap-2">
+                Core Responsibilities
+              </h5>
+              <BulletList items={details.responsibilities} color="var(--color-brand-blue)" />
             </div>
-            <div className="bg-slate-50 rounded-2xl p-4">
-              <p className="text-xs font-semibold text-[#085689] uppercase tracking-widest mb-1">Requirements</p>
-              <BulletList items={details.requirements} color="#78B6D9" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-slate-50 rounded-2xl p-4">
-              <p className="text-xs font-semibold text-[#10b981] uppercase tracking-widest mb-1">Nice to Have</p>
-              <BulletList items={details.niceToHave} color="#10b981" />
-            </div>
-            <div className="bg-slate-50 rounded-2xl p-4">
-              <p className="text-xs font-semibold text-[#f59e0b] uppercase tracking-widest mb-1">What We Offer</p>
-              <BulletList items={details.offers} color="#f59e0b" />
+            <div className="bg-brand-bg rounded-3xl p-8 border border-brand-navy/5">
+              <h5 className="font-bold text-brand-navy text-lg mb-6 flex items-center gap-2">
+                Requirements
+              </h5>
+              <BulletList items={details.requirements} color="var(--color-brand-blue)" />
             </div>
           </div>
 
-          <p className="text-md text-slate-600 leading-relaxed text-center max-w-5xl mx-auto mt-5 mb-5">
-            By applying for this position, you agree that your personal data will be processed according to our privacy policy.
-          </p>
+          {/* Secondary Details Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-brand-bg rounded-3xl p-8 border border-brand-navy/5">
+              <h5 className="font-bold text-brand-navy text-lg mb-6 flex items-center gap-2">
+                Bonus / Nice to Have
+              </h5>
+              <BulletList items={details.niceToHave} color="var(--color-brand-blue)" />
+            </div>
+            <div className="bg-brand-bg rounded-3xl p-8 border border-brand-navy/5">
+              <h5 className="font-bold text-brand-navy text-lg mb-6 flex items-center gap-2">
+                What We Offer
+              </h5>
+              <BulletList items={details.offers} color="var(--color-brand-coral)" />
+            </div>
+          </div>
+
+          {/* Privacy Disclaimer */}
+          <div className="pt-8 border-t border-brand-navy/5 text-center">
+            <p className="text-sm text-brand-navy/50 max-w-2xl mx-auto italic">
+              By applying for this position, you agree that your personal data will be processed according to our privacy policy. We are an equal opportunity employer.
+            </p>
+          </div>
         </div>
 
-        {/* Footer */}
-        <div className="shrink-0 px-5 py-4 border-t border-slate-100">
+        {/* Footer Action */}
+        <div className="shrink-0 px-8 py-8 border-t border-brand-navy/5 bg-white flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4 text-brand-navy/60">
+             <div className="hidden sm:block p-3 bg-brand-bg rounded-full">
+                <CheckCircle2 className="w-5 h-5 text-brand-blue" />
+             </div>
+             <p className="text-xs font-medium">
+               Estimated response time: <span className="text-brand-navy font-bold">2-4 business days</span>
+             </p>
+          </div>
           <button
             onClick={() => console.log(`Applying for: ${job.title}`)}
-            className="w-full bg-[#085689] hover:bg-[#0a6a9e] text-white py-4 rounded-2xl font-semibold text-base transition-all active:scale-[0.98]"
+            className="w-full md:w-auto px-12 bg-brand-coral hover:bg-brand-coral-hover text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-sm transition-all shadow-xl shadow-brand-coral/20 active:scale-95"
           >
-            Apply for this role
+            Submit Application
           </button>
         </div>
       </div>

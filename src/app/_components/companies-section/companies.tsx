@@ -15,33 +15,33 @@ export function CompaniesSection() {
   return (
     <section
       id="companies"
-      className="py-20 lg:py-28 bg-transparent lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
+      className="py-24 lg:py-32"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-5xl mx-auto text-center mb-16">
-          <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        {/* Header - Styled like your Hero Eyebrows */}
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <p className="text-xs font-bold text-brand-coral uppercase tracking-[0.2em] mb-4">
             Who we work with
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-brand-navy text-balance">
             Why Companies Work With Us
           </h2>
         </div>
 
         {/* Two-column content */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div>
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start max-w-6xl mx-auto">
+          <div className="bg-white p-8 lg:p-0 rounded-3xl lg:bg-transparent">
             <SectionHeader label="Why Companies Choose Us" variant="dark" />
-            <ul className="space-y-6">
+            <ul className="space-y-8">
               {WHY_CHOOSE_US_POINTS.map((item, index) => (
                 <CheckListItem key={index} item={item} variant="dark" />
               ))}
             </ul>
           </div>
 
-          <div>
+          <div className="bg-white p-8 lg:p-0 rounded-3xl lg:bg-transparent border border-brand-navy/5 lg:border-none">
             <SectionHeader label="Hire with Clarity" variant="brand" />
-            <ul className="space-y-6">
+            <ul className="space-y-8">
               {HIRE_WITH_CLARITY_POINTS.map((item, index) => (
                 <CheckListItem key={index} item={item} variant="brand" />
               ))}
@@ -49,11 +49,11 @@ export function CompaniesSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="flex justify-center mt-16">
+        {/* CTA - Styled to match your "Start Hiring" button */}
+        <div className="flex justify-center mt-20">
           <Button
             onClick={handleNavigate}
-            className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base cursor-pointer"
+            className="bg-brand-coral hover:bg-brand-coral-hover text-white px-10 py-7 text-sm font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95"
           >
             Talk to us
           </Button>

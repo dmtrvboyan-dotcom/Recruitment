@@ -10,14 +10,14 @@ export const SectionHeader = memo(function SectionHeader({
 }) {
   const styles =
     variant === "dark"
-      ? "bg-slate-900 text-white"
-      : "bg-[#085689]/10 text-[#085689]"
+      ? "bg-brand-navy text-white shadow-lg shadow-brand-navy/10"
+      : "bg-brand-blue/5 text-brand-blue border border-brand-blue/10"
 
   return (
-    <div className="flex justify-center lg:justify-start mb-8">
-      <div className={`inline-flex items-center gap-2 ${styles} px-4 py-2 rounded-full`}>
-        {variant === "brand" && <CheckCircle className="w-5 h-5" />}
-        <span className="font-semibold">{label}</span>
+    <div className="flex justify-center lg:justify-start mb-10">
+      <div className={`inline-flex items-center gap-3 ${styles} px-5 py-2.5 rounded-full`}>
+        {variant === "brand" && <CheckCircle className="w-4 h-4" />}
+        <span className="text-xs font-bold uppercase tracking-[0.15em]">{label}</span>
       </div>
     </div>
   )

@@ -1,10 +1,16 @@
 import { ArrowRight } from "lucide-react"
 
-export function LearnMoreRow({ label = "Learn more" }: { label?: string }) {
+export function LearnMoreRow({ 
+  label = "Learn more", 
+  className 
+}: { 
+  label?: string, 
+  className?: string 
+}) {
   return (
-    <div className="mt-auto flex items-center text-[#085689] font-medium text-sm group-hover:gap-2 transition-all">
+    <div className={`mt-auto flex items-center font-bold text-xs uppercase tracking-[0.15em] transition-all group-hover:gap-1 text-brand-blue`}>
       {label}
-      <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
+      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
     </div>
   )
 }

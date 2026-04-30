@@ -6,7 +6,7 @@ import { FAQ_ITEMS } from "@/lib/constants/faq"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { FAQItem } from "./faq-item"
 
-const LEFT_COUNT = 4
+const LEFT_COUNT = Math.ceil(FAQ_ITEMS.length / 2)
 
 export function FAQSection() {
   const [openItems, setOpenItems] = useState<number[]>([])
@@ -23,25 +23,33 @@ export function FAQSection() {
   return (
     <section
       id="faq"
-      className="py-20 lg:py-28 bg-transparent lg:pb-[170px] md:pb-[50px] bg-linear-to-b from-[#085689]/12 to-[#f9f9f9]"
+      className="py-20 lg:py-32"
+     
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-4">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <p className="text-md font-medium text-[#085689] uppercase tracking-wider mb-4">
-            Got questions?
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-6 text-balance">
-            Frequently Asked Questions
+        <div className="max-w-3xl mx-auto text-center mb-20">
+          <span 
+            className="text-xs font-black uppercase tracking-[0.3em] block mb-4"
+            style={{ color: "var(--color-brand-coral)" }}
+          >
+            Support Center
+          </span>
+          <h2 
+            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-6 text-balance"
+            style={{ color: "var(--color-brand-navy)" }}
+          >
+            Frequently Asked <br className="hidden md:block" /> Questions
           </h2>
+          <div className="w-20 h-1.5 bg-brand-blue mx-auto rounded-full" />
         </div>
 
         {/* Two-column grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="space-y-2">
+        <div className="grid lg:grid-cols-2 gap-x-12 items-start">
+          <div className="flex flex-col">
             {leftFaqs.map((faq, i) => (
               <FAQItem
-                key={i}
+                key={`left-${i}`}
                 faq={faq}
                 index={i}
                 isOpen={openItems.includes(i)}
@@ -49,10 +57,10 @@ export function FAQSection() {
               />
             ))}
           </div>
-          <div className="space-y-2">
+          <div className="flex flex-col">
             {rightFaqs.map((faq, i) => (
               <FAQItem
-                key={i + LEFT_COUNT}
+                key={`right-${i}`}
                 faq={faq}
                 index={i + LEFT_COUNT}
                 isOpen={openItems.includes(i + LEFT_COUNT)}
@@ -63,12 +71,16 @@ export function FAQSection() {
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center mt-16">
+        <div className="flex flex-col items-center justify-center mt-20">
+          <p className="mb-6 text-brand-navy-mid font-medium">Still haven't found your answer?</p>
           <Button
             onClick={() => scrollToSection("#contact")}
-            className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:text-black rounded-lg px-8 py-6 text-base cursor-pointer"
+            className="text-white rounded-2xl px-10 py-7 text-sm font-bold uppercase tracking-widest transition-all hover:scale-105 shadow-xl shadow-brand-blue/20 cursor-pointer"
+            style={{ 
+              backgroundColor: "var(--color-brand-blue)"
+            }}
           >
-            Still have questions? Let&apos;s talk
+            Contact Support Team
           </Button>
         </div>
       </div>

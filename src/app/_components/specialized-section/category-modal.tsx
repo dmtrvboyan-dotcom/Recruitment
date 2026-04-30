@@ -5,44 +5,38 @@ import { type TechCategory } from "@/lib/constants/specialized"
 import { ICON_MAP } from "./icon-map"
 
 export const CategoryModal = memo(function CategoryModal({ category }: { category: TechCategory }) {
-  const IconComponent = ICON_MAP[category.icon] ?? Code2
+  const iconConfig = ICON_MAP[category.icon] || ICON_MAP["code-2"]
+  const IconComponent = iconConfig.icon
 
   return (
-    <div className="p-1">
-      {/* Icon */}
-      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#78B6D9]/10 flex items-center justify-center mb-3 sm:mb-5">
-        <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-[#085689]" />
+    <div className="p-2">
+      <div className={`w-12 h-12 rounded-2xl ${iconConfig.bg} flex items-center justify-center mb-6`}>
+        <IconComponent className={`w-6 h-6 ${iconConfig.color}`} />
       </div>
 
-      {/* Title + subtitle */}
-      <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">{category.title}</h2>
-      <p className="text-[#085689] text-sm font-medium mb-4 sm:mb-6">{category.subtitle}</p>
+      <h2 className="text-2xl font-bold text-brand-navy mb-1">{category.title}</h2>
+      <p className="text-brand-teal text-sm font-semibold uppercase tracking-wider mb-6">{category.subtitle}</p>
 
-      <Separator className="mb-4 sm:mb-5" />
+      <Separator className="mb-8 opacity-50" />
 
-      {/* How we source / What you get */}
-      <div className="grid grid-cols-2 gap-3 sm:gap-6 mb-4 sm:mb-6">
+      <div className="grid sm:grid-cols-2 gap-8 mb-8">
         <div>
-          <p className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3">
-            HOW WE SOURCE
-          </p>
-          <ul className="space-y-1.5 sm:space-y-2">
+          <p className="text-[11px] font-bold text-brand-navy/40 uppercase tracking-widest mb-4">How We Source</p>
+          <ul className="space-y-3">
             {category.howWeSource.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
+              <li key={item} className="flex items-start gap-3 text-sm text-brand-navy/70">
+                <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${iconConfig.color.replace('text-', 'bg-')} shrink-0`} />
                 {item}
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <p className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-2 sm:mb-3">
-            WHAT YOU GET
-          </p>
-          <ul className="space-y-1.5 sm:space-y-2">
+          <p className="text-[11px] font-bold text-brand-navy/40 uppercase tracking-widest mb-4">What You Get</p>
+          <ul className="space-y-3">
             {category.whatYouGet.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
+              <li key={item} className="flex items-start gap-3 text-sm text-brand-navy/70">
+                <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${iconConfig.color.replace('text-', 'bg-')} shrink-0`} />
                 {item}
               </li>
             ))}
@@ -50,17 +44,14 @@ export const CategoryModal = memo(function CategoryModal({ category }: { categor
         </div>
       </div>
 
-      <Separator className="mb-4 sm:mb-5" />
-
-      {/* Stats */}
-      <div className="grid grid-cols-2 gap-4 mb-4 sm:mb-6">
+      <div className="grid grid-cols-2 gap-4  bg-brand-bg p-6 rounded-2xl">
         <div>
-          <p className="text-2xl sm:text-3xl font-bold text-[#085689]">{category.stat1Value}</p>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">{category.stat1Label}</p>
+          <p className="text-3xl font-bold text-brand-navy  tabular-nums">{category.stat1Value}</p>
+          <p className="text-xs font-medium text-brand-teal uppercase tracking-wide">{category.stat1Label}</p>
         </div>
         <div>
-          <p className="text-2xl sm:text-3xl font-bold text-[#085689]">{category.stat2Value}</p>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">{category.stat2Label}</p>
+          <p className="text-3xl font-bold text-# tabular-nums">{category.stat2Value}</p>
+          <p className="text-xs font-medium text-brand-teal uppercase tracking-wide">{category.stat2Label}</p>
         </div>
       </div>
     </div>

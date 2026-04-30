@@ -25,6 +25,7 @@ import {
   ContactForm,
   ExpertiseSection,
 } from "@/app/_components"
+import { PageBackground } from "@/components/layout/page-background"
 
 /**
  * Landing page component for Recruitment.bg
@@ -36,9 +37,13 @@ export default function LandingPage() {
       {/* Background effects */}
       {/* <DynamicBackground /> */}
 
+
+
       {/* Fixed elements */}
       <Header />
       <SocialSidebar />
+
+          <PageBackground />
 
       {/* Hero Section */}
       <ScrollReveal>

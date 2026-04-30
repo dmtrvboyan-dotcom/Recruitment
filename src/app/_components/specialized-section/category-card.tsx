@@ -10,47 +10,47 @@ export const CategoryCard = memo(function CategoryCard({
   category: TechCategory
   onClick: () => void
 }) {
-  const IconComponent = ICON_MAP[category.icon] ?? Code2
+  const iconConfig = ICON_MAP[category.icon] || ICON_MAP["code-2"]
+  const IconComponent = iconConfig.icon
   const visibleTechs = category.techs.slice(0, 8)
 
   return (
     <div
       onClick={onClick}
-      className="relative group border border-slate-100 rounded-2xl p-5 bg-[#f5f5f5] hover:border-[#085689]/20 hover:shadow-lg transition-all duration-300 cursor-pointer"
+      className="relative group border border-brand-navy/5 rounded-2xl p-6 bg-white hover:border-brand-blue/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 cursor-pointer"
     >
-      {/* Eye icon */}
-      <div className="absolute top-3 right-3">
-        <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-[#78B6D9]/80 backdrop-blur-sm border border-slate-200
-          opacity-100 sm:opacity-0 sm:group-hover:opacity-100
-          scale-100 sm:scale-90 sm:group-hover:scale-100
-          transition-all duration-300 ease-out"
-        >
-          <span className="absolute inset-0 rounded-full bg-[#78B6D9]/30 blur-md opacity-60 animate-pulse sm:hidden" />
-          <Eye className="w-4 h-4 text-white" />
+      {/* Eye Icon: Permanent on mobile, hover on desktop */}
+      <div className="absolute top-4 right-4">
+        <div className={`
+          relative flex items-center justify-center w-8 h-8 rounded-full 
+          ${iconConfig.bg} ${iconConfig.color}
+          sm:opacity-0 sm:group-hover:opacity-100 sm:scale-90 sm:group-hover:scale-100
+          opacity-100 scale-100
+          transition-all duration-300 ease-out
+        `}>
+          <span className={`absolute inset-0 rounded-full ${iconConfig.bg} opacity-60 animate-pulse sm:hidden`} />
+          <Eye className="w-4 h-4" />
         </div>
       </div>
 
-      {/* Icon + category label */}
-      <div className="flex items-center gap-2 mb-3">
-        <div className="w-8 h-8 rounded-2xl bg-[#78B6D9]/10 flex items-center justify-center">
-          <IconComponent className="w-4 h-4 text-[#085689]" />
+      <div className="flex items-center gap-3 mb-4">
+        <div className={`w-10 h-10 rounded-xl ${iconConfig.bg} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
+          <IconComponent className={`w-5 h-5 ${iconConfig.color}`} />
         </div>
-        <span className="text-[11px] font-semibold text-[#085689] uppercase tracking-widest">
+        <span className="text-[10px] font-bold text-brand-teal uppercase tracking-[0.15em]">
           {category.categoryLabel}
         </span>
       </div>
 
-      {/* Title */}
-      <h3 className="text-[15px] font-bold text-slate-900 mb-4 leading-snug group-hover:text-[#085689] transition-colors">
+      <h3 className="text-lg font-bold text-brand-navy mb-4 leading-tight group-hover:text-brand-blue transition-colors">
         {category.title}
       </h3>
 
-      {/* Tech tags */}
       <div className="flex flex-wrap gap-1.5">
         {visibleTechs.map((tech) => (
           <span
             key={tech}
-            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200"
+            className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-brand-bg text-brand-navy/60 border border-brand-navy/5"
           >
             {tech}
           </span>
