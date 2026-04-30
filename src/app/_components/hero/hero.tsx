@@ -46,7 +46,7 @@ export const Hero = memo(function Hero() {
         <div className="max-w-7xl mx-auto text-center">
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-[500] font-poppins text-foreground leading-[1.1] text-balance mb-6">
-            IT Recruitment Agency for{" "}
+            IT Recruitment Agency cloning{" "}
             <span className="text-[#085689]">Tech Roles</span>
           </h1>
 
