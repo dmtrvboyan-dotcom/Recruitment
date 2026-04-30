@@ -90,8 +90,7 @@ export function Footer() {
   }, [])
 
   return (
-    <footer className="bg-brand-bg text-brand-navy border-t border-brand-navy/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+<footer className="relative z-10 bg-brand-bg">      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
         
         {/* Coral Signature Accent Line */}
         <div className="w-12 h-[2px] bg-brand-coral mb-12" />

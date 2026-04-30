@@ -2,205 +2,131 @@
 
 import { useEffect, useRef } from "react"
 
+interface Orb {
+  x: number; y: number; r: number
+  h: number; sat: number
+  speed: number; amp: number; phase: number
+  alpha: number; parallax: number
+}
+
+const ORBS: Orb[] = [
+  { x:0.25, y:0.30, r:0.55, h:235, sat:65, speed:0.006, amp:0.10, phase:0,   alpha:0.28, parallax:-0.3 },
+  { x:0.75, y:0.65, r:0.50, h:205, sat:85, speed:0.004, amp:0.08, phase:2.1, alpha:0.30, parallax: 0.6 },
+  { x:0.55, y:0.20, r:0.40, h:350, sat:95, speed:0.009, amp:0.06, phase:1.0, alpha:0.32, parallax:-1.0 },
+  { x:0.10, y:0.75, r:0.32, h:210, sat:55, speed:0.007, amp:0.07, phase:3.5, alpha:0.22, parallax: 0.8 },
+  { x:0.85, y:0.20, r:0.30, h:345, sat:90, speed:0.005, amp:0.05, phase:0.7, alpha:0.26, parallax:-1.2 },
+]
+
 export function PageBackground() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    const canvas = canvasRef.current!
+    const ctx = canvas.getContext("2d")!
+
     let rafId: number
-    let lastScrollY = window.scrollY
+    let tick = 0
 
-    const onScroll = () => {
-      rafId = requestAnimationFrame(() => {
-        const scrollY = window.scrollY
-        lastScrollY = scrollY
-        const el = containerRef.current
-        if (!el) return
+    const scroll = { y: 0 }
+    const smoothScroll = { y: 0 }
 
-        const shapes = el.querySelectorAll<HTMLElement>("[data-parallax]")
-        shapes.forEach((shape) => {
-          const speed = parseFloat(shape.dataset.parallax ?? "0")
-          shape.style.transform = `translateY(${scrollY * speed}px) ${shape.dataset.baseTransform ?? ""}`
-        })
-      })
+    const resize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
     }
 
+    const onScroll = () => {
+      const maxScroll = document.body.scrollHeight - window.innerHeight
+      scroll.y = maxScroll > 0 ? window.scrollY / maxScroll : 0
+    }
+
+    resize()
+    onScroll()
+
+    window.addEventListener("resize", resize)
     window.addEventListener("scroll", onScroll, { passive: true })
+
+    const draw = () => {
+      tick++
+
+      const { width: W, height: H } = canvas
+
+      // smooth the scroll → makes motion feel premium
+      smoothScroll.y += (scroll.y - smoothScroll.y) * 0.08
+      const sy = smoothScroll.y - 0.5
+
+      ctx.clearRect(0, 0, W, H)
+
+      for (const o of ORBS) {
+        const drift = Math.sin(tick * o.speed + o.phase)
+
+        const cx = (
+          o.x +
+          drift * o.amp +
+          sy * o.parallax * 0.6
+        ) * W
+
+        const cy = (
+          o.y +
+          Math.cos(tick * o.speed * 0.7 + o.phase) * o.amp * 0.6 +
+          sy * o.parallax * 1.2
+        ) * H
+
+        const depthScale = 1 + o.parallax * 0.2
+
+        const r =
+          Math.min(W, H) *
+          (o.r * depthScale + Math.sin(tick * o.speed * 1.3) * 0.02)
+
+        const hue = o.h + Math.sin(tick * 0.002 + o.phase) * 15
+
+        const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r)
+
+        g.addColorStop(0,   `hsla(${hue},${o.sat}%,70%,${o.alpha})`)
+        g.addColorStop(0.4, `hsla(${hue},${o.sat - 5}%,65%,${o.alpha * 0.6})`)
+        g.addColorStop(1,   `hsla(${hue},${o.sat - 15}%,85%,0)`)
+
+        ctx.fillStyle = g
+        ctx.globalCompositeOperation = "multiply"
+        ctx.fillRect(0, 0, W, H)
+      }
+
+      rafId = requestAnimationFrame(draw)
+    }
+
+    draw()
+
     return () => {
-      window.removeEventListener("scroll", onScroll)
       cancelAnimationFrame(rafId)
+      window.removeEventListener("resize", resize)
+      window.removeEventListener("scroll", onScroll)
     }
   }, [])
 
   return (
     <div
-      ref={containerRef}
-      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      className="fixed inset-0 pointer-events-none z-0"
+      style={{ background: "#f9f9f9" }}
     >
-      {/* ── GRADIENT BLOBS ── */}
-      <div
-        data-parallax="-0.08"
-        className="absolute -top-[10%] -right-[5%] w-[55%] h-[65%] rounded-full bg-brand-blue/5 blur-[130px]"
-      />
-      <div
-        data-parallax="0.06"
-        className="absolute top-[15%] -left-[12%] w-[45%] h-[55%] rounded-full bg-brand-coral/5 blur-[110px]"
-      />
-      <div
-        data-parallax="-0.04"
-        className="absolute top-[55%] right-[5%] w-[35%] h-[40%] rounded-full bg-brand-teal/4 blur-[100px]"
-      />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-      {/* ── DOT GRID ── */}
+      {/* reduced so orbs are more visible */}
       <div
-        className="absolute inset-0 opacity-[0.12]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: `radial-gradient(var(--color-brand-navy) 0.5px, transparent 0.5px)`,
-          backgroundSize: "32px 32px",
+          backgroundImage: `radial-gradient(rgba(255,255,255,0.55) 0.5px, transparent 0.5px)`,
+          backgroundSize: "36px 36px",
         }}
       />
 
-      {/* ── SHAPE 1: Organic blob — top right ── */}
-      <svg
-        data-parallax="-0.12"
-        data-base-transform="rotate(12deg)"
-        className="absolute top-16 right-[12%] text-brand-blue/8 w-72 h-72"
-        style={{ willChange: "transform" }}
-        viewBox="0 0 200 200"
-      >
-        <defs>
-          <linearGradient id="bg-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: "currentColor", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "currentColor", stopOpacity: 0 }} />
-          </linearGradient>
-        </defs>
-        <path
-          fill="url(#bg-grad-1)"
-          d="M40,-62.7C52.2,-54.5,62.5,-43.2,68.7,-30.2C74.9,-17.2,77,2.5,71.9,19.2C66.8,35.8,54.5,49.4,40.1,58.7C25.7,68,9.2,73,-5.8,81C-20.8,89,-34.3,100,-46,97.7C-57.7,95.5,-67.7,80,-74.6,64.2C-81.5,48.5,-85.3,32.5,-86.4,16.5C-87.5,0.5,-85.9,-15.5,-79,-29.7C-72.1,-43.8,-59.8,-56.1,-46.2,-63.7C-32.6,-71.3,-16.3,-74.2,-0.5,-73.4C15.3,-72.6,30.5,-68,40,-62.7Z"
-          transform="translate(100 100)"
-        />
-      </svg>
-
-      {/* ── SHAPE 2: Triangle — mid left ── */}
-      <svg
-        data-parallax="0.10"
-        className="absolute top-[38%] -left-8 text-brand-coral/6 w-48 h-48"
-        style={{ willChange: "transform" }}
-        viewBox="0 0 200 200"
-      >
-        <defs>
-          <linearGradient id="bg-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: "currentColor", stopOpacity: 0.8 }} />
-            <stop offset="100%" style={{ stopColor: "currentColor", stopOpacity: 0 }} />
-          </linearGradient>
-        </defs>
-        <polygon
-          fill="url(#bg-grad-2)"
-          points="100,10 190,190 10,190"
-        />
-      </svg>
-
-      {/* ── SHAPE 3: Rotated square / diamond — center right ── */}
-      <svg
-        data-parallax="-0.07"
-        data-base-transform="rotate(45deg)"
-        className="absolute top-[50%] right-[8%] text-brand-navy/5 w-40 h-40"
-        style={{ willChange: "transform" }}
-        viewBox="0 0 200 200"
-      >
-        <defs>
-          <linearGradient id="bg-grad-3" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: "currentColor", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "currentColor", stopOpacity: 0 }} />
-          </linearGradient>
-        </defs>
-        <rect
-          fill="url(#bg-grad-3)"
-          x="20" y="20" width="160" height="160"
-          rx="18"
-        />
-      </svg>
-
-      {/* ── SHAPE 4: Cross / plus — upper left ── */}
-      <svg
-        data-parallax="0.15"
-        className="absolute top-[12%] left-[10%] text-brand-teal/8 w-24 h-24"
-        style={{ willChange: "transform" }}
-        viewBox="0 0 200 200"
-      >
-        <rect fill="currentColor" x="80" y="10" width="40" height="180" rx="8" />
-        <rect fill="currentColor" x="10" y="80" width="180" height="40" rx="8" />
-      </svg>
-
-      {/* ── SHAPE 5: Second organic blob — lower left ── */}
-      <svg
-        data-parallax="0.09"
-        data-base-transform="rotate(-20deg)"
-        className="absolute top-[70%] left-[5%] text-brand-blue/6 w-56 h-56"
-        style={{ willChange: "transform" }}
-        viewBox="0 0 200 200"
-      >
-        <defs>
-          <linearGradient id="bg-grad-5" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style={{ stopColor: "currentColor", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "currentColor", stopOpacity: 0 }} />
-          </linearGradient>
-        </defs>
-        <path
-          fill="url(#bg-grad-5)"
-          d="M47.6,-73.5C60.6,-65.5,69.7,-51.3,75.4,-36.2C81.1,-21,83.4,-5,80.3,9.8C77.2,24.6,68.8,38.1,57.8,49.2C46.8,60.3,33.3,68.9,18.2,74.3C3.1,79.6,-13.7,81.7,-28.3,76.8C-42.9,71.8,-55.3,59.9,-64.2,45.8C-73.1,31.8,-78.4,15.9,-78.4,-0.0C-78.4,-15.9,-73,-31.8,-63.6,-44.7C-54.2,-57.6,-40.9,-67.5,-26.9,-74.2C-12.9,-80.9,1.7,-84.5,16.1,-82C30.4,-79.5,34.6,-81.5,47.6,-73.5Z"
-          transform="translate(100 100)"
-        />
-      </svg>
-
-      {/* ── SHAPE 6: Hexagon — lower right ── */}
-      <svg
-        data-parallax="-0.05"
-        className="absolute top-[80%] right-[15%] text-brand-coral/5 w-36 h-36"
-        style={{ willChange: "transform" }}
-        viewBox="0 0 200 200"
-      >
-        <defs>
-          <linearGradient id="bg-grad-6" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: "currentColor", stopOpacity: 0.9 }} />
-            <stop offset="100%" style={{ stopColor: "currentColor", stopOpacity: 0 }} />
-          </linearGradient>
-        </defs>
-        <polygon
-          fill="url(#bg-grad-6)"
-          points="100,15 177,57.5 177,142.5 100,185 23,142.5 23,57.5"
-        />
-      </svg>
-
-      {/* ── RINGS — bottom left ── */}
       <div
-        data-parallax="0.04"
-        className="absolute -bottom-24 -left-24 w-96 h-96 border border-brand-blue/10 rounded-full"
-        style={{ willChange: "transform" }}
-      />
-      <div
-        data-parallax="0.06"
-        className="absolute -bottom-32 -left-32 w-[28rem] h-[28rem] border border-brand-navy/5 rounded-full"
-        style={{ willChange: "transform" }}
+        className="absolute inset-0 opacity-[0.02] mix-blend-screen"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+        }}
       />
 
-      <div
-        data-parallax="-0.18"
-        className="absolute top-[30%] right-[30%] w-2 h-2 rounded-full bg-brand-coral/20"
-        style={{ willChange: "transform" }}
-      />
-      <div
-        data-parallax="0.20"
-        className="absolute top-[60%] left-[25%] w-3 h-3 rounded-full bg-brand-blue/15"
-        style={{ willChange: "transform" }}
-      />
-      <div
-        data-parallax="-0.14"
-        className="absolute top-[20%] left-[40%] w-1.5 h-1.5 rounded-full bg-brand-teal/25"
-        style={{ willChange: "transform" }}
-      />
-
-      {/* ── BOTTOM FADE ── */}
-      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-brand-bg to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-48" />
     </div>
   )
 }
