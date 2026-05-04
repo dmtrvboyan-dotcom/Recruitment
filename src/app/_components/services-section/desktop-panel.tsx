@@ -1,8 +1,8 @@
 "use client"
 
+import Link from "next/link"
 import { memo, useCallback } from "react"
 import { X, Users } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { type Service } from "@/lib/constants/services"
 import { scrollToSection } from "@/lib/utils/scroll"
 
@@ -101,12 +101,12 @@ export const DesktopPanel = memo(function DesktopPanel({
                   </div>
                 ))}
               </div>
-              <Button
-                onClick={() => handleNavigate(service.learnMoreHref ?? "#contact")}
-                className="shrink-0 bg-brand-navy hover:bg-brand-coral text-white py-3.5 px-8 rounded-3xl text-sm font-medium tracking-widest uppercase cursor-pointer transition-colors duration-200"
-              >
+              <Link
+                href={service.href}
+                target="_blank"
+                className="shrink-0 inline-flex items-center bg-brand-navy hover:bg-brand-coral text-white py-3.5 px-8 rounded-3xl text-sm font-medium tracking-widest uppercase transition-colors duration-200">
                 Learn more <Users className="w-4 h-4 ml-2" />
-              </Button>
+              </Link>
             </div>
           </div>
         )}

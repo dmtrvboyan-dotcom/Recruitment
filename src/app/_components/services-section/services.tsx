@@ -7,6 +7,7 @@ import { MobileServiceItem } from "./mobile-service-item"
 import { DesktopServiceCard } from "./desktop-service-card"
 import { DesktopPanel } from "./desktop-panel"
 
+
 export function Services() {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
   const [openMobileItems, setOpenMobileItems] = useState<number[]>([])

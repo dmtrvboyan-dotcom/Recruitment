@@ -17,8 +17,9 @@ export interface ServiceItem {
   icon: LucideIcon
   title: string
   description: string
+  color: string
+  iconBg: string
 }
-
 export interface CtaData {
   title: string
   description: string
@@ -50,26 +51,30 @@ export const SERVICES: ServiceItem[] = [
   {
     icon: RefreshCw,
     title: "Full-Cycle Cybersecurity Recruitment",
-    description:
-      "End-to-end hiring for cybersecurity roles, from defining requirements to sourcing, interviewing, and onboarding security professionals.",
+    description: "End-to-end hiring for cybersecurity roles, from defining requirements to sourcing, interviewing, and onboarding security professionals.",
+    color: "text-[#0c447c]",
+    iconBg: "bg-[#dbeeff]",
   },
   {
     icon: Target,
     title: "Cybersecurity Headhunting",
-    description:
-      "Targeted headhunting of top security specialist, including passive candidates in information security, ethical hacking, and risk management.",
+    description: "Targeted headhunting of top security specialist, including passive candidates in information security, ethical hacking, and risk management.",
+    color: "text-[#712b13]",
+    iconBg: "bg-[#fce8e1]",
   },
   {
     icon: Search,
     title: "Security Specialist Sourcing",
-    description:
-      "Building pipelines of qualified cybersecurity candidates across SOC, cloud security, DevSecOps, and penetration testing.",
+    description: "Building pipelines of qualified cybersecurity candidates across SOC, cloud security, DevSecOps, and penetration testing.",
+    color: "text-[#085041]",
+    iconBg: "bg-[#d0f5ea]",
   },
   {
     icon: Lightbulb,
     title: "Security Hiring Strategy",
-    description:
-      "Advisory on cybersecurity hiring, including compensation benchmarks, team structure, and talent acquisition strategy.",
+    description: "Advisory on cybersecurity hiring, including compensation benchmarks, team structure, and talent acquisition strategy.",
+    color: "text-[#633806]",
+    iconBg: "bg-[#fef3da]",
   },
 ]
 

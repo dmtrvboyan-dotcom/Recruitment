@@ -33,6 +33,8 @@ export interface WhatWeHireItem {
   icon: LucideIcon
   title: string
   description: string
+  color: string
+  iconBg: string
 }
 
 export interface RoleItem {
@@ -96,38 +98,44 @@ export const WHAT_WE_HIRE: WhatWeHireItem[] = [
   {
     icon: CreditCard,
     title: "Backend (Payments, API)",
-    description:
-      "Experienced backend engineers specializing in payment systems, API development, and financial integrations.",
+    description: "Experienced backend engineers specializing in payment systems, API development, and financial integrations.",
+    color: "text-[#0c447c]",
+    iconBg: "bg-[#dbeeff]",
   },
   {
     icon: ShieldCheck,
     title: "Risk & Compliance",
-    description:
-      "Professionals with expertise in regulatory compliance, risk management, and financial security.",
+    description: "Professionals with expertise in regulatory compliance, risk management, and financial security.",
+    color: "text-[#712b13]",
+    iconBg: "bg-[#fce8e1]",
   },
   {
     icon: BarChart3,
     title: "Data & Analytics",
-    description:
-      "Data scientists and analysts who drive insights and decision-making in financial technology.",
+    description: "Data scientists and analysts who drive insights and decision-making in financial technology.",
+    color: "text-[#085041]",
+    iconBg: "bg-[#d0f5ea]",
   },
   {
     icon: Briefcase,
     title: "Product Roles",
-    description:
-      "Product managers and owners with fintech domain expertise and a track record of shipping products.",
+    description: "Product managers and owners with fintech domain expertise and a track record of shipping products.",
+    color: "text-[#633806]",
+    iconBg: "bg-[#fef3da]",
   },
   {
     icon: Box,
     title: "Product Roles",
-    description:
-      "Strategic product leaders who align business goals, customer needs, and execution across teams.",
+    description: "Strategic product leaders who align business goals, customer needs, and execution across teams.",
+    color: "text-[#3c3489]",
+    iconBg: "bg-[#edecfe]",
   },
   {
     icon: Handshake,
     title: "Customer Success & Operations",
-    description:
-      "Specialists in client success, onboarding, and operational excellence across fintech platforms.",
+    description: "Specialists in client success, onboarding, and operational excellence across fintech platforms.",
+    color: "text-[#72243e]",
+    iconBg: "bg-[#fceaf0]",
   },
 ]
 

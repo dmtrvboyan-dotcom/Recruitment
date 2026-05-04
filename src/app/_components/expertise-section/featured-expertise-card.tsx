@@ -15,12 +15,12 @@ export function FeaturedExpertiseCard({ data }: { data: any }) {
     >
       <div className="flex-1">
         <div className="mb-6">
-          <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 text-white group-hover:bg-brand-coral transition-colors">
+          <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 text-brand-white group-hover:bg-brand-coral transition-colors">
             <Icon className="w-8 h-8" />
           </div>
         </div>
-        <h3 className="font-bold text-2xl md:text-3xl text-white mb-4 tracking-tight">{title}</h3>
-        <p className="text-white/70 text-base leading-relaxed mb-8">{description}</p>
+        <h3 className="font-bold text-2xl md:text-3xl text-brand-white mb-4 tracking-tight">{title}</h3>
+        <p className="text-brand-white/70 text-base leading-relaxed mb-8">{description}</p>
         <LearnMoreRow label={cta ?? "Learn more about our reach"} className="text-brand-coral" />
       </div>
 
@@ -28,7 +28,7 @@ export function FeaturedExpertiseCard({ data }: { data: any }) {
         {tags.map((tag: string) => {
           const TagIcon = TAG_ICON_MAP[tag]?.icon ?? TAG_ICON_MAP._fallback.icon
           return (
-            <div key={tag} className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider px-4 py-2.5 bg-white/5 rounded-full border border-white/10 text-white/80 transition-colors hover:bg-white/10">
+            <div key={tag} className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider px-4 py-2.5 bg-brand-white/5 rounded-full border border-white/10 text-brand-white/80 transition-colors hover:bg-brand-white/10">
               <TagIcon className="w-3.5 h-3.5 text-brand-coral" />
               {tag}
             </div>

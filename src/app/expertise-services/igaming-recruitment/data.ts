@@ -16,6 +16,8 @@ export interface RoleItem {
   icon: LucideIcon
   title: string
   description: string
+  color: string
+  iconBg: string
 }
 
 export interface DifferentiatorItem {
@@ -54,7 +56,7 @@ export const ROLES_HEADER: SectionHeader = {
 }
 
 export const STATS_DATA: StatItem[] = [
-   {
+  {
     value: "100+",
     label: "iGaming roles across Bulgaria & EU",
   },
@@ -78,24 +80,32 @@ export const ROLES: RoleItem[] = [
     title: "Developers",
     description:
       "Backend, frontend, and full-stack developers with gaming and real-time systems experience.",
+    color: "text-[#72243e]",
+    iconBg: "bg-[#fceaf0]",
   },
   {
     icon: Palette,
     title: "Game Designers",
     description:
       "Creative professionals who design engaging game mechanics, UX flows, and player experiences.",
+    color: "text-[#085041]",
+    iconBg: "bg-[#d0f5ea]",
   },
   {
     icon: Headphones,
     title: "Support (Multilingual)",
     description:
       "Customer support specialists fluent in multiple languages to serve global player bases.",
+    color: "text-[#3c3489]",
+    iconBg: "bg-[#edecfe]",
   },
   {
     icon: Box,
     title: "Product Specialists",
     description:
       "Product managers and owners who understand the iGaming industry and player behavior.",
+    color: "text-[#712b13]",
+    iconBg: "bg-[#fce8e1]",
   },
 ]
 

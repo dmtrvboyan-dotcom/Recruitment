@@ -39,10 +39,15 @@ export const Hero = memo(function Hero() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 xl:px-12 w-full flex flex-col items-center">
 
-        {/* Eyebrow */}
-        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-coral mb-6 animate-fade-in-up text-center">
-          IT Recruitment · Europe
-        </p>
+         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0a3d62]/5 border border-[#0a3d62]/10 mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-sm font-medium text-[#0a3d62]">
+              Hiring for Startups, SMBs, Enterprise in EU / US
+            </span>
+          </div>
 
         {/* Headline */}
         <h1 className="text-[clamp(2.4rem,5.5vw,4.5rem)] font-bold text-brand-navy leading-[1.08] tracking-tight mb-7 animate-fade-in-up delay-100 text-center">

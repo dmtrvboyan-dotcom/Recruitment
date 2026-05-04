@@ -2,7 +2,7 @@
 
 import { memo, useCallback } from "react"
 import { ChevronDown, Users } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { type Service } from "@/lib/constants/services"
 import { scrollToSection } from "@/lib/utils/scroll"
 
@@ -85,12 +85,12 @@ export const MobileServiceItem = memo(function MobileServiceItem({
                 </div>
               ))}
             </div>
-            <Button
-              onClick={() => handleNavigate(service.learnMoreHref ?? "#contact")}
-              className="w-full bg-brand-navy hover:bg-brand-coral text-white py-3 rounded-3xl text-sm font-medium tracking-widest uppercase cursor-pointer transition-colors duration-200"
-            >
-              Learn more <Users className="w-4 h-4 ml-2" />
-            </Button>
+             <Link
+  href={service.href}
+  target="_blank"
+  className="w-full inline-flex items-center justify-center bg-brand-navy hover:bg-brand-coral text-white py-3.5 px-8 rounded-3xl text-sm font-medium tracking-widest uppercase transition-colors duration-200">
+  Learn more <Users className="w-4 h-4 ml-2" />
+</Link>
           </div>
         </div>
       </div>

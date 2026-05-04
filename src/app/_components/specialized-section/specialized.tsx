@@ -53,7 +53,7 @@ export function SpecializedRecruitment() {
         <div className="flex justify-center mt-20">
           <Button
             onClick={() => scrollToSection("#contact")}
-            className="bg-brand-navy hover:bg-brand-blue text-white px-10 py-7 text-sm font-semibold tracking-widest uppercase rounded-full transition-all duration-300 group shadow-xl shadow-brand-navy/10"
+            className="bg-brand-navy hover:bg-brand-blue text-brand-white px-10 py-7 text-sm font-semibold tracking-widest uppercase rounded-full transition-all duration-300 group shadow-xl shadow-brand-navy/10"
           >
             <span className="flex items-center gap-3">
               Looking for a specific role? Let's talk

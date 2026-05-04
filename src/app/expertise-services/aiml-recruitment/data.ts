@@ -5,11 +5,14 @@ export interface WhatYouGetItem {
   icon: LucideIcon
   title: string
   description: string
+  color: string
+  iconBg: string
 }
 
 export interface WhyBulgariaData {
   left: string[]
   right: string[]
+
 }
 
 export interface HeroData {
@@ -62,24 +65,32 @@ export const WHAT_YOU_GET: WhatYouGetItem[] = [
     title: "Vetted AI Experts",
     description:
       "Access pre-screened AI engineers, data scientists, and ML specialists with proven experience.",
+    color: "text-[#0c447c]",
+    iconBg: "bg-[#dbeeff]",
   },
   {
     icon: Clock,
     title: "Fast Hiring",
     description:
       "Receive qualified AI and machine learning candidates within days, not months.",
+    color: "text-[#633806]",
+    iconBg: "bg-[#fef3da]",
   },
   {
     icon: Shield,
     title: "Specialized Expertise",
     description:
       "Hire experts in deep learning, NLP, computer vision, and scalable ML systems.",
+    color: "text-[#712b13]",
+    iconBg: "bg-[#fce8e1]",
   },
   {
     icon: Wallet,
     title: "Efficient Scaling",
     description:
       "Build and scale AI teams efficiently without compromising on quality or performance.",
+    color: "text-[#72243e]",
+    iconBg: "bg-[#fceaf0]",
   },
 ]
 
@@ -95,6 +106,7 @@ export const WHY_BULGARIA: WhyBulgariaData = {
     "NLP and computer vision specialists",
     "MLOps and AI infrastructure experts",
   ],
+    
   right: [
     "Deep learning and neural networks",
     "Predictive analytics and data modeling",

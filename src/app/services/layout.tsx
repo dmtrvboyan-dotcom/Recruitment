@@ -1,7 +1,6 @@
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { SocialSidebar } from "@/components/layout/social-sidebar"
-import { PageBackground } from "@/components/layout"
 
 export default function ServicesLayout({
     children,
@@ -13,7 +12,6 @@ export default function ServicesLayout({
             {/* <DynamicBackground /> */}
             <Header />
             <SocialSidebar />
-            <PageBackground />
             <main>{children}</main>
             <Footer />
         </div>

@@ -16,7 +16,6 @@ import {
   TrustedBySection,
   CompaniesSection,
   SmartRSection,
-  CandidatesSection,
   JobsSection,
   FAQSection,
   MeetTheTeam,
@@ -24,7 +23,7 @@ import {
   ContactForm,
   ExpertiseSection,
 } from "@/app/_components"
-import { PageBackground } from "@/components/layout/page-background"
+// import { PageBackground } from "@/components/layout/page-background"
 
 /**
  * Landing page component for Recruitment.bg
@@ -42,7 +41,7 @@ export default function LandingPage() {
       <Header />
       <SocialSidebar />
 
-          <PageBackground />
+          {/* <PageBackground /> */}
 
       {/* Hero Section */}
       <ScrollReveal>

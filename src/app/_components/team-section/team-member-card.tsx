@@ -32,9 +32,9 @@ export const TeamMemberCard = memo(function TeamMemberCard({ member }: TeamMembe
             href={member.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute bottom-1 right-1 bg-white text-[#0077b5] p-1.5 rounded-full shadow-lg border border-brand-navy/5 hover:bg-brand-coral hover:text-white transition-all duration-300 hover:scale-110 z-10"
+            className="absolute bottom-1 right-1 bg-brand-white text-brand-linkdin p-1.5 rounded-full shadow-lg border border-brand-navy/5 hover:bg-brand-coral hover:text-white transition-all duration-300 hover:scale-110 z-10"
           >
-            <RiLinkedinBoxFill size={18} />
+            <RiLinkedinBoxFill size={22} />
           </a>
         )}
       </div>

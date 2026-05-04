@@ -23,7 +23,7 @@ export interface Service {
   intro: string
   sections: ServiceSection[]
   stats: ServiceStat[]
-  learnMoreHref?: string
+  href: string
 }
 
 export const SERVICES: Service[] = [
@@ -59,7 +59,7 @@ export const SERVICES: Service[] = [
       { value: "89%", label: "Stronger Cultural Alignment" },
       { value: "70%+", label: "Reduced Hiring Risk" },
     ],
-    learnMoreHref: "#companies",
+    href: "/services/permanent-it-recruitment",
   },
   {
     icon: Briefcase,
@@ -93,7 +93,7 @@ export const SERVICES: Service[] = [
       { value: "3-5", label: "Days to Hire" },
       { value: "90%+", label: "Offer Acceptance Rate" },
     ],
-    learnMoreHref: "#contact",
+    href: "#contact",
   },
   {
     icon: Clock,
@@ -127,7 +127,7 @@ export const SERVICES: Service[] = [
       { value: "5-7", label: "Days to Place" },
       { value: "80%+", label: "Project Success Rate" },
     ],
-    learnMoreHref: "#contact",
+    href: "#contact",
   },
   {
     icon: Globe,
@@ -161,7 +161,7 @@ export const SERVICES: Service[] = [
       { value: "4-6", label: "Candidates Per Role" },
       { value: "2-6", label: "Days to Present Candidates" },
     ],
-    learnMoreHref: "#contact",
+    href: "#contact",
   },
   {
     icon: Search,
@@ -195,7 +195,7 @@ export const SERVICES: Service[] = [
       { value: "85%", label: "Offer Acceptance Rate" },
       { value: "6-15", label: "Days to Present Candidates" },
     ],
-    learnMoreHref: "#contact",
+    href: "#contact",
   },
   {
     icon: UserCheck,
@@ -229,6 +229,6 @@ export const SERVICES: Service[] = [
       { value: "Live", label: "Market Salary Data" },
       { value: "100%", label: "Role & Stack Specific" },
     ],
-    learnMoreHref: "#contact",
+    href: "/",
   },
 ]

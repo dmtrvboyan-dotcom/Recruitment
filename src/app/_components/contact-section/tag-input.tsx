@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { X } from "lucide-react"
+import { useClickOutside } from "@/lib/hooks"
 
 export interface TagInputProps {
   value: string[]
@@ -54,7 +55,7 @@ export function TagInput({
     onChange([...value, norm])
     setInputValue("")
     setActiveIdx(-1)
-    setIsOpen(false)
+    setIsOpen(true)
     inputRef.current?.focus()
   }
 
@@ -86,26 +87,36 @@ export function TagInput({
   }
 
   // Handle clicking outside to close
-  React.useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (!containerRef.current?.contains(e.target as Node)) {
-        setIsOpen(false)
-        setActiveIdx(-1)
-      }
-    }
-    document.addEventListener("mousedown", handler)
-    return () => document.removeEventListener("mousedown", handler)
-  }, [])
+  // React.useEffect(() => {
+  //   const handler = (e: MouseEvent) => {
+  //     if (!containerRef.current?.contains(e.target as Node)) {
+  //       setIsOpen(false)
+  //       setActiveIdx(-1)
+  //     }
+  //   }
+  //   document.addEventListener("mousedown", handler)
+  //   return () => document.removeEventListener("mousedown", handler)
+  // }, [])
+
+  useClickOutside(containerRef, () => {
+    setIsOpen(false)
+    setActiveIdx(-1)
+  })
 
   const atMax = value.length >= maxTags
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
       <div
-        className={`flex flex-wrap items-center gap-2 min-h-[52px] rounded-xl border border-brand-navy/10 bg-brand-bg/50 px-4 py-2 text-sm transition-all focus-within:ring-2 focus-within:ring-brand-blue/20 focus-within:bg-white focus-within:border-brand-blue ${
-          atMax ? "opacity-60 cursor-not-allowed" : "cursor-text"
-        }`}
-        onClick={() => !atMax && inputRef.current?.focus()}
+        className={`flex flex-wrap items-center gap-2 min-h-[52px] rounded-xl border border-brand-navy/10 bg-brand-bg/50 px-4 py-2 text-sm transition-all focus-within:ring-2 focus-within:ring-brand-blue/20 focus-within:bg-white focus-within:border-brand-blue ${atMax ? "opacity-60 cursor-not-allowed" : "cursor-text"
+          }`}
+        onClick={() => {
+          if (!atMax) {
+            inputRef.current?.focus()
+            setIsOpen(true)
+          }
+        }}
+        
       >
         {/* Render Tags */}
         {value.map((tag) => (
@@ -151,9 +162,8 @@ export function TagInput({
 
         {/* Counter */}
         <span
-          className={`ml-auto text-[10px] font-bold tracking-tighter tabular-nums shrink-0 ${
-            atMax ? "text-brand-coral" : "text-brand-navy/30"
-          }`}
+          className={`ml-auto text-[10px] font-bold tracking-tighter tabular-nums shrink-0 ${atMax ? "text-brand-coral" : "text-brand-navy/30"
+            }`}
         >
           {value.length}/{maxTags}
         </span>
@@ -176,11 +186,10 @@ export function TagInput({
                 e.preventDefault()
                 addTag(item.label)
               }}
-              className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-[11px] font-bold uppercase tracking-widest transition-colors ${
-                activeIdx === idx
+              className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-[11px] font-bold uppercase tracking-widest transition-colors ${activeIdx === idx
                   ? "bg-brand-blue/5 text-brand-blue"
                   : "text-brand-navy/60 hover:bg-brand-bg"
-              }`}
+                }`}
             >
               {item.type === "create" ? (
                 <>

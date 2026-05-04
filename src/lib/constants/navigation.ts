@@ -16,11 +16,11 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Services", href: "#services" },
   {
     label: "For Companies",
     hasDropdown: true,
     dropdownItems: [
+      { label: "Services", href: "#services" },
       { label: "Who we serve", href: "#companies" },
       { label: "Q&A", href: "#faq" },
     ],
@@ -33,11 +33,11 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "See our jobs", href: "#jobs" },
     ],
   },
-   {
+  {
     label: "Own ATS / CRM",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Smart.R", href: "#smartr"},
+      { label: "Smart.R", href: "#smartr" },
       { label: "Book a demo", href: "#contact" },
     ],
   },
