@@ -46,7 +46,7 @@ function MarqueeRow({
 
 export function TrustedBySection() {
   return (
-    <section className="py-10 bg-transparent overflow-hidden lg:-mt-30 -mt-25">
+    <section className="py-10 bg-transparent overflow-hidden lg:-mt-30 -mt-15">
 
       <MarqueeRow companies={COMPANIES_ROW_1} duration="55s" />
       <div className="h-3" />

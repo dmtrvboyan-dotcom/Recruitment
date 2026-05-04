@@ -93,7 +93,7 @@ export const SERVICES: Service[] = [
       { value: "3-5", label: "Days to Hire" },
       { value: "90%+", label: "Offer Acceptance Rate" },
     ],
-    href: "#contact",
+    href: "/services/hire-contract",
   },
   {
     icon: Clock,

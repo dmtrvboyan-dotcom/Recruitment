@@ -25,10 +25,7 @@ import {
 } from "@/app/_components"
 // import { PageBackground } from "@/components/layout/page-background"
 
-/**
- * Landing page component for Recruitment.bg
- * Organized with clear section structure and lazy-loaded sections for performance
- */
+
 export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">

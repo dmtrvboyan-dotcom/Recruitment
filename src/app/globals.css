@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 @source "../**/*.{ts,tsx}";
 
 @plugin "@tailwindcss/typography";
@@ -11,7 +13,6 @@
   --font-mono: "Fira Code", "Fira Code Fallback";
 
   --color-background: oklch(0.9821 0 0);
-
   --color-foreground: oklch(14.08% 0 0);
   --color-card: oklch(100% 0 0);
   --color-card-foreground: oklch(14.08% 0 0);
@@ -50,12 +51,20 @@
   --color-brand-navy: #1A1A2E;
   --color-brand-navy-mid: #2C3E50;
   --color-brand-blue: #085689;
-  --color-brand-coral: #ff5d77;
-  --color-brand-coral-hover: #e0405c;
+  --color-brand-coral: #FE748A;
+  --color-brand-coral-hover: #A0AEC0;
   --color-navy-button-hover: #085689;
   --color-brand-teal: #085689;
   --color-brand-linkdin: #0077b5;
   --color-brand-white: #fff;
+
+
+  /* background */
+      --color-brand-navy: #1A1A2E;
+    --color-brand-blue: #085689;
+    --color-accent: #FF6B6B;
+    --color-accent-soft: #4DA8DA;
+
 
 
   --radius-lg: 0.625rem;
@@ -269,4 +278,3 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
