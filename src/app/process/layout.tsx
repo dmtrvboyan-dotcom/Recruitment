@@ -1,7 +1,6 @@
 import {  Header, SocialSidebar, Footer } from "@/components/layout"
 
-
-export default function AboutLayout({
+export default function ProcessLayout({
   children,
 }: {
   children: React.ReactNode

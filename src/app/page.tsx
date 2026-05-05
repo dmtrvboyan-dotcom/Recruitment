@@ -39,16 +39,15 @@ export default function LandingPage() {
       <Header />
       <SocialSidebar />
 
-          {/* <PageBackground /> */}
+      {/* <PageBackground /> */}
 
-{/* <PageBackground/> */}
 
       {/* Hero Section */}
       <ScrollReveal>
         <Hero />
       </ScrollReveal>
 
-          <ScrollReveal>
+      <ScrollReveal>
         <TrustedBySection />
       </ScrollReveal>
 

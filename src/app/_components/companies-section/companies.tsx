@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { WHY_CHOOSE_US_POINTS, HIRE_WITH_CLARITY_POINTS } from "@/lib/constants/companies"
 import { scrollToSection } from "@/lib/utils/scroll"
@@ -18,7 +19,7 @@ export function CompaniesSection() {
       className="py-24 lg:py-32"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header - Styled like your Hero Eyebrows */}
+        {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-20">
           <p className="text-xs font-bold text-brand-coral uppercase tracking-[0.2em] mb-4">
             Who we work with
@@ -49,14 +50,23 @@ export function CompaniesSection() {
           </div>
         </div>
 
-        {/* CTA - Styled to match your "Start Hiring" button */}
-        <div className="flex justify-center mt-20">
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-20">
+
           <Button
             onClick={handleNavigate}
             className="bg-brand-coral hover:bg-brand-coral-hover text-white px-10 py-7 text-sm font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95"
           >
             Talk to us
           </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="w-full sm:w-auto bg-transparent hover:bg-brand-navy text-brand-navy hover:text-white rounded-3xl px-8 py-6 text-sm font-semibold tracking-widest uppercase border-2 border-brand-navy cursor-pointer transition-colors duration-200"
+          >
+            <Link href="/process" target="_blank" rel="noopener noreferrer">How We Work</Link>
+          </Button>
+
         </div>
       </div>
     </section>

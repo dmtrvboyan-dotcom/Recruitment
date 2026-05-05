@@ -1,61 +1,19 @@
 "use client"
 
-import { useEffect, useRef, memo } from "react"
+import { useEffect, useRef } from "react"
 import Image from "next/image"
 
-// ─── 3 LAYERS — LIGHT & SIMPLE ───────────────────────────────────────────
 const LAYERS = [
-  {
-    src: "/backgrounds/7.png",
-    scrollSpeed: 0.08,
-    rotateSpeed: 0.008,
-    scale: 1.5,
-    opacity: 0.25,
-  },
-  {
-    src: "/backgrounds/8.png",
-    scrollSpeed: 0.25,
-    rotateSpeed: -0.012,
-    scale: 1.4,
-    opacity: 0.2,
-  },
-  {
-    src: "/backgrounds/7.png",
-    scrollSpeed: 0.45,
-    rotateSpeed: 0.016,
-    scale: 1.35,
-    opacity: 0.15,
-  },
-  {
-    src: "/backgrounds/8.png",
-    scrollSpeed: 0.45,
-    rotateSpeed: 0.016,
-    scale: 1.35,
-    opacity: 0.15,
-  },
-  {
-    src: "/backgrounds/7.png",
-    scrollSpeed: 0.45,
-    rotateSpeed: 0.016,
-    scale: 1.35,
-    opacity: 0.15,
-  },
-  {
-    src: "/backgrounds/8.png",
-    scrollSpeed: 0.45,
-    rotateSpeed: 0.016,
-    scale: 1.35,
-    opacity: 0.15,
-  },
+  { src: "/backgrounds/1.png", scrollSpeed: 0.08, rotateSpeed: 0.008, scale: 1.5, opacity: 0.25 },
+  { src: "/backgrounds/2.png", scrollSpeed: 0.25, rotateSpeed: -0.012, scale: 1.4, opacity: 0.2 },
+  { src: "/backgrounds/3.png", scrollSpeed: 0.45, rotateSpeed: 0.016, scale: 1.35, opacity: 0.15 },
 ]
-// ─────────────────────────────────────────────────────────────────────────
 
-export const PageBackground = memo(function PageBackground() {
+export function PageBackground() {
   const layerRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     let rafId: number
-
     const onScroll = () => {
       rafId = requestAnimationFrame(() => {
         const scrollY = window.scrollY
@@ -66,17 +24,11 @@ export const PageBackground = memo(function PageBackground() {
           if (!el) return
           const layer = LAYERS[i]
           const phase = i * (Math.PI / LAYERS.length)
-
           const translateY = scrollY * layer.scrollSpeed
           const translateX = Math.sin(progress * Math.PI + phase) * 3
-          const rotate     = scrollY * layer.rotateSpeed
+          const rotate = scrollY * layer.rotateSpeed
 
-          el.style.transform = `
-            translateY(${translateY}px)
-            translateX(${translateX}%)
-            rotate(${rotate}deg)
-            scale(${layer.scale})
-          `
+          el.style.transform = `translateY(${translateY}px) translateX(${translateX}%) rotate(${rotate}deg) scale(${layer.scale})`
         })
       })
     }
@@ -95,26 +47,14 @@ export const PageBackground = memo(function PageBackground() {
       className="fixed inset-0 w-full h-full pointer-events-none overflow-hidden"
       style={{ zIndex: 0 }}
     >
-      {/* Single soft white overlay — keeps everything light */}
-      <div
-        className="absolute inset-0 z-10"
-        style={{ background: "rgba(255,255,255,0.55)" }}
-      />
+<div className="absolute inset-0 z-10" style={{ background: "rgba(255,255,255,0.25)" }} />
 
       {LAYERS.map((layer, i) => (
-        <div
-          key={i}
-          className="absolute inset-0"
-          style={{ opacity: layer.opacity }}
-        >
+        <div key={i} className="absolute inset-0" style={{ opacity: layer.opacity }}>
           <div
             ref={(el) => { layerRefs.current[i] = el }}
             className="will-change-transform"
-            style={{
-              position: "absolute",
-              inset: "-120%",
-              transformOrigin: "center center",
-            }}
+style={{ position: "absolute", inset: "-20%", transformOrigin: "center center" }}
           >
             <Image
               src={layer.src}
@@ -129,4 +69,4 @@ export const PageBackground = memo(function PageBackground() {
       ))}
     </div>
   )
-})
+}
