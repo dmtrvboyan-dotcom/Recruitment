@@ -71,8 +71,7 @@ export function Services() {
 
         <div className="text-center">
           <p className="text-xl text-brand-navy/50 leading-relaxed mt-[80px]">
-            We provide end-to-end IT recruitment services, helping companies hire top tech talent
-            locally and globally.
+           We provide end-to-end IT recruitment services, helping companies hire tech professionals locally and globally.
           </p>
         </div>
       </div>

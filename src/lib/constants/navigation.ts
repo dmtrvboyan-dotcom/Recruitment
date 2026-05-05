@@ -17,10 +17,17 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   {
+    label: "Services",
+    hasDropdown: true,
+    dropdownItems: [
+      { label: "Permanent IT Recruitment", href: "/services/permanent-it-recruitment", openInNewTab: true },
+      { label: "Hire Contract or Freelance Devs", href: "/services/hire-contract", openInNewTab: true },
+    ],
+  },
+  {
     label: "For Companies",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Services", href: "#services" },
       { label: "Who we serve", href: "#companies" },
       { label: "Q&A", href: "#faq" },
     ],
@@ -41,7 +48,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "Book a demo", href: "#contact" },
     ],
   },
-  { label: "Analyses", href: "/blog", openInNewTab: true },
+  // { label: "Analyses", href: "/blog", openInNewTab: true },
   { label: "About Us", href: "#about" },
 
 ]

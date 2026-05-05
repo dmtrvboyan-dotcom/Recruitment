@@ -37,13 +37,13 @@ export default function FintechRecruitmentPage() {
             <p className="text-lg md:text-xl text-brand-navy/55 max-w-3xl mx-auto mb-4 text-pretty">
               {HERO_DATA.description}
             </p>
-          
+
           </div>
         </div>
       </section>
 
       {/* What We Hire Section */}
-      <ScrollReveal>
+      {/* <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28 bg-brand-white/30">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
@@ -80,37 +80,7 @@ export default function FintechRecruitmentPage() {
             </div>
           </div>
         </section>
-      </ScrollReveal>
-
-      {/* Bulgaria Strengths Section */}
-      <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 ">
-          <div className="mx-auto max-w-4xl">
-            <div className="text-center mb-14">
-              <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
-                {BULGARIA_STRENGTHS_HEADER.tagline}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-navy mb-4">
-                {BULGARIA_STRENGTHS_HEADER.title}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {BULGARIA_STRENGTHS.items.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-3 p-5 bg-brand-white rounded-2xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-md transition-all duration-300"
-                >
-                  <CheckCircle className="w-5 h-5 text-brand-blue mt-0.5 flex-shrink-0" />
-                  <p className="text-brand-navy text-[15px] leading-relaxed font-medium">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       {/* Full Talent Spectrum Section */}
       <ScrollReveal>
@@ -162,6 +132,38 @@ export default function FintechRecruitmentPage() {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* Bulgaria Strengths Section */}
+      <ScrollReveal>
+        <section className="px-4 py-20 md:px-8 md:py-28 ">
+          <div className="mx-auto max-w-4xl">
+            <div className="text-center mb-14">
+              <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
+                {BULGARIA_STRENGTHS_HEADER.tagline}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-navy mb-4">
+                {BULGARIA_STRENGTHS_HEADER.title}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {BULGARIA_STRENGTHS.items.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-3 p-5 bg-brand-white rounded-2xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-md transition-all duration-300"
+                >
+                  <CheckCircle className="w-5 h-5 text-brand-blue mt-0.5 flex-shrink-0" />
+                  <p className="text-brand-navy text-[15px] leading-relaxed font-medium">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+
 
       {/* CTA Section */}
       <ScrollReveal>

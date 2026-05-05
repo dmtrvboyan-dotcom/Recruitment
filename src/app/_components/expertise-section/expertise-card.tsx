@@ -2,49 +2,55 @@
 
 import { memo } from "react"
 import Link from "next/link"
-import { LearnMoreRow } from "./learn-more-row"
-
-interface ExpertiseCardProps {
-  item: {
-    title: string
-    description: string
-    href: string
-    icon: any
-  }
-  iconColor: string
-  iconBg: string
-}
+import Image from "next/image"
+import { ArrowUpRight } from "lucide-react"
+import { EXPERTISE_AREAS } from "@/lib/constants/expertise"
 
 export const ExpertiseCard = memo(function ExpertiseCard({
   item,
-  iconColor,
-  iconBg,
-}: ExpertiseCardProps) {
-  const Icon = item.icon
-
+}: {
+  item: (typeof EXPERTISE_AREAS)[0]
+}) {
   return (
     <Link
       href={item.href}
       target="_blank"
-      className="group block p-8 bg-white border border-brand-navy/5 rounded-3xl hover:border-brand-blue/20 hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative overflow-hidden"
+      rel="noopener noreferrer"
+      className="group block relative overflow-hidden rounded-3xl border border-brand-white  hover:shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:-translate-y-1 transition-all duration-500"
     >
-      <div className="mb-8">
-        <div className={`w-14 h-14 flex items-center justify-center rounded-2xl ${iconBg} ${iconColor} transition-transform duration-300 group-hover:scale-110`}>
-          <Icon className="w-7 h-7" strokeWidth={2.5} />
+      {/* Image */}
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-[#0a3d62]/80 via-[#0a3d62]/30 to-transparent" />
+      </div>
+
+      {/* Stats badge */}
+      <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-brand-navy/10 text-brand-coral text-xs font-semibold shadow-sm">
+        {item.stats}
+      </div>
+
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6">
+        <h3 className="text-xl font-semibold text-brand-navy mb-2">
+          {item.title}
+        </h3>
+
+        <p className="text-brand-white/85 text-sm leading-relaxed mb-4 line-clamp-2">
+          {item.description}
+        </p>
+
+        <div className="inline-flex self-start items-center text-brand-navy/90 p-2 bg-brand-white text-sm font-bold uppercase tracking-widest rounded-3xl">
+          <span>Learn more</span>
+          <ArrowUpRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
         </div>
       </div>
-
-      <h3 className="font-bold text-xl text-brand-navy mb-3 leading-tight tracking-tight group-hover:text-brand-blue transition-colors">
-        {item.title}
-      </h3>
-
-      <p className="text-brand-navy/60 text-sm leading-relaxed flex-1">
-        {item.description}
-      </p>
-
-      <div className="mt-8">
-        <LearnMoreRow className={iconColor} />
-      </div>
+      {/* Hover border overlay */}
+      <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-brand-navy/15 transition-colors duration-300 pointer-events-none" />
     </Link>
   )
 })

@@ -39,7 +39,7 @@ export function CallToAction() {
 
         {/* Tabs - Pill style */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex rounded-full p-1.5 bg-brand-navy/5 border border-brand-navy/5 backdrop-blur-sm">
+          <div className="inline-flex rounded-full p-1.5 bg-brand-navy/5 border border-brand-navy/5 backdrop-blur-sm h-15">
             {TABS.map((tab) => (
               <TabButton
                 key={tab.value}
