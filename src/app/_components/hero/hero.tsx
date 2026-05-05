@@ -36,20 +36,7 @@ export const Hero = memo(function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center text-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-transparent">
 
-      {/* <div className="absolute inset-0 -z-10">
-        <div className="sticky top-0 h-screen w-full">
-          <Image
-            src="/uploaded/bg.png" 
-            alt="Hero background"
-            fill
-            priority
-            quality={90}
-            className="object-cover object-center scale-110"
-            style={{ willChange: "transform" }}
-          />
-          <div className="absolute inset-0 bg-white/60" />
-        </div>
-      </div> */}
+  
 
       <div className="absolute top-[88px] left-0 right-0 h-px bg-brand-navy/8 pointer-events-none" />
 
