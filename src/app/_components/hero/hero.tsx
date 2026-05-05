@@ -54,7 +54,7 @@ export const Hero = memo(function Hero() {
         <h1 className="text-[clamp(2.4rem,5.5vw,4.5rem)] font-bold text-brand-navy leading-[1.08] tracking-tight mb-7 animate-fade-in-up delay-100 text-center">
           IT Recruitment Agency for
           <br />
-          <span className="text-brand-navy">Tech Talent</span>
+          <span className="text-brand-navy">Tech Roles</span>
         </h1>
 
         {/* Body */}
@@ -69,7 +69,7 @@ export const Hero = memo(function Hero() {
             className="w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-white px-8 py-6 text-sm font-semibold tracking-widest uppercase cursor-pointer transition-colors duration-200 group rounded-3xl"
           >
             <span className="flex items-center gap-2.5">
-              Start Hiring
+              Learn More
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
           </Button>

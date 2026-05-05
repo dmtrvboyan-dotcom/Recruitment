@@ -16,7 +16,7 @@ export function ExpertiseSection() {
             Our Expertise
           </p>
           <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-brand-navy leading-[1.1] tracking-tight mb-7 max-w-4xl animate-fade-in-up delay-100">
-            We help companies hire <br /> across <span className="text-brand-blue">industries</span>
+            We help companies hire <br /> across different <span className="text-brand-blue">industries</span>
           </h2>
           <p className="text-base lg:text-lg text-brand-navy/55 max-w-2xl leading-relaxed animate-fade-in-up delay-200">
             From specialized technical roles to executive leadership, we deliver tailored

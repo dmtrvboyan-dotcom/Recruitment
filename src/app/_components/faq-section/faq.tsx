@@ -80,7 +80,7 @@ export function FAQSection() {
               backgroundColor: "var(--color-brand-blue)"
             }}
           >
-            Contact Support Team
+            Contact Our Team
           </Button>
         </div>
       </div>

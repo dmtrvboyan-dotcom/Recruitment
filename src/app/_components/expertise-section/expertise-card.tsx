@@ -26,17 +26,17 @@ export const ExpertiseCard = memo(function ExpertiseCard({
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-[#0a3d62]/80 via-[#0a3d62]/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#0a3d62]/80 via-[#0a3d62]/40 to-transparent" />
       </div>
 
       {/* Stats badge */}
-      <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-brand-navy/10 text-brand-coral text-xs font-semibold shadow-sm">
+      <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-brand-navy/50 text-brand-white text-xs font-semibold shadow-sm">
         {item.stats}
       </div>
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6">
-        <h3 className="text-xl font-semibold text-brand-navy mb-2">
+        <h3 className="text-xl font-semibold text-brand-white mb-2">
           {item.title}
         </h3>
 
@@ -44,9 +44,9 @@ export const ExpertiseCard = memo(function ExpertiseCard({
           {item.description}
         </p>
 
-        <div className="inline-flex self-start items-center text-brand-navy/90 p-2 bg-brand-white text-sm font-bold uppercase tracking-widest rounded-3xl">
+        <div className="inline-flex self-start items-center text-brand-white p-1.5  text-[12px] font-bold uppercase tracking-widest rounded-3xl">
           <span>Learn more</span>
-          <ArrowUpRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+          <ArrowUpRight className="w-5 h-5 ml-1 text-brand-coral group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
         </div>
       </div>
       {/* Hover border overlay */}
