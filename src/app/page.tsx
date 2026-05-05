@@ -23,6 +23,7 @@ import {
   ContactForm,
   ExpertiseSection,
 } from "@/app/_components"
+// import { PageBackground } from "@/components/layout/page-bg"
 // import { PageBackground } from "@/components/layout/page-background"
 
 
@@ -39,6 +40,8 @@ export default function LandingPage() {
       <SocialSidebar />
 
           {/* <PageBackground /> */}
+
+{/* <PageBackground/> */}
 
       {/* Hero Section */}
       <ScrollReveal>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback, memo } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { useAnimatedCounter } from "@/lib/hooks/use-animated-counter"
@@ -35,6 +36,21 @@ export const Hero = memo(function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center text-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-transparent">
 
+      {/* <div className="absolute inset-0 -z-10">
+        <div className="sticky top-0 h-screen w-full">
+          <Image
+            src="/uploaded/bg.png" 
+            alt="Hero background"
+            fill
+            priority
+            quality={90}
+            className="object-cover object-center scale-110"
+            style={{ willChange: "transform" }}
+          />
+          <div className="absolute inset-0 bg-white/60" />
+        </div>
+      </div> */}
+
       <div className="absolute top-[88px] left-0 right-0 h-px bg-brand-navy/8 pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 xl:px-12 w-full flex flex-col items-center">
@@ -44,25 +60,21 @@ export const Hero = memo(function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-
           <span className="text-xs sm:text-sm font-medium text-[#0a3d62] leading-tight">
             Hiring for Startups, SMBs, Enterprise in EU / US
           </span>
         </div>
 
-        {/* Headline */}
         <h1 className="text-[clamp(2.4rem,5.5vw,4.5rem)] font-bold text-brand-navy leading-[1.08] tracking-tight mb-7 animate-fade-in-up delay-100 text-center">
           IT Recruitment Agency for
           <br />
           <span className="text-brand-navy">Tech Roles</span>
         </h1>
 
-        {/* Body */}
         <p className="text-base lg:text-lg text-brand-navy/55 max-w-xl leading-relaxed mb-10 animate-fade-in-up delay-200 text-center">
           We connect companies with IT professionals through recruitment and talent acquisition services.
         </p>
 
-        {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16 animate-fade-in-up delay-300">
           <Button
             onClick={() => handleNavigate("#contact")}
@@ -83,7 +95,6 @@ export const Hero = memo(function Hero() {
           </Button>
         </div>
 
-        {/* Stats */}
         <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 animate-fade-in-up delay-[400ms]">
           <AnimatedCounter value="650+" label="Successful IT Hirings" />
           <AnimatedCounter value="12" label="Senior Tech Recruiters" />
@@ -91,7 +102,6 @@ export const Hero = memo(function Hero() {
           <AnimatedCounter value="1" label="In-House Smart.R ATS" />
         </div>
 
-        {/* Scroll */}
         <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1">
           <button
             onClick={() => handleNavigate("#services")}

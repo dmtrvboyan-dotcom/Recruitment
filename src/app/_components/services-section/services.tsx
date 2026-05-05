@@ -6,6 +6,8 @@ import { SERVICES, type Service } from "@/lib/constants/services"
 import { MobileServiceItem } from "./mobile-service-item"
 import { DesktopServiceCard } from "./desktop-service-card"
 import { DesktopPanel } from "./desktop-panel"
+import Image from "next/image"
+
 
 
 export function Services() {
@@ -26,13 +28,21 @@ export function Services() {
   }, [])
 
   return (
-    <section
-      id="services"
-      className="relative py-24 lg:py-32 lg:pb-[170px] md:pb-[50px]-bg overflow-hidden"
-    >
-
-
- 
+    <section id="services" className="relative py-24 lg:py-32 lg:pb-[170px] md:pb-[50px]-bg overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        {/* <div className="sticky top-0 h-screen w-full">
+          <Image
+            src="/uploaded/bg1.png"
+            alt="Hero background"
+            fill
+            priority
+            quality={90}
+            className="object-cover object-center scale-110"
+            style={{ willChange: "transform" }}
+          />
+          <div className="absolute inset-0 bg-white/60" />
+        </div> */}
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
@@ -71,7 +81,7 @@ export function Services() {
 
         <div className="text-center">
           <p className="text-xl text-brand-navy/50 leading-relaxed mt-[80px]">
-           We provide end-to-end IT recruitment services, helping companies hire tech professionals locally and globally.
+            We provide end-to-end IT recruitment services, helping companies hire tech professionals locally and globally.
           </p>
         </div>
       </div>
