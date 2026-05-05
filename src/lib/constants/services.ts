@@ -29,8 +29,8 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     icon: Users,
-    iconColor: "text-[#1d4ed8]",
-    iconBg: "bg-[#dbeafe]",
+    iconColor: "text-[#D85A30]",
+    iconBg: "bg-[#1A1A2E]/5",
     title: "Permanent IT Recruitment",
     subtitle: "",
     intro: "",
@@ -63,8 +63,8 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Briefcase,
-    iconColor: "text-[#5b21b6]",
-    iconBg: "bg-[#ede9fe]",
+    iconColor: "text-[#D85A30]",
+    iconBg: "bg-[#1A1A2E]/5",
     title: "Hire Contract or Freelance Developers",
     subtitle: "",
     intro: "",
@@ -97,8 +97,8 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Clock,
-    iconColor: "text-[#92400e]",
-    iconBg: "bg-[#fef3c7]",
+  iconColor: "text-[#D85A30]",
+    iconBg: "bg-[#1A1A2E]/5",
     title: "Project-Based IT Recruitment",
     subtitle: "Flexible Hiring for Immediate Needs",
     intro: "",
@@ -131,8 +131,8 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Globe,
-    iconColor: "text-[#155e75]",
-    iconBg: "bg-[#cffafe]",
+   iconColor: "text-[#D85A30]",
+    iconBg: "bg-[#1A1A2E]/5",
     title: "Remote IT Hiring & Global Talent",
     subtitle: "Build Strong Teams Without Location Limits",
     intro: "",
@@ -165,8 +165,8 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Search,
-    iconColor: "text-[#9d174d]",
-    iconBg: "bg-[#fce7f3]",
+   iconColor: "text-[#D85A30]",
+    iconBg: "bg-[#1A1A2E]/5",
     title: "Executive Search & Headhunting",
     subtitle: "",
     intro: "",
@@ -199,8 +199,8 @@ export const SERVICES: Service[] = [
   },
   {
     icon: UserCheck,
-    iconColor: "text-[#085041]",
-    iconBg: "bg-[#d0f5ea]",
+    iconColor: "text-[#D85A30]",
+    iconBg: "bg-[#1A1A2E]/5",
     title: "IT Salary Benchmarking & Hiring Insights",
     subtitle: "",
     intro: "",

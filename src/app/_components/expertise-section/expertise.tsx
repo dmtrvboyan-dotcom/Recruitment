@@ -5,12 +5,8 @@ import { ExpertiseCard } from "./expertise-card"
 import { FeaturedExpertiseCard } from "./featured-expertise-card"
 
 const CARD_THEMES = [
-  { color: "text-blue-600", bg: "bg-blue-50" },
-  { color: "text-emerald-600", bg: "bg-emerald-50" },
-  { color: "text-orange-600", bg: "bg-orange-50" },
-  { color: "text-rose-600", bg: "bg-rose-50" },
-  { color: "text-indigo-600", bg: "bg-indigo-50" },
-  { color: "text-purple-600", bg: "bg-purple-50" },
+  {  color: "text-[#D85A30]",  bg: "bg-[#1A1A2E]/5" },
+  
 ]
 
 export function ExpertiseSection() {
