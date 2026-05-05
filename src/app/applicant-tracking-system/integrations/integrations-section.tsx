@@ -7,10 +7,9 @@ export function IntegrationsSection() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section className="py-24 md:py-36 px-6 relative overflow-hidden  bg-gradient-to-b from-[#ededed] to-white pt-40">
+    <section className="py-24 md:py-36 px-6 relative overflow-hidden  bg-linear-to-b from-[#ededed] to-white pt-40">
 
 
-      {/* Soft radial glow at center */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -20,7 +19,6 @@ export function IntegrationsSection() {
       />
 
       <div className="max-w-6xl mx-auto relative z-10 ">
-        {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
             <span className="block w-6 h-px bg-[#000]/40" />
@@ -37,7 +35,6 @@ export function IntegrationsSection() {
           </p>
         </div>
 
-        {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {integrationsData.items.map((item, index) => {
             const isHovered = hovered === index;
@@ -56,7 +53,6 @@ export function IntegrationsSection() {
                   transform: isHovered ? "translateY(-4px)" : "translateY(0)",
                 }}
               >
-                {/* Hover fill glow */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
                   style={{
@@ -65,7 +61,6 @@ export function IntegrationsSection() {
                   }}
                 />
 
-                {/* Top: index number + icon */}
                 <div className="flex items-center justify-between">
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300"
@@ -97,7 +92,6 @@ export function IntegrationsSection() {
                   </span>
                 </div>
 
-                {/* Text */}
                 <div>
                   <h3
                     className="font-semibold text-base text-black mb-2 transition-colors duration-300"
@@ -110,7 +104,6 @@ export function IntegrationsSection() {
                   </p>
                 </div>
 
-                {/* Bottom accent line */}
                 <div
                   className="absolute bottom-0 left-6 right-6 h-px transition-all duration-500 rounded-full"
                   style={{

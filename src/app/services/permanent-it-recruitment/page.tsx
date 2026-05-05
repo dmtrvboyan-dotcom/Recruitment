@@ -83,13 +83,10 @@ export default function ExecutiveSearchPage() {
             {STATS.map((stat, i) => (
               <div
                 key={i}
-                className={`py-8 lg:py-10 px-4 sm:px-6 ${
-                  i % 2 === 0 ? "border-r border-brand-navy/10" : ""
-                } ${
-                  i < 2 ? "border-b border-brand-navy/10 lg:border-b-0" : ""
-                } ${
-                  i < STATS.length - 1 ? "lg:border-r lg:border-brand-navy/10" : ""
-                }`}
+                className={`py-8 lg:py-10 px-4 sm:px-6 ${i % 2 === 0 ? "border-r border-brand-navy/10" : ""
+                  } ${i < 2 ? "border-b border-brand-navy/10 lg:border-b-0" : ""
+                  } ${i < STATS.length - 1 ? "lg:border-r lg:border-brand-navy/10" : ""
+                  }`}
               >
                 <p className="text-3xl lg:text-5xl font-semibold text-brand-navy tracking-tight mb-1">
                   {stat.value}
@@ -341,12 +338,7 @@ export default function ExecutiveSearchPage() {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
-              <Link
-                href={CTA_DATA.secondaryButton.href}
-                className="text-sm font-medium text-brand-white/40 hover:text-brand-white transition-colors underline underline-offset-4 py-2"
-              >
-                {CTA_DATA.secondaryButton.text}
-              </Link>
+
             </div>
           </div>
         </section>

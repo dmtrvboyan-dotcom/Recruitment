@@ -40,7 +40,7 @@ export function ShowcaseSection() {
   }
 
   return (
-    <section className="w-full  bg-gradient-to-b from-white to-[#ededed] pt-25 pb-20">
+    <section className="w-full  bg-linear-to-b from-white to-[#ededed] pt-25 pb-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
@@ -57,9 +57,7 @@ export function ShowcaseSection() {
         </div>
 
 
-        {/* Desktop Layout — inline pill expansion (pushes others down) */}
-        <div className="hidden md:block relative w-full overflow-hidden rounded-3xl aspect-16/9 bg-[#4e4f5e0c]">
-          {/* Background Images */}
+        <div className="hidden md:block relative w-full overflow-hidden rounded-3xl aspect-video bg-[#4e4f5e0c]">
           {items.map((item, i) => (
             <div
               key={item.id}
@@ -79,7 +77,6 @@ export function ShowcaseSection() {
             </div>
           ))}
 
-          {/* Close button */}
           <button
             onClick={handleClose}
             className={cn(
@@ -91,14 +88,12 @@ export function ShowcaseSection() {
             <X className="w-5 h-5" />
           </button>
 
-          {/* Pills column */}
           <div className="absolute inset-y-0 left-0 z-10 flex items-center px-8 md:px-12 lg:px-16">
             <div className="flex flex-col gap-2 w-full max-w-[320px]">
               {items.map((item, i) => {
                 const isActive = activeIdx === i
                 return (
                   <div key={item.id} className="relative ">
-                    {/* Collapsed pill */}
                     <button
                       onClick={() => handleItemClick(i)}
                       aria-expanded={isActive}
@@ -118,7 +113,6 @@ export function ShowcaseSection() {
                       </span>
                     </button>
 
-                    {/* Expanded content card (inline, pushes others down) */}
                     <div
                       className={cn(
                         "transition-all duration-300 ease-out overflow-hidden",

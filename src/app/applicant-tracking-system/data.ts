@@ -2,10 +2,6 @@ import type { Metadata } from "next"
 import type { LucideIcon } from "lucide-react"
 
 
-// ============================================================================
-// SEO Metadata
-// ============================================================================
-
 export const atsMetadata: Metadata = {
   title: "Smart.R | AI-Powered Applicant Tracking System | Recruitment.bg",
   description:

@@ -15,7 +15,7 @@ const featureImages: Record<string, string> = {
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 md:py-32 px-6 bg-gradient-to-b from-white to-[#ededed] -mt-25">
+    <section className="py-20 md:py-32 px-6 bg-linear-to-b from-white to-[#ededed] -mt-25">
       <div className="max-w-6xl mx-auto mt-15">
         <div className="text-center mb-16">
            <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
@@ -37,7 +37,7 @@ export function FeaturesSection() {
               key={index}
               className="group flex flex-col cursor-pointer"
             >
-              {/* Feature Image with title overlay */}
+
               <div
                 className="relative w-full overflow-hidden rounded-3xl bg-[#085689]/10
                            transition-all duration-500 ease-out
@@ -54,13 +54,13 @@ export function FeaturesSection() {
                 />
 
                 {/* Base gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent rounded-3xl
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent rounded-3xl
                                transition-opacity duration-500 group-hover:opacity-80" />
 
                 {/* Hover shimmer overlay */}
                 <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100
                                transition-opacity duration-500
-                               bg-gradient-to-tr from-[#085689]/20 via-transparent to-white/10" />
+                               bg-linear-to-tr from-[#085689]/20 via-transparent to-white/10" />
 
                 {/* Title inside image, bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-5
@@ -86,7 +86,7 @@ export function FeaturesSection() {
                 </p>
 
                 {/* Animated underline accent */}
-                <div className="mt-3 h-px w-0 bg-gradient-to-r from-[#ff9204] to-[#085689]/0
+                <div className="mt-3 h-px w-0 bg-linear-to-r from-[#ff9204] to-[#085689]/0
                                transition-all duration-500 ease-out
                                group-hover:w-12" />
               </div>

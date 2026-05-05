@@ -16,10 +16,8 @@ const TimelineCard = memo(function TimelineCard({
   return (
     <div className="relative flex items-start w-full">
 
-      {/* ── Desktop: alternating ── */}
       <div className="hidden lg:grid lg:grid-cols-[1fr_80px_1fr] w-full">
 
-        {/* Left slot */}
         <div className="pr-16 flex flex-col justify-start items-end text-right">
           {isLeft && (
             <div className="max-w-lg">
@@ -41,12 +39,10 @@ const TimelineCard = memo(function TimelineCard({
           )}
         </div>
 
-        {/* Center spine */}
         <div className="flex flex-col items-center pt-3">
           <div className="w-5 h-5 rounded-full bg-brand-coral border-4 border-[#f9f9fb] shadow-sm ring-1 ring-brand-coral/30 z-10" />
         </div>
 
-        {/* Right slot */}
         <div className="pl-16 flex flex-col justify-start items-start text-left">
           {!isLeft && (
             <div className="max-w-lg">
@@ -69,7 +65,6 @@ const TimelineCard = memo(function TimelineCard({
         </div>
       </div>
 
-      {/* ── Mobile: left-spine stacked ── */}
       <div className="flex lg:hidden items-start gap-5 w-full">
         <div className="flex flex-col items-center shrink-0 pt-1">
           <div className="w-4 h-4 rounded-full bg-brand-coral border-4 border-[#f9f9fb] shadow-sm ring-1 ring-brand-coral/30 z-10" />
@@ -100,8 +95,6 @@ export const HowWeWork = memo(function HowWeWork() {
   return (
     <section className="relative w-full bg-[#f9f9fb]">
       <div className="max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
-
-        {/* ── Section Header ── */}
         <div className="text-center mb-16 lg:mb-24">
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
             How We Work
@@ -114,9 +107,7 @@ export const HowWeWork = memo(function HowWeWork() {
           </p>
         </div>
 
-        {/* ── Timeline ── */}
         <div className="relative">
-          {/* Spine line */}
           <div className="absolute top-0 bottom-0 left-[7px] lg:left-1/2 lg:-translate-x-px w-px bg-brand-navy/10" />
 
           <div className="flex flex-col gap-14 lg:gap-20 relative pl-8 lg:pl-0">

@@ -19,7 +19,6 @@ export const metadata: Metadata = {
         "Pre-vetted contract developers and freelance programmers ready to join your team in days. Flexible contracts, no long-term commitment, immediate impact.",
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
     return (
@@ -29,23 +28,19 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
     )
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ContractHiringPage() {
     return (
         <>
-            {/* ── Hero ──────────────────────────────────────────────────────────── */}
             <section className="relative pt-24 pb-0 lg:pt-48 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
-                    {/* Top rule + eyebrow */}
                     <div className="flex items-center gap-3 sm:gap-5 mb-8 lg:mb-10">
                         <span className="block h-px flex-1 bg-brand-navy/15" />
                         <Eyebrow>{HERO_DATA.eyebrow}</Eyebrow>
                         <span className="block h-px flex-1 bg-brand-navy/15" />
                     </div>
 
-                    {/* Split layout: big title left, description right */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end pb-16 lg:pb-28">
                         <div className="lg:col-span-7">
                             <p className="text-xs font-semibold text-brand-coral uppercase tracking-[0.2em] mb-4 lg:mb-6">
@@ -74,7 +69,6 @@ export default function ContractHiringPage() {
                         </div>
                     </div>
 
-                    {/* Stats strip */}
                     <div className="border-t border-brand-navy/10 grid grid-cols-2 lg:grid-cols-4">
                         {STATS.map((stat, i) => (
                             <div
@@ -96,7 +90,6 @@ export default function ContractHiringPage() {
                 </div>
             </section>
 
-            {/* ── Trust marquee strip ────────────────────────────────────────────── */}
             <div className="bg-brand-navy overflow-hidden py-3 sm:py-4 select-none">
                 <div className="flex whitespace-nowrap animate-marquee">
                     {[...TRUST_ITEMS, ...TRUST_ITEMS].map((item, i) => (
@@ -111,10 +104,8 @@ export default function ContractHiringPage() {
                 </div>
             </div>
 
-            {/* ── Why contract hiring — angled band ─────────────────────────────── */}
             <ScrollReveal>
                 <section className="py-16 lg:py-28 relative overflow-hidden">
-                    {/* Diagonal accent stripe */}
                     <div
                         className="absolute inset-y-0 right-0 w-1/2 lg:w-2/5 bg-brand-navy/[0.03] -skew-x-6 origin-top-right pointer-events-none"
                         aria-hidden
@@ -122,7 +113,6 @@ export default function ContractHiringPage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
 
-                            {/* Left: heading block */}
                             <div>
                                 <Eyebrow>Why contract hiring</Eyebrow>
                                 <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight mb-5 lg:mb-7 text-balance">
@@ -203,14 +193,12 @@ export default function ContractHiringPage() {
                                             </h3>
                                         </div>
 
-                                        {/* Description */}
                                         <div className="md:col-span-4">
                                             <p className="text-[13px] lg:text-[14px] text-brand-navy/50 leading-relaxed">
                                                 {card.description}
                                             </p>
                                         </div>
 
-                                        {/* Tags + arrow */}
                                         <div className="md:col-span-3 flex flex-wrap items-start gap-2 md:justify-end">
                                             {card.tags.map((tag, j) => (
                                                 <span
@@ -230,7 +218,6 @@ export default function ContractHiringPage() {
                 </section>
             </ScrollReveal>
 
-            {/* ── Process — horizontal timeline on desktop ───────────────────────── */}
             <ScrollReveal>
                 <section className="py-16 lg:py-28 bg-brand-navy">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -248,9 +235,7 @@ export default function ContractHiringPage() {
                             </p>
                         </div>
 
-                        {/* Timeline: horizontal connector line on lg, vertical on mobile */}
                         <div className="relative">
-                            {/* Horizontal connector — desktop only */}
                             <div
                                 className="hidden lg:block absolute top-[2.25rem] left-0 right-0 h-px bg-brand-white/10"
                                 aria-hidden
@@ -261,18 +246,15 @@ export default function ContractHiringPage() {
                                     const Icon = step.icon
                                     return (
                                         <div key={i} className="relative flex flex-col">
-                                            {/* Step dot / icon badge */}
                                             <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-0 mb-4 lg:mb-6">
                                                 <div className="relative z-10 w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-full border border-brand-white/15 bg-brand-navy">
                                                     <Icon className="w-4 h-4 text-brand-coral" />
                                                 </div>
-                                                {/* Mobile: step label beside icon */}
                                                 <span className="text-[11px] font-semibold text-brand-coral/60 uppercase tracking-widest lg:hidden">
                                                     Step {step.number}
                                                 </span>
                                             </div>
 
-                                            {/* Step label — desktop below dot */}
                                             <span className="hidden lg:block text-[11px] font-semibold text-brand-coral/60 uppercase tracking-widest mb-3">
                                                 Step {step.number}
                                             </span>
@@ -292,7 +274,6 @@ export default function ContractHiringPage() {
                 </section>
             </ScrollReveal>
 
-            {/* ── Benefits — large split with accent numbers ─────────────────────── */}
             <ScrollReveal>
                 <section className="py-16 lg:py-28">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -312,7 +293,6 @@ export default function ContractHiringPage() {
                                         key={i}
                                         className="relative bg-brand-white p-7 lg:p-10 hover:bg-brand-navy/[0.02] transition-colors duration-300 group overflow-hidden"
                                     >
-                                        {/* Large decorative number */}
                                         <span
                                             className="absolute top-4 right-6 text-[4rem] lg:text-[5rem] font-semibold text-brand-navy/[0.04] leading-none select-none pointer-events-none"
                                             aria-hidden
@@ -336,7 +316,6 @@ export default function ContractHiringPage() {
                             })}
                         </div>
 
-                        {/* Inline proof strip */}
                         <div className="mt-8 lg:mt-10 flex flex-wrap gap-6 lg:gap-10 items-center">
                             {[
                                 "No hire, no commitment",
@@ -353,11 +332,9 @@ export default function ContractHiringPage() {
                 </section>
             </ScrollReveal>
 
-            {/* ── CTA ───────────────────────────────────────────────────────────── */}
             <ScrollReveal>
                 <section className="py-16 lg:py-32 mb-8 lg:mb-16 mx-3 sm:mx-4 lg:mx-10 rounded-2xl lg:rounded-3xl bg-brand-navy overflow-hidden relative">
 
-                    {/* Decorative large text */}
                     <p
                         className="hidden lg:block absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-[16rem] font-semibold text-brand-white/[0.03] leading-none pointer-events-none select-none whitespace-nowrap overflow-hidden"
                         aria-hidden
@@ -365,7 +342,6 @@ export default function ContractHiringPage() {
                         CONTRACT
                     </p>
 
-                    {/* Decorative coral arc */}
                     <div
                         className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full border border-brand-coral/10 pointer-events-none"
                         aria-hidden
@@ -395,12 +371,7 @@ export default function ContractHiringPage() {
                                     <ArrowRight className="w-4 h-4 ml-2" />
                                 </Link>
                             </Button>
-                            <Link
-                                href={CTA_DATA.secondaryButton.href}
-                                className="text-sm font-medium text-brand-white/40 hover:text-brand-white transition-colors underline underline-offset-4 py-2"
-                            >
-                                {CTA_DATA.secondaryButton.text}
-                            </Link>
+
                         </div>
                     </div>
                 </section>

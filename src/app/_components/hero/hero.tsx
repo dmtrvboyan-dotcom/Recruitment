@@ -20,7 +20,7 @@ const AnimatedCounter = memo(function AnimatedCounter({
       <p className="text-3xl lg:text-4xl font-bold text-brand-navy tabular-nums tracking-tight mb-1">
         {displayValue}
       </p>
-      <p className="text-xs font-medium text-brand-teal uppercase tracking-widest leading-snug max-w-[120px] text-center">
+      <p className="text-xs font-medium text-brand-navy uppercase tracking-widest leading-snug max-w-[120px] text-center">
         {label}
       </p>
     </div>
@@ -54,7 +54,7 @@ export const Hero = memo(function Hero() {
         <h1 className="text-[clamp(2.4rem,5.5vw,4.5rem)] font-bold text-brand-navy leading-[1.08] tracking-tight mb-7 animate-fade-in-up delay-100 text-center">
           IT Recruitment Agency for
           <br />
-          <span className="text-brand-blue">Tech Talent</span>
+          <span className="text-brand-navy">Tech Talent</span>
         </h1>
 
         {/* Body */}

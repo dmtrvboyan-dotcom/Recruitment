@@ -57,7 +57,6 @@ export interface CtaData {
   secondaryButton: { text: string; href: string }
 }
 
-// ─── Hero ─────────────────────────────────────────────────────────────────────
 export const HERO_DATA: HeroData = {
   tagline: "Contract & Freelance Hiring",
   eyebrow: "Flexible Developer Recruitment",
@@ -66,7 +65,6 @@ export const HERO_DATA: HeroData = {
     "Pre-vetted contract developers and freelance programmers ready to join your team in 3–10 days. Scale fast, commit less, and ship more — with zero long-term risk.",
 }
 
-// ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS: StatItem[] = [
   { value: "3–10", label: "Days to start" },
   { value: "100+", label: "Vetted developers on-demand" },
@@ -74,7 +72,6 @@ export const STATS: StatItem[] = [
   { value: "3–5", label: "Days average to shortlist" },
 ]
 
-// ─── Process ──────────────────────────────────────────────────────────────────
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
@@ -113,7 +110,6 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
 ]
 
-// ─── Services / Specialisms ───────────────────────────────────────────────────
 export const SERVICE_CARDS: ServiceCard[] = [
   {
     icon: Code2,
@@ -205,7 +201,7 @@ export const CTA_DATA: CtaData = {
   description:
     "Tell us your stack and timeline. We'll come back with a shortlist of matched, available developers within 3–5 days.",
   primaryButton: {
-    text: "Request Developers",
+    text: "Contact Us",
     href: "/#contact",
   },
   secondaryButton: {

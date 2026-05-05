@@ -6,7 +6,7 @@ import { ArrowRight, ChevronDown } from "lucide-react"
 
 export function CTASection() {
   return (
-    <section className="py-20 md:py-40  bg-gradient-to-br from-[#085689] to-[#064266]">
+    <section className="py-20 md:py-40  bg-linear-to-br from-[#085689] to-[#064266]">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white text-balanc">
           {ctaData.title}
@@ -26,14 +26,7 @@ export function CTASection() {
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </a>
-          {/* <Link href={ctaData.secondaryCta.href}>
-            <Button
-              variant="outline"
-              className="bg-transparent text-white hover:bg-white/20 rounded-lg px-8 py-6 text-base border-white/30"
-            >
-              {ctaData.secondaryCta.text}
-            </Button>
-          </Link> */}
+        
         </div>
       </div>
     </section>

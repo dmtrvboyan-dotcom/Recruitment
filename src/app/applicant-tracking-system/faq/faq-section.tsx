@@ -12,7 +12,7 @@ export function FAQSection() {
   }
 
   return (
-    <section className="py-20 md:py-32 px-6 bg-gradient-to-b from-[#ededed] to-white">
+    <section className="py-20 md:py-32 px-6 bg-linear-to-b from-[#ededed] to-white">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 text-xs font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
@@ -34,7 +34,6 @@ export function FAQSection() {
                 key={index}
                 className="bg-white rounded-xl border border-slate-200 overflow-hidden transition-all duration-300"
               >
-                {/* Header */}
                 <button
                   onClick={() => toggleItem(index)}
                   className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
@@ -49,7 +48,6 @@ export function FAQSection() {
                   />
                 </button>
 
-                {/* Animated Content */}
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
                     }`}

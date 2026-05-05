@@ -23,7 +23,6 @@ export type BlogPost = {
   tab: TabKey
 }
 
-// Chip filters per tab
 export const TAB_CHIPS: Record<TabKey, string[]> = {
   ats: ["All", "Features", "Integrations", "Updates", "Tutorials", "Best Practices"],
   companies: ["All", "Employer Branding", "DEI", "HR Trends", "Case Studies", "Scaling"],

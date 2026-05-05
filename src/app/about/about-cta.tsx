@@ -20,7 +20,7 @@ export const AboutCTA = memo(function AboutCTA() {
     return (
         <section className="relative w-full bg-brand-navy overflow-hidden">
 
-            <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-brand-coral via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-brand-coral via-transparent to-transparent pointer-events-none" />
 
             <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-16 sm:py-20 lg:py-28 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 lg:gap-10">
 

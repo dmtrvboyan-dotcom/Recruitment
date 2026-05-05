@@ -24,9 +24,6 @@ import {
   ctaData,
 } from "./data"
 
-// ============================================================================
-// Metadata Export
-// ============================================================================
 
 export const metadata = candidatesMetadata
 
@@ -67,9 +64,7 @@ function HeroSection() {
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 text-pretty">
             {heroData.subtitle}
           </p>
-          {/* <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-10">
-            {heroData.description}
-          </p> */}
+        
           <div className="flex flex-row sm:flex-row text-sm items-center justify-center gap-4">
             <Button
               asChild
@@ -91,7 +86,6 @@ function HeroSection() {
           </div>
         </div>
       </div>
-        {/* White wave at bottom of hero */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
           <svg
             viewBox="0 0 1440 80"
@@ -109,9 +103,6 @@ function HeroSection() {
   )
 }
 
-// ============================================================================
-// How It Works Section
-// ============================================================================
 
 function HowItWorksSection() {
   return (
@@ -136,7 +127,6 @@ function HowItWorksSection() {
               const Icon = step.icon
               return (
                 <div key={index} className="text-center">
-                  {/* Desktop & Mobile: number centered with tight background */}
                   <div className="flex justify-center mb-4">
                     <span className="inline-flex items-center justify-center text-3xl font-bold text-[#78B6D9] bg-[#78B6D9]/10 rounded-4xl px-4 py-4.5 leading-none hover:bg-[#085689] hover:text-[#f3f3f3] transition-all">
                       {step.number}
@@ -162,9 +152,6 @@ function HowItWorksSection() {
   )
 }
 
-// ============================================================================
-// Your Goals Section
-// ============================================================================
 
 function YourGoalsSection() {
   return (
@@ -189,7 +176,7 @@ function YourGoalsSection() {
                   className="group p-8 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
+                    <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-2xl bg-[#085689]/5 text-[#085689] group-hover:bg-[#78B6D9] group-hover:text-white transition-colors">
                       <Icon className="w-6 h-6" />
                     </div>
                     <div>
@@ -211,9 +198,6 @@ function YourGoalsSection() {
   )
 }
 
-// ============================================================================
-// What You Get Section
-// ============================================================================
 
 function WhatYouGetSection() {
   return (
@@ -258,9 +242,6 @@ function WhatYouGetSection() {
   )
 }
 
-// ============================================================================
-// Why Choose Us Section
-// ============================================================================
 
 function WhyChooseUsSection() {
   return (
@@ -305,9 +286,6 @@ function WhyChooseUsSection() {
   )
 }
 
-// ============================================================================
-// Opportunities Section
-// ============================================================================
 
 function OpportunitiesSection() {
   return (
@@ -327,7 +305,6 @@ function OpportunitiesSection() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Industries */}
             <div>
               <h3 className="text-xl font-semibold text-black mb-6 flex items-center gap-3">
                 <Globe className="w-6 h-6 text-[#085689]" />
@@ -346,7 +323,6 @@ function OpportunitiesSection() {
               </div>
             </div>
 
-            {/* Roles */}
             <div>
               <h3 className="text-xl font-semibold text-black mb-6 flex items-center gap-3">
                 <Briefcase className="w-6 h-6 text-[#085689]" />
@@ -358,7 +334,7 @@ function OpportunitiesSection() {
                     key={index}
                     className="flex items-center gap-3 p-4 bg-[#f5f5f5] rounded-xl border border-slate-100 hover:border-[#78B6D9]/30 transition-colors"
                   >
-                    <CheckCircle className="w-5 h-5 text-[#085689] flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-[#085689] shrink-0" />
                     <span className="text-slate-700">{role}</span>
                   </div>
                 ))}
@@ -370,10 +346,6 @@ function OpportunitiesSection() {
     </ScrollReveal>
   )
 }
-
-// ============================================================================
-// Testimonial Section
-// ============================================================================
 
 function TestimonialSection() {
   return (
@@ -393,9 +365,6 @@ function TestimonialSection() {
   )
 }
 
-// ============================================================================
-// FAQ Section
-// ============================================================================
 
 function FAQSection() {
   return (
@@ -432,9 +401,6 @@ function FAQSection() {
   )
 }
 
-// ============================================================================
-// CTA Section
-// ============================================================================
 
 function CTASection() {
   return (

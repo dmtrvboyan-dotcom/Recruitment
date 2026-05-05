@@ -33,7 +33,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
 
   return (
     <>
-      {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
@@ -52,12 +51,10 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
 
     
 
-      {/* Tabs + Chips + Cards */}
       <ScrollReveal>
         <section className="px-4 pb-20 md:px-8 md:pb-28">
           <div className="mx-auto max-w-6xl">
 
-            {/* Tab Bar */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-[#f5f5f5] rounded-2xl p-2 mb-8">
               {tabs.map((tab) => (
                 <button
@@ -74,7 +71,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
               ))}
             </div>
 
-            {/* Filter Chips */}
             <div className="flex flex-wrap gap-2 mb-10">
               {chips.map((chip) => (
                 <button
@@ -91,7 +87,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
               ))}
             </div>
 
-            {/* Cards Grid */}
             {filteredPosts.length === 0 ? (
               <div className="text-center py-20 text-slate-400">
                 <p className="text-lg">No articles in this category yet. Check back soon!</p>
@@ -106,7 +101,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
                     rel="noopener noreferrer"
                     className="group p-6 bg-[#f5f5f5] rounded-3xl border border-slate-100 hover:border-[#78B6D9]/30 hover:shadow-xl transition-all duration-300 flex flex-col"
                   >
-                    {/* Placeholder image area */}
                     <div className="w-full h-44 rounded-2xl bg-[#085689]/5 mb-5 flex items-center justify-center overflow-hidden">
                       <div className="w-12 h-12 rounded-xl bg-[#085689]/10 flex items-center justify-center">
                         <ArrowRight className="w-5 h-5 text-[#085689]" />

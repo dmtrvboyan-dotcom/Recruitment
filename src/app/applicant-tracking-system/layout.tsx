@@ -8,7 +8,6 @@ export default function ATSLayout({
 }) {
   return (
     <div className="relative min-h-screen">
-      {/* <DynamicBackground /> */}
       <Header />
       <SocialSidebar />
 

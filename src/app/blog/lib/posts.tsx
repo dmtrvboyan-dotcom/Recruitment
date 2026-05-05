@@ -3,7 +3,6 @@ import path from "path"
 import matter from "gray-matter"
 import { TabKey } from "../data"
 
-// Points to app/blog/posts/ (co-located with the blog route)
 const postsDir = path.join(process.cwd(), "src", "app", "blog", "posts")
 
 export type PostMeta = {
@@ -19,7 +18,6 @@ export type Post = PostMeta & {
   content: string
 }
 
-/** Return all posts sorted by date descending */
 export const getAllPosts = (): Post[] => {
   if (!fs.existsSync(postsDir)) return []
 
@@ -45,7 +43,6 @@ export const getAllPosts = (): Post[] => {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
 
-/** Return a single post by slug, or null if not found */
 export const getPostBySlug = (slug: string): Post | null => {
   const filePath = path.join(postsDir, `${slug}.md`)
   if (!fs.existsSync(filePath)) return null
@@ -64,7 +61,6 @@ export const getPostBySlug = (slug: string): Post | null => {
   }
 }
 
-/** Return slugs for all posts — used by generateStaticParams */
 export const getAllPostSlugs = (): string[] => {
   if (!fs.existsSync(postsDir)) return []
   return fs

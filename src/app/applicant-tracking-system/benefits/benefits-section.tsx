@@ -20,7 +20,7 @@ export function BenefitsSection() {
     };
 
     return (
-        <section className="py-20 md:py-32 px-6 bg-gradient-to-b from-[#ededed] to-white overflow-hidden">
+        <section className="py-20 md:py-32 px-6 bg-linear-to-b from-[#ededed] to-white overflow-hidden">
             <div className="max-w-6xl mx-auto">
 
                 <div className="text-center mb-6">
@@ -37,7 +37,7 @@ export function BenefitsSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mt-16">
 
                     {/* IMAGE (Top on mobile, right on desktop) */}
-                    <div className="order-1 lg:order-2 lg:sticky lg:top-10 rounded-2xl overflow-hidden aspect-[4/3] relative border border-slate-200 shadow-[0_16px_40px_rgba(8,86,137,0.12)]">
+                    <div className="order-1 lg:order-2 lg:sticky lg:top-10 rounded-2xl overflow-hidden aspect-4/3 relative border border-slate-200 shadow-[0_16px_40px_rgba(8,86,137,0.12)]">
                         {bgImages.map((src, index) => (
                             <Image
                                 key={index}
@@ -62,7 +62,7 @@ export function BenefitsSection() {
                             >
                                 <div className="flex items-center gap-5 select-none">
                                     <div
-                                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 border-[1.5px] transition-all duration-300 ${
+                                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 border-[1.5px] transition-all duration-300 ${
                                             active === index
                                                 ? "bg-[#ff9204] border-[#ff9204]/20 text-white shadow-[0_4px_12px_rgba(255,146,4,0.3)]"
                                                 : "border-slate-300 text-slate-400"
@@ -80,11 +80,11 @@ export function BenefitsSection() {
                                 </div>
 
                                 <div
-                                    className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
                                         active === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                                 >
-                                    <div className="pt-4 pb-1 pl-[52px] flex flex-col gap-3">
+                                    <div className="pt-4 pb-1 pl-13 flex flex-col gap-3">
                                         <p className="text-slate-500 text-sm leading-relaxed">
                                             {benefit.description}
                                         </p>

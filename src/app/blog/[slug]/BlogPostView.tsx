@@ -13,7 +13,6 @@ type Props = {
 export function BlogPostView({ post }: Props) {
   return (
     <main className="min-h-screen bg-white">
-      {/* Top bar */}
       <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
@@ -29,9 +28,7 @@ export function BlogPostView({ post }: Props) {
         </div>
       </div>
 
-      {/* Article */}
       <article className="max-w-3xl mx-auto px-6 py-16">
-        {/* Header */}
         <header className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#085689]/10 text-[#085689] uppercase tracking-widest">
@@ -47,10 +44,8 @@ export function BlogPostView({ post }: Props) {
           </p>
         </header>
 
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-[#085689]/20 via-[#78B6D9]/30 to-transparent mb-12" />
+        <div className="h-px bg-linear-to-r from-[#085689]/20 via-[#78B6D9]/30 to-transparent mb-12" />
 
-        {/* Markdown Body */}
         <div className="prose prose-slate prose-lg max-w-none
           prose-headings:font-semibold prose-headings:text-slate-900
           prose-h1:text-4xl prose-h2:text-2xl prose-h3:text-xl
@@ -71,7 +66,6 @@ export function BlogPostView({ post }: Props) {
           </ReactMarkdown>
         </div>
 
-        {/* Footer */}
         <div className="mt-16 pt-8 border-t border-slate-100">
           <Link
             href="/blog"
