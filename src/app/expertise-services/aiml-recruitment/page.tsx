@@ -147,14 +147,14 @@ export default function AiMlRecruitment() {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
-              <Button
+              {/* <Button
                 asChild
                 variant="outline"
                 className="bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 border-2 border-brand-white/30 text-base font-medium">
                 <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </section>

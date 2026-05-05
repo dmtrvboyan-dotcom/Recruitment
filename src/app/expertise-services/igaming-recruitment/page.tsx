@@ -57,7 +57,7 @@ export default function IGamingRecruitmentPage() {
       {/* Roles Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28 bg-brand-white/30">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
                 {ROLES_HEADER.tagline}
@@ -67,25 +67,30 @@ export default function IGamingRecruitmentPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
               {ROLES.map((item, index) => {
                 const Icon = item.icon
                 return (
                   <div
                     key={index}
-                    className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80  hover:shadow-xl transition-all duration-300"
+                    className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="mb-6">
+                    <div className="mb-5">
                       <div className={`w-14 h-14 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}>
                         <Icon className="w-7 h-7" />
                       </div>
                     </div>
-                    <h3 className="font-semibold text-xl text-brand-navy mb-3 leading-tight group-hover:text-brand-blue transition-colors">
+                    <h3 className="font-semibold text-xl text-brand-navy mb-4 leading-tight group-hover:text-brand-blue transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-brand-navy/55 text-[15px] leading-relaxed">
-                      {item.description}
-                    </p>
+                    <ul className="space-y-1.5">
+                      {item.bullets.map((bullet, bIndex) => (
+                        <li key={bIndex} className="flex items-start gap-2 text-[13.5px] text-brand-navy/60 leading-snug">
+                          <span className={`mt-[5px] w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.iconBg} ${item.color} bg-current`} />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )
               })}
@@ -148,15 +153,6 @@ export default function IGamingRecruitmentPage() {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
-              {/* <Button
-                asChild
-                variant="outline"
-                className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-xl px-8 py-6 border-2 border-[#78B6D9]/50 text-base font-medium"
-              >
-                <Link href={CTA_DATA.secondaryButton.href}>
-                  {CTA_DATA.secondaryButton.text}
-                </Link>
-              </Button> */}
             </div>
           </div>
         </section>

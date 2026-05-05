@@ -28,7 +28,7 @@ export const EXPERTISE_AREAS = [
     stats: "150+ placements",
   },
   {
-    title: "SaaS Recruitment",
+    title: "IT Services & SaaS Recruitment",
     description: "SaaS recruitment for engineers, DevOps, and technical leaders across Bulgaria and Europe.",
     href: "/expertise-services/saas-recruitment",
     icon: Code2,

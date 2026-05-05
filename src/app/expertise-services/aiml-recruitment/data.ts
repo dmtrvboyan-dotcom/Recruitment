@@ -131,7 +131,7 @@ export const CTA_DATA: CtaData = {
   description:
     "Partner with an AI recruitment agency that understands machine learning, data science, and advanced technologies. Hire faster and build world-class AI teams.",
   primaryButton: {
-    text: "Start Hiring AI Talent",
+    text: "Hire AI Talent",
     href: "/#contact",
   },
   secondaryButton: {

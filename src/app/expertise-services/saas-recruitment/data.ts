@@ -1,5 +1,33 @@
-import { Code2, Server, Layers, Cloud, Rocket, TrendingUp, Building2 } from "lucide-react"
+import {
+  Code2,
+  Cloud,
+  ShieldCheck,
+  BarChart2,
+  Briefcase,
+  Handshake,
+  Headphones,
+  Database,
+  Settings,
+  PackageCheck,
+  Rocket,
+  TrendingUp,
+  Building2,
+  CheckCircle,
+  Globe,
+  Zap,
+  Star,
+  Users,
+} from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+
+export interface RoleItem {
+  icon: LucideIcon
+  title: string
+  description: string
+  color: string
+  iconBg: string
+  bullets: string[]
+}
 
 export interface ServiceItem {
   icon: LucideIcon
@@ -33,47 +61,133 @@ export interface CtaData {
   }
 }
 
+export interface FooterBarItem {
+  icon: LucideIcon
+  label: string
+}
+
 export const HERO_DATA: HeroData = {
   tagline: "SaaS Recruitment",
   title: "SaaS Specialists Acquisition & B2B Software Hiring",
-  description:
-    "We specialize in SaaS recruitment, helping companies hire top specialists for cloud-based software, B2B SaaS platforms, and subscription products.",
+  description:"We specialize in SaaS recruitment, helping companies hire top specialists for cloud-based software, B2B SaaS platforms, and subscription products.",
 }
 
 export const WHAT_WE_COVER_HEADER: SectionHeader = {
-  tagline: "SaaS Expertise",
-  title: "What We Cover",
+  tagline: "Who We Hire",
+  title: "IT Services & SaaS Recruitment",
 }
 
-export const WHAT_WE_COVER: ServiceItem[] = [
+export const WHAT_WE_COVER: RoleItem[] = [
   {
     icon: Code2,
-    title: "SaaS Frontend Engineers",
-    description: "Frontend developers experienced in building scalable SaaS interfaces using React, Vue, Angular, and modern JavaScript frameworks focused on performance and user experience.",
+    title: "Software Development",
+    description: "",
     color: "text-[#0c447c]",
     iconBg: "bg-[#dbeeff]",
-  },
-  {
-    icon: Server,
-    title: "SaaS Backend Engineers",
-    description: "Backend engineers specializing in cloud-based SaaS architecture, APIs, microservices, and secure, multi-tenant systems using Node.js, Python, Java, and more.",
-    color: "text-[#085041]",
-    iconBg: "bg-[#d0f5ea]",
-  },
-  {
-    icon: Layers,
-    title: "Full-Stack SaaS Developers",
-    description: "Full-stack engineers who understand the complete SaaS product lifecycle, from database design to frontend delivery and continuous deployment.",
-    color: "text-[#712b13]",
-    iconBg: "bg-[#fce8e1]",
+    bullets: [
+      "Backend Developers (Node.js, Java, .NET, Python)",
+      "Frontend Developers (React, Angular, Vue)",
+      "Full-Stack Developers",
+      "Mobile Developers (iOS / Android)",
+      "Software Architects",
+      "Tech Leads",
+    ],
   },
   {
     icon: Cloud,
-    title: "Cloud, DevOps & SaaS Infrastructure",
-    description: "Experts in AWS, Azure, GCP, Kubernetes, and CI/CD pipelines who ensure your SaaS platform is scalable, reliable, and ready for rapid growth.",
+    title: "DevOps & Cloud",
+    description: "",
+    color: "text-[#085041]",
+    iconBg: "bg-[#d0f5ea]",
+    bullets: [
+      "DevOps Engineers",
+      "Cloud Engineers (AWS, Azure, GCP)",
+      "SRE Engineers",
+      "Platform Engineers",
+      "Kubernetes Specialists",
+      "CI/CD Engineers",
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: "QA & Testing",
+    description: "",
     color: "text-[#3c3489]",
     iconBg: "bg-[#edecfe]",
+    bullets: [
+      "QA Engineers (Manual & Automation)",
+      "Test Automation Engineers (Selenium, Cypress)",
+      "Performance Test Engineers",
+      "QA Leads",
+    ],
   },
+  {
+    icon: BarChart2,
+    title: "Data & Analytics",
+    description: "",
+    color: "text-[#633806]",
+    iconBg: "bg-[#fef3da]",
+    bullets: [
+      "Data Engineers",
+      "Data Analysts",
+      "BI Developers",
+      "Data Scientists",
+      "Analytics Engineers",
+    ],
+  },
+  {
+    icon: Briefcase,
+    title: "Product & Project",
+    description: "",
+    color: "text-[#72243e]",
+    iconBg: "bg-[#fceaf0]",
+    bullets: [
+      "Product Managers",
+      "Product Owners",
+      "Project Managers (Agile / Scrum)",
+      "Delivery Managers",
+    ],
+  },
+  {
+    icon: Handshake,
+    title: "Sales & Pre-Sales",
+    description: "",
+    color: "text-[#085041]",
+    iconBg: "bg-[#d0f5ea]",
+    bullets: [
+      "Business Development Managers",
+      "IT Sales Specialists",
+      "Account Managers",
+      "Pre-Sales Engineers / Solution Consultants",
+    ],
+  },
+  {
+    icon: Headphones,
+    title: "Customer Success & Support",
+    description: "",
+    color: "text-[#3c3489]",
+    iconBg: "bg-[#edecfe]",
+    bullets: [
+      "Customer Success Managers",
+      "Technical Support Engineers",
+      "Implementation Specialists",
+      "Onboarding Specialists",
+    ],
+  },
+  {
+    icon: Database,
+    title: "ERP / CRM / Enterprise Systems",
+    description: "",
+    color: "text-[#633806]",
+    iconBg: "bg-[#fef3da]",
+    bullets: [
+      "SAP Consultants",
+      "Salesforce Specialists",
+      "Microsoft Dynamics Experts",
+      "ERP Implementation Consultants",
+    ],
+  },
+ 
 ]
 
 export const PERFECT_FOR_HEADER: SectionHeader = {
@@ -105,12 +219,26 @@ export const PERFECT_FOR: ServiceItem[] = [
   },
 ]
 
+export const FOOTER_BAR = {
+  moreRoles: {
+    icon: Users,
+    title: "Many more roles available",
+    description: "We recruit across specialized technologies and business functions.",
+  },
+  badges: [
+    { icon: CheckCircle, label: "Flexible Engagement" },
+    { icon: Globe, label: "Global Talent Pool" },
+    { icon: Zap, label: "Fast Hiring Process" },
+    { icon: Star, label: "Industry Expertise" },
+  ] as { icon: LucideIcon; label: string }[],
+}
+
 export const CTA_DATA: CtaData = {
   title: "Looking to Hire SaaS Specialists?",
   description:
     "Partner with a SaaS recruitment agency that understands cloud software, B2B SaaS, and subscription-based products. We help you find and hire the right specialists to scale your platform.",
   primaryButton: {
-    text: "Start Hiring SaaS Specialists",
+    text: "Contact Us",
     href: "/#contact",
   },
   secondaryButton: {

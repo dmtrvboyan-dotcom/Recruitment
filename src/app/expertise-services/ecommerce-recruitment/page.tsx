@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import {
   HERO_DATA,
+  ROLES_WE_HIRE_HEADER,
+  ROLES_WE_HIRE,
   BULGARIA_DELIVERS_HEADER,
   BULGARIA_DELIVERS,
   HOW_WE_HELP_HEADER,
@@ -39,6 +41,51 @@ export default function EcommerceRecruitment() {
         </div>
       </section>
 
+      {/* Roles We Hire Section */}
+      <ScrollReveal>
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-brand-white/30">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center mb-14">
+              <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
+                {ROLES_WE_HIRE_HEADER.tagline}
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-navy mb-4">
+                {ROLES_WE_HIRE_HEADER.title}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {ROLES_WE_HIRE.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <div
+                    key={index}
+                    className="group p-6 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="mb-5">
+                      <div className={`w-12 h-12 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}>
+                        <Icon className="w-6 h-6" />
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-base text-brand-navy mb-3 leading-tight group-hover:text-brand-blue transition-colors">
+                      {item.title}
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {item.bullets.map((bullet, bIndex) => (
+                        <li key={bIndex} className="flex items-start gap-2 text-[12.5px] text-brand-navy/60 leading-snug">
+                          <span className={`mt-[5px] w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.color} bg-current`} />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
       {/* Bulgaria Delivers Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28 bg-brand-white/30">
@@ -61,7 +108,7 @@ export default function EcommerceRecruitment() {
                     className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300 text-center"
                   >
                     <div className="mb-6 flex justify-center">
-                      <div className={`w-16 h-16 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`} >
+                      <div className={`w-16 h-16 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}>
                         <Icon className="w-8 h-8" />
                       </div>
                     </div>
@@ -98,7 +145,8 @@ export default function EcommerceRecruitment() {
                 return (
                   <div
                     key={index}
-                    className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300 relative">
+                    className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300 relative"
+                  >
                     <div className="absolute top-6 right-6 text-5xl font-bold text-brand-navy/10 group-hover:text-brand-blue/20 transition-colors">
                       {item.step}
                     </div>
@@ -119,10 +167,10 @@ export default function EcommerceRecruitment() {
             </div>
           </div>
         </section>
-      </ScrollReveal >
+      </ScrollReveal>
 
       {/* CTA Section */}
-      < ScrollReveal >
+      <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28 mb-20 bg-brand-navy">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-coral mb-6">
@@ -134,16 +182,9 @@ export default function EcommerceRecruitment() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
-                className="bg-brand-blue text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 text-base font-medium"              >
-                <Link href={CTA_DATA.primaryButton.href}>
-                  {CTA_DATA.primaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                asChild
                 variant="outline"
-                className="bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 border-2 border-brand-white/30 text-base font-medium"              >
+                className="bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 border-2 border-brand-white/30 text-base font-medium"
+              >
                 <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
                 </Link>
@@ -151,7 +192,7 @@ export default function EcommerceRecruitment() {
             </div>
           </div>
         </section>
-      </ScrollReveal >
+      </ScrollReveal>
     </>
   )
 }

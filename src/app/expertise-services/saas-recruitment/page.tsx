@@ -9,6 +9,7 @@ import {
   WHAT_WE_COVER,
   PERFECT_FOR_HEADER,
   PERFECT_FOR,
+  FOOTER_BAR,
   CTA_DATA,
 } from "./data"
 
@@ -39,11 +40,10 @@ export default function SaasRecruitmentPage() {
         </div>
       </section>
 
-      {/* What We Cover Section */}
+      {/* What We Cover / Roles Section */}
       <ScrollReveal>
         <section className="px-4 py-20 md:px-8 md:py-28 bg-brand-white/30">
-
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
                 {WHAT_WE_COVER_HEADER.tagline}
@@ -53,34 +53,57 @@ export default function SaasRecruitmentPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {WHAT_WE_COVER.map((item, index) => {
                 const Icon = item.icon
                 return (
                   <div
                     key={index}
-                    className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300"
-
+                    className="group p-6 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="flex items-start gap-6">
-                      <div className="flex-shrink-0">
-                        <div className={`w-14 h-14 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}
-                        >
-                          <Icon className="w-7 h-7" />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-xl text-brand-navy mb-3 leading-tight group-hover:text-brand-blue transition-colors">
-                          {item.title}
-                        </h3>
-                        <p className="text-brand-navy/60 text-[15px] leading-relaxed">
-                          {item.description}
-                        </p>
+                    <div className="mb-5">
+                      <div className={`w-12 h-12 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}>
+                        <Icon className="w-6 h-6" />
                       </div>
                     </div>
+                    <h3 className="font-semibold text-base text-brand-navy mb-3 leading-tight group-hover:text-brand-blue transition-colors">
+                      {item.title}
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {item.bullets.map((bullet, bIndex) => (
+                        <li key={bIndex} className="flex items-start gap-2 text-[12.5px] text-brand-navy/60 leading-snug">
+                          <span className={`mt-[5px] w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.color} bg-current`} />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )
               })}
+            </div>
+
+            {/* Footer Bar */}
+            <div className="mt-8 rounded-3xl border border-brand-navy/10 bg-brand-white px-8 py-5 flex flex-col md:flex-row items-center gap-6 md:gap-0 md:justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-[#edecfe] text-[#3c3489] flex-shrink-0">
+                  <FOOTER_BAR.moreRoles.icon className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-semibold text-brand-navy text-sm leading-tight">{FOOTER_BAR.moreRoles.title}</p>
+                  <p className="text-brand-navy/55 text-[13px] leading-snug mt-0.5">{FOOTER_BAR.moreRoles.description}</p>
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center gap-5 md:gap-8">
+                {FOOTER_BAR.badges.map((badge, index) => {
+                  const BadgeIcon = badge.icon
+                  return (
+                    <div key={index} className="flex items-center gap-2 text-brand-navy/70">
+                      <BadgeIcon className="w-4 h-4 text-brand-teal flex-shrink-0" />
+                      <span className="text-[13px] font-medium whitespace-nowrap">{badge.label}</span>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </section>
@@ -88,7 +111,7 @@ export default function SaasRecruitmentPage() {
 
       {/* Perfect For Section */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 bg-trasparent">
+        <section className="px-4 py-20 md:px-8 md:py-28 bg-transparent">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-14">
               <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
@@ -108,8 +131,7 @@ export default function SaasRecruitmentPage() {
                     className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300 text-center"
                   >
                     <div className="mb-6 flex justify-center">
-                      <div className={`w-16 h-16 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}
-                      >
+                      <div className={`w-16 h-16 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}>
                         <Icon className="w-8 h-8" />
                       </div>
                     </div>
@@ -145,14 +167,6 @@ export default function SaasRecruitmentPage() {
                 <Link href={CTA_DATA.primaryButton.href}>
                   {CTA_DATA.primaryButton.text}
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 border-2 border-brand-white/30 text-base font-medium"              >
-                <Link href={CTA_DATA.secondaryButton.href}>
-                  {CTA_DATA.secondaryButton.text}
                 </Link>
               </Button>
             </div>

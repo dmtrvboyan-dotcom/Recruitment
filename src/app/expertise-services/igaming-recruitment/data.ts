@@ -1,4 +1,4 @@
-import { Code2, Palette, Headphones, Box } from "lucide-react"
+import { Code2, Palette, Headphones, Box, ShieldAlert, CreditCard, Megaphone, BarChart2 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 export interface HeroData {
@@ -18,6 +18,7 @@ export interface RoleItem {
   description: string
   color: string
   iconBg: string
+  bullets: string[]
 }
 
 export interface DifferentiatorItem {
@@ -77,35 +78,117 @@ export const STATS_DATA: StatItem[] = [
 export const ROLES: RoleItem[] = [
   {
     icon: Code2,
-    title: "Developers",
-    description:
-      "Backend, frontend, and full-stack developers with gaming and real-time systems experience.",
+    title: "Game Development",
+    description: "",
     color: "text-[#72243e]",
     iconBg: "bg-[#fceaf0]",
+    bullets: [
+      "Game Developers (Unity / Unreal / HTML5)",
+      "Backend Game Developers (Node.js, Java, Go)",
+      "Multiplayer Engineers (Real-time systems)",
+      "RNG Engineers",
+      "Graphics / Rendering Engineers",
+      "Game Engine Developers",
+    ],
   },
   {
     icon: Palette,
-    title: "Game Designers",
-    description:
-      "Creative professionals who design engaging game mechanics, UX flows, and player experiences.",
+    title: "Game Design & UX",
+    description: "",
     color: "text-[#085041]",
     iconBg: "bg-[#d0f5ea]",
+    bullets: [
+      "Game Designers (Slots / Casino Mechanics)",
+      "Level Designers",
+      "UX/UI Designers (Gaming UX)",
+      "Player Experience Specialists",
+      "Economy Designers (Game balancing)",
+    ],
   },
   {
-    icon: Headphones,
-    title: "Support (Multilingual)",
-    description:
-      "Customer support specialists fluent in multiple languages to serve global player bases.",
-    color: "text-[#3c3489]",
-    iconBg: "bg-[#edecfe]",
+    icon: BarChart2,
+    title: "Product & Monetization",
+    description: "",
+    color: "text-[#8b4a00]",
+    iconBg: "bg-[#fff3e0]",
+    bullets: [
+      "Product Managers (iGaming)",
+      "Live Ops Managers",
+      "Monetization Specialists",
+      "CRM Managers (Retention, Lifecycle)",
+      "VIP Managers",
+      "Loyalty Program Managers",
+    ],
   },
   {
     icon: Box,
-    title: "Product Specialists",
-    description:
-      "Product managers and owners who understand the iGaming industry and player behavior.",
-    color: "text-[#712b13]",
-    iconBg: "bg-[#fce8e1]",
+    title: "Data & Analytics",
+    description: "",
+    color: "text-[#3c3489]",
+    iconBg: "bg-[#edecfe]",
+    bullets: [
+      "Game Data Analysts",
+      "BI Analysts (Player behavior)",
+      "Data Scientists (Churn / LTV prediction)",
+      "Fraud Analysts",
+      "A/B Testing Specialists",
+    ],
+  },
+  {
+    icon: ShieldAlert,
+    title: "Risk, Fraud & Compliance",
+    description: "",
+    color: "text-[#72243e]",
+    iconBg: "bg-[#fceaf0]",
+    bullets: [
+      "Fraud & Risk Analysts",
+      "Payments Risk Specialists",
+      "AML Specialists",
+      "KYC Analysts",
+      "Compliance Managers (Gambling regulations)",
+      "Responsible Gambling Specialists",
+    ],
+  },
+  {
+    icon: CreditCard,
+    title: "Payments & Integrations",
+    description: "",
+    color: "text-[#3c3489]",
+    iconBg: "bg-[#edecfe]",
+    bullets: [
+      "Payment Integration Specialists",
+      "PSP Managers",
+      "Billing Specialists",
+      "Anti-Fraud Payment Experts",
+    ],
+  },
+  {
+    icon: Headphones,
+    title: "Customer Support (Multilingual)",
+    description: "",
+    color: "text-[#085041]",
+    iconBg: "bg-[#d0f5ea]",
+    bullets: [
+      "Customer Support Agents (Tier 1–3)",
+      "VIP Support Agents",
+      "Risk Support Specialists",
+      "Social Media Support Agents",
+    ],
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing & Growth",
+    description: "",
+    color: "text-[#8b4a00]",
+    iconBg: "bg-[#fff3e0]",
+    bullets: [
+      "Affiliate Managers",
+      "SEO Specialists (iGaming)",
+      "PPC Specialists (Gambling traffic)",
+      "CRM / Email Marketing Specialists",
+      "Social Media Managers",
+      "Influencer / Streamer Managers",
+    ],
   },
 ]
 

@@ -19,7 +19,6 @@ export const CategoryCard = memo(function CategoryCard({
       onClick={onClick}
       className="relative group border border-brand-navy/5 rounded-2xl p-6 bg-white hover:border-brand-blue/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 cursor-pointer"
     >
-      {/* Eye Icon: Permanent on mobile, hover on desktop */}
       <div className="absolute top-4 right-4">
         <div className={`
           relative flex items-center justify-center w-8 h-8 rounded-full 
