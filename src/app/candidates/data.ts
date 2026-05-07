@@ -217,7 +217,7 @@ export const howItWorksData: SectionData<CandidateStep> = {
 
 export const yourGoalsData: SectionData<GoalPoint> = {
   tagline: "YOUR GOALS COME FIRST",
-  title: "We Focus on What Matters to You",
+  title: "We Focus on What",
   items: [
     {
       icon: MessageSquare,
@@ -252,7 +252,7 @@ export const yourGoalsData: SectionData<GoalPoint> = {
 
 export const whatYouGetData: SectionData<Benefit> = {
   tagline: "WHAT YOU GET",
-  title: "Benefits of Working With Us",
+  title: "Your Unfair",
   items: [
     {
       icon: Briefcase,
@@ -362,7 +362,7 @@ export const testimonialData = {
 
 export const faqData: SectionData<FAQ> = {
   tagline: "COMMON QUESTIONS",
-  title: "Frequently Asked Questions",
+  title: "Frequently Asked",
   items: [
     {
       question: "Is there any cost for candidates?",

@@ -9,7 +9,6 @@ export default function Page() {
     <>
       <About />
       <InvestInPeople />
-      {/* <TeamCarousel showQuote={false} /> */}
       <WhatYouGet />
       <AboutCTA />
     </>
