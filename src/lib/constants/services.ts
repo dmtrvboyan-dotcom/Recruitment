@@ -29,7 +29,7 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     icon: Users,
-    iconColor: "text-[#D85A30]",
+    iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Permanent IT Recruitment",
     subtitle: "",
@@ -63,7 +63,7 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Briefcase,
-    iconColor: "text-[#D85A30]",
+    iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Hire Contract or Freelance Developers",
     subtitle: "",
@@ -97,7 +97,7 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Clock,
-  iconColor: "text-[#D85A30]",
+  iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Project-Based IT Recruitment",
     subtitle: "Flexible Hiring for Immediate Needs",
@@ -131,7 +131,7 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Globe,
-   iconColor: "text-[#D85A30]",
+   iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Remote IT Hiring & Global Talent",
     subtitle: "Build Strong Teams Without Location Limits",
@@ -165,7 +165,7 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Search,
-   iconColor: "text-[#D85A30]",
+   iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Executive Search & Headhunting",
     subtitle: "",
@@ -199,7 +199,7 @@ export const SERVICES: Service[] = [
   },
   {
     icon: UserCheck,
-    iconColor: "text-[#D85A30]",
+    iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "IT Salary Benchmarking & Hiring Insights",
     subtitle: "",

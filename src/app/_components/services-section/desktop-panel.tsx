@@ -92,21 +92,34 @@ export const DesktopPanel = memo(function DesktopPanel({
             </div>
 
             {/* Stats + button */}
-            <div className="mt-10 border-t border-border pt-8 flex flex-col sm:flex-row sm:items-center gap-8">
-              <div className="grid grid-cols-3 gap-6 flex-1">
-                {service.stats.map((stat, idx) => (
-                  <div key={idx} className="text-center">
-                    <div className={`text-[2rem] text-brand-navy font-bold ${service.iconColor}`}>{stat.value}</div>
-                    <div className="text-sm text-brand-teal mt-1">{stat.label}</div>
-                  </div>
-                ))}
+            <div className="mt-10 border-t border-border pt-8">
+
+              {/* Stats - Centered */}
+              <div className="flex justify-center mb-10">
+                <div className="grid grid-cols-3 gap-8 md:gap-12">
+                  {service.stats.map((stat, idx) => (
+                    <div key={idx} className="text-center">
+                      <div className={`text-[2.1rem] leading-none font-bold ${service.iconColor}`}>
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-brand-teal mt-2 font-medium">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <Link
-                href={service.href}
-                target="_blank"
-                className="shrink-0 inline-flex items-center bg-brand-navy hover:bg-brand-coral text-white py-3.5 px-8 rounded-3xl text-sm font-medium tracking-widest uppercase transition-colors duration-200">
-                Learn more <Users className="w-4 h-4 ml-2" />
-              </Link>
+
+              {/* Button - Centered below stats */}
+              <div className="flex justify-center">
+                <Link
+                  href={service.href}
+                  target="_blank"
+                  className="inline-flex items-center justify-center bg-brand-navy hover:bg-brand-coral text-white py-3.5 px-10 rounded-3xl text-sm font-medium tracking-widest uppercase transition-colors duration-200 min-w-[200px]">
+                  Learn more
+                  <Users className="w-4 h-4 ml-2" />
+                </Link>
+              </div>
             </div>
           </div>
         )}

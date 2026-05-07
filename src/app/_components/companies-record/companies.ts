@@ -13,6 +13,3 @@ export const COMPANIES = [
   "MM SOLUTIONS",
   "TINQIN",
 ]
-
-export const COMPANIES_ROW_1 = COMPANIES.slice(0, 7)
-export const COMPANIES_ROW_2 = COMPANIES.slice(7)

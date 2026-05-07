@@ -42,7 +42,7 @@ export function SmartRSection() {
         {/* CTA - Coral for consistency with Hero's primary action */}
         <div className="mb-20">
           <Link href="/applicant-tracking-system" target="_blank">
-            <Button className="bg-brand-coral hover:bg-brand-coral-hover text-white rounded-full px-10 py-7 text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-xl shadow-brand-coral/20 group">
+            <Button className="bg-brand-coral hover:bg-brand-coral-hover text-white rounded-full px-10 py-7 text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-xl shadow-brand-coral/20 group cursor-pointer">
               <span className="flex items-center gap-3">
                 Learn more
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
