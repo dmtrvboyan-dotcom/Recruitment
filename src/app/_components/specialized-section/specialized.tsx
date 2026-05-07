@@ -30,7 +30,7 @@ export function SpecializedRecruitment() {
             Industry-Focused Expertise
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-brand-navy">
-            Specialized recruitment
+            Technical Specialized Recruitment
           </h2>
         </div>
 
@@ -62,7 +62,7 @@ export function SpecializedRecruitment() {
                rounded-full 
                transition-all duration-300 
                group 
-               shadow-lg sm:shadow-xl shadow-brand-navy/10"
+               shadow-lg sm:shadow-xl shadow-brand-navy/10 cursor-pointer"
           >
             <span className="flex items-center gap-2 sm:gap-3 text-center">
               Looking for a specific role? Let's talk

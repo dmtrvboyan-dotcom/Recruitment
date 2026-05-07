@@ -5,9 +5,10 @@ import type { TeamMember } from "@/lib/constants/team"
 
 interface TeamMemberCardProps {
   member: TeamMember
+  showQuote?: boolean
 }
 
-export const TeamMemberCard = memo(function TeamMemberCard({ member }: TeamMemberCardProps) {
+export const TeamMemberCard = memo(function TeamMemberCard({ member, showQuote = true }: TeamMemberCardProps) {
   return (
     <div className="group flex flex-col items-center">
       {/* Circle Container */}
@@ -43,9 +44,11 @@ export const TeamMemberCard = memo(function TeamMemberCard({ member }: TeamMembe
       <div className="text-center px-2">
         <p className="font-bold text-brand-navy tracking-tight text-base">{member.name}</p>
       
-        <p className="text-brand-navy/50 text-xs italic leading-relaxed max-w-[180px] line-clamp-3">
-          &quot;{member.quote}&quot;
-        </p>
+        {showQuote && (
+          <p className="text-brand-navy/50 text-xs italic leading-relaxed max-w-[180px] line-clamp-3">
+            &quot;{member.quote}&quot;
+          </p>
+        )}
       </div>
     </div>
   )

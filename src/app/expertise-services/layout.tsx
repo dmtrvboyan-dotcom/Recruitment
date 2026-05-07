@@ -13,7 +13,7 @@ export default function ServicesLayout({
             {/* <DynamicBackground /> */}
             <Header />
             <SocialSidebar />
-            <PageBackground />
+            {/* <PageBackground /> */}
             <main>{children}</main>
             <Footer />
         </div>

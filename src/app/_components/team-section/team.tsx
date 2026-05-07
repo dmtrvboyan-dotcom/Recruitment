@@ -28,7 +28,7 @@ export function MeetTheTeam() {
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-brand-coral mb-4">
             About us
           </p>
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-brand-navy mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-brand-navy mb-8 capitalize">
             Nice to meet <span className="text-brand-coral"> you</span>
           </h2>
 
@@ -43,10 +43,6 @@ export function MeetTheTeam() {
         </div>
 
         <PhotoGallery />
-
-
-
-
 
         <div className="pt-16  border-t border-brand-navy/5">
           <TeamCarousel />

@@ -8,8 +8,10 @@ import { useSwipe } from "./useSwipe"
 const GALLERY_PHOTOS = [
   { src: "/uploaded/team.jpg",  alt: "Team photo 1" },
   { src: "/uploaded/team1.png", alt: "Team photo 2" },
+  { src: "/uploaded/team2.png", alt: "Team photo 4" },
   { src: "/uploaded/team3.png", alt: "Team photo 4" },
   { src: "/uploaded/team4.png", alt: "Team photo 4" },
+  { src: "/uploaded/team5.png", alt: "Team photo 4" },
 ]
 
 const THUMBS_PER_PAGE = 3

@@ -147,9 +147,17 @@ export default function IGamingRecruitmentPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
-               className="bg-brand-blue text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 text-base font-medium">
+                className="bg-brand-blue text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 text-base font-medium">
                 <Link href={CTA_DATA.primaryButton.href}>
                   {CTA_DATA.primaryButton.text}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                className="bg-brand-navy text-brand-white hover:bg-brand-white border-brand-white border-2 hover:text-brand-navy rounded-xl px-8 py-6 text-base font-medium">
+                <Link href={CTA_DATA.secondaryButton.href} target="_blank">
+                  {CTA_DATA.secondaryButton.text}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>

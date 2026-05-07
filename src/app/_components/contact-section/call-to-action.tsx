@@ -28,7 +28,7 @@ export function CallToAction() {
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-brand-coral mb-4">
             Get in Touch
           </p>
-          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-tight text-brand-navy leading-tight mb-6">
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-tight text-brand-navy leading-tight mb-6 capitalize">
             Let's start a <span className="text-brand-blue">conversation</span>
           </h2>
           <p className="text-lg text-brand-navy/60 leading-relaxed max-w-2xl mx-auto">

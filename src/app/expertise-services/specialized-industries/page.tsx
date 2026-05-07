@@ -257,7 +257,7 @@ export default function SpecializedIndustries() {
                 variant="outline"
                 className="bg-transparent text-black hover:bg-[#78B6D9] hover:text-white rounded-xl px-8 py-6 border-2 border-[#78B6D9]/50 text-base font-medium"
               >
-                <Link href={CTA_DATA.secondaryButton.href}>
+                <Link href={CTA_DATA.secondaryButton.href} target="_blank">
                   {CTA_DATA.secondaryButton.text}
                 </Link>
               </Button>

@@ -41,12 +41,51 @@ export interface CtaData {
 
 export const HERO_DATA: HeroData = {
   tagline: "Specialized Industries",
-  title: "Industry-Specific Tech Talent Recruitment",
+  title: "Industry-Specific Tech Recruitment",
   description:
-    "Our recruitment networks extend across highly specialized technical ecosystems, allowing us to connect companies with talent that understands not just technology—but the industry context behind it.",
+    "Our recruitment networks extend across different technical ecosystems.",
 }
 
 export const INDUSTRIES: IndustryData[] = [
+  {
+    icon: CreditCard,
+    title: "Banking Tech",
+    slug: "banking-tech",
+    description:
+      "We partner with fintech and banking organizations to build teams developing secure, scalable financial systems.",
+    highlights: [
+      "Payment processing systems and transaction platforms",
+      "Banking APIs and open banking infrastructure",
+      "Fraud detection and risk management systems",
+      "Core banking and financial data platforms",
+    ],
+  },
+  {
+    icon: ShoppingCart,
+    title: "Retail & eCommerce",
+    slug: "retail-ecommerce",
+    description:
+      "We support retail and eCommerce companies in building teams that drive modern digital commerce experiences.",
+    highlights: [
+      "eCommerce platforms and headless commerce architectures",
+      "Recommendation engines and personalization systems",
+      "Payment integrations and checkout optimization",
+      "Omnichannel and customer journey platforms",
+    ],
+  },
+   {
+    icon: Zap,
+    title: "Renewable Energy",
+    slug: "renewable-energy",
+    description:
+      "We help renewable energy companies scale teams building the infrastructure behind the future of energy.",
+    highlights: [
+      "Smart grid and energy distribution systems",
+      "Energy trading and forecasting platforms",
+      "Solar, wind, and storage optimization software",
+      "Data systems for energy analytics and sustainability reporting",
+    ],
+  },
   {
     icon: Factory,
     title: "Manufacturing (IT-focused)",
@@ -58,19 +97,6 @@ export const INDUSTRIES: IndustryData[] = [
       "ERP integrations and manufacturing execution systems (MES)",
       "Robotics, automation, and real-time monitoring tools",
       "Data pipelines for production analytics and optimization",
-    ],
-  },
-  {
-    icon: Zap,
-    title: "Renewable Energy",
-    slug: "renewable-energy",
-    description:
-      "We help renewable energy companies scale teams building the infrastructure behind the future of energy.",
-    highlights: [
-      "Smart grid and energy distribution systems",
-      "Energy trading and forecasting platforms",
-      "Solar, wind, and storage optimization software",
-      "Data systems for energy analytics and sustainability reporting",
     ],
   },
   {
@@ -100,19 +126,6 @@ export const INDUSTRIES: IndustryData[] = [
     ],
   },
   {
-    icon: ShoppingCart,
-    title: "Retail & eCommerce",
-    slug: "retail-ecommerce",
-    description:
-      "We support retail and eCommerce companies in building teams that drive modern digital commerce experiences.",
-    highlights: [
-      "eCommerce platforms and headless commerce architectures",
-      "Recommendation engines and personalization systems",
-      "Payment integrations and checkout optimization",
-      "Omnichannel and customer journey platforms",
-    ],
-  },
-  {
     icon: Film,
     title: "Media & Entertainment",
     slug: "media-entertainment",
@@ -138,19 +151,7 @@ export const INDUSTRIES: IndustryData[] = [
       "AI-driven legal research and analytics solutions",
     ],
   },
-  {
-    icon: CreditCard,
-    title: "Banking Tech",
-    slug: "banking-tech",
-    description:
-      "We partner with fintech and banking organizations to build teams developing secure, scalable financial systems.",
-    highlights: [
-      "Payment processing systems and transaction platforms",
-      "Banking APIs and open banking infrastructure",
-      "Fraud detection and risk management systems",
-      "Core banking and financial data platforms",
-    ],
-  },
+
   {
     icon: GraduationCap,
     title: "EdTech",
@@ -169,14 +170,14 @@ export const INDUSTRIES: IndustryData[] = [
 export const CTA_DATA: CtaData = {
   title: "Learn More About Our Reach",
   description:
-    "Our expertise extends beyond individual industries—we specialize in identifying talent that can adapt across domains, scale with your business, and contribute from day one. Whether you're building a new platform, scaling an existing product, or entering a new market, we connect you with professionals who understand both technology and the business behind it.",
+    "",
   primaryButton: {
-    text: "Start Hiring Industry Experts",
+    text: "Contact Us",
     href: "/#contact",
   },
   secondaryButton: {
-    text: "Explore Our Services",
-    href: "/#companies",
+    text: "Learn More About Our Team",
+    href: "/about",
   },
 }
 

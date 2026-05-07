@@ -62,7 +62,7 @@ export const EXPERTISE_AREAS = [
 ]
 
 export const EXPERTISE_FEATURED_AREA = {
-    title: "More specialized industries",
+    title: "More Industries we recruit for",
     description:
         "Our recruitment networks extend across diverse technical and logistical landscapes, ensuring a perfect fit for niche requirements.",
     href: "/expertise-services/specialized-industries",

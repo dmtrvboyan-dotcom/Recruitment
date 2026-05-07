@@ -46,9 +46,9 @@ export interface StatItem {
 
 export const HERO_DATA: HeroData = {
   tagline: "iGaming Recruitment",
-  title: "iGaming & Gaming Recruitment",
+  title: "iGaming & Gambling Recruitment",
   description:
-    "Bulgaria is one of the leading iGaming hubs in Europe. We help companies hire top gaming expert fast.",
+    "We know the iGaming industry inside out. From startups to established operators, we help companies hire igaming professionals.",
 }
 
 export const ROLES_HEADER: SectionHeader = {
@@ -58,20 +58,20 @@ export const ROLES_HEADER: SectionHeader = {
 
 export const STATS_DATA: StatItem[] = [
   {
-    value: "100+",
-    label: "iGaming roles across Bulgaria & EU",
+    value: "300+",
+    label: "Hires in the Sector",
   },
   {
     value: "48–72h",
     label: "Average time candidate delivery",
   },
   {
-    value: "15+",
-    label: "Years in IT & iGaming",
+    value: "10+",
+    label: "Years in Gambling",
   },
   {
-    value: "95%",
-    label: "Client retention rate on hiring",
+    value: "7000+",
+    label: "iGaming Contacts",
   },
 ]
 
@@ -224,7 +224,7 @@ export const CTA_DATA: CtaData = {
     href: "/#contact",
   },
   secondaryButton: {
-    text: "Start Hiring Today",
-    href: "/#companies",
+    text: "Learn More About Our Team",
+    href: "/about",
   },
 }

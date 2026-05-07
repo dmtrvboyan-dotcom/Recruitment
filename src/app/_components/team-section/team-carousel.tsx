@@ -19,7 +19,11 @@ function useMembersPerPage() {
   return membersPerPage
 }
 
-export function TeamCarousel() {
+interface TeamCarouselProps {
+  showQuote?: boolean
+}
+
+export function TeamCarousel({ showQuote = true }: TeamCarouselProps) {
   const [currentPage, setCurrentPage] = useState(0)
   const [hasSwiped, setHasSwiped] = useState(false)
   const membersPerPage = useMembersPerPage()
@@ -52,13 +56,14 @@ export function TeamCarousel() {
           {Array.from({ length: totalPages }).map((_, pageIndex) => (
             <div
               key={pageIndex}
-              className="w-full flex-shrink-0 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4"
+              className={`w-full flex-shrink-0 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4 ${!showQuote ? "lg:max-w-3xl lg:mx-auto" : ""
+                }`}
             >
               {TEAM_MEMBERS.slice(
                 pageIndex * membersPerPage,
                 (pageIndex + 1) * membersPerPage
               ).map((member, idx) => (
-                <TeamMemberCard key={idx} member={member} />
+                <TeamMemberCard key={idx} member={member} showQuote={showQuote} />
               ))}
             </div>
           ))}
@@ -69,18 +74,16 @@ export function TeamCarousel() {
         <button
           onClick={goToPrev}
           disabled={!canGoPrev}
-          className={`w-11 h-11 rounded-full flex items-center justify-center text-white bg-[#085689] transition-all duration-200 ${
-            canGoPrev ? "hover:bg-[#78B6D9]" : "opacity-30 cursor-not-allowed"
-          }`}
+          className={`w-11 h-11 rounded-full flex items-center justify-center text-white bg-[#085689] transition-all duration-200 ${canGoPrev ? "hover:bg-[#78B6D9]" : "opacity-30 cursor-not-allowed"
+            }`}
         >
           <RiArrowLeftSLine size={24} />
         </button>
         <button
           onClick={goToNext}
           disabled={!canGoNext}
-          className={`w-11 h-11 rounded-full flex items-center justify-center text-white bg-[#085689] transition-all duration-200 ${
-            canGoNext ? "hover:bg-[#78B6D9]" : "opacity-30 cursor-not-allowed"
-          }`}
+          className={`w-11 h-11 rounded-full flex items-center justify-center text-white bg-[#085689] transition-all duration-200 ${canGoNext ? "hover:bg-[#78B6D9]" : "opacity-30 cursor-not-allowed"
+            }`}
         >
           <RiArrowRightSLine size={24} />
         </button>

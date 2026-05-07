@@ -183,9 +183,18 @@ export default function EcommerceRecruitment() {
               <Button
                 asChild
                 variant="outline"
-                className="bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 border-2 border-brand-white/30 text-base font-medium"
+                className="bg-brand-coral text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl border-none px-8 py-6 text-base font-medium"
               >
-                <Link href={CTA_DATA.secondaryButton.href}>
+                <Link href={CTA_DATA.primaryButton.href} >
+                  {CTA_DATA.primaryButton.text}
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 border-2 border-brand-white text-base font-medium"
+              >
+                <Link href={CTA_DATA.secondaryButton.href} target="_blank">
                   {CTA_DATA.secondaryButton.text}
                 </Link>
               </Button>

@@ -9,7 +9,6 @@ import { ABOUT_CONTENT } from "./data"
 export const About = memo(function About() {
   return (
     <section className="relative w-full h-dvh mx-auto overflow-hidden  mt-25">
-
       <Image
         src="/uploaded/team.jpg"
         alt="Our team"

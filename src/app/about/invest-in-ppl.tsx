@@ -13,6 +13,7 @@ import {
   Share2,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+import { TeamCarousel } from "../_components/team-section/team-carousel"
 
 interface TrainingItem {
   id: number
@@ -225,7 +226,9 @@ export const InvestInPeople = memo(function InvestInPeople() {
             ))}
           </div>
         </div>
-
+        <div className="mt-10 max-w-7xl flex ">
+          <TeamCarousel showQuote={false} />
+        </div>
       </div>
     </section>
   )

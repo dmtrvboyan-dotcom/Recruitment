@@ -209,7 +209,7 @@ export const CTA_DATA: CtaData = {
     href: "/#contact",
   },
   secondaryButton: {
-    text: "Download our IT Hiring Guide",
-    href: "/it-hiring-guide.pdf",
+    text: "Learn how we do it",
+    href: "/process",
   },
 }
