@@ -29,6 +29,7 @@ export const NAV_ITEMS: NavItem[] = [
     hasDropdown: true,
     dropdownItems: [
       { label: "Our Process", href: "/process", openInNewTab: true },
+      { label: "Clients & Partnerships", href: "/partnerships", openInNewTab: true },
       { label: "Why Us", href: "#companies" },
       { label: "Q&A", href: "#faq" },
     ],
