@@ -55,7 +55,7 @@ export const Hero = memo(function Hero() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 xl:px-12 w-full flex flex-col items-center">
 
-        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0a3d62]/5 border border-[#0a3d62]/10 mb-6 sm:mb-8">
+        {/* <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#0a3d62]/5 border border-[#0a3d62]/10 mb-6 sm:mb-8">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -63,7 +63,7 @@ export const Hero = memo(function Hero() {
           <span className="text-xs sm:text-sm font-medium text-[#0a3d62] leading-tight">
             Hiring for Startups, SMBs, Enterprise in EU / US
           </span>
-        </div>
+        </div> */}
 
         <h1 className="text-[clamp(2.4rem,5.5vw,4.5rem)] font-bold text-brand-navy leading-[1.08] tracking-tight mb-7 animate-fade-in-up delay-100 text-center">
           IT Recruitment Agency for
