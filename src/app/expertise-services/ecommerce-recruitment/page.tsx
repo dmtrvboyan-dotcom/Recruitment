@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/layout"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 import {
   HERO_DATA,
   ROLES_WE_HIRE_HEADER,
@@ -23,182 +23,328 @@ export const metadata: Metadata = {
 export default function EcommerceRecruitment() {
   return (
     <>
+      {/* ─── HERO ─────────────────────────────────────────────── */}
+      <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
+        {/* Diagonal slash accent */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              -62deg,
+              transparent,
+              transparent 80px,
+              rgba(114,145,199,0.03) 80px,
+              rgba(114,145,199,0.03) 81px
+            )`,
+          }}
+        />
+
+        {/* Glow blobs */}
+        <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+        <div className="absolute top-10 left-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
+
+        {/* Giant background word */}
+        <div
+          aria-hidden
+          className="absolute bottom-0 left-0 text-[20vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+        >
+          ECOM
+        </div>
+
+        {/* Vertical tag — desktop only */}
+        <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col items-center gap-4 pointer-events-none">
+          <div className="h-16 w-px bg-brand-white/10" />
+          <span
+            className="text-[9px] font-bold tracking-[0.35em] uppercase text-brand-white/20 whitespace-nowrap"
+            style={{ writingMode: "vertical-rl" }}
+          >
+            Expertise Services
+          </span>
+          <div className="h-16 w-px bg-brand-white/10" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 pt-36 pb-16 lg:pb-28 w-full">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-4">
+
+            <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral mb-6">
               {HERO_DATA.tagline}
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-brand-navy leading-tight text-balance mb-6">
-              {HERO_DATA.title}
+            </span>
+
+            <h1 className="text-[clamp(3.2rem,10vw,6rem)] font-black leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
+              Ecommerce Experts & Online <span className="text-brand-coral">Retail Hiring</span>
             </h1>
-            <p className="text-lg md:text-xl text-brand-navy/55 max-w-3xl mx-auto text-pretty">
+
+            <p className="text-sm sm:text-base text-brand-white/45 max-w-xl mx-auto leading-relaxed">
               {HERO_DATA.description}
             </p>
+
+            {/* Divider */}
+            <div className="flex items-center justify-center gap-4 mt-12">
+              <div className="h-px w-16 bg-brand-white/10" />
+              <span className="text-[9px] font-bold tracking-[0.35em] uppercase text-brand-white/20">
+                Scroll to explore
+              </span>
+              <div className="h-px w-16 bg-brand-white/10" />
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Roles We Hire Section */}
+      {/* ─── ROLES WE HIRE ────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 bg-brand-white/30">
-          <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-14">
-              <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
+        <section className="relative w-full bg-brand-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
+
+            <div className="text-center mb-16">
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 {ROLES_WE_HIRE_HEADER.tagline}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-navy mb-4">
+              </span>
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy">
                 {ROLES_WE_HIRE_HEADER.title}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {ROLES_WE_HIRE.map((item, index) => {
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {ROLES_WE_HIRE.map((item, i) => {
                 const Icon = item.icon
                 return (
                   <div
-                    key={index}
-                    className="group p-6 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300"
+                    key={i}
+                    className="group relative rounded-2xl border border-brand-navy/8 bg-brand-white p-6 hover:border-brand-coral/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
                   >
-                    <div className="mb-5">
-                      <div className={`w-12 h-12 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}>
-                        <Icon className="w-6 h-6" />
-                      </div>
+                    <div
+                      aria-hidden
+                      className="absolute right-4 top-2 text-[4rem] font-black leading-none text-brand-navy/[0.04] select-none"
+                    >
+                      {String(i + 1).padStart(2, "0")}
                     </div>
-                    <h3 className="font-semibold text-base text-brand-navy mb-3 leading-tight group-hover:text-brand-blue transition-colors">
-                      {item.title}
-                    </h3>
-                    <ul className="space-y-1.5">
-                      {item.bullets.map((bullet, bIndex) => (
-                        <li key={bIndex} className="flex items-start gap-2 text-[12.5px] text-brand-navy/60 leading-snug">
-                          <span className={`mt-[5px] w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.color} bg-current`} />
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
+
+                    <div className="relative">
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mb-5 ${item.iconBg} ${item.color}`}>
+                        <Icon className="w-5 h-5" strokeWidth={1.6} />
+                      </div>
+
+                      <h3 className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-navy/50 mb-4">
+                        {item.title}
+                      </h3>
+
+                      <ul className="flex flex-col gap-1.5">
+                        {item.bullets.map((bullet, j) => (
+                          <li
+                            key={j}
+                            className="text-[12px] text-brand-navy/60 bg-brand-navy/5 rounded-lg px-3 py-1.5 leading-snug font-medium"
+                          >
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 )
               })}
             </div>
+
           </div>
         </section>
       </ScrollReveal>
 
-      {/* Bulgaria Delivers Section */}
+      {/* ─── BULGARIA DELIVERS ────────────────────────────────── */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 bg-brand-white/30">
-          <div className="mx-auto max-w-6xl">
+        <section className="relative w-full bg-brand-navy overflow-hidden">
+
+          {/* Glow */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+
+          {/* Watermark */}
+          <div
+            aria-hidden
+            className="absolute bottom-0 left-0 text-[14vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+          >
+            BULGARIA
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
+
             <div className="text-center mb-14">
-              <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-6">
                 {BULGARIA_DELIVERS_HEADER.tagline}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-navy mb-4">
+              </span>
+              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-white">
                 {BULGARIA_DELIVERS_HEADER.title}
               </h2>
+              <div className="flex items-center justify-center gap-3 mt-8">
+                <div className="h-px w-16 bg-brand-coral/40" />
+                <div className="h-px w-6 bg-brand-coral/20" />
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {BULGARIA_DELIVERS.map((item, index) => {
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+              {BULGARIA_DELIVERS.map((item, i) => {
                 const Icon = item.icon
                 return (
                   <div
-                    key={index}
-                    className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300 text-center"
+                    key={i}
+                    className="flex flex-col items-center text-center rounded-xl border border-brand-white/6 bg-brand-white/4 px-6 py-8 hover:border-brand-coral/30 hover:bg-brand-white/6 transition-all duration-300"
+                    style={{ backdropFilter: "blur(6px)" }}
                   >
-                    <div className="mb-6 flex justify-center">
-                      <div className={`w-16 h-16 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}>
-                        <Icon className="w-8 h-8" />
-                      </div>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${item.iconBg} ${item.color}`}>
+                      <Icon className="w-6 h-6" strokeWidth={1.6} />
                     </div>
-                    <h3 className="font-semibold text-2xl text-brand-navy mb-3 leading-tight group-hover:text-brand-blue transition-colors">
+                    <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-brand-white mb-3 leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-brand-navy/60 text-[15px] leading-relaxed">
+                    <p className="text-sm text-brand-white/50 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
                 )
               })}
             </div>
+
           </div>
         </section>
       </ScrollReveal>
 
-      {/* How We Help Section */}
+      {/* ─── HOW WE HELP ──────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-14">
-              <p className="text-sm font-medium text-brand-coral uppercase tracking-widest mb-3">
+        <section className="relative w-full bg-brand-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
+
+            <div className="text-center mb-16">
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 {HOW_WE_HELP_HEADER.tagline}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-navy mb-4">
+              </span>
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy">
                 {HOW_WE_HELP_HEADER.title}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {HOW_WE_HELP.map((item, index) => {
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+              {HOW_WE_HELP.map((item, i) => {
                 const Icon = item.icon
                 return (
                   <div
-                    key={index}
-                    className="group p-8 bg-brand-white rounded-3xl border border-brand-navy/10 hover:border-brand-coral-hover/80 hover:shadow-xl transition-all duration-300 relative"
+                    key={i}
+                    className="group relative rounded-2xl border border-brand-navy/8 bg-brand-white p-6 hover:border-brand-coral/40 hover:shadow-lg transition-all duration-300 overflow-hidden"
                   >
-                    <div className="absolute top-6 right-6 text-5xl font-bold text-brand-navy/10 group-hover:text-brand-blue/20 transition-colors">
+                    {/* Step watermark */}
+                    <div
+                      aria-hidden
+                      className="absolute right-4 top-2 text-[4rem] font-black leading-none text-brand-navy/[0.04] select-none"
+                    >
                       {item.step}
                     </div>
-                    <div className="mb-6">
-                      <div className={`w-14 h-14 flex items-center justify-center rounded-2xl ${item.iconBg} ${item.color} transition-colors`}>
-                        <Icon className="w-7 h-7" />
+
+                    <div className="relative">
+                      <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mb-5 ${item.iconBg} ${item.color}`}>
+                        <Icon className="w-5 h-5" strokeWidth={1.6} />
                       </div>
+
+                      <h3 className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-navy/50 mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-brand-navy/55 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
-                    <h3 className="font-semibold text-xl text-brand-navy mb-3 leading-tight group-hover:text-brand-blue transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-brand-navy/60 text-[15px] leading-relaxed">
-                      {item.description}
-                    </p>
                   </div>
                 )
               })}
             </div>
+
           </div>
         </section>
       </ScrollReveal>
 
-      {/* CTA Section */}
+      {/* ─── CTA ──────────────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="px-4 py-20 md:px-8 md:py-28 mb-20 bg-brand-navy">
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-coral mb-6">
-              {CTA_DATA.title}
+        <section className="relative w-full bg-brand-navy overflow-hidden">
+
+          {/* Glow */}
+          <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+
+          {/* Watermark */}
+          <div
+            aria-hidden
+            className="absolute bottom-0 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          >
+            GO
+          </div>
+
+          {/* Diagonal accent */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none opacity-40"
+            style={{
+              backgroundImage: `repeating-linear-gradient(
+                -55deg,
+                transparent,
+                transparent 40px,
+                rgba(114,145,199,0.03) 40px,
+                rgba(114,145,199,0.03) 41px
+              )`,
+            }}
+          />
+
+          <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32 text-center">
+
+            <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">
+              Ready to Start?
+            </span>
+            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-black uppercase leading-none tracking-tight text-brand-white mb-6">
+              {CTA_DATA.title.split(" ").slice(0, 3).join(" ")}
+              <br />
+              <span className="text-brand-coral">
+                {CTA_DATA.title.split(" ").slice(3).join(" ")}
+              </span>
             </h2>
-            <p className="text-lg text-brand-white/70 leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-sm text-brand-white/50 max-w-md mx-auto leading-relaxed mb-10">
               {CTA_DATA.description}
             </p>
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
-                variant="outline"
-                className="bg-brand-coral text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl border-none px-8 py-6 text-base font-medium"
+                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group"
               >
-                <Link href={CTA_DATA.primaryButton.href} >
+                <Link href={CTA_DATA.primaryButton.href}>
                   {CTA_DATA.primaryButton.text}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="bg-transparent text-brand-white hover:bg-brand-white hover:text-brand-navy rounded-xl px-8 py-6 border-2 border-brand-white text-base font-medium"
+                className="border-brand-white/20 bg-brand-navy text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm hover:bg-brand-white "
               >
                 <Link href={CTA_DATA.secondaryButton.href} target="_blank">
                   {CTA_DATA.secondaryButton.text}
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
             </div>
+
+            {/* Bottom row */}
+            <div className="mt-16 pt-10 border-t border-brand-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-1 h-8 rounded-full bg-brand-coral" />
+                <p className="text-xs text-brand-white/40 leading-relaxed max-w-sm text-left">
+                  <span className="font-bold text-brand-white/70">No hire, no invoice.</span>{" "}
+                  Our fee is only due on a successful placement.
+                </p>
+              </div>
+              <Link
+                href="/expertise-services"
+                className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-white/25 hover:text-brand-coral transition-colors flex items-center gap-1"
+              >
+                All expertise services
+                <ArrowUpRight className="w-3 h-3" />
+              </Link>
+            </div>
+
           </div>
         </section>
       </ScrollReveal>
