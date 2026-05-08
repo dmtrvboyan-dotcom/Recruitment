@@ -19,7 +19,6 @@ export const metadata: Metadata = {
     "Strategic permanent IT recruitment. We help companies hire high-performing tech professionals who align technically and culturally for long-term success.",
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (

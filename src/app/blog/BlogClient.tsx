@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
-import { ArrowRight, BookOpen, Building2, User, Cpu } from "lucide-react"
+import { ArrowRight, BookOpen, Building2, User, Cpu, ChevronDown } from "lucide-react"
 import { ScrollReveal } from "@/components/layout"
 import { HERO_DATA, TABS, TAB_CHIPS, type TabKey } from "./data"
 import type { Post } from "./lib/posts"
@@ -42,6 +42,94 @@ function useInView(threshold = 0.15) {
   return { ref, visible }
 }
 
+function MobileTabDropdown({
+  tabs,
+  posts,
+  activeTab,
+  heroVisible,
+  handleTabChange,
+}: {
+  tabs: typeof TABS
+  posts: Post[]
+  activeTab: TabKey
+  heroVisible: boolean
+  handleTabChange: (tab: TabKey) => void
+}) {
+  const [open, setOpen] = useState(false)
+  const activeTabData = tabs.find((t) => t.key === activeTab)!
+  const ActiveIcon = TAB_ICONS[activeTab]
+  const activeCount = posts.filter((p) => p.tab === activeTab).length
+
+  return (
+    <div
+      className="lg:hidden mt-10 w-full max-w-xs mx-auto relative"
+      style={{
+        opacity: heroVisible ? 1 : 0,
+        transition: "opacity 0.7s ease 280ms",
+      }}
+    >
+      {/* Trigger */}
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-3 px-5 py-3.5 rounded-full border border-brand-coral bg-brand-coral text-white text-xs font-semibold tracking-widest uppercase cursor-pointer transition-all duration-300"
+      >
+        <span className="flex items-center gap-2.5">
+          <ActiveIcon className="w-3.5 h-3.5" strokeWidth={2} />
+          {activeTabData.label}
+          <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-white/20">
+            {activeCount}
+          </span>
+        </span>
+        <ChevronDown
+          className={`w-4 h-4 shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          strokeWidth={2.5}
+        />
+      </button>
+
+      {/* Dropdown */}
+      <div
+        className={`absolute top-full left-0 right-0 mt-2 rounded-2xl border border-brand-white/15 bg-brand-navy/95 backdrop-blur-sm overflow-hidden z-50 transition-all duration-300 origin-top ${
+          open
+            ? "opacity-100 scale-y-100 pointer-events-auto"
+            : "opacity-0 scale-y-90 pointer-events-none"
+        }`}
+      >
+        {tabs.map((tab) => {
+          const Icon = TAB_ICONS[tab.key]
+          const count = posts.filter((p) => p.tab === tab.key).length
+          const isActive = activeTab === tab.key
+          return (
+            <button
+              key={tab.key}
+              onClick={() => {
+                handleTabChange(tab.key)
+                setOpen(false)
+              }}
+              className={`w-full flex items-center gap-3 px-5 py-3.5 text-xs font-semibold tracking-widest uppercase transition-colors duration-200 cursor-pointer ${
+                isActive
+                  ? "text-brand-coral bg-brand-coral/10"
+                  : "text-brand-white/50 hover:text-brand-coral hover:bg-brand-coral/5"
+              }`}
+            >
+              <Icon className="w-3.5 h-3.5 shrink-0" strokeWidth={2} />
+              {tab.label}
+              <span
+                className={`ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
+                  isActive
+                    ? "bg-brand-coral/20 text-brand-coral"
+                    : "bg-brand-white/10"
+                }`}
+              >
+                {count}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
 function PostCard({ post, index, parentVisible }: { post: Post; index: number; parentVisible: boolean }) {
   return (
     <Link
@@ -62,15 +150,20 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
 
       <div className="flex flex-col flex-1 p-6 xl:p-7">
         {/* Thumbnail placeholder */}
-        <div className="w-full h-36 sm:h-40 rounded-xl bg-brand-navy/[0.04] group-hover:bg-brand-coral/[0.07] mb-5
-          flex items-center justify-center transition-colors duration-500 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03]"
+        <div
+          className="w-full h-36 sm:h-40 rounded-xl bg-brand-navy/[0.04] group-hover:bg-brand-coral/[0.07] mb-5
+            flex items-center justify-center transition-colors duration-500 relative overflow-hidden"
+        >
+          <div
+            className="absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage: "repeating-linear-gradient(135deg, #1A1A2E 0px, #1A1A2E 1px, transparent 1px, transparent 28px)",
             }}
           />
-          <div className="w-10 h-10 rounded-xl bg-brand-coral/10 group-hover:bg-brand-coral/20 flex items-center justify-center
-            transition-colors duration-300 relative">
+          <div
+            className="w-10 h-10 rounded-xl bg-brand-coral/10 group-hover:bg-brand-coral/20 flex items-center justify-center
+              transition-colors duration-300 relative"
+          >
             <ArrowRight className="w-5 h-5 text-brand-coral group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={1.8} />
           </div>
         </div>
@@ -86,8 +179,10 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
         </div>
 
         {/* Title */}
-        <h3 className="text-sm sm:text-base font-black uppercase tracking-tight text-brand-navy leading-snug mb-3
-          group-hover:text-brand-teal transition-colors duration-300">
+        <h3
+          className="text-sm sm:text-base font-black uppercase tracking-tight text-brand-navy leading-snug mb-3
+            group-hover:text-brand-teal transition-colors duration-300"
+        >
           {post.title}
         </h3>
 
@@ -98,8 +193,10 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
 
         {/* Footer */}
         <div className="mt-5 pt-4 border-t border-brand-navy/8 flex items-center justify-end">
-          <span className="text-xs font-semibold tracking-widest uppercase text-brand-coral flex items-center gap-1.5
-            group-hover:gap-2.5 transition-all duration-300">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase text-brand-coral flex items-center gap-1.5
+              group-hover:gap-2.5 transition-all duration-300"
+          >
             Read more
             <ArrowRight className="w-3 h-3" strokeWidth={2.5} />
           </span>
@@ -138,23 +235,17 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
 
   return (
     <>
-      {/* ─── HERO ─── */}
-      <section className="relative w-full bg-brand-navy overflow-hidden pt-32 pb-20 lg:pt-44 lg:pb-32">
-        {/* Background texture */}
+      <section className="relative w-full bg-brand-navy overflow-hidden pt-32 h-[90vh] lg:pt-44 lg:pb-32">
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{
             backgroundImage: "repeating-linear-gradient(135deg, #7291C7 0px, #7291C7 1px, transparent 1px, transparent 40px)",
           }}
         />
-        {/* Glow blobs */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-coral/10 rounded-full -translate-y-1/2 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-brand-teal/10 rounded-full translate-y-1/2 blur-3xl pointer-events-none" />
 
-        <div
-          ref={heroRef}
-          className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 text-center"
-        >
+        <div ref={heroRef} className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 text-center mt-20">
           <span
             className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4"
             style={{
@@ -190,7 +281,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
             {heroData.description}
           </p>
 
-          {/* Decorative stat pills */}
+          {/* Desktop tabs */}
           <div
             className="hidden lg:flex items-center justify-center gap-6 mt-12"
             style={{
@@ -205,7 +296,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
                 <button
                   key={tab.key}
                   onClick={() => handleTabChange(tab.key)}
-                  className={`flex items-center gap-2.5 px-4 py-2.5 rounded-full border text-xs font-semibold tracking-widest uppercase transition-all duration-300 ${
+                  className={`flex items-center gap-2.5 px-4 py-2.5 rounded-full border text-xs font-semibold tracking-widest uppercase transition-all cursor-pointer duration-300 ${
                     activeTab === tab.key
                       ? "bg-brand-coral text-white border-brand-coral"
                       : "border-brand-white/15 text-brand-white/40 hover:border-brand-coral/40 hover:text-brand-coral"
@@ -213,22 +304,31 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
                 >
                   <Icon className="w-3.5 h-3.5" strokeWidth={2} />
                   {tab.label}
-                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                    activeTab === tab.key ? "bg-white/20" : "bg-brand-white/10"
-                  }`}>
+                  <span
+                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
+                      activeTab === tab.key ? "bg-white/20" : "bg-brand-white/10"
+                    }`}
+                  >
                     {count}
                   </span>
                 </button>
               )
             })}
           </div>
+
+          {/* Mobile tab dropdown */}
+          <MobileTabDropdown
+            tabs={tabs}
+            posts={posts}
+            activeTab={activeTab}
+            heroVisible={heroVisible}
+            handleTabChange={handleTabChange}
+          />
         </div>
       </section>
 
-      {/* ─── CONTENT ─── */}
       <ScrollReveal>
         <section className="relative w-full bg-brand-white overflow-hidden">
-          {/* Background texture */}
           <div
             className="absolute inset-0 pointer-events-none opacity-[0.022]"
             style={{
@@ -238,36 +338,13 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
 
           <div className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 py-16 lg:py-24">
 
-            {/* Mobile Tab Switcher */}
-            <div className="lg:hidden grid grid-cols-2 gap-2 bg-brand-navy/[0.04] rounded-2xl p-2 mb-6">
-              {tabs.map((tab) => {
-                const Icon = TAB_ICONS[tab.key]
-                return (
-                  <button
-                    key={tab.key}
-                    onClick={() => handleTabChange(tab.key)}
-                    className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                      activeTab === tab.key
-                        ? "bg-brand-navy text-brand-white shadow-md"
-                        : "text-brand-navy/40 hover:text-brand-navy hover:bg-brand-navy/5"
-                    }`}
-                  >
-                    <Icon className="w-3.5 h-3.5" strokeWidth={2} />
-                    {tab.label}
-                  </button>
-                )
-              })}
-            </div>
-
             {/* Chip filters */}
             <div className="flex flex-wrap gap-2 mb-10 sm:mb-12">
               {chips.map((chip, i) => (
                 <button
                   key={chip}
                   onClick={() => handleChipChange(chip)}
-                  style={{
-                    transitionDelay: `${i * 30}ms`,
-                  }}
+                  style={{ transitionDelay: `${i * 30}ms` }}
                   className={`px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase border transition-all duration-300 ${
                     activeChip === chip
                       ? "bg-brand-navy text-brand-white border-brand-navy"
