@@ -245,7 +245,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-coral/10 rounded-full -translate-y-1/2 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-brand-teal/10 rounded-full translate-y-1/2 blur-3xl pointer-events-none" />
 
-        <div ref={heroRef} className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 text-center mt-20">
+        <div ref={heroRef} className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 text-center lg:mt-20 mt-5">
           <span
             className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4"
             style={{
