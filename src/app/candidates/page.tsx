@@ -36,6 +36,8 @@ import {
   faqData,
   ctaData,
 } from "./data"
+import { TeamCarousel } from "../_components/team-section/team-carousel"
+import { PeopleTestimonialsSection } from "./testimonials"
 
 
 
@@ -223,6 +225,69 @@ const HowItWorksSection = memo(function HowItWorksSection() {
   )
 })
 
+
+// HERE
+{/* ─────────────────────────── MEET THE TEAM ─────────────────────────── */ }
+
+const MeetTheTeamSection = memo(function MeetTheTeamSection() {
+  const { ref: headerRef, visible: headerVisible } = useInView()
+  const { ref: contentRef, visible: contentVisible } = useInView()
+
+  return (
+    <section className="relative w-full bg-brand-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
+
+        <div
+          ref={headerRef}
+          className="mb-16 lg:mb-20"
+          style={{
+            opacity: headerVisible ? 1 : 0,
+            transform: headerVisible ? "translateY(0)" : "translateY(24px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
+          <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
+            Our Team
+          </span>
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy uppercase text-center">
+            Meet the People Behind
+            <span className="text-brand-coral"> Your Search.</span>
+          </h2>
+          <p className="mt-6 text-base sm:text-lg text-brand-navy/50 leading-relaxed text-center max-w-2xl mx-auto">
+            You'll work with recruiters who actually take the time to understand what you want — not just what fits a keyword search.
+          </p>
+        </div>
+
+        {/* Full-width image */}
+        <div
+          ref={contentRef}
+          style={{
+            opacity: contentVisible ? 1 : 0,
+            transform: contentVisible ? "translateY(0)" : "translateY(24px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
+          <div className="relative rounded-3xl overflow-hidden aspect-[16/9]">
+            <img
+              src="/uploaded/team.jpg"
+              alt="The recruiting team"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
+          </div>
+
+          {/* Carousel below */}
+
+          <div className="max-w-3xl mx-auto">
+            <TeamCarousel showQuote={false} />
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+})
+
 /* ─────────────────────────── YOUR GOALS ─────────────────────────── */
 
 const YourGoalsSection = memo(function YourGoalsSection() {
@@ -379,7 +444,6 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
   )
 })
 
-/* ─────────────────────────── WHY CHOOSE / OPPORTUNITIES ─────────────────────────── */
 
 const OpportunitiesSection = memo(function OpportunitiesSection() {
   const { ref: leftRef, visible: leftVisible } = useInView()
@@ -500,67 +564,69 @@ const OpportunitiesSection = memo(function OpportunitiesSection() {
         </div>
 
         {/* Bottom pill */}
-        
+
 
       </div>
     </section>
   )
-})
+});
+
+<PeopleTestimonialsSection />
 
 /* ─────────────────────────── TESTIMONIAL ─────────────────────────── */
 
 const TestimonialSection = memo(function TestimonialSection() {
-  const { ref, visible } = useInView(0.2)
+    const { ref, visible } = useInView(0.2)
 
-  return (
-    <section className="relative w-full bg-brand-white overflow-hidden">
-      <div className="max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
-        <div
-          ref={ref}
-          className="relative rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-14 py-12 sm:py-16"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(32px)",
-            transition: "opacity 0.8s ease, transform 0.8s ease",
-          }}
-        >
-          <div className="absolute -top-20 -left-20 w-72 h-72 bg-brand-coral/10 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
-
-          {/* Decorative quote mark */}
-          <div className="relative text-[8rem] font-black text-brand-coral/15 leading-none mb-4 -mt-4">&ldquo;</div>
-
-          <blockquote
-            className="relative text-xl sm:text-2xl lg:text-3xl font-bold text-brand-white leading-snug tracking-tight max-w-3xl -mt-8"
+    return (
+      <section className="relative w-full bg-brand-white overflow-hidden">
+        <div className="max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
+          <div
+            ref={ref}
+            className="relative rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-14 py-12 sm:py-16"
             style={{
               opacity: visible ? 1 : 0,
-              transition: "opacity 0.8s ease 300ms",
+              transform: visible ? "translateY(0)" : "translateY(32px)",
+              transition: "opacity 0.8s ease, transform 0.8s ease",
             }}
           >
-            {testimonialData.quote}
-          </blockquote>
+            <div className="absolute -top-20 -left-20 w-72 h-72 bg-brand-coral/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-          <p
-            className="mt-8 text-xs font-semibold tracking-[0.2em] uppercase text-brand-coral"
-            style={{
-              opacity: visible ? 1 : 0,
-              transition: "opacity 0.8s ease 500ms",
-            }}
-          >
-            {testimonialData.author}
-          </p>
+            {/* Decorative quote mark */}
+            <div className="relative text-[8rem] font-black text-brand-coral/15 leading-none mb-4 -mt-4">&ldquo;</div>
 
-          {/* Decorative dot grid */}
-          <div className="absolute top-8 right-8 hidden sm:grid grid-cols-5 gap-2 opacity-15">
-            {Array.from({ length: 25 }).map((_, i) => (
-              <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
-            ))}
+            <blockquote
+              className="relative text-xl sm:text-2xl lg:text-3xl font-bold text-brand-white leading-snug tracking-tight max-w-3xl -mt-8"
+              style={{
+                opacity: visible ? 1 : 0,
+                transition: "opacity 0.8s ease 300ms",
+              }}
+            >
+              {testimonialData.quote}
+            </blockquote>
+
+            <p
+              className="mt-8 text-xs font-semibold tracking-[0.2em] uppercase text-brand-coral"
+              style={{
+                opacity: visible ? 1 : 0,
+                transition: "opacity 0.8s ease 500ms",
+              }}
+            >
+              {testimonialData.author}
+            </p>
+
+            {/* Decorative dot grid */}
+            <div className="absolute top-8 right-8 hidden sm:grid grid-cols-5 gap-2 opacity-15">
+              {Array.from({ length: 25 }).map((_, i) => (
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  )
-})
+      </section>
+    )
+  })
 
 /* ─────────────────────────── FAQ ─────────────────────────── */
 
@@ -662,7 +728,7 @@ const CTASection = memo(function CTASection() {
           <p className="text-sm text-brand-white/50 max-w-xs leading-relaxed sm:text-base text-center">
             A real person will get back to you within one business day. No templates, no automated replies.
           </p>
-         <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button
               asChild
               className="group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-8 py-5 sm:py-6 text-xs font-semibold tracking-widest uppercase rounded-3xl transition-colors duration-200"
@@ -696,9 +762,11 @@ export default function CandidatesPage() {
     <>
       <HeroSection />
       <HowItWorksSection />
+      <MeetTheTeamSection />
       <YourGoalsSection />
       <WhatYouGetSection />
       <OpportunitiesSection />
+      <PeopleTestimonialsSection />
       <TestimonialSection />
       <FAQSection />
       <CTASection />

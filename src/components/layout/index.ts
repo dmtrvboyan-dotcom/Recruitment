@@ -8,3 +8,4 @@ export { ScrollReveal } from "../animations/scroll-reveal"
 // export { default as DynamicBackground } from "./dynamic-background"
 export { SocialSidebar } from "./social-sidebar"
 export { PageBackground } from "./page-background"
+export { Breadcrumb } from "./breadcrump";

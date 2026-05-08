@@ -1,6 +1,5 @@
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { SocialSidebar } from "@/components/layout/social-sidebar"
+import {  Header, SocialSidebar, Footer, Breadcrumb } from "@/components/layout"
+
 
 export default function CandidatesLayout({
   children,

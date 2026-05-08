@@ -389,6 +389,16 @@ export const faqData: SectionData<FAQ> = {
       answer:
         "Never. We always discuss specific opportunities with you first and only share your profile with employers after getting your explicit consent.",
     },
+    {
+      question: "Can I send my CV even if there’s no matching role now?",
+      answer:
+        "Absolutely. Many of the roles we work on are confidential or not publicly listed yet. Feel free to send us your CV - we may already have something relevant in progress. If not, we will let you know.",
+    },
+    {
+      question: "Can you help me confidentially explore the market/job opportunities?",
+      answer:
+        "Of course. We understand that many professionals are not actively job searching. All conversations and CVs are treated confidentially.",
+    },
   ],
 }
 

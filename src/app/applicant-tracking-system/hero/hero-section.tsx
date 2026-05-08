@@ -22,7 +22,7 @@ export function HeroSection() {
             {heroData.subtitle}
           </p>
 
-          <Link href={heroData.secondaryCta.href}>
+          <Link href={heroData.secondaryCta.href} target="_blank">
             <Button
               variant="outline"
               className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:border-slate-400 rounded-xl px-8 py-6 text-base font-medium transition-all duration-300 cursor-pointer"

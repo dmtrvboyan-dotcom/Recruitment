@@ -1,5 +1,4 @@
-import type { ReactNode } from "react"
-import {  Header, SocialSidebar, Footer } from "@/components/layout"
+import {  Header, SocialSidebar, Footer, Breadcrumb } from "@/components/layout"
 
 
 export default function ClientsLayout({

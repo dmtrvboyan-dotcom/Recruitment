@@ -7,6 +7,7 @@ import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react"
 import { NAV_ITEMS, type NavItem } from "@/lib/constants/navigation"
 import { scrollToSection, scrollToTop } from "@/lib/utils/scroll"
 import { useScrollState, useEscapeKey, useClickOutside, useBodyScrollLock } from "@/lib/hooks"
+import { Breadcrumb } from "./breadcrump"
 
 
 const PHONE_NUMBER = "+359 876 449 229"
@@ -36,7 +37,6 @@ const DesktopDropdown = memo(function DesktopDropdown({
         />
       </button>
 
-      {/* Dropdown panel — thin coral top border */}
       <div
         className={`absolute top-full left-0 mt-4 w-52 bg-card rounded-sm shadow-lg border-t-2 border-brand-coral py-2 transition-all duration-200 origin-top ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
           }`}
@@ -143,11 +143,11 @@ export function Header() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? "bg-transparent backdrop-blur-sm py-3 shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
-          : "bg-transparent py-6"
-          }`}
+    <header
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+    ? "bg-brand-white backdrop-blur-sm pt-3 pb-0 shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
+    : "bg-brand-white pt-6 pb-0"
+  }`}
         style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
       >
         <div className="max-w-[1500px] mx-auto px-6 lg:px-10 xl:px-12">
@@ -219,7 +219,13 @@ export function Header() {
             </div>
           </nav>
         </div>
+
+        <div className="z-10">
+          < Breadcrumb />
+        </div>
       </header>
+
+
 
       {/* ── Slide-over menu ── */}
       <div

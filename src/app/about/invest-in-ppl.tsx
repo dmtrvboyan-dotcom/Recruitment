@@ -226,7 +226,7 @@ export const InvestInPeople = memo(function InvestInPeople() {
             ))}
           </div>
         </div>
-        <div className="mt-10 max-w-7xl flex ">
+        <div className="mt-15 max-w-3xl mx-auto">
           <TeamCarousel showQuote={false} />
         </div>
       </div>
