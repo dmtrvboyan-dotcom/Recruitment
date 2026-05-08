@@ -3,7 +3,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { heroData } from "./data"
 
-
 export function HeroSection() {
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-trasparent">
@@ -12,20 +11,20 @@ export function HeroSection() {
         <div className="text-center mb-12">
           <h1 className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black mb-6 leading-tight text-balance pt-20">
             <span className="relative inline-block px-4">
-              <span className="relative bg-linear-to-r from-[#085689] via-[#78B6D9] to-[#085689] bg-clip-text text-transparent">
+              <span className="relative bg-linear-to-r from-brand-navy via-brand-coral to-brand-navy bg-clip-text text-transparent">
                 {heroData.title}
               </span>
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-8 text-pretty mt-5">
+          <p className="text-base sm:text-lg md:text-xl text-brand-navy/50 max-w-2xl mx-auto mb-8 text-pretty mt-5">
             {heroData.subtitle}
           </p>
 
           <Link href={heroData.secondaryCta.href} target="_blank">
             <Button
               variant="outline"
-              className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:border-slate-400 rounded-xl px-8 py-6 text-base font-medium transition-all duration-300 cursor-pointer"
+              className="bg-brand-navy text-brand-white hover:bg-brand-coral hover:border-brand-coral/40 rounded-xl px-8 py-6 text-base font-medium transition-all duration-300 cursor-pointer"
             >
               {heroData.secondaryCta.text}
             </Button>
@@ -44,11 +43,10 @@ export function HeroSection() {
           priority
         />
 
-        <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#78B6D9]/20 rounded-full blur-2xl pointer-events-none" />
-        <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#085689]/10 rounded-full blur-2xl pointer-events-none" />
-        <span className="absolute inset-0 scale-125 blur-2xl opacity-30 bg-linear-to-r from-[#ff9204] via-[#F3F3F3] to-[#085689] rounded-full pointer-events-none"></span>
+        <div className="absolute -top-4 -left-4 w-24 h-24 bg-brand-coral/20 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-brand-navy/10 rounded-full blur-2xl pointer-events-none" />
+        <span className="absolute inset-0 scale-125 blur-2xl opacity-30 bg-linear-to-r from-red-500 via-brand-white to-brand-coral rounded-full pointer-events-none"></span>
       </div>
-
 
       <div className="relative w-screen left-1/2 -translate-x-1/2 -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-40 -mb-25">
 
@@ -60,7 +58,7 @@ export function HeroSection() {
           >
             <path
               d="M0,120 L0,60 C240,20 480,0 720,30 C960,60 1200,80 1440,50 L1440,120 Z"
-              fill="white"
+              fill="#1A1A2E"
             />
           </svg>
         </div>

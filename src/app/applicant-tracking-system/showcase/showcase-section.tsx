@@ -1,12 +1,12 @@
 "use client"
+
 import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { ChevronLeft, ChevronRight, Plus, X } from "lucide-react"
-import { showcaseData } from "./data";
+import { showcaseData } from "./data"
 import { Button } from "@/components/ui/button"
-
 
 const items = showcaseData.items
 
@@ -15,49 +15,54 @@ export function ShowcaseSection() {
   const [currentBg, setCurrentBg] = useState<number>(0)
 
   function handleItemClick(i: number) {
-    if (i === activeIdx) {
-      setActiveIdx(-1)
-      return
-    }
+    if (i === activeIdx) { setActiveIdx(-1); return }
     setActiveIdx(i)
     setCurrentBg(i)
   }
 
-  function handleClose() {
-    setActiveIdx(-1)
-  }
+  function handleClose() { setActiveIdx(-1) }
 
   function navigateUp() {
     const newIdx = currentBg > 0 ? currentBg - 1 : items.length - 1
-    setCurrentBg(newIdx)
-    setActiveIdx(newIdx)
+    setCurrentBg(newIdx); setActiveIdx(newIdx)
   }
 
   function navigateDown() {
     const newIdx = currentBg < items.length - 1 ? currentBg + 1 : 0
-    setCurrentBg(newIdx)
-    setActiveIdx(newIdx)
+    setCurrentBg(newIdx); setActiveIdx(newIdx)
   }
 
   return (
-    <section className="w-full  bg-linear-to-b from-white to-[#ededed] pt-25 pb-20">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
-            <span className="block w-6 h-px bg-[#000]/40" />
+    <section className="relative w-full bg-brand-white overflow-hidden pt-20 lg:pt-32 pb-20">
+
+      {/* Diagonal texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(135deg, #1A1A2E 0px, #1A1A2E 1px, transparent 1px, transparent 40px)",
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16">
+
+        {/* Header */}
+        <div className="text-center mb-12 lg:mb-16">
+          <span className="inline-flex items-center gap-3 text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral mb-4">
+            <span className="block w-6 h-px bg-brand-coral/40" />
             {showcaseData.tagline}
-            <span className="block w-6 h-px bg-[#000]/40" />
+            <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy mb-5">
             {showcaseData.title}
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto text-pretty">
+          <p className="text-sm sm:text-base text-brand-navy/50 max-w-2xl mx-auto leading-relaxed">
             {showcaseData.description}
           </p>
         </div>
 
-
-        <div className="hidden md:block relative w-full overflow-hidden rounded-3xl aspect-video bg-[#4e4f5e0c]">
+        {/* Desktop interactive viewer */}
+        <div className="hidden md:block relative w-full overflow-hidden rounded-3xl aspect-video border border-brand-navy/8 shadow-[0_24px_64px_-16px_rgba(26,26,46,0.18)] bg-brand-navy/5">
           {items.map((item, i) => (
             <div
               key={item.id}
@@ -72,58 +77,65 @@ export function ShowcaseSection() {
                 fill
                 className="object-cover"
                 priority={i === 0}
-                sizes="(max-width: 1152px) 100vw, 1152px"
+                sizes="(max-width: 1280px) 100vw, 1280px"
               />
             </div>
           ))}
 
+          {/* Navy gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/40 via-brand-navy/5 to-transparent pointer-events-none" />
+
+          {/* Close button */}
           <button
             onClick={handleClose}
             className={cn(
-              "absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-white/90  backdrop-blur-sm flex items-center justify-center  hover:bg-white transition-all shadow-lg",
+              "absolute top-5 right-5 z-20 w-9 h-9 rounded-full bg-brand-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-brand-white transition-all shadow-lg text-brand-navy",
               activeIdx >= 0 ? "opacity-100" : "opacity-0 pointer-events-none",
             )}
             aria-label="Close"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
 
-          <div className="absolute inset-y-0 left-0 z-10 flex items-center px-8 md:px-12 lg:px-16">
-            <div className="flex flex-col gap-2 w-full max-w-[320px]">
+          {/* Left panel — pill buttons + expanded cards */}
+          <div className="absolute inset-y-0 left-0 z-10 flex items-center px-8 md:px-10 lg:px-14">
+            <div className="flex flex-col gap-2 w-full max-w-[300px]">
               {items.map((item, i) => {
                 const isActive = activeIdx === i
                 return (
-                  <div key={item.id} className="relative ">
+                  <div key={item.id} className="relative">
+                    {/* Collapsed pill */}
                     <button
                       onClick={() => handleItemClick(i)}
                       aria-expanded={isActive}
                       className={cn(
-                        "flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/85 backdrop-blur-md hover:bg-white transition-all duration-300 ease-out cursor-pointer",
+                        "flex items-center gap-2.5 px-4 py-2.5 rounded-full backdrop-blur-md transition-all duration-300 ease-out cursor-pointer border",
+                        "bg-brand-white/85 border-brand-navy/10 hover:bg-brand-white hover:border-brand-coral/30",
                         isActive
-                          ? "opacity-0 scale-95 max-h-0 py-0 pointer-events-none overflow-hidden"
+                          ? "opacity-0 scale-95 max-h-0 py-0 pointer-events-none overflow-hidden border-transparent"
                           : "opacity-100 scale-100 max-h-12",
                       )}
                     >
-                      <Plus
-                        className="w-4 h-4 text-[#ff9204] flex-shrink-0"
-                        strokeWidth={2}
-                      />
-                      <span className="text-sm font-medium text-gray-800 whitespace-nowrap">
+                      <Plus className="w-4 h-4 text-brand-coral flex-shrink-0" strokeWidth={2} />
+                      <span className="text-xs font-semibold uppercase tracking-wide text-brand-navy whitespace-nowrap">
                         {item.label}
                       </span>
                     </button>
 
+                    {/* Expanded card */}
                     <div
                       className={cn(
                         "transition-all duration-300 ease-out overflow-hidden",
-                        isActive
-                          ? "opacity-100 h-auto scale-100"
-                          : "opacity-0 max-h-0 scale-95 pointer-events-none",
+                        isActive ? "opacity-100 h-auto scale-100" : "opacity-0 max-h-0 scale-95 pointer-events-none",
                       )}
                     >
-                      <div className="bg-white/50 backdrop-blur-md rounded-2xl p-4">
-                        <p className="text-sm leading-relaxed text-gray-800">
-                          <strong className="font-semibold text-gray-900">{item.label}.</strong>{" "}
+                      <div className="bg-brand-white/90 backdrop-blur-md rounded-2xl p-5 border border-brand-navy/8 shadow-[0_8px_32px_-8px_rgba(26,26,46,0.15)]">
+                        {/* Coral accent line */}
+                        <div className="w-8 h-0.5 bg-brand-coral rounded-full mb-3" />
+                        <p className="text-sm leading-relaxed text-brand-navy/70">
+                          <strong className="font-black uppercase tracking-tight text-brand-navy text-xs">
+                            {item.label}.
+                          </strong>{" "}
                           {item.content}
                         </p>
                       </div>
@@ -135,8 +147,8 @@ export function ShowcaseSection() {
           </div>
         </div>
 
-        {/* Mobile Layout — bottom pills row with horizontal scroll */}
-        <div className="md:hidden relative mx-4 h-screen max-h-[700px]  overflow-hidden rounded-2xl">
+        {/* Mobile layout */}
+        <div className="md:hidden relative mx-0 h-screen max-h-[680px] overflow-hidden rounded-2xl border border-brand-navy/8 shadow-[0_16px_48px_-12px_rgba(26,26,46,0.18)]">
           {items.map((item, i) => (
             <div
               key={item.id}
@@ -156,14 +168,13 @@ export function ShowcaseSection() {
             </div>
           ))}
 
-          {/* Dark gradient overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/75 via-brand-navy/20 to-transparent pointer-events-none" />
 
-          {/* Close button */}
+          {/* Close */}
           <button
             onClick={handleClose}
             className={cn(
-              "absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-all",
+              "absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-white/15 backdrop-blur-sm flex items-center justify-center text-brand-white hover:bg-brand-white/25 transition-all",
               activeIdx >= 0 ? "opacity-100" : "opacity-0 pointer-events-none",
             )}
             aria-label="Close"
@@ -171,25 +182,24 @@ export function ShowcaseSection() {
             <X className="w-4 h-4" />
           </button>
 
-          {/* Navigation arrows */}
+          {/* Nav arrows */}
           <button
             onClick={navigateUp}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-brand-white/15 backdrop-blur-sm flex items-center justify-center text-brand-white hover:bg-brand-white/25 transition-colors"
             aria-label="Previous"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={navigateDown}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-brand-white/15 backdrop-blur-sm flex items-center justify-center text-brand-white hover:bg-brand-white/25 transition-colors"
             aria-label="Next"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
 
-          {/* Bottom content area */}
+          {/* Bottom content */}
           <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-6">
-            {/* Expanded content card for mobile */}
             <div
               className={cn(
                 "mb-4 transition-all duration-300 ease-out overflow-hidden",
@@ -197,9 +207,10 @@ export function ShowcaseSection() {
               )}
             >
               {activeIdx >= 0 && (
-                <div className="bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl">
-                  <p className="text-sm leading-relaxed text-gray-700">
-                    <strong className="font-semibold text-gray-900">
+                <div className="bg-brand-white/95 backdrop-blur-md rounded-xl p-4 border border-brand-navy/8 shadow-xl">
+                  <div className="w-6 h-0.5 bg-brand-coral rounded-full mb-2" />
+                  <p className="text-sm leading-relaxed text-brand-navy/70">
+                    <strong className="font-black uppercase tracking-tight text-brand-navy text-xs">
                       {items[activeIdx].label}.
                     </strong>{" "}
                     {items[activeIdx].content}
@@ -209,26 +220,28 @@ export function ShowcaseSection() {
             </div>
 
             {/* Pills row */}
-            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
               {items.map((item, i) => (
                 <button
                   key={item.id}
                   onClick={() => handleItemClick(i)}
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-md",
-                    activeIdx === i ? "bg-white/95 shadow-md" : "bg-white/20 hover:bg-white/30",
+                    "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-md border",
+                    activeIdx === i
+                      ? "bg-brand-white/95 border-brand-coral/20 shadow-md"
+                      : "bg-brand-white/15 border-brand-white/10 hover:bg-brand-white/25",
                   )}
                 >
                   <Plus
                     className={cn(
                       "w-3.5 h-3.5 flex-shrink-0 transition-colors",
-                      activeIdx === i ? "text-gray-600" : "text-[#ff9204]",
+                      activeIdx === i ? "text-brand-coral" : "text-brand-white",
                     )}
                   />
                   <span
                     className={cn(
-                      "text-xs font-medium transition-colors",
-                      activeIdx === i ? "text-gray-800" : "text-white",
+                      "text-xs font-semibold uppercase tracking-wide transition-colors",
+                      activeIdx === i ? "text-brand-navy" : "text-brand-white",
                     )}
                   >
                     {item.label}
@@ -236,18 +249,24 @@ export function ShowcaseSection() {
                 </button>
               ))}
             </div>
-
-
           </div>
         </div>
 
-        <div className="flex justify-center mt-20 px-6 -mb-10">
+        {/* CTA */}
+        <div className="flex justify-center mt-16">
           <Link href={showcaseData.ctaButton.href}>
             <Button
-              variant="outline"
-              className="bg-[#085689] text-white hover:bg-[#78B6D9] hover:border-slate-400 rounded-xl px-10 py-6 text-base font-medium transition-all duration-300 cursor-pointer"
+              className="group bg-brand-navy hover:bg-brand-teal text-brand-white px-10 py-6 text-xs sm:text-sm font-semibold tracking-widest uppercase cursor-pointer transition-colors duration-200 rounded-3xl"
             >
-              {showcaseData.ctaButton.text}
+              <span className="flex items-center gap-2.5">
+                {showcaseData.ctaButton.text}
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
             </Button>
           </Link>
         </div>

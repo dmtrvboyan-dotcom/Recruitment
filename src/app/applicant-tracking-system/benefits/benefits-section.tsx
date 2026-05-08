@@ -1,106 +1,177 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Image from "next/image";
-import { benefitsData } from "./data";
+import { memo, useState, useRef, useEffect } from "react"
+import Image from "next/image"
+import { benefitsData } from "./data"
 
-export function BenefitsSection() {
-    const [active, setActive] = useState(0);
-
-    const bgImages = [
-        "/smartr/time.png",
-        "/smartr/reduce.png",
-        "/smartr/experience.png",
-        "/smartr/gain.png",
-    ];
-
-    const handleClick = (index: number) => {
-        if (index === active) return;
-        setTimeout(() => setActive(index), 60);
-    };
-
-    return (
-        <section className="py-20 md:py-32 px-6 bg-linear-to-b from-[#ededed] to-white overflow-hidden">
-            <div className="max-w-6xl mx-auto">
-
-                <div className="text-center mb-6">
-                       <span className="inline-flex items-center gap-2 text-md font-bold text-[#ff9204] uppercase tracking-[0.2em] mb-5">
-                                <span className="block w-6 h-px bg-[#000]/40" />
-                                {benefitsData.tagline}
-                                <span className="block w-6 h-px bg-[#000]/40" />
-                              </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4 text-balance">
-                        {benefitsData.title}
-                    </h2>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mt-16">
-
-                    {/* IMAGE (Top on mobile, right on desktop) */}
-                    <div className="order-1 lg:order-2 lg:sticky lg:top-10 rounded-2xl overflow-hidden aspect-4/3 relative border border-slate-200 shadow-[0_16px_40px_rgba(8,86,137,0.12)]">
-                        {bgImages.map((src, index) => (
-                            <Image
-                                key={index}
-                                src={src}
-                                alt=""
-                                fill
-                                className={`object-cover transition-opacity duration-500 ease-in-out ${
-                                    active === index ? "opacity-100" : "opacity-0"
-                                }`}
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
-                        ))}
-                    </div>
-
-                    {/* TEXT */}
-                    <div className="order-2 lg:order-1 flex flex-col">
-                        {benefitsData.items.map((benefit, index) => (
-                            <div
-                                key={index}
-                                className="border-t border-slate-200 last:border-b cursor-pointer py-6"
-                                onClick={() => handleClick(index)}
-                            >
-                                <div className="flex items-center gap-5 select-none">
-                                    <div
-                                        className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 border-[1.5px] transition-all duration-300 ${
-                                            active === index
-                                                ? "bg-[#ff9204] border-[#ff9204]/20 text-white shadow-[0_4px_12px_rgba(255,146,4,0.3)]"
-                                                : "border-slate-300 text-slate-400"
-                                        }`}
-                                    >
-                                        {index + 1}
-                                    </div>
-                                    <span
-                                        className={`font-semibold text-lg transition-colors duration-300 ${
-                                            active === index ? "text-black" : "text-slate-400"
-                                        }`}
-                                    >
-                                        {benefit.title}
-                                    </span>
-                                </div>
-
-                                <div
-                                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                                        active === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
-                                    }`}
-                                >
-                                    <div className="pt-4 pb-1 pl-13 flex flex-col gap-3">
-                                        <p className="text-slate-500 text-sm leading-relaxed">
-                                            {benefit.description}
-                                        </p>
-                                        {benefit.stat && (
-                                            <span className="font-black text-3xl text-[#085689] leading-none">
-                                                {benefit.stat}
-                                            </span>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    );
+function useInView(threshold = 0.2) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect() } },
+      { threshold }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [threshold])
+  return { ref, visible }
 }
+
+const bgImages = [
+  "/smartr/time.png",
+  "/smartr/reduce.png",
+  "/smartr/experience.png",
+  "/smartr/gain.png",
+]
+
+export const BenefitsSection = memo(function BenefitsSection() {
+  const [active, setActive] = useState(0)
+  const { ref: headerRef, visible: headerVisible } = useInView()
+  const { ref: contentRef, visible: contentVisible } = useInView()
+
+  const handleClick = (index: number) => {
+    if (index === active) return
+    setTimeout(() => setActive(index), 60)
+  }
+
+  return (
+    <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
+
+
+
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
+
+        {/* Header */}
+        <div
+          ref={headerRef}
+          className="text-center mb-16 lg:mb-20"
+          style={{
+            opacity: headerVisible ? 1 : 0,
+            transform: headerVisible ? "translateY(0)" : "translateY(24px)",
+            transition: "opacity 0.7s ease, transform 0.7s ease",
+          }}
+        >
+          <span className="inline-flex items-center gap-3 text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral mb-4">
+            <span className="block w-6 h-px bg-brand-coral/40" />
+            {benefitsData.tagline}
+            <span className="block w-6 h-px bg-brand-coral/40" />
+          </span>
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy">
+            {benefitsData.title}
+          </h2>
+        </div>
+
+        {/* Two-column layout */}
+        <div
+          ref={contentRef}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
+        >
+
+          {/* Sticky image — right on desktop, top on mobile */}
+          <div
+            className="order-1 lg:order-2 lg:sticky lg:top-10"
+            style={{
+              opacity: contentVisible ? 1 : 0,
+              transform: contentVisible ? "translateY(0)" : "translateY(32px)",
+              transition: "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
+            }}
+          >
+            <div className="rounded-2xl overflow-hidden aspect-4/3 relative
+                           border border-brand-navy/8
+                           shadow-[0_16px_48px_-12px_rgba(26,26,46,0.15)]">
+              {bgImages.map((src, index) => (
+                <Image
+                  key={index}
+                  src={src}
+                  alt=""
+                  fill
+                  className={`object-cover transition-opacity duration-500 ease-in-out ${
+                    active === index ? "opacity-100" : "opacity-0"
+                  }`}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              ))}
+
+              {/* Subtle navy overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/20 to-transparent pointer-events-none" />
+
+              {/* Active index indicator */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {bgImages.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      active === i ? "w-6 bg-brand-coral" : "w-1.5 bg-brand-white/40"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Accordion list — left on desktop */}
+          <div
+            className="order-2 lg:order-1 flex flex-col"
+            style={{
+              opacity: contentVisible ? 1 : 0,
+              transform: contentVisible ? "translateY(0)" : "translateY(32px)",
+              transition: "opacity 0.7s ease, transform 0.7s ease",
+            }}
+          >
+            {benefitsData.items.map((benefit, index) => (
+              <div
+                key={index}
+                className="border-t border-brand-navy/8 last:border-b cursor-pointer py-6
+                           transition-colors duration-200 hover:bg-brand-navy/[0.015] px-2 -mx-2 rounded-lg"
+                onClick={() => handleClick(index)}
+              >
+                <div className="flex items-center gap-5 select-none">
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0
+                               border-[1.5px] transition-all duration-300 ${
+                      active === index
+                        ? "bg-brand-coral border-brand-coral/20 text-brand-white shadow-[0_4px_14px_rgba(114,145,199,0.35)]"
+                        : "border-brand-navy/20 text-brand-navy/35"
+                    }`}
+                  >
+                    {index + 1}
+                  </div>
+                  <span
+                    className={`font-black uppercase tracking-tight text-base sm:text-lg transition-colors duration-300 ${
+                      active === index ? "text-brand-navy" : "text-brand-navy/35"
+                    }`}
+                  >
+                    {benefit.title}
+                  </span>
+                </div>
+
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    active === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="pt-4 pb-1 pl-13 flex flex-col gap-4">
+                    <p className="text-brand-navy/50 text-sm leading-relaxed">
+                      {benefit.description}
+                    </p>
+                    {benefit.stat && (
+                      <span className="font-black text-3xl text-brand-coral leading-none">
+                        {benefit.stat}
+                      </span>
+                    )}
+                    {/* Animated accent line */}
+                    <div className="h-px w-12 bg-gradient-to-r from-brand-coral to-transparent" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
+})
