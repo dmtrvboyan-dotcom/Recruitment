@@ -16,12 +16,11 @@ export function CompaniesSection() {
   return (
     <section
       id="companies"
-      className="py-24 lg:py-32"
+      className="py-16 sm:py-20 lg:py-32"
     >
-
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[80px] sm:blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
       {/* Teal glow — bottom right, hidden on small screens */}
@@ -30,27 +29,24 @@ export function CompaniesSection() {
         className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
-          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
-            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
-            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
+        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 lg:mb-20">
+          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-4 sm:mb-6">
+            <span className="block w-5 sm:w-9 h-px bg-brand-coral" />
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.24em] sm:tracking-[0.32em] uppercase text-brand-coral">
               Who we work with
             </span>
-            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            <span className="block w-5 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
+          <h2 className="text-[clamp(1.5rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-4 sm:mb-6">
             Why <span className="text-brand-coral">Companies</span> Work With Us
-            <br />
           </h2>
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral" />
+          <div className="mx-auto h-[2px] w-10 sm:w-16 bg-brand-coral" />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto overflow-hidden ">
-
-          <div className="bg-brand-navy px-12 py-14 rounded-3xl">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 items-stretch max-w-5xl mx-auto">
+          <div className="bg-brand-navy px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14 rounded-2xl sm:rounded-3xl">
             <SectionHeader label="Why Companies Choose Us" variant="dark" />
             <ul className="divide-y divide-white/10">
               {WHY_CHOOSE_US_POINTS.map((item, index) => (
@@ -59,8 +55,7 @@ export function CompaniesSection() {
             </ul>
           </div>
 
-
-          <div className="bg-brand-white border rounded-3xl border-brand-navy/8 px-12 py-14">
+          <div className="bg-brand-white border rounded-2xl sm:rounded-3xl border-brand-navy/8 px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
             <SectionHeader label="Hire with Clarity" variant="brand" />
             <ul className="divide-y divide-brand-navy/8">
               {HIRE_WITH_CLARITY_POINTS.map((item, index) => (
@@ -71,13 +66,15 @@ export function CompaniesSection() {
         </div>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-20">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 lg:mt-20">
           <Button
             asChild
             variant="outline"
-            className="bg-brand-coral hover:bg-brand-coral-hover text-white px-10 py-7 text-sm font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95"
+            className="w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-white px-8 py-6 sm:px-10 sm:py-7 text-sm font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95"
           >
-            <Link href="/process" target="_blank" rel="noopener noreferrer uppercase ">learn more how we work</Link>
+            <Link href="/process" target="_blank" rel="noopener noreferrer">
+              learn more how we work
+            </Link>
           </Button>
           <Button
             onClick={handleNavigate}
