@@ -53,13 +53,20 @@ export function CompaniesSection() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-20">
 
-       
+
           <Button
             asChild
             variant="outline"
             className="bg-brand-coral hover:bg-brand-coral-hover text-white px-10 py-7 text-sm font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95"
           >
-            <Link href="/process" target="_blank" rel="noopener noreferrer">How We Work</Link>
+            <Link href="/process" target="_blank" rel="noopener noreferrer uppercase ">learn more how we work</Link>
+          </Button>
+          <Button
+            onClick={handleNavigate}
+            variant="outline"
+            className="w-full sm:w-auto bg-transparent hover:bg-brand-navy text-brand-navy hover:text-white rounded-3xl px-8 py-6 text-sm font-semibold tracking-widest uppercase border-2 border-brand-navy cursor-pointer transition-colors duration-200"
+          >
+            Contact Us
           </Button>
 
         </div>

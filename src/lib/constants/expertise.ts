@@ -1,13 +1,13 @@
 import {
-    Code2,
-    Users,
-    Globe,
-    Gamepad2,
-    Briefcase,
-    Building2,
-    Layers,
-    Heart,         
-    Truck  // example for new card
+  Code2,
+  Users,
+  Globe,
+  Gamepad2,
+  Briefcase,
+  Building2,
+  Layers,
+  Heart,
+  Truck  // example for new card
 } from "lucide-react";
 
 export const EXPERTISE_AREAS = [
@@ -28,6 +28,22 @@ export const EXPERTISE_AREAS = [
     stats: "150+ placements",
   },
   {
+    title: "AI/ML/Data Recruitment",
+    description: "AI recruitment for machine learning engineers, data scientists, and MLOps teams.",
+    href: "/expertise-services/aiml-recruitment",
+    icon: Users,
+    image: "/expertise/aiml.jpg",
+    stats: "100+ placements",
+  },
+  {
+    title: "Cybersecurity Recruitment",
+    description: "Cybersecurity recruitment for security engineers, SOC analysts, and DevSecOps teams.",
+    href: "/expertise-services/cybersecurity-recruitment",
+    icon: Building2,
+    image: "/expertise/cybersecurity.jpg",
+    stats: "120+ placements",
+  },
+  {
     title: "IT Services & SaaS Recruitment",
     description: "SaaS recruitment for engineers, DevOps, and technical leaders across Bulgaria and Europe.",
     href: "/expertise-services/saas-recruitment",
@@ -43,41 +59,26 @@ export const EXPERTISE_AREAS = [
     image: "/expertise/ecommerce.jpg",
     stats: "180+ placements",
   },
-  {
-    title: "AI / ML Recruitment",
-    description: "AI recruitment for machine learning engineers, data scientists, and MLOps teams.",
-    href: "/expertise-services/aiml-recruitment",
-    icon: Users,
-    image: "/expertise/aiml.jpg",
-    stats: "100+ placements",
-  },
-  {
-    title: "Cybersecurity Recruitment",
-    description: "Cybersecurity recruitment for security engineers, SOC analysts, and DevSecOps teams.",
-    href: "/expertise-services/cybersecurity-recruitment",
-    icon: Building2,
-    image: "/expertise/cybersecurity.jpg",
-    stats: "120+ placements",
-  },
+
 ]
 
 export const EXPERTISE_FEATURED_AREA = {
-    title: "More Industries we recruit for",
-    description:
-        "Our recruitment networks extend across diverse technical and logistical landscapes, ensuring a perfect fit for niche requirements.",
-    href: "/expertise-services/specialized-industries",
-    icon: Layers,
+  title: "More Industries we recruit for",
+  description:
+    "Our recruitment networks extend across diverse technical and logistical landscapes, ensuring a perfect fit for niche requirements.",
+  href: "/expertise-services/specialized-industries",
+  icon: Layers,
 
-    tags: [
-        "Manufacturing (IT-focused)",
-        "Renewable Energy",
-        "Logistics & Supply Chain",
-        "Hospitality",
-        "Retail",
-        "Media & Entertainment",
-        "Legal (LegalTech)",
-        "Banking Tech",
-        "EdTech",
-    ],
-    cta: "Learn more about our reach",
+  tags: [
+    "Manufacturing (IT-focused)",
+    "Renewable Energy",
+    "Logistics & Supply Chain",
+    "Hospitality",
+    "Retail",
+    "Media & Entertainment",
+    "Legal (LegalTech)",
+    "Banking Tech",
+    "EdTech",
+  ],
+  cta: "Learn more about our reach",
 };

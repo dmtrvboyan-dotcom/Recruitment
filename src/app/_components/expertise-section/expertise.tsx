@@ -7,16 +7,14 @@ import { FeaturedExpertiseCard } from "./featured-expertise-card"
 
 export function ExpertiseSection() {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
-
-
+    <section id="our-expertise" className="relative py-24 lg:py-32 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 xl:px-12 w-full">
         <div className="flex flex-col items-center text-center mb-16 lg:mb-24">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-coral mb-6 animate-fade-in-up">
             Our Expertise
           </p>
           <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold text-brand-navy leading-[1.1] tracking-tight mb-7 max-w-4xl animate-fade-in-up delay-100 capitalize">
-            We Help companies hire <br /> across different <span className="text-brand-blue">industries</span>
+            We Help companies hire <br /> across  <span className="text-brand-coral">different industries</span>
           </h2>
           <p className="text-base lg:text-lg text-brand-navy/55 max-w-2xl leading-relaxed animate-fade-in-up delay-200">
             From specialized technical roles to executive leadership, we deliver tailored

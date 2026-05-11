@@ -1,71 +1,166 @@
 "use client"
 
-import { memo, useCallback } from "react"
-import { ChevronDown, Users } from "lucide-react"
+import { memo } from "react"
+import { ChevronDown, ArrowUpRight, Users } from "lucide-react"
 import Link from "next/link"
 import { type Service } from "@/lib/constants/services"
-import { scrollToSection } from "@/lib/utils/scroll"
 
 export const MobileServiceItem = memo(function MobileServiceItem({
   service,
+  index,
   isOpen,
   onToggle,
+  variant = "default",
 }: {
   service: Service
+  index: number
   isOpen: boolean
   onToggle: () => void
+  variant?: "default" | "feature"
 }) {
-  const IconComponent = service.icon
-
-  const handleNavigate = useCallback((href: string) => {
-    scrollToSection(href)
-  }, [])
+  const isFeature = variant === "feature"
+  const number = String(index + 1).padStart(2, "0")
 
   return (
-    <div className="border border-border rounded-2xl overflow-hidden bg-card mb-4 last:mb-0 transition-all duration-300">
+    <div
+      className={`relative overflow-hidden transition-colors duration-300
+        ${isFeature
+          ? "bg-brand-navy text-brand-white"
+          : `bg-brand-white text-brand-navy ${isOpen ? "bg-brand-coral/5" : ""}`
+        }
+      `}
+    >
+      {/* Header */}
       <button
         onClick={onToggle}
-        className="w-full px-6 py-6 flex items-center justify-between text-left group transition-colors"
+        className="w-full text-left p-5 sm:p-6 flex flex-col gap-4"
       >
-        <div className="flex items-center gap-4">
-          <div className={`w-12 h-12 rounded-lg ${service.iconBg} flex-shrink-0 flex items-center justify-center transition-opacity duration-200 group-hover:opacity-80`}>
-            <IconComponent className={`w-6 h-6 ${service.iconColor}`} />
-          </div>
-          <h3 className="text-lg font-semibold text-brand-navy pr-4 leading-tight">
-            {service.title}
-          </h3>
-        </div>
-
-        <ChevronDown
-          className={`w-6 h-6 text-brand-coral transition-transform duration-500 shrink-0 ${
-            isOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? "max-h-[1400px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="px-6 pb-8">
-          {service.subtitle && (
-            <p className="text-brand-coral font-medium mb-4">{service.subtitle}</p>
+        {/* Top row: featured tag or arrow + counter */}
+        <div className="flex items-start justify-between">
+          {isFeature ? (
+            <span className="font-serif italic text-[12px] tracking-[0.18em] text-brand-coral">
+             
+            </span>
+          ) : (
+            <span
+              className={`font-black leading-[0.85] tracking-[-0.04em] text-4xl sm:text-5xl transition-colors duration-300
+                ${isOpen
+                  ? "text-brand-coral/40"
+                  : "text-brand-navy/8"
+                }
+              `}
+            >
+              {number}
+            </span>
           )}
 
+          {isFeature ? (
+            <span className="text-[10px] tracking-[0.25em] uppercase text-brand-white/35">
+            </span>
+          ) : (
+            <ChevronDown
+              className={`w-5 h-5 text-brand-navy/40 shrink-0 transition-transform duration-500 ${
+                isOpen ? "rotate-180 text-brand-coral" : ""
+              }`}
+              strokeWidth={1.5}
+            />
+          )}
+        </div>
+
+        {/* Title block */}
+        <div className="flex items-end justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            {isFeature && (
+              <div className="font-black leading-[0.85] tracking-[-0.04em] text-brand-coral/20 text-6xl sm:text-7xl mb-2">
+                {number}
+              </div>
+            )}
+            <h3
+              className={`font-black uppercase tracking-[-0.015em] leading-[1.05]
+                ${isFeature ? "text-xl sm:text-2xl" : "text-base sm:text-lg"}
+              `}
+            >
+              {service.title}
+            </h3>
+            {service.subtitle && !isOpen && (
+              <p
+                className={`mt-1.5 text-[13px] leading-snug
+                  ${isFeature ? "text-brand-white/55" : "text-brand-navy/55"}
+                `}
+              >
+                {service.subtitle}
+              </p>
+            )}
+          </div>
+
+          {/* Feature card chevron (the open/close indicator) */}
+          {isFeature && (
+            <ChevronDown
+              className={`w-6 h-6 text-brand-coral shrink-0 transition-transform duration-500 ${
+                isOpen ? "rotate-180" : ""
+              }`}
+              strokeWidth={1.5}
+            />
+          )}
+        </div>
+      </button>
+
+      {/* Expanded panel */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? "max-h-[1600px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-5 sm:px-6 pb-6 sm:pb-7">
+          {/* Coral divider */}
+          <div
+            className={`h-px w-full mb-6 ${
+              isFeature ? "bg-brand-coral/30" : "bg-brand-navy/10"
+            }`}
+          />
+
+          {/* Intro */}
+          {service.subtitle && (
+            <p
+              className={`text-sm font-medium mb-5 ${
+                isFeature ? "text-brand-coral" : "text-brand-coral"
+              }`}
+            >
+              {service.subtitle}
+            </p>
+          )}
+          {service.intro && (
+            <p
+              className={`text-sm leading-relaxed mb-6 ${
+                isFeature ? "text-brand-white/65" : "text-brand-navy/60"
+              }`}
+            >
+              {service.intro}
+            </p>
+          )}
+
+          {/* Sections */}
           <div className="space-y-6">
             {service.sections.map((section, idx) => (
               <div key={idx}>
-                <h4 className="text-lg font-semibold text-brand-navy mb-3">
+                <h4
+                  className={`text-[11px] font-semibold tracking-[0.22em] uppercase mb-3 ${
+                    isFeature ? "text-brand-coral" : "text-brand-coral"
+                  }`}
+                >
                   {section.heading}
                 </h4>
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {section.points.map((point, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 text-base leading-relaxed text-brand-navy/60"
+                      className={`flex items-start gap-3 text-sm leading-relaxed ${
+                        isFeature ? "text-brand-white/70" : "text-brand-navy/65"
+                      }`}
                     >
-                      <span className={`${service.iconColor} text-lg leading-none mt-0.5 flex-shrink-0`}>
+                      <span
+                        className={`text-brand-coral text-lg leading-none mt-0.5 flex-shrink-0`}
+                      >
                         &bull;
                       </span>
                       <span>{point}</span>
@@ -76,22 +171,46 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             ))}
           </div>
 
-          <div className="mt-8 border-t border-border pt-6 flex flex-col gap-6">
-            <div className="grid grid-cols-3 gap-4">
-              {service.stats.map((stat, idx) => (
-                <div key={idx} className="text-center">
-                  <div className={`text-2xl text-brand-navy font-bold ${service.iconColor}`}>{stat.value}</div>
-                  <div className="text-xs text-brand-teal mt-1 leading-snug">{stat.label}</div>
+          {/* Stats */}
+          <div
+            className={`mt-7 pt-6 grid grid-cols-3 gap-4 border-t ${
+              isFeature ? "border-brand-white/10" : "border-brand-navy/8"
+            }`}
+          >
+            {service.stats.map((stat, idx) => (
+              <div key={idx} className="text-center">
+                <div
+                  className={`text-xl sm:text-2xl font-black tracking-tight ${
+                    isFeature ? "text-brand-coral" : "text-brand-navy"
+                  }`}
+                >
+                  {stat.value}
                 </div>
-              ))}
-            </div>
-             <Link
-  href={service.href}
-  target="_blank"
-  className="w-full inline-flex items-center justify-center bg-brand-navy hover:bg-brand-coral text-white py-3.5 px-8 rounded-3xl text-sm font-medium tracking-widest uppercase transition-colors duration-200">
-  Learn more <Users className="w-4 h-4 ml-2" />
-</Link>
+                <div
+                  className={`text-[10px] tracking-[0.18em] uppercase mt-1.5 leading-snug ${
+                    isFeature ? "text-brand-white/45" : "text-brand-navy/45"
+                  }`}
+                >
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
+
+          {/* CTA */}
+          <Link
+            href={service.href}
+            target="_blank"
+            className={`mt-6 w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-full text-[11px] font-semibold tracking-[0.22em] uppercase transition-colors duration-200
+              ${isFeature
+                ? "bg-brand-coral hover:bg-brand-coral-hover text-brand-white"
+                : "bg-brand-navy hover:bg-brand-coral text-brand-white"
+              }
+            `}
+          >
+            Learn more
+            <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />
+          </Link>
         </div>
       </div>
     </div>

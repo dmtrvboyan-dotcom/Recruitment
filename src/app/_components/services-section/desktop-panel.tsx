@@ -1,10 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { memo, useCallback } from "react"
-import { X, Users } from "lucide-react"
+import { memo } from "react"
+import { X, ArrowUpRight } from "lucide-react"
 import { type Service } from "@/lib/constants/services"
-import { scrollToSection } from "@/lib/utils/scroll"
 
 export const DesktopPanel = memo(function DesktopPanel({
   service,
@@ -13,112 +12,142 @@ export const DesktopPanel = memo(function DesktopPanel({
   service: Service | null
   onClose: () => void
 }) {
-  const handleNavigate = useCallback((href: string) => {
-    scrollToSection(href)
-  }, [])
-
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${service ? "visible" : "invisible"
-        }`}
+      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${
+        service ? "visible" : "invisible"
+      }`}
     >
       {/* Backdrop */}
       <div
-        className={`absolute inset-0 bg-brand-bg/90 backdrop-blur-md transition-opacity duration-300 ${service ? "opacity-100" : "opacity-0"
-          }`}
+        className={`absolute inset-0 bg-brand-navy/40 backdrop-blur-sm transition-opacity duration-300 ${
+          service ? "opacity-100" : "opacity-0"
+        }`}
         onClick={onClose}
       />
 
       {/* Sliding panel */}
       <div
-        className={`relative h-full w-full md:w-[50%] bg-card shadow-xl transform transition-transform duration-500 ease-out overflow-y-auto ${service ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${
+          service ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        {/* Accent line — uses the service's own icon color */}
-        {service && (
-          <div
-            className="absolute top-0 left-0 right-0 h-0.5 pointer-events-none"
-            style={{ backgroundColor: "currentColor" }}
-          />
-        )}
-        <div
-          className="absolute top-0 left-0 right-0 h-0.5 pointer-events-none bg-brand-coral"
-        />
+        {/* Top coral accent */}
+        <div className="sticky top-0 left-0 right-0 h-[3px] bg-brand-coral z-20" />
 
         {service && (
-          <div className="p-6 md:p-8">
+          <div className="relative">
+            {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 p-2 rounded-full bg-brand-navy hover:bg-brand-coral transition-colors duration-200"
+              className="absolute top-5 right-5 lg:top-7 lg:right-7 z-10 w-11 h-11 rounded-full bg-brand-navy hover:bg-brand-coral text-brand-white flex items-center justify-center transition-colors duration-200"
+              aria-label="Close"
             >
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5" strokeWidth={2} />
             </button>
 
-            {/* Header icon */}
-            <div className={`w-20 h-20 rounded-2xl ${service.iconBg} flex items-center justify-center mb-8`}>
-              <service.icon className={`w-12 h-12 ${service.iconColor}`} />
-            </div>
-
-            <h3 className="text-3xl font-bold text-brand-navy mb-2">{service.title}</h3>
-            {service.subtitle && (
-              <p className="text-xl text-brand-coral font-medium mb-6">{service.subtitle}</p>
-            )}
-            {service.intro && (
-              <p className="text-lg leading-relaxed text-brand-navy/60 mb-10">{service.intro}</p>
-            )}
-
-            {/* Sections grid */}
-            <div className="grid grid-cols-1 [@media(min-width:1235px)]:grid-cols-2 gap-8 md:gap-12">
-              {service.sections.map((section, idx) => (
-                <div key={idx}>
-                  <h4 className="text-xl font-semibold text-brand-navy mb-5">
-                    {section.heading}
-                  </h4>
-                  <ul className="space-y-3">
-                    {section.points.map((point, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 text-[17px] leading-relaxed text-brand-navy/60"
-                      >
-                        <span className={`${service.iconColor} text-xl leading-none mt-0.5 flex-shrink-0`}>
-                          &bull;
-                        </span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            {/* Stats + button */}
-            <div className="mt-10 border-t border-border pt-8">
-
-              {/* Stats - Centered */}
-              <div className="flex justify-center mb-10">
-                <div className="grid grid-cols-3 gap-8 md:gap-12">
-                  {service.stats.map((stat, idx) => (
-                    <div key={idx} className="text-center">
-                      <div className={`text-[2.1rem] leading-none font-bold ${service.iconColor}`}>
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-brand-teal mt-2 font-medium">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            {/* Main content — everything centered */}
+            <div className="px-6 lg:px-12 pt-14 lg:pt-16 pb-12 flex flex-col items-center text-center">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3.5 mb-7">
+                <span className="block w-9 h-px bg-brand-coral" />
+                <span className="text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
+                  Service
+                </span>
+                <span className="block w-9 h-px bg-brand-coral" />
               </div>
 
-              {/* Button - Centered below stats */}
-              <div className="flex justify-center">
-                <Link
-                  href={service.href}
-                  target="_blank"
-                  className="inline-flex items-center justify-center bg-brand-navy hover:bg-brand-coral text-white py-3.5 px-10 rounded-3xl text-sm font-medium tracking-widest uppercase transition-colors duration-200 min-w-[200px]">
-                  Learn more
-                  <Users className="w-4 h-4 ml-2" />
-                </Link>
+              {/* Icon */}
+              <div
+                className={`w-16 h-16 lg:w-20 lg:h-20 rounded-2xl ${service.iconBg} flex items-center justify-center mb-7`}
+              >
+                <service.icon
+                  className={`w-8 h-8 lg:w-10 lg:h-10 ${service.iconColor}`}
+                  strokeWidth={1.5}
+                />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-black uppercase tracking-tight leading-[1.05] text-brand-navy mb-3 max-w-xl">
+                {service.title}
+              </h3>
+
+              {service.subtitle && (
+                <p className="text-base lg:text-lg text-brand-coral font-semibold mb-5">
+                  {service.subtitle}
+                </p>
+              )}
+
+              {/* Coral underline */}
+              <div className="h-[2px] w-12 bg-brand-coral mb-7" />
+
+              {/* Intro */}
+              {service.intro && (
+                <p className="text-base lg:text-lg leading-relaxed text-brand-navy/60 mb-10 max-w-2xl">
+                  {service.intro}
+                </p>
+              )}
+
+              {/* Sections grid */}
+              <div className="w-full grid grid-cols-1 [@media(min-width:1235px)]:grid-cols-2 gap-8 lg:gap-12 mb-12 text-left">
+                {service.sections.map((section, idx) => (
+                  <div key={idx}>
+                    <h4 className="text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-coral mb-4">
+                      {section.heading}
+                    </h4>
+                    <ul className="space-y-3">
+                      {section.points.map((point, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-[15px] lg:text-base leading-relaxed text-brand-navy/70"
+                        >
+                          <span className="text-brand-coral text-lg leading-none mt-0.5 flex-shrink-0">
+                            &bull;
+                          </span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA — now sits right after the sections */}
+              <Link
+                href={service.href}
+                target="_blank"
+                className="group inline-flex items-center justify-center gap-2.5 py-5 px-10 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 mb-3"
+              >
+                Learn more
+                <ArrowUpRight
+                  className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                  strokeWidth={1.5}
+                />
+              </Link>
+
+             
+            </div>
+
+            {/* Stats footer — dark navy block at the bottom */}
+            <div className="bg-brand-navy text-brand-white px-6 lg:px-12 py-10 lg:py-12">
+              <div className="grid grid-cols-3 gap-4 lg:gap-8 max-w-2xl mx-auto">
+                {service.stats.map((stat, idx) => (
+                  <div
+                    key={idx}
+                    className={`text-center ${
+                      idx !== service.stats.length - 1
+                        ? "border-r border-brand-white/10 pr-4 lg:pr-8"
+                        : ""
+                    }`}
+                  >
+                    <div className="text-3xl lg:text-[2.5rem] font-black text-brand-white leading-none tracking-tight mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-[10px] tracking-[0.22em] uppercase text-brand-coral font-semibold leading-snug">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

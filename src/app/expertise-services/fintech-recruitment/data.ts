@@ -66,7 +66,7 @@ export const HERO_DATA: HeroData = {
   tagline: "Fintech Recruitment",
   title: "Fintech Recruitment & Hiring",
   description:
-    "The fintech sector is growing rapidly, and the need for experienced professionals is growing with it.",
+    "",
   subDescription:
     "",
 }
@@ -239,11 +239,11 @@ export const CTA_DATA: CtaData = {
   description:
     "Let us connect you with experienced fintech professionals who can drive your business forward.",
   primaryButton: {
-    text: "Hire Fintech Specialists",
+    text: "Ready to Hire Fintech Professionals",
     href: "/#contact",
   },
   secondaryButton: {
-    text: "Request for Candidates",
-    href: "/#companies",
+    text: "Learn more about our team",
+    href: "/about",
   },
 }

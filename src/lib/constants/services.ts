@@ -32,7 +32,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Permanent IT Recruitment",
-    subtitle: "",
+    subtitle: "Lorem ipsum dolor sit amet",
     intro: "",
     sections: [
       {
@@ -66,7 +66,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Hire Contract or Freelance Developers",
-    subtitle: "",
+    subtitle: "Lorem ipsum dolor sit amet",
     intro: "",
     sections: [
       {
@@ -168,7 +168,7 @@ export const SERVICES: Service[] = [
    iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Executive Search & Headhunting",
-    subtitle: "",
+    subtitle: "Lorem ipsum dolor sit amet",
     intro: "",
     sections: [
       {
@@ -202,7 +202,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "IT Salary Benchmarking & Hiring Insights",
-    subtitle: "",
+    subtitle: "Lorem ipsum dolor sit amet",
     intro: "",
     sections: [
       {

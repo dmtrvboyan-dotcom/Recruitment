@@ -22,10 +22,8 @@ export const metadata: Metadata = {
 export default function FintechRecruitmentPage() {
   return (
     <>
-      {/* ─── HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-        {/* Diagonal slash accent — purely decorative */}
         <div
           aria-hidden
           className="absolute inset-0 pointer-events-none"
@@ -40,11 +38,8 @@ export default function FintechRecruitmentPage() {
           }}
         />
 
-        {/* Glow blobs */}
         <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
         <div className="absolute top-10 right-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
-
-        {/* Giant background word */}
         <div
           aria-hidden
           className="absolute bottom-0 right-0 text-[22vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
@@ -52,7 +47,6 @@ export default function FintechRecruitmentPage() {
           FINTECH
         </div>
 
-        {/* Vertical tag on far left — desktop only */}
         <div className="hidden lg:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col items-center gap-4 pointer-events-none">
           <div className="h-16 w-px bg-brand-white/10" />
           <span
@@ -64,46 +58,57 @@ export default function FintechRecruitmentPage() {
           <div className="h-16 w-px bg-brand-white/10" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 pt-36 pb-16 lg:pb-28 w-full">
+        <div className="relative w-full">
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-center px-5 pt-28 pb-32 lg:pb-16 sm:px-8 lg:px-12 xl:px-16">
 
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral mb-6">
-              {HERO_DATA.tagline}
-            </span>
-
-            <h1 className="text-[clamp(3.2rem,10vw,7rem)] font-black leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
-              Fintech <span className="text-brand-coral">Recruitment</span> & Hiring
-            </h1>
-
-            <p className="text-sm sm:text-base text-brand-white/45 max-w-xl mx-auto leading-relaxed">
-              {HERO_DATA.description}
-            </p>
-
-            {/* Stats row */}
-            <div className="flex items-center justify-center gap-10 mt-12">
-              {[
-                { num: "6+", label: "Years in market" },
-                { num: "400+", label: "Placements made" },
-                { num: "94%", label: "Retention rate" },
-              ].map(({ num, label }, i) => (
-                <div key={label} className="text-center">
-                  <div className="text-2xl sm:text-3xl font-black text-brand-coral leading-none">
-                    {num}
-                  </div>
-                  <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/25 mt-1">
-                    {label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Divider */}
-            <div className="flex items-center justify-center gap-4 mt-12">
-              <div className="h-px w-16 bg-brand-white/10" />
-              <span className="text-[9px] font-bold tracking-[0.35em] uppercase text-brand-white/20">
-                Scroll to explore
+            <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
+              <span className="mb-5 inline-block text-[10px] font-bold uppercase tracking-[0.3em] text-brand-coral sm:mb-6">
+                {HERO_DATA.tagline}
               </span>
-              <div className="h-px w-16 bg-brand-white/10" />
+
+
+              <h1 className="mb-6 text-[clamp(2.8rem,14vw,7rem)] font-black uppercase leading-[0.92] tracking-tight text-brand-white sm:mb-8">
+                Fintech{" "}
+                <span className="text-brand-coral">
+                  Recruitment
+                </span>{" "}
+                & Hiring
+              </h1>
+
+
+              <p className="mx-auto max-w-md px-2 text-sm leading-relaxed text-brand-white/50 sm:max-w-xl sm:px-0 sm:text-base">
+                {HERO_DATA.description}
+              </p>
+
+              {/* Stats row */}
+              <div className="mt-10 grid w-full max-w-lg grid-cols-3 gap-4 sm:mt-12 sm:gap-8">
+                {[
+                  { num: "6+", label: "Years in market" },
+                  { num: "400+", label: "Placements made" },
+                  { num: "94%", label: "Retention rate" },
+                ].map(({ num, label }) => (
+                  <div key={label} className="text-center">
+                    <div className="text-2xl font-black leading-none text-brand-coral sm:text-3xl">
+                      {num}
+                    </div>
+
+                    <div className="mt-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-brand-white/25 sm:text-[10px]">
+                      {label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Divider */}
+              <div className="mt-10 flex items-center justify-center gap-3 sm:mt-12 sm:gap-4">
+                <div className="h-px w-10 bg-brand-white/10 sm:w-16" />
+
+                <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-brand-white/20 sm:text-[9px]">
+                  Scroll to explore
+                </span>
+
+                <div className="h-px w-10 bg-brand-white/10 sm:w-16" />
+              </div>
             </div>
           </div>
         </div>
@@ -280,6 +285,15 @@ export default function FintechRecruitmentPage() {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
+              <Button
+                asChild
+                className="bg-brand-white  border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group"
+              >
+                <Link href={CTA_DATA.secondaryButton.href} target="_blank">
+                  {CTA_DATA.secondaryButton.text}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
             </div>
 
             {/* Bottom decorative row */}
@@ -292,7 +306,7 @@ export default function FintechRecruitmentPage() {
                 </p>
               </div>
               <Link
-                href="/expertise-services"
+                href="/#our-expertise"
                 className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-navy/30 hover:text-brand-coral transition-colors flex items-center gap-1"
               >
                 All expertise services

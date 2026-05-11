@@ -46,7 +46,7 @@ export interface CtaData {
 }
 
 export const HERO_DATA: HeroData = {
-  tagline: "AI & ML Recruitment",
+  tagline: "AI/ML/Data Recruitment",
   title: "Hire AI Engineers & Machine Learning Experts",
   description:
     "We help startups and global tech teams hire top AI, ML, and data experts — from engineers to MLOps — to build, automate, and scale faster.",
