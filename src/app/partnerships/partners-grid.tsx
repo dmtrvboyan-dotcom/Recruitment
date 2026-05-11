@@ -3,19 +3,24 @@
 import { memo, useRef, useState, useEffect } from "react"
 
 const PARTNERS = [
+  { name: "EnduroSat", size: "lg" },
+  { name: "TINQIN", size: "lg" },
+  { name: "Strypes", size: "lg" },
   { name: "MAN", size: "lg" },
+  { name: "myPOS", size: "lg" },
   { name: "DEGIRO", size: "lg" },
-  { name: "myPOS", size: "md" },
-  { name: "AiOpsGroup", size: "md" },
-  { name: "Epsilon Telecom", size: "sm" },
-  { name: "Scaleflex", size: "md" },
+  { name: "Evrotrust", size: "lg" },
+  { name: "AiOpsGroup", size: "lg" },
+  { name: "GeoWealth", size: "lg" },
+  { name: "Scaleflex", size: "lg" },
   { name: "Tide", size: "lg" },
-  { name: "Candor", size: "md" },
-  { name: "Codiit", size: "md" },
+  { name: "Candor", size: "lg" },
+  { name: "Codiit", size: "lg" },
   { name: "OSF", size: "lg" },
-  { name: "Despark", size: "md" },
-  { name: "MM Solutions", size: "sm" },
-  { name: "Tinqin", size: "md" },
+  { name: "Despark", size: "lg" },
+  { name: "MM Solutions", size: "md" },
+  { name: "Epsilon Telecom", size: "sm" },
+
 ]
 
 function useInView(threshold = 0.15) {
