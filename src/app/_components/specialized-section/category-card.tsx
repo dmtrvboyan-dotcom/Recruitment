@@ -1,60 +1,81 @@
 import { memo } from "react"
-import { Code2, Eye } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { type TechCategory } from "@/lib/constants/specialized"
 import { ICON_MAP } from "./icon-map"
 
+function getElementCode(title: string): string {
+  const cleaned = title.replace(/[&,]/g, "").replace(/\s+/g, " ").trim()
+  const words = cleaned.split(" ").filter(
+    (w) => !["and", "or", "the", "of", "for"].includes(w.toLowerCase())
+  )
+  if (words.length === 0) return "XX"
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase()
+  return (words[0][0] + words[1][0]).toUpperCase()
+}
+
 export const CategoryCard = memo(function CategoryCard({
   category,
+  index,
   onClick,
 }: {
   category: TechCategory
+  index: number
   onClick: () => void
 }) {
   const iconConfig = ICON_MAP[category.icon] || ICON_MAP["code-2"]
   const IconComponent = iconConfig.icon
-  const visibleTechs = category.techs.slice(0, 8)
+  const visibleTechs = category.techs;
+  const remaining = category.techs.length - visibleTechs.length
+  const atomicNumber = String(index + 1).padStart(2, "0")
+  const elementCode = getElementCode(category.title)
 
   return (
-    <div
+    <button
       onClick={onClick}
-      className="relative group border border-brand-navy/5 rounded-2xl p-6 bg-white hover:border-brand-blue/30 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 cursor-pointer"
+      className="group relative w-full text-left bg-brand-white/[0.02] border border-brand-white/10 hover:border-brand-coral/50 hover:bg-brand-white/[0.04] rounded-2xl p-5 sm:p-6 lg:p-7 transition-all duration-300 overflow-hidden cursor-pointer"
     >
-      <div className="absolute top-4 right-4">
-        <div className={`
-          relative flex items-center justify-center w-8 h-8 rounded-full 
-          ${iconConfig.bg} ${iconConfig.color}
-          sm:opacity-0 sm:group-hover:opacity-100 sm:scale-90 sm:group-hover:scale-100
-          opacity-100 scale-100
-          transition-all duration-300 ease-out
-        `}>
-          <span className={`absolute inset-0 rounded-full ${iconConfig.bg} opacity-60 animate-pulse sm:hidden`} />
-          <Eye className="w-4 h-4" />
+
+      <div className="flex items-start justify-between mb-5 sm:mb-6">
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-coral">
+            {atomicNumber}
+          </span>
+          <div className="h-px w-5 sm:w-6 bg-brand-coral/40" />
         </div>
+        <IconComponent
+          className="w-4 h-4 text-brand-white/30 group-hover:text-brand-coral transition-colors duration-300"
+        />
       </div>
 
-      <div className="flex items-center gap-3 mb-4">
-        <div className={`w-10 h-10 rounded-xl ${iconConfig.bg} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
-          <IconComponent className={`w-5 h-5 ${iconConfig.color}`} />
-        </div>
-        <span className="text-[10px] font-bold text-brand-teal uppercase tracking-[0.15em]">
-          {category.categoryLabel}
-        </span>
-      </div>
+ 
 
-      <h3 className="text-lg font-bold text-brand-navy mb-4 leading-tight group-hover:text-brand-blue transition-colors">
+      {/* Title */}
+      <h3 className="text-sm sm:text-base lg:text-lg font-black uppercase tracking-[-0.01em] leading-tight text-brand-white mb-1.5">
         {category.title}
       </h3>
 
+      {/* Category label */}
+      <p className="text-[10px] sm:text-[11px] tracking-[0.15em] uppercase text-brand-white/40 mb-5 sm:mb-6">
+        {category.categoryLabel}
+      </p>
+
+      {/* Tech badges — the valence shell */}
       <div className="flex flex-wrap gap-1.5">
         {visibleTechs.map((tech) => (
           <span
             key={tech}
-            className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-brand-bg text-brand-navy/60 border border-brand-navy/5"
+            className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium uppercase tracking-wide bg-brand-white/5 text-brand-white/60 border border-brand-white/10 group-hover:bg-brand-coral/10 group-hover:text-brand-coral group-hover:border-brand-coral/30 transition-colors duration-300"
           >
             {tech}
           </span>
         ))}
+      
       </div>
-    </div>
+
+      {/* Bottom hover arrow */}
+      <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">
+        <ArrowUpRight className="w-4 h-4 text-brand-coral" strokeWidth={1.5} />
+      </div>
+    </button>
   )
 })

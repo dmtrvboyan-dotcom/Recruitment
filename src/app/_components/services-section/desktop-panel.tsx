@@ -14,23 +14,20 @@ export const DesktopPanel = memo(function DesktopPanel({
 }) {
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${
-        service ? "visible" : "invisible"
-      }`}
+      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${service ? "visible" : "invisible"
+        }`}
     >
       {/* Backdrop */}
       <div
-        className={`absolute inset-0 bg-brand-navy/40 backdrop-blur-sm transition-opacity duration-300 ${
-          service ? "opacity-100" : "opacity-0"
-        }`}
+        className={`absolute inset-0 bg-brand-navy/40 backdrop-blur-sm transition-opacity duration-300 ${service ? "opacity-100" : "opacity-0"
+          }`}
         onClick={onClose}
       />
 
       {/* Sliding panel */}
       <div
-        className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${
-          service ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${service ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Top coral accent */}
         <div className="sticky top-0 left-0 right-0 h-[3px] bg-brand-coral z-20" />
@@ -111,21 +108,21 @@ export const DesktopPanel = memo(function DesktopPanel({
                   </div>
                 ))}
               </div>
-
-              {/* CTA — now sits right after the sections */}
               <Link
                 href={service.href}
                 target="_blank"
-                className="group inline-flex items-center justify-center gap-2.5 py-5 px-10 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 mb-3"
+                className="group relative inline-flex items-center justify-center gap-2.5 py-5 px-10 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-md font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 mb-3 active:scale-95"
               >
+                {/* Pulse ring */}
+                <span className="absolute inset-0 rounded-full animate-ping-slow bg-brand-coral opacity-30 pointer-events-none" />
+
                 Learn more
                 <ArrowUpRight
-                  className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                  className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
                   strokeWidth={1.5}
                 />
               </Link>
 
-             
             </div>
 
             {/* Stats footer — dark navy block at the bottom */}
@@ -134,11 +131,10 @@ export const DesktopPanel = memo(function DesktopPanel({
                 {service.stats.map((stat, idx) => (
                   <div
                     key={idx}
-                    className={`text-center ${
-                      idx !== service.stats.length - 1
-                        ? "border-r border-brand-white/10 pr-4 lg:pr-8"
-                        : ""
-                    }`}
+                    className={`text-center ${idx !== service.stats.length - 1
+                      ? "border-r border-brand-white/10 pr-4 lg:pr-8"
+                      : ""
+                      }`}
                   >
                     <div className="text-3xl lg:text-[2.5rem] font-black text-brand-white leading-none tracking-tight mb-2">
                       {stat.value}

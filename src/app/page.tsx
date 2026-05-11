@@ -32,12 +32,10 @@ export default function LandingPage() {
     <main className="relative min-h-screen overflow-hidden">
       {/* Background effects */}
       {/* <DynamicBackground /> */}
-
-
-
+      
       {/* Fixed elements */}
       <Header />
-      <SocialSidebar />
+      <SocialSidebar/>
 
       {/* <PageBackground /> */}
 
@@ -73,17 +71,11 @@ export default function LandingPage() {
         <SmartRSection />
       </ScrollReveal>
 
-      {/* { Our Expertise } */}
       <ScrollReveal>
         <ExpertiseSection />
       </ScrollReveal>
 
-      {/* For Candidates */}
-      {/* <ScrollReveal>
-        <CandidatesSection />
-      </ScrollReveal> */}
-
-      {/* Job Listings */}
+  
       <Suspense fallback={<div className="min-h-150" />}>
         <ScrollReveal>
           <JobsSection />

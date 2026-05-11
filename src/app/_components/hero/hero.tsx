@@ -54,7 +54,6 @@ export const Hero = memo(function Hero() {
   return (
     <section
   className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white"
-
 >
   <div
     aria-hidden

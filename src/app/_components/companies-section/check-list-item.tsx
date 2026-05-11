@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, Circle } from "lucide-react"
 
 export const CheckListItem = memo(function CheckListItem({
   item,
@@ -8,18 +8,22 @@ export const CheckListItem = memo(function CheckListItem({
   item: string
   variant?: "dark" | "brand"
 }) {
-  // Using brand-navy for the dark variant and brand-blue for the brand variant
-  const bgColor = variant === "dark" ? "bg-brand-navy" : "bg-brand-blue/10"
-  const iconColor = variant === "dark" ? "text-white" : "text-brand-blue"
-
   return (
-    <li className="flex gap-5 group">
-      <div
-        className={`mt-1 w-6 h-6 rounded-full ${bgColor} flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}
+    <li className="flex items-center gap-5 py-6 border-b border-white/10 last:border-0 group">
+      {variant === "dark" ? (
+        <div className="w-9 h-9 rounded-full bg-white/10 shrink-0 flex items-center justify-center">
+          <CheckCircle className="w-5 h-5 text-white" strokeWidth={2} />
+        </div>
+      ) : (
+        <div className="w-9 h-9 rounded-full shrink-0 bg-brand-navy/5 flex items-center justify-center">
+          <CheckCircle className="w-6 h-6 text-brand-navy/30" strokeWidth={1.5} />
+        </div>
+      )}
+      <p
+        className={`text-[18px] leading-snug tracking-wide ${
+          variant === "dark" ? "text-white" : "text-brand-navy"
+        }`}
       >
-        <CheckCircle className={`w-3.5 h-3.5 ${iconColor}`} />
-      </div>
-      <p className="text-base lg:text-[17px] text-brand-navy/70 leading-relaxed font-medium">
         {item}
       </p>
     </li>

@@ -18,31 +18,51 @@ export function CompaniesSection() {
       id="companies"
       className="py-24 lg:py-32"
     >
+
+      <div
+        aria-hidden
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+      />
+
+      {/* Teal glow — bottom right, hidden on small screens */}
+      <div
+        aria-hidden
+        className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
+      />
+
+
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
-          <p className="text-xs font-bold text-brand-coral uppercase tracking-[0.2em] mb-4">
-            Who we work with
-          </p>
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-brand-navy text-balance">
-            Why Companies Work With Us
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
+          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
+              Who we work with
+            </span>
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+          </div>
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
+            Why <span className="text-brand-coral">Companies</span> Work With Us
+            <br />
           </h2>
+          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral" />
         </div>
 
-        {/* Two-column content */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start max-w-6xl mx-auto">
-          <div className="bg-white p-8 lg:p-0 rounded-3xl lg:bg-transparent">
+        <div className="grid lg:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto overflow-hidden ">
+
+          <div className="bg-brand-navy px-12 py-14 rounded-3xl">
             <SectionHeader label="Why Companies Choose Us" variant="dark" />
-            <ul className="space-y-8">
+            <ul className="divide-y divide-white/10">
               {WHY_CHOOSE_US_POINTS.map((item, index) => (
                 <CheckListItem key={index} item={item} variant="dark" />
               ))}
             </ul>
           </div>
 
-          <div className="bg-white p-8 lg:p-0 rounded-3xl lg:bg-transparent border border-brand-navy/5 lg:border-none">
+
+          <div className="bg-brand-white border rounded-3xl border-brand-navy/8 px-12 py-14">
             <SectionHeader label="Hire with Clarity" variant="brand" />
-            <ul className="space-y-8">
+            <ul className="divide-y divide-brand-navy/8">
               {HIRE_WITH_CLARITY_POINTS.map((item, index) => (
                 <CheckListItem key={index} item={item} variant="brand" />
               ))}
@@ -52,8 +72,6 @@ export function CompaniesSection() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-20">
-
-
           <Button
             asChild
             variant="outline"
@@ -68,7 +86,6 @@ export function CompaniesSection() {
           >
             Contact Us
           </Button>
-
         </div>
       </div>
     </section>

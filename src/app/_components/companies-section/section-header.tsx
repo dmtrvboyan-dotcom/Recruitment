@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { CheckCircle } from "lucide-react"
+import { Globe, Briefcase } from "lucide-react"
 
 export const SectionHeader = memo(function SectionHeader({
   label,
@@ -8,17 +8,26 @@ export const SectionHeader = memo(function SectionHeader({
   label: string
   variant?: "dark" | "brand"
 }) {
-  const styles =
-    variant === "dark"
-      ? "bg-brand-navy text-white shadow-lg shadow-brand-navy/10"
-      : "bg-brand-blue/5 text-brand-blue border border-brand-blue/10"
-
   return (
-    <div className="flex justify-center lg:justify-start mb-10">
-      <div className={`inline-flex items-center gap-3 ${styles} px-5 py-2.5 rounded-full`}>
-        {variant === "brand" && <CheckCircle className="w-4 h-4" />}
-        <span className="text-xs font-bold uppercase tracking-[0.15em]">{label}</span>
+    <div className="flex items-center gap-3 mb-8">
+      <div
+        className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${
+          variant === "dark" ? "bg-brand-white " : "bg-brand-navy"
+        }`}
+      >
+        {variant === "dark" ? (
+          <Globe className="w-4 h-4 text-brand-navy" strokeWidth={1.5} />
+        ) : (
+          <Briefcase className="w-4 h-4 text-brand-white" strokeWidth={1.5} />
+        )}
       </div>
+      <span
+        className={`text-xs font-bold uppercase tracking-[0.2em] px-2 py-2 rounded-2xl  ${
+          variant === "dark" ? "bg-brand-white text-brand-navy" : "bg-brand-navy text-brand-white"
+        }`}
+      >
+        {label}
+      </span>
     </div>
   )
 })

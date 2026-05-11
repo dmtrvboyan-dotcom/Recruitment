@@ -98,9 +98,16 @@
   }
 }
 
-/* ── Brand palette lives in @theme above — use as Tailwind utilities:
-   bg-brand-coral, text-brand-navy, border-brand-blue, etc.
-   ────────────────────────────────────────────────────────────────────────── */
+@keyframes ping-slow {
+  0%   { transform: scale(1);    opacity: 0.35; }
+  70%  { transform: scale(1.18); opacity: 0; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+
+@keyframes bounce-x {
+  0%, 100% { transform: translate(0, 0); }
+  50%       { transform: translate(3px, -3px); }
+}
 
 /* Dark mode overrides */
 .dark {
@@ -238,6 +245,14 @@
 
 .animate-fade-in-up {
   animation: fade-in-up 0.5s ease-out forwards;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s ease-out infinite;
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1.4s ease-in-out infinite;
 }
 
 /* Staggered delay helpers used in Hero / Header */
