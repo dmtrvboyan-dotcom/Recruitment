@@ -53,22 +53,22 @@ export const Hero = memo(function Hero() {
 
   return (
     <section
-  className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white"
->
-  <div
-    aria-hidden
-    className="absolute top-0 left-0 right-0 pointer-events-none"
-    style={{
-      height: "70%",
-      backgroundImage: `repeating-linear-gradient(
+      className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white"
+    >
+      <div
+        aria-hidden
+        className="absolute top-0 left-0 right-0 pointer-events-none"
+        style={{
+          height: "70%",
+          backgroundImage: `repeating-linear-gradient(
         -62deg,
         transparent,
         transparent 70px,
         rgba(114,145,199,0.035) 70px,
         rgba(114,145,199,0.035) 71px
       )`,
-    }}
-  />
+        }}
+      />
 
       {/* Coral glow — top, centered-ish on mobile */}
       <div

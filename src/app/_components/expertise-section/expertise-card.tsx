@@ -4,53 +4,61 @@ import { memo } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
-import { EXPERTISE_AREAS } from "@/lib/constants/expertise"
+import { type EXPERTISE_AREAS } from "@/lib/constants/expertise"
+
+type CardItem = (typeof EXPERTISE_AREAS)[0]
 
 export const ExpertiseCard = memo(function ExpertiseCard({
   item,
+  index,
+  className = "",
 }: {
-  item: (typeof EXPERTISE_AREAS)[0]
+  item: CardItem
+  index: number
+  className?: string
 }) {
+  const number = String(index + 1).padStart(2, "0")
+
   return (
     <Link
       href={item.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block relative overflow-hidden rounded-3xl border border-brand-white  hover:shadow-[0_8px_30px_rgb(0,0,0,0.10)] hover:-translate-y-1 transition-all duration-500"
+      className={`group relative block overflow-hidden rounded-3xl bg-brand-navy ${className}`}
     >
-      {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-linear-to-t from-[#0a3d62]/80 via-[#0a3d62]/40 to-transparent" />
+      {/* Background image */}
+      <Image
+        src={item.image}
+        alt={item.title}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+      />
+
+      {/* Gradient overlay — text always readable */}
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/55 to-brand-navy/10" />
+
+      {/* Top row: italic label + stats */}
+      <div className="absolute top-5 left-5 right-5 sm:top-6 sm:left-6 sm:right-6 flex items-start justify-between">
+        <span className="font-serif italic text-[11px] sm:text-[12px] tracking-[0.18em] text-brand-coral">
+          — Sector · {number}
+        </span>
+        <span className="text-[10px] tracking-[0.22em] uppercase text-brand-white/50">
+          {item.stats}
+        </span>
       </div>
 
-      {/* Stats badge */}
-      <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-brand-navy/50 text-brand-white text-xs font-semibold shadow-sm">
-        {item.stats}
-      </div>
-
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6">
-        <h3 className="text-xl font-semibold text-brand-white mb-2">
+      <div className="absolute inset-x-5 bottom-5 sm:inset-x-6 sm:bottom-6">
+        <h3 className="font-black uppercase tracking-[-0.02em] leading-[1.05] text-brand-white text-lg sm:text-xl lg:text-2xl mb-2">
           {item.title}
         </h3>
-
-        <p className="text-brand-white/85 text-sm leading-relaxed mb-4 line-clamp-2">
+        <p className="text-brand-white/65 text-sm leading-snug line-clamp-2 mb-4 max-w-sm">
           {item.description}
         </p>
-
-        <div className="inline-flex self-start items-center text-brand-white p-1.5  text-[12px] font-bold uppercase tracking-widest rounded-3xl">
-          <span>Learn more</span>
-          <ArrowUpRight className="w-5 h-5 ml-1 text-brand-coral group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-        </div>
+        <span className="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-coral group-hover:gap-3 transition-all duration-300">
+          Learn more
+          <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+        </span>
       </div>
-      {/* Hover border overlay */}
-      <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-brand-navy/15 transition-colors duration-300 pointer-events-none" />
     </Link>
   )
 })
