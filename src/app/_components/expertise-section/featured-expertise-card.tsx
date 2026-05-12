@@ -52,7 +52,7 @@ export function FeaturedExpertiseCard({
         {/* Top label */}
         <div className="relative flex items-center gap-3 mb-4">
           <span className="block w-6 h-px bg-brand-coral" />
-          <span className="font-serif italic text-[11px] sm:text-[12px] tracking-[0.18em] text-brand-coral">
+          <span className=" italic text-[11px] font-bold sm:text-[12px] tracking-[0.18em] text-brand-coral">
             — And more
           </span>
         </div>

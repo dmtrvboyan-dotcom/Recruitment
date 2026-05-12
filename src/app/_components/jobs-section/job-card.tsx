@@ -46,8 +46,7 @@ export const JobCard = memo(function JobCard({
         </span>
       </div>
 
-      {/* Italic serif eyebrow */}
-      <span className="font-serif italic text-[12px] tracking-[0.15em] text-brand-coral leading-none">
+      <span className="font-bold italic text-[12px] tracking-[0.15em] text-brand-coral leading-none">
         — {job.seniority}
         {workModelLabel && ` · ${workModelLabel}`}
       </span>

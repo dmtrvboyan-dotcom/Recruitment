@@ -29,7 +29,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     a: "For challenging roles, we take a consultative approach. We analyze the brief, provide honest feedback, and adjust the strategy where needed. This might include refining requirements, repositioning the role, or exploring alternative talent pools—always with realistic expectations.",
   },
   {
-    q: "Q: Do you provide a guarantee period?",
+    q: "Do you provide a guarantee period?",
     a: "Yes, every successful hire comes with a guarantee period. If things don't work out during that time, we provide a replacement candidate at no additional cost—ensuring continuity and reducing your hiring risk.",
   },
   {

@@ -68,7 +68,7 @@ export function PhotoGallery() {
         {/* Italic serif eyebrow — bottom left */}
         <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7 flex items-center gap-2.5">
           <span className="block w-5 h-px bg-brand-coral" />
-          <span className="font-serif italic text-[12px] tracking-[0.18em] text-brand-coral">
+          <span className="font-bold italic text-[12px] tracking-[0.18em] text-brand-coral">
             — Recruitment.bg Team
           </span>
         </div>

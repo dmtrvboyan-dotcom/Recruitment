@@ -32,7 +32,7 @@ export const FAQItem = memo(function FAQItem({
           >
             {number}
           </span>
-          <span className="font-serif italic text-2xl sm:text-[1.75rem] text-brand-coral leading-none">
+          <span className="font-bold text-2xl sm:text-[1.75rem] text-brand-coral leading-none">
             Q.
           </span>
         </div>

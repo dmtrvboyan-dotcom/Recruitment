@@ -108,8 +108,8 @@ export function MeetTheTeam() {
         {/* Team section divider */}
         <div className="flex items-center gap-4 sm:gap-6 mb-12 sm:mb-14 lg:mb-16">
           <div className="flex-1 h-px bg-brand-white/10" />
-          <span className="font-serif italic text-[13px] tracking-[0.18em] text-brand-coral whitespace-nowrap">
-            — The team
+          <span className="font-bold italic text-[13px] tracking-[0.18em] text-brand-coral whitespace-nowrap">
+            — The team —
           </span>
           <div className="flex-1 h-px bg-brand-white/10" />
         </div>

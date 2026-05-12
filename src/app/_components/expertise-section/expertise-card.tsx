@@ -26,7 +26,6 @@ export const ExpertiseCard = memo(function ExpertiseCard({
       rel="noopener noreferrer"
       className={`group relative block overflow-hidden rounded-3xl bg-brand-navy ${className}`}
     >
-      {/* Background image */}
       <Image
         src={item.image}
         alt={item.title}
@@ -34,15 +33,14 @@ export const ExpertiseCard = memo(function ExpertiseCard({
         className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
       />
 
-      {/* Gradient overlay — text always readable */}
       <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/55 to-brand-navy/10" />
 
       {/* Top row: italic label + stats */}
       <div className="absolute top-5 left-5 right-5 sm:top-6 sm:left-6 sm:right-6 flex items-start justify-between">
-        <span className="font-serif italic text-[11px] sm:text-[12px] tracking-[0.18em] text-brand-coral">
+        <span className="font-bold italic text-[11px] sm:text-[12px] tracking-[0.18em] text-brand-white">
           — Sector · {number}
         </span>
-        <span className="text-[10px] tracking-[0.22em] uppercase text-brand-white/50">
+        <span className="text-[10px] tracking-[0.22em] uppercase  bg-brand-navy/40 p-2 rounded-2xl text-brand-white font-bold">
           {item.stats}
         </span>
       </div>
