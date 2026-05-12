@@ -18,7 +18,7 @@ export const FilterSection = memo(function FilterSection({
     <div className="py-4 border-b border-brand-white/8 last:border-b-0">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-white/75 hover:text-brand-coral transition-colors duration-200"
+        className="w-full flex items-center justify-between text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-white/75 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
       >
         <span className="inline-flex items-center gap-2">
           <span className="font-serif italic text-[13px] text-brand-coral normal-case tracking-normal leading-none">

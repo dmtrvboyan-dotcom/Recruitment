@@ -113,7 +113,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                   <button
                     key={tech.value}
                     onClick={() => setSelectedTech(tech.value)}
-                    className={`py-2.5 px-3 rounded-lg text-[10px] font-semibold tracking-[0.15em] uppercase transition-colors duration-200 ${
+                    className={`py-2.5 px-3 rounded-lg text-[10px] font-semibold tracking-[0.15em] uppercase transition-colors duration-200 cursor-pointer ${
                       active
                         ? "bg-brand-coral text-brand-white border border-brand-coral"
                         : "bg-transparent text-brand-white/55 border border-brand-white/10 hover:border-brand-coral/40 hover:text-brand-coral"
@@ -245,7 +245,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                   <button
                     key={value}
                     onClick={() => setSelectedType(value)}
-                    className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors duration-200 ${
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors duration-200 cursor-pointer ${
                       active
                         ? "bg-brand-coral/10 text-brand-coral"
                         : "text-brand-white/55 hover:bg-brand-white/5 hover:text-brand-white/80"

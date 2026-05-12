@@ -26,7 +26,7 @@ export const JobCard = memo(function JobCard({
   return (
     <button
       onClick={onSelect}
-      className="group relative w-full text-left rounded-3xl bg-brand-white/[0.02] border border-brand-white/10 hover:border-brand-coral/50 hover:bg-brand-white/[0.04] transition-colors duration-300 p-6 lg:p-7 flex flex-col gap-5 overflow-hidden"
+      className="group relative w-full text-left rounded-3xl bg-brand-white/[0.02] border border-brand-white/10 hover:border-brand-coral/50 hover:bg-brand-white/[0.04] transition-colors duration-300 p-6 lg:p-7 flex flex-col gap-5 overflow-hidden cursor-pointer"
     >
       {/* Top row: number + status pill */}
       <div className="flex items-start justify-between">

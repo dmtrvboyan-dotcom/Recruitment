@@ -132,7 +132,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
           </div>
           <button
             onClick={() => console.log(`Applying for: ${job.title}`)}
-            className="w-full md:w-auto px-12 bg-brand-coral hover:bg-brand-coral-hover text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-sm transition-all shadow-xl shadow-brand-coral/20 active:scale-95"
+            className="w-full md:w-auto px-12 bg-brand-coral hover:bg-brand-coral-hover text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-sm transition-all shadow-xl shadow-brand-coral/20 active:scale-95 cursor-pointer"
           >
             Submit Application
           </button>
