@@ -49,7 +49,15 @@ export const TeamMemberCard = memo(function TeamMemberCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-brand-navy/60 backdrop-blur-sm border border-brand-white/20 hover:bg-brand-coral hover:border-brand-coral flex items-center justify-center text-brand-white transition-colors duration-300"
+            className="
+    absolute top-4 right-4
+    w-8 h-8 rounded-full
+    backdrop-blur-sm
+    border border-brand-white/20
+    flex items-center justify-center
+    text-brand-white
+    animate-linkedin-glow
+  "
           >
             <RiLinkedinBoxFill size={16} />
           </Link>
