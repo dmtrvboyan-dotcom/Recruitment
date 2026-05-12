@@ -1,55 +1,80 @@
 import { memo } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { RiLinkedinBoxFill } from "react-icons/ri"
 import type { TeamMember } from "@/lib/constants/team"
 
 interface TeamMemberCardProps {
   member: TeamMember
+  index?: number
   showQuote?: boolean
 }
 
-export const TeamMemberCard = memo(function TeamMemberCard({ member, showQuote = true }: TeamMemberCardProps) {
+export const TeamMemberCard = memo(function TeamMemberCard({
+  member,
+  index,
+  showQuote = true,
+}: TeamMemberCardProps) {
+  const number =
+    index !== undefined ? String(index + 1).padStart(2, "0") : undefined
+
   return (
-    <div className="group flex flex-col items-center">
-      {/* Circle Container */}
-      <div className="relative mb-6">
-        {/* The Outer "Mess-free" Ring */}
-        <div className="relative w-[110px] h-[110px] lg:w-[140px] lg:h-[140px] p-1 rounded-full border border-brand-navy/5 transition-all duration-500 group-hover:border-brand-coral/30">
-          
-          {/* The Image Wrapper - Clips Everything into a Circle */}
-          <div className="relative w-full h-full rounded-full overflow-hidden border-[3px] border-white shadow-sm ring-1 ring-brand-navy/10 transition-all duration-500 group-hover:ring-brand-coral">
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+    <div className="group relative overflow-hidden rounded-2xl bg-brand-navy border border-brand-white/10 hover:border-brand-coral/50 transition-colors duration-300 flex flex-col">
+      {/* Photo — fills the card */}
+      <div className="relative aspect-[3/3] overflow-hidden">
+        <Image
+          src={member.image}
+          alt={member.name}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+
+        {/* Gradient — readable text at bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/30 to-brand-navy/5" />
+
+        {/* Number + coral rule — top left */}
+        {number && (
+          <div className="absolute top-4 left-4 flex items-center gap-2">
+            <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-coral">
+              {number}
+            </span>
+            <div className="h-px w-4 bg-brand-coral/50" />
           </div>
-        </div>
-        
-        {/* LinkedIn Badge */}
+        )}
+
+        {/* LinkedIn — top right */}
         {member.linkedin && (
-          <a
+          <Link
             href={member.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute bottom-1 right-1 bg-brand-white text-brand-linkdin p-1.5 rounded-full shadow-lg border border-brand-navy/5 hover:bg-brand-coral hover:text-white transition-all duration-300 hover:scale-110 z-10"
+            onClick={(e) => e.stopPropagation()}
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-brand-navy/60 backdrop-blur-sm border border-brand-white/20 hover:bg-brand-coral hover:border-brand-coral flex items-center justify-center text-brand-white transition-colors duration-300"
           >
-            <RiLinkedinBoxFill size={22} />
-          </a>
+            <RiLinkedinBoxFill size={16} />
+          </Link>
         )}
+
+        {/* Name overlaid on photo */}
+        <div className="absolute inset-x-4 bottom-4">
+          <p className="font-black uppercase tracking-[-0.01em] leading-tight text-brand-white text-sm sm:text-base lg:text-lg">
+            {member.name}
+          </p>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="text-center px-2">
-        <p className="font-bold text-brand-navy tracking-tight text-base">{member.name}</p>
-      
-        {showQuote && (
-          <p className="text-brand-navy/50 text-xs italic leading-relaxed max-w-[180px] line-clamp-3">
-            &quot;{member.quote}&quot;
+      {/* Quote section — only when showQuote */}
+      {showQuote && member.quote && (
+        <div className="flex gap-3 p-4">
+          <div className="w-[2px] bg-brand-coral/40 shrink-0" />
+          <p className="text-brand-white/50 text-xs italic leading-relaxed line-clamp-3 flex-1">
+            &ldquo;{member.quote}&rdquo;
           </p>
-        )}
-      </div>
+        </div>
+      )}
+
+      {/* Coral growing underline on hover */}
+      <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-coral group-hover:w-full transition-all duration-500" />
     </div>
   )
 })

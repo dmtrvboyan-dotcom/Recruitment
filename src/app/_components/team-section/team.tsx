@@ -1,85 +1,139 @@
 "use client"
-import { useCallback } from "react"
-import { RiCheckLine } from "react-icons/ri"
-import { COMPANY_VALUES } from "@/lib/constants/team"
+
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 import { PhotoGallery } from "./photo-gallery"
 import { TeamCarousel } from "./team-carousel"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button" // Import your Button component
-import { scrollToSection } from "@/lib/utils/scroll" // Import your scroll utility
-import Link from "next/link"
-
+import { scrollToSection } from "@/lib/utils/scroll"
+import { useCallback } from "react"
 
 const STATS = [
-  "15+ years IT Recruitment Experience",
-  "Average time 2–10 days to present candidates",
+  { value: "15+", label: "Years IT Recruitment Experience" },
+  { value: "2–10", suffix: "days", label: "To present candidates" },
 ]
 
 export function MeetTheTeam() {
-  // Use the same navigation logic as your Hero
   const handleNavigate = useCallback((href: string) => {
     scrollToSection(href, { highlightDuration: 0 })
   }, [])
 
   return (
-    <section id="about" className="relative py-24 lg:py-3 overflow-hidden">
-      <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-brand-blue/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+    <section
+      id="about"
+      className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden"
+    >
+      {/* Diagonal slash texture */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            -62deg,
+            transparent,
+            transparent 70px,
+            rgba(114,145,199,0.05) 70px,
+            rgba(114,145,199,0.05) 71px
+          )`,
+        }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+      {/* Coral glow top */}
+      <div
+        aria-hidden
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[100px] lg:blur-[120px] pointer-events-none"
+      />
+
+      {/* Teal glow bottom right */}
+      <div
+        aria-hidden
+        className="hidden lg:block absolute bottom-0 -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
+      />
+
+      {/* Watermark */}
+      <div
+        aria-hidden
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,20vw,18rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+      >
+        PEOPLE
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-20">
-          <p className="text-xs font-bold tracking-[0.2em] uppercase text-brand-coral mb-4">
-            About us
-          </p>
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-brand-navy mb-8 capitalize">
-            Nice to meet <span className="text-brand-coral"> you</span>
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
+          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
+              About us
+            </span>
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+          </div>
+
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
+            Nice to meet
+            <br />
+            <span className="text-brand-coral">you.</span>
           </h2>
 
-          <div className="flex flex-wrap items-center justify-center gap-y-3 gap-x-8">
+          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-8 sm:mb-10" />
+
+          {/* Stats */}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             {STATS.map((stat) => (
-              <div key={stat} className="flex items-center gap-2.5 px-4 py-2 bg-white rounded-full border border-brand-navy/5 shadow-sm">
-                <RiCheckLine className="text-brand-coral" size={18} />
-                <span className="text-xs font-semibold text-brand-navy/70 uppercase tracking-wider">{stat}</span>
+              <div
+                key={stat.label}
+                className="inline-flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 rounded-2xl bg-brand-white/5 border border-brand-white/10"
+              >
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-2xl sm:text-3xl font-black text-brand-white tabular-nums tracking-tight leading-none">
+                    {stat.value}
+                  </span>
+                  {stat.suffix && (
+                    <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-coral leading-none">
+                      {stat.suffix}
+                    </span>
+                  )}
+                </div>
+                <div className="h-5 w-px bg-brand-white/15" />
+                <span className="text-[10px] sm:text-[11px] font-medium tracking-[0.15em] uppercase text-brand-white/55">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
+        {/* Photo Gallery */}
         <PhotoGallery />
 
-        <div className="pt-16 border-t border-brand-navy/5">
-          <TeamCarousel />
+        {/* Team section divider */}
+        <div className="flex items-center gap-4 sm:gap-6 mb-12 sm:mb-14 lg:mb-16">
+          <div className="flex-1 h-px bg-brand-white/10" />
+          <span className="font-serif italic text-[13px] tracking-[0.18em] text-brand-coral whitespace-nowrap">
+            — The team
+          </span>
+          <div className="flex-1 h-px bg-brand-white/10" />
         </div>
 
-        {/* Updated Button Section */}
-        <div className="flex flex-col items-center gap-4 max-w-5xl mx-auto mb-24 mt-20">
-          <p className="text-sm text-brand-navy/50 leading-relaxed text-center max-w-sm mb-4">
-            Get to know the people behind every placement — how we work, what we stand for, and why it matters.
+        {/* Team Carousel */}
+        <TeamCarousel />
+
+        {/* CTA */}
+        <div className="flex flex-col items-center mt-16 sm:mt-20 lg:mt-24 gap-4 sm:gap-5">
+          <p className="text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-brand-white/40 text-center px-4">
+            Get to know the people behind every placement.
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
             <Link href="/about" target="_blank">
-              <Button
-                className="w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-white px-8 py-6 text-xs font-semibold tracking-widest uppercase cursor-pointer transition-colors duration-200 group rounded-3xl"
-              >
-                <span className="flex items-center gap-2.5">
-                  Learn More About Us
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Button>
+              <button className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 cursor-pointer">
+                Learn more about us
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
             </Link>
-
             <Link href="/candidates#client-testimonials" target="_blank">
-              <Button
-                className="w-full sm:w-auto bg-brand-white hover:bg-brand-navy hover:text-brand-white text-brand-navy px-8 py-6 text-xs border-2 border-brand-navy font-semibold tracking-widest uppercase cursor-pointer transition-colors duration-200 group rounded-3xl"
-              >
-                <span className="flex items-center gap-2.5">
-
-                  Candidates Feedback
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Button>
-
+              <button className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-transparent border border-brand-white/25 hover:bg-brand-white/10 text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 cursor-pointer">
+                Candidate feedback
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
             </Link>
           </div>
         </div>
