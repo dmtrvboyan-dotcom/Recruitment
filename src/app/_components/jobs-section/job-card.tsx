@@ -1,58 +1,105 @@
 import { memo } from "react"
-import { MapPin } from "lucide-react"
+import { MapPin, Briefcase, ArrowUpRight } from "lucide-react"
 import type { Job } from "@/lib/data/jobs"
 
 interface JobCardProps {
   job: Job
+  index: number
   onSelect: () => void
 }
 
-export const JobCard = memo(function JobCard({ job, onSelect }: JobCardProps) {
+export const JobCard = memo(function JobCard({
+  job,
+  index,
+  onSelect,
+}: JobCardProps) {
+  const number = String(index + 1).padStart(2, "0")
+  const workModelLabel =
+    job.type === "hybrid"
+      ? "Hybrid"
+      : job.type === "remote"
+        ? "Remote"
+        : job.type === "office"
+          ? "On-site"
+          : ""
+
   return (
-    <div className="bg-white border border-brand-navy/5 rounded-3xl p-7 hover:shadow-2xl hover:shadow-brand-navy/10 transition-all duration-300 group h-full flex flex-col relative overflow-hidden">
-      <div className="flex-1">
-        <div className="flex justify-between items-start mb-4">
-          <p className="text-brand-blue font-bold text-xs uppercase tracking-widest">
-            {job.seniority}
-          </p>
-          <div className="flex gap-2">
-            <span className="px-3 py-1 bg-brand-blue/10 text-brand-blue rounded-full text-[10px] font-bold uppercase">
-              {job.type}
-            </span>
-          </div>
+    <button
+      onClick={onSelect}
+      className="group relative w-full text-left rounded-3xl bg-brand-white/[0.02] border border-brand-white/10 hover:border-brand-coral/50 hover:bg-brand-white/[0.04] transition-colors duration-300 p-6 lg:p-7 flex flex-col gap-5 overflow-hidden"
+    >
+      {/* Top row: number + status pill */}
+      <div className="flex items-start justify-between">
+        <div className="flex items-center gap-2.5">
+          <span className="text-3xl lg:text-4xl font-black leading-[0.85] tracking-[-0.04em] text-brand-white/10 group-hover:text-brand-coral/50 transition-colors duration-300">
+            {number}
+          </span>
+          <div className="h-px w-5 bg-brand-coral/40" />
         </div>
 
-        <h3 className="text-xl font-bold text-brand-navy group-hover:text-brand-blue transition-colors line-clamp-2 mb-4">
-          {job.title}
-        </h3>
-
-        <div className="flex flex-wrap items-center gap-4 text-sm text-brand-navy/60 mb-6">
-          <div className="flex items-center gap-1.5">
-            <MapPin className="w-4 h-4 text-brand-coral" />
-            {job.location}
-          </div>
-          <div className="px-3 py-1 bg-brand-bg border border-brand-navy/10 rounded-full text-xs capitalize">
-            {job.contract}
-          </div>
-        </div>
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-coral/10 border border-brand-coral/30 text-[9px] tracking-[0.22em] uppercase font-semibold text-brand-coral">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-coral opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-coral" />
+          </span>
+          Hiring
+        </span>
       </div>
 
-      <div className="mt-auto space-y-6">
-        <div className="flex flex-wrap gap-2">
-          {job.techStack.map((tech, i) => (
-            <span key={i} className="text-[11px] font-bold text-brand-navy/40 uppercase tracking-tighter">
-              {tech} {i !== job.techStack.length - 1 && "•"}
-            </span>
-          ))}
-        </div>
+      {/* Italic serif eyebrow */}
+      <span className="font-serif italic text-[12px] tracking-[0.15em] text-brand-coral leading-none">
+        — {job.seniority}
+        {workModelLabel && ` · ${workModelLabel}`}
+      </span>
 
-        <button
-          onClick={onSelect}
-          className="w-full bg-brand-navy hover:bg-brand-blue text-white py-4 rounded-2xl text-xs font-bold uppercase tracking-widest transition-all active:scale-95 cursor-pointer"
-        >
-          View Position
-        </button>
+      {/* Title */}
+      <h3 className="font-black uppercase tracking-[-0.015em] leading-[1.05] text-brand-white text-xl lg:text-[1.5rem] line-clamp-2">
+        {job.title}
+      </h3>
+
+      {/* Meta row */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[12px] text-brand-white/55">
+        <span className="inline-flex items-center gap-1.5">
+          <MapPin
+            className="w-3.5 h-3.5 text-brand-coral"
+            strokeWidth={1.5}
+          />
+          {job.location}
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <Briefcase
+            className="w-3.5 h-3.5 text-brand-coral"
+            strokeWidth={1.5}
+          />
+          {job.contract}
+        </span>
       </div>
-    </div>
+
+      {/* Tech stack */}
+      <div className="flex flex-wrap gap-1.5">
+        {job.techStack.map((tech) => (
+          <span
+            key={tech}
+            className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium uppercase tracking-wide bg-brand-white/5 text-brand-white/60 border border-brand-white/10 group-hover:bg-brand-coral/10 group-hover:text-brand-coral group-hover:border-brand-coral/30 transition-colors duration-300"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <div className="mt-auto pt-2 flex items-center justify-between">
+        <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-coral">
+          Open brief
+        </span>
+        <ArrowUpRight
+          className="w-5 h-5 text-brand-coral group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+          strokeWidth={1.5}
+        />
+      </div>
+
+      {/* Growing coral underline */}
+      <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-coral group-hover:w-full transition-all duration-500" />
+    </button>
   )
 })

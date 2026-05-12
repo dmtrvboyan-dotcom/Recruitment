@@ -1,5 +1,5 @@
 import { memo, useCallback, useState } from "react"
-import { Filter, X, Check } from "lucide-react"
+import { Filter, X, Check, RotateCcw } from "lucide-react"
 import {
   JOB_LOCATIONS,
   SENIORITY_OPTIONS,
@@ -24,11 +24,15 @@ interface JobFiltersProps {
 
 export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
   const {
-    selectedLocations, setSelectedLocations,
-    selectedType, setSelectedType,
-    selectedTech, setSelectedTech,
-    selectedSeniorities, setSelectedSeniorities,
-    selectedContracts, setSelectedContracts,
+    selectedLocations,
+    setSelectedLocations,
+    selectedType,
+    setSelectedType,
+    selectedTech,
+    setSelectedTech,
+    selectedSeniorities,
+    setSelectedSeniorities,
+    setSelectedContracts,
   } = props
 
   const [showFilters, setShowFilters] = useState(false)
@@ -36,140 +40,230 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
     technology: true,
     seniority: true,
     location: true,
-    contract: true,
     workModel: true,
   })
 
-  const toggleSection = useCallback((section: keyof typeof openSections) => {
-    setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }))
-  }, [])
+  const toggleSection = useCallback(
+    (section: keyof typeof openSections) => {
+      setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }))
+    },
+    []
+  )
+
+  const resetAll = () => {
+    setSelectedLocations([])
+    setSelectedSeniorities([])
+    setSelectedTech("all")
+    setSelectedType("all")
+    setSelectedContracts([])
+  }
+
+  const workModels = [
+    { value: "all", label: "All models" },
+    { value: "hybrid", label: "Hybrid" },
+    { value: "remote", label: "Fully remote" },
+    { value: "office", label: "On-site" },
+  ]
 
   return (
     <>
-      {/* Mobile Toggle Button */}
+      {/* Mobile toggle */}
       <button
         onClick={() => setShowFilters(!showFilters)}
-        className="lg:hidden flex items-center justify-center gap-3 w-full bg-brand-navy text-white px-6 py-4 rounded-2xl mb-6 font-bold uppercase tracking-widest text-xs transition-all active:bg-brand-blue"
-        style={{ backgroundColor: "var(--color-brand-navy)" }}
+        className="lg:hidden flex items-center justify-center gap-3 w-full bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-6 py-4 rounded-full mb-6 text-[11px] font-semibold tracking-[0.22em] uppercase transition-colors duration-200"
       >
-        <Filter className="w-4 h-4" />
-        {showFilters ? "Close Filters" : "Filter Positions"}
+        <Filter className="w-4 h-4" strokeWidth={1.5} />
+        {showFilters ? "Close filters" : "Filter positions"}
         {showFilters && <X className="w-4 h-4 ml-auto" />}
       </button>
 
-      {/* Filter Sidebar */}
-      <div className={`lg:w-80 lg:shrink-0 transition-all duration-300 ${showFilters ? "block opacity-100" : "hidden opacity-0"} lg:block lg:opacity-100`}>
-        <div 
-          className="rounded-[32px] p-6 lg:sticky lg:top-8 space-y-6 shadow-sm border border-brand-navy/5"
-          style={{ backgroundColor: "var(--color-brand-bg)" }}
-        >
-          
-          {/* Technology Section */}
-          <FilterSection title="Technology" isOpen={openSections.technology} onToggle={() => toggleSection("technology")}>
-            <div className="grid grid-cols-2 gap-2 pt-2">
-              {TECH_OPTIONS.map((tech) => (
-                <button
-                  key={tech.value}
-                  onClick={() => setSelectedTech(tech.value)}
-                  className="py-3 px-2 rounded-xl text-[11px] font-bold uppercase tracking-wider transition-all border"
-                  style={{
-                    backgroundColor: selectedTech === tech.value ? "var(--color-brand-blue)" : "#fff",
-                    borderColor: selectedTech === tech.value ? "var(--color-brand-blue)" : "rgba(26, 26, 46, 0.1)",
-                    color: selectedTech === tech.value ? "#fff" : "var(--color-brand-navy-mid)",
-                  }}
-                >
-                  {tech.label}
-                </button>
-              ))}
+      <div
+        className={`lg:w-80 lg:shrink-0 transition-all duration-300 ${
+          showFilters ? "block opacity-100" : "hidden opacity-0"
+        } lg:block lg:opacity-100`}
+      >
+        <div className="rounded-3xl p-6 lg:sticky lg:top-8 bg-brand-white/[0.03] border border-brand-white/10 backdrop-blur-sm">
+          {/* Filter header */}
+          <div className="flex items-center justify-between mb-2 pb-5 border-b border-brand-white/10">
+            <div className="flex items-center gap-2.5">
+              <span className="block w-6 h-px bg-brand-coral" />
+              <span className="text-[10px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
+                Refine
+              </span>
             </div>
-          </FilterSection>
+            <button
+              onClick={resetAll}
+              className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-white/40 hover:text-brand-coral transition-colors duration-200"
+            >
+              <RotateCcw className="w-3 h-3" strokeWidth={1.5} />
+              Reset
+            </button>
+          </div>
 
-          {/* Seniority Section */}
-          <FilterSection title="Seniority" isOpen={openSections.seniority} onToggle={() => toggleSection("seniority")}>
-            <div className="space-y-2 pt-2">
-              {SENIORITY_OPTIONS.map((s) => (
-                <label key={s} className="group flex items-center gap-3 cursor-pointer p-2 rounded-xl hover:bg-white transition-colors">
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      type="checkbox"
-                      checked={selectedSeniorities.includes(s)}
-                      onChange={() => setSelectedSeniorities((prev) => toggleArrayItem(prev, s))}
-                      className="peer appearance-none w-5 h-5 border-2 rounded-md transition-all"
-                      style={{ 
-                        borderColor: "rgba(26, 26, 46, 0.2)",
-                        accentColor: "var(--color-brand-blue)" 
-                      }}
-                    />
-                    <div className="absolute inset-0 scale-0 peer-checked:scale-100 transition-transform flex items-center justify-center rounded-md" style={{ backgroundColor: "var(--color-brand-blue)" }}>
-                      <Check className="w-3 h-3 text-white" strokeWidth={4} />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium transition-colors" style={{ color: "var(--color-brand-navy-mid)" }}>
-                    {s}
-                  </span>
-                </label>
-              ))}
-            </div>
-          </FilterSection>
-
-          {/* Location Section */}
-          <FilterSection title="Location" isOpen={openSections.location} onToggle={() => toggleSection("location")}>
-            <div className="space-y-2 pt-2">
-              {JOB_LOCATIONS.map((loc) => (
-                <label key={loc} className="group flex items-center gap-3 cursor-pointer p-2 rounded-xl hover:bg-white transition-colors">
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      type="checkbox"
-                      checked={selectedLocations.includes(loc)}
-                      onChange={() => setSelectedLocations((prev) => toggleArrayItem(prev, loc))}
-                      className="peer appearance-none w-5 h-5 border-2 rounded-md transition-all"
-                      style={{ borderColor: "rgba(26, 26, 46, 0.2)" }}
-                    />
-                    <div className="absolute inset-0 scale-0 peer-checked:scale-100 transition-transform flex items-center justify-center rounded-md" style={{ backgroundColor: "var(--color-brand-blue)" }}>
-                      <Check className="w-3 h-3 text-white" strokeWidth={4} />
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium" style={{ color: "var(--color-brand-navy-mid)" }}>{loc}</span>
-                </label>
-              ))}
-            </div>
-          </FilterSection>
-
-          {/* Work Model Section */}
-          <FilterSection title="Work Model" isOpen={openSections.workModel} onToggle={() => toggleSection("workModel")}>
-            <div className="space-y-1 pt-2">
-              {["all", "hybrid", "remote", "office"].map((type) => (
-                <button
-                  key={type}
-                  onClick={() => setSelectedType(type)}
-                  className="w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all border-l-4"
-                  style={{
-                    backgroundColor: selectedType === type ? "rgba(8, 86, 137, 0.08)" : "transparent",
-                    borderColor: selectedType === type ? "var(--color-brand-blue)" : "transparent",
-                    color: selectedType === type ? "var(--color-brand-blue)" : "var(--color-brand-navy-mid)",
-                  }}
-                >
-                  {type === "all" ? "All Models" : type === "hybrid" ? "Hybrid" : type === "remote" ? "Fully Remote" : "Office Based"}
-                </button>
-              ))}
-            </div>
-          </FilterSection>
-
-          {/* Clear All Helper */}
-          <button 
-            onClick={() => {
-              setSelectedLocations([]);
-              setSelectedSeniorities([]);
-              setSelectedTech("all");
-              setSelectedType("all");
-              setSelectedContracts([]);
-            }}
-            className="w-full py-3 text-[10px] font-black uppercase tracking-[0.2em] transition-colors hover:opacity-70"
-            style={{ color: "var(--color-brand-coral)" }}
+          {/* Technology */}
+          <FilterSection
+            title="Technology"
+            isOpen={openSections.technology}
+            onToggle={() => toggleSection("technology")}
           >
-            Reset Filters
-          </button>
+            <div className="grid grid-cols-2 gap-1.5 pt-3">
+              {TECH_OPTIONS.map((tech) => {
+                const active = selectedTech === tech.value
+                return (
+                  <button
+                    key={tech.value}
+                    onClick={() => setSelectedTech(tech.value)}
+                    className={`py-2.5 px-3 rounded-lg text-[10px] font-semibold tracking-[0.15em] uppercase transition-colors duration-200 ${
+                      active
+                        ? "bg-brand-coral text-brand-white border border-brand-coral"
+                        : "bg-transparent text-brand-white/55 border border-brand-white/10 hover:border-brand-coral/40 hover:text-brand-coral"
+                    }`}
+                  >
+                    {tech.label}
+                  </button>
+                )
+              })}
+            </div>
+          </FilterSection>
 
+          {/* Seniority */}
+          <FilterSection
+            title="Seniority"
+            isOpen={openSections.seniority}
+            onToggle={() => toggleSection("seniority")}
+          >
+            <div className="space-y-1 pt-3">
+              {SENIORITY_OPTIONS.map((s) => {
+                const checked = selectedSeniorities.includes(s)
+                return (
+                  <label
+                    key={s}
+                    className="group flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-brand-white/5 transition-colors duration-200"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() =>
+                        setSelectedSeniorities((prev) =>
+                          toggleArrayItem(prev, s)
+                        )
+                      }
+                      className="sr-only"
+                    />
+                    <span
+                      className={`w-4 h-4 rounded flex items-center justify-center transition-colors duration-200 ${
+                        checked
+                          ? "bg-brand-coral border border-brand-coral"
+                          : "bg-transparent border border-brand-white/20 group-hover:border-brand-coral/40"
+                      }`}
+                    >
+                      {checked && (
+                        <Check
+                          className="w-2.5 h-2.5 text-brand-white"
+                          strokeWidth={3}
+                        />
+                      )}
+                    </span>
+                    <span
+                      className={`text-sm transition-colors duration-200 ${
+                        checked
+                          ? "text-brand-white"
+                          : "text-brand-white/55 group-hover:text-brand-white/80"
+                      }`}
+                    >
+                      {s}
+                    </span>
+                  </label>
+                )
+              })}
+            </div>
+          </FilterSection>
+
+          {/* Location */}
+          <FilterSection
+            title="Location"
+            isOpen={openSections.location}
+            onToggle={() => toggleSection("location")}
+          >
+            <div className="space-y-1 pt-3">
+              {JOB_LOCATIONS.map((loc) => {
+                const checked = selectedLocations.includes(loc)
+                return (
+                  <label
+                    key={loc}
+                    className="group flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-brand-white/5 transition-colors duration-200"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() =>
+                        setSelectedLocations((prev) =>
+                          toggleArrayItem(prev, loc)
+                        )
+                      }
+                      className="sr-only"
+                    />
+                    <span
+                      className={`w-4 h-4 rounded flex items-center justify-center transition-colors duration-200 ${
+                        checked
+                          ? "bg-brand-coral border border-brand-coral"
+                          : "bg-transparent border border-brand-white/20 group-hover:border-brand-coral/40"
+                      }`}
+                    >
+                      {checked && (
+                        <Check
+                          className="w-2.5 h-2.5 text-brand-white"
+                          strokeWidth={3}
+                        />
+                      )}
+                    </span>
+                    <span
+                      className={`text-sm transition-colors duration-200 ${
+                        checked
+                          ? "text-brand-white"
+                          : "text-brand-white/55 group-hover:text-brand-white/80"
+                      }`}
+                    >
+                      {loc}
+                    </span>
+                  </label>
+                )
+              })}
+            </div>
+          </FilterSection>
+
+          {/* Work Model */}
+          <FilterSection
+            title="Work model"
+            isOpen={openSections.workModel}
+            onToggle={() => toggleSection("workModel")}
+          >
+            <div className="space-y-1 pt-3">
+              {workModels.map(({ value, label }) => {
+                const active = selectedType === value
+                return (
+                  <button
+                    key={value}
+                    onClick={() => setSelectedType(value)}
+                    className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors duration-200 ${
+                      active
+                        ? "bg-brand-coral/10 text-brand-coral"
+                        : "text-brand-white/55 hover:bg-brand-white/5 hover:text-brand-white/80"
+                    }`}
+                  >
+                    <span className="inline-flex items-center gap-2.5">
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full ${
+                          active ? "bg-brand-coral" : "bg-brand-white/20"
+                        }`}
+                      />
+                      {label}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </FilterSection>
         </div>
       </div>
     </>

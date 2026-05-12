@@ -15,14 +15,22 @@ export const FilterSection = memo(function FilterSection({
   children,
 }: FilterSectionProps) {
   return (
-    <div>
+    <div className="py-4 border-b border-brand-white/8 last:border-b-0">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between text-lg font-semibold mb-3 hover:text-[#085689] transition-colors"
+        className="w-full flex items-center justify-between text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-white/75 hover:text-brand-coral transition-colors duration-200"
       >
-        {title}
+        <span className="inline-flex items-center gap-2">
+          <span className="font-serif italic text-[13px] text-brand-coral normal-case tracking-normal leading-none">
+            —
+          </span>
+          {title}
+        </span>
         <ChevronDown
-          className={`w-5 h-5 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`w-4 h-4 text-brand-coral transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+          strokeWidth={1.5}
         />
       </button>
       <div
