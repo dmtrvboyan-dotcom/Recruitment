@@ -111,7 +111,7 @@ export function Header() {
 
   const openMenu = useCallback(() => {
     setIsMenuOpen(true)
-    setOpenDropdowns(new Set()) // reset dropdowns when opening menu
+    setOpenDropdowns(new Set())
   }, [])
 
   useEscapeKey(closeMenu)
@@ -270,16 +270,16 @@ export function Header() {
           {/* Coral accent line */}
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-brand-coral" />
 
-          <div className="flex flex-col h-full p-8 pt-20 relative">
-            {/* Close Button */}
-            <button
-              onClick={closeMenu}
-              className="absolute top-7 right-7 text-white/60 hover:text-white transition-colors duration-200"
-            >
-              <X size={22} strokeWidth={2} />
-            </button>
+          {/* Close Button — sits outside scroll area so it stays fixed */}
+          <button
+            onClick={closeMenu}
+            className="absolute top-7 right-7 text-white/60 hover:text-white transition-colors duration-200 z-10"
+          >
+            <X size={22} strokeWidth={2} />
+          </button>
 
-            {/* Nav Items */}
+          {/* Scrollable content */}
+          <div className="flex flex-col h-full overflow-y-auto pt-20 pb-10 px-8">
             <div className="flex flex-col gap-1 text-base text-white">
               {NAV_ITEMS.map((item) =>
                 item.hasDropdown ? (
@@ -302,9 +302,7 @@ export function Header() {
               )}
             </div>
 
-            {/* Bottom Section */}
             <div className="mt-auto pt-10 flex flex-col gap-5">
-              {/* Contact Info */}
               <div className="flex items-center gap-3">
                 <a
                   href={PHONE_HREF}
@@ -326,7 +324,6 @@ export function Header() {
                 </a>
               </div>
 
-              {/* CTA Button */}
               <Button
                 onClick={() => handleNavigate("#contact")}
                 className="w-full bg-brand-coral hover:bg-brand-coral-hover text-white rounded-3xl py-6 text-sm font-medium tracking-widest uppercase cursor-pointer transition-colors duration-200"
