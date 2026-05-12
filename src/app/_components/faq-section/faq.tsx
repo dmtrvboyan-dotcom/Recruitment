@@ -1,15 +1,14 @@
 "use client"
 
 import { useState, useCallback } from "react"
-import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 import { FAQ_ITEMS } from "@/lib/constants/faq"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { FAQItem } from "./faq-item"
 
-const LEFT_COUNT = Math.ceil(FAQ_ITEMS.length / 2)
-
 export function FAQSection() {
-  const [openItems, setOpenItems] = useState<number[]>([])
+  // First item open by default — gives the section immediate content
+  const [openItems, setOpenItems] = useState<number[]>([0])
 
   const toggleItem = useCallback((index: number) => {
     setOpenItems((prev) =>
@@ -17,71 +16,87 @@ export function FAQSection() {
     )
   }, [])
 
-  const leftFaqs = FAQ_ITEMS.slice(0, LEFT_COUNT)
-  const rightFaqs = FAQ_ITEMS.slice(LEFT_COUNT)
-
   return (
     <section
       id="faq"
-      className="py-20 lg:py-32"
-     
+      className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* Diagonal slash texture */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            -62deg,
+            transparent,
+            transparent 70px,
+            rgba(26,26,46,0.022) 70px,
+            rgba(26,26,46,0.022) 71px
+          )`,
+        }}
+      />
+
+      {/* Coral glow top-right */}
+      <div
+        aria-hidden
+        className="absolute -top-32 right-1/4 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
+      />
+
+      {/* Watermark — Q & A */}
+      <div
+        aria-hidden
+        className="hidden lg:block absolute -bottom-8 -left-8 text-[clamp(12rem,20vw,18rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.03] select-none pointer-events-none whitespace-nowrap"
+      >
+        Q &amp; A
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <span 
-            className="text-xs font-black uppercase tracking-[0.3em] block mb-4"
-            style={{ color: "var(--color-brand-coral)" }}
-          >
-            Support Center
-          </span>
-          <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-6 text-balance"
-            style={{ color: "var(--color-brand-navy)" }}
-          >
-            Frequently Asked <br className="hidden md:block" /> Questions
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
+          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
+              Support Center
+            </span>
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+          </div>
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
+            Frequently
+            <br />
+            <span className="text-brand-coral">asked.</span>
           </h2>
-          <div className="w-20 h-1.5 bg-brand-blue mx-auto rounded-full" />
+          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
+          <p className="text-sm sm:text-base text-brand-navy/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
+            A few answers we give a lot — about timelines, fees, stacks, and
+            how we work.
+          </p>
         </div>
 
-        {/* Two-column grid */}
-        <div className="grid lg:grid-cols-2 gap-x-12 items-start">
-          <div className="flex flex-col">
-            {leftFaqs.map((faq, i) => (
-              <FAQItem
-                key={`left-${i}`}
-                faq={faq}
-                index={i}
-                isOpen={openItems.includes(i)}
-                onToggle={() => toggleItem(i)}
-              />
-            ))}
-          </div>
-          <div className="flex flex-col">
-            {rightFaqs.map((faq, i) => (
-              <FAQItem
-                key={`right-${i}`}
-                faq={faq}
-                index={i + LEFT_COUNT}
-                isOpen={openItems.includes(i + LEFT_COUNT)}
-                onToggle={() => toggleItem(i + LEFT_COUNT)}
-              />
-            ))}
-          </div>
+        {/* Q&A list */}
+        <div className="max-w-4xl mx-auto">
+          {FAQ_ITEMS.map((faq, i) => (
+            <FAQItem
+              key={i}
+              faq={faq}
+              index={i}
+              isOpen={openItems.includes(i)}
+              onToggle={() => toggleItem(i)}
+            />
+          ))}
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col items-center justify-center mt-20">
-          <p className="mb-6 text-brand-navy-mid font-medium">Still haven't found your answer?</p>
-          <Button
+        <div className="flex flex-col items-center mt-16 sm:mt-20 lg:mt-24 gap-4 sm:gap-5">
+          <p className="text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-brand-navy/45 text-center">
+            Still haven&apos;t found your answer?
+          </p>
+          <button
             onClick={() => scrollToSection("#contact")}
-            className="text-white rounded-2xl px-10 py-7 text-sm font-bold uppercase tracking-widest transition-all hover:scale-105 shadow-xl shadow-brand-blue/20 cursor-pointer"
-            style={{ 
-              backgroundColor: "var(--color-brand-blue)"
-            }}
+            className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 cursor-pointer"
           >
-            Contact Our Team
-          </Button>
+            Contact our team
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
         </div>
       </div>
     </section>

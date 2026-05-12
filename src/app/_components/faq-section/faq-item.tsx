@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { HelpCircle, ChevronDown } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import type { FAQItem as FAQItemType } from "@/lib/constants/faq"
 
 interface FAQItemProps {
@@ -9,56 +9,67 @@ interface FAQItemProps {
   onToggle: () => void
 }
 
-export const FAQItem = memo(function FAQItem({ faq, isOpen, onToggle }: FAQItemProps) {
+export const FAQItem = memo(function FAQItem({
+  faq,
+  index,
+  isOpen,
+  onToggle,
+}: FAQItemProps) {
+  const number = String(index + 1).padStart(2, "0")
+
   return (
-    <div 
-      className={`border rounded-2xl overflow-hidden mb-4 last:mb-0 transition-all duration-300 ${
-        isOpen ? "shadow-md ring-1 ring-brand-blue/10" : "hover:border-brand-blue/30"
-      }`}
-      style={{ 
-        backgroundColor: isOpen ? "#ffffff" : "var(--color-brand-bg)",
-        borderColor: isOpen ? "var(--color-brand-blue)" : "rgba(44, 62, 80, 0.1)"
-      }}
-    >
+    <div className="group border-b border-brand-navy/8 last:border-b-0 transition-colors duration-300 hover:border-brand-coral/30">
       <button
         onClick={onToggle}
-        className="w-full px-6 py-6 flex items-center justify-between text-left group transition-colors cursor-pointer"
+        className="w-full text-left py-6 sm:py-7 lg:py-8 flex items-center gap-4 sm:gap-5 lg:gap-6 cursor-pointer"
       >
-        <div className="flex items-center gap-4">
-          <div 
-            className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center transition-colors"
-            style={{ 
-              backgroundColor: isOpen ? "var(--color-brand-blue)" : "rgba(8, 86, 137, 0.1)" 
-            }}
+        <div className="shrink-0 w-10 sm:w-12 pt-1">
+          <span
+            className={`block text-[10px] font-semibold tracking-[0.22em] uppercase leading-none mb-2 transition-colors duration-300 ${isOpen
+                ? "text-brand-coral"
+                : "text-brand-coral/60 group-hover:text-brand-coral"
+              }`}
           >
-            <HelpCircle className={`w-5 h-5 transition-colors ${isOpen ? "text-white" : "text-brand-blue"}`} />
-          </div>
-          <h3 
-            className="text-lg font-bold pr-8 leading-tight transition-colors"
-            style={{ color: isOpen ? "var(--color-brand-blue)" : "var(--color-brand-navy)" }}
-          >
-            {faq.q}
-          </h3>
+            {number}
+          </span>
+          <span className="font-serif italic text-2xl sm:text-[1.75rem] text-brand-coral leading-none">
+            Q.
+          </span>
         </div>
+
+        {/* Question */}
+        <h3
+          className={`flex-1 font-black uppercase tracking-[-0.015em] leading-[1.15] text-base sm:text-lg lg:text-xl transition-colors duration-300 
+    ${isOpen
+              ? "text-brand-coral"
+              : "text-brand-navy group-hover:text-brand-coral"
+            }`}
+        >
+          {faq.q}
+        </h3>
+
+        {/* Chevron */}
         <ChevronDown
-          className={`w-5 h-5 transition-transform duration-500 shrink-0 ${
-            isOpen ? "rotate-180" : ""
-          }`}
-          style={{ color: isOpen ? "var(--color-brand-coral)" : "var(--color-brand-navy-mid)" }}
+          className={`w-5 h-5 shrink-0 text-brand-coral transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+            }`}
+          strokeWidth={1.5}
         />
       </button>
 
+      {/* Answer */}
       <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
-        <div 
-          className="px-6 pb-8 pl-[72px] text-base leading-relaxed"
-          style={{ color: "var(--color-brand-navy-mid)" }}
-        >
-          <div className="w-full h-px bg-brand-navy/5 mb-6" />
-          {faq.a}
+        <div className="pb-8 sm:pb-10 lg:pb-12 pl-14 sm:pl-[4.25rem] pr-2 sm:pr-8 flex gap-4 sm:gap-5">
+          <div className="w-[2px] bg-brand-coral shrink-0" />
+
+          <div className="flex-1">
+
+            <p className="text-sm sm:text-base lg:text-lg text-brand-navy/65 leading-relaxed max-w-2xl">
+              {faq.a}
+            </p>
+          </div>
         </div>
       </div>
     </div>
