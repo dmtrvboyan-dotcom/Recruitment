@@ -41,6 +41,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Users,
   Star,
   HelpCircle,
+  Phone
 };
 
 /* ---------- Simple dropdowns (unchanged) ---------- */
@@ -64,19 +65,26 @@ const DesktopDropdown = memo(function DesktopDropdown({
       </button>
 
       <div
-        className={`absolute top-full left-0 mt-4 w-52 bg-card rounded-sm shadow-lg border-t-2 border-brand-coral py-2 transition-all duration-200 origin-top ${
-          isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-        }`}
+        className={`absolute top-full left-0 mt-4 w-52 bg-card rounded-sm shadow-lg border-t-2 border-brand-coral py-2 transition-all duration-200 origin-top ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+          }`}
       >
-        {item.dropdownItems?.map((subItem) => (
-          <button
-            key={subItem.label}
-            onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
-            className="w-full text-left px-5 py-2.5 text-sm text-brand-navy/80 hover:text-brand-coral hover:bg-brand-bg transition-colors cursor-pointer tracking-wide"
-          >
-            {subItem.label}
-          </button>
-        ))}
+        {item.dropdownItems?.map((subItem) => {
+          const Icon = subItem.icon ? ICON_MAP[subItem.icon as string] : undefined
+          return (
+            <button
+              key={subItem.label}
+              onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
+              className="w-full text-left px-5 py-2.5 text-sm text-brand-navy/80 hover:text-brand-coral hover:bg-brand-bg transition-colors cursor-pointer tracking-wide flex items-center gap-3"
+            >
+              {Icon && (
+                <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-brand-navy/5 group-hover:bg-brand-coral/10 transition-colors">
+                  <Icon className="w-3.5 h-3.5 text-brand-navy/60" strokeWidth={1.75} />
+                </span>
+              )}
+              {subItem.label}
+            </button>
+          )
+        })}
       </div>
     </div>
   )
@@ -101,19 +109,26 @@ const MobileDropdown = memo(function MobileDropdown({
       </button>
 
       <div
-        className={`pl-5 transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-60 opacity-100 pt-1 pb-2" : "max-h-0 opacity-0"
-        }`}
+        className={`pl-5 transition-all duration-300 overflow-hidden ${isOpen ? "max-h-60 opacity-100 pt-1 pb-2" : "max-h-0 opacity-0"
+          }`}
       >
-        {item.dropdownItems?.map((subItem) => (
-          <button
-            key={subItem.label}
-            onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
-            className="block py-2.5 text-sm text-white/70 hover:text-white w-full text-left tracking-wide cursor-pointer"
-          >
-            {subItem.label}
-          </button>
-        ))}
+        {item.dropdownItems?.map((subItem) => {
+          const Icon = subItem.icon ? ICON_MAP[subItem.icon as string] : undefined
+          return (
+            <button
+              key={subItem.label}
+              onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
+              className="flex items-center gap-3 py-2.5 text-sm text-white/70 hover:text-white w-full text-left tracking-wide cursor-pointer"
+            >
+              {Icon && (
+                <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-white/5 transition-colors">
+                  <Icon className="w-3.5 h-3.5 text-brand-coral" strokeWidth={1.75} />
+                </span>
+              )}
+              {subItem.label}
+            </button>
+          )
+        })}
       </div>
     </div>
   )
@@ -140,9 +155,8 @@ const DesktopMegaMenu = memo(function DesktopMegaMenu({
       </button>
 
       <div
-        className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[820px] max-w-[calc(100vw-3rem)] bg-brand-white rounded-sm shadow-xl border-t-2 border-brand-coral p-8 transition-all duration-200 origin-top ${
-          isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-        }`}
+        className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[820px] max-w-[calc(100vw-3rem)] bg-brand-white rounded-sm shadow-xl border-t-2 border-brand-coral p-8 transition-all duration-200 origin-top ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+          }`}
       >
         <div className="grid grid-cols-3 gap-x-8 gap-y-6">
           {item.megaSections?.map((section) => (
@@ -206,9 +220,8 @@ const MobileMegaMenu = memo(function MobileMegaMenu({
       </button>
 
       <div
-        className={`transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[2000px] opacity-100 pt-3 pb-4" : "max-h-0 opacity-0"
-        }`}
+        className={`transition-all duration-300 overflow-hidden ${isOpen ? "max-h-[2000px] opacity-100 pt-3 pb-4" : "max-h-0 opacity-0"
+          }`}
       >
         {item.megaSections?.map((section) => (
           <div key={section.title} className="mb-5 last:mb-1">
@@ -317,11 +330,10 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-brand-white backdrop-blur-sm pt-3 pb-0 shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
-            : "bg-brand-white pt-6 pb-0"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "bg-brand-white backdrop-blur-sm pt-3 pb-0 shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
+          : "bg-brand-white pt-6 pb-0"
+          }`}
         style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
       >
         <div className="max-w-[1500px] mx-auto px-6 lg:px-10 xl:px-12">
@@ -337,9 +349,8 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <div
-              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-8 transition-opacity duration-300 ${
-                isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
-              }`}
+              className={`hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 items-center gap-8 transition-opacity duration-300 ${isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+                }`}
             >
               {NAV_ITEMS.map((item) =>
                 item.hasMegaMenu ? (
@@ -381,9 +392,8 @@ export function Header() {
             <div className="flex items-center gap-4">
               <a
                 href={PHONE_HREF}
-                className={`hidden lg:flex items-center gap-2 text-sm font-medium text-brand-navy/70 hover:text-brand-coral transition-all duration-300 ${
-                  isScrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                }`}
+                className={`hidden lg:flex items-center gap-2 text-sm font-medium text-brand-navy/70 hover:text-brand-coral transition-all duration-300 ${isScrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                  }`}
               >
                 <Phone size={14} className="text-brand-coral" />
                 {PHONE_NUMBER}
@@ -391,9 +401,8 @@ export function Header() {
 
               <button
                 onClick={openMenu}
-                className={`p-2 text-brand-navy hover:text-brand-coral transition-colors duration-200 ${
-                  isScrolled ? "block" : "block lg:hidden"
-                }`}
+                className={`p-2 text-brand-navy hover:text-brand-coral transition-colors duration-200 ${isScrolled ? "block" : "block lg:hidden"
+                  }`}
                 aria-label="Open menu"
               >
                 <Menu size={22} />
@@ -408,16 +417,14 @@ export function Header() {
       </header>
 
       <div
-        className={`fixed inset-0 z-[999] transition-all duration-500 ${
-          isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
-        }`}
+        className={`fixed inset-0 z-[999] transition-all duration-500 ${isMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+          }`}
       >
         <div className="absolute inset-0 bg-brand-navy/60 backdrop-blur-sm" onClick={closeMenu} />
 
         <div
-          className={`absolute top-0 right-0 h-full w-full lg:w-[480px] shadow-2xl transform transition-transform duration-500 ease-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute top-0 right-0 h-full w-full lg:w-[480px] shadow-2xl transform transition-transform duration-500 ease-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           style={{ background: "linear-gradient(160deg, #1A1A2E 0%, #2C3E50 100%)" }}
         >
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-brand-coral" />
@@ -462,7 +469,7 @@ export function Header() {
 
             <div className="mt-auto pt-10 flex flex-col gap-5">
               <div className="flex items-center gap-3">
-                
+
                 <a
                   href={PHONE_HREF}
                   className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
@@ -474,7 +481,7 @@ export function Header() {
                   <span>{PHONE_NUMBER}</span>
                 </a>
 
-                
+
                 <a
                   href={EMAIL_HREF}
                   className="ml-auto flex items-center justify-center w-8 h-8 rounded-full border border-white/20 text-white/60 hover:text-white hover:border-brand-coral transition-colors"

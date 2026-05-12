@@ -5,6 +5,7 @@
 export interface DropdownItem {
   label: string
   href: string
+  icon: string
   openInNewTab?: boolean
 }
 
@@ -35,8 +36,8 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Services",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Permanent IT Recruitment", href: "/services/permanent-it-recruitment", openInNewTab: true },
-      { label: "Hire Contract or Freelance Devs", href: "/services/hire-contract", openInNewTab: true },
+      { label: "Permanent IT Recruitment", icon: "Briefcase", href: "/services/permanent-it-recruitment", openInNewTab: true },
+      { label: "Hire Contract or Freelance Devs", icon: "Code2", href: "/services/hire-contract", openInNewTab: true },
     ],
   },
   {
@@ -71,7 +72,7 @@ export const NAV_ITEMS: NavItem[] = [
             label: "Data Engineering",
             description: "Data Engineers, BI Developers, Analytics Experts",
             icon: "Database",
-            href:"tech-recruitment#hire-data-engineers-bi-developers",
+            href: "tech-recruitment#hire-data-engineers-bi-developers",
             openInNewTab: true,
           },
           {
@@ -107,13 +108,55 @@ export const NAV_ITEMS: NavItem[] = [
       {
         title: "Industries",
         items: [
-          { label: "Fintech", icon: "Landmark", href: "/industries/fintech", openInNewTab: true },
-          { label: "SaaS", icon: "Cloud", href: "/industries/saas", openInNewTab: true },
-          { label: "iGaming", icon: "Gamepad2", href: "/industries/igaming", openInNewTab: true },
-          { label: "Ecommerce", icon: "ShoppingCart", href: "/industries/ecommerce", openInNewTab: true },
-          { label: "Healthcare", icon: "HeartPulse", href: "/industries/healthcare", openInNewTab: true },
-          { label: "Automotive", icon: "Car", href: "/industries/automotive", openInNewTab: true },
-          { label: "And more", icon: "MoreHorizontal", href: "/industries", openInNewTab: true },
+          {
+            label: "Fintech Recruitment",
+            icon: "Landmark",
+            href: "/expertise-services/fintech-recruitment",
+            description: "Payments, Banking, Crypto, FinTech Startups",
+            openInNewTab: true,
+          },
+          {
+            label: "iGaming Recruitment",
+            icon: "Gamepad2",
+            href: "/expertise-services/igaming-recruitment",
+            description: "Casino, Sports Betting, Gaming Platforms",
+            openInNewTab: true,
+          },
+          {
+            label: "AI/ML Recruitment",
+            icon: "Brain",
+            href: "/expertise-services/aiml-recruitment",
+            description: "AI Engineers, ML Teams, Data Scientists",
+            openInNewTab: true,
+          },
+          {
+            label: "Cybersecurity Recruitment",
+            icon: "ShieldCheck",
+            href: "/expertise-services/cybersecurity-recruitment",
+            description: "Security Engineers, Analysts, Compliance Experts",
+            openInNewTab: true,
+          },
+          {
+            label: "SaaS Recruitment",
+            icon: "Cloud",
+            href: "/expertise-services/saas-recruitment",
+            description: "B2B SaaS, Product Teams, Cloud Platforms",
+            openInNewTab: true,
+          },
+          {
+            label: "E-commerce Recruitment",
+            icon: "ShoppingCart",
+            href: "/expertise-services/ecommerce-recruitment",
+            description: "Marketplace, Retail Tech, Growth Teams",
+            openInNewTab: true,
+          },
+          {
+            label: "And More",
+            icon: "MoreHorizontal",
+            href: "/expertise-services/specialized-industries",
+            description: "Healthcare, Automotive, Gaming, Startups & More",
+            openInNewTab: true,
+          },
         ],
       },
       {
@@ -131,6 +174,13 @@ export const NAV_ITEMS: NavItem[] = [
             description: "Companies we partner with",
             icon: "Users",
             href: "/partnerships",
+            openInNewTab: true,
+          },
+          {
+            label: "Tech Recruitment",
+            description: "Hire Software, Data, AI & Engineering Talent",
+            icon: "Users",
+            href: "/tech-recruitment",
             openInNewTab: true,
           },
           {
@@ -153,16 +203,16 @@ export const NAV_ITEMS: NavItem[] = [
     label: "For Candidates",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Why us?", href: "/candidates", openInNewTab: true },
-      { label: "See our jobs", href: "#jobs" },
+      { label: "Why us?", icon: "Star", href: "/candidates", openInNewTab: true },
+      { label: "See our jobs", icon: "Briefcase", href: "#jobs" },
     ],
   },
   {
     label: "Own ATS / CRM",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Smart.R", href: "#smartr" },
-      { label: "Book a demo", href: "#contact" },
+      { label: "Smart.R", icon: "Database", href: "#smartr" },
+      { label: "Book a demo", icon: "Phone", href: "#contact" },
     ],
   },
   { label: "About Us", href: "#about" },
