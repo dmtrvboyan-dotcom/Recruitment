@@ -1,0 +1,99 @@
+"use client"
+
+import { useState, useCallback } from "react"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import { FAQ_DATA, FAQ_ITEMS } from "../data"
+import { FAQItem } from "./faq-item"
+
+export function FAQSection() {
+  const [openItems, setOpenItems] = useState<number[]>([0])
+
+  const toggleItem = useCallback((index: number) => {
+    setOpenItems((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index]
+    )
+  }, [])
+
+  return (
+    <section className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden">
+      {/* Diagonal texture */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            -62deg,
+            transparent,
+            transparent 70px,
+            rgba(26,26,46,0.022) 70px,
+            rgba(26,26,46,0.022) 71px
+          )`,
+        }}
+      />
+
+      {/* Coral glow */}
+      <div
+        aria-hidden
+        className="absolute -top-32 right-1/4 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
+      />
+
+      {/* Watermark */}
+      <div
+        aria-hidden
+        className="hidden lg:block absolute -bottom-8 -left-8 text-[clamp(12rem,20vw,18rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.03] select-none pointer-events-none whitespace-nowrap"
+      >
+        Q &amp; A
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
+          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
+              {FAQ_DATA.tagline}
+            </span>
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+          </div>
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
+            Frequently
+            <br />
+            <span className="text-brand-coral">Asked.</span>
+          </h2>
+          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral" />
+        </div>
+
+        {/* Q&A list */}
+        <div className="max-w-4xl mx-auto">
+          {FAQ_ITEMS.map((faq, i) => (
+            <FAQItem
+              key={i}
+              faq={faq}
+              index={i}
+              isOpen={openItems.includes(i)}
+              onToggle={() => toggleItem(i)}
+            />
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="flex flex-col items-center mt-16 sm:mt-20 lg:mt-24 gap-4 sm:gap-5">
+          <p className="text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-brand-navy/45 text-center">
+            Still have questions?
+          </p>
+          <Link
+            target="_blank"
+            href="/#contact"
+            className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200"
+          >
+            Contact our team
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
