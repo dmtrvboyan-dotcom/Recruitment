@@ -22,8 +22,5 @@ export const testimonials: Testimonial[] = [
   { id: 16, image: "/testimonials/16.png" },
   { id: 17, image: "/testimonials/17.png" },
   { id: 18, image: "/testimonials/18.png" },
-  { id: 19, image: "/testimonials/19.png" },
-  { id: 20, image: "/testimonials/20.png" },
-  { id: 21, image: "/testimonials/21.png" },
-  { id: 22, image: "/testimonials/22.png" },
+
 ]
