@@ -276,9 +276,8 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
           </div>
 
-          {/* Carousel below */}
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto mt-8">
             <TeamCarousel showQuote={false} />
           </div>
         </div>
