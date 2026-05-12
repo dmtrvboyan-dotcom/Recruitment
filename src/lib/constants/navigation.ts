@@ -22,6 +22,8 @@ export const NAV_ITEMS: NavItem[] = [
     dropdownItems: [
       { label: "Permanent IT Recruitment", href: "/services/permanent-it-recruitment", openInNewTab: true },
       { label: "Hire Contract or Freelance Devs", href: "/services/hire-contract", openInNewTab: true },
+      { label: "Hire Contract or Freelance Devs", href: "/services/hire-contract", openInNewTab: true },
+      { label: "Hire Contract or Freelance Devs", href: "/services/hire-contract", openInNewTab: true },
     ],
   },
   {
