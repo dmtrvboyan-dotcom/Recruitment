@@ -2,8 +2,9 @@ import type { Metadata } from "next"
 import { PartnersHero } from "./partners-hero"
 import { PartnersGrid } from "./partners-grid"
 import { HowItWorks } from "./how-it-works"
-import { WhyChooseUs } from "../../../components/why-choose-us"
+import { WhyChooseUs } from "./why-choose-us"
 import { ClientsCTA } from "./client-cta"
+import { Testimonials } from "./testimonials"
 
 export const metadata: Metadata = {
   title: "Clients & Partnerships | Recruitment.bg",
@@ -16,7 +17,8 @@ export default function ClientsPage() {
     <main className="flex flex-col w-full">
       <PartnersHero />
       <PartnersGrid />
-      <HowItWorks />
+      <HowItWorks /> 
+      <Testimonials />
       <WhyChooseUs />
       <ClientsCTA />
     </main>

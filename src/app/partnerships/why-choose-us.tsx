@@ -30,16 +30,16 @@ function useInView(threshold = 0.15) {
 }
 
 const STATS = [
-  { value: "13+", label: "Partner companies" },
-  { value: "2", label: "Countries served" },
-  { value: "1", label: "Point of contact" },
+  { value: "30+", label: "Partner Companies" },
+  { value: "90%", label: "Successful Placements" },
+  { value: "95%", label: "Client Satisfaction" },
 ]
 
 export const WhyChooseUs = memo(function WhyChooseUs() {
   const { ref, visible } = useInView(0.1)
 
   return (
-    <section className="relative w-full bg-[#f9f9fb] overflow-hidden py-20 lg:py-32">
+    <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16">
 
@@ -57,12 +57,12 @@ export const WhyChooseUs = memo(function WhyChooseUs() {
             <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
               Why Us
             </span>
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-brand-navy mb-6">
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-brand-white mb-6">
               QUALITY
               <br />
               <span className="text-brand-coral">OVER VOLUME.</span>
             </h2>
-            <p className="text-sm sm:text-base text-brand-navy/50 leading-relaxed max-w-md mb-12">
+            <p className="text-sm sm:text-base text-brand-white/50 leading-relaxed max-w-md mb-12">
               We don't flood inboxes with irrelevant CVs. We deliver carefully selected candidates who are genuinely aligned with your business needs.
             </p>
 
@@ -91,7 +91,7 @@ export const WhyChooseUs = memo(function WhyChooseUs() {
 
           {/* Right: Reasons list */}
           <div
-            className="rounded-3xl bg-white border border-brand-navy/8 p-7 sm:p-10 overflow-hidden relative"
+            className="rounded-3xl bg-brand-navy border border-brand-navy/8 p-7 sm:p-10 overflow-hidden relative"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(28px)",
@@ -119,7 +119,7 @@ export const WhyChooseUs = memo(function WhyChooseUs() {
                   <div className="w-6 h-6 rounded-full bg-brand-coral/12 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-coral/22 transition-colors duration-300">
                     <Check className="w-3.5 h-3.5 text-brand-coral" strokeWidth={2.5} />
                   </div>
-                  <span className="text-sm sm:text-base text-brand-navy/75 font-medium leading-snug pt-0.5 group-hover:text-brand-navy transition-colors duration-300">
+                  <span className="text-sm sm:text-base text-brand-white/75 font-medium leading-snug pt-0.5 group-hover:text-brand-coral transition-colors duration-300">
                     {reason}
                   </span>
                 </li>

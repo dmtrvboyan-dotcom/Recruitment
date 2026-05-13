@@ -3,22 +3,6 @@
 import { memo, useRef, useState, useEffect } from "react"
 import Link from "next/link"
 
-const PARTNERS = [
-  "MAN",
-  "DEGIRO",
-  "myPOS",
-  "AiOpsGroup",
-  "Epsilon Telecom",
-  "Scaleflex",
-  "Tide",
-  "Candor",
-  "Codiit",
-  "OSF",
-  "Despark",
-  "MM Solutions",
-  "Tinqin",
-]
-
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
