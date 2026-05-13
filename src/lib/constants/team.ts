@@ -12,7 +12,7 @@ export interface TeamMember {
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Veselin Raykov",
-    image: "/members/veselin.jpg",
+    image: "/members/vesko.png",
     linkedin: "https://bg.linkedin.com/in/veselinraykovhr",
     quote:
       "I still believe in people. Go for results, not excuses.",
@@ -25,7 +25,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Svetlana Manolova",
-    image: "/members/svetlana1.png",
+    image: "/members/svetle.png",
     linkedin: "https://bg.linkedin.com/in/svetlana-manolova-62051b197",
     quote:
       "Believe in people. It’s all about good conversations and helping people succeed.",
@@ -38,13 +38,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Silvia Markova",
-    image: "/members/silvia1.png",
+    image: "/members/silvia.png",
     linkedin: "https://bg.linkedin.com/in/silvia-markova-b98470233",
     quote: "Reliable person who recharges with books, hiking, coffee and successful hires.",
   },
   {
     name: "Irina Tojeva",
-    image: "/members/irina1.png",
+    image: "/members/irina.png",
     linkedin: "https://linkedin.com/in/irina-tojeva",
     quote: "A rebellious empath who cuts through bad hiring and makes the right matches happen.",
   },
@@ -62,20 +62,20 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Valentina Nikolova",
-    image: "/members/valentina.png",
+    image: "/members/val.png",
     linkedin: "https://bg.linkedin.com/in/valentina-nikolova-958563215",
     quote:
       "Connecting people with opportunities through caffeine, curiosity, and a soft spot for East Asian culture and art.",
   },
   {
     name: "Gabriela Ignatova",
-    image: "/members/gabi1.png",
+    image: "/members/gabi2.png",
     linkedin: "https://linkedin.com/in/gabriela-ignatova",
     quote: "Not a corporate lady, just a human. Researcher, parent, village life, mountain lover.",
   },
   {
     name: "Andrea Miteva",
-    image: "/members/andrea.jpg",
+    image: "/members/andrea.png",
     linkedin:
       "https://bg.linkedin.com/in/andrea-miteva-70b7ab366?trk=people-guest_people_search-card",
     quote:
@@ -83,7 +83,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Kalin Motovilkov",
-    image: "/members/kalin.jpg",
+    image: "/members/kalin.png",
     linkedin: "https://bg.linkedin.com/in/kalin-motovilkov",
     quote: "Serious about results, slightly amused by how perfect they are.",
   },
@@ -95,7 +95,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Yulia Rapinchuk",
-    image: "/members/yulia.jpg",
+    image: "/members/yulia.png",
     linkedin: "https://linkedin.com/in/yulia-rapinchuk",
     quote:
       "I'm respectful, kind, and people-first… until I have a reason not to be.",
