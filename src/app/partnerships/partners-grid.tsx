@@ -4,6 +4,7 @@ import { memo, useRef, useState, useEffect } from "react"
 
 const PARTNERS = [
   { name: "EnduroSat", size: "lg" },
+  { name: "DHL", size: "lg" },
   { name: "TINQIN", size: "lg" },
   { name: "Strypes", size: "lg" },
   { name: "MAN", size: "lg" },
@@ -14,13 +15,13 @@ const PARTNERS = [
   { name: "GeoWealth", size: "lg" },
   { name: "Scaleflex", size: "lg" },
   { name: "Tide", size: "lg" },
+  { name: "GemSeek", size: "lg" },
   { name: "Candor", size: "lg" },
   { name: "Codiit", size: "lg" },
   { name: "OSF", size: "lg" },
   { name: "Despark", size: "lg" },
   { name: "MM Solutions", size: "md" },
   { name: "Epsilon Telecom", size: "sm" },
-
 ]
 
 function useInView(threshold = 0.15) {
