@@ -7,24 +7,6 @@ import {
 import { ExpertiseCard } from "./expertise-card"
 import { FeaturedExpertiseCard } from "./featured-expertise-card"
 
-/**
- * Bento grid layout — matches the wireframe exactly:
- *
- * ┌──────────────┬──────────────────┐
- * │              │  iGaming  [1]    │  row 1
- * │ Fintech [0]  ├──────────────────┤
- * │  (tall)      │  AI/ML    [2]    │  row 2
- * ├──────┬───────┴──────────────────┤
- * │Cyber │  IT Services [4]         │  row 3
- * │ [3]  │                          │
- * ├──────┴──────────┬───────────────┤
- * │ Ecommerce [5]   │  More  [★]   │  row 4
- * └─────────────────┴───────────────┘
- *
- * Desktop: 12-col CSS grid, auto rows 260px.
- * Tablet (md): 2-col, cards stack naturally.
- * Mobile: single column.
- */
 export function ExpertiseSection() {
   const [fintech, igaming, aiml, cyber, it, ecommerce] = EXPERTISE_AREAS
 
@@ -60,14 +42,12 @@ export function ExpertiseSection() {
         className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
-      {/* Teal glow — bottom right, hidden on small screens */}
       <div
         aria-hidden
         className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        {/* ── Section header ── */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
           <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
@@ -77,9 +57,8 @@ export function ExpertiseSection() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
           <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
-            We help companies hire
-            <br />
-            <span className="text-brand-coral">across industries.</span>
+            We help companies hire across
+            <span className="text-brand-coral"> different industries.</span>
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base lg:text-lg text-brand-navy/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">

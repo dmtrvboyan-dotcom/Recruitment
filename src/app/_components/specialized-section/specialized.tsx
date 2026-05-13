@@ -72,10 +72,8 @@ export function SpecializedRecruitment() {
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
-            Technical Specialized
-            <br />
-            <span className="text-brand-coral">Recruitment.</span>
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] uppercase text-brand-white">
+            Specialized <span className="text-brand-coral"> Recruitment.</span>
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mt-10 sm:mb-8" />
           

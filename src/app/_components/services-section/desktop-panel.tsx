@@ -43,8 +43,7 @@ export const DesktopPanel = memo(function DesktopPanel({
               <X className="w-5 h-5" strokeWidth={2} />
             </button>
 
-            {/* Main content — everything centered */}
-            <div className="px-6 lg:px-12 pt-14 lg:pt-16 pb-12 flex flex-col items-center text-center">
+            <div className="px-6 lg:px-12 pt-14 lg:pt-16 pb-12 flex flex-col items-center text-center ">
               {/* Eyebrow */}
               <div className="flex items-center gap-3.5 mb-7">
                 <span className="block w-9 h-px bg-brand-coral" />

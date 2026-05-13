@@ -18,8 +18,6 @@ import { MobileMenu } from "./mobile-menu"
 export function Header() {
   const isScrolled = useScrollState()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  // Only one dropdown / mega-menu can be open at a time. Switching to
-  // a different one automatically closes the previous (standard behavior).
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   const navRef = useRef<HTMLDivElement | null>(null)

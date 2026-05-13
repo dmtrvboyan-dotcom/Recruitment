@@ -14,4 +14,5 @@ export const HIRE_WITH_CLARITY_POINTS: string[] = [
   "You won't be depreoritized",
   "Very quick communication with us",
   "Your role stays a priority",
+  "Long-term hiring partnerships"
 ]

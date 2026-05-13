@@ -55,7 +55,7 @@ export function CompaniesSection() {
             </ul>
           </div>
 
-          <div className="bg-brand-white border rounded-2xl sm:rounded-3xl border-brand-navy/8 px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+          <div className="bg-brand-white border rounded-2xl sm:rounded-3xl border-brand-navy/8 px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14 -mt-1">
             <SectionHeader label="Hire with Clarity" variant="brand" />
             <ul className="divide-y divide-brand-navy/8">
               {HIRE_WITH_CLARITY_POINTS.map((item, index) => (

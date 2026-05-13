@@ -67,11 +67,11 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
       >
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 lg:gap-8 h-full">
           <div className="flex items-center justify-between lg:justify-start lg:gap-6 lg:shrink-0">
-            <span className="font-black leading-[0.85] tracking-[-0.04em] text-brand-navy/8 group-hover:text-brand-coral/40 transition-colors duration-300 text-5xl sm:text-6xl lg:text-6xl">
+            <span className="font-black leading-[0.85] tracking-[-0.04em] text-brand-navy/8 group-hover:text-brand-navy/80 transition-colors duration-300 text-5xl sm:text-6xl lg:text-6xl">
               {number}
             </span>
             <ArrowUpRight
-              className="w-5 h-5 lg:hidden text-brand-navy/30 group-hover:text-brand-coral transition-colors duration-300"
+              className="w-5 h-5 lg:hidden text-brand-navy/30 group-hover:text-brand-navy/80  transition-colors duration-300"
               strokeWidth={1.5}
             />
           </div>
@@ -104,11 +104,11 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
       }`}
     >
       <div className="flex items-start justify-between">
-        <span className="font-black leading-[0.85] tracking-[-0.04em] text-brand-navy/8 group-hover:text-brand-coral/40 transition-colors duration-300 text-4xl sm:text-5xl lg:text-5xl">
+        <span className="font-black leading-[0.85] tracking-[-0.04em] text-brand-navy/8 group-hover:text-brand-navy/80 transition-colors duration-300 text-4xl sm:text-5xl lg:text-5xl">
           {number}
         </span>
         <ArrowUpRight
-          className="w-5 h-5 text-brand-navy/30 group-hover:text-brand-coral group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+          className="w-5 h-5 text-brand-navy/30 group-hover:text-brand-navy/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
           strokeWidth={1.5}
         />
       </div>

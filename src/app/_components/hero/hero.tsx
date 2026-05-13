@@ -82,7 +82,6 @@ export const Hero = memo(function Hero() {
         className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
-      {/* Giant background watermark — desktop only, centered */}
       <div
         aria-hidden
         className="hidden lg:block absolute top-[42%] left-1/2 -translate-x-1/2 text-[clamp(14rem,26vw,22rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.02] select-none pointer-events-none whitespace-nowrap"
@@ -90,11 +89,10 @@ export const Hero = memo(function Hero() {
         HIRE
       </div>
 
-      {/* Main content — centered */}
       <div className="relative z-10 flex-1 flex items-center justify-center px-5 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full py-10 sm:py-12 lg:py-14">
         <div className="w-full flex flex-col items-center text-center mt-30">
 
-          {/* Eyebrow */}
+         
           <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-7 animate-fade-in-up delay-100">
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
             <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
@@ -103,14 +101,12 @@ export const Hero = memo(function Hero() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
-          {/* Headline */}
           <h1 className="text-[clamp(2.25rem,9vw,8rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-6 sm:mb-8 max-w-5xl animate-fade-in-up delay-150">
             IT Recruitment Agency for
             <br />
             <span className="text-brand-coral">Tech Roles</span>
           </h1>
 
-          {/* Subhead with coral underline accent */}
           <div className="flex flex-col items-center max-w-xl mb-8 sm:mb-10 animate-fade-in-up delay-200">
             <p className="text-sm sm:text-base lg:text-lg text-brand-navy/70 leading-relaxed px-2 sm:px-0">
               We connect companies with IT professionals through recruitment and talent acquisition services.
@@ -118,14 +114,13 @@ export const Hero = memo(function Hero() {
             <div className="mt-5 sm:mt-6 h-[2px] w-12 sm:w-16 bg-brand-coral" />
           </div>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
             <Button
-              onClick={() => handleNavigate("#contact")}
+              onClick={() => handleNavigate("#services")}
               className="w-full sm:w-auto group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-7 sm:px-8 py-5 sm:py-6 text-sm font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
             >
               <span className="flex items-center justify-center gap-2.5">
-                Hire talent
+                Learn More
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
             </Button>
@@ -142,7 +137,6 @@ export const Hero = memo(function Hero() {
         </div>
       </div>
 
-      {/* Floating stats card — 2x2 on mobile, 1x4 on desktop */}
       <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full pb-8 sm:pb-10 animate-fade-in-up delay-[400ms]">
         <div className="grid grid-cols-2 lg:grid-cols-4 bg-brand-navy/92 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-brand-white/10 overflow-hidden shadow-2xl shadow-brand-navy/20">
           <StatBlock value="650+" label="Successful hirings" isMobileTop />
