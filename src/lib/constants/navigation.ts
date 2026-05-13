@@ -11,7 +11,7 @@ export interface MegaMenuItem {
   label: string
   description?: string
   href: string
-  icon: string // must match a key in ICON_MAP inside the header
+  icon: string 
   openInNewTab?: boolean
 }
 
@@ -34,12 +34,13 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Services",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Permanent IT Recruitment", icon: "Briefcase", href: "/services/permanent-it-recruitment", openInNewTab: true },
-      { label: "Hire Contract or Freelance Devs", icon: "Code2", href: "/services/hire-contract", openInNewTab: true },
-      { label: "Project Based IT Recruitment", icon: "Code2", href: "/services/project-based-it-recruitment", openInNewTab: true },
-      { label: "Remote IT Hiring & Global Talent", icon: "Code2", href: "/services/remote-it-hiring-and-global-talent", openInNewTab: true },
-      { label: "Executive Search & IT Headhunting", icon: "Code2", href: "/services/executive-search-and-it-headhunting", openInNewTab: true },
-      { label: "IT Salary ", icon: "Code2", href: "/services/it-salary-benchmarking-and-hiring-insights", openInNewTab: true },
+      { label: "Permanent IT Recruitment", icon: "Users", href: "/services/permanent-it-recruitment", openInNewTab: true },
+      { label: "Hire Contract or Freelance Devs", icon: "Briefcase", href: "/services/hire-contract", openInNewTab: true },
+      { label: "Project Based IT Recruitment", icon: "Clock", href: "/services/project-based-it-recruitment", openInNewTab: true },
+      { label: "Remote IT Hiring & Global Talent", icon: "Globe", href: "/services/remote-it-hiring-and-global-talent", openInNewTab: true },
+      { label: "Executive Search & IT Headhunting", icon: "Search", href: "/services/executive-search-and-it-headhunting", openInNewTab: true },
+      { label: "IT Salary Benchmarking & Hiring Insights", icon: "UserCheck", href: "/services/it-salary-benchmarking-and-hiring-insights", openInNewTab: true },
+
     ],
   },
   {

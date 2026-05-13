@@ -5,8 +5,10 @@ import {
   Car,
   Cloud,
   Code2,
+  Clock,
   Database,
   Gamepad2,
+  Globe,
   HeartPulse,
   HelpCircle,
   Infinity as InfinityIcon,
@@ -19,14 +21,11 @@ import {
   Smartphone,
   Star,
   Users,
+  UserCheck,
   type LucideIcon,
+  Search,
 } from "lucide-react"
 
-/**
- * Maps the `icon` string values used in `lib/constants/navigation.ts`
- * to their actual Lucide icon components. Keep keys in sync with
- * the navigation config.
- */
 export const ICON_MAP: Record<string, LucideIcon> = {
   Bookmark,
   Brain,
@@ -34,8 +33,10 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   Car,
   Cloud,
   Code2,
+  Clock,
   Database,
   Gamepad2,
+  Globe,
   HeartPulse,
   HelpCircle,
   Infinity: InfinityIcon,
@@ -43,9 +44,11 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   MoreHorizontal,
   Palette,
   Phone,
+  Search,
   ShieldCheck,
   ShoppingCart,
   Smartphone,
   Star,
   Users,
+  UserCheck,
 }

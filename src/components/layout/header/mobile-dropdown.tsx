@@ -34,7 +34,7 @@ export const MobileDropdown = memo(function MobileDropdown({
 
       <div
         className={`pl-5 transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-60 opacity-100 pt-1 pb-2" : "max-h-0 opacity-0"
+          isOpen ? "max-h-96 opacity-100 pt-1 pb-2" : "max-h-0 opacity-0"
         }`}
       >
         {item.dropdownItems?.map((subItem) => {
