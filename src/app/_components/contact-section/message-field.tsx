@@ -5,11 +5,16 @@ import { Textarea } from "@/components/ui/textarea"
 import type { UseFormReturn } from "react-hook-form"
 import type { ContactFormData } from "@/lib/schemas"
 
-type Interest = "hiring" | "demo" | "salary"
+type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT" | "remoteIT" | "executiveSearch" | "salary"
 
 const PLACEHOLDER_MAP: Record<Interest, string> = {
   hiring: "Tell us about your hiring needs, positions, number of roles, budget range, timeline...",
   demo: "I'd like to schedule a Smart.r ATS/CRM demonstration...",
+  permanentIT: "Please tell us about your permanent IT hiring needs, roles, timeline...",
+  hireContract: "Please tell us about your contract or freelance developer needs...",
+  projectIT: "Please tell us about your project requirements, needed expertise, expected deliverables...",
+  remoteIT: "Please tell us about your remote hiring needs, locations, skills, team...",
+  executiveSearch: "Please tell us about the leadership/executive role you're hiring for...",
   salary: "Please tell us about your salary benchmarking needs (job titles, experience levels, location, etc.)...",
 }
 
