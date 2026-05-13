@@ -79,7 +79,7 @@ export default function NotFound() {
             Back to home
           </Link>
 
-          <Link
+          {/* <Link
             href="/#jobs"
             className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5
                        px-7 sm:px-8 py-5 sm:py-6
@@ -90,7 +90,7 @@ export default function NotFound() {
           >
             Browse open jobs
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </Link>
+          </Link> */}
         </div>
 
       </div>
