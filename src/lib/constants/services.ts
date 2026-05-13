@@ -97,7 +97,7 @@ export const SERVICES: Service[] = [
   },
   {
     icon: Clock,
-  iconColor: "text-[#1A1A2E]",
+    iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Project-Based IT Recruitment",
     subtitle: "Flexible Hiring for Immediate Needs",
@@ -127,11 +127,11 @@ export const SERVICES: Service[] = [
       { value: "5-7", label: "Days to Place" },
       { value: "80%+", label: "Project Success Rate" },
     ],
-    href: "#contact",
+    href: "/services/project-based-it-recruitment",
   },
   {
     icon: Globe,
-   iconColor: "text-[#1A1A2E]",
+    iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Remote IT Hiring & Global Talent",
     subtitle: "Build Strong Teams Without Location Limits",
@@ -161,11 +161,11 @@ export const SERVICES: Service[] = [
       { value: "4-6", label: "Candidates Per Role" },
       { value: "2-6", label: "Days to Present Candidates" },
     ],
-    href: "#contact",
+    href: "/services/remote-it-hiring-and-global-talent",
   },
   {
     icon: Search,
-   iconColor: "text-[#1A1A2E]",
+    iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Executive Search & Headhunting",
     subtitle: "Lorem ipsum dolor sit amet",
@@ -195,7 +195,7 @@ export const SERVICES: Service[] = [
       { value: "85%", label: "Offer Acceptance Rate" },
       { value: "6-15", label: "Days to Present Candidates" },
     ],
-    href: "#contact",
+    href: "/services/executive-search-and-it-headhunting",
   },
   {
     icon: UserCheck,
@@ -229,6 +229,6 @@ export const SERVICES: Service[] = [
       { value: "Live", label: "Market Salary Data" },
       { value: "100%", label: "Role & Stack Specific" },
     ],
-    href: "/",
+    href: "/services/it-salary-benchmarking-and-hiring-insights",
   },
 ]

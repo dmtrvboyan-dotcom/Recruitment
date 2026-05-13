@@ -1,6 +1,4 @@
-/**
- * Navigation configuration for the header and mobile menu
- */
+
 
 export interface DropdownItem {
   label: string
@@ -13,7 +11,7 @@ export interface MegaMenuItem {
   label: string
   description?: string
   href: string
-  icon: string // must match a key in ICON_MAP inside the Header component
+  icon: string // must match a key in ICON_MAP inside the header
   openInNewTab?: boolean
 }
 
@@ -38,6 +36,10 @@ export const NAV_ITEMS: NavItem[] = [
     dropdownItems: [
       { label: "Permanent IT Recruitment", icon: "Briefcase", href: "/services/permanent-it-recruitment", openInNewTab: true },
       { label: "Hire Contract or Freelance Devs", icon: "Code2", href: "/services/hire-contract", openInNewTab: true },
+      { label: "Project Based IT Recruitment", icon: "Code2", href: "/services/project-based-it-recruitment", openInNewTab: true },
+      { label: "Remote IT Hiring & Global Talent", icon: "Code2", href: "/services/remote-it-hiring-and-global-talent", openInNewTab: true },
+      { label: "Executive Search & IT Headhunting", icon: "Code2", href: "/services/executive-search-and-it-headhunting", openInNewTab: true },
+      { label: "IT Salary ", icon: "Code2", href: "/services/it-salary-benchmarking-and-hiring-insights", openInNewTab: true },
     ],
   },
   {
@@ -72,7 +74,7 @@ export const NAV_ITEMS: NavItem[] = [
             label: "Data Engineering",
             description: "Data Engineers, BI Developers, Analytics Experts",
             icon: "Database",
-            href: "tech-recruitment#hire-data-engineers-bi-developers",
+            href: "/tech-recruitment#hire-data-engineers-bi-developers",
             openInNewTab: true,
           },
           {
