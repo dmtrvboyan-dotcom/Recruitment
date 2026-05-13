@@ -7,6 +7,10 @@ import {
   Zap,
   LineChart,
   CheckCircle,
+  FileSearch,
+  Layers,
+  Timer,
+  Rocket,
   type LucideIcon,
 } from "lucide-react"
 
@@ -37,12 +41,14 @@ export interface ServiceCard {
   tags: string[]
   accent: string
   iconBg: string
+  contractTypes: string
 }
 
 export interface BenefitItem {
   icon: LucideIcon
   title: string
   body: string
+  stat: string
 }
 
 export interface TrustItem {
@@ -57,159 +63,188 @@ export interface CtaData {
   secondaryButton: { text: string; href: string }
 }
 
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 export const HERO_DATA: HeroData = {
-  tagline: "Strategic Contract Hiring",
+  tagline: "On-Demand Tech Talent",
   eyebrow: "Project-Based IT Recruitment",
-  title: "Project-Based IT Recruitment Services",
+  title: "Scale Your Projects with Expert Contract Talent",
   description:
-    "Scale your technology projects faster with highly skilled contract professionals Our services help businesses secure on-demand tech talent from short-term initiatives, all the way to specialist contract assignments.",
+    "Deploy skilled IT contractors and specialist freelancers exactly when you need them — no long-term overhead, no hiring delays. From sprint-based squads to multi-month delivery teams, we match the right talent to your project timeline.",
 }
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS: StatItem[] = [
-  { value: "48h", label: "Average first shortlist" },
-  { value: "5–7 Days", label: "Average time to place" },
-  { value: "80%+", label: "Project success rate" },
-  { value: "200+", label: "Successful contract placements" },
+  { value: "48h", label: "First shortlist delivered" },
+  { value: "5–7 Days", label: "Average contractor deployed" },
+  { value: "94%", label: "Project completion rate" },
+  { value: "300+", label: "Contracts placed to date" },
 ]
 
 // ─── Process ──────────────────────────────────────────────────────────────────
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Discovery & Brief",
+    title: "Project Brief",
     description:
-      "In-depth consultation to understand your technical requirements, team dynamics, company culture, and long-term business goals.",
-    icon: Users,
+      "We deep-dive into your project scope, tech stack, timeline, and team dynamics — so we source professionals who can contribute from day one, not week three.",
+    icon: FileSearch,
   },
   {
     number: "02",
-    title: "Market Mapping & Sourcing",
+    title: "Rapid Talent Sourcing",
     description:
-      "We tap into our extensive IT talent network and use advanced sourcing techniques to identify both active and passive high-caliber candidates.",
+      "We tap our pre-vetted contractor network and use active market mapping to surface available specialists — including passive talent not found on job boards.",
     icon: Globe,
   },
   {
     number: "03",
-    title: "Rigorous Assessment",
+    title: "Technical Screening",
     description:
-      "Technical evaluations, competency interviews, cultural fit analysis, and reference checks to ensure candidates are the right long-term match.",
+      "Every candidate undergoes role-specific technical assessment, availability confirmation, and reference checks before they reach your desk.",
     icon: ShieldCheck,
   },
   {
     number: "04",
-    title: "Shortlist & Facilitation",
+    title: "Curated Shortlist",
     description:
-      "We present a carefully curated shortlist and manage the entire interview, negotiation, and offer process with transparency and speed.",
+      "You receive a focused shortlist of 3–5 interview-ready candidates, complete with rate benchmarks and our assessment notes — no noise, just signal.",
     icon: CheckCircle,
   },
   {
     number: "05",
-    title: "Onboarding & Retention Support",
+    title: "Deployment & Ongoing Support",
     description:
-      "We support the integration process and provide check-ins to maximise retention and ensure the new hire thrives in your organisation.",
-    icon: Clock,
+      "We handle contracting logistics, manage the onboarding handoff, and stay close throughout the engagement — ready to extend, replace, or scale as your project evolves.",
+    icon: Rocket,
   },
 ]
 
-
+// ─── Services ─────────────────────────────────────────────────────────────────
 export const SERVICE_CARDS: ServiceCard[] = [
   {
     icon: Code2,
-    title: "Software Development Contractors",
+    title: "Software Engineering Contractors",
     description:
-      "Contract software engineers, full-stack developers, backend specialists, frontend developers, and cloud engineers.",
-    tags: ["React", "Node.js", "Java", "Python", "AWS"],
+      "Full-stack, backend, frontend, and mobile developers available for fixed-term sprints, product builds, legacy migrations, or platform scaling projects.",
+    tags: ["React", "Node.js", "Python", "Java", "AWS"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    contractTypes: "Sprint · Fixed-Term · Rolling",
   },
   {
     icon: LineChart,
-    title: "Data & AI Specialists",
+    title: "Data, AI & Analytics",
     description:
-      "Data scientists, ML engineers, data engineers, and analytics leaders who drive data-informed decision making.",
-    tags: ["AI/ML", "Big Data", "Business Intelligence"],
+      "Data engineers, ML specialists, and BI developers placed into project teams that need to move fast on pipelines, models, and insights delivery.",
+    tags: ["Python", "SQL", "TensorFlow", "Spark", "dbt"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
+    contractTypes: "Project · Retainer · Advisory",
   },
   {
     icon: Zap,
-    title: "Product & UX",
+    title: "Cloud & DevOps Engineers",
     description:
-      "Product managers, designers, and researchers who translate business needs into exceptional user experiences.",
-    tags: ["Product Strategy", "UI/UX", "SaaS"],
+      "Infrastructure, platform, and SRE contractors to build, migrate, or stabilise cloud environments — without locking in permanent headcount.",
+    tags: ["AWS", "GCP", "Azure", "Kubernetes", "Terraform"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    contractTypes: "Short-Term · Long-Term · Hybrid",
   },
   {
     icon: ShieldCheck,
-    title: "Cybersecurity & DevOps",
+    title: "Cybersecurity Specialists",
     description:
-      "Security engineers, compliance specialists, and DevOps/SRE professionals to protect and scale your infrastructure.",
-    tags: ["Cloud Security", "SRE", "Compliance"],
+      "Pen testers, security architects, and compliance consultants brought in for audits, incident response, product hardening, and regulatory programmes.",
+    tags: ["Pen Testing", "ISO 27001", "SOC 2", "Cloud Security"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
+    contractTypes: "Audit · Engagement · Ongoing",
+  },
+  {
+    icon: Layers,
+    title: "Product & UX Contractors",
+    description:
+      "Contract product managers, UX designers, and researchers embedded into delivery teams to drive roadmap execution and user-centred design.",
+    tags: ["Product Strategy", "Figma", "UX Research", "Agile"],
+    accent: "#085689",
+    iconBg: "bg-[#e8f3ff]",
+    contractTypes: "Discovery · Delivery · Fractional",
   },
   {
     icon: Users,
-    title: "Tech Leadership",
+    title: "Project & Programme Managers",
     description:
-      "CTO, VP Engineering, Head of Product, and other technology leadership roles that shape your technical vision.",
-    tags: ["Leadership", "Scale-ups", "Enterprise"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
+      "Delivery leads, scrum masters, and programme managers who keep complex IT projects on time, on budget, and on scope — from day one.",
+    tags: ["Scrum", "PMP", "SAFe", "Prince2", "Change Mgmt"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
+    contractTypes: "Fixed · Outcome-Based · Interim",
   },
 ]
 
 // ─── Benefits ─────────────────────────────────────────────────────────────────
 export const BENEFITS: BenefitItem[] = [
   {
-    icon: ShieldCheck,
-    title: "Stronger, More Stable Teams",
-    body: "Carefully vetted professionals who stay longer and perform at a high level.",
-  },
-  {
-    icon: Users,
-    title: "Superior Cultural Fit",
-    body: "Candidates who align with your values, communication style, and work environment.",
-  },
-  {
-    icon: Clock,
-    title: "Reduced Hiring Risk",
-    body: "Thorough evaluation process leading to confident, high-success placements.",
+    icon: Timer,
+    title: "Speed to Productivity",
+    body: "Contract hires are project-ready professionals. No ramp-up curve — they integrate fast and deliver from week one.",
+    stat: "Avg. 5–7 days to deploy",
   },
   {
     icon: Zap,
-    title: "Long-term Business Impact",
-    body: "Talent that grows with your company and contributes to sustained innovation.",
+    title: "Flexible Workforce Scaling",
+    body: "Scale up for peak delivery, then scale back without redundancy risk. Contract hiring gives you elastic capacity on demand.",
+    stat: "Zero long-term overhead",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Pre-Vetted Talent Pool",
+    body: "Every contractor in our network has been technically assessed and reference-checked. You interview people who are genuinely qualified.",
+    stat: "100% screened before shortlist",
+  },
+  {
+    icon: Globe,
+    title: "Specialist Access, Instantly",
+    body: "Access niche skills — AI engineers, security architects, cloud specialists — that are hard to find and expensive to hire full-time.",
+    stat: "800+ active specialist contractors",
   },
 ]
 
 // ─── Trust bar ────────────────────────────────────────────────────────────────
 export const TRUST_ITEMS: TrustItem[] = [
-  { text: "Tech Scale-ups" },
-  { text: "Fintech & SaaS" },
-  { text: "Enterprise IT" },
+  { text: "Fintech & Banking" },
+  { text: "SaaS Scale-ups" },
+  { text: "E-Commerce Platforms" },
   { text: "AI & Deep Tech" },
-  { text: "Cybersecurity" },
-  { text: "Cloud & DevOps" },
-  { text: "High Retention Rates" },
-  { text: "Cultural Alignment Focus" },
+  { text: "Enterprise IT" },
+  { text: "Cybersecurity Firms" },
+  { text: "Cloud-Native Startups" },
+  { text: "Digital Transformation" },
+  { text: "HealthTech" },
+  { text: "Contract Specialists" },
 ]
+
+// ─── FAQ ──────────────────────────────────────────────────────────────────────
+
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 export const CTA_DATA: CtaData = {
-  eyebrow: "Build Your Tech Team",
-  title: "Find the right talent for the long term.",
+  eyebrow: "Start Your Project",
+  title: "Need a contractor deployed this week?",
   description:
-    "Tell us about your hiring needs and we’ll provide a tailored talent strategy and market insights within 48 hours.",
+    "Share your project brief and we'll have a qualified shortlist in your inbox within 48 hours — no retainer required, no long-term commitment.",
   primaryButton: {
-    text: "Start a Search",
+    text: "Submit a Brief",
     href: "/#contact",
   },
   secondaryButton: {
-    text: "Learn how we do it",
+    text: "See how it works",
     href: "/process",
   },
 }

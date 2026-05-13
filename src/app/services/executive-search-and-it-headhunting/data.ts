@@ -6,7 +6,9 @@ import {
   Clock,
   Zap,
   LineChart,
-  CheckCircle,
+  Target,
+  Award,
+  Handshake,
   type LucideIcon,
 } from "lucide-react"
 
@@ -49,6 +51,12 @@ export interface TrustItem {
   text: string
 }
 
+export interface IndustryItem {
+  sector: string
+  roles: string
+  detail: string
+}
+
 export interface CtaData {
   eyebrow: string
   title: string
@@ -61,104 +69,132 @@ export interface CtaData {
 export const HERO_DATA: HeroData = {
   tagline: "Executive Search & Headhunting",
   eyebrow: "Strategic Talent Acquisition",
-  title: "Executive Search & Headhunting",
+  title: "Executive Search & Headhunting for Technology Leaders",
   description:
-    "Building high-performing tech teams with top-tier professionals who deliver long-term value. We combine technical excellence with deep cultural alignment.",
+    "We identify, engage, and place the senior technology leaders your business needs to scale. Discreet, partner-led executive search with a measurable track record across tech leadership hiring.",
 }
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS: StatItem[] = [
-  { value: "2×", label: "Longer employee retention" },
-  { value: "89%", label: "Stronger cultural alignment" },
-  { value: "70%+", label: "Reduction in hiring risk" },
-  { value: "150+", label: "Successful IT placements" },
+  { value: "2×", label: "Longer retention vs. industry average" },
+  { value: "89%", label: "Offer acceptance on first-choice candidates" },
+  { value: "92%", label: "Placements still in role after 24 months" },
+  { value: "300+", label: "Senior technology mandates completed" },
 ]
 
 // ─── Process ──────────────────────────────────────────────────────────────────
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Discovery & Brief",
+    title: "Discovery & Strategic Brief",
     description:
-      "In-depth consultation to understand your technical requirements, team dynamics, company culture, and long-term business goals.",
-    icon: Users,
+      "A deep-dive consultation with your leadership team to map technical requirements, team dynamics, company culture, and the long-term strategic context behind the hire. We never start searching before we fully understand what success looks like.",
+    icon: Target,
   },
   {
     number: "02",
     title: "Market Mapping & Sourcing",
     description:
-      "We tap into our extensive IT talent network and use advanced sourcing techniques to identify both active and passive high-caliber candidates.",
+      "We conduct proprietary market mapping across active and passive senior candidates — tapping our 15-year network of technology leaders, not just job boards. Many of our best placements were never on the market.",
     icon: Globe,
   },
   {
     number: "03",
-    title: "Rigorous Assessment",
+    title: "Rigorous Candidate Assessment",
     description:
-      "Technical evaluations, competency interviews, cultural fit analysis, and reference checks to ensure candidates are the right long-term match.",
+      "Structured competency interviews, technical evaluation, leadership profiling, and culture-fit analysis — followed by in-depth reference checks. Only candidates who clear our full process reach your shortlist.",
     icon: ShieldCheck,
   },
   {
     number: "04",
-    title: "Shortlist & Facilitation",
+    title: "Shortlist, Interviews & Offer",
     description:
-      "We present a carefully curated shortlist and manage the entire interview, negotiation, and offer process with transparency and speed.",
-    icon: CheckCircle,
+      "We present a curated shortlist of two to four candidates and manage the full interview and offer process — including negotiation, counter-offer management, and timeline coordination — with complete transparency.",
+    icon: Award,
   },
   {
     number: "05",
     title: "Onboarding & Retention Support",
     description:
-      "We support the integration process and provide check-ins to maximise retention and ensure the new hire thrives in your organisation.",
-    icon: Clock,
+      "Our commitment doesn't end at acceptance. We support the onboarding process with structured check-ins throughout the first year to protect your investment and maximise long-term retention.",
+    icon: Handshake,
   },
 ]
 
-// ─── Services / Specialisms ───────────────────────────────────────────────────
+// ─── Roles We Place ───────────────────────────────────────────────────────────
 export const SERVICE_CARDS: ServiceCard[] = [
   {
-    icon: Code2,
-    title: "Software Engineering",
+    icon: Users,
+    title: "Technology C-Suite & VP-Level",
     description:
-      "Senior developers, architects, and engineering managers across full-stack, backend, frontend, and cloud-native technologies.",
-    tags: ["React", "Node.js", "Java", "Python", "Kubernetes"],
+      "CTO, CIO, CISO, VP of Engineering, and VP of Product search for scale-ups, PE-backed businesses, and enterprise organisations navigating technical transformation or rapid growth.",
+    tags: ["CTO", "CIO", "CISO", "VP Engineering", "VP Product"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
   {
-    icon: LineChart,
-    title: "Data & AI Leadership",
+    icon: Code2,
+    title: "Engineering Leadership",
     description:
-      "Data scientists, ML engineers, data engineers, and analytics leaders who drive data-informed decision making.",
-    tags: ["AI/ML", "Big Data", "Business Intelligence"],
+      "Head of Engineering, Principal Engineer, Staff Engineer, and Engineering Director placements for product-led companies that need leaders who can build, scale, and retain high-performing teams.",
+    tags: ["Head of Engineering", "Engineering Director", "Principal Engineer"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
   {
-    icon: Zap,
-    title: "Product & UX",
+    icon: LineChart,
+    title: "Data, AI & Analytics Leadership",
     description:
-      "Product managers, designers, and researchers who translate business needs into exceptional user experiences.",
-    tags: ["Product Strategy", "UI/UX", "SaaS"],
+      "Chief Data Officer, Head of Data Science, and VP of AI placements for organisations building a data-driven competitive advantage or deploying artificial intelligence at scale.",
+    tags: ["CDO", "Head of Data Science", "VP AI", "Head of ML"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
   {
     icon: ShieldCheck,
-    title: "Cybersecurity & DevOps",
+    title: "Cybersecurity & Risk Leadership",
     description:
-      "Security engineers, compliance specialists, and DevOps/SRE professionals to protect and scale your infrastructure.",
-    tags: ["Cloud Security", "SRE", "Compliance"],
+      "CISO, Head of Security, and Head of Compliance search for regulated industries and high-growth technology businesses where security leadership is board-level critical.",
+    tags: ["CISO", "Head of Security", "Head of Compliance", "DPO"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
   {
-    icon: Users,
-    title: "Tech Leadership",
+    icon: Zap,
+    title: "Product & Design Leadership",
     description:
-      "CTO, VP Engineering, Head of Product, and other technology leadership roles that shape your technical vision.",
-    tags: ["Leadership", "Scale-ups", "Enterprise"],
+      "CPO, Head of Product, and VP of Design search for companies where product strategy is the primary growth lever — from Series B scale-ups to publicly listed software businesses.",
+    tags: ["CPO", "Head of Product", "VP Design", "Head of UX"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+  },
+]
+
+// ─── Industries ───────────────────────────────────────────────────────────────
+export const INDUSTRIES: IndustryItem[] = [
+  {
+    sector: "Fintech & Financial Services",
+    roles: "CTO, CISO, Head of Engineering",
+    detail:
+      "From challenger banks to established institutions undergoing digital transformation — we understand the regulatory and technical complexity of hiring in financial services.",
+  },
+  {
+    sector: "SaaS & B2B Software",
+    roles: "VP Engineering, CPO, Head of Product",
+    detail:
+      "Pre-IPO and growth-stage software businesses scaling product and engineering organisations rapidly and need leaders who've done it before.",
+  },
+  {
+    sector: "Deep Tech & AI",
+    roles: "CTO, VP AI, Head of Research",
+    detail:
+      "Frontier AI labs, robotics, and applied machine learning companies requiring rare, senior technical leadership with genuine domain depth.",
+  },
+  {
+    sector: "PE-Backed & Enterprise",
+    roles: "CIO, CTO, Head of Transformation",
+    detail:
+      "Private equity portfolio companies and enterprise organisations navigating technology change, modernisation mandates, or post-acquisition integration.",
   },
 ]
 
@@ -166,44 +202,46 @@ export const SERVICE_CARDS: ServiceCard[] = [
 export const BENEFITS: BenefitItem[] = [
   {
     icon: ShieldCheck,
-    title: "Stronger, More Stable Teams",
-    body: "Carefully vetted professionals who stay longer and perform at a high level.",
+    title: "Partner-Led, Not Delegated",
+    body: "Every engagement is owned by a senior partner from brief to placement — not handed off to junior researchers after the kickoff call.",
   },
   {
-    icon: Users,
-    title: "Superior Cultural Fit",
-    body: "Candidates who align with your values, communication style, and work environment.",
+    icon: Globe,
+    title: "Access to Passive Talent",
+    body: "The leaders you need are rarely looking. Our 15-year network means we engage exceptional candidates before they ever consider the open market.",
+  },
+  {
+    icon: Award,
+    title: "92% Two-Year Retention",
+    body: "Our leadership and culture profiling methodology produces placements that stay, perform, and grow with your business long after the hire.",
   },
   {
     icon: Clock,
-    title: "Reduced Hiring Risk",
-    body: "Thorough evaluation process leading to confident, high-success placements.",
-  },
-  {
-    icon: Zap,
-    title: "Long-term Business Impact",
-    body: "Talent that grows with your company and contributes to sustained innovation.",
+    title: "Discreet by Design",
+    body: "We operate with full confidentiality at every stage — essential for sensitive leadership transitions and market-sensitive executive appointments.",
   },
 ]
 
 // ─── Trust bar ────────────────────────────────────────────────────────────────
 export const TRUST_ITEMS: TrustItem[] = [
-  { text: "Tech Scale-ups" },
+  { text: "CTO & CIO Search" },
   { text: "Fintech & SaaS" },
-  { text: "Enterprise IT" },
-  { text: "AI & Deep Tech" },
-  { text: "Cybersecurity" },
-  { text: "Cloud & DevOps" },
-  { text: "High Retention Rates" },
-  { text: "Cultural Alignment Focus" },
+  { text: "VP Engineering" },
+  { text: "Deep Tech & AI" },
+  { text: "PE-Backed Companies" },
+  { text: "Partner-Led Mandates" },
+  { text: "92% Two-Year Retention" },
+  { text: "300+ Senior Placements" },
+  { text: "Confidential Search" },
+  { text: "Passive Candidate Access" },
 ]
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 export const CTA_DATA: CtaData = {
-  eyebrow: "Build Your Tech Team",
-  title: "Find the right talent for the long term.",
+  eyebrow: "Start a Search",
+  title: "The right technology leader changes everything.",
   description:
-    "Tell us about your hiring needs and we’ll provide a tailored talent strategy and market insights within 48 hours.",
+    "Share your brief — or simply the challenge you're trying to solve. We'll respond within 24 hours with a tailored search strategy and current market intelligence.",
   primaryButton: {
     text: "Start a Search",
     href: "/#contact",

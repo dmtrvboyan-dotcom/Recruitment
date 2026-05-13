@@ -1,12 +1,15 @@
 import {
-  Code2,
+  BarChart2,
   Users,
   ShieldCheck,
   Globe,
   Clock,
   Zap,
   LineChart,
-  CheckCircle,
+  FileSearch,
+  TrendingUp,
+  MapPin,
+  Layers,
   type LucideIcon,
 } from "lucide-react"
 
@@ -30,11 +33,11 @@ export interface ProcessStep {
   icon: LucideIcon
 }
 
-export interface ServiceCard {
+export interface BenchmarkCategory {
   icon: LucideIcon
   title: string
   description: string
-  tags: string[]
+  examples: string[]
   accent: string
   iconBg: string
 }
@@ -49,6 +52,13 @@ export interface TrustItem {
   text: string
 }
 
+export interface RoleInsightItem {
+  role: string
+  rangeLabel: string
+  note: string
+  trend: "up" | "stable" | "high-demand"
+}
+
 export interface CtaData {
   eyebrow: string
   title: string
@@ -57,104 +67,148 @@ export interface CtaData {
   secondaryButton: { text: string; href: string }
 }
 
+// ─── Hero ─────────────────────────────────────────────────────────────────────
 export const HERO_DATA: HeroData = {
   tagline: "IT Salary Benchmarking & Hiring Insights",
-  eyebrow: "Flexible Developer Recruitment",
-  title: "IT Salary Benchmarking & Hiring Insights",
+  eyebrow: "Tech Compensation Intelligence",
+  title: "IT Salary Benchmarking & Hiring Market Insights",
   description:
-    "Pre-vetted contract developers and freelance programmers ready to join your team in 3–10 days. Scale fast, commit less, and ship more — with zero long-term risk.",
+    "Make smarter, faster hiring decisions with real-time IT salary benchmarks and talent market intelligence. Know exactly what top tech professionals expect — before you make the offer.",
 }
 
+// ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS: StatItem[] = [
-  { value: "3–10", label: "Days to start" },
-  { value: "100+", label: "Vetted developers on-demand" },
-  { value: "90%+", label: "Offer acceptance rate" },
-  { value: "3–5", label: "Days average to shortlist" },
+  { value: "200+", label: "Technology roles benchmarked" },
+  { value: "30+", label: "Markets covered globally" },
+  { value: "Quarterly", label: "Data refresh cycle" },
+  { value: "10k+", label: "Compensation data points" },
 ]
 
+// ─── How We Gather Data (Process) ────────────────────────────────────────────
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Tell Us What You Need",
+    title: "Live Placement Data",
     description:
-      "Share your stack, timeline, and team setup. We get up to speed fast so we can start matching immediately — no lengthy briefing decks required.",
-    icon: Users,
+      "Every salary benchmark is anchored in real placements — not survey guesswork. We draw on live offer, acceptance, and negotiation data from active hiring mandates across our client base.",
+    icon: FileSearch,
   },
   {
     number: "02",
-    title: "We Source & Screen",
+    title: "Market & Network Intelligence",
     description:
-      "We tap our network of 100+ pre-vetted developers across all major stacks and roles. Only experienced professionals who've already passed our technical bar.",
+      "We combine placement data with ongoing conversations across our candidate and hiring network — giving us ground-level intelligence on shifting expectations, counter-offers, and emerging salary pressures.",
     icon: Globe,
   },
   {
     number: "03",
-    title: "Shortlist in 3–5 Days",
+    title: "Role & Seniority Segmentation",
     description:
-      "You receive a curated shortlist of matched candidates, complete with profiles, availability, and rate expectations. No noise, no time-wasters.",
-    icon: CheckCircle,
+      "Benchmarks are broken down by role, seniority level, tech stack, and market — so you're comparing like for like, not averaging across roles that have nothing in common.",
+    icon: Layers,
   },
   {
     number: "04",
-    title: "Interview & Choose",
+    title: "Location & Remote Adjustment",
     description:
-      "Meet your favourites and pick the right fit. We facilitate everything — scheduling, rate negotiation, and contract paperwork — so you can move at pace.",
-    icon: ShieldCheck,
+      "Salary expectations differ significantly by geography and remote policy. Our benchmarks account for on-site, hybrid, and fully remote compensation structures across major hiring markets.",
+    icon: MapPin,
   },
   {
     number: "05",
-    title: "They Join. They Deliver.",
+    title: "Quarterly Review & Publication",
     description:
-      "Your developer integrates with your team and jumps straight into sprints. We stay close to ensure a smooth start — and to scale further if needed.",
-    icon: Clock,
+      "The tech market moves fast. We refresh our benchmarks quarterly and publish hiring insights reports so your compensation strategy never falls behind the market.",
+    icon: TrendingUp,
   },
 ]
 
-export const SERVICE_CARDS: ServiceCard[] = [
+// ─── Benchmark Categories ─────────────────────────────────────────────────────
+export const BENCHMARK_CATEGORIES: BenchmarkCategory[] = [
   {
-    icon: Code2,
-    title: "Full-Stack & Web",
+    icon: BarChart2,
+    title: "By Role & Seniority",
     description:
-      "Frontend and backend engineers who can own features end-to-end across modern web stacks — from design system to database.",
-    tags: ["React", "Node.js", "TypeScript", "Next.js", "PostgreSQL"],
+      "Granular salary ranges from junior to principal level across every major IT discipline — engineering, data, product, security, and infrastructure.",
+    examples: ["Junior → Staff → Principal", "IC vs. Management tracks", "Specialist vs. Generalist"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+  },
+  {
+    icon: Globe,
+    title: "By Geography & Market",
+    description:
+      "Compensation varies enormously by location. Our benchmarks cover major UK, European, and global hiring markets — including remote-first salary structures.",
+    examples: ["UK & Ireland", "Western Europe", "Remote & distributed"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
   },
   {
     icon: LineChart,
-    title: "Data & AI/ML",
+    title: "By Technology Stack",
     description:
-      "Data engineers, ML practitioners, and analytics specialists who move fast and integrate cleanly with your existing data infrastructure.",
-    tags: ["Python", "AI/ML", "dbt", "Spark", "LLMs"],
-    accent: "#ff5d77",
-    iconBg: "bg-[#fff0f3]",
-  },
-  {
-    icon: Zap,
-    title: "Mobile Development",
-    description:
-      "iOS, Android, and cross-platform engineers who build polished, performant apps and slot seamlessly into your product team.",
-    tags: ["React Native", "Swift", "Kotlin", "Flutter"],
+      "Certain stacks command a premium. We benchmark compensation by tech stack so you can price rare skills accurately and avoid losing candidates to better-informed competitors.",
+    examples: ["AI/ML & LLMs", "Cloud-native & Kubernetes", "React, Node, Go, Rust"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-  },
-  {
-    icon: ShieldCheck,
-    title: "DevOps & Cloud",
-    description:
-      "Infrastructure, platform, and SRE engineers to build, automate, and scale your cloud environment without the permanent headcount.",
-    tags: ["AWS", "Kubernetes", "Terraform", "CI/CD"],
-    accent: "#ff5d77",
-    iconBg: "bg-[#fff0f3]",
   },
   {
     icon: Users,
-    title: "Backend & APIs",
+    title: "By Company Stage",
     description:
-      "Experienced backend engineers who design and build reliable services, APIs, and integrations — ready to contribute from day one.",
-    tags: ["Java", "Go", ".NET", "Python", "Microservices"],
+      "Salary expectations differ significantly between a seed-stage startup and a publicly listed enterprise. Our data is segmented by company size and funding stage.",
+    examples: ["Seed & Series A", "Scale-up & Series B+", "Enterprise & listed"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
+  },
+  {
+    icon: TrendingUp,
+    title: "Trends & Market Shifts",
+    description:
+      "Understand where the market is heading, not just where it is today. Our quarterly insights cover emerging salary pressures, in-demand skills, and hiring sentiment across the sector.",
+    examples: ["Quarterly salary movement", "Skills in high demand", "Hiring market sentiment"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+  },
+]
+
+// ─── Role Highlights ──────────────────────────────────────────────────────────
+export const ROLE_INSIGHTS: RoleInsightItem[] = [
+  {
+    role: "Senior Full-Stack Engineer",
+    rangeLabel: "£70k – £110k",
+    note: "Higher in fintech and AI-product companies",
+    trend: "up",
+  },
+  {
+    role: "ML / AI Engineer",
+    rangeLabel: "£85k – £140k",
+    note: "Fastest-growing salary band in 2024–25",
+    trend: "high-demand",
+  },
+  {
+    role: "Head of Engineering",
+    rangeLabel: "£120k – £175k",
+    note: "Wide variance by team size and industry",
+    trend: "stable",
+  },
+  {
+    role: "DevOps / Platform Engineer",
+    rangeLabel: "£65k – £105k",
+    note: "Kubernetes & IaC experience commands premium",
+    trend: "up",
+  },
+  {
+    role: "Senior Data Engineer",
+    rangeLabel: "£75k – £115k",
+    note: "dbt and cloud-native pipelines most valued",
+    trend: "stable",
+  },
+  {
+    role: "CISO / Head of Security",
+    rangeLabel: "£130k – £200k",
+    note: "Regulated sectors pay at top of range",
+    trend: "high-demand",
   },
 ]
 
@@ -162,50 +216,52 @@ export const SERVICE_CARDS: ServiceCard[] = [
 export const BENEFITS: BenefitItem[] = [
   {
     icon: Zap,
-    title: "Speed When It Matters",
-    body: "Start in 3–10 days. Skip months of recruitment cycles and get straight to building.",
+    title: "Make Competitive Offers, First Time",
+    body: "Offers that land on market rate get accepted faster and trigger fewer counter-offers — saving weeks of lost time in competitive hiring processes.",
   },
   {
     icon: ShieldCheck,
-    title: "Only Pre-Vetted Talent",
-    body: "Every developer in our network has been technically screened before you ever see their name.",
+    title: "Retain the Staff You Already Have",
+    body: "Pay gaps are a leading cause of unexpected attrition. Benchmarking your existing team against market rates flags retention risk before it becomes a resignation.",
+  },
+  {
+    icon: BarChart2,
+    title: "Budget With Precision",
+    body: "Accurate salary data turns vague headcount plans into fundable business cases. Know what each role will actually cost before you go to the board.",
   },
   {
     icon: Clock,
-    title: "Fully Flexible Contracts",
-    body: "Hourly, weekly, or project-based. Scale up or wind down without long notice periods or complex offboarding.",
-  },
-  {
-    icon: LineChart,
-    title: "Immediate Impact",
-    body: "Experienced professionals who integrate fast, contribute from sprint one, and don't need hand-holding.",
+    title: "Close Hires Faster",
+    body: "Hiring processes stall most often at offer stage. When your numbers are grounded in current market data, negotiations are shorter and acceptance rates are higher.",
   },
 ]
 
 // ─── Trust bar ────────────────────────────────────────────────────────────────
 export const TRUST_ITEMS: TrustItem[] = [
-  { text: "React & Next.js" },
-  { text: "Node & Python" },
-  { text: "Cloud & DevOps" },
-  { text: "AI & ML Engineers" },
-  { text: "Mobile (iOS & Android)" },
-  { text: "No Hire, No Fee" },
-  { text: "3–10 Day Start" },
-  { text: "Hourly or Project-Based" },
+  { text: "200+ Roles Benchmarked" },
+  { text: "Quarterly Data Refresh" },
+  { text: "UK & European Markets" },
+  { text: "Stack-Level Granularity" },
+  { text: "AI & ML Salary Trends" },
+  { text: "Remote Compensation Data" },
+  { text: "10,000+ Data Points" },
+  { text: "Hiring Market Insights" },
+  { text: "Seniority-Level Breakdown" },
+  { text: "Company Stage Segmentation" },
 ]
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 export const CTA_DATA: CtaData = {
-  eyebrow: "Ready to Move Fast?",
-  title: "Get developers on your team this week.",
+  eyebrow: "Get the Data",
+  title: "Stop guessing. Start hiring with market intelligence.",
   description:
-    "Tell us your stack and timeline. We'll come back with a shortlist of matched, available developers within 3–5 days.",
+    "Request our latest IT salary benchmarking report or speak to our team about a custom compensation analysis for your specific roles and markets.",
   primaryButton: {
-    text: "Contact Us",
+    text: "Request Salary Report",
     href: "/#contact",
   },
   secondaryButton: {
-    text: "Download our Contract Hiring Guide",
-    href: "/contract-hiring-guide.pdf",
+    text: "Speak to our team",
+    href: "/#contact",
   },
 }

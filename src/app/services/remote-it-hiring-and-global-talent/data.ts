@@ -7,6 +7,7 @@ import {
   Zap,
   LineChart,
   CheckCircle,
+  MapPin,
   type LucideIcon,
 } from "lucide-react"
 
@@ -58,54 +59,54 @@ export interface CtaData {
 }
 
 export const HERO_DATA: HeroData = {
-  tagline: "Contract & Freelance Hiring",
-  eyebrow: "Flexible Developer Recruitment",
-  title: "Remote IT Hiring & Global Talent",
+  tagline: "Remote IT Hiring & Global Talent",
+  eyebrow: "Worldwide Tech Recruitment",
+  title: "Hire Beyond Borders. Build Exceptional Remote Teams.",
   description:
-    "Pre-vetted contract developers and freelance programmers ready to join your team in 3–10 days. Scale fast, commit less, and ship more — with zero long-term risk.",
+    "We connect ambitious companies with world-class IT professionals. Expand your talent reach, build distributed teams that thrive, and hire the best — wherever they are.",
 }
 
 export const STATS: StatItem[] = [
-  { value: "3–10", label: "Days to start" },
-  { value: "100+", label: "Vetted developers on-demand" },
-  { value: "90%+", label: "Offer acceptance rate" },
-  { value: "3–5", label: "Days average to shortlist" },
+  { value: "40+", label: "Countries we source from" },
+  { value: "500+", label: "Remote placements made" },
+  { value: "94%", label: "12-month retention rate" },
+  { value: "2–3", label: "Weeks average to hire" },
 ]
 
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Tell Us What You Need",
+    title: "Define the Role & Team",
     description:
-      "Share your stack, timeline, and team setup. We get up to speed fast so we can start matching immediately — no lengthy briefing decks required.",
+      "We start by understanding your product, stack, and team culture — not just the job spec. The more context you share, the sharper our global search.",
     icon: Users,
   },
   {
     number: "02",
-    title: "We Source & Screen",
+    title: "Search Across Countries",
     description:
-      "We tap our network of 100+ pre-vetted developers across all major stacks and roles. Only experienced professionals who've already passed our technical bar.",
+      "We tap a deep global network of senior IT professionals actively seeking remote roles — engineers, architects, and tech leads who've been pre-assessed before you ever see them.",
     icon: Globe,
   },
   {
     number: "03",
-    title: "Shortlist in 3–5 Days",
+    title: "Shortlist the Best Matches",
     description:
-      "You receive a curated shortlist of matched candidates, complete with profiles, availability, and rate expectations. No noise, no time-wasters.",
+      "You receive a tight shortlist of candidates matched on skills, time zone, language, and culture fit. No noise — just the profiles that are genuinely worth your time.",
     icon: CheckCircle,
   },
   {
     number: "04",
-    title: "Interview & Choose",
+    title: "Interview & Select",
     description:
-      "Meet your favourites and pick the right fit. We facilitate everything — scheduling, rate negotiation, and contract paperwork — so you can move at pace.",
+      "We coordinate interviews, handle scheduling across time zones, and facilitate any technical assessments. You focus on the conversation, we handle the logistics.",
     icon: ShieldCheck,
   },
   {
     number: "05",
-    title: "They Join. They Deliver.",
+    title: "Compliant Hire & Smooth Onboarding",
     description:
-      "Your developer integrates with your team and jumps straight into sprints. We stay close to ensure a smooth start — and to scale further if needed.",
+      "We guide you through compliant international contracts, payroll structures, and remote onboarding — so your new hire is set up to deliver from day one.",
     icon: Clock,
   },
 ]
@@ -113,99 +114,140 @@ export const PROCESS_STEPS: ProcessStep[] = [
 export const SERVICE_CARDS: ServiceCard[] = [
   {
     icon: Code2,
-    title: "Full-Stack & Web",
+    title: "Full-Stack & Web Engineers",
     description:
-      "Frontend and backend engineers who can own features end-to-end across modern web stacks — from design system to database.",
+      "Remote-ready engineers who own features end-to-end — from UI to database — across modern web stacks, with strong async communication and independent delivery.",
     tags: ["React", "Node.js", "TypeScript", "Next.js", "PostgreSQL"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
   {
     icon: LineChart,
-    title: "Data & AI/ML",
+    title: "Data & AI/ML Specialists",
     description:
-      "Data engineers, ML practitioners, and analytics specialists who move fast and integrate cleanly with your existing data infrastructure.",
+      "Global data engineers and ML practitioners who work across time zones, integrate with your existing pipelines, and move fast without sacrificing rigour.",
     tags: ["Python", "AI/ML", "dbt", "Spark", "LLMs"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
   {
     icon: Zap,
-    title: "Mobile Development",
+    title: "Mobile Engineers",
     description:
-      "iOS, Android, and cross-platform engineers who build polished, performant apps and slot seamlessly into your product team.",
+      "iOS, Android, and cross-platform engineers from markets with deep mobile expertise — ready to work remotely within your product team structure.",
     tags: ["React Native", "Swift", "Kotlin", "Flutter"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
   {
     icon: ShieldCheck,
-    title: "DevOps & Cloud",
+    title: "DevOps & Cloud Engineers",
     description:
-      "Infrastructure, platform, and SRE engineers to build, automate, and scale your cloud environment without the permanent headcount.",
+      "Remote infrastructure and platform engineers who build, automate, and scale your cloud environment — with clear async communication and strong documentation habits.",
     tags: ["AWS", "Kubernetes", "Terraform", "CI/CD"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
   {
     icon: Users,
-    title: "Backend & APIs",
+    title: "Backend & API Engineers",
     description:
-      "Experienced backend engineers who design and build reliable services, APIs, and integrations — ready to contribute from day one.",
+      "Experienced backend professionals from across the globe who design and ship reliable services — with the autonomy and communication skills remote work demands.",
     tags: ["Java", "Go", ".NET", "Python", "Microservices"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+  },
+  {
+    icon: MapPin,
+    title: "Tech Leads & Architects",
+    description:
+      "Senior technical leaders who can drive architecture decisions, mentor distributed teams, and align engineering with product — all without needing to be in the room.",
+    tags: ["System Design", "Team Leadership", "Architecture", "Strategy"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
   },
 ]
 
 // ─── Benefits ─────────────────────────────────────────────────────────────────
 export const BENEFITS: BenefitItem[] = [
   {
-    icon: Zap,
-    title: "Speed When It Matters",
-    body: "Start in 3–10 days. Skip months of recruitment cycles and get straight to building.",
+    icon: Globe,
+    title: "Truly Global Talent Pool",
+    body: "We source from countries, unlocking senior engineers invisible to local-only hiring searches.",
   },
   {
     icon: ShieldCheck,
-    title: "Only Pre-Vetted Talent",
-    body: "Every developer in our network has been technically screened before you ever see their name.",
+    title: "Compliance Handled for You",
+    body: "International contracts, tax structures, and payroll compliance — we navigate the complexity so you don't have to.",
   },
   {
     icon: Clock,
-    title: "Fully Flexible Contracts",
-    body: "Hourly, weekly, or project-based. Scale up or wind down without long notice periods or complex offboarding.",
+    title: "Time Zone Matched",
+    body: "We find professionals with overlap that works for your team — not just technically capable, but practically collaborative.",
   },
   {
     icon: LineChart,
-    title: "Immediate Impact",
-    body: "Experienced professionals who integrate fast, contribute from sprint one, and don't need hand-holding.",
+    title: "Built for Long-Term Retention",
+    body: "Our 94% 12-month retention rate reflects rigorous culture and communication screening — not just skill matching.",
+  },
+]
+
+// ─── Global regions ──────────────────────────────────────────────────────────
+export interface RegionItem {
+  region: string
+  highlights: string
+  overlap: string
+}
+
+export const REGIONS: RegionItem[] = [
+  {
+    region: "Eastern Europe",
+    highlights: "Poland, Ukraine, Romania, Czech Republic",
+    overlap: "Excellent EU/UK overlap",
+  },
+  {
+    region: "Latin America",
+    highlights: "Brazil, Argentina, Colombia, Mexico",
+    overlap: "Strong US timezone alignment",
+  },
+  {
+    region: "South & Southeast Asia",
+    highlights: "India, Philippines, Vietnam, Indonesia",
+    overlap: "APAC & flexible async coverage",
+  },
+  {
+    region: "Africa & Middle East",
+    highlights: "Nigeria, South Africa, Egypt, UAE",
+    overlap: "EU overlap & emerging tech hubs",
   },
 ]
 
 // ─── Trust bar ────────────────────────────────────────────────────────────────
 export const TRUST_ITEMS: TrustItem[] = [
+  { text: "Countries" },
   { text: "React & Next.js" },
-  { text: "Node & Python" },
   { text: "Cloud & DevOps" },
   { text: "AI & ML Engineers" },
+  { text: "Compliance Included" },
+  { text: "Time Zone Matched" },
+  { text: "94% Retention Rate" },
+  { text: "Remote-First Screening" },
   { text: "Mobile (iOS & Android)" },
-  { text: "No Hire, No Fee" },
-  { text: "3–10 Day Start" },
-  { text: "Hourly or Project-Based" },
+  { text: "2–3 Week Placement" },
 ]
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 export const CTA_DATA: CtaData = {
-  eyebrow: "Ready to Move Fast?",
-  title: "Get developers on your team this week.",
+  eyebrow: "Start Hiring Globally",
+  title: "Your next great hire could be anywhere.",
   description:
-    "Tell us your stack and timeline. We'll come back with a shortlist of matched, available developers within 3–5 days.",
+    "Tell us the role, your stack, and your time zone needs. We'll come back with a curated shortlist of world-class remote talent within 2–3 weeks.",
   primaryButton: {
     text: "Contact Us",
     href: "/#contact",
   },
   secondaryButton: {
-    text: "Download our Contract Hiring Guide",
-    href: "/contract-hiring-guide.pdf",
+    text: "Download our Remote Hiring Guide",
+    href: "/remote-hiring-guide.pdf",
   },
 }
