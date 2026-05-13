@@ -1,4 +1,5 @@
-import {  Header, SocialSidebar, Footer } from "@/components/layout"
+import { SocialSidebar, Footer } from "@/components/layout"
+import { Header } from "@/components/layout/header/header"
 
 
 export default function ATSLayout({

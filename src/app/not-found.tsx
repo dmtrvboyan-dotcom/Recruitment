@@ -26,7 +26,6 @@ export default function NotFound() {
                    rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
-      {/* ── Teal glow — bottom right ── */}
       <div
         aria-hidden
         className="hidden lg:block absolute bottom-0 -right-32
@@ -34,7 +33,6 @@ export default function NotFound() {
                    rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
-      {/* ── Giant background watermark ── */}
       <div
         aria-hidden
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
@@ -45,10 +43,7 @@ export default function NotFound() {
         404
       </div>
 
-      {/* ── Main content ── */}
       <div className="relative z-10 flex flex-col items-center text-center px-5 sm:px-8 max-w-3xl mx-auto w-full">
-
-        {/* Eyebrow */}
         <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-7 animate-fade-in-up delay-100">
           <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
@@ -57,24 +52,20 @@ export default function NotFound() {
           <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
         </div>
 
-        {/* Headline */}
         <h1 className="text-[clamp(2rem,8vw,6rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 animate-fade-in-up delay-150">
           Looks like you took a
           <br />
           <span className="text-brand-coral">wrong turn.</span>
         </h1>
 
-        {/* Coral divider */}
         <div className="h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8 animate-fade-in-up delay-150" />
 
-        {/* Subhead */}
         <p className="text-sm sm:text-base lg:text-lg text-brand-white/55 leading-relaxed px-2 sm:px-0 mb-10 sm:mb-12 animate-fade-in-up delay-200">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
           <br className="hidden sm:block" />
           Let&apos;s get you back on track.
         </p>
 
-        {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
           <Link
             href="/"

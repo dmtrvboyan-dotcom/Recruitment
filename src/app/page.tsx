@@ -1,14 +1,13 @@
 import { Suspense } from "react"
 
-// Common components
+import { Header } from "@/components/layout/header/header"
+
 import {
-  Header,
   Footer,
   ScrollReveal,
   SocialSidebar,
 } from "@/components/layout"
 
-// Landing page feature components
 import {
   Hero,
   Services,
@@ -23,24 +22,15 @@ import {
   ContactForm,
   ExpertiseSection,
 } from "@/app/_components"
-// import { PageBackground } from "@/components/layout/page-bg"
-// import { PageBackground } from "@/components/layout/page-background"
 
 
 export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
-      {/* Background effects */}
-      {/* <DynamicBackground /> */}
-      
-      {/* Fixed elements */}
+    
       <Header />
       <SocialSidebar/>
 
-      {/* <PageBackground /> */}
-
-
-      {/* Hero Section */}
       <ScrollReveal>
         <Hero />
       </ScrollReveal>
