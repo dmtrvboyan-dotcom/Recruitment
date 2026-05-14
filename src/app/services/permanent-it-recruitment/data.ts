@@ -126,7 +126,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["React", "Node.js", "Java", ".NET", "Vue", "Angular", "TypeScript"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/tech-recruitment/#hire-software-engineers",
+    href: "/tech-recruitment/#software-engineering",
   },
   {
     icon: Globe,
@@ -136,7 +136,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["AWS", "Azure", "Kubernetes", "Terraform", "CI/CD"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-    href: "/tech-recruitment/#hire-devops-engineers",
+    href: "/tech-recruitment/#devops",
   },
   {
     icon: ShieldCheck,
@@ -146,7 +146,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Selenium", "Cypress", "QA Automation", "DevSecOps", "Manual Testing"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/tech-recruitment/#hire-qa-automation-security-engineers",
+    href: "/tech-recruitment/#qa-security",
   },
   {
     icon: LineChart,
@@ -156,7 +156,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["SQL", "Power BI", "Tableau", "Snowflake", "Spark", "BigQuery"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-    href: "/tech-recruitment/#hire-data-engineers-bi-developers",
+    href: "/tech-recruitment/#data-engineering",
   },
   {
     icon: Zap,
@@ -166,7 +166,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Python", "TensorFlow", "PyTorch", "Deep Learning", "LLMs"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/tech-recruitment/#hire-ai-ml-engineers",
+    href: "/tech-recruitment/#ai-ml",
   },
   {
     icon: Layers,
@@ -176,7 +176,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Figma", "Sketch", "Adobe XD", "InVision", "Prototyping"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-    href: "/tech-recruitment/#hire-ui-ux-product-designers",
+    href: "/tech-recruitment/#ux-ui-design",
   },
   {
     icon: Smartphone,
@@ -186,7 +186,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["iOS", "Android", "React Native", "Kotlin", "Swift", "Flutter"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/tech-recruitment/#hire-mobile-app-developers",
+    href: "/tech-recruitment/#mobile-development",
   },
   {
     icon: Users,
@@ -196,7 +196,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["CTO", "VP Engineering", "Tech Lead", "Engineering Manager"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-    href: "/tech-recruitment/#hire-engineering-leaders",
+    href: "/tech-recruitment/#engineering-leadership",
   },
 ]
 

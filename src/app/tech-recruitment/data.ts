@@ -28,14 +28,14 @@ export const HERO_DATA = {
 /* ─── Section ID map (category.id → anchor) ────────────── */
 
 export const SECTION_IDS: Record<string, string> = {
-  "software-engineers": "hire-software-engineers",
-  devops: "hire-devops-engineers",
-  "qa-security": "hire-qa-automation-security-engineers",
-  data: "hire-data-engineers-bi-developers",
-  "ai-ml": "hire-ai-ml-engineers",
-  design: "hire-ui-ux-product-designers",
-  mobile: "hire-mobile-app-developers",
-  leadership: "hire-engineering-leaders",
+  "software-engineers": "software-engineering",
+  "devops": "devops",
+  "qa-security": "qa-security",
+  "data": "data-engineering",
+  "ai-ml": "ai-ml",
+  "design": "ux-ui-design",
+  "mobile": "mobile-development",
+  "leadership": "engineering-leadership",
 };
 
 /* ─── Process ──────────────────────────────────────────── */
