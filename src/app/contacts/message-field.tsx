@@ -1,6 +1,6 @@
 "use client"
 
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
 import { Textarea } from "@/components/ui/textarea"
 import type { UseFormReturn } from "react-hook-form"
 import type { ContactFormData } from "@/lib/schemas"
@@ -8,14 +8,14 @@ import type { ContactFormData } from "@/lib/schemas"
 type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT" | "remoteIT" | "executiveSearch" | "salary"
 
 const PLACEHOLDER_MAP: Record<Interest, string> = {
-  hiring: "Tell us about your hiring needs, positions, number of roles, budget range, timeline...",
-  demo: "I'd like to schedule a Smart.r ATS/CRM demonstration...",
-  permanentIT: "Please tell us about your permanent IT hiring needs, roles, timeline...",
-  hireContract: "Please tell us about your contract or freelance developer needs...",
-  projectIT: "Please tell us about your project requirements, needed expertise, expected deliverables...",
-  remoteIT: "Please tell us about your remote hiring needs, locations, skills, team...",
-  executiveSearch: "Please tell us about the leadership/executive role you're hiring for...",
-  salary: "Please tell us about your salary benchmarking needs (job titles, experience levels, location, etc.)...",
+  hiring: "Tell us about your hiring needs — roles, headcount, budget, timeline…",
+  demo: "I'd like to schedule a Smart.r ATS/CRM demonstration…",
+  permanentIT: "Tell us about your permanent IT hiring needs, roles, timeline…",
+  hireContract: "Tell us about your contract or freelance developer needs…",
+  projectIT: "Tell us about your project — requirements, expertise, deliverables…",
+  remoteIT: "Tell us about your remote hiring needs — locations, skills, team…",
+  executiveSearch: "Tell us about the leadership role you're hiring for…",
+  salary: "Tell us about your benchmarking needs — titles, seniority, location…",
 }
 
 interface MessageFieldProps {
@@ -27,7 +27,7 @@ interface MessageFieldProps {
 export function MessageField({ form, interest, mode }: MessageFieldProps) {
   const placeholder =
     mode === "candidate"
-      ? "Tell us about your career goals and what you're looking for..."
+      ? "Tell us about your career goals and what you're looking for next…"
       : PLACEHOLDER_MAP[interest]
 
   return (
@@ -36,15 +36,14 @@ export function MessageField({ form, interest, mode }: MessageFieldProps) {
       name="message"
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Your Message</FormLabel>
           <FormControl>
             <Textarea
               placeholder={placeholder}
-              className="min-h-[120px] resize-none"
+              className="min-h-[140px] resize-none rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30 p-4 text-sm leading-relaxed"
               {...field}
             />
           </FormControl>
-          <FormMessage />
+          <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
         </FormItem>
       )}
     />

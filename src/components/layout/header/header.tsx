@@ -61,8 +61,6 @@ export function Header() {
   )
 
   const handleDropdownToggle = useCallback((label: string) => {
-    // If the clicked dropdown is already open → close it.
-    // Otherwise → open it (which implicitly closes any other).
     setOpenDropdown((prev) => (prev === label ? null : label))
   }, [])
 
