@@ -166,11 +166,11 @@ export const heroData = {
     "No mass applications. No ghost jobs. Just honest conversations and real opportunities that match what you're looking for.",
   primaryCta: {
     text: "Send Us CV",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryCta: {
     text: "Open Roles",
-    href: "/#jobs",
+    href: "/job-listings",
   },
 }
 

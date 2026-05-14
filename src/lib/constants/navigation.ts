@@ -207,7 +207,7 @@ export const NAV_ITEMS: NavItem[] = [
     hasDropdown: true,
     dropdownItems: [
       { label: "Why us?", icon: "Star", href: "/candidates", openInNewTab: true },
-      { label: "See our jobs", icon: "Briefcase", href: "#jobs" },
+      { label: "See our jobs", icon: "Briefcase", href: "/job-listings" },
     ],
   },
   {

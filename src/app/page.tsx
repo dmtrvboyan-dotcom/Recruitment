@@ -15,7 +15,6 @@ import {
   TrustedBySection,
   CompaniesSection,
   SmartRSection,
-  JobsSection,
   FAQSection,
   MeetTheTeam,
   ExpertiseSection,
@@ -63,12 +62,6 @@ export default function LandingPage() {
         <ExpertiseSection />
       </ScrollReveal>
 
-  
-      <Suspense fallback={<div className="min-h-150" />}>
-        <ScrollReveal>
-          <JobsSection />
-        </ScrollReveal>
-      </Suspense>
 
       {/* FAQ Section */}
       <ScrollReveal>

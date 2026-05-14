@@ -40,9 +40,6 @@ import { TeamCarousel } from "../_components/team-section/team-carousel"
 import { PeopleTestimonialsSection } from "./testimonials"
 
 
-
-/* ─────────────────────────── HOOKS ─────────────────────────── */
-
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
@@ -58,8 +55,6 @@ function useInView(threshold = 0.15) {
   }, [threshold])
   return { ref, visible }
 }
-
-/* ─────────────────────────── HERO ─────────────────────────── */
 
 const HeroSection = memo(function HeroSection() {
   return (
@@ -113,7 +108,7 @@ const HeroSection = memo(function HeroSection() {
               asChild
               className="group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-8 py-5 sm:py-6 text-xs font-semibold tracking-widest uppercase rounded-3xl transition-colors duration-200"
             >
-              <Link href="/contact">
+              <Link href="/contacts">
                 <span className="flex items-center gap-2.5">
                   {heroData.primaryCta.text}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -125,7 +120,7 @@ const HeroSection = memo(function HeroSection() {
               variant="outline"
               className="border border-white/20 bg-transparent text-brand-white hover:bg-brand-white/8 px-8 py-5 sm:py-6 text-xs font-semibold tracking-widest uppercase rounded-3xl transition-colors duration-200"
             >
-              <Link href="#how-it-works">{heroData.secondaryCta.text}</Link>
+              <Link href={"/job-listings"}>{heroData.secondaryCta.text}</Link>
             </Button>
           </div>
         </div>
