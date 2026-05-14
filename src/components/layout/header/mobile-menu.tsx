@@ -115,7 +115,7 @@ export function MobileMenu({
             </div>
 
             <Button
-              onClick={() => onNavigate("#contact")}
+              onClick={() => onNavigate("/contacts")}
               className="w-full bg-brand-coral hover:bg-brand-coral-hover text-white rounded-3xl py-6 text-sm font-medium tracking-widest uppercase cursor-pointer transition-colors duration-200"
             >
               Contact Us

@@ -132,13 +132,10 @@ export default function ExecutiveSearchPage() {
               <div>
                 <Eyebrow>Specialisms</Eyebrow>
                 <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight">
-                  Roles we lead
+                  Roles we hire
                 </h2>
               </div>
-              <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                We operate at the principal level — every engagement run by a
-                partner with skin in the game.
-              </p>
+             
             </div>
 
             <HRule className="mb-0" />

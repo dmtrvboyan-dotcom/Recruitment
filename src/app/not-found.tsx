@@ -79,18 +79,7 @@ export default function NotFound() {
             Back to home
           </Link>
 
-          {/* <Link
-            href="/#jobs"
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5
-                       px-7 sm:px-8 py-5 sm:py-6
-                       bg-transparent text-brand-white border-2 border-brand-white/20
-                       hover:border-brand-white hover:text-brand-white
-                       text-sm font-semibold tracking-[0.22em] uppercase
-                       rounded-full transition-colors duration-200"
-          >
-            Browse open jobs
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </Link> */}
+         
         </div>
 
       </div>

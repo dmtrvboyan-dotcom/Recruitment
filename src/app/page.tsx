@@ -18,8 +18,6 @@ import {
   JobsSection,
   FAQSection,
   MeetTheTeam,
-  CallToAction,
-  ContactForm,
   ExpertiseSection,
 } from "@/app/_components"
 
@@ -82,11 +80,7 @@ export default function LandingPage() {
         <MeetTheTeam />
       </ScrollReveal>
 
-      {/* Contact Form */}
-      <ScrollReveal>
-        <CallToAction />
-      </ScrollReveal>
-
+      
 
       {/* Footer */}
       <Footer />

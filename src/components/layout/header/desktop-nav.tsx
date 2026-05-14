@@ -59,7 +59,7 @@ export function DesktopNav({
       })}
 
       <Button
-        onClick={() => onNavigate("#contact")}
+        onClick={() => onNavigate("/contacts")}
         className="bg-brand-navy hover:bg-navy-button-hover text-white rounded-3xl px-7 py-5 text-sm font-medium tracking-widest uppercase cursor-pointer transition-colors duration-200"
       >
         Contact Us

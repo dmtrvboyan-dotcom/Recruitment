@@ -11,7 +11,7 @@ const TABS: { label: string; value: TabType }[] = [
   { label: "I'm a Candidate", value: "candidate" },
 ]
 
-export function CallToAction() {
+export function Contact() {
   const [activeTab, setActiveTab] = useState<TabType>("company")
 
   return (
@@ -105,7 +105,6 @@ export function CallToAction() {
               }}
             />
 
-            {/* Mode indicator dot */}
             <div className="flex items-center gap-2.5 mb-8">
               <span className="block w-2 h-2 rounded-full bg-brand-coral shadow-[0_0_0_4px_rgba(114,145,199,0.15)]" />
               <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-coral">
