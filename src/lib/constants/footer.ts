@@ -20,22 +20,22 @@ export interface SocialLink {
 
 export const FOOTER_LINKS: FooterLinks = {
   services: [
-    { label: "Permanent IT Recruitment", href: "#services" },
-    { label: "Hire Contract or Freelance Developers", href: "#services" },
-    { label: "Project-Based IT Recruitment", href: "#services" },
-    { label: "Remote IT Hiring & Global Talent", href: "#services" },
-    { label: "Executive Search & Headhunting", href: "#services" },
-    { label: "IT Salary Benchmarking & Hiring Insights", href: "#services" },
+    { label: "Permanent IT Recruitment", href: "/services/permanent-it-recruitment" },
+    { label: "Hire Contract or Freelance Developers", href: "/services/hire-contract" },
+    { label: "Project-Based IT Recruitment", href: "/services/project-based-it-recruitment" },
+    { label: "Remote IT Hiring & Global Talent", href: "/services/remote-it-hiring-and-global-talent" },
+    { label: "Executive Search & Headhunting", href: "/services/executive-search-and-it-headhunting" },
+    { label: "IT Salary Benchmarking & Hiring Insights", href: "/services/it-salary-benchmarking-and-hiring-insights" },
     { label: "Smart.R ATS", href: "/applicant-tracking-system" },
   ],
   company: [
-    { label: "About Us", href: "#about" },
-    { label: "Contact", href: "#contact" },
-    { label: "Hire developers Bulgaria", href: "#specialized" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact", href: "/contacts" },
+    { label: "Hire developers Bulgaria", href: "/tech-recruitment" },
   ],
   candidates: [
-    { label: "Find a Job", href: "#jobs" },
-    { label: "Submit CV", href: "#contact" },
+    { label: "Find a Job", href: "/job-listings" },
+    { label: "Submit CV", href: "/contacts" },
     { label: "Blog", href: "/blog" },
   ],
 }

@@ -27,7 +27,6 @@ const FooterLinkSection = memo(function FooterLinkSection({
             {link.href.startsWith("/") ? (
               <Link
                 href={link.href}
-                target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-brand-navy/60 hover:text-brand-coral transition-colors cursor-pointer block font-medium"
               >

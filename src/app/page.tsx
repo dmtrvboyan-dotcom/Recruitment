@@ -73,8 +73,7 @@ export default function LandingPage() {
         <MeetTheTeam />
       </ScrollReveal>
 
-      
-
+    
       {/* Footer */}
       <Footer />
     </main>
