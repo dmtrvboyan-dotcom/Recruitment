@@ -8,7 +8,6 @@ import { scrollToSection } from "@/lib/utils/scroll"
 import { FAQItem } from "./faq-item"
 
 export function FAQSection() {
-  // First item open by default — gives the section immediate content
   const [openItems, setOpenItems] = useState<number[]>([0])
 
   const toggleItem = useCallback((index: number) => {

@@ -29,8 +29,14 @@ export function useScrollSpy({
     const intersectingIds = new Set<string>()
 
     const replaceUrl = (hash: string) => {
+      const oldURL = window.location.href
       const url = `${window.location.pathname}${window.location.search}${hash}`
       window.history.replaceState(window.history.state, "", url)
+      // replaceState doesn't fire hashchange — dispatch it manually so consumers
+      // like the breadcrumb can react.
+      window.dispatchEvent(
+        new HashChangeEvent("hashchange", { oldURL, newURL: window.location.href }),
+      )
     }
 
     const setActive = (id: string) => {
