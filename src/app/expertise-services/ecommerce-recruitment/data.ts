@@ -260,7 +260,7 @@ export const CTA_DATA: CtaData = {
     "Partner with an ecommerce recruitment agency that understands online retail, digital marketing, and growth. Hire faster and scale your ecommerce business with the right team.",
   primaryButton: {
     text: "Talk to us",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Еxplore More About Our Team",

@@ -16,7 +16,7 @@ export const HERO_DATA = {
   title: "Specialist IT Recruitment for Every Tech Hire.",
   subtitle:
     "From software engineering to executive leadership — we help companies hire niche technical talent quickly, across every stack and seniority level.",
-  primaryCta: { text: "Hire Tech Talent", href: "/#contact" },
+  primaryCta: { text: "Hire Tech Talent", href: "/contacts" },
   secondaryCta: { text: "Explore Specializations", href: "#roles" },
   stats: [
     { value: "650+", label: "Engineers placed" },

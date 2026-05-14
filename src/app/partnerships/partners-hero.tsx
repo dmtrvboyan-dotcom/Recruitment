@@ -95,8 +95,7 @@ export const PartnersHero = memo(function PartnersHero() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Link
-            href="/#contact"
-            target="_blank"
+            href="/contacts"
             className="group relative px-10 py-4 bg-brand-coral hover:bg-brand-coral/90 text-brand-navy font-semibold text-sm sm:text-base tracking-wider uppercase transition-all duration-300 rounded-3xl flex items-center justify-center min-w-[240px]"
           >
             Partner With Us
@@ -104,7 +103,6 @@ export const PartnersHero = memo(function PartnersHero() {
 
           <Link
             href="/process"
-            target="_blank"
             className="group px-10 py-4 border border-white/30 hover:border-white/50 text-white font-semibold text-sm sm:text-base tracking-wider uppercase transition-all duration-300 rounded-3xl flex items-center justify-center min-w-[240px]"
           >
             See how we do it

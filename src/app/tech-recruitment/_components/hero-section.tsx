@@ -77,7 +77,7 @@ export const HeroSection = memo(function HeroSection() {
               asChild
               className="w-full sm:w-auto group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-7 sm:px-8 py-5 sm:py-6 text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
             >
-              <Link target="_blank" href={HERO_DATA.primaryCta.href}>
+              <Link href={HERO_DATA.primaryCta.href}>
                 <span className="flex items-center justify-center gap-2.5">
                   {HERO_DATA.primaryCta.text}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

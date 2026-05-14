@@ -207,10 +207,10 @@ export default function RecruitmentAgencyBulgariaPage() {
                 variant="outline"
                 className="border-brand-white/20 text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm bg-brand-navy hover:bg-brand-white"
               >
-                <Link href={CTA_DATA.secondaryButton.href}>
+                {/* <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
+                </Link> */}
               </Button>
             </div>
 

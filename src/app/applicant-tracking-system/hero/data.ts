@@ -11,7 +11,7 @@ export const heroData = {
   },
   secondaryCta: {
     text: "Book a Demo",
-    href: "/#contact",
+    href: "/contacts",
   },
   stats: [
     { value: "50%", label: "Faster hiring" },

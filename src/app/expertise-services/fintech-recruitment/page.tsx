@@ -289,7 +289,7 @@ export default function FintechRecruitmentPage() {
                 asChild
                 className="bg-brand-white  border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group"
               >
-                <Link href={CTA_DATA.secondaryButton.href} target="_blank">
+                <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>

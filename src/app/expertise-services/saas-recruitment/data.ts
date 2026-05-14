@@ -239,7 +239,7 @@ export const CTA_DATA: CtaData = {
     "Partner with a SaaS recruitment agency that understands cloud software, B2B SaaS, and subscription-based products. We help you find and hire the right specialists to scale your platform.",
   primaryButton: {
     text: "Contact Us",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Talk to a SaaS Recruiter",

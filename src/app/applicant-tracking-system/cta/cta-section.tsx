@@ -34,7 +34,6 @@ export function CTASection() {
           
           <a
             href={ctaData.primaryCta.href}
-            target="_blank"
             rel="noopener noreferrer"
           >
             <Button className="bg-brand-navy text-brand-white hover:bg-brand-white hover: border-brand-navy border-2 hover:text-brand-navy rounded-3xl  px-8 py-6 text-sm font-black uppercase tracking-[0.12em] group cursor-pointer transition-all duration-300">

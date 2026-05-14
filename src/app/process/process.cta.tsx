@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link'
 import { memo } from "react"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -43,20 +44,18 @@ export const ProcessCTA = memo(function ProcessCTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            onClick={() => scrollToSection("contact")}
+          <Link href={"/contacts"}
             className="bg-brand-coral hover:bg-brand-coral/90 text-white font-bold tracking-wide uppercase px-8 py-3 rounded-xl text-sm flex items-center gap-2 group cursor-pointer"
           >
             Start the conversation
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => scrollToSection("about")}
+          </Link>
+          <Link
+            href={"/about"}
             className="border-brand-navy/20 text-brand-navy font-bold tracking-wide uppercase px-8 py-3 rounded-xl text-sm hover:bg-brand-navy/5 cursor-pointer"
           >
             Learn about us
-          </Button>
+          </Link>
         </div>
 
       </div>

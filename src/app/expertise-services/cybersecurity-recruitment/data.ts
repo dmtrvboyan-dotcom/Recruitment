@@ -84,10 +84,6 @@ export const CTA_DATA: CtaData = {
     "Partner with a cybersecurity recruitment agency that understands information security, cloud security, and threat detection. Hire faster and build secure teams.",
   primaryButton: {
     text: "Start Hiring",
-    href: "/#contact",
-  },
-  secondaryButton: {
-    text: "Talk to an Expert",
-    href: "/#companies",
+    href: "/contacts",
   },
 }

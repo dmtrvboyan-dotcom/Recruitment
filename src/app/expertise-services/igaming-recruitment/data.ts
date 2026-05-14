@@ -221,7 +221,7 @@ export const CTA_DATA: CtaData = {
     "Let us help you build your gaming team with Bulgaria's best iGaming professionals.",
   primaryButton: {
     text: "Contact Us",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Learn More About Our Team",

@@ -134,7 +134,6 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
   return (
     <Link
       href={`/blog/${post.slug}`}
-      target="_blank"
       rel="noopener noreferrer"
       className="group relative flex flex-col bg-brand-white border border-brand-navy/8 rounded-2xl overflow-hidden
         hover:border-brand-coral/30 hover:shadow-[0_0_0_1px_theme(colors.brand.coral/15),0_8px_32px_-8px_theme(colors.brand.coral/12)]

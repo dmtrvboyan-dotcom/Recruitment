@@ -85,8 +85,7 @@ export function FAQSection() {
             Still have questions?
           </p>
           <Link
-            target="_blank"
-            href="/#contact"
+            href="/contacts"
             className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200"
           >
             Contact our team

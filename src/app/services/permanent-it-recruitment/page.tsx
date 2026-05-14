@@ -77,7 +77,7 @@ export default function ExecutiveSearchPage() {
                   asChild
                   className="w-full sm:w-auto bg-brand-coral text-brand-white hover:bg-brand-navy rounded-xl px-7 py-5 text-sm font-medium transition-colors duration-200"
                 >
-                  <Link href={CTA_DATA.secondaryButton.href} target="_blank">
+                  <Link href={CTA_DATA.secondaryButton.href}>
                     {CTA_DATA.secondaryButton.text}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>

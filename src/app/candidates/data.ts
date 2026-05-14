@@ -412,10 +412,10 @@ export const ctaData = {
     "Whether you're actively looking or just exploring options, we'd love to hear from you. Send us your CV and let's start the conversation.",
   primaryCta: {
     text: "Send Us Your CV",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryCta: {
     text: "Browse Open Positions",
-    href: "/#jobs",
+    href: "/job-listings",
   },
 }

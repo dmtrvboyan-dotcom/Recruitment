@@ -4,10 +4,10 @@ export const ctaData = {
     "Join thousands of companies using Smart.R to hire faster and smart.r. Start your free trial today — no credit card required.",
   primaryCta: {
     text: "Book a demo",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryCta: {
     text: "Book a Demo",
-    href: "/#contact",
+    href: "/contacts",
   },
 }

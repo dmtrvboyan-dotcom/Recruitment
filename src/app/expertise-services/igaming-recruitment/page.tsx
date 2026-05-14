@@ -272,7 +272,7 @@ export default function IGamingRecruitmentPage() {
                 variant="outline"
                 className="border-brand-navy/20 text-brand-navy font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm hover:bg-brand-navy/5"
               >
-                <Link href={CTA_DATA.secondaryButton.href} target="_blank">
+                <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>

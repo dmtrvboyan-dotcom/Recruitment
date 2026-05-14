@@ -320,7 +320,7 @@ export default function EcommerceRecruitment() {
                 variant="outline"
                 className="border-brand-white/20 bg-brand-navy text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm hover:bg-brand-white "
               >
-                <Link href={CTA_DATA.secondaryButton.href} target="_blank">
+                <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>

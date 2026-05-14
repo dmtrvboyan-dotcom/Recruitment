@@ -244,7 +244,7 @@ export const CTA_DATA: CtaData = {
     "Tell us about your hiring needs and we'll provide a tailored talent strategy and market insights within 48 hours.",
   primaryButton: {
     text: "Start a Search",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Learn how we do it",

@@ -240,7 +240,7 @@ export const CTA_DATA: CtaData = {
     "Let us connect you with experienced fintech professionals who can drive your business forward.",
   primaryButton: {
     text: "Ready to Hire Fintech Professionals",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Learn more about our team",

@@ -173,7 +173,7 @@ export const CTA_DATA: CtaData = {
     "",
   primaryButton: {
     text: "Contact Us",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Learn More About Our Team",
