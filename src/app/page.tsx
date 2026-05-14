@@ -24,9 +24,9 @@ import {
 export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
-    
+
       <Header />
-      <SocialSidebar/>
+      <SocialSidebar />
 
       <ScrollReveal>
         <Hero />
@@ -36,45 +36,34 @@ export default function LandingPage() {
         <TrustedBySection />
       </ScrollReveal>
 
-      {/* Services Section */}
       <ScrollReveal>
         <Services />
       </ScrollReveal>
 
-      {/* Specialized Recruitment */}
       <ScrollReveal>
         <SpecializedRecruitment />
       </ScrollReveal>
 
-      {/* Trust Metrics */}
-
-      {/* Companies Section */}
       <ScrollReveal>
         <CompaniesSection />
       </ScrollReveal>
 
-      {/* Smart.R Platform */}
       <ScrollReveal>
-        <SmartRSection />
+        <MeetTheTeam />
       </ScrollReveal>
 
       <ScrollReveal>
         <ExpertiseSection />
       </ScrollReveal>
 
+      <ScrollReveal>
+        <SmartRSection />
+      </ScrollReveal>
 
-      {/* FAQ Section */}
       <ScrollReveal>
         <FAQSection />
       </ScrollReveal>
 
-      {/* Meet the Team */}
-      <ScrollReveal>
-        <MeetTheTeam />
-      </ScrollReveal>
-
-    
-      {/* Footer */}
       <Footer />
     </main>
   )

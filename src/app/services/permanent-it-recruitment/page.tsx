@@ -135,7 +135,7 @@ export default function ExecutiveSearchPage() {
                   Roles we hire
                 </h2>
               </div>
-             
+
             </div>
 
             <HRule className="mb-0" />
@@ -145,9 +145,10 @@ export default function ExecutiveSearchPage() {
               {SERVICE_CARDS.map((card, i) => {
                 const Icon = card.icon
                 return (
-                  <div
+                  <Link
                     key={i}
-                    className="group grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 py-6 lg:py-8 items-start hover:bg-brand-navy/[0.025] transition-colors duration-300 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10"
+                    href={card.href}
+                    className="group grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 py-6 lg:py-8 items-start hover:bg-brand-navy/[0.025] transition-colors duration-300 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10 block"
                   >
                     {/* Number — hidden on mobile */}
                     <div className="md:col-span-1 hidden md:flex pt-1">
@@ -190,7 +191,7 @@ export default function ExecutiveSearchPage() {
                       ))}
                       <ArrowUpRight className="w-4 h-4 text-brand-navy/20 group-hover:text-brand-coral group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 mt-0.5" />
                     </div>
-                  </div>
+                  </Link>
                 )
               })}
             </div>
@@ -271,19 +272,23 @@ export default function ExecutiveSearchPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20">
-
-              {/* Left: heading */}
               <div className="lg:col-span-4">
                 <Eyebrow>Why us</Eyebrow>
                 <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight mb-4 lg:mb-6 text-balance">
-                  Built on two decades of trust
+                  Precision hiring. Zero compromise.
                 </h2>
                 <p className="text-sm lg:text-[15px] text-brand-navy/45 leading-relaxed">
                   We don't compete on volume. Every mandate we accept gets a
                   partner's full attention from brief to onboarding.
                 </p>
+                <Link
+                  href="/tech-recruitment"
+                  className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-brand-white rounded-3xl bg-brand-navy hover:text-brand-navy hover:bg-brand-white transition-colors duration-200 p-4 border"
+                >
+                  Explore our approach
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
-
               {/* Right: benefit items */}
               <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-px bg-brand-navy/10 rounded-2xl overflow-hidden border border-brand-navy/10">
                 {BENEFITS.map((benefit, i) => {

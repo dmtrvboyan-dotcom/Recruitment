@@ -1,14 +1,11 @@
 "use client"
 
+import Link from 'next/link';
 import { ArrowRight, ArrowDown } from "lucide-react"
 
 export function HeroSection() {
   const handleScrollToJobs = () => {
     document.getElementById("jobs")?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const handleScrollToCV = () => {
-    document.getElementById("cv-upload")?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -88,8 +85,8 @@ export function HeroSection() {
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:gap-3 pt-2">
-                  <button
-                    onClick={handleScrollToCV}
+                  <Link
+                    href={"/contacts"}
                     className="group relative inline-flex items-center justify-between gap-4 px-6 py-4 bg-brand-coral text-brand-navy rounded-full hover:bg-brand-coral-hover transition-colors duration-200 text-[11px] font-semibold tracking-[0.22em] uppercase cursor-pointer"
                   >
                     <span>Send us your CV</span>
@@ -97,7 +94,7 @@ export function HeroSection() {
                       className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
                       strokeWidth={2}
                     />
-                  </button>
+                  </Link>
                   <button
                     onClick={handleScrollToJobs}
                     className="group relative inline-flex items-center justify-between gap-4 px-6 py-4 bg-transparent border border-brand-white/20 text-brand-white rounded-full hover:border-brand-coral hover:text-brand-coral transition-colors duration-200 text-[11px] font-semibold tracking-[0.22em] uppercase cursor-pointer"

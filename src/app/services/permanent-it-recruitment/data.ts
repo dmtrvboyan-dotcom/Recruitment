@@ -7,6 +7,8 @@ import {
   Zap,
   LineChart,
   CheckCircle,
+  Layers,
+  Smartphone,
   type LucideIcon,
 } from "lucide-react"
 
@@ -37,6 +39,7 @@ export interface ServiceCard {
   tags: string[]
   accent: string
   iconBg: string
+  href: string
 }
 
 export interface BenefitItem {
@@ -117,48 +120,83 @@ export const PROCESS_STEPS: ProcessStep[] = [
 export const SERVICE_CARDS: ServiceCard[] = [
   {
     icon: Code2,
-    title: "Software Engineering",
+    title: "Software Engineers & Developers",
     description:
-      "Senior developers, architects, and engineering managers across full-stack, backend, frontend, and cloud-native technologies.",
-    tags: ["React", "Node.js", "Java", "Python", "Kubernetes"],
+      "Full-stack, backend, and frontend engineers who build robust, scalable products — from early-stage MVPs to complex enterprise systems.",
+    tags: ["React", "Node.js", "Java", ".NET", "Vue", "Angular", "TypeScript"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    href: "/tech-recruitment/#hire-software-engineers",
   },
   {
-    icon: LineChart,
-    title: "Data & AI Leadership",
+    icon: Globe,
+    title: "DevOps, Cloud & Platform Engineers",
     description:
-      "Data scientists, ML engineers, data engineers, and analytics leaders who drive data-informed decision making.",
-    tags: ["AI/ML", "Big Data", "Business Intelligence"],
+      "Infrastructure and platform specialists who design, automate, and scale cloud environments for reliability and speed.",
+    tags: ["AWS", "Azure", "Kubernetes", "Terraform", "CI/CD"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-  },
-  {
-    icon: Zap,
-    title: "Product & UX",
-    description:
-      "Product managers, designers, and researchers who translate business needs into exceptional user experiences.",
-    tags: ["Product Strategy", "UI/UX", "SaaS"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
+    href: "/tech-recruitment/#hire-devops-engineers",
   },
   {
     icon: ShieldCheck,
-    title: "Cybersecurity & DevOps",
+    title: "QA Automation & Security",
     description:
-      "Security engineers, compliance specialists, and DevOps/SRE professionals to protect and scale your infrastructure.",
-    tags: ["Cloud Security", "SRE", "Compliance"],
+      "Quality and security professionals who embed testing and protection throughout the development lifecycle.",
+    tags: ["Selenium", "Cypress", "QA Automation", "DevSecOps", "Manual Testing"],
+    accent: "#085689",
+    iconBg: "bg-[#e8f3ff]",
+    href: "/tech-recruitment/#hire-qa-automation-security-engineers",
+  },
+  {
+    icon: LineChart,
+    title: "Data Engineering & BI",
+    description:
+      "Data engineers and BI specialists who build reliable pipelines and turn raw data into actionable business intelligence.",
+    tags: ["SQL", "Power BI", "Tableau", "Snowflake", "Spark", "BigQuery"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
+    href: "/tech-recruitment/#hire-data-engineers-bi-developers",
+  },
+  {
+    icon: Zap,
+    title: "AI / ML Engineers",
+    description:
+      "Machine learning engineers and AI researchers who design, train, and deploy models that power intelligent products.",
+    tags: ["Python", "TensorFlow", "PyTorch", "Deep Learning", "LLMs"],
+    accent: "#085689",
+    iconBg: "bg-[#e8f3ff]",
+    href: "/tech-recruitment/#hire-ai-ml-engineers",
+  },
+  {
+    icon: Layers,
+    title: "UI / UX & Product Design",
+    description:
+      "Designers and researchers who craft intuitive, visually compelling experiences that users love and businesses stand behind.",
+    tags: ["Figma", "Sketch", "Adobe XD", "InVision", "Prototyping"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
+    href: "/tech-recruitment/#hire-ui-ux-product-designers",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Development",
+    description:
+      "iOS and Android engineers who deliver polished, performant native and cross-platform apps for modern mobile users.",
+    tags: ["iOS", "Android", "React Native", "Kotlin", "Swift", "Flutter"],
+    accent: "#085689",
+    iconBg: "bg-[#e8f3ff]",
+    href: "/tech-recruitment/#hire-mobile-app-developers",
   },
   {
     icon: Users,
-    title: "Tech Leadership",
+    title: "Engineering Leadership",
     description:
-      "CTO, VP Engineering, Head of Product, and other technology leadership roles that shape your technical vision.",
-    tags: ["Leadership", "Scale-ups", "Enterprise"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
+      "CTOs, VPs of Engineering, Tech Leads, and Engineering Managers who set technical direction and build high-performing teams.",
+    tags: ["CTO", "VP Engineering", "Tech Lead", "Engineering Manager"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
+    href: "/tech-recruitment/#hire-engineering-leaders",
   },
 ]
 
@@ -203,7 +241,7 @@ export const CTA_DATA: CtaData = {
   eyebrow: "Build Your Tech Team",
   title: "Find the right talent for the long term.",
   description:
-    "Tell us about your hiring needs and we’ll provide a tailored talent strategy and market insights within 48 hours.",
+    "Tell us about your hiring needs and we'll provide a tailored talent strategy and market insights within 48 hours.",
   primaryButton: {
     text: "Start a Search",
     href: "/#contact",
