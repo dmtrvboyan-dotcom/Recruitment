@@ -16,7 +16,7 @@ const CONTACT_METHODS = [
   {
     icon: Linkedin,
     label: "Chat to Us",
-    value: "hello@yourcompany.com",
+    value: "Recruitment.bg",
     href: "https://www.linkedin.com/company/recruitment-bg/?originalSubdomain=bg",
     hint: "Reply within 24h",
     external: true,
