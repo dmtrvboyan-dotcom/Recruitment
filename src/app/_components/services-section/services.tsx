@@ -63,10 +63,10 @@ export function Services() {
     },
   ]
 
-  
+
 
   return (
-    
+
     <section
       id="services"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
@@ -83,7 +83,7 @@ export function Services() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        
+
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
           <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
@@ -128,8 +128,10 @@ export function Services() {
                     index={index}
                     variant={cfg.variant}
                     isSelected={selectedService?.title === service.title}
-                    onSelect={() => setSelectedService(service)}
-                  />
+                    onSelect={() => {
+                      setSelectedService(service)
+                      document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" })
+                    }} />
                 </div>
               )
             })}

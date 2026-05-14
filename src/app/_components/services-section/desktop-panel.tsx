@@ -12,6 +12,7 @@ export const DesktopPanel = memo(function DesktopPanel({
   service: Service | null
   onClose: () => void
 }) {
+  
   return (
     <div
       className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${service ? "visible" : "invisible"
