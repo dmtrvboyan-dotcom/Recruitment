@@ -25,7 +25,6 @@ export function FeaturedExpertiseCard({
     return (
       <Link
         href={href}
-        target="_blank"
         className="group relative flex flex-col justify-between w-full h-full overflow-hidden rounded-3xl bg-brand-navy p-5 sm:p-6"
       >
         {/* Diagonal slash texture */}

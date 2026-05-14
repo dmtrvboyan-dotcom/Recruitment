@@ -30,12 +30,10 @@ export const MobileServiceItem = memo(function MobileServiceItem({
         }
       `}
     >
-      {/* Header */}
       <button
         onClick={onToggle}
         className="w-full text-left p-5 sm:p-6 flex flex-col gap-4"
       >
-        {/* Top row: featured tag or arrow + counter */}
         <div className="flex items-start justify-between">
           {isFeature ? (
             <span className="font-serif italic text-[12px] tracking-[0.18em] text-brand-coral">
@@ -67,7 +65,6 @@ export const MobileServiceItem = memo(function MobileServiceItem({
           )}
         </div>
 
-        {/* Title block */}
         <div className="flex items-end justify-between gap-4">
           <div className="flex-1 min-w-0">
             {isFeature && (
@@ -93,7 +90,6 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             )}
           </div>
 
-          {/* Feature card chevron (the open/close indicator) */}
           {isFeature && (
             <ChevronDown
               className={`w-6 h-6 text-brand-coral shrink-0 transition-transform duration-500 ${
@@ -105,21 +101,18 @@ export const MobileServiceItem = memo(function MobileServiceItem({
         </div>
       </button>
 
-      {/* Expanded panel */}
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[1600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-5 sm:px-6 pb-6 sm:pb-7">
-          {/* Coral divider */}
           <div
             className={`h-px w-full mb-6 ${
               isFeature ? "bg-brand-coral/30" : "bg-brand-navy/10"
             }`}
           />
 
-          {/* Intro */}
           {service.subtitle && (
             <p
               className={`text-sm font-medium mb-5 ${
@@ -139,7 +132,6 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             </p>
           )}
 
-          {/* Sections */}
           <div className="space-y-6">
             {service.sections.map((section, idx) => (
               <div key={idx}>
@@ -171,7 +163,6 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             ))}
           </div>
 
-          {/* Stats */}
           <div
             className={`mt-7 pt-6 grid grid-cols-3 gap-4 border-t ${
               isFeature ? "border-brand-white/10" : "border-brand-navy/8"
@@ -197,10 +188,8 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             ))}
           </div>
 
-          {/* CTA */}
           <Link
             href={service.href}
-            target="_blank"
             className={`mt-6 w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-full text-[11px] font-semibold tracking-[0.22em] uppercase transition-colors duration-200
               ${isFeature
                 ? "bg-brand-coral hover:bg-brand-coral-hover text-brand-white"

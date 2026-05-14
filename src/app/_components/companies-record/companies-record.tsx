@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link'
 import { memo } from "react"
 import { ArrowRight } from "lucide-react"
 import { COMPANIES } from "./companies"
@@ -17,13 +18,11 @@ function MarqueeRow({
 }) {
   const items = [...companies, ...companies, ...companies, ...companies]
 
-  // Solid fill colors — no more outline strokes
   const textColor =
     variant === "coral" ? "text-brand-coral/60" : "text-brand-white/35"
 
   return (
     <div className="relative overflow-hidden py-3 sm:py-5 w-screen left-1/2 -translate-x-1/2">
-      {/* Edge fades — navy gradient to match section bg */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 lg:w-48 z-10 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 lg:w-48 z-10 bg-gradient-to-l from-brand-navy via-brand-navy/85 to-transparent" />
 
@@ -67,7 +66,6 @@ function MarqueeRow({
 export const TrustedBySection = memo(function TrustedBySection() {
   return (
     <section className="relative py-16 sm:py-20 lg:py-28 bg-brand-navy overflow-hidden">
-      {/* Diagonal slash pattern — mirrors hero */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -82,19 +80,15 @@ export const TrustedBySection = memo(function TrustedBySection() {
         }}
       />
 
-      {/* Coral glow — top center */}
-      {/* Coral glow — top, centered-ish on mobile */}
       <div
         aria-hidden
         className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-white-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
-      {/* Teal glow — bottom right, hidden on small screens */}
       <div
         aria-hidden
         className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-white-teal/18 blur-[130px] pointer-events-none"
       />
-      {/* Subtle giant background watermark — desktop only */}
       <div
         aria-hidden
         className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
@@ -102,9 +96,7 @@ export const TrustedBySection = memo(function TrustedBySection() {
         TRUSTED
       </div>
 
-      {/* Header */}
       <div className="relative z-10 max-w-3xl mx-auto text-center px-5 sm:px-8 mb-12 sm:mb-14 lg:mb-16">
-        {/* Eyebrow with side rules */}
         <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
           <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
@@ -113,7 +105,6 @@ export const TrustedBySection = memo(function TrustedBySection() {
           <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
         </div>
 
-        {/* Headline — white on navy, coral accent */}
         <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
           Companies we&apos;ve
           <br />
@@ -139,9 +130,8 @@ export const TrustedBySection = memo(function TrustedBySection() {
 
       <div className="relative z-10 flex justify-center mt-12 sm:mt-14 lg:mt-16 px-5">
 
-        <a
+        <Link
           href="/partnerships"
-          target="_blank"
           rel="noopener noreferrer"
           className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 
                      bg-brand-coral hover:bg-brand-coral-hover 
@@ -150,7 +140,7 @@ export const TrustedBySection = memo(function TrustedBySection() {
         >
           View all partnerships
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-        </a>
+        </Link>
       </div>
     </section>
   )

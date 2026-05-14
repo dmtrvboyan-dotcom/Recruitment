@@ -23,14 +23,12 @@ export function CompaniesSection() {
         className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[260px] h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[80px] sm:blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
-      {/* Teal glow — bottom right, hidden on small screens */}
       <div
         aria-hidden
         className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 lg:mb-20">
           <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-4 sm:mb-6">
             <span className="block w-5 sm:w-9 h-px bg-brand-coral" />
@@ -65,14 +63,13 @@ export function CompaniesSection() {
           </div>
         </div>
 
-        {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 lg:mt-20">
           <Button
             asChild
             variant="outline"
             className="w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-white px-8 py-6 sm:px-10 sm:py-7 text-sm font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95"
           >
-            <Link href="/process" target="_blank" rel="noopener noreferrer">
+            <Link href="/process" rel="noopener noreferrer">
               learn more how we work
             </Link>
           </Button>
@@ -81,7 +78,9 @@ export function CompaniesSection() {
             variant="outline"
             className="w-full sm:w-auto bg-transparent hover:bg-brand-navy text-brand-navy hover:text-white rounded-3xl px-8 py-6 text-sm font-semibold tracking-widest uppercase border-2 border-brand-navy cursor-pointer transition-colors duration-200"
           >
-            Contact Us
+           <Link href="/contacts" rel="noopener noreferrer">
+              Contact Us
+            </Link>
           </Button>
         </div>
       </div>

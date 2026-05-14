@@ -17,24 +17,20 @@ export const DesktopPanel = memo(function DesktopPanel({
       className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${service ? "visible" : "invisible"
         }`}
     >
-      {/* Backdrop */}
       <div
         className={`absolute inset-0 bg-brand-navy/40 backdrop-blur-sm transition-opacity duration-300 ${service ? "opacity-100" : "opacity-0"
           }`}
         onClick={onClose}
       />
 
-      {/* Sliding panel */}
       <div
         className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${service ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        {/* Top coral accent */}
         <div className="sticky top-0 left-0 right-0 h-[3px] bg-brand-coral z-20" />
 
         {service && (
           <div className="relative">
-            {/* Close button */}
             <button
               onClick={onClose}
               className="absolute top-5 right-5 lg:top-7 lg:right-7 z-10 w-11 h-11 rounded-full bg-brand-navy hover:bg-brand-coral text-brand-white flex items-center justify-center transition-colors duration-200"
@@ -44,7 +40,6 @@ export const DesktopPanel = memo(function DesktopPanel({
             </button>
 
             <div className="px-6 lg:px-12 pt-14 lg:pt-16 pb-12 flex flex-col items-center text-center ">
-              {/* Eyebrow */}
               <div className="flex items-center gap-3.5 mb-7">
                 <span className="block w-9 h-px bg-brand-coral" />
                 <span className="text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
@@ -53,7 +48,6 @@ export const DesktopPanel = memo(function DesktopPanel({
                 <span className="block w-9 h-px bg-brand-coral" />
               </div>
 
-              {/* Icon */}
               <div
                 className={`w-16 h-16 lg:w-20 lg:h-20 rounded-2xl ${service.iconBg} flex items-center justify-center mb-7`}
               >
@@ -63,7 +57,6 @@ export const DesktopPanel = memo(function DesktopPanel({
                 />
               </div>
 
-              {/* Title */}
               <h3 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-black uppercase tracking-tight leading-[1.05] text-brand-navy mb-3 max-w-xl">
                 {service.title}
               </h3>
@@ -74,17 +67,14 @@ export const DesktopPanel = memo(function DesktopPanel({
                 </p>
               )}
 
-              {/* Coral underline */}
               <div className="h-[2px] w-12 bg-brand-coral mb-7" />
 
-              {/* Intro */}
               {service.intro && (
                 <p className="text-base lg:text-lg leading-relaxed text-brand-navy/60 mb-10 max-w-2xl">
                   {service.intro}
                 </p>
               )}
 
-              {/* Sections grid */}
               <div className="w-full grid grid-cols-1 [@media(min-width:1235px)]:grid-cols-2 gap-8 lg:gap-12 mb-12 text-left">
                 {service.sections.map((section, idx) => (
                   <div key={idx}>
@@ -109,10 +99,8 @@ export const DesktopPanel = memo(function DesktopPanel({
               </div>
               <Link
                 href={service.href}
-                target="_blank"
                 className="group relative inline-flex items-center justify-center gap-2.5 py-5 px-10 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-md font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 mb-3 active:scale-95"
               >
-                {/* Pulse ring */}
                 <span className="absolute inset-0 rounded-full animate-ping-slow bg-brand-coral opacity-30 pointer-events-none" />
 
                 Learn more

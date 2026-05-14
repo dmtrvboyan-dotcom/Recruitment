@@ -22,7 +22,6 @@ export const ExpertiseCard = memo(function ExpertiseCard({
   return (
     <Link
       href={item.href}
-      target="_blank"
       rel="noopener noreferrer"
       className={`group relative block overflow-hidden rounded-3xl bg-brand-navy ${className}`}
     >
@@ -35,7 +34,6 @@ export const ExpertiseCard = memo(function ExpertiseCard({
 
       <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/55 to-brand-navy/10" />
 
-      {/* Top row: italic label + stats */}
       <div className="absolute top-5 left-5 right-5 sm:top-6 sm:left-6 sm:right-6 flex items-start justify-between">
         <span className="font-bold italic text-[11px] sm:text-[12px] tracking-[0.18em] text-brand-white">
           — Sector · {number}

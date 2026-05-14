@@ -160,13 +160,11 @@ export const SmartRSection = memo(function SmartRSection() {
 
         <div className="relative mb-16 sm:mb-20 lg:mb-24">
 
-          {/* Glow behind image */}
           <div
             aria-hidden
             className="absolute inset-x-[10%] top-[15%] bottom-0 bg-brand-coral/10 blur-[80px] rounded-full pointer-events-none"
           />
 
-          {/* Frame */}
           <div
             className="relative mx-auto rounded-2xl overflow-hidden"
             style={{
@@ -217,11 +215,9 @@ export const SmartRSection = memo(function SmartRSection() {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/applicant-tracking-system"
-              target="_blank"
               rel="noopener noreferrer"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6
                          bg-brand-coral hover:bg-brand-coral-hover
@@ -233,7 +229,7 @@ export const SmartRSection = memo(function SmartRSection() {
             </Link>
 
             <Link
-              href="/contact"
+              href="/contacts"
               className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6
                          border border-brand-white/20 hover:border-brand-white/40 hover:bg-brand-white/5
                          text-brand-white/70 hover:text-brand-white text-sm font-semibold tracking-[0.22em] uppercase

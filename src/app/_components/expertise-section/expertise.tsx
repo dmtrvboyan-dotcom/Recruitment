@@ -15,13 +15,11 @@ export function ExpertiseSection() {
       id="our-expertise"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
     >
-      {/* Coral glow top-right */}
       <div
         aria-hidden
         className="absolute -top-32 right-1/4 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
       />
 
-      {/* Subtle diagonal texture */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -67,7 +65,6 @@ export function ExpertiseSection() {
           </p>
         </div>
 
-        {/* ── Bento grid ── */}
         <div
           className={[
             "grid gap-3 sm:gap-4",
@@ -76,7 +73,6 @@ export function ExpertiseSection() {
             "lg:grid-cols-12 lg:auto-rows-[260px]", // desktop: 12-col fixed rows
           ].join(" ")}
         >
-          {/* 0 — Fintech: col 1-5, rows 1-2 (tall) */}
           <ExpertiseCard
             item={fintech}
             index={0}

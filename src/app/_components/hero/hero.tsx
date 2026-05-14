@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link';
 import { useCallback, memo } from "react"
 import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/utils/scroll"
@@ -20,7 +21,7 @@ const StatBlock = memo(function StatBlock({
   isMobileTop?: boolean
 }) {
   const { ref, displayValue } = useAnimatedCounter(value)
-
+  
   return (
     <div
       ref={ref}
@@ -70,21 +71,21 @@ export const Hero = memo(function Hero() {
         }}
       />
 
-      {/* Coral glow — top, centered-ish on mobile */}
+      {/* Top glow */}
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:-left-32 lg:translate-x-0 w-90 h-90 lg:w-130 lg:h-130 rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
-      {/* Teal glow — bottom right, hidden on small screens */}
+      {/* Bottom glow */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
+        className="hidden lg:block absolute top-[48%] -right-32 w-105 h-105 rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="hidden lg:block absolute top-[42%] left-1/2 -translate-x-1/2 text-[clamp(14rem,26vw,22rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.02] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-[42%] left-1/2 -translate-x-1/2 text-[clamp(14rem,26vw,22rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-navy/2 select-none pointer-events-none whitespace-nowrap"
       >
         HIRE
       </div>
@@ -92,7 +93,7 @@ export const Hero = memo(function Hero() {
       <div className="relative z-10 flex-1 flex items-center justify-center px-5 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full py-10 sm:py-12 lg:py-14">
         <div className="w-full flex flex-col items-center text-center mt-30">
 
-         
+
           <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-7 animate-fade-in-up delay-100">
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
             <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
@@ -111,7 +112,7 @@ export const Hero = memo(function Hero() {
             <p className="text-sm sm:text-base lg:text-lg text-brand-navy/70 leading-relaxed px-2 sm:px-0">
               We connect companies with IT professionals through recruitment and talent acquisition services.
             </p>
-            <div className="mt-5 sm:mt-6 h-[2px] w-12 sm:w-16 bg-brand-coral" />
+            <div className="mt-5 sm:mt-6 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
@@ -126,11 +127,13 @@ export const Hero = memo(function Hero() {
             </Button>
 
             <Button
-              onClick={() => handleNavigate("#jobs")}
+              asChild
               variant="outline"
               className="w-full sm:w-auto bg-brand-white text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-brand-white px-7 sm:px-8 py-5 sm:py-6 text-sm font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
             >
-              Find a job
+              <Link href="/job-listings">
+                Find a job
+              </Link>
             </Button>
           </div>
 

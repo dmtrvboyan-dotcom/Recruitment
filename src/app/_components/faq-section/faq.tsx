@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link'
 import { useState, useCallback } from "react"
 import { ArrowRight } from "lucide-react"
 import { FAQ_ITEMS } from "@/lib/constants/faq"
@@ -90,13 +91,13 @@ export function FAQSection() {
           <p className="text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-brand-navy/45 text-center">
             Still haven&apos;t found your answer?
           </p>
-          <button
-            onClick={() => scrollToSection("#contact")}
+          <Link
+            href={"/contacts"}
             className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 cursor-pointer"
           >
             Contact our team
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
