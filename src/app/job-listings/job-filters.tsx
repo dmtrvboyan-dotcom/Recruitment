@@ -1,5 +1,5 @@
-import { memo, useCallback, useState } from "react"
-import { Filter, X, Check, RotateCcw } from "lucide-react"
+import { memo, useCallback, useMemo, useState } from "react"
+import { Filter, X, Check, RotateCcw, Search } from "lucide-react"
 import {
   JOB_LOCATIONS,
   SENIORITY_OPTIONS,
@@ -36,6 +36,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
   } = props
 
   const [showFilters, setShowFilters] = useState(false)
+  const [techQuery, setTechQuery] = useState("")
   const [openSections, setOpenSections] = useState({
     technology: true,
     seniority: true,
@@ -56,7 +57,26 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
     setSelectedTech("all")
     setSelectedType("all")
     setSelectedContracts([])
+    setTechQuery("")
   }
+
+  // Filter tech options by typed query — keeps "all" visible
+  const filteredTech = useMemo(() => {
+    const q = techQuery.trim().toLowerCase()
+    if (!q) return TECH_OPTIONS
+    return TECH_OPTIONS.filter(
+      (t) =>
+        t.value === "all" ||
+        t.label.toLowerCase().includes(q) ||
+        t.value.toLowerCase().includes(q)
+    )
+  }, [techQuery])
+
+  const activeCount =
+    selectedLocations.length +
+    selectedSeniorities.length +
+    (selectedTech !== "all" ? 1 : 0) +
+    (selectedType !== "all" ? 1 : 0)
 
   const workModels = [
     { value: "all", label: "All models" },
@@ -70,10 +90,15 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
       {/* Mobile toggle */}
       <button
         onClick={() => setShowFilters(!showFilters)}
-        className="lg:hidden flex items-center justify-center gap-3 w-full bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-6 py-4 rounded-full mb-6 text-[11px] font-semibold tracking-[0.22em] uppercase transition-colors duration-200"
+        className="lg:hidden flex items-center justify-center gap-3 w-full bg-brand-coral hover:bg-brand-coral-hover text-brand-navy px-6 py-4 rounded-full mb-6 text-[11px] font-semibold tracking-[0.22em] uppercase transition-colors duration-200"
       >
         <Filter className="w-4 h-4" strokeWidth={1.5} />
         {showFilters ? "Close filters" : "Filter positions"}
+        {activeCount > 0 && !showFilters && (
+          <span className="ml-1 inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-brand-navy text-brand-coral text-[10px] tabular-nums">
+            {activeCount}
+          </span>
+        )}
         {showFilters && <X className="w-4 h-4 ml-auto" />}
       </button>
 
@@ -90,10 +115,15 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
               <span className="text-[10px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
                 Refine
               </span>
+              {activeCount > 0 && (
+                <span className="text-[10px] font-semibold tabular-nums text-brand-white/40">
+                  · {activeCount}
+                </span>
+              )}
             </div>
             <button
               onClick={resetAll}
-              className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-white/40 hover:text-brand-coral transition-colors duration-200"
+              className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-white/40 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
             >
               <RotateCcw className="w-3 h-3" strokeWidth={1.5} />
               Reset
@@ -106,23 +136,55 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
             isOpen={openSections.technology}
             onToggle={() => toggleSection("technology")}
           >
-            <div className="grid grid-cols-2 gap-1.5 pt-3">
-              {TECH_OPTIONS.map((tech) => {
-                const active = selectedTech === tech.value
-                return (
+            <div className="pt-3 space-y-3">
+              {/* Search input */}
+              <div className="relative">
+                <Search
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-brand-white/40"
+                  strokeWidth={1.5}
+                />
+                <input
+                  type="text"
+                  value={techQuery}
+                  onChange={(e) => setTechQuery(e.target.value)}
+                  placeholder="Search stack..."
+                  className="w-full bg-brand-white/[0.04] border border-brand-white/10 rounded-lg pl-9 pr-8 py-2 text-[12px] text-brand-white placeholder:text-brand-white/30 focus:outline-none focus:border-brand-coral/50 transition-colors duration-200"
+                />
+                {techQuery && (
                   <button
-                    key={tech.value}
-                    onClick={() => setSelectedTech(tech.value)}
-                    className={`py-2.5 px-3 rounded-lg text-[10px] font-semibold tracking-[0.15em] uppercase transition-colors duration-200 cursor-pointer ${
-                      active
-                        ? "bg-brand-coral text-brand-white border border-brand-coral"
-                        : "bg-transparent text-brand-white/55 border border-brand-white/10 hover:border-brand-coral/40 hover:text-brand-coral"
-                    }`}
+                    onClick={() => setTechQuery("")}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-brand-white/40 hover:text-brand-coral transition-colors"
                   >
-                    {tech.label}
+                    <X className="w-3.5 h-3.5" strokeWidth={1.5} />
                   </button>
-                )
-              })}
+                )}
+              </div>
+
+              {/* Tech chips */}
+              {filteredTech.length > 0 ? (
+                <div className="grid grid-cols-2 gap-1.5">
+                  {filteredTech.map((tech) => {
+                    const active = selectedTech === tech.value
+                    return (
+                      <button
+                        key={tech.value}
+                        onClick={() => setSelectedTech(tech.value)}
+                        className={`py-2.5 px-3 rounded-lg text-[10px] font-semibold tracking-[0.15em] uppercase transition-colors duration-200 cursor-pointer ${
+                          active
+                            ? "bg-brand-coral text-brand-navy border border-brand-coral"
+                            : "bg-transparent text-brand-white/55 border border-brand-white/10 hover:border-brand-coral/40 hover:text-brand-coral"
+                        }`}
+                      >
+                        {tech.label}
+                      </button>
+                    )
+                  })}
+                </div>
+              ) : (
+                <p className="text-[11px] text-brand-white/40 italic font-serif px-1 py-2">
+                  No stack matches "{techQuery}"
+                </p>
+              )}
             </div>
           </FilterSection>
 
@@ -159,7 +221,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                     >
                       {checked && (
                         <Check
-                          className="w-2.5 h-2.5 text-brand-white"
+                          className="w-2.5 h-2.5 text-brand-navy"
                           strokeWidth={3}
                         />
                       )}
@@ -212,7 +274,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                     >
                       {checked && (
                         <Check
-                          className="w-2.5 h-2.5 text-brand-white"
+                          className="w-2.5 h-2.5 text-brand-navy"
                           strokeWidth={3}
                         />
                       )}

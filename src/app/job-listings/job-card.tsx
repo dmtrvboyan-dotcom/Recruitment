@@ -31,7 +31,7 @@ export const JobCard = memo(function JobCard({
       {/* Top row: number + status pill */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-2.5">
-          <span className="text-3xl lg:text-4xl font-black leading-[0.85] tracking-[-0.04em] text-brand-white/10 group-hover:text-brand-coral/50 transition-colors duration-300">
+          <span className="text-3xl lg:text-4xl font-black leading-[0.85] tracking-[-0.04em] text-brand-white/10 group-hover:text-brand-coral/50 transition-colors duration-300 tabular-nums">
             {number}
           </span>
           <div className="h-px w-5 bg-brand-coral/40" />
@@ -46,7 +46,7 @@ export const JobCard = memo(function JobCard({
         </span>
       </div>
 
-      <span className="font-bold italic text-[12px] tracking-[0.15em] text-brand-coral leading-none">
+      <span className=" text-[13px] font-bold tracking-[0.05em] text-brand-coral leading-none">
         — {job.seniority}
         {workModelLabel && ` · ${workModelLabel}`}
       </span>

@@ -83,7 +83,7 @@ export function JobsSection() {
         aria-hidden
         className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
-        OPEN ROLES
+        Open Roles
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
@@ -93,17 +93,18 @@ export function JobsSection() {
 
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-16">
-          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
-            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
-            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
-              Careers
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-5 sm:mb-6">
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral tabular-nums">
+              02
             </span>
-            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            <span className="block w-8 sm:w-12 h-px bg-brand-coral" />
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
+              Open Briefs
+            </span>
+            <span className="block w-8 sm:w-12 h-px bg-brand-coral" />
           </div>
           <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
-            Open
-            <br />
-            <span className="text-brand-coral">positions.</span>
+Job <span className="text-brand-coral">Listings</span>
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
@@ -125,7 +126,7 @@ export function JobsSection() {
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-6 top-1/2 -translate-y-1/2 text-brand-white/40 hover:text-brand-coral transition-colors duration-200"
+              className="absolute right-6 top-1/2 -translate-y-1/2 text-brand-white/40 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
             >
               <X className="w-5 h-5" strokeWidth={1.5} />
             </button>
@@ -171,7 +172,6 @@ export function JobsSection() {
               />
             </div>
 
-            {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
               {paginatedJobs.map((job, idx) => (
                 <JobCard
@@ -183,7 +183,6 @@ export function JobsSection() {
               ))}
             </div>
 
-            {/* Empty state */}
             {filteredJobs.length === 0 && (
               <div className="text-center py-20 lg:py-32 rounded-3xl bg-brand-white/[0.03] border border-dashed border-brand-white/15">
                 <SlidersHorizontal
@@ -193,7 +192,7 @@ export function JobsSection() {
                 <h3 className="text-base font-black uppercase tracking-tight text-brand-white mb-2">
                   No briefs match those filters
                 </h3>
-                <p className="text-sm text-brand-white/45 mb-6">
+                <p className="text-sm text-brand-white/45 mb-6 font-serif italic">
                   Try widening your search.
                 </p>
                 <button
@@ -202,7 +201,7 @@ export function JobsSection() {
                     setSelectedTech("all")
                     setSelectedSeniorities([])
                   }}
-                  className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-coral hover:text-brand-coral-hover transition-colors duration-200"
+                  className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-coral hover:text-brand-coral-hover transition-colors duration-200 cursor-pointer"
                 >
                   Reset filters
                 </button>
