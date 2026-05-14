@@ -275,7 +275,7 @@ export default function ExecutiveSearchPage() {
               <div className="lg:col-span-4">
                 <Eyebrow>Why us</Eyebrow>
                 <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight mb-4 lg:mb-6 text-balance">
-                  Precision hiring. Zero compromise.
+                  Precision hiring
                 </h2>
                 <p className="text-sm lg:text-[15px] text-brand-navy/45 leading-relaxed">
                   We don't compete on volume. Every mandate we accept gets a
