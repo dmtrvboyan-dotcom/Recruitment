@@ -41,15 +41,9 @@ export const RoleCard = memo(function RoleCard({
           </span>
           <div className="h-px w-4 sm:w-5 bg-brand-coral/40" />
         </div>
-        <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-white/30">
-          {category.categoryLabel}
-        </span>
       </div>
 
-      {/* Element code */}
-      <div className="font-black text-brand-white text-[2.75rem] sm:text-[3.5rem] leading-[0.85] tracking-[-0.04em] mb-3 sm:mb-4 group-hover:text-brand-coral transition-colors duration-500">
-        {code}
-      </div>
+  
 
       {/* Title */}
       <h3 className="font-black uppercase tracking-[-0.01em] leading-[1.05] text-brand-white text-sm sm:text-base mb-1.5">
@@ -71,15 +65,11 @@ export const RoleCard = memo(function RoleCard({
             {tech}
           </span>
         ))}
-        {remaining > 0 && (
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide text-brand-coral">
-            +{remaining}
-          </span>
-        )}
+      
       </div>
 
       {/* Mini stats */}
-      <div className="mt-auto pt-4 border-t border-brand-white/8 flex items-center justify-between">
+      {/* <div className="mt-auto pt-4 border-t border-brand-white/8 flex items-center justify-between">
         <div className="flex items-center gap-4 sm:gap-6">
           <div>
             <span className="text-base sm:text-lg font-black text-brand-white leading-none">
@@ -103,7 +93,7 @@ export const RoleCard = memo(function RoleCard({
           className="w-5 h-5 text-brand-coral opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
           strokeWidth={1.5}
         />
-      </div>
+      </div> */}
     </a>
   )
 })

@@ -17,7 +17,6 @@ export const DeepDiveSection = memo(function DeepDiveSection({
   const number = String(index + 1).padStart(2, "0")
   const sectionId = SECTION_IDS[category.id] ?? category.id
 
-  /* ── Palette tokens based on dark/light ── */
   const bg = isDark ? "bg-brand-navy" : "bg-brand-white"
   const headingColor = isDark ? "text-brand-white" : "text-brand-navy"
   const bodyColor = isDark ? "text-brand-white/65" : "text-brand-navy/65"
