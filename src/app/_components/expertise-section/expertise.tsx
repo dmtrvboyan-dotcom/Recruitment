@@ -12,7 +12,7 @@ export function ExpertiseSection() {
 
   return (
     <section
-      id="our-expertise"
+      id="expertise-services"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
     >
       <div

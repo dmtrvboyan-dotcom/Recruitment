@@ -19,11 +19,13 @@ import {
   MeetTheTeam,
   ExpertiseSection,
 } from "@/app/_components"
+import { HashCleaner } from "../components/layout/hash-cleaner"
 
 
 export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
+      <HashCleaner />
 
       <Header />
       <SocialSidebar />

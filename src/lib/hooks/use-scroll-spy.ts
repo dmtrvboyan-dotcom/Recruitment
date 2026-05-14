@@ -5,11 +5,16 @@ import { useEffect, useRef } from "react"
 
 interface UseScrollSpyOptions {
   sectionIds: string[]
-  /** Sticky header height in px — the activation zone starts below this */
   headerOffset?: number
+  /** Clear the hash when no tracked section is in the activation zone. Default: true */
+  clearWhenOutside?: boolean
 }
 
-export function useScrollSpy({ sectionIds, headerOffset = 80 }: UseScrollSpyOptions) {
+export function useScrollSpy({
+  sectionIds,
+  headerOffset = 80,
+  clearWhenOutside = true,
+}: UseScrollSpyOptions) {
   const activeIdRef = useRef<string | null>(null)
 
   useEffect(() => {
@@ -23,16 +28,22 @@ export function useScrollSpy({ sectionIds, headerOffset = 80 }: UseScrollSpyOpti
 
     const intersectingIds = new Set<string>()
 
-    const updateHash = (id: string) => {
+    const replaceUrl = (hash: string) => {
+      const url = `${window.location.pathname}${window.location.search}${hash}`
+      window.history.replaceState(window.history.state, "", url)
+    }
+
+    const setActive = (id: string) => {
       if (activeIdRef.current === id) return
       activeIdRef.current = id
-
       const newHash = `#${id}`
-      if (window.location.hash === newHash) return
+      if (window.location.hash !== newHash) replaceUrl(newHash)
+    }
 
-      const url = `${window.location.pathname}${window.location.search}${newHash}`
-      // replaceState: no scroll, no history pollution, no route change
-      window.history.replaceState(window.history.state, "", url)
+    const clearActive = () => {
+      if (activeIdRef.current === null) return
+      activeIdRef.current = null
+      if (window.location.hash) replaceUrl("")
     }
 
     const observer = new IntersectionObserver(
@@ -43,18 +54,17 @@ export function useScrollSpy({ sectionIds, headerOffset = 80 }: UseScrollSpyOpti
           else intersectingIds.delete(id)
         }
 
-        // Pick the first intersecting section in document order
         const activeId = sectionIds.find((id) => intersectingIds.has(id))
-        if (activeId) updateHash(activeId)
+        if (activeId) setActive(activeId)
+        else if (clearWhenOutside) clearActive()
       },
       {
-        // Thin activation band just below the sticky header
         rootMargin: `-${headerOffset}px 0px -85% 0px`,
         threshold: 0,
-      }
+      },
     )
 
     sections.forEach((section) => observer.observe(section))
     return () => observer.disconnect()
-  }, [sectionIds, headerOffset])
+  }, [sectionIds, headerOffset, clearWhenOutside])
 }
