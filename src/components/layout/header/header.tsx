@@ -35,8 +35,7 @@ export function Header() {
   useEscapeKey(closeMenu)
   useBodyScrollLock(isMenuOpen)
 
-  // Click outside the desktop nav closes any open dropdown (no-op when
-  // the mobile drawer is open — that has its own backdrop).
+
   useClickOutside(navRef, () => {
     if (!isMenuOpen) setOpenDropdown(null)
   })

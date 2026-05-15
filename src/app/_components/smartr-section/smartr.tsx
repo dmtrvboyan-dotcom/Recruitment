@@ -87,10 +87,8 @@ export const SmartRSection = memo(function SmartRSection() {
   return (
     <section
       ref={sectionRef}
-      id="smartr"
       className="relative py-20 sm:py-28 lg:py-36 bg-brand-navy overflow-hidden"
     >
-
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"

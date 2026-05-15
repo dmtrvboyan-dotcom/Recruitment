@@ -45,7 +45,7 @@ export const DesktopDropdown = memo(function DesktopDropdown({
               key={subItem.label}
               role="menuitem"
               onClick={() => onNavigate(subItem.href, subItem.openInNewTab)}
-              className="group/item w-full text-left px-5 py-2.5 text-sm text-brand-navy/80 hover:text-brand-coral hover:bg-brand-bg transition-colors cursor-pointer tracking-wide flex items-center gap-3"
+              className="font-semibold group/item  w-full text-left px-5 py-2.5 text-sm text-brand-navy/80 hover:text-brand-coral hover:bg-brand-bg transition-colors cursor-pointer tracking-wide flex items-center gap-3 leading-tight"
             >
               {Icon && (
                 <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-brand-navy/5 group-hover/item:bg-brand-coral/10 transition-colors">

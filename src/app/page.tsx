@@ -1,13 +1,6 @@
-import { Suspense } from "react"
-
+// app/page.tsx (or wherever this lives)
 import { Header } from "@/components/layout/header/header"
-
-import {
-  Footer,
-  ScrollReveal,
-  SocialSidebar,
-} from "@/components/layout"
-
+import { Footer, ScrollReveal, SocialSidebar } from "@/components/layout"
 import {
   Hero,
   Services,
@@ -20,53 +13,60 @@ import {
   ExpertiseSection,
 } from "@/app/_components"
 import { HashCleaner } from "../components/layout/hash-cleaner"
+import { SectionNav } from "@/components/navigation/section-nav"
+import { BackToTop } from "@/components/navigation/back-top-top"
 
+
+const sections = [
+  { id: "hero", label: "Overview" },
+  { id: "services", label: "Services" },
+  { id: "team", label: "Our Team" },
+  { id: "expertise", label: "Expertise" },
+  { id: "smart-r", label: "Smart-R" },
+  { id: "faq", label: "FAQ" },
+]
 
 export default function LandingPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-x-hidden">
       <HashCleaner />
-
       <Header />
       <SocialSidebar />
 
-      <ScrollReveal>
-        <Hero />
-      </ScrollReveal>
+      <section id="hero">
+        <ScrollReveal><Hero /></ScrollReveal>
+      </section>
 
-      <ScrollReveal>
-        <TrustedBySection />
-      </ScrollReveal>
+      <ScrollReveal><TrustedBySection /></ScrollReveal>
 
-      <ScrollReveal>
-        <Services />
-      </ScrollReveal>
+      <section id="services">
+        <ScrollReveal><Services /></ScrollReveal>
+      </section>
 
-      <ScrollReveal>
-        <SpecializedRecruitment />
-      </ScrollReveal>
+      <ScrollReveal><SpecializedRecruitment /></ScrollReveal>
 
-      <ScrollReveal>
-        <CompaniesSection />
-      </ScrollReveal>
+      <ScrollReveal><CompaniesSection /></ScrollReveal>
 
-      <ScrollReveal>
-        <MeetTheTeam />
-      </ScrollReveal>
+      <section id="team">
+        <ScrollReveal><MeetTheTeam /></ScrollReveal>
+      </section>
 
-      <ScrollReveal>
-        <ExpertiseSection />
-      </ScrollReveal>
+      <section id="expertise">
+        <ScrollReveal><ExpertiseSection /></ScrollReveal>
+      </section>
 
-      <ScrollReveal>
-        <SmartRSection />
-      </ScrollReveal>
+      <section id="smart-r">
+        <ScrollReveal><SmartRSection /></ScrollReveal>
+      </section>
 
-      <ScrollReveal>
-        <FAQSection />
-      </ScrollReveal>
+      <section id="faq">
+        <ScrollReveal><FAQSection /></ScrollReveal>
+      </section>
 
       <Footer />
+
+      <SectionNav sections={sections} headerOffset={80} />
+      <BackToTop hideOnMobile />
     </main>
   )
 }

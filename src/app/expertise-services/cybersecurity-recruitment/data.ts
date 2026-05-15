@@ -86,4 +86,8 @@ export const CTA_DATA: CtaData = {
     text: "Start Hiring",
     href: "/contacts",
   },
+  secondaryButton: {
+    text: "Talk to an Expert",
+    href: "/#companies",
+  },
 }
