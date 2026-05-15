@@ -1,6 +1,6 @@
-import { SocialSidebar, Footer, Breadcrumb } from "@/components/layout"
+import { SocialSidebar, Footer } from "@/components/layout"
 import { Header } from "@/components/layout/header/header"
-
+import { BackToTop } from "@/components/navigation/back-top-top"
 
 
 export default function ServicesLayout({
@@ -10,12 +10,12 @@ export default function ServicesLayout({
 }) {
     return (
         <div className="relative min-h-screen">
-            {/* <DynamicBackground /> */}
             <Header />
             <SocialSidebar />
-            {/* <PageBackground /> */}
             <main>{children}</main>
             <Footer />
+
+            <BackToTop hideOnMobile />
         </div>
     )
 }

@@ -38,6 +38,8 @@ import {
 } from "./data"
 import { TeamCarousel } from "../_components/team-section/team-carousel"
 import { PeopleTestimonialsSection } from "./testimonials"
+import { SectionNav } from "@/components/navigation/section-nav"
+import { BackToTop } from "@/components/navigation/back-top-top"
 
 
 function useInView(threshold = 0.15) {
@@ -55,6 +57,8 @@ function useInView(threshold = 0.15) {
   }, [threshold])
   return { ref, visible }
 }
+
+
 
 const HeroSection = memo(function HeroSection() {
   return (
@@ -570,57 +574,57 @@ const OpportunitiesSection = memo(function OpportunitiesSection() {
 /* ─────────────────────────── TESTIMONIAL ─────────────────────────── */
 
 const TestimonialSection = memo(function TestimonialSection() {
-    const { ref, visible } = useInView(0.2)
+  const { ref, visible } = useInView(0.2)
 
-    return (
-      <section className="relative w-full bg-brand-white overflow-hidden">
-        <div className="max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
-          <div
-            ref={ref}
-            className="relative rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-14 py-12 sm:py-16"
+  return (
+    <section className="relative w-full bg-brand-white overflow-hidden">
+      <div className="max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
+        <div
+          ref={ref}
+          className="relative rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-14 py-12 sm:py-16"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(32px)",
+            transition: "opacity 0.8s ease, transform 0.8s ease",
+          }}
+        >
+          <div className="absolute -top-20 -left-20 w-72 h-72 bg-brand-coral/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+          {/* Decorative quote mark */}
+          <div className="relative text-[8rem] font-black text-brand-coral/15 leading-none mb-4 -mt-4">&ldquo;</div>
+
+          <blockquote
+            className="relative text-xl sm:text-2xl lg:text-3xl font-bold text-brand-white leading-snug tracking-tight max-w-3xl -mt-8"
             style={{
               opacity: visible ? 1 : 0,
-              transform: visible ? "translateY(0)" : "translateY(32px)",
-              transition: "opacity 0.8s ease, transform 0.8s ease",
+              transition: "opacity 0.8s ease 300ms",
             }}
           >
-            <div className="absolute -top-20 -left-20 w-72 h-72 bg-brand-coral/10 rounded-full blur-2xl pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
+            {testimonialData.quote}
+          </blockquote>
 
-            {/* Decorative quote mark */}
-            <div className="relative text-[8rem] font-black text-brand-coral/15 leading-none mb-4 -mt-4">&ldquo;</div>
+          <p
+            className="mt-8 text-xs font-semibold tracking-[0.2em] uppercase text-brand-coral"
+            style={{
+              opacity: visible ? 1 : 0,
+              transition: "opacity 0.8s ease 500ms",
+            }}
+          >
+            {testimonialData.author}
+          </p>
 
-            <blockquote
-              className="relative text-xl sm:text-2xl lg:text-3xl font-bold text-brand-white leading-snug tracking-tight max-w-3xl -mt-8"
-              style={{
-                opacity: visible ? 1 : 0,
-                transition: "opacity 0.8s ease 300ms",
-              }}
-            >
-              {testimonialData.quote}
-            </blockquote>
-
-            <p
-              className="mt-8 text-xs font-semibold tracking-[0.2em] uppercase text-brand-coral"
-              style={{
-                opacity: visible ? 1 : 0,
-                transition: "opacity 0.8s ease 500ms",
-              }}
-            >
-              {testimonialData.author}
-            </p>
-
-            {/* Decorative dot grid */}
-            <div className="absolute top-8 right-8 hidden sm:grid grid-cols-5 gap-2 opacity-15">
-              {Array.from({ length: 25 }).map((_, i) => (
-                <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
-              ))}
-            </div>
+          {/* Decorative dot grid */}
+          <div className="absolute top-8 right-8 hidden sm:grid grid-cols-5 gap-2 opacity-15">
+            {Array.from({ length: 25 }).map((_, i) => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
+            ))}
           </div>
         </div>
-      </section>
-    )
-  })
+      </div>
+    </section>
+  )
+})
 
 /* ─────────────────────────── FAQ ─────────────────────────── */
 
@@ -749,21 +753,62 @@ const CTASection = memo(function CTASection() {
   )
 })
 
-/* ─────────────────────────── PAGE ─────────────────────────── */
 
 export default function CandidatesPage() {
+
+  const sections = [
+    { id: "hero", label: "Overview" },
+    { id: "how", label: "How it Works for You" },
+    { id: "team", label: "See Who You Talk With" },
+    { id: "goals", label: "What we Focus on" },
+    { id: "why", label: "Why Should You Care?" },
+    { id: "opportunities", label: "What We Can Offer" },
+    { id: "testimonials", label: "What Others are Saying" },
+    { id: "faq", label: "Have any Questions?" },
+  ];
+
   return (
-    <>
-      <HeroSection />
-      <HowItWorksSection />
-      <MeetTheTeamSection />
-      <YourGoalsSection />
-      <WhatYouGetSection />
-      <OpportunitiesSection />
-      <PeopleTestimonialsSection />
+    <main className="relative min-h-screen overflow-x-hidden">
+
+      <section id="hero">
+        <HeroSection />
+      </section>
+
+      <section id="how">
+        <HowItWorksSection />
+      </section>
+
+      <section id="team">
+        <MeetTheTeamSection />
+      </section>
+
+      <section id="goals">
+        <YourGoalsSection />
+      </section>
+
+      <section id="why">
+        <WhatYouGetSection />
+      </section>
+
+      <section id="opportunities">
+        <OpportunitiesSection />
+      </section>
+
+      <section id="testimonials">
+        <PeopleTestimonialsSection />
+      </section>
+
       <TestimonialSection />
-      <FAQSection />
+
+      <section id="faq">
+        <FAQSection />
+      </section>
+
       <CTASection />
-    </>
+
+
+      <SectionNav sections={sections} headerOffset={80} />
+      <BackToTop hideOnMobile />
+    </main>
   )
 }
