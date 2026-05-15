@@ -13,7 +13,6 @@ export async function POST(req: Request) {
       )
     }
 
-    // Verify with Google
     const verifyRes = await fetch(
       "https://www.google.com/recaptcha/api/siteverify",
       {
@@ -31,20 +30,12 @@ export async function POST(req: Request) {
 
     const verifyData = await verifyRes.json()
 
-    console.log("reCAPTCHA:", verifyData)
-
-    // Score check
-    if (
-      !verifyData.success ||
-      verifyData.score < 0.5
-    ) {
+    if (!verifyData.success) {
       return NextResponse.json(
         { error: "Bot detected" },
         { status: 403 }
       )
     }
-
-    // Continue with email/db logic here
 
     return NextResponse.json({
       success: true,

@@ -1,6 +1,6 @@
 "use client"
 
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
+import ReCAPTCHA from "react-google-recaptcha";
 
 import * as React from "react"
 import { useForm } from "react-hook-form"
@@ -50,7 +50,6 @@ function SectionMarker({ num, label }: { num: string; label: string }) {
   )
 }
 
-// Reusable label
 const fieldLabelClass =
   "text-[10px] font-bold uppercase tracking-[0.2em] text-brand-navy/60 mb-2 block"
 
@@ -62,10 +61,9 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const [isSubmitted, setIsSubmitted] = React.useState(false)
   const [interest, setInterest] = React.useState<Interest>("hiring")
   const [tags, setTags] = React.useState<string[]>([])
-  const [file, setFile] = React.useState<File | null>(null)
-
-
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [file, setFile] = React.useState<File | null>(null);
+  const [captchaToken, setCaptchaToken] = React.useState<string | null>(null);
+  const recaptchaRef = React.useRef<ReCAPTCHA>(null)
 
   const handleInterestChange = (v: string) => {
     setInterest(v as Interest)
@@ -83,59 +81,46 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
     setTags([])
   }
 
-
   async function onSubmit(data: ContactFormData) {
-    if (!executeRecaptcha) {
-      alert("reCAPTCHA not ready")
+
+    if (!captchaToken) {
+      alert("Please complete the reCAPTCHA")
       return
     }
 
     setIsSubmitting(true)
-
     try {
-      const token = await executeRecaptcha("contact_form")
-
       const formData = new FormData()
-
-      Object.entries(data).forEach(([key, val]) =>
-        formData.append(key, val)
-      )
-
+      Object.entries(data).forEach(([key, val]) => formData.append(key, val))
       formData.append("mode", mode)
-
-      formData.append("recaptchaToken", token)
-
       if (mode === "company") {
         formData.append("interest", interest)
         formData.append("tags", JSON.stringify(tags))
       }
+      if (mode === "candidate" && file) formData.append("cv", file);
 
-      if (mode === "candidate" && file) {
-        formData.append("cv", file)
-      }
+      formData.append("recaptchaToken", captchaToken) 
 
-      console.log("reCAPTCHA token:", token)
-      
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      })
-
-      if (!response.ok) {
-        throw new Error("Failed to send message")
-      }
+      const response = await fetch("/api/contact", { method: "POST", body: formData })
+      if (!response.ok) throw new Error("Failed to send message")
 
       setIsSubmitted(true)
       form.reset()
       setFile(null)
-      setTags([])
+      setTags([]);
+      recaptchaRef.current?.reset();
+      setCaptchaToken(null)   
     } catch (error) {
       console.error(error)
       alert("Failed to send message. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
-  }
+  };
+
+  // At the top of your ContactForm component, after the hooks:
+const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+if (!siteKey) throw new Error("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not set")
 
   if (isSubmitted) {
     return (
@@ -296,8 +281,8 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                 aria-label="Upload CV"
               />
               <div className={`relative flex items-center gap-4 p-5 rounded-xl border-2 border-dashed transition-all ${file
-                  ? "border-brand-teal bg-brand-teal/5"
-                  : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
+                ? "border-brand-teal bg-brand-teal/5"
+                : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
                 }`}>
                 <span className={`flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
                   }`}>
@@ -326,6 +311,12 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
             label="Security check"
           />
 
+          <div className="flex justify-center">
+           <ReCAPTCHA
+  sitekey={siteKey}
+  onChange={(token) => setCaptchaToken(token)}
+/>
+          </div>
         </section>
 
         <div className="pt-2">
