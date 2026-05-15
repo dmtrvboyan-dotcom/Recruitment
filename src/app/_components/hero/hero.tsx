@@ -21,7 +21,7 @@ const StatBlock = memo(function StatBlock({
   isMobileTop?: boolean
 }) {
   const { ref, displayValue } = useAnimatedCounter(value)
-  
+
   return (
     <div
       ref={ref}
@@ -56,20 +56,7 @@ export const Hero = memo(function Hero() {
     <section
       className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white"
     >
-      <div
-        aria-hidden
-        className="absolute top-0 left-0 right-0 pointer-events-none"
-        style={{
-          height: "70%",
-          backgroundImage: `repeating-linear-gradient(
-        -62deg,
-        transparent,
-        transparent 70px,
-        rgba(114,145,199,0.035) 70px,
-        rgba(114,145,199,0.035) 71px
-      )`,
-        }}
-      />
+    
 
       {/* Top glow */}
       <div
@@ -118,7 +105,7 @@ export const Hero = memo(function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
             <Button
               onClick={() => handleNavigate("#services")}
-              className="w-full sm:w-auto group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-7 sm:px-8 py-5 sm:py-6 text-sm font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
+              className="w-full sm:w-auto h-14 group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-7 text-sm font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer"
             >
               <span className="flex items-center justify-center gap-2.5">
                 Learn More
@@ -126,15 +113,12 @@ export const Hero = memo(function Hero() {
               </span>
             </Button>
 
-            <Button
-              asChild
-              variant="outline"
-              className="w-full sm:w-auto bg-brand-white text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-brand-white px-7 sm:px-8 py-5 sm:py-6 text-sm font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
+            <Link
+              href="/job-listings"
+              className="w-full sm:w-auto h-14 inline-flex items-center justify-center bg-brand-white text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-brand-white px-7 text-sm font-semibold tracking-[0.22em] uppercase rounded-full"
             >
-              <Link href="/job-listings">
-                Find a job
-              </Link>
-            </Button>
+              Find a Job
+            </Link>
           </div>
 
         </div>

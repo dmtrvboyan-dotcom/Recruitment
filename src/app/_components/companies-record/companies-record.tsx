@@ -66,20 +66,7 @@ function MarqueeRow({
 export const TrustedBySection = memo(function TrustedBySection() {
   return (
     <section className="relative py-16 sm:py-20 lg:py-28 bg-brand-navy overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(114,145,199,0.05) 70px,
-            rgba(114,145,199,0.05) 71px
-          )`,
-        }}
-      />
-
+     
       <div
         aria-hidden
         className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-white-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"

@@ -67,7 +67,7 @@ export function CompaniesSection() {
           <Button
             asChild
             variant="outline"
-            className="w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-white px-8 py-6 sm:px-10 sm:py-7 text-sm font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95"
+            className="w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-white px-8 py-6 sm:px-10 sm:py-7 text-sm  tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95"
           >
             <Link href="/process" rel="noopener noreferrer">
               learn more how we work

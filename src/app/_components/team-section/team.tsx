@@ -20,19 +20,7 @@ export function MeetTheTeam() {
       id="about"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden"
     >
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(114,145,199,0.05) 70px,
-            rgba(114,145,199,0.05) 71px
-          )`,
-        }}
-      />
+
 
       <div
         aria-hidden
@@ -111,17 +99,19 @@ export function MeetTheTeam() {
             Get to know the people behind every placement.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-            <Link href="/about">
-              <button className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 cursor-pointer">
-                Learn more about us
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+
+
+            <Link
+              href="/about"
+              className="w-full group sm:w-auto h-14 inline-flex items-center justify-center bg-brand-coral text-brand-white border-2 border-brand-navy hover:bg-brand-coral-hover hover:text-brand-white px-7 text-sm font-semibold tracking-[0.22em] uppercase rounded-full duration-200 "
+            >Learn more about us
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
-            <Link href="/candidates#client-testimonials">
-              <button className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-transparent border border-brand-white/25 hover:bg-brand-white/10 text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 cursor-pointer">
-                Candidate feedback
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+            <Link
+              href="/candidates#client-testimonials"
+              className="w-full group sm:w-auto h-14 inline-flex items-center justify-center bg-brand-navy text-brand-white border border-brand-white  hover:bg-brand-coral-hover/25 hover:text-brand-white px-7 text-sm font-semibold tracking-[0.22em] uppercase rounded-full duration-200 "
+            >                Candidate feedback
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
         </div>

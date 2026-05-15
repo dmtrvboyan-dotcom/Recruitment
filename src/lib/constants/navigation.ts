@@ -190,6 +190,7 @@ export const NAV_ITEMS: NavItem[] = [
     dropdownItems: [
       { label: "Why us?", icon: "Star", href: "/candidates" },
       { label: "See our jobs", icon: "Briefcase", href: "/job-listings" },
+      { label: "Join our b2b/freelance network ", icon: "Briefcase", href: "/join-talent-network" },
     ],
   },
   {

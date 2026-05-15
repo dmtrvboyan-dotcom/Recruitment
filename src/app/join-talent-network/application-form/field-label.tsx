@@ -1,0 +1,40 @@
+"use client"
+
+import { memo, type ReactNode } from "react"
+import type { LucideIcon } from "lucide-react"
+import { Label } from "@/components/ui/label"
+
+export const fieldInputClass =
+  "w-full h-auto bg-brand-white/[0.04] border border-brand-white/10 rounded-xl px-4 py-3.5 text-sm text-brand-white placeholder:text-brand-white/30 outline-none focus-visible:border-brand-coral focus-visible:bg-brand-white/[0.06] focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors duration-200"
+
+export const selectContentClass =
+  "bg-brand-navy border-brand-white/15 text-brand-white"
+
+export const selectItemClass =
+  "focus:bg-brand-coral/20 focus:text-brand-white data-[state=checked]:text-brand-coral"
+
+
+interface FieldLabelProps {
+  icon: LucideIcon
+  htmlFor?: string
+  required?: boolean
+  children: ReactNode
+}
+
+export const FieldLabel = memo(function FieldLabel({
+  icon: Icon,
+  htmlFor,
+  required,
+  children,
+}: FieldLabelProps) {
+  return (
+    <Label
+      htmlFor={htmlFor}
+      className="flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-brand-white/70 mb-2.5"
+    >
+      <Icon className="w-3.5 h-3.5 text-brand-coral" strokeWidth={2} />
+      {children}
+      {required && <span className="text-brand-coral">*</span>}
+    </Label>
+  )
+})
