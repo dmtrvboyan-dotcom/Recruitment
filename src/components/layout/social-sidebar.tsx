@@ -1,79 +1,143 @@
 "use client"
 
 import { memo } from "react"
-import { Linkedin, Facebook } from "lucide-react"
+import { Linkedin, Instagram, Facebook, Mail } from "lucide-react"
 import { COMPANY_INFO } from "@/lib/constants/footer"
 
-/**
- * Social link component
- */
+/* ---------------------------------------------------------------------------
+ * Internal: a single icon link with a subtle hover affordance.
+ * `mailto:` hrefs skip target/rel so the OS handles them natively.
+ * ------------------------------------------------------------------------- */
+
+interface SocialLinkProps {
+  href: string
+  label: string
+  icon: typeof Linkedin
+  /** Lucide icon size in px. Default 22. */
+  size?: number
+  /** Override the default 40 × 40 hit area. */
+  wrapperClass?: string
+}
+
 const SocialLink = memo(function SocialLink({
   href,
   label,
   icon: Icon,
-  size = 28,
-}: {
-  href: string
-  label: string
-  icon: typeof Linkedin
-  size?: number
-}) {
+  size = 22,
+  wrapperClass,
+}: SocialLinkProps) {
+  const isMailto = href.startsWith("mailto:")
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-[#085689] hover:text-[#78B6D9] transition-colors duration-200"
+      target={isMailto ? undefined : "_blank"}
+      rel={isMailto ? undefined : "noopener noreferrer"}
       aria-label={label}
+      className={cn(
+        "inline-flex items-center justify-center rounded-full",
+        "text-[#085689] transition-colors duration-200",
+        "hover:bg-[#085689]/5 hover:text-[#78B6D9]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#085689]/40",
+        wrapperClass ?? "h-10 w-10",
+      )}
     >
-      <Icon size={size} />
+      <Icon size={size} aria-hidden />
     </a>
   )
 })
 
-/**
- * Social sidebar component for desktop and bottom bar for mobile
- */
+/* ---------------------------------------------------------------------------
+ * <SocialSidebar /> — desktop-only vertical brand rail (lg+).
+ *
+ * Hidden on mobile/tablet so the section-nav FAB and back-to-top button keep
+ * the bottom of the viewport clear. Mobile users see <SocialLinks /> in the
+ * Footer instead.
+ * ------------------------------------------------------------------------- */
+
 export function SocialSidebar() {
   return (
-    <>
-      {/* Desktop Sidebar */}
-      <div className="hidden 2xl:flex fixed left-15 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-6">
-        <SocialLink href={COMPANY_INFO.linkedinUrl} label="LinkedIn" icon={Linkedin} />
-        <SocialLink href={COMPANY_INFO.facebookUrl} label="Facebook" icon={Facebook} />
+    <aside
+      aria-label="Brand and social links"
+      className="hidden lg:flex fixed left-6 top-1/2 z-30 -translate-y-1/2 flex-col items-center gap-2"
+    >
+      <SocialLink
+        href={COMPANY_INFO.linkedinUrl}
+        label="LinkedIn"
+        icon={Linkedin}
+      />
+      <SocialLink
+        href={COMPANY_INFO.instagramUrl}
+        label="Instagram"
+        icon={Instagram}
+      />
+      <SocialLink
+        href={COMPANY_INFO.facebookUrl}
+        label="Facebook"
+        icon={Facebook}
+      />
+      <SocialLink
+        href={`mailto:${COMPANY_INFO.email}`}
+        label="Email"
+        icon={Mail}
+      />
 
-        <div className="w-px h-20 bg-[#085689]/20 my-2" />
+      <span aria-hidden className="my-3 h-16 w-px bg-[#085689]/20" />
 
-        <span
-          className="text-black text-md font-bold tracking-[3px] uppercase"
-          style={{ writingMode: "sideways-lr", textOrientation: "mixed" }}
-        >
-          Recruitment agency
-        </span>
-      </div>
-
-      {/* Mobile Bottom Bar */}
-      <div className="2xl:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#f3f3f3] border-slate-200 py-2">
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-center gap-8">
-          <SocialLink
-            href={COMPANY_INFO.linkedinUrl}
-            label="LinkedIn"
-            icon={Linkedin}
-            size={25}
-          />
-
-          <span className="text-black text-sm font-bold tracking-widest uppercase">
-            Recruitment agency
-          </span>
-
-          <SocialLink
-            href={COMPANY_INFO.facebookUrl}
-            label="Facebook"
-            icon={Facebook}
-            size={25}
-          />
-        </div>
-      </div>
-    </>
+      {/* Original text styling preserved. */}
+      <span
+        className="text-md font-bold tracking-[3px] uppercase text-black"
+        style={{ writingMode: "sideways-lr", textOrientation: "mixed" }}
+      >
+        Recruitment agency
+      </span>
+    </aside>
   )
+}
+
+/* ---------------------------------------------------------------------------
+ * <SocialLinks /> — non-fixed inline cluster for the Footer.
+ *
+ * Smaller hit area than the sidebar version; intended to live in the footer
+ * row so mobile users still get social access without a sticky bottom bar.
+ * ------------------------------------------------------------------------- */
+
+export function SocialLinks({ className }: { className?: string }) {
+  return (
+    <div className={cn("inline-flex items-center gap-1", className)}>
+      <SocialLink
+        href={COMPANY_INFO.linkedinUrl}
+        label="LinkedIn"
+        icon={Linkedin}
+        size={18}
+        wrapperClass="h-9 w-9"
+      />
+      <SocialLink
+        href={COMPANY_INFO.instagramUrl}
+        label="Instagram"
+        icon={Instagram}
+        size={18}
+        wrapperClass="h-9 w-9"
+      />
+      <SocialLink
+        href={COMPANY_INFO.facebookUrl}
+        label="Facebook"
+        icon={Facebook}
+        size={18}
+        wrapperClass="h-9 w-9"
+      />
+      <SocialLink
+        href={`mailto:${COMPANY_INFO.email}`}
+        label="Email"
+        icon={Mail}
+        size={18}
+        wrapperClass="h-9 w-9"
+      />
+    </div>
+  )
+}
+
+/* ------------------------------------------------------------------------- */
+
+function cn(...classes: Array<string | false | null | undefined>): string {
+  return classes.filter(Boolean).join(" ")
 }

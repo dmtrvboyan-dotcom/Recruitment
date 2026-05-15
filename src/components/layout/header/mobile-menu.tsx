@@ -1,8 +1,17 @@
 "use client"
 
-import { Mail, Phone, X } from "lucide-react"
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  X,
+  type LucideIcon,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { NAV_ITEMS } from "@/lib/constants/navigation"
+import { COMPANY_INFO } from "@/lib/constants/footer"
 import { EMAIL_HREF, PHONE_HREF, PHONE_NUMBER } from "./constants"
 import { MobileDropdown } from "./mobile-dropdown"
 import { MobileMegaMenu } from "./mobile-mega-menu"
@@ -13,6 +22,34 @@ interface MobileMenuProps {
   onClose: () => void
   onToggleDropdown: (label: string) => void
   onNavigate: (href: string, openInNewTab?: boolean) => void
+}
+
+/* Small helper so the four icon links share one source of truth. */
+const ICON_LINK_CLASS =
+  "flex items-center justify-center w-8 h-8 rounded-full border border-white/20 text-white/60 hover:text-white hover:border-brand-coral transition-colors"
+
+function IconLink({
+  href,
+  label,
+  icon: Icon,
+  external = false,
+}: {
+  href: string
+  label: string
+  icon: LucideIcon
+  external?: boolean
+}) {
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      aria-label={label}
+      className={ICON_LINK_CLASS}
+    >
+      <Icon size={14} />
+    </a>
+  )
 }
 
 export function MobileMenu({
@@ -93,7 +130,12 @@ export function MobileMenu({
           </div>
 
           <div className="mt-auto pt-10 flex flex-col gap-5">
-            <div className="flex items-center gap-3">
+            {/*
+              `items-end` aligns the phone row (single line) with the BOTTOM of
+              the icon column on the right, so the phone and the email icon
+              share the same baseline while the socials stack above.
+            */}
+            <div className="flex items-end gap-3">
               <a
                 href={PHONE_HREF}
                 aria-label="Call us"
@@ -105,13 +147,32 @@ export function MobileMenu({
                 <span>{PHONE_NUMBER}</span>
               </a>
 
-              <a
-                href={EMAIL_HREF}
-                aria-label="Send us an email"
-                className="ml-auto flex items-center justify-center w-8 h-8 rounded-full border border-white/20 text-white/60 hover:text-white hover:border-brand-coral transition-colors"
-              >
-                <Mail size={14} />
-              </a>
+              {/* Stacked column: LinkedIn → Instagram → Facebook → Email */}
+              <div className="ml-auto flex flex-col gap-2">
+                <IconLink
+                  href={COMPANY_INFO.linkedinUrl}
+                  label="LinkedIn"
+                  icon={Linkedin}
+                  external
+                />
+                <IconLink
+                  href={COMPANY_INFO.instagramUrl}
+                  label="Instagram"
+                  icon={Instagram}
+                  external
+                />
+                <IconLink
+                  href={COMPANY_INFO.facebookUrl}
+                  label="Facebook"
+                  icon={Facebook}
+                  external
+                />
+                <IconLink
+                  href={EMAIL_HREF}
+                  label="Send us an email"
+                  icon={Mail}
+                />
+              </div>
             </div>
 
             <Button

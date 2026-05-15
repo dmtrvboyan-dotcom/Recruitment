@@ -68,8 +68,10 @@ export const COMPANY_INFO = {
   location: "Sofia, Bulgaria",
   description:
     "IT recruitment agency helping small, medium, start-up businesses connect with the right IT talent in Bulgaria and beyond.",
-  phoneNumber: "+359 876 449 229‬",   // ← replace with your real number
-  phoneHref: "tel:+359 876 449 229‬",    // ← replace with your real number
+  phoneNumber: "+359 876 449 229‬",   
+  phoneHref: "tel:+359 876 449 229‬", 
   linkedinUrl: "https://bg.linkedin.com/company/recruitment-bg",
+  instagramUrl:  "https://www.facebook.com/recruitment.bg.official/",
   facebookUrl: "https://www.facebook.com/recruitment.bg.official/",
+  email: "office@recruitment.bg",
 }
