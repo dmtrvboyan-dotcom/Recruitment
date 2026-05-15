@@ -19,7 +19,10 @@ import { BackToTop } from "@/components/navigation/back-to-top"
 
 const sections = [
   { id: "hero", label: "Overview" },
+  { id: "trust", label: "Our Partners" },
   { id: "services", label: "Services" },
+  { id: "specialized", label: "Specialized" },
+  { id: "why", label: "Why us" },
   { id: "team", label: "Our Team" },
   { id: "expertise", label: "Expertise" },
   { id: "smart-r", label: "Smart-R" },
@@ -37,15 +40,29 @@ export default function LandingPage() {
         <ScrollReveal><Hero /></ScrollReveal>
       </section>
 
-      <ScrollReveal><TrustedBySection /></ScrollReveal>
-
-      <section id="services">
-        <ScrollReveal><Services /></ScrollReveal>
+      <section id="trust">
+        <ScrollReveal>
+          <TrustedBySection />
+        </ScrollReveal>
       </section>
 
-      <ScrollReveal><SpecializedRecruitment /></ScrollReveal>
+      <section id="services">
+        <ScrollReveal>
+          <Services />
+        </ScrollReveal>
+      </section>
 
-      <ScrollReveal><CompaniesSection /></ScrollReveal>
+      <section id="specialized">
+        <ScrollReveal>
+          <SpecializedRecruitment />
+        </ScrollReveal>
+      </section>
+
+      <section id="why">
+        <ScrollReveal>
+          <CompaniesSection />
+        </ScrollReveal>
+      </section>
 
       <section id="team">
         <ScrollReveal><MeetTheTeam /></ScrollReveal>
