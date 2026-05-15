@@ -1,5 +1,7 @@
 "use client"
 
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
+
 import * as React from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -19,9 +21,6 @@ type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT"
 interface ContactFormProps {
   mode?: Mode
 }
-
-const CAPTCHA_QUESTION = "8 + 5"
-const CAPTCHA_ANSWER = "13"
 
 const SHARED_TAGS = ["urgent", "follow-up", "question", "custom-request"]
 
@@ -64,8 +63,9 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const [interest, setInterest] = React.useState<Interest>("hiring")
   const [tags, setTags] = React.useState<string[]>([])
   const [file, setFile] = React.useState<File | null>(null)
-  const [captchaInput, setCaptchaInput] = React.useState("")
-  const [captchaError, setCaptchaError] = React.useState("")
+
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleInterestChange = (v: string) => {
     setInterest(v as Interest)
@@ -79,36 +79,54 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
   const resetForm = () => {
     setIsSubmitted(false)
-    setCaptchaInput("")
-    setCaptchaError("")
     setFile(null)
     setTags([])
   }
 
+
   async function onSubmit(data: ContactFormData) {
-    setCaptchaError("")
-    if (captchaInput.trim() !== CAPTCHA_ANSWER) {
-      setCaptchaError("Incorrect answer. Please try again.")
+    if (!executeRecaptcha) {
+      alert("reCAPTCHA not ready")
       return
     }
 
     setIsSubmitting(true)
+
     try {
+      const token = await executeRecaptcha("contact_form")
+
       const formData = new FormData()
-      Object.entries(data).forEach(([key, val]) => formData.append(key, val))
+
+      Object.entries(data).forEach(([key, val]) =>
+        formData.append(key, val)
+      )
+
       formData.append("mode", mode)
+
+      formData.append("recaptchaToken", token)
+
       if (mode === "company") {
         formData.append("interest", interest)
         formData.append("tags", JSON.stringify(tags))
       }
-      if (mode === "candidate" && file) formData.append("cv", file)
 
-      const response = await fetch("/api/contact", { method: "POST", body: formData })
-      if (!response.ok) throw new Error("Failed to send message")
+      if (mode === "candidate" && file) {
+        formData.append("cv", file)
+      }
+
+      console.log("reCAPTCHA token:", token)
+      
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to send message")
+      }
 
       setIsSubmitted(true)
       form.reset()
-      setCaptchaInput("")
       setFile(null)
       setTags([])
     } catch (error) {
@@ -277,14 +295,12 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                 className="absolute inset-0 opacity-0 cursor-pointer z-10"
                 aria-label="Upload CV"
               />
-              <div className={`relative flex items-center gap-4 p-5 rounded-xl border-2 border-dashed transition-all ${
-                file
+              <div className={`relative flex items-center gap-4 p-5 rounded-xl border-2 border-dashed transition-all ${file
                   ? "border-brand-teal bg-brand-teal/5"
                   : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
-              }`}>
-                <span className={`flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${
-                  file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
                 }`}>
+                <span className={`flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
+                  }`}>
                   {file
                     ? <CheckCircle className="w-5 h-5" strokeWidth={1.75} />
                     : <Upload className="w-5 h-5" strokeWidth={1.75} />}
@@ -309,32 +325,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
             num={mode === "company" ? "04" : "04"}
             label="Security check"
           />
-          <div className="flex flex-col sm:flex-row items-stretch gap-4 p-5 bg-brand-navy/[0.03] border border-brand-navy/8 rounded-xl">
-            <div className="flex items-center gap-4 flex-shrink-0">
-              <Shield className="w-5 h-5 text-brand-teal" strokeWidth={1.75} />
-              <div>
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-brand-navy/50 mb-1">
-                  Solve to verify
-                </p>
-                <p className="font-mono text-2xl font-bold text-brand-navy leading-none">
-                  {CAPTCHA_QUESTION} <span className="text-brand-coral">=</span> ?
-                </p>
-              </div>
-            </div>
-            <div className="flex-1 flex flex-col justify-center">
-              <Input
-                placeholder="Your answer"
-                value={captchaInput}
-                onChange={(e) => setCaptchaInput(e.target.value)}
-                className={`${inputClass} bg-white`}
-              />
-              {captchaError && (
-                <p className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-2">
-                  {captchaError}
-                </p>
-              )}
-            </div>
-          </div>
+
         </section>
 
         <div className="pt-2">
