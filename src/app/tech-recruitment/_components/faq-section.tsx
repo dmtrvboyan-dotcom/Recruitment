@@ -19,20 +19,6 @@ export function FAQSection() {
 
   return (
     <section className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden">
-      {/* Diagonal texture */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(26,26,46,0.022) 70px,
-            rgba(26,26,46,0.022) 71px
-          )`,
-        }}
-      />
 
       {/* Coral glow */}
       <div

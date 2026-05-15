@@ -63,16 +63,7 @@ function useInView(threshold = 0.15) {
 const HeroSection = memo(function HeroSection() {
   return (
     <section className="relative w-full min-h-[90vh] flex items-end overflow-hidden bg-brand-navy">
-      {/* Grid texture */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(var(--color-brand-coral,#7291C7) 1px,transparent 1px),linear-gradient(90deg,var(--color-brand-coral,#7291C7) 1px,transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
+ 
       {/* Large watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <span className="text-[25vw] font-black uppercase text-brand-white/[0.03] leading-none tracking-tighter whitespace-nowrap">
@@ -293,14 +284,7 @@ const YourGoalsSection = memo(function YourGoalsSection() {
 
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
-      {/* Diagonal rule lines */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(135deg, #f9f9fb 0px, #f9f9fb 1px, transparent 1px, transparent 50px)",
-        }}
-      />
+     
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-coral/8 blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
@@ -706,10 +690,7 @@ const CTASection = memo(function CTASection() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
       <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-brand-coral via-transparent to-transparent pointer-events-none" />
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{
-        backgroundImage: "repeating-linear-gradient(135deg, #f9f9fb 0px, #f9f9fb 1px, transparent 1px, transparent 40px)",
-      }} />
-
+    
       <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-16 sm:py-20 lg:py-28 flex flex-col items-center gap-8 lg:gap-10">
         <div className="text-center">
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4">

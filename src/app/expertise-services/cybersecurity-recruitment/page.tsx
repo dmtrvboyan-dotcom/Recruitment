@@ -22,20 +22,6 @@ export default function RecruitmentAgencyBulgariaPage() {
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-        {/* Diagonal slash accent */}
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              -62deg,
-              transparent,
-              transparent 80px,
-              rgba(114,145,199,0.03) 80px,
-              rgba(114,145,199,0.03) 81px
-            )`,
-          }}
-        />
 
         {/* Glow blobs */}
         <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
@@ -161,20 +147,7 @@ export default function RecruitmentAgencyBulgariaPage() {
             SECURE
           </div>
 
-          {/* Diagonal accent */}
-          <div
-            aria-hidden
-            className="absolute inset-0 pointer-events-none opacity-40"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                -55deg,
-                transparent,
-                transparent 40px,
-                rgba(114,145,199,0.03) 40px,
-                rgba(114,145,199,0.03) 41px
-              )`,
-            }}
-          />
+      
 
           <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32 text-center">
 
@@ -195,7 +168,7 @@ export default function RecruitmentAgencyBulgariaPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
-                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group"
+                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-bold tracking-wide uppercase px-8 py-6 font-semibold rounded-3xl text-sm flex items-center gap-2 group"
               >
                 <Link href={CTA_DATA.primaryButton.href}>
                   {CTA_DATA.primaryButton.text}

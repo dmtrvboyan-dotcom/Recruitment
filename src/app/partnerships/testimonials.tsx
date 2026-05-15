@@ -159,14 +159,7 @@ export const Testimonials = memo(function Testimonials() {
             transition: "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
           }}
         >
-          {/* Diagonal stripes */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-[0.04]"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(135deg, #7291C7 0px, #7291C7 1px, transparent 1px, transparent 48px)",
-            }}
-          />
+     
           {/* Coral glow */}
           <div className="absolute -top-32 -right-32 w-[420px] h-[420px] bg-brand-coral/20 rounded-full blur-3xl pointer-events-none" />
 

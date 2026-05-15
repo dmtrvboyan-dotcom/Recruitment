@@ -61,11 +61,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
 
     return (
         <section id="client-testimonials" className="relative w-full bg-brand-white overflow-hidden">
-            <div
-                className="absolute inset-0 pointer-events-none opacity-[0.025]"
-                style={{ backgroundImage: "repeating-linear-gradient(135deg,#1A1A2E 0px,#1A1A2E 1px,transparent 1px,transparent 50px)" }}
-            />
-
+          
             <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
                 {/* Header */}

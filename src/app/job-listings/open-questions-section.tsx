@@ -18,19 +18,7 @@ export function OpenQuestionsSection() {
       id="open-questions"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden"
     >
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(114,145,199,0.05) 70px,
-            rgba(114,145,199,0.05) 71px
-          )`,
-        }}
-      />
+     
 
       <div
         aria-hidden

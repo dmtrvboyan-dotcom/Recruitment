@@ -59,19 +59,6 @@ export const TalentNetworkHero = memo(function TalentNetworkHero() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-navy">
 
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none opacity-60"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(114,145,199,0.04) 70px,
-            rgba(114,145,199,0.04) 71px
-          )`,
-        }}
-      />
 
       <div
         aria-hidden

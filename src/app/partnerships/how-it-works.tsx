@@ -71,14 +71,7 @@ export const HowItWorks = memo(function HowItWorks() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
 
-      {/* Background: diagonal stripes */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(135deg, #7291C7 0px, #7291C7 1px, transparent 1px, transparent 48px)",
-        }}
-      />
+  
 
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] bg-brand-coral/8 rounded-full blur-3xl pointer-events-none" />
 

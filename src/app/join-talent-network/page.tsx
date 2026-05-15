@@ -4,8 +4,7 @@ import { ApplicationForm } from "./application-form"
 import { Faq } from "./faq"
 import { FinalCta } from "./final-cta"
 import { HashCleaner } from "@/components/layout/hash-cleaner"
-import { Header, SocialSidebar } from "@/components/layout"
-import { Footer } from "react-day-picker"
+import { Header, SocialSidebar, Footer } from "@/components/layout"
 import { BackToTop } from "@/components/navigation/back-to-top"
 
 export default function TalentNetworkPage() {
@@ -21,6 +20,7 @@ export default function TalentNetworkPage() {
       <ApplicationForm />
       <Faq />
       <FinalCta />
+
       <Footer />
 
       <BackToTop hideOnMobile />

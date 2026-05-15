@@ -40,21 +40,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
       className={`relative py-20 sm:py-24 lg:py-28 ${bg} overflow-hidden`}
     >
 
-      
-      {/* Diagonal texture */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            ${diagonalColor} 70px,
-            ${diagonalColor} 71px
-          )`,
-        }}
-      />
+  
 
       {/* Coral glow — alternating position */}
       <div

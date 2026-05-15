@@ -24,19 +24,7 @@ export default function FintechRecruitmentPage() {
     <>
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              -62deg,
-              transparent,
-              transparent 80px,
-              rgba(114,145,199,0.03) 80px,
-              rgba(114,145,199,0.03) 81px
-            )`,
-          }}
-        />
+    
 
         <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
         <div className="absolute top-10 right-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
@@ -278,7 +266,7 @@ export default function FintechRecruitmentPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
-                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group"
+                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-semibold rounded-3xl tracking-wide uppercase px-8 py-6 text-sm flex items-center gap-2 group"
               >
                 <Link href={CTA_DATA.primaryButton.href}>
                   {CTA_DATA.primaryButton.text}
@@ -287,7 +275,7 @@ export default function FintechRecruitmentPage() {
               </Button>
               <Button
                 asChild
-                className="bg-brand-white  border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group"
+                className="bg-brand-white  border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group font-semibold rounded-3xl"
               >
                 <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
@@ -296,7 +284,6 @@ export default function FintechRecruitmentPage() {
               </Button>
             </div>
 
-            {/* Bottom decorative row */}
             <div className="mt-16 pt-10 border-t border-brand-navy/8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-1 h-8 rounded-full bg-brand-coral" />

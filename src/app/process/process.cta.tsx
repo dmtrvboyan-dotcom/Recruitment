@@ -10,20 +10,7 @@ export const ProcessCTA = memo(function ProcessCTA() {
   return (
     <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
 
-      {/* Faint diagonal stripe accent */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none opacity-40"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -55deg,
-            transparent,
-            transparent 40px,
-            rgba(10,20,60,0.02) 40px,
-            rgba(10,20,60,0.02) 41px
-          )`,
-        }}
-      />
+  
 
       <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32 text-center">
 
@@ -45,14 +32,14 @@ export const ProcessCTA = memo(function ProcessCTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href={"/contacts"}
-            className="bg-brand-coral hover:bg-brand-coral/90 text-white font-bold tracking-wide uppercase px-8 py-3 rounded-xl text-sm flex items-center gap-2 group cursor-pointer"
+            className="bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold rounded-3xl tracking-wide uppercase px-8 py-3 text-sm flex items-center gap-2 group cursor-pointer"
           >
             Start the conversation
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link
             href={"/about"}
-            className="border-brand-navy/20 text-brand-navy font-bold tracking-wide uppercase px-8 py-3 rounded-xl text-sm hover:bg-brand-navy/5 cursor-pointer"
+            className=" font-semibold rounded-3xl border border-brand-navy hover:bg-brand-navy hover:text-brand-white text-brand-navy tracking-wide uppercase px-8 py-3 text-sm cursor-pointer"
           >
             Learn about us
           </Link>

@@ -10,20 +10,8 @@ import { HERO_DATA } from "../data"
 export const HeroSection = memo(function HeroSection() {
   return (
     <section className="relative w-full min-h-[90vh] bg-brand-navy overflow-hidden flex flex-col">
-      {/* Diagonal slash texture */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(114,145,199,0.05) 70px,
-            rgba(114,145,199,0.05) 71px
-          )`,
-        }}
-      />
+
+
 
       {/* Coral glow top */}
       <div

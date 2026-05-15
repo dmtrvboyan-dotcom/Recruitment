@@ -25,20 +25,6 @@ export default function IGamingRecruitmentPage() {
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-        {/* Diagonal slash accent */}
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              -62deg,
-              transparent,
-              transparent 80px,
-              rgba(114,145,199,0.03) 80px,
-              rgba(114,145,199,0.03) 81px
-            )`,
-          }}
-        />
 
         {/* Glow blobs */}
         <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
@@ -260,7 +246,7 @@ export default function IGamingRecruitmentPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
-                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group"
+                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-semibold rounded-3xl tracking-wide uppercase px-8 py-6 text-sm flex items-center gap-2 group"
               >
                 <Link href={CTA_DATA.primaryButton.href}>
                   {CTA_DATA.primaryButton.text}
@@ -269,12 +255,11 @@ export default function IGamingRecruitmentPage() {
               </Button>
               <Button
                 asChild
-                variant="outline"
-                className="border-brand-navy/20 text-brand-navy font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm hover:bg-brand-navy/5"
+                className="bg-brand-white  border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group font-semibold rounded-3xl"
               >
                 <Link href={CTA_DATA.secondaryButton.href}>
                   {CTA_DATA.secondaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
             </div>

@@ -35,14 +35,7 @@ export function ShowcaseSection() {
   return (
     <section className="relative w-full bg-brand-white overflow-hidden pt-20 lg:pt-32 pb-20">
 
-      {/* Diagonal texture */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(135deg, #1A1A2E 0px, #1A1A2E 1px, transparent 1px, transparent 40px)",
-        }}
-      />
+
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16">
 

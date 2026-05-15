@@ -8,20 +8,7 @@ import { PROCESS_DATA, PROCESS_STEPS } from "../data"
 export const ProcessSection = memo(function ProcessSection() {
   return (
     <section className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden">
-      {/* Diagonal texture */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(114,145,199,0.05) 70px,
-            rgba(114,145,199,0.05) 71px
-          )`,
-        }}
-      />
+
 
       {/* Coral glow */}
       <div
