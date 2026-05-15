@@ -109,7 +109,7 @@ export function MobileSectionNav({
         aria-expanded={open}
         aria-haspopup="dialog"
         className={cn(
-          "lg:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2",
+          "lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-40 inline-flex items-center gap-2",
           "h-10 max-w-[60vw] rounded-full pl-3 pr-2.5",
           "border border-border/60 bg-background/85 text-sm font-medium text-foreground",
           "shadow-sm backdrop-blur-md",

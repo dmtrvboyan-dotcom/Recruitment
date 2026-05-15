@@ -39,7 +39,7 @@ import {
 import { TeamCarousel } from "../_components/team-section/team-carousel"
 import { PeopleTestimonialsSection } from "./testimonials"
 import { SectionNav } from "@/components/navigation/section-nav"
-import { BackToTop } from "@/components/navigation/back-top-top"
+import { BackToTop } from "@/components/navigation/back-to-top"
 
 
 function useInView(threshold = 0.15) {

@@ -5,7 +5,7 @@ import { HowItWorks } from "./how-it-works"
 import { WhyChooseUs } from "./why-choose-us"
 import { ClientsCTA } from "./client-cta"
 import { Testimonials } from "./testimonials"
-import { BackToTop } from "@/components/navigation/back-top-top"
+import { BackToTop } from "@/components/navigation/back-to-top"
 import { SectionNav } from "@/components/navigation/section-nav"
 
 export const metadata: Metadata = {

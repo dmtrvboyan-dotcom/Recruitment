@@ -1,6 +1,6 @@
 import { SocialSidebar, Footer } from "@/components/layout"
 import { Header } from "@/components/layout/header/header"
-import { BackToTop } from "@/components/navigation/back-top-top"
+import { BackToTop } from "@/components/navigation/back-to-top"
 
 
 export default function ServicesLayout({

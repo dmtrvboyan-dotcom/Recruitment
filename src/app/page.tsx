@@ -14,7 +14,7 @@ import {
 } from "@/app/_components"
 import { HashCleaner } from "../components/layout/hash-cleaner"
 import { SectionNav } from "@/components/navigation/section-nav"
-import { BackToTop } from "@/components/navigation/back-top-top"
+import { BackToTop } from "@/components/navigation/back-to-top"
 
 
 const sections = [

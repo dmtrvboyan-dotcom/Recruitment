@@ -1,33 +1,14 @@
-// components/navigation/ScrollProgress.tsx
 "use client"
 
 import { useScrollProgress } from "@/lib/hooks/useScrollProgress"
 
 
 interface ScrollProgressProps {
-  /**
-   * - `"bar"`: thin horizontal bar pinned to the top of the viewport (mobile-friendly).
-   * - `"rail"`: vertical fill — intended to be placed inside the desktop nav card.
-   *
-   * @default "bar"
-   */
+
   variant?: "bar" | "rail"
-  /** Extra classes appended to the outer container. */
   className?: string
 }
 
-/**
- * Visual scroll-progress indicator. Pure CSS transform — no layout thrash.
- *
- * Use it standalone:
- * ```tsx
- * <ScrollProgress />            // mobile top bar
- * <ScrollProgress variant="rail" />  // vertical fill inside a parent
- * ```
- *
- * `SectionNav` already includes the right variant in the right place; only
- * mount this manually if you want progress on a page without `SectionNav`.
- */
 export function ScrollProgress({
   variant = "bar",
   className,
@@ -51,7 +32,7 @@ export function ScrollProgress({
     )
   }
 
-  // "bar"
+
   return (
     <div
       aria-hidden
@@ -68,8 +49,6 @@ export function ScrollProgress({
   )
 }
 
-/* Tiny local `cn` so this file has no extra deps. Swap for your project's
-   utility (`clsx`/`tailwind-merge`) if you have one. */
 function cn(...classes: Array<string | false | null | undefined>): string {
   return classes.filter(Boolean).join(" ")
 }

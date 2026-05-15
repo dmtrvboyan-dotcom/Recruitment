@@ -1,7 +1,7 @@
 import { getAllPosts } from "./lib/posts"
 import { HERO_DATA, TABS, TAB_CHIPS } from "./data"
 import { BlogClient } from "./BlogClient"
-import { BackToTop } from "@/components/navigation/back-top-top"
+import { BackToTop } from "@/components/navigation/back-to-top"
 
 export default function BlogPage() {
   const posts = getAllPosts()

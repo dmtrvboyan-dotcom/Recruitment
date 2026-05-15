@@ -3,7 +3,7 @@ import { InvestInPeople } from "./invest-in-ppl"
 import { WhatYouGet } from "./what-you-get"
 import { AboutCTA } from "./about-cta"
 import { TeamCarousel } from "../_components/team-section/team-carousel"
-import { BackToTop } from "@/components/navigation/back-top-top"
+import { BackToTop } from "@/components/navigation/back-to-top"
 
 const sections = [
   { id: "hero", label: "Overview" },

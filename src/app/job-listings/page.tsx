@@ -2,7 +2,7 @@ import { HeroSection } from "./hero-section"
 import { JobsSection } from "./jobs"
 import { CVUploadSection } from "./cv-upload-section"
 import { OpenQuestionsSection } from "./open-questions-section"
-import { BackToTop } from "@/components/navigation/back-top-top"
+import { BackToTop } from "@/components/navigation/back-to-top"
 
 export default function JobsListings() {
   return (

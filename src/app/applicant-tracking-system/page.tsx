@@ -7,7 +7,7 @@ import { HeroSection } from "./hero/hero-section";
 import { IntegrationsSection } from "./integrations/integrations-section";
 import { SecuritySection } from "./security/security-section";
 import { ShowcaseSection } from "./showcase/showcase-section";
-import { BackToTop } from "@/components/navigation/back-top-top";
+import { BackToTop } from "@/components/navigation/back-to-top";
 
 const sections = [
   { id: "hero", label: "Overview" },

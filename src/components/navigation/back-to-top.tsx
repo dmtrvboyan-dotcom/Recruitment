@@ -62,7 +62,7 @@ export function BackToTop({
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
             hideOnMobile && "hidden lg:inline-flex",
             // Default position — `className` can override.
-            "bottom-6 right-6",
+            "bottom-5 right-6",
             className,
           )}
         >

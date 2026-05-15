@@ -9,7 +9,7 @@ import { ProcessSection } from "./_components/process-section"
 import { FAQSection } from "./_components/faq-section"
 import { ScrollSpy } from "./_components/scroll-spy"
 import { SectionNav } from "@/components/navigation/section-nav"
-import { BackToTop } from "@/components/navigation/back-top-top"
+import { BackToTop } from "@/components/navigation/back-to-top"
 
 const sections = [
   { id: "hero",    label: "Overview" },
