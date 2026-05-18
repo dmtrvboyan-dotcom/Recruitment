@@ -35,10 +35,10 @@ export const NAV_ITEMS: NavItem[] = [
     hasDropdown: true,
     dropdownItems: [
       { label: "Permanent IT Recruitment", icon: "Users", href: "/services/permanent-it-recruitment" },
-      { label: "Hire Contract or Freelance Devs", icon: "Briefcase", href: "/services/hire-contract" },
+      { label: "Contract/Freelance/B2B/Remote Hiring", icon: "Briefcase", href: "/services/contract-freelance-b2b-remote-recruitment" },
+      { label: "Confidential Headhunting and Executive search", icon: "Search", href: "/services/confidential-headhunting-executive-search" },
       { label: "Project Based IT Recruitment", icon: "Clock", href: "/services/project-based-it-recruitment" },
       { label: "Remote IT Hiring & Global Talent", icon: "Globe", href: "/services/remote-it-hiring-and-global-talent" },
-      { label: "Executive Search & IT Headhunting", icon: "Search", href: "/services/executive-search-and-it-headhunting" },
       { label: "IT Salary Benchmarking & Hiring Insights", icon: "UserCheck", href: "/services/it-salary-benchmarking-and-hiring-insights" },
 
     ],
@@ -48,7 +48,7 @@ export const NAV_ITEMS: NavItem[] = [
     hasMegaMenu: true,
     megaSections: [
       {
-        title: "Technical Expertise",
+        title: "Technical Recruitment",
         items: [
           {
             label: "Software Engineering",
@@ -80,12 +80,12 @@ export const NAV_ITEMS: NavItem[] = [
             icon: "Brain",
             href: "/tech-recruitment#ai-ml",
           },
-          {
-            label: "UX / UI Designers",
-            description: "Product Designers, UX Researchers, UI Specialists",
-            icon: "Palette",
-            href: "/tech-recruitment#ux-ui-design",
-          },
+          // {
+          //   label: "UX / UI Designers",
+          //   description: "Product Designers, UX Researchers, UI Specialists",
+          //   icon: "Palette",
+          //   href: "/tech-recruitment#ux-ui-design",
+          // },
           {
             label: "Mobile Development",
             description: "iOS, Android, React Native Developers",
@@ -101,7 +101,7 @@ export const NAV_ITEMS: NavItem[] = [
         ],
       },
       {
-        title: "Industries",
+        title: "Industries we cover",
         items: [
           {
             label: "Fintech Recruitment",
@@ -133,12 +133,12 @@ export const NAV_ITEMS: NavItem[] = [
             href: "/expertise-services/saas-recruitment",
             description: "B2B SaaS, Product Teams, Cloud Platforms",
           },
-          {
-            label: "E-commerce Recruitment",
-            icon: "ShoppingCart",
-            href: "/expertise-services/ecommerce-recruitment",
-            description: "Marketplace, Retail Tech, Growth Teams",
-          },
+          // {
+          //   label: "E-commerce Recruitment",
+          //   icon: "ShoppingCart",
+          //   href: "/expertise-services/ecommerce-recruitment",
+          //   description: "Marketplace, Retail Tech, Growth Teams",
+          // },
           {
             label: "And More",
             icon: "MoreHorizontal",

@@ -21,10 +21,10 @@ const sections = [
   { id: "hero", label: "Overview" },
   { id: "trust", label: "Our Partners" },
   { id: "services", label: "Services" },
-  { id: "specialized", label: "Specialized" },
+  { id: "specialized", label: "Tech Recruitment" },
   { id: "why", label: "Why us" },
   { id: "team", label: "Our Team" },
-  { id: "expertise", label: "Expertise" },
+  { id: "expertise", label: "Industry Expertise" },
   { id: "smart-r", label: "Smart-R" },
   { id: "faq", label: "FAQ" },
 ]

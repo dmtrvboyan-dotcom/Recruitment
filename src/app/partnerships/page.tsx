@@ -34,13 +34,14 @@ export default function ClientsPage() {
         <PartnersGrid />
       </section>
 
+      <section id="tetimonials">
+        <Testimonials />
+      </section>
+
       <section id="process">
         <HowItWorks />
       </section>
 
-      <section id="tetimonials">
-        <Testimonials />
-      </section>
 
       <section id="whyus">
         <WhyChooseUs />
