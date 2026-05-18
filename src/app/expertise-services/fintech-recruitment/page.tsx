@@ -293,7 +293,7 @@ export default function FintechRecruitmentPage() {
                 </p>
               </div>
               <Link
-                href="/#our-expertise"
+                href="/#expertise-services"
                 className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-navy/30 hover:text-brand-coral transition-colors flex items-center gap-1"
               >
                 All expertise services
