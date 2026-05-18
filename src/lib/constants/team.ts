@@ -56,7 +56,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     name: "Gabriela Vejinova",
-    image: "/members/gabi2.png",
+    image: "/members/gabi.png",
     linkedin: "https://www.linkedin.com/in/gabriela-vezhinova-80886a371/",
     quote: "I care about clarity, honest dialogue and work that actually leads somewhere.",
   },
