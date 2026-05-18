@@ -58,7 +58,7 @@ export interface CtaData {
 }
 
 export const HERO_DATA: HeroData = {
-  tagline: "Contract & Freelance Hiring",
+  tagline: "Contract freelance",
   eyebrow: "Flexible Developer Recruitment",
   title: "Contract freelance, b2b, Remote Hiring",
   description:

@@ -37,9 +37,9 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "Permanent IT Recruitment", icon: "Users", href: "/services/permanent-it-recruitment" },
       { label: "Contract/Freelance/B2B/Remote Hiring", icon: "Briefcase", href: "/services/contract-freelance-b2b-remote-recruitment" },
       { label: "Confidential Headhunting and Executive search", icon: "Search", href: "/services/confidential-headhunting-executive-search" },
-      { label: "Project Based IT Recruitment", icon: "Clock", href: "/services/project-based-it-recruitment" },
-      { label: "Remote IT Hiring & Global Talent", icon: "Globe", href: "/services/remote-it-hiring-and-global-talent" },
+      { label: "Employer of Record (EOR)", icon: "Clock", href: "/services/employer-of-record" },
       { label: "IT Salary Benchmarking & Hiring Insights", icon: "UserCheck", href: "/services/it-salary-benchmarking-and-hiring-insights" },
+      { label: "IT Payroll, Compliance & Business Advisory", icon: "Globe", href: "/services/it-payroll-compliance-advisory" },
 
     ],
   },

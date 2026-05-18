@@ -32,7 +32,7 @@ export const CategoryCard = memo(function CategoryCard({
   return (
     <button
       onClick={onClick}
-      className="group relative w-full text-left bg-brand-white/[0.02] border border-brand-white/10 hover:border-brand-coral/50 hover:bg-brand-white/[0.04] rounded-2xl p-5 sm:p-6 lg:p-7 transition-all duration-300 overflow-hidden cursor-pointer"
+      className="group relative w-full text-left bg-brand-navy/[0.02] border border-brand-navy/10 hover:border-brand-coral/50 hover:bg-brand-navy/[0.04] rounded-2xl p-5 sm:p-6 lg:p-7 transition-all duration-300 overflow-hidden cursor-pointer"
     >
 
       <div className="flex items-start justify-between mb-5 sm:mb-6">
@@ -43,19 +43,19 @@ export const CategoryCard = memo(function CategoryCard({
           <div className="h-px w-5 sm:w-6 bg-brand-coral/40" />
         </div>
         <IconComponent
-          className="w-4 h-4 text-brand-white/30 group-hover:text-brand-coral transition-colors duration-300"
+          className="w-4 h-4 text-brand-navy/30 group-hover:text-brand-coral transition-colors duration-300"
         />
       </div>
 
  
 
       {/* Title */}
-      <h3 className="text-sm sm:text-base lg:text-lg font-black uppercase tracking-[-0.01em] leading-tight text-brand-white mb-1.5">
+      <h3 className="text-sm sm:text-base lg:text-lg font-black uppercase tracking-[-0.01em] leading-tight text-brand-navy mb-1.5">
         {category.title}
       </h3>
 
       {/* Category label */}
-      <p className="text-[10px] sm:text-[11px] tracking-[0.15em] uppercase text-brand-white/40 mb-5 sm:mb-6">
+      <p className="text-[10px] sm:text-[11px] tracking-[0.15em] uppercase text-brand-navy/40 mb-5 sm:mb-6">
         {category.categoryLabel}
       </p>
 
@@ -64,7 +64,7 @@ export const CategoryCard = memo(function CategoryCard({
         {visibleTechs.map((tech) => (
           <span
             key={tech}
-            className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium uppercase tracking-wide bg-brand-white/5 text-brand-white/60 border border-brand-white/10 group-hover:bg-brand-coral/10 group-hover:text-brand-coral group-hover:border-brand-coral/30 transition-colors duration-300"
+            className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium uppercase tracking-wide bg-brand-navy/5 text-brand-navy/60 border border-brand-navy/10 group-hover:bg-brand-coral/10 group-hover:text-brand-coral group-hover:border-brand-coral/30 transition-colors duration-300"
           >
             {tech}
           </span>
@@ -72,7 +72,6 @@ export const CategoryCard = memo(function CategoryCard({
       
       </div>
 
-      {/* Bottom hover arrow */}
       <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">
         <ArrowUpRight className="w-4 h-4 text-brand-coral" strokeWidth={1.5} />
       </div>

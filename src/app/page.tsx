@@ -52,6 +52,12 @@ export default function LandingPage() {
         </ScrollReveal>
       </section>
 
+        <section id="team">
+        <ScrollReveal>
+          <MeetTheTeam />
+        </ScrollReveal>
+      </section>
+
       <section id="specialized">
         <ScrollReveal>
           <SpecializedRecruitment />
@@ -64,20 +70,22 @@ export default function LandingPage() {
         </ScrollReveal>
       </section>
 
-      <section id="team">
-        <ScrollReveal><MeetTheTeam /></ScrollReveal>
-      </section>
-
       <section id="expertise">
-        <ScrollReveal><ExpertiseSection /></ScrollReveal>
+        <ScrollReveal>
+          <ExpertiseSection />
+        </ScrollReveal>
       </section>
 
       <section id="smart-r">
-        <ScrollReveal><SmartRSection /></ScrollReveal>
+        <ScrollReveal>
+          <SmartRSection />
+        </ScrollReveal>
       </section>
 
       <section id="faq">
-        <ScrollReveal><FAQSection /></ScrollReveal>
+        <ScrollReveal>
+          <FAQSection />
+        </ScrollReveal>
       </section>
 
       <Footer />

@@ -26,7 +26,7 @@ export function SpecializedRecruitment() {
   return (
     <section
       id="specialized"
-      className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden"
+      className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
     >
    
 
@@ -56,7 +56,7 @@ export function SpecializedRecruitment() {
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] uppercase text-brand-white">
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] uppercase text-brand-navy">
             Tech <span className="text-brand-coral"> Recruitment.</span>
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mt-10 sm:mb-8" />

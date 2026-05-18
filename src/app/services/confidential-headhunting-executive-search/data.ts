@@ -67,7 +67,7 @@ export interface CtaData {
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 export const HERO_DATA: HeroData = {
-  tagline: "Executive Search & Headhunting",
+  tagline: "Search & Headhunting",
   eyebrow: "Strategic Talent Acquisition",
   title: "Confidential Headhunting and Executive search",
   description:

@@ -71,20 +71,19 @@ export interface FaqItem {
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 export const HERO_DATA: HeroData = {
   tagline: "On-Demand Tech Talent",
-  eyebrow: "Project-Based IT Recruitment",
-  title: "Scale Your Projects with Expert Contract Talent",
+  eyebrow: "Employer of Record (EOR)",
+  title: "Hire in Eastern Europe without opening a local entity",
   description:
     "Deploy skilled IT contractors and specialist freelancers exactly when you need them — no long-term overhead, no hiring delays. From sprint-based squads to multi-month delivery teams, we match the right talent to your project timeline.",
 }
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS: StatItem[] = [
-  { value: "48h", label: "First shortlist delivered" },
-  { value: "5–7 Days", label: "Average contractor deployed" },
-  { value: "94%", label: "Project completion rate" },
-  { value: "300+", label: "Contracts placed to date" },
+  { value: "6+", label: "Eastern European countries covered" },
+  { value: "100%", label: "Local compliance guaranteed" },
+  { value: "2–4 wks", label: "Average employee onboarded" },
+  { value: "Zero", label: "Local entity setup required" },
 ]
-
 // ─── Process ──────────────────────────────────────────────────────────────────
 export const PROCESS_STEPS: ProcessStep[] = [
   {

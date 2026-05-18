@@ -65,7 +65,7 @@ export const SERVICES: Service[] = [
     icon: Briefcase,
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
-    title: "Hire Contract or Freelance Developers",
+    title: "Contract / Freelance / B2B / Remote Hiring",
     subtitle: "Lorem ipsum dolor sit amet",
     intro: "",
     sections: [
@@ -93,81 +93,13 @@ export const SERVICES: Service[] = [
       { value: "3-5", label: "Days to Hire" },
       { value: "90%+", label: "Offer Acceptance Rate" },
     ],
-    href: "/services/hire-contract",
-  },
-  {
-    icon: Clock,
-    iconColor: "text-[#1A1A2E]",
-    iconBg: "bg-[#1A1A2E]/5",
-    title: "Project-Based IT Recruitment",
-    subtitle: "Flexible Hiring for Immediate Needs",
-    intro: "",
-    sections: [
-      {
-        heading: "Move Fast, Stay Effective",
-        points: [
-          "Quick understanding of project scope and requirements",
-          "Access to professionals available for contract or part-time work",
-          "Fast shortlisting and streamlined selection",
-          "Focus on candidates who can adapt and deliver immediately",
-        ],
-      },
-      {
-        heading: "What You Get",
-        points: [
-          "Reduced downtime",
-          "On-demand expertise",
-          "Efficient project delivery",
-          "Flexible hiring without long-term commitment",
-        ],
-      },
-    ],
-    stats: [
-      { value: "48h", label: "Avg. First Shortlist" },
-      { value: "5-7", label: "Days to Place" },
-      { value: "80%+", label: "Project Success Rate" },
-    ],
-    href: "/services/project-based-it-recruitment",
-  },
-  {
-    icon: Globe,
-    iconColor: "text-[#1A1A2E]",
-    iconBg: "bg-[#1A1A2E]/5",
-    title: "Remote IT Hiring & Global Talent",
-    subtitle: "Build Strong Teams Without Location Limits",
-    intro: "",
-    sections: [
-      {
-        heading: "Hire Beyond Borders",
-        points: [
-          "Access to a wider pool of tech talent",
-          "Focus on communication, ownership, and reliability",
-          "Support in building remote-ready teams",
-          "Guidance on remote hiring best practices",
-        ],
-      },
-      {
-        heading: "What You Get",
-        points: [
-          "Stronger distributed teams",
-          "Improved collaboration across locations",
-          "Access to talent you can't reach locally",
-          "Scalable hiring model",
-        ],
-      },
-    ],
-    stats: [
-      { value: "65%+", label: "Wider Pool of Professionals" },
-      { value: "4-6", label: "Candidates Per Role" },
-      { value: "2-6", label: "Days to Present Candidates" },
-    ],
-    href: "/services/remote-it-hiring-and-global-talent",
+    href: "/services/contract-freelance-b2b-remote-recruitment",
   },
   {
     icon: Search,
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
-    title: "Executive Search & Headhunting",
+    title: "Confidential Headhunting and Executive search",
     subtitle: "Lorem ipsum dolor sit amet",
     intro: "",
     sections: [
@@ -195,7 +127,41 @@ export const SERVICES: Service[] = [
       { value: "85%", label: "Offer Acceptance Rate" },
       { value: "6-15", label: "Days to Present Candidates" },
     ],
-    href: "/services/executive-search-and-it-headhunting",
+    href: "/services/confidential-headhunting-executive-search",
+  },
+  {
+    icon: Clock,
+    iconColor: "text-[#1A1A2E]",
+    iconBg: "bg-[#1A1A2E]/5",
+    title: "Employer of Record (EOR)",
+    subtitle: "Hire in Eastern Europe — No Local Entity Needed",
+    intro: "",
+    sections: [
+      {
+        heading: "Expand Without the Overhead",
+        points: [
+          "Hire employees in Bulgaria and Eastern Europe under our legal entity",
+          "Full local employment compliance — contracts, tax, and social contributions handled",
+          "Seamless contractor-to-employee conversions",
+          "Scale your international workforce without incorporation costs",
+        ],
+      },
+      {
+        heading: "What You Get",
+        points: [
+          "Zero entity setup required",
+          "Cross-border employment made simple",
+          "Locally compliant contracts from day one",
+          "Global workforce expansion on your timeline",
+        ],
+      },
+    ],
+    stats: [
+      { value: "6+", label: "Eastern European Countries Covered" },
+      { value: "100%", label: "Local Compliance Guaranteed" },
+      { value: "2–4 wks", label: "Avg. Time to Onboard" },
+    ],
+    href: "/services/employer-of-record",
   },
   {
     icon: UserCheck,
@@ -231,4 +197,39 @@ export const SERVICES: Service[] = [
     ],
     href: "/services/it-salary-benchmarking-and-hiring-insights",
   },
+  {
+    icon: Globe,
+    iconColor: "text-[#1A1A2E]",
+    iconBg: "bg-[#1A1A2E]/5",
+    title: "It Payroll Compliance Advisory",
+    subtitle: "Build Strong Teams Without Location Limits",
+    intro: "",
+    sections: [
+      {
+        heading: "Hire Beyond Borders",
+        points: [
+          "Access to a wider pool of tech talent",
+          "Focus on communication, ownership, and reliability",
+          "Support in building remote-ready teams",
+          "Guidance on remote hiring best practices",
+        ],
+      },
+      {
+        heading: "What You Get",
+        points: [
+          "Stronger distributed teams",
+          "Improved collaboration across locations",
+          "Access to talent you can't reach locally",
+          "Scalable hiring model",
+        ],
+      },
+    ],
+    stats: [
+      { value: "65%+", label: "Wider Pool of Professionals" },
+      { value: "4-6", label: "Candidates Per Role" },
+      { value: "2-6", label: "Days to Present Candidates" },
+    ],
+    href: "/services/it-payroll-compliance-advisory",
+  },
+
 ]

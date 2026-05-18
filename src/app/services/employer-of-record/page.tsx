@@ -14,9 +14,9 @@ import {
 } from "./data"
 
 export const metadata: Metadata = {
-  title: "Project-Based IT Recruitment Services | On-Demand Contract Tech Talent",
+  title: "Employer of Record (EOR) Bulgaria & Eastern Europe | Hire Without a Local Entity",
   description:
-    "Deploy expert IT contractors and specialist freelancers in days, not months. Project-based tech recruitment for software engineering, data, DevOps, cybersecurity, and product teams. Fast shortlists, zero long-term overhead.",
+    "Hire employees in Bulgaria and Eastern Europe without setting up a local entity. Full employment compliance, contractor-to-employee conversions, and cross-border workforce expansion — handled end to end.",
 }
 
 // ─── Shared primitives ────────────────────────────────────────────────────────
@@ -63,10 +63,10 @@ function FaqRow({ question, answer, index }: { question: string; answer: string;
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function ProjectRecruitmentPage() {
+export default function EmployerOfRecordPage() {
   return (
     <>
-      {/* ── Hero — design unchanged ───────────────────────────────────────── */}
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative pt-24 pb-0 lg:pt-48 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
@@ -152,20 +152,20 @@ export default function ProjectRecruitmentPage() {
         </div>
       </div>
 
-      {/* ── Services grid — redesigned as 2-col cards ─────────────────────── */}
+      {/* ── Services grid ─────────────────────────────────────────────────── */}
       <ScrollReveal>
         <section className="py-16 lg:py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-10 lg:mb-16">
               <div>
-                <Eyebrow>Specialisms</Eyebrow>
+                <Eyebrow>EOR Coverage</Eyebrow>
                 <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight">
-                  Contract roles we fill fast
+                  Hiring solutions across Eastern Europe
                 </h2>
               </div>
               <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                Every role below is available on a contract or project basis — no permanent headcount required.
+                From international hiring and cross-border employment to contractor conversions — all without incorporating locally.
               </p>
             </div>
 
@@ -219,7 +219,7 @@ export default function ProjectRecruitmentPage() {
         </section>
       </ScrollReveal>
 
-      {/* ── Process — redesigned as alternating timeline ───────────────────── */}
+      {/* ── Process ───────────────────────────────────────────────────────── */}
       <ScrollReveal>
         <section className="py-16 lg:py-32 bg-brand-navy">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -230,11 +230,11 @@ export default function ProjectRecruitmentPage() {
                   How it works
                 </p>
                 <h2 className="text-2xl lg:text-4xl font-semibold text-brand-white tracking-tight">
-                  From brief to deployed — in days
+                  From brief to employed — no entity required
                 </h2>
               </div>
               <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                A lean five-step process built for speed without sacrificing quality.
+                A lean five-step process that gets your people hired, compliant, and working — fast.
               </p>
             </div>
 
@@ -335,20 +335,20 @@ export default function ProjectRecruitmentPage() {
         </section>
       </ScrollReveal>
 
-      {/* ── Benefits — redesigned with stat callouts ───────────────────────── */}
+      {/* ── Benefits ──────────────────────────────────────────────────────── */}
       <ScrollReveal>
         <section className="py-16 lg:py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-10 lg:mb-16">
               <div>
-                <Eyebrow>Why contract hiring</Eyebrow>
+                <Eyebrow>Why EOR</Eyebrow>
                 <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight max-w-xs lg:max-w-md text-balance">
-                  The smarter way to deliver complex projects
+                  The smarter way to build teams across borders
                 </h2>
               </div>
               <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                Contract professionals give you the specialist depth of a permanent hire without the fixed cost, notice periods, or ramp-up risk.
+                Expand into Bulgaria and Eastern Europe with full legal compliance — without the cost, complexity, or time of entity setup.
               </p>
             </div>
 
@@ -360,7 +360,7 @@ export default function ProjectRecruitmentPage() {
                     key={i}
                     className="group relative rounded-2xl border border-brand-navy/10 bg-white p-6 lg:p-8 hover:border-brand-navy/20 hover:shadow-[0_8px_32px_rgba(8,30,60,0.06)] transition-all duration-300 overflow-hidden"
                   >
-                    {/* Large decorative stat in background */}
+                    {/* Stat callout */}
                     <p className="absolute bottom-4 right-5 text-[11px] font-semibold text-brand-coral/60 tracking-wide">
                       {benefit.stat}
                     </p>
@@ -383,8 +383,6 @@ export default function ProjectRecruitmentPage() {
         </section>
       </ScrollReveal>
 
-
-
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
       <ScrollReveal>
         <section className="py-16 lg:py-32 mb-8 lg:mb-16 mx-3 sm:mx-4 lg:mx-10 rounded-2xl lg:rounded-3xl bg-brand-navy overflow-hidden relative">
@@ -394,7 +392,7 @@ export default function ProjectRecruitmentPage() {
             className="hidden lg:block absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-[14rem] font-semibold text-brand-white/[0.03] leading-none pointer-events-none select-none whitespace-nowrap overflow-hidden"
             aria-hidden
           >
-            CONTRACT
+            EMPLOY
           </p>
 
           {/* Subtle top gradient */}
@@ -411,9 +409,15 @@ export default function ProjectRecruitmentPage() {
               {CTA_DATA.description}
             </p>
 
-            {/* Contract type pills */}
+            {/* EOR service type pills */}
             <div className="flex flex-wrap justify-center gap-2 mb-8 lg:mb-10">
-              {["Sprint Teams", "Fixed-Term Contracts", "Rolling Engagements", "Urgent Starts"].map((label) => (
+              {[
+                "International Hiring",
+                "Cross-Border Employment",
+                "Local Compliance",
+                "Contractor-to-Employee",
+                "Global Workforce Expansion",
+              ].map((label) => (
                 <span
                   key={label}
                   className="text-[11px] font-medium px-3 py-1.5 rounded-full border border-brand-white/15 text-brand-white/40"
