@@ -20,6 +20,7 @@ import {
   Zap,
   MapPin,
   ChevronDown,
+  Plus
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -614,12 +615,14 @@ const TestimonialSection = memo(function TestimonialSection() {
 
 const FAQSection = memo(function FAQSection() {
   const { ref: headerRef, visible: headerVisible } = useInView()
+  const { ref: listRef, visible: listVisible } = useInView()
   const [open, setOpen] = useState<number | null>(null)
 
   return (
     <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
       <div className="max-w-4xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
+        {/* Header — untouched */}
         <div
           ref={headerRef}
           className="mb-14"
@@ -639,41 +642,84 @@ const FAQSection = memo(function FAQSection() {
           </h2>
         </div>
 
-        <div className="space-y-3">
+        {/* Q&A list */}
+        <div ref={listRef} className="space-y-3">
           {faqData.items.map((faq, i) => {
             const isOpen = open === i
-            const { ref, visible } = useInView()
+            const number = String(i + 1).padStart(2, "0")
+
             return (
               <div
                 key={i}
-                ref={ref}
-                className="rounded-2xl border border-brand-navy/8 bg-brand-white overflow-hidden"
+                className="rounded-2xl bg-brand-white overflow-hidden"
                 style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? "translateY(0)" : "translateY(16px)",
-                  transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
+                  opacity: listVisible ? 1 : 0,
+                  transform: listVisible ? "translateY(0)" : "translateY(16px)",
+                  transition: `opacity 0.5s ease ${150 + i * 80}ms, transform 0.5s ease ${150 + i * 80}ms`,
                 }}
               >
                 <button
+                  type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-7 py-5 text-left group cursor-pointer"
+                  className="group w-full flex items-center justify-between gap-6 px-7 py-5 text-left cursor-pointer"
+                  aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-bold text-brand-navy group-hover:text-brand-coral transition-colors duration-200">
-                    {faq.question}
+                  <span className="flex items-center gap-4 sm:gap-6 min-w-0">
+                    {/* Number + Q label */}
+                    <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-brand-coral tabular-nums shrink-0">
+                      {number}. Q
+                    </span>
+
+                    {/* Question */}
+                    <span
+                      className={`text-sm sm:text-base font-black uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${
+                        isOpen
+                          ? "text-brand-coral"
+                          : "text-brand-navy group-hover:text-brand-coral"
+                      }`}
+                    >
+                      {faq.question}
+                    </span>
                   </span>
-                  <ChevronDown
-                    className="w-5 h-5 text-brand-coral shrink-0 transition-transform duration-300"
-                    style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-                  />
+
+                  {/* Plus / × button */}
+                  <span
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      isOpen
+                        ? "bg-brand-coral rotate-45"
+                        : "bg-brand-navy/5 group-hover:bg-brand-coral/15"
+                    }`}
+                  >
+                    <Plus
+                      className={`w-4 h-4 transition-colors duration-300 ${
+                        isOpen
+                          ? "text-white"
+                          : "text-brand-navy/60 group-hover:text-brand-coral"
+                      }`}
+                      strokeWidth={2}
+                    />
+                  </span>
                 </button>
+
+                {/* Answer — grid-row expand */}
                 <div
-                  className="overflow-hidden transition-all duration-300"
-                  style={{ maxHeight: isOpen ? "200px" : "0px", opacity: isOpen ? 1 : 0 }}
+                  className="grid"
+                  style={{
+                    gridTemplateRows: isOpen ? "1fr" : "0fr",
+                    opacity: isOpen ? 1 : 0,
+                    transition: "grid-template-rows 400ms ease, opacity 400ms ease",
+                  }}
                 >
-                  <p className="px-7 pb-6 text-sm sm:text-base text-brand-navy/55 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  <div className="overflow-hidden">
+                    <div className="px-7 pb-6 -mt-1 flex gap-4 sm:gap-5">
+                      <div className="w-[2px] bg-brand-coral shrink-0 rounded-full" />
+                      <p className="text-sm sm:text-base text-brand-navy/55 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             )
           })}

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { ChevronDown } from "lucide-react"
+import { Plus } from "lucide-react"
 import { faqData } from "./data"
 
 function useInView(threshold = 0.15) {
@@ -32,7 +32,7 @@ export function FAQSection() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
-      {/* Radial glow */}
+      {/* Radial glow — untouched */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -43,7 +43,7 @@ export function FAQSection() {
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
-        {/* Header */}
+        {/* Header — untouched */}
         <div
           ref={headerRef}
           className="text-center mb-16 lg:mb-20"
@@ -67,10 +67,12 @@ export function FAQSection() {
         <div ref={listRef} className="max-w-3xl mx-auto space-y-3">
           {faqData.items.map((item, index) => {
             const isOpen = openIndex === index
+            const number = String(index + 1).padStart(2, "0")
+
             return (
               <div
                 key={index}
-                className="group relative rounded-2xl border overflow-hidden transition-all duration-300"
+                className="group relative rounded-2xl  overflow-hidden transition-all duration-300"
                 style={{
                   opacity: listVisible ? 1 : 0,
                   transform: listVisible ? "translateY(0)" : "translateY(24px)",
@@ -86,7 +88,7 @@ export function FAQSection() {
                     : "none",
                 }}
               >
-                {/* Hover shimmer */}
+                {/* Hover shimmer — untouched */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
                   style={{
@@ -96,45 +98,70 @@ export function FAQSection() {
                 />
 
                 <button
+                  type="button"
                   onClick={() => toggleItem(index)}
-                  className="relative w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                  className="group/btn relative w-full flex items-center justify-between gap-6 p-6 text-left cursor-pointer"
+                  aria-expanded={isOpen}
                 >
-                  <h3 className="font-black uppercase tracking-tight text-sm text-brand-white pr-4">
-                    {item.question}
-                  </h3>
-                  <div
-                    className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300"
+                  <span className="flex items-center gap-4 sm:gap-5 min-w-0">
+                    {/* Number + Q label */}
+                    <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-brand-coral tabular-nums shrink-0">
+                      {number}. Q
+                    </span>
+
+                    {/* Question */}
+                    <h3
+                      className={`font-black uppercase tracking-tight text-sm leading-snug transition-colors duration-300 ${
+                        isOpen
+                          ? "text-brand-white"
+                          : "text-brand-white/70 group-hover/btn:text-brand-white"
+                      }`}
+                    >
+                      {item.question}
+                    </h3>
+                  </span>
+
+                  {/* Plus / × button */}
+                  <span
+                    className="w-8 h-8 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300"
                     style={{
                       background: isOpen
-                        ? "rgba(114,145,199,0.25)"
+                        ? "rgba(114,145,199,0.3)"
                         : "rgba(114,145,199,0.1)",
+                      transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
                     }}
                   >
-                    <ChevronDown
-                      className="w-4 h-4 transition-transform duration-300"
+                    <Plus
+                      className="w-4 h-4 transition-colors duration-300"
                       style={{ color: isOpen ? "#f9f9fb" : "#7291C7" }}
                       strokeWidth={1.6}
-                      style={{
-                        color: isOpen ? "#f9f9fb" : "#7291C7",
-                        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                        transition: "transform 0.3s ease, color 0.3s ease",
-                      }}
                     />
-                  </div>
+                  </span>
                 </button>
 
+                {/* Answer — grid-row expand */}
                 <div
-                  className="overflow-hidden transition-all duration-300 ease-in-out"
-                  style={{ maxHeight: isOpen ? "200px" : "0px", opacity: isOpen ? 1 : 0 }}
+                  className="grid"
+                  style={{
+                    gridTemplateRows: isOpen ? "1fr" : "0fr",
+                    opacity: isOpen ? 1 : 0,
+                    transition: "grid-template-rows 400ms ease, opacity 400ms ease",
+                  }}
                 >
-                  <div className="px-6 pb-6 pt-0">
-                    <p className="text-sm text-brand-white/40 leading-relaxed">
-                      {item.answer}
-                    </p>
+                  <div className="overflow-hidden">
+                    <div className="px-6 pb-6 -mt-1 flex gap-4 sm:gap-5">
+                      <div
+                        className="w-[2px] shrink-0 rounded-full"
+                        style={{ background: "rgba(114,145,199,0.4)" }}
+                      />
+                      <p className="text-sm text-brand-white/40 leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Bottom accent line */}
+
                 <div
                   className="absolute bottom-0 left-6 right-6 h-px transition-all duration-500 rounded-full"
                   style={{

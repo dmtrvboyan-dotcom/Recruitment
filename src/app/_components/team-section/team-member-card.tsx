@@ -20,7 +20,7 @@ export const TeamMemberCard = memo(function TeamMemberCard({
 
   return (
     <div className="group relative overflow-hidden rounded-2xl bg-brand-navy border border-brand-white/10 hover:border-brand-coral/50 transition-colors duration-300 flex flex-col">
-      {/* Photo — fills the card */}
+
       <div className="relative aspect-[3/3] overflow-hidden">
         <Image
           src={member.image}
@@ -29,10 +29,8 @@ export const TeamMemberCard = memo(function TeamMemberCard({
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
 
-        {/* Gradient — readable text at bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/30 to-brand-navy/5" />
 
-        {/* Number + coral rule — top left */}
         {number && (
           <div className="absolute top-4 left-4 flex items-center gap-2">
             <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-coral">
@@ -42,7 +40,6 @@ export const TeamMemberCard = memo(function TeamMemberCard({
           </div>
         )}
 
-        {/* LinkedIn — top right */}
         {member.linkedin && (
           <Link
             href={member.linkedin}
@@ -63,7 +60,6 @@ export const TeamMemberCard = memo(function TeamMemberCard({
           </Link>
         )}
 
-        {/* Name overlaid on photo */}
         <div className="absolute inset-x-4 bottom-4">
           <p className="font-black uppercase tracking-[-0.01em] leading-tight text-brand-white text-sm sm:text-base lg:text-lg">
             {member.name}
@@ -71,7 +67,6 @@ export const TeamMemberCard = memo(function TeamMemberCard({
         </div>
       </div>
 
-      {/* Quote section — only when showQuote */}
       {showQuote && member.quote && (
         <div className="flex gap-3 p-4">
           <div className="w-[2px] bg-brand-coral/40 shrink-0" />
@@ -81,7 +76,6 @@ export const TeamMemberCard = memo(function TeamMemberCard({
         </div>
       )}
 
-      {/* Coral growing underline on hover */}
       <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-coral group-hover:w-full transition-all duration-500" />
     </div>
   )
