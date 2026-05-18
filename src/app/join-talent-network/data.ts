@@ -25,7 +25,7 @@ export const HOW_IT_WORKS: HowItWorksStep[] = [
     number: "01",
     phase: "Step One",
     heading: "Apply",
-    body: "Submit your profile in under 3 minutes. Share your stack, your rate, and how you want to work — full-time, contract, freelance, or remote.",
+    body: "Submit your profile in under 1 minute. Share your stack, your rate, and how you want to work — full-time, contract, freelance, or remote.",
     icon: FileText,
   },
   {
@@ -55,7 +55,7 @@ export interface Benefit {
 export const APPLICATION_BENEFITS: Benefit[] = [
   {
     icon: Clock4,
-    title: "3 minutes to apply",
+    title: "1 minute to apply",
     body: "Short form. No essays. We respect your time.",
   },
   {
@@ -63,16 +63,16 @@ export const APPLICATION_BENEFITS: Benefit[] = [
     title: "Confidential by default",
     body: "Your profile is never shared without your explicit approval.",
   },
-  {
-    icon: Globe2,
-    title: "Remote-first opportunities",
-    body: "Work with companies hiring across Europe, the UK, and the US.",
-  },
-  {
-    icon: Wallet,
-    title: "Transparent rates",
-    body: "You set your rate. We'll only contact you about roles inside it.",
-  },
+  // {
+  //   icon: Globe2,
+  //   title: "Remote-first opportunities",
+  //   body: "Work with companies hiring across Europe, the UK, and the US.",
+  // },
+  // {
+  //   icon: Wallet,
+  //   title: "Transparent rates",
+  //   body: "You set your rate. We'll only contact you about roles inside it.",
+  // },
 ]
 
 export const TECH_STACKS: string[] = [
@@ -167,7 +167,7 @@ export interface TrustStat {
 }
 
 export const TRUST_STATS: TrustStat[] = [
-  { value: "48", suffix: "hrs", label: "Average review time" },
+  { value: "100", suffix: "hrs", label: "Reviewed by humans" },
   { value: "650+", label: "Placements made" },
   { value: "100%", label: "Confidential" },
   { value: "0", suffix: "fees", label: "Free for candidates" },

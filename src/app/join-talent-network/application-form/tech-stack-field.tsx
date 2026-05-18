@@ -3,17 +3,22 @@
 import { memo } from "react"
 import { Code2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { FieldLabel } from "./field-label"
+import { Input } from "@/components/ui/input"
+import { FieldLabel, fieldInputClass } from "./field-label"
 import { TECH_STACKS } from "../data"
 
 interface TechStackFieldProps {
   selected: string[]
   onToggle: (tech: string) => void
+  freeText: string
+  onFreeTextChange: (value: string) => void
 }
 
 export const TechStackField = memo(function TechStackField({
   selected,
   onToggle,
+  freeText,
+  onFreeTextChange,
 }: TechStackFieldProps) {
   return (
     <div className="mb-7">
@@ -45,6 +50,23 @@ export const TechStackField = memo(function TechStackField({
             </Button>
           )
         })}
+      </div>
+
+      <div className="mt-4 flex items-center gap-3">
+        <span className="shrink-0 text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-white/30">
+          or
+        </span>
+        <div className="flex-1 h-px bg-brand-white/10" />
+      </div>
+
+      <div className="mt-3">
+        <Input
+          type="text"
+          value={freeText}
+          onChange={(e) => onFreeTextChange(e.target.value)}
+          placeholder="Write your stack here — e.g. Elixir, Phoenix, Postgres…"
+          className={fieldInputClass}
+        />
       </div>
     </div>
   )

@@ -60,7 +60,7 @@ export interface CtaData {
 export const HERO_DATA: HeroData = {
   tagline: "Contract & Freelance Hiring",
   eyebrow: "Flexible Developer Recruitment",
-  title: "Hire Contract & Freelance Developers",
+  title: "Contract freelance, b2b, Remote Hiring",
   description:
     "Pre-vetted contract developers and freelance programmers ready to join your team in 3–10 days. Scale fast, commit less, and ship more — with zero long-term risk.",
 }

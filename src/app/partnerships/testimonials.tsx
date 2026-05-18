@@ -42,7 +42,7 @@ const TESTIMONIALS = [
   {
     name: "Plamena Getova",
     role: "HR Director",
-    company: "Your People Solutions",
+    company: "Paragonex",
     quote:
       "Their team quickly understood both the technical requirements of our roles and the specifics of our internal culture and environment. Communication was clear, timely, and transparent at every step. They presented carefully selected candidates with relevant experience, which significantly reduced our interview time and helped us make faster decisions.",
   },
@@ -136,10 +136,10 @@ export const Testimonials = memo(function Testimonials() {
             Testimonials from HR teams
           </span>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-brand-navy">
-              IN THEIR
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-brand-navy uppercase">
+            Feedback from
               <br />
-              <span className="text-brand-coral">OWN WORDS.</span>
+              <span className="text-brand-coral uppercase">our clients</span>
             </h2>
             <div className="flex items-center gap-4 lg:pb-3">
               <div className="h-px w-12 bg-brand-navy/20" />

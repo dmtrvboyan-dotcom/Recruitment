@@ -29,10 +29,6 @@ export const FormAside = memo(function FormAside() {
                 <span className="text-brand-coral">YOURSELF.</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-brand-white/50 leading-relaxed mb-10 max-w-md">
-                One short form. Three minutes. After this, every role we send you is hand-picked for your profile.
-            </p>
-
             <ul className="space-y-5">
                 {APPLICATION_BENEFITS.map((b, i) => {
                     const Icon = b.icon

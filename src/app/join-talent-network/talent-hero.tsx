@@ -94,18 +94,18 @@ export const TalentNetworkHero = memo(function TalentNetworkHero() {
           </div>
 
           <h1 className="text-[clamp(2.25rem,9vw,8rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 max-w-5xl animate-fade-in-up delay-150">
-            Join Our
+            Join Our Freelance/b2b
             <br />
-            <span className="text-brand-coral">Talent Network</span>
+            <span className="text-brand-coral">network</span>
+
           </h1>
 
           <div className="flex flex-col items-center max-w-2xl mb-8 sm:mb-10 animate-fade-in-up delay-200">
             <p className="text-sm sm:text-base lg:text-lg text-brand-white/60 leading-relaxed px-2 sm:px-0">
-              Get matched with top companies hiring{" "}
-              <span className="text-brand-white font-medium">remote</span>,{" "}
-              <span className="text-brand-white font-medium">freelance</span>,{" "}
-              <span className="text-brand-white font-medium">contract</span>, and{" "}
-              <span className="text-brand-white font-medium">full-time</span> talent.
+              If we have the right opportunity for b2b/freelance,{" "}
+              <span className="text-brand-white font-medium">we will contact you.</span>{" "}
+              <span className="text-brand-white font-medium">Share your profile and get matched.</span>{" "}
+
             </p>
             <div className="mt-5 sm:mt-6 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>

@@ -4,6 +4,7 @@ import { memo, useCallback, useRef, useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { ArrowUp, Mail } from "lucide-react"
+import Link from 'next/link';
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
@@ -29,14 +30,11 @@ function useInView(threshold = 0.15) {
 export const FinalCta = memo(function FinalCta() {
   const { ref, visible } = useInView()
 
-  const handleApply = useCallback(() => {
-    scrollToSection("#apply", { highlightDuration: 0 })
-  }, [])
 
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
-     
+
       <div
         aria-hidden
         className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-brand-coral/18 blur-[140px] pointer-events-none"
@@ -87,25 +85,15 @@ export const FinalCta = memo(function FinalCta() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Button
-            onClick={handleApply}
             className="group w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-9 sm:px-10 py-6 sm:py-7 text-sm font-bold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
           >
-            <span className="flex items-center justify-center gap-2.5">
-              Apply Now
-              <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
-            </span>
-          </Button>
-
-          <Button
-            asChild
-            variant="outline"
-            className="w-full sm:w-auto bg-transparent text-brand-white border-2 border-brand-white/25 hover:bg-brand-white hover:text-brand-navy hover:border-brand-white px-9 sm:px-10 py-6 sm:py-7 text-sm font-bold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
-          >
-            <a href="mailto:hello@example.com" className="flex items-center justify-center gap-2.5">
+             <Link href="/contacts" className="flex items-center justify-center gap-2.5">
               <Mail className="w-4 h-4" strokeWidth={2} />
               Get in touch
-            </a>
+            </Link>
           </Button>
+
+    
         </div>
 
         <div className="mt-12 sm:mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-brand-white/35 font-medium">

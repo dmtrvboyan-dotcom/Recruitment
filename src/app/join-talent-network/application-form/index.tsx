@@ -22,7 +22,8 @@ export const ApplicationForm = memo(function ApplicationForm() {
     const [email, setEmail] = useState("")
     const [linkedin, setLinkedin] = useState("")
     const [resume, setResume] = useState<File | null>(null)
-    const [stacks, setStacks] = useState<string[]>([])
+    const [stacks, setStacks] = useState<string[]>([]);
+    const [stackFreeText, setStackFreeText] = useState("")
     const [rateAmount, setRateAmount] = useState("")
     const [rateBasis, setRateBasis] = useState<RateBasis>("hour")
     const [rateCurrency, setRateCurrency] = useState("EUR")
@@ -110,8 +111,12 @@ export const ApplicationForm = memo(function ApplicationForm() {
 
                         <ResumeUpload resume={resume} onChange={setResume} />
 
-                        <TechStackField selected={stacks} onToggle={toggleStack} />
-
+                        <TechStackField
+                            selected={stacks}
+                            onToggle={toggleStack}
+                            freeText={stackFreeText}
+                            onFreeTextChange={setStackFreeText}
+                        />
                         <RateField
                             amount={rateAmount}
                             currency={rateCurrency}
