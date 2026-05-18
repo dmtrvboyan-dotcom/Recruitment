@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Phone, Clock, Linkedin, Facebook, UserRound } from "lucide-react"
 import { ContactForm } from "./contact-form"
 import { TabButton } from "./tab-button"
+import { BookACall } from "./book-a-call"
 
 type TabType = "candidate" | "company"
 
@@ -132,7 +133,6 @@ export function Contact() {
           </p>
         </header>
 
-        {/* ─── MAIN GRID ──────────────────────────────────── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
 
           {/* LEFT RAIL — Contact methods + meta */}
@@ -144,7 +144,9 @@ export function Contact() {
                 <p className="text-[10px] tracking-[0.3em] uppercase text-brand-navy/40 font-semibold mb-5">
                   Reach Us
                 </p>
-                <ul className="divide-y divide-brand-navy/10 border-y border-brand-navy/10">
+                <BookACall />
+
+                <ul className="divide-y divide-brand-navy/10 border-y border-brand-navy/10 mt-8">
                   {CONTACT_METHODS.map(({ icon: Icon, label, value, href, hint, external }) => (
                     <li key={label}>
                       <a
@@ -178,20 +180,19 @@ export function Contact() {
                 </ul>
               </div>
 
-              {/* Response promise */}
-              <div className="relative bg-brand-navy text-white p-7 rounded-2xl overflow-hidden">
+              <div className="relative bg-brand-white text-white p-7 rounded-2xl overflow-hidden">
                 <div
                   aria-hidden
-                  className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-brand-coral/20 blur-2xl"
+                  className=" -top-8 -right-8 rounded-full bg-brand-coral/20 border-3 border-brand-navy blur-2xl"
                 />
                 <Clock className="w-5 h-5 text-brand-coral mb-4" strokeWidth={1.75} />
                 <p className="text-[10px] tracking-[0.3em] uppercase text-brand-coral/80 mb-2">
                   Response Time
                 </p>
-                <p className="text-xl font-bold leading-tight">
+                <p className="text-xl text-brand-navy font-bold leading-tight">
                   Under 24 hours
                 </p>
-                <p className="text-sm text-white/60 mt-3 leading-relaxed">
+                <p className="text-sm text-NAVY/60 mt-3 text-brand-navy/50 leading-relaxed">
                   A partner will be in touch.
                 </p>
               </div>
@@ -264,8 +265,6 @@ export function Contact() {
             </div>
           </div>
         </div>
-
-        {/* ─── FOLLOW US — Far bottom ────────────────────── */}
 
       </div>
     </section>
