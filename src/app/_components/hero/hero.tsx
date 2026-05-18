@@ -56,7 +56,7 @@ export const Hero = memo(function Hero() {
     <section
       className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white"
     >
-    
+
 
       {/* Top glow */}
       <div
@@ -89,16 +89,16 @@ export const Hero = memo(function Hero() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
-          <h1 className="text-[clamp(2.25rem,9vw,8rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-6 sm:mb-8 max-w-5xl animate-fade-in-up delay-150">
+          <h1 className="text-[clamp(2.25rem,9vw,7rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-6 sm:mb-8 max-w-5xl animate-fade-in-up delay-150">
             IT Recruitment Agency for
             <br />
             <span className="text-brand-coral">Tech Roles</span>
           </h1>
 
           <div className="flex flex-col items-center max-w-xl mb-8 sm:mb-10 animate-fade-in-up delay-200">
-            <p className="text-sm sm:text-base lg:text-lg text-brand-navy/70 leading-relaxed px-2 sm:px-0">
-              We connect companies with IT professionals through recruitment and talent acquisition services.
-            </p>
+            <h2 className="text-sm sm:text-base lg:text-lg text-brand-navy/70 leading-relaxed px-2 sm:px-0">
+              One-stop partner for hiring, payroll, compliance and team scaling in Eastern Europe.
+            </h2>
             <div className="mt-5 sm:mt-6 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
 
