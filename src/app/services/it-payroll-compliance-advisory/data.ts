@@ -1,13 +1,15 @@
 import {
-  Code2,
-  Users,
+  FileText,
+  Calculator,
+  Receipt,
   ShieldCheck,
+  Scale,
   Globe,
+  Users,
   Clock,
-  Zap,
-  LineChart,
   CheckCircle,
-  MapPin,
+  LineChart,
+  Building2,
   type LucideIcon,
 } from "lucide-react"
 
@@ -58,111 +60,115 @@ export interface CtaData {
   secondaryButton: { text: string; href: string }
 }
 
+// ─── Hero ─────────────────────────────────────────────────────────────────────
 export const HERO_DATA: HeroData = {
-  tagline: "Remote IT Hiring & Global Talent",
-  eyebrow: "Worldwide Tech Recruitment",
-  title: "Hire Beyond Borders. Build Exceptional Remote Teams.",
+  tagline: "IT Payroll, Compliance & Business Advisory",
+  eyebrow: "Operational Support for Tech Companies",
+  title: "Payroll That Grows With Your Business",
   description:
-    "We connect ambitious companies with world-class IT professionals. Expand your talent reach, build distributed teams that thrive, and hire the best - wherever they are.",
+    "We handle the operational complexity that slows growing tech companies down — payroll management, tax coordination, contractor compliance, and international expansion — so your team can focus on building great products.",
 }
 
+// ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS: StatItem[] = [
-  { value: "40+", label: "Countries we source from" },
-  { value: "500+", label: "Remote placements made" },
-  { value: "94%", label: "12-month retention rate" },
-  { value: "2–3", label: "Weeks average to hire" },
+  { value: "400+", label: "IT clients served" },
+  { value: "6", label: "Compliance areas covered" },
+  { value: "100%", label: "Jurisdiction-specific guidance" },
+  { value: "10+", label: "Years supporting tech companies" },
 ]
 
+// ─── Process steps ────────────────────────────────────────────────────────────
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Define the Role & Team",
+    title: "Understand Your Structure",
     description:
-      "We start by understanding your product, stack, and team culture - not just the job spec. The more context you share, the sharper our global search.",
+      "We start by mapping your current setup — headcount, contractor mix, countries of operation, and any immediate compliance gaps. No generic templates.",
     icon: Users,
   },
   {
     number: "02",
-    title: "Search Across Countries",
+    title: "Design the Right Framework",
     description:
-      "We tap a deep global network of senior IT professionals actively seeking remote roles - engineers, architects, and tech leads who've been pre-assessed before you ever see them.",
-    icon: Globe,
+      "We propose the payroll structure, contractor classification, and compliance framework that fits your business model — whether you're a startup or a scaling international team.",
+    icon: FileText,
   },
   {
     number: "03",
-    title: "Shortlist the Best Matches",
+    title: "Handle the Numbers",
     description:
-      "You receive a tight shortlist of candidates matched on skills, time zone, language, and culture fit. No noise - just the profiles that are genuinely worth your time.",
-    icon: CheckCircle,
+      "Monthly payroll runs, accounting coordination, VAT submissions, and tax filings are executed accurately and on time — every time. You get clear reporting, not spreadsheet chaos.",
+    icon: Calculator,
   },
   {
     number: "04",
-    title: "Interview & Select",
+    title: "Keep You Compliant",
     description:
-      "We coordinate interviews, handle scheduling across time zones, and facilitate any technical assessments. You focus on the conversation, we handle the logistics.",
+      "Labor law changes, contractor reclassification risks, and cross-border tax obligations don't wait. We monitor, flag, and adapt proactively — before issues become problems.",
     icon: ShieldCheck,
   },
   {
     number: "05",
-    title: "Compliant Hire & Smooth Onboarding",
+    title: "Support International Growth",
     description:
-      "We guide you through compliant international contracts, payroll structures, and remote onboarding - so your new hire is set up to deliver from day one.",
-    icon: Clock,
+      "Expanding to a new country? We guide you through entity decisions, local employment laws, and payroll setup — so your first hire abroad is as smooth as your hundredth.",
+    icon: Globe,
   },
 ]
 
+// ─── Service cards (the six subcategories) ────────────────────────────────────
 export const SERVICE_CARDS: ServiceCard[] = [
   {
-    icon: Code2,
-    title: "Full-Stack & Web Engineers",
+    icon: Calculator,
+    title: "Payroll Management",
     description:
-      "Remote-ready engineers who own features end-to-end - from UI to database - across modern web stacks, with strong async communication and independent delivery.",
-    tags: ["React", "Node.js", "TypeScript", "Next.js", "PostgreSQL"],
+      "End-to-end payroll processing for IT companies — from salary calculations and net pay disbursements to payslips and year-end reporting. Accurate, timely, and fully documented for every employee and engagement type.",
+    tags: ["Salary Processing", "Payslips", "Year-End Reports", "Multi-Currency"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
   {
-    icon: LineChart,
-    title: "Data & AI/ML Specialists",
+    icon: FileText,
+    title: "Accounting Coordination",
     description:
-      "Global data engineers and ML practitioners who work across time zones, integrate with your existing pipelines, and move fast without sacrificing rigour.",
-    tags: ["Python", "AI/ML", "dbt", "Spark", "LLMs"],
+      "Bookkeeping, financial record management, and accounting coordination tailored for technology businesses. We maintain clean books, prepare management accounts, and ensure your financials are always investor- and audit-ready.",
+    tags: ["Bookkeeping", "Management Accounts", "P&L", "Audit Preparation"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
   {
-    icon: Zap,
-    title: "Mobile Engineers",
+    icon: Receipt,
+    title: "Tax Coordination",
     description:
-      "iOS, Android, and cross-platform engineers from markets with deep mobile expertise - ready to work remotely within your product team structure.",
-    tags: ["React Native", "Swift", "Kotlin", "Flutter"],
+      "Corporate tax, VAT, employment tax, and personal tax coordination for tech companies and their teams. We identify obligations across jurisdictions, prepare filings, and make sure you're never caught off guard at year-end.",
+    tags: ["Corporate Tax", "VAT", "Employment Tax", "Cross-Border"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
   {
     icon: ShieldCheck,
-    title: "DevOps & Cloud Engineers",
+    title: "Contractor Compliance",
     description:
-      "Remote infrastructure and platform engineers who build, automate, and scale your cloud environment - with clear async communication and strong documentation habits.",
-    tags: ["AWS", "Kubernetes", "Terraform", "CI/CD"],
+      "Properly structured B2B and freelance engagements that hold up under scrutiny. We handle contractor agreements, IR35/self-employment assessments, invoicing frameworks, and reclassification risk — protecting both you and your contractors.",
+    tags: ["IR35", "B2B Agreements", "Freelance Contracts", "Risk Assessment"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
   {
-    icon: Users,
-    title: "Backend & API Engineers",
+    icon: Scale,
+    title: "Labor Law Coordination",
     description:
-      "Experienced backend professionals from across the globe who design and ship reliable services - with the autonomy and communication skills remote work demands.",
-    tags: ["Java", "Go", ".NET", "Python", "Microservices"],
+      "Employment law is complex and changes constantly. We monitor legislative updates across your operating jurisdictions, advise on employment contracts, working time, benefits obligations, and termination — keeping your HR practices legally sound.",
+    tags: ["Employment Contracts", "Working Time", "Termination", "Benefits Law"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
   {
-    icon: MapPin,
-    title: "Tech Leads & Architects",
+    icon: Globe,
+    title: "International Expansion Support",
     description:
-      "Senior technical leaders who can drive architecture decisions, mentor distributed teams, and align engineering with product - all without needing to be in the room.",
-    tags: ["System Design", "Team Leadership", "Architecture", "Strategy"],
+      "Planning to hire in a new country or set up an entity abroad? We provide end-to-end advisory — from market entry structure and local registration to payroll setup and ongoing compliance — so you expand without operational risk.",
+    tags: ["Market Entry", "Entity Setup", "Local Payroll", "Multi-Country"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
@@ -171,83 +177,88 @@ export const SERVICE_CARDS: ServiceCard[] = [
 // ─── Benefits ─────────────────────────────────────────────────────────────────
 export const BENEFITS: BenefitItem[] = [
   {
-    icon: Globe,
-    title: "Truly Global Talent Pool",
-    body: "We source from countries, unlocking senior engineers invisible to local-only hiring searches.",
+    icon: Building2,
+    title: "Built Exclusively for IT Companies",
+    body: "We don't serve everyone. Our 400+ clients are all technology businesses — which means we understand contractor-heavy teams, equity comp, international hiring, and fast-growth payroll complexity in a way generalist firms simply can't.",
   },
   {
     icon: ShieldCheck,
-    title: "Compliance Handled for You",
-    body: "International contracts, tax structures, and payroll compliance - we navigate the complexity so you don't have to.",
+    title: "Zero Compliance Surprises",
+    body: "We proactively monitor tax law changes, contractor classification risks, and cross-border obligations. By the time something changes, you already have a plan — not a penalty.",
+  },
+  {
+    icon: Globe,
+    title: "True International Coverage",
+    body: "Whether you're hiring your first employee in Eastern Europe or running a multi-country payroll across five jurisdictions, we handle local nuance with the same rigour as domestic operations.",
   },
   {
     icon: Clock,
-    title: "Time Zone Matched",
-    body: "We find professionals with overlap that works for your team - not just technically capable, but practically collaborative.",
+    title: "Payroll That Never Misses",
+    body: "Your team works hard. The least we can do is make sure payday happens without error or delay. Accurate payroll, every cycle, with full documentation and reporting.",
   },
   {
     icon: LineChart,
-    title: "Built for Long-Term Retention",
-    body: "Our 94% 12-month retention rate reflects rigorous culture and communication screening - not just skill matching.",
+    title: "Advisory That Scales with You",
+    body: "From 5-person startup to 200-person scale-up, our advisory framework grows with your business. As your structure gets more complex, so does our support — without handoffs or account churning.",
+  },
+  {
+    icon: CheckCircle,
+    title: "One Trusted Partner for Everything",
+    body: "Payroll, tax, accounting, contractor compliance, labor law, and international expansion — all under one roof. No more coordinating between four different firms or falling into the gaps between them.",
   },
 ]
 
-// ─── Global regions ──────────────────────────────────────────────────────────
-export interface RegionItem {
-  region: string
-  highlights: string
-  overlap: string
+// ─── What we cover (trust bar / marquee) ─────────────────────────────────────
+export const TRUST_ITEMS: TrustItem[] = [
+  { text: "Payroll Management" },
+  { text: "Accounting Coordination" },
+  { text: "Tax Coordination" },
+  { text: "Contractor Compliance" },
+  { text: "Labor Law Guidance" },
+  { text: "International Expansion" },
+  { text: "400+ IT Clients" },
+  { text: "IR35 & B2B Structuring" },
+  { text: "VAT & Corporate Tax" },
+  { text: "Multi-Country Payroll" },
+]
+
+// ─── Why this matters section cards ──────────────────────────────────────────
+export interface WhyItem {
+  label: string
+  detail: string
 }
 
-export const REGIONS: RegionItem[] = [
+export const WHY_ITEMS: WhyItem[] = [
   {
-    region: "Eastern Europe",
-    highlights: "Poland, Ukraine, Romania, Czech Republic",
-    overlap: "Excellent EU/UK overlap",
+    label: "Misclassified contractors",
+    detail: "One reclassification ruling can cost more than years of advisory fees. Get it right from day one.",
   },
   {
-    region: "Latin America",
-    highlights: "Brazil, Argentina, Colombia, Mexico",
-    overlap: "Strong US timezone alignment",
+    label: "Cross-border payroll errors",
+    detail: "Paying employees in multiple countries without local compliance support is one of the fastest ways to attract regulatory attention.",
   },
   {
-    region: "South & Southeast Asia",
-    highlights: "India, Philippines, Vietnam, Indonesia",
-    overlap: "APAC & flexible async coverage",
+    label: "Founder time drain",
+    detail: "Every hour your leadership team spends on payroll queries and tax filings is an hour not spent on product, sales, or hiring.",
   },
   {
-    region: "Africa & Middle East",
-    highlights: "Nigeria, South Africa, Egypt, UAE",
-    overlap: "EU overlap & emerging tech hubs",
+    label: "Scaling without structure",
+    detail: "The payroll and compliance approach that worked at 10 people will break at 50. Build the right foundations before you need them.",
   },
-]
-
-// ─── Trust bar ────────────────────────────────────────────────────────────────
-export const TRUST_ITEMS: TrustItem[] = [
-  { text: "Countries" },
-  { text: "React & Next.js" },
-  { text: "Cloud & DevOps" },
-  { text: "AI & ML Engineers" },
-  { text: "Compliance Included" },
-  { text: "Time Zone Matched" },
-  { text: "94% Retention Rate" },
-  { text: "Remote-First Screening" },
-  { text: "Mobile (iOS & Android)" },
-  { text: "2–3 Week Placement" },
 ]
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 export const CTA_DATA: CtaData = {
-  eyebrow: "Start Hiring Globally",
-  title: "Your next great hire could be anywhere.",
+  eyebrow: "Let's Talk Compliance",
+  title: "Get your payroll and compliance sorted — for good.",
   description:
-    "Tell us the role, your stack, and your time zone needs. We'll come back with a curated shortlist of world-class remote talent within 2–3 weeks.",
+    "Tell us about your current setup, your team size, and where you're operating. We'll come back with a clear view of what needs to be in place and how we can help.",
   primaryButton: {
     text: "Contact Us",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
-    text: "Download our Remote Hiring Guide",
-    href: "/remote-hiring-guide.pdf",
+    text: "Learn about our EOR service",
+    href: "/services/employer-of-record",
   },
 }

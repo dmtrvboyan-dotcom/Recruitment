@@ -247,18 +247,13 @@ export function ShowcaseSection() {
           </div>
         </div>
 
-
-
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-14">
           <AppButton href={showcaseData.ctaButton.href} className="sm:w-auto">
- {showcaseData.ctaButton.text}
-           </AppButton>
-           </div>
-
-
-
-
+            {showcaseData.ctaButton.text}
+          </AppButton>
         </div>
+
+      </div>
     </section>
   )
 }
