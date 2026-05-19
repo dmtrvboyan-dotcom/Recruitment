@@ -4,7 +4,6 @@ import * as React from "react"
 import { getCalApi } from "@calcom/embed-react"
 import { CalendarDays, Clock, ArrowRight, CheckCircle } from "lucide-react"
 
-// ─── Constants ────────────────────────────────────────────────────────────────
 
 const CAL_NAMESPACE = process.env.NEXT_PUBLIC_CAL_NAMESPACE
 const CAL_LINK      = process.env.NEXT_PUBLIC_CAL_LINK
@@ -15,7 +14,6 @@ if (!CAL_NAMESPACE || !CAL_LINK) {
   )
 }
 
-// ─── BookACall ────────────────────────────────────────────────────────────────
 
 export function BookACall() {
   const [booked, setBooked] = React.useState(false)

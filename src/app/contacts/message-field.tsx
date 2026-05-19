@@ -8,27 +8,34 @@ import type { ContactFormData } from "@/lib/schemas"
 type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT" | "remoteIT" | "executiveSearch" | "salary"
 
 const PLACEHOLDER_MAP: Record<Interest, string> = {
-  hiring: "Tell us about your hiring needs — roles, headcount, budget, timeline…",
-  demo: "I'd like to schedule a Smart.r ATS/CRM demonstration…",
-  permanentIT: "Tell us about your permanent IT hiring needs, roles, timeline…",
-  hireContract: "Tell us about your contract or freelance developer needs…",
-  projectIT: "Tell us about your project — requirements, expertise, deliverables…",
-  remoteIT: "Tell us about your remote hiring needs — locations, skills, team…",
+  hiring:          "Tell us about your hiring needs — roles, headcount, budget, timeline…",
+  demo:            "I'd like to schedule a Smart.r ATS/CRM demonstration…",
+  permanentIT:     "Tell us about your permanent IT hiring needs, roles, timeline…",
+  hireContract:    "Tell us about your contract or freelance developer needs…",
+  projectIT:       "Tell us about your project — requirements, expertise, deliverables…",
+  remoteIT:        "Tell us about your remote hiring needs — locations, skills, team…",
   executiveSearch: "Tell us about the leadership role you're hiring for…",
-  salary: "Tell us about your benchmarking needs — titles, seniority, location…",
+  salary:          "Tell us about your benchmarking needs — titles, seniority, location…",
 }
 
+const MAX = 1000
+const MIN = 40
+
 interface MessageFieldProps {
-  form: UseFormReturn<ContactFormData>
+  form:     UseFormReturn<ContactFormData>
   interest: Interest
-  mode: "candidate" | "company"
+  mode:     "candidate" | "company"
 }
 
 export function MessageField({ form, interest, mode }: MessageFieldProps) {
-  const placeholder =
-    mode === "candidate"
-      ? "Tell us about your career goals and what you're looking for next…"
-      : PLACEHOLDER_MAP[interest]
+  const placeholder = mode === "candidate"
+    ? "Tell us about your career goals and what you're looking for next…"
+    : PLACEHOLDER_MAP[interest]
+
+  const value = form.watch("message") ?? ""
+  const count = value.length
+  const isBelowMin = count < MIN && count > 0
+  const isAtMax    = count >= MAX
 
   return (
     <FormField
@@ -43,7 +50,23 @@ export function MessageField({ form, interest, mode }: MessageFieldProps) {
               {...field}
             />
           </FormControl>
-          <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
+
+          {/* Counter + validation message row */}
+          <div className="flex items-center justify-between mt-1.5">
+            <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide" />
+            <span className={`ml-auto text-[10px] font-bold tabular-nums tracking-tight shrink-0 ${
+              isAtMax    ? "text-brand-coral" :
+              isBelowMin ? "text-brand-navy/40" :
+                           "text-brand-teal"
+            }`}>
+              {count}/{MAX}
+              {isBelowMin && (
+                <span className="ml-1 font-normal normal-case tracking-normal">
+                  ({MIN - count} more to go)
+                </span>
+              )}
+            </span>
+          </div>
         </FormItem>
       )}
     />

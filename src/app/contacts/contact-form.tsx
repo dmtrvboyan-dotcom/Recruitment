@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { CheckCircle, Upload, Mail, Phone } from "lucide-react"
+import { CheckCircle, Upload, Mail, Phone, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Spinner } from "@/components/ui/spinner"
@@ -23,14 +23,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { contactFormSchema, type ContactFormData } from "@/lib/schemas"
+import { createContactFormSchema, type ContactFormData } from "@/lib/schemas"
 import { MessageField } from "./message-field"
 import { TagInput } from "./tag-input"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Mode          = "candidate" | "company"
-type Interest      = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT" | "remoteIT" | "executiveSearch" | "salary"
+type Mode = "candidate" | "company"
+type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT" | "remoteIT" | "executiveSearch" | "salary"
 type ContactMethod = "email" | "phone"
 
 interface ContactFormProps {
@@ -42,14 +42,14 @@ interface ContactFormProps {
 const SHARED_TAGS = ["urgent", "follow-up", "question", "custom-request"]
 
 const INTEREST_TAGS: Record<Interest, string[]> = {
-  hiring:          ["hiring", "recruitment", "open-roles", "budget", "timeline",         ...SHARED_TAGS],
-  demo:            ["demo", "product-tour", "sales", "pricing", "meeting",               ...SHARED_TAGS],
-  permanentIT:     ["full-time", "tech-talent", "staffing", "acquisition",               ...SHARED_TAGS],
-  hireContract:    ["contractors", "freelance-devs", "contracts",                        ...SHARED_TAGS],
-  projectIT:       ["project-based", "outsourcing", "delivery", "expertise",             ...SHARED_TAGS],
-  remoteIT:        ["international", "offshore", "teams", "market-data",                 ...SHARED_TAGS],
-  executiveSearch: ["headhunting", "leadership", "c-level", "confidential",              ...SHARED_TAGS],
-  salary:          ["salary", "benchmarking", "compensation", "market-data",             ...SHARED_TAGS],
+  hiring: ["hiring", "recruitment", "open-roles", "budget", "timeline", ...SHARED_TAGS],
+  demo: ["demo", "product-tour", "sales", "pricing", "meeting", ...SHARED_TAGS],
+  permanentIT: ["full-time", "tech-talent", "staffing", "acquisition", ...SHARED_TAGS],
+  hireContract: ["contractors", "freelance-devs", "contracts", ...SHARED_TAGS],
+  projectIT: ["project-based", "outsourcing", "delivery", "expertise", ...SHARED_TAGS],
+  remoteIT: ["international", "offshore", "teams", "market-data", ...SHARED_TAGS],
+  executiveSearch: ["headhunting", "leadership", "c-level", "confidential", ...SHARED_TAGS],
+  salary: ["salary", "benchmarking", "compensation", "market-data", ...SHARED_TAGS],
 }
 
 const CONTACT_METHOD_OPTIONS: {
@@ -58,9 +58,9 @@ const CONTACT_METHOD_OPTIONS: {
   hint: string
   icon: React.ElementType
 }[] = [
-  { value: "email", label: "Email",  hint: "Reply within 24h",   icon: Mail  },
-  { value: "phone", label: "Phone",  hint: "We'll call you back", icon: Phone },
-]
+    { value: "email", label: "Email", hint: "Reply within 24h", icon: Mail },
+    { value: "phone", label: "Phone", hint: "We'll call you back", icon: Phone },
+  ]
 
 // ─── Style tokens ─────────────────────────────────────────────────────────────
 
@@ -145,14 +145,14 @@ function ContactMethodPill({
 // ─── ContactForm ──────────────────────────────────────────────────────────────
 
 export function ContactForm({ mode = "candidate" }: ContactFormProps) {
-  const [isSubmitting, setIsSubmitting]     = React.useState(false)
-  const [isSubmitted, setIsSubmitted]       = React.useState(false)
-  const [interest, setInterest]             = React.useState<Interest>("hiring")
-  const [tags, setTags]                     = React.useState<string[]>([])
-  const [file, setFile]                     = React.useState<File | null>(null)
-  const [captchaToken, setCaptchaToken]     = React.useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [isSubmitted, setIsSubmitted] = React.useState(false)
+  const [interest, setInterest] = React.useState<Interest>("hiring")
+  const [tags, setTags] = React.useState<string[]>([])
+  const [file, setFile] = React.useState<File | null>(null)
+  const [captchaToken, setCaptchaToken] = React.useState<string | null>(null)
   const [contactMethods, setContactMethods] = React.useState<ContactMethod[]>([])
-  const recaptchaRef                        = React.useRef<ReCAPTCHA>(null)
+  const recaptchaRef = React.useRef<ReCAPTCHA>(null)
 
   const toggleMethod = (m: ContactMethod) =>
     setContactMethods((prev) =>
@@ -160,10 +160,9 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
     )
 
   const form = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(createContactFormSchema(mode)),
     defaultValues: { name: "", company: "", email: "", phone: "", title: "", message: "" },
   })
-
   const resetForm = () => {
     setIsSubmitted(false)
     setFile(null)
@@ -416,21 +415,25 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
             <section className="animate-in fade-in slide-in-from-top-2 duration-300">
               <SectionMarker num="03" label="Attach CV" />
               <div className="relative group">
-                <input
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  onChange={(e) => e.target.files?.[0] && setFile(e.target.files[0])}
-                  className="absolute inset-0 opacity-0 cursor-pointer z-10"
-                  aria-label="Upload CV"
-                />
-                <div className={`relative flex items-center gap-4 p-5 rounded-xl border-2 border-dashed transition-all ${
-                  file ? "border-brand-teal bg-brand-teal/5" : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
-                }`}>
-                  <span className={`flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${
-                    file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
+
+                {/* Hide the file input when a file is already selected */}
+                {!file && (
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={(e) => e.target.files?.[0] && setFile(e.target.files[0])}
+                    className="absolute inset-0 opacity-0 cursor-pointer z-10"
+                    aria-label="Upload CV"
+                  />
+                )}
+
+                <div className={`relative flex items-center gap-4 p-5 rounded-xl border-2 border-dashed transition-all ${file ? "border-brand-teal bg-brand-teal/5" : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
                   }`}>
+                  <span className={`flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
+                    }`}>
                     {file ? <CheckCircle className="w-5 h-5" strokeWidth={1.75} /> : <Upload className="w-5 h-5" strokeWidth={1.75} />}
                   </span>
+
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-brand-navy truncate">
                       {file ? file.name : "Drop your CV here or click to browse"}
@@ -439,6 +442,18 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                       {file ? `${(file.size / 1024).toFixed(0)} KB — attached` : "PDF, DOC, DOCX — max 10MB"}
                     </p>
                   </div>
+
+                  {/* Remove button — only shown when a file is selected */}
+                  {file && (
+                    <button
+                      type="button"
+                      onClick={() => setFile(null)}
+                      aria-label="Remove CV"
+                      className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-brand-navy/40 hover:text-brand-coral hover:bg-brand-coral/10 transition-all duration-200 z-20"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
               </div>
             </section>

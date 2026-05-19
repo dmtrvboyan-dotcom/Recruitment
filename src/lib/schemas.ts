@@ -1,67 +1,89 @@
 import { z } from "zod"
 
-export const contactFormSchema = z.object({
-  // ── Shared fields ────────────────────────────────────────────────────────
+// ── Shared field definitions ──────────────────────────────────────────────────
 
-  name: z
-    .string()
-    .min(2,   { message: "Name must be at least 2 characters" })
-    .max(100, { message: "Name must be less than 100 characters" }),
+const nameField = z
+  .string()
+  .min(2,   { message: "Name must be at least 2 characters" })
+  .max(100, { message: "Max 100 characters" })
 
-  // Optional — only shown when company selects "Email" as contact method,
-  // or always shown in candidate mode.
-  email: z
-    .string()
-    .optional()
-    .refine(
-      (val) => !val || z.string().email().safeParse(val).success,
-      { message: "Please enter a valid email address" }
-    ),
+const messageField = z
+  .string()
+  .min(40,   { message: "Message must be at least 40 characters" })
+  .max(1000, { message: "Max 1,000 characters" })
 
-  // Optional — only shown when company selects "Phone" as contact method,
-  // or always shown in candidate mode.
-  phone: z
-    .string()
-    .optional()
-    .refine(
-      (val) =>
-        !val ||
-        /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(val),
-      { message: "Please enter a valid phone number" }
-    ),
+const titleField = z
+  .string()
+  .min(2,   { message: "Position must be at least 2 characters" })
+  .max(100, { message: "Max 100 characters" })
 
-  title: z
-    .string()
-    .optional()
-    .refine(
-      (val) => !val || val.length >= 2,
-      { message: "Title must be at least 2 characters" }
-    )
-    .refine(
-      (val) => !val || val.length <= 100,
-      { message: "Title must be less than 100 characters" }
-    ),
+const emailRequired = z
+  .string()
+  .min(1, { message: "Email is required" })
+  .email({ message: "Please enter a valid email address" })
 
-  message: z
-    .string()
-    .min(40,   { message: "Message must be at least 40 characters" })
-    .max(1000, { message: "Message must be less than 1000 characters" }),
+const phoneRequired = z
+  .string()
+  .min(1, { message: "Phone number is required" })
+  .refine(
+    (val) => /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(val),
+    { message: "Please enter a valid phone number" }
+  )
 
-  // ── Company-only fields ──────────────────────────────────────────────────
+const emailOptional = z
+  .string()
+  .optional()
+  .refine(
+    (val) => !val || z.string().email().safeParse(val).success,
+    { message: "Please enter a valid email address" }
+  )
 
-  // The company/organisation name (separate from the contact person's name)
-  company: z
-    .string()
-    .max(100, { message: "Company name must be less than 100 characters" })
-    .optional(),
+const phoneOptional = z
+  .string()
+  .optional()
+  .refine(
+    (val) => !val || /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(val),
+    { message: "Please enter a valid phone number" }
+  )
+
+// ── Mode-specific schemas ─────────────────────────────────────────────────────
+
+export const contactFormSchemaCompany = z.object({
+  name:    nameField,
+  company: z.string()
+             .min(2,   { message: "Company name must be at least 2 characters" })
+             .max(100, { message: "Max 100 characters" }),
+  title:   titleField,
+  email:   emailOptional,
+  phone:   phoneOptional,
+  message: messageField,
 })
 
-export type ContactFormData = z.infer<typeof contactFormSchema>
+export const contactFormSchemaCandidate = z.object({
+  name:    nameField,
+  email:   emailRequired,
+  phone:   phoneRequired,
+  title:   titleField,
+  company: z.string().optional(),
+  message: messageField,
+})
 
-// ── Interest options (company mode) ──────────────────────────────────────────
-// These replace the old inquiryType enum and are passed separately as a plain
-// string — not through react-hook-form — so they don't need to live in the
-// schema, but are co-located here for convenience.
+export function createContactFormSchema(mode: "candidate" | "company") {
+  return mode === "company" ? contactFormSchemaCompany : contactFormSchemaCandidate
+}
+
+// ── Shared TypeScript type (covers both modes) ────────────────────────────────
+
+export interface ContactFormData {
+  name:     string
+  email?:   string
+  phone?:   string
+  title?:   string
+  company?: string
+  message:  string
+}
+
+// ── Interest options ──────────────────────────────────────────────────────────
 
 export const interestOptions = [
   { value: "hiring",          label: "Hiring for my company" },
@@ -74,7 +96,6 @@ export const interestOptions = [
   { value: "salary",          label: "IT Salary Benchmarking" },
 ] as const
 
-// Kept for any existing code that still references inquiryTypeOptions
 export const inquiryTypeOptions = [
   { value: "hiring",       label: "I want to hire talent" },
   { value: "job-seeking",  label: "I am looking for a job" },
