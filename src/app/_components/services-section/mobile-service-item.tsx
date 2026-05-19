@@ -4,6 +4,8 @@ import { memo } from "react"
 import { ChevronDown, ArrowUpRight, Users } from "lucide-react"
 import Link from "next/link"
 import { type Service } from "@/lib/constants/services"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const MobileServiceItem = memo(function MobileServiceItem({
   service,
@@ -37,7 +39,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
         <div className="flex items-start justify-between">
           {isFeature ? (
             <span className="font-serif italic text-[12px] tracking-[0.18em] text-brand-coral">
-             
+
             </span>
           ) : (
             <span
@@ -57,9 +59,8 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             </span>
           ) : (
             <ChevronDown
-              className={`w-5 h-5 text-brand-navy/40 shrink-0 transition-transform duration-500 ${
-                isOpen ? "rotate-180 text-brand-coral" : ""
-              }`}
+              className={`w-5 h-5 text-brand-navy/40 shrink-0 transition-transform duration-500 ${isOpen ? "rotate-180 text-brand-coral" : ""
+                }`}
               strokeWidth={1.5}
             />
           )}
@@ -92,9 +93,8 @@ export const MobileServiceItem = memo(function MobileServiceItem({
 
           {isFeature && (
             <ChevronDown
-              className={`w-6 h-6 text-brand-coral shrink-0 transition-transform duration-500 ${
-                isOpen ? "rotate-180" : ""
-              }`}
+              className={`w-6 h-6 text-brand-coral shrink-0 transition-transform duration-500 ${isOpen ? "rotate-180" : ""
+                }`}
               strokeWidth={1.5}
             />
           )}
@@ -102,31 +102,27 @@ export const MobileServiceItem = memo(function MobileServiceItem({
       </button>
 
       <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? "max-h-[1600px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[1600px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="px-5 sm:px-6 pb-6 sm:pb-7">
           <div
-            className={`h-px w-full mb-6 ${
-              isFeature ? "bg-brand-coral/30" : "bg-brand-navy/10"
-            }`}
+            className={`h-px w-full mb-6 ${isFeature ? "bg-brand-coral/30" : "bg-brand-navy/10"
+              }`}
           />
 
           {service.subtitle && (
             <p
-              className={`text-sm font-medium mb-5 ${
-                isFeature ? "text-brand-coral" : "text-brand-coral"
-              }`}
+              className={`text-sm font-medium mb-5 ${isFeature ? "text-brand-coral" : "text-brand-coral"
+                }`}
             >
               {service.subtitle}
             </p>
           )}
           {service.intro && (
             <p
-              className={`text-sm leading-relaxed mb-6 ${
-                isFeature ? "text-brand-white/65" : "text-brand-navy/60"
-              }`}
+              className={`text-sm leading-relaxed mb-6 ${isFeature ? "text-brand-white/65" : "text-brand-navy/60"
+                }`}
             >
               {service.intro}
             </p>
@@ -136,9 +132,8 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             {service.sections.map((section, idx) => (
               <div key={idx}>
                 <h4
-                  className={`text-[11px] font-semibold tracking-[0.22em] uppercase mb-3 ${
-                    isFeature ? "text-brand-coral" : "text-brand-coral"
-                  }`}
+                  className={`text-[11px] font-semibold tracking-[0.22em] uppercase mb-3 ${isFeature ? "text-brand-coral" : "text-brand-coral"
+                    }`}
                 >
                   {section.heading}
                 </h4>
@@ -146,9 +141,8 @@ export const MobileServiceItem = memo(function MobileServiceItem({
                   {section.points.map((point, i) => (
                     <li
                       key={i}
-                      className={`flex items-start gap-3 text-sm leading-relaxed ${
-                        isFeature ? "text-brand-white/70" : "text-brand-navy/65"
-                      }`}
+                      className={`flex items-start gap-3 text-sm leading-relaxed ${isFeature ? "text-brand-white/70" : "text-brand-navy/65"
+                        }`}
                     >
                       <span
                         className={`text-brand-coral text-lg leading-none mt-0.5 flex-shrink-0`}
@@ -164,42 +158,37 @@ export const MobileServiceItem = memo(function MobileServiceItem({
           </div>
 
           <div
-            className={`mt-7 pt-6 grid grid-cols-3 gap-4 border-t ${
-              isFeature ? "border-brand-white/10" : "border-brand-navy/8"
-            }`}
+            className={`mt-7 pt-6 grid grid-cols-3 gap-4 border-t ${isFeature ? "border-brand-white/10" : "border-brand-navy/8"
+              }`}
           >
             {service.stats.map((stat, idx) => (
               <div key={idx} className="text-center">
                 <div
-                  className={`text-xl sm:text-2xl font-black tracking-tight ${
-                    isFeature ? "text-brand-coral" : "text-brand-navy"
-                  }`}
+                  className={`text-xl sm:text-2xl font-black tracking-tight ${isFeature ? "text-brand-coral" : "text-brand-navy"
+                    }`}
                 >
                   {stat.value}
                 </div>
                 <div
-                  className={`text-[10px] tracking-[0.18em] uppercase mt-1.5 leading-snug ${
-                    isFeature ? "text-brand-white/45" : "text-brand-navy/45"
-                  }`}
+                  className={`text-[10px] tracking-[0.18em] uppercase mt-1.5 leading-snug ${isFeature ? "text-brand-white/45" : "text-brand-navy/45"
+                    }`}
                 >
                   {stat.label}
                 </div>
               </div>
             ))}
           </div>
+          <div className="flex flex-col sm:flex-row gap-3">
 
-          <Link
+          <AppButton
             href={service.href}
-            className={`mt-6 w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-full text-[11px] font-semibold tracking-[0.22em] uppercase transition-colors duration-200
-              ${isFeature
-                ? "bg-brand-coral hover:bg-brand-coral-hover text-brand-white"
-                : "bg-brand-navy hover:bg-brand-coral text-brand-white"
-              }
-            `}
+            variant={isFeature ? "primary" : "navy"}
+            className="mt-6 w-full"
           >
             Learn more
             <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />
-          </Link>
+          </AppButton>
+          </div>
         </div>
       </div>
     </div>

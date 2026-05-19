@@ -5,6 +5,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { RiCheckLine } from "react-icons/ri"
+import { AppButton } from '@/components/ui/app-button';
+
 
 const FEATURES = [
   "Candidates in one place",
@@ -189,7 +191,7 @@ export const SmartRSection = memo(function SmartRSection() {
           </div>
         </div>
 
-      
+
         <div className="max-w-5xl mx-auto">
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-white/8 rounded-2xl overflow-hidden mb-12 sm:mb-16"
@@ -214,27 +216,13 @@ export const SmartRSection = memo(function SmartRSection() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/applicant-tracking-system"
-              rel="noopener noreferrer"
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6
-                         bg-brand-coral hover:bg-brand-coral-hover
-                         text-brand-white text-sm font-semibold tracking-[0.22em] uppercase
-                         rounded-full transition-colors duration-200"
-            >
+            <AppButton href="/applicant-tracking-system" icon="arrow" className=" sm:w-auto">
               Learn more about Smart.R
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
+            </AppButton>
 
-            <Link
-              href="/contacts"
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6
-                         border border-brand-white/20 hover:border-brand-white/40 hover:bg-brand-white/5
-                         text-brand-white/70 hover:text-brand-white text-sm font-semibold tracking-[0.22em] uppercase
-                         rounded-full transition-all duration-200"
-            >
+            <AppButton href="/contacts" variant="outline" className="sm:w-auto">
               Request a demo
-            </Link>
+            </AppButton>
           </div>
         </div>
       </div>

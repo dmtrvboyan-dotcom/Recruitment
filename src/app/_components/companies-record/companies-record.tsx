@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { memo } from "react"
 import { ArrowRight } from "lucide-react"
 import { COMPANIES } from "./companies"
+import { AppButton } from '@/components/ui/app-button';
+
 
 function MarqueeRow({
   companies,
@@ -66,7 +68,7 @@ function MarqueeRow({
 export const TrustedBySection = memo(function TrustedBySection() {
   return (
     <section className="relative py-16 sm:py-20 lg:py-28 bg-brand-navy overflow-hidden">
-     
+
       <div
         aria-hidden
         className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-white-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
@@ -117,17 +119,9 @@ export const TrustedBySection = memo(function TrustedBySection() {
 
       <div className="relative z-10 flex justify-center mt-12 sm:mt-14 lg:mt-16 px-5">
 
-        <Link
-          href="/partnerships"
-          rel="noopener noreferrer"
-          className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 
-                     bg-brand-coral hover:bg-brand-coral-hover 
-                     text-brand-white text-sm font-semibold tracking-[0.22em] uppercase
-                     rounded-full transition-colors duration-200"
-        >
+        <AppButton href="/partnerships" icon="arrow">
           View all partnerships
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-        </Link>
+        </AppButton>
       </div>
     </section>
   )

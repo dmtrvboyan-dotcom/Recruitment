@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { useAnimatedCounter } from "@/lib/hooks/use-animated-counter"
 import { ArrowRight } from "lucide-react"
+import { AppButton } from '@/components/ui/app-button';
 
 const StatBlock = memo(function StatBlock({
   value,
@@ -102,25 +103,24 @@ export const Hero = memo(function Hero() {
             <div className="mt-5 sm:mt-6 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
-            <Button
-              onClick={() => handleNavigate("#services")}
-              className="w-full sm:w-auto h-14 group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-7 text-sm font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer"
-            >
-              <span className="flex items-center justify-center gap-2.5">
-                Learn More
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-            </Button>
 
-            <Link
+          <div className="flex flex-col sm:flex-row gap-3">
+            <AppButton
+              onClick={() => handleNavigate("#services")}
+              icon="arrow"
+              className="w-full sm:w-auto"
+            >
+              Learn More
+            </AppButton>
+
+            <AppButton
               href="/job-listings"
-              className="w-full sm:w-auto h-14 inline-flex items-center justify-center bg-brand-white text-brand-navy border-2 border-brand-navy hover:bg-brand-navy hover:text-brand-white px-7 text-sm font-semibold tracking-[0.22em] uppercase rounded-full"
+              variant="navy"
+              className="w-full sm:w-auto"
             >
               Find a Job
-            </Link>
+            </AppButton>
           </div>
-
         </div>
       </div>
 
@@ -128,7 +128,7 @@ export const Hero = memo(function Hero() {
         <div className="grid grid-cols-2 lg:grid-cols-4 bg-brand-navy/92 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-brand-white/10 overflow-hidden shadow-2xl shadow-brand-navy/20">
           <StatBlock value="650+" label="Successful hirings" isMobileTop />
           <StatBlock value="12+" label="Senior recruiters" isMobileTop />
-          <StatBlock value="100%"  label="Recruiting All tech stacks" isMobileTop/>
+          <StatBlock value="100%" label="Recruiting All tech stacks" isMobileTop />
           <StatBlock
             value="1"
             suffix="Built in House "

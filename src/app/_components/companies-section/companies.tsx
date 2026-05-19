@@ -7,6 +7,8 @@ import { WHY_CHOOSE_US_POINTS, HIRE_WITH_CLARITY_POINTS } from "@/lib/constants/
 import { scrollToSection } from "@/lib/utils/scroll"
 import { CheckListItem } from "./check-list-item"
 import { SectionHeader } from "./section-header"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export function CompaniesSection() {
   const handleNavigate = useCallback(() => {
@@ -98,27 +100,17 @@ export function CompaniesSection() {
           </div>
 
         </div>
+      </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 lg:mt-20">
-          <Button
-            asChild
-            variant="outline"
-            className="w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-white px-8 py-6 sm:px-10 sm:py-7 text-sm tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-brand-coral/20 cursor-pointer active:scale-95 border-0"
-          >
-            <Link href="/process" rel="noopener noreferrer">
-              learn more how we work
-            </Link>
-          </Button>
-          <Button
-            onClick={handleNavigate}
-            variant="outline"
-            className="w-full sm:w-auto bg-transparent hover:bg-brand-white text-brand-white border-brand-white hover:text-brand-navy rounded-3xl px-8 py-6 text-sm font-semibold tracking-widest uppercase border-2 cursor-pointer transition-colors duration-200"
-          >
-            <Link href="/contacts" rel="noopener noreferrer">
-              Contact Us
-            </Link>
-          </Button>
-        </div>
+
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12 sm:mt-16 lg:mt-20">
+        <AppButton href="/process" icon="arrow">
+          learn more how we work
+        </AppButton>
+
+        <AppButton href="/contacts" variant="outline">
+          Contact Us
+        </AppButton>
       </div>
     </section>
   )

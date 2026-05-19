@@ -18,6 +18,8 @@ import { scrollToSection } from "@/lib/utils/scroll"
 import { TechPill } from "./tech-pill"
 import { CategoryCard } from "./category-card"
 import { CategoryModal } from "./category-modal"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export function SpecializedRecruitment() {
   const [selectedCategory, setSelectedCategory] =
@@ -28,7 +30,7 @@ export function SpecializedRecruitment() {
       id="specialized"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
     >
-   
+
 
       <div
         aria-hidden
@@ -84,15 +86,16 @@ export function SpecializedRecruitment() {
           <p className="text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-brand-white/40 text-center">
             Don&apos;t see your stack?
           </p>
-          <Link
-            href="/contacts"
-            className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-sm font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 cursor-pointer"
-          >
+
+
+          <AppButton href="/contacts"
+            icon="arrow">
             Let&apos;s talk
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </Link>
+          </AppButton>
+
         </div>
       </div>
+
 
       <Dialog
         open={!!selectedCategory}

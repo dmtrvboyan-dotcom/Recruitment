@@ -8,7 +8,7 @@ import { scrollToSection } from "@/lib/utils/scroll"
 
 export const ProcessCTA = memo(function ProcessCTA() {
   return (
-    <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
+    <section className="relative w-full bg-brand-white overflow-hidden">
 
   
 

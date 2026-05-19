@@ -4,8 +4,8 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { PhotoGallery } from "./photo-gallery"
 import { TeamCarousel } from "./team-carousel"
-import { scrollToSection } from "@/lib/utils/scroll"
-import { useCallback } from "react"
+import { AppButton } from '@/components/ui/app-button';
+
 
 const STATS = [
   { value: "15+", label: "Years IT Recruitment Experience" },
@@ -100,19 +100,23 @@ export function MeetTheTeam() {
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
 
+            <div className="flex flex-col sm:flex-row gap-3">
+              <AppButton
+                href="/about"
+                icon="arrow"
+                className="w-full sm:w-auto"
+              >
+                Learn More About Us
+              </AppButton>
 
-            <Link
-              href="/about"
-              className="w-full group sm:w-auto h-14 inline-flex items-center justify-center bg-brand-coral text-brand-white border-2 border-brand-navy hover:bg-brand-coral-hover hover:text-brand-white px-7 text-sm font-semibold tracking-[0.22em] uppercase rounded-full duration-200 "
-            >Learn more about us
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-            <Link
-              href="/candidates#client-testimonials"
-              className="w-full group sm:w-auto h-14 inline-flex items-center justify-center bg-brand-navy text-brand-white border border-brand-white  hover:bg-brand-coral-hover/25 hover:text-brand-white px-7 text-sm font-semibold tracking-[0.22em] uppercase rounded-full duration-200 "
-            >                Candidate feedback
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
+              <AppButton
+                href="/candidates#client-testimonials"
+                variant="outline"
+                className="w-full sm:w-auto"
+              >
+                Candidate feedback
+              </AppButton>
+            </div>
           </div>
         </div>
       </div>

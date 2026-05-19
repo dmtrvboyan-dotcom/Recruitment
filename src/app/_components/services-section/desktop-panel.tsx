@@ -4,6 +4,8 @@ import Link from "next/link"
 import { memo } from "react"
 import { X, ArrowUpRight } from "lucide-react"
 import { type Service } from "@/lib/constants/services"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const DesktopPanel = memo(function DesktopPanel({
   service,
@@ -12,7 +14,7 @@ export const DesktopPanel = memo(function DesktopPanel({
   service: Service | null
   onClose: () => void
 }) {
-  
+
   return (
     <div
       className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${service ? "visible" : "invisible"
@@ -98,7 +100,15 @@ export const DesktopPanel = memo(function DesktopPanel({
                   </div>
                 ))}
               </div>
-              <Link
+
+              <AppButton href={service.href} ping>
+  Learn more
+  <ArrowUpRight
+    className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
+    strokeWidth={1.5}
+  />
+</AppButton>
+              {/* <Link
                 href={service.href}
                 className="group relative inline-flex items-center justify-center gap-2.5 py-5 px-10 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-md font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 mb-3 active:scale-95"
               >
@@ -109,7 +119,7 @@ export const DesktopPanel = memo(function DesktopPanel({
                   className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
                   strokeWidth={1.5}
                 />
-              </Link>
+              </Link> */}
 
             </div>
 
