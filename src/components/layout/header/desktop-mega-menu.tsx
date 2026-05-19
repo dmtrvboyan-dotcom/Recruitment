@@ -18,6 +18,13 @@ export const DesktopMegaMenu = memo(function DesktopMegaMenu({
   onToggle,
   onNavigate,
 }: DesktopMegaMenuProps) {
+  const sections = item.megaSections ?? []
+  const isSingle = sections.length === 1
+
+  // Width and grid cols scale with number of sections
+  const panelWidth = isSingle ? "w-72" : sections.length === 2 ? "w-[560px]" : "w-[820px]"
+  const gridCols = isSingle ? "grid-cols-1" : sections.length === 2 ? "grid-cols-2" : "grid-cols-3"
+
   return (
     <div className="relative">
       <button
@@ -34,12 +41,12 @@ export const DesktopMegaMenu = memo(function DesktopMegaMenu({
 
       <div
         role="menu"
-        className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[820px] max-w-[calc(100vw-3rem)] bg-brand-white rounded-sm shadow-xl border-t-2 border-brand-coral p-8 transition-all duration-200 origin-top ${
+        className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 ${panelWidth} max-w-[calc(100vw-3rem)] bg-brand-white rounded-sm shadow-xl border-t-2 border-brand-coral p-8 transition-all duration-200 origin-top ${
           isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
-        <div className="grid grid-cols-3 gap-x-8 gap-y-6">
-          {item.megaSections?.map((section) => (
+        <div className={`grid ${gridCols} gap-x-8 gap-y-6`}>
+          {sections.map((section) => (
             <div key={section.title}>
               <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-coral mb-5">
                 {section.title}

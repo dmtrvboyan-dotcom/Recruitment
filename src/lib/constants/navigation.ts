@@ -1,5 +1,3 @@
-
-
 export interface DropdownItem {
   label: string
   href: string
@@ -32,15 +30,49 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   {
     label: "Services",
-    hasDropdown: true,
-    dropdownItems: [
-      { label: "Permanent IT Recruitment", icon: "Users", href: "/services/permanent-it-recruitment" },
-      { label: "Contract/Freelance/B2B/Remote Hiring", icon: "Briefcase", href: "/services/contract-freelance-b2b-remote-recruitment" },
-      { label: "Confidential Headhunting and Executive search", icon: "Search", href: "/services/confidential-headhunting-executive-search" },
-      { label: "Employer of Record (EOR)", icon: "Clock", href: "/services/employer-of-record" },
-      { label: "IT Salary Benchmarking & Hiring Insights", icon: "UserCheck", href: "/services/it-salary-benchmarking-and-hiring-insights" },
-      { label: "IT Payroll, Compliance & Business Advisory", icon: "Globe", href: "/services/it-payroll-compliance-advisory" },
-
+    hasMegaMenu: true,
+    megaSections: [
+      {
+        title: "What We Offer",
+        items: [
+          {
+            label: "Permanent IT Recruitment",
+            description: "Full-time placements for long-term team building",
+            icon: "Users",
+            href: "/services/permanent-it-recruitment",
+          },
+          {
+            label: "Contract / Freelance / B2B / Remote",
+            description: "Flexible hiring across all engagement models",
+            icon: "Briefcase",
+            href: "/services/contract-freelance-b2b-remote-recruitment",
+          },
+          {
+            label: "Confidential Headhunting & Executive Search",
+            description: "Discreet search for senior & leadership roles",
+            icon: "Search",
+            href: "/services/confidential-headhunting-executive-search",
+          },
+          {
+            label: "Employer of Record (EOR)",
+            description: "Hire globally without a local entity",
+            icon: "Clock",
+            href: "/services/employer-of-record",
+          },
+          {
+            label: "IT Salary Benchmarking & Hiring Insights",
+            description: "Data-driven compensation & market intelligence",
+            icon: "UserCheck",
+            href: "/services/it-salary-benchmarking-and-hiring-insights",
+          },
+          {
+            label: "IT Payroll, Compliance & Business Advisory",
+            description: "End-to-end payroll, legal & advisory support",
+            icon: "Globe",
+            href: "/services/it-payroll-compliance-advisory",
+          },
+        ],
+      },
     ],
   },
   {
@@ -80,12 +112,6 @@ export const NAV_ITEMS: NavItem[] = [
             icon: "Brain",
             href: "/tech-recruitment#ai-ml",
           },
-          // {
-          //   label: "UX / UI Designers",
-          //   description: "Product Designers, UX Researchers, UI Specialists",
-          //   icon: "Palette",
-          //   href: "/tech-recruitment#ux-ui-design",
-          // },
           {
             label: "Mobile Development",
             description: "iOS, Android, React Native Developers",
@@ -133,12 +159,6 @@ export const NAV_ITEMS: NavItem[] = [
             href: "/expertise-services/saas-recruitment",
             description: "B2B SaaS, Product Teams, Cloud Platforms",
           },
-          // {
-          //   label: "E-commerce Recruitment",
-          //   icon: "ShoppingCart",
-          //   href: "/expertise-services/ecommerce-recruitment",
-          //   description: "Marketplace, Retail Tech, Growth Teams",
-          // },
           {
             label: "And More",
             icon: "MoreHorizontal",
@@ -186,19 +206,54 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "For Candidates",
-    hasDropdown: true,
-    dropdownItems: [
-      { label: "Why us?", icon: "Star", href: "/candidates" },
-      { label: "See our jobs", icon: "Briefcase", href: "/job-listings" },
-      { label: "Join our b2b/freelance network ", icon: "Briefcase", href: "/join-talent-network" },
+    hasMegaMenu: true,
+    megaSections: [
+      {
+        title: "Your Career, Our Network",
+        items: [
+          {
+            label: "Why Us?",
+            description: "How we advocate for candidates — not just clients",
+            icon: "Star",
+            href: "/candidates",
+          },
+          {
+            label: "Browse Open Jobs",
+            description: "Explore live roles across tech, data & leadership",
+            icon: "Briefcase",
+            href: "/job-listings",
+          },
+          {
+            label: "Join Our B2B / Freelance Network",
+            description: "Register as a contractor or independent consultant",
+            icon: "Users",
+            href: "/join-talent-network",
+          },
+        ],
+      },
     ],
   },
   {
     label: "Own ATS / CRM",
-    hasDropdown: true,
-    dropdownItems: [
-      { label: "Smart.R", icon: "Database", href: "/applicant-tracking-system" },
-      { label: "Book a demo", icon: "Phone", href: "/contacts" },
+    hasMegaMenu: true,
+    megaSections: [
+      {
+        title: "Our Recruitment Platform",
+        items: [
+          {
+            label: "Smart.R — Our ATS",
+            description: "AI-powered applicant tracking & CRM built for recruiters",
+            icon: "Database",
+            href: "/applicant-tracking-system",
+          },
+          {
+            label: "Book a Demo",
+            description: "See Smart.R in action with a personalised walkthrough",
+            icon: "Phone",
+            href: "/contacts",
+          },
+        ],
+      },
     ],
   },
   { label: "About Us", href: "/about" },
