@@ -3,6 +3,8 @@ import Link from "next/link"
 import { ScrollReveal } from "@/components/layout"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { AppButton } from '@/components/ui/app-button';
+
 import {
   HERO_DATA,
   STATS,
@@ -90,7 +92,7 @@ export default function ExecutiveSearchPage() {
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none" />
         <div className="absolute -bottom-60 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/10 blur-[130px] pointer-events-none" />
 
-    
+
 
         {/* Plus marks (decorative) */}
         <div aria-hidden className="absolute top-32 right-24 text-white/[0.08] text-3xl font-thin pointer-events-none hidden lg:block">+</div>
@@ -129,27 +131,19 @@ export default function ExecutiveSearchPage() {
               {HERO_DATA.description}
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button
-                asChild
-                className="bg-brand-coral text-brand-white hover:bg-brand-coral-hover rounded-full px-7 py-5 text-sm font-semibold transition-all duration-300 hover:scale-[1.02]"
-              >
-                <Link href={CTA_DATA.primaryButton.href}>
-                  {CTA_DATA.primaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                className="bg-transparent text-white border border-white/20 hover:bg-white/10 rounded-full px-7 py-5 text-sm font-semibold transition-all duration-300"
-              >
-                <Link href={CTA_DATA.secondaryButton.href}>
-                  {CTA_DATA.secondaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.primaryButton.text}
+              </AppButton>
+
+              <AppButton href={CTA_DATA.secondaryButton.href} variant="outline" className=" sm:w-auto">
+                {CTA_DATA.secondaryButton.text}
+              </AppButton>
             </div>
+
+
           </div>
         </div>
 
@@ -160,9 +154,8 @@ export default function ExecutiveSearchPage() {
               {STATS.map((stat, i) => (
                 <div
                   key={i}
-                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${
-                    i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
-                  }`}
+                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
+                    }`}
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[10px] font-mono text-brand-coral/80">
@@ -388,7 +381,7 @@ export default function ExecutiveSearchPage() {
               {/* Header / hero card */}
               <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-navy text-white p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[440px]">
                 <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
-              
+
 
                 <div className="relative">
                   <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-black uppercase leading-[0.92] tracking-tight mb-6">
@@ -462,7 +455,7 @@ export default function ExecutiveSearchPage() {
             <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] rounded-full bg-brand-coral/10 blur-[100px] pointer-events-none" />
 
             {/* Grid */}
-           
+
 
             {/* Corner brackets */}
             <div aria-hidden className="absolute top-5 left-5 w-8 h-8 border-l-2 border-t-2 border-brand-coral/40 rounded-tl-xl pointer-events-none" />
@@ -493,17 +486,13 @@ export default function ExecutiveSearchPage() {
                 {CTA_DATA.description}
               </p>
 
-              <div className="flex items-center justify-center">
-                <Button
-                  asChild
-                  className="bg-brand-coral text-brand-white hover:bg-brand-coral-hover rounded-full px-10 py-6 text-sm lg:text-base font-bold transition-all duration-300 hover:scale-105 shadow-2xl shadow-brand-coral/30"
-                >
-                  <Link href={CTA_DATA.primaryButton.href}>
-                    {CTA_DATA.primaryButton.text}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+                <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                   {CTA_DATA.primaryButton.text}
+                </AppButton>
               </div>
+
             </div>
           </div>
         </section>

@@ -13,6 +13,8 @@ import {
   TRUST_ITEMS,
   CTA_DATA,
 } from "./data"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const metadata: Metadata = {
   title: "Executive Search & Headhunting for Technology Leaders | Tech Recruitment",
@@ -20,16 +22,63 @@ export const metadata: Metadata = {
     "Partner-led executive search and headhunting for senior technology roles - CTO, VP Engineering, CISO, CPO, and beyond. 92% two-year retention. 300+ mandates completed. Discreet, strategic, and results-driven.",
 }
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
+// ─── Atoms ────────────────────────────────────────────────────────────────────
+
+function Eyebrow({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
   return (
-    <p className="text-xs font-semibold text-brand-coral uppercase tracking-[0.2em] mb-3">
+    <span
+      className={`inline-block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-brand-coral ${className}`}
+    >
       {children}
-    </p>
+    </span>
   )
 }
 
-function HRule({ className = "" }: { className?: string }) {
-  return <hr className={`border-t border-brand-navy/10 ${className}`} />
+function SectionIndicator({
+  index,
+  label,
+  tone = "light",
+  centered = false,
+}: {
+  index: number
+  label: string
+  tone?: "light" | "dark"
+  centered?: boolean
+}) {
+  const muted = tone === "dark" ? "text-white/30" : "text-brand-navy/30"
+  const line = tone === "dark" ? "bg-white/15" : "bg-brand-navy/15"
+
+  if (centered) {
+    return (
+      <div className="flex items-center justify-center gap-3 sm:gap-4">
+        <span className={`block h-px w-8 sm:w-16 ${line}`} />
+        <span className={`text-[10px] font-mono ${muted}`}>
+          {String(index).padStart(2, "0")}
+        </span>
+        <span className="block h-px w-8 bg-brand-coral" />
+        <Eyebrow>{label}</Eyebrow>
+        <span className="block h-px w-8 bg-brand-coral" />
+        <span className={`block h-px w-8 sm:w-16 ${line}`} />
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex items-center gap-3 sm:gap-4">
+      <span className={`text-[10px] font-mono ${muted}`}>
+        {String(index).padStart(2, "0")}
+      </span>
+      <span className="block h-px w-8 bg-brand-coral" />
+      <Eyebrow>{label}</Eyebrow>
+      <span className={`block h-px flex-1 ${line}`} />
+    </div>
+  )
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -37,151 +86,186 @@ function HRule({ className = "" }: { className?: string }) {
 export default function ExecutiveSearchPage() {
   return (
     <>
-      {/* ── HERO ── design completely unchanged ───────────────────────────── */}
-      <section className="relative pt-24 pb-0 lg:pt-48 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      <section className="relative w-full bg-brand-navy overflow-hidden flex flex-col mt-20 sm:mt-5">
+        {/* Coral glows */}
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none" />
+        <div className="absolute -bottom-60 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/10 blur-[130px] pointer-events-none" />
 
-          <div className="flex items-center gap-3 sm:gap-5 mb-8 lg:mb-10">
-            <span className="block h-px flex-1 bg-brand-navy/15" />
-            <Eyebrow>{HERO_DATA.eyebrow}</Eyebrow>
-            <span className="block h-px flex-1 bg-brand-navy/15" />
-          </div>
+        {/* Plus marks (decorative) */}
+        <div aria-hidden className="absolute top-32 right-24 text-white/[0.08] text-3xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute top-72 right-72 text-white/[0.06] text-xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute bottom-44 right-44 text-white/[0.06] text-2xl font-thin pointer-events-none hidden lg:block">+</div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end pb-16 lg:pb-28">
-            <div className="lg:col-span-7">
-              <p className="text-xs font-semibold text-brand-coral uppercase tracking-[0.2em] mb-4 lg:mb-6">
-                {HERO_DATA.tagline}
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] font-semibold text-brand-navy leading-[1.05] tracking-tight text-balance">
-                {HERO_DATA.title}
-              </h1>
+        {/* Vertical text rail (lg+) */}
+        <div className="hidden lg:flex absolute left-7 top-1/2 -translate-y-1/2 flex-col items-center gap-6 pointer-events-none z-10">
+          <div className="h-16 w-px bg-white/15" />
+          <span
+            className="text-[10px] font-bold tracking-[0.4em] uppercase text-white/40 whitespace-nowrap"
+            style={{ writingMode: "vertical-rl" }}
+          >
+            {HERO_DATA.eyebrow}
+          </span>
+          <div className="h-16 w-px bg-white/15" />
+        </div>
+
+        {/* Main — centered */}
+        <div className="relative flex-1 w-full pt-32 lg:pt-44 pb-12 lg:pb-20">
+          <div className="w-full max-w-5xl mx-auto px-5 sm:px-10 lg:px-20 text-center">
+            {/* Eyebrow */}
+            <div className="flex items-center justify-center gap-3 mb-6 lg:mb-8">
+              <span className="block h-px w-12 bg-brand-coral" />
+              <Eyebrow>{HERO_DATA.tagline}</Eyebrow>
+              <span className="block h-px w-12 bg-brand-coral" />
             </div>
 
-            <div className="lg:col-span-5 flex flex-col justify-end gap-6 lg:gap-8">
-              <p className="text-base lg:text-lg text-brand-navy/55 leading-relaxed text-pretty">
-                {HERO_DATA.description}
-              </p>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-                <Button
-                  asChild
-                  className="w-full sm:w-auto bg-brand-navy text-brand-white hover:bg-brand-blue rounded-xl px-7 py-5 text-sm font-medium transition-colors duration-200"
-                >
-                  <Link href={CTA_DATA.primaryButton.href}>
-                    {CTA_DATA.primaryButton.text}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  className="w-full sm:w-auto bg-brand-coral text-brand-white hover:bg-brand-navy rounded-xl px-7 py-5 text-sm font-medium transition-colors duration-200"
-                >
-                  <Link href={CTA_DATA.secondaryButton.href}>
-                    {CTA_DATA.secondaryButton.text}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-              </div>
+            {/* Title */}
+            <h1 className="text-[clamp(3rem,9vw,7rem)] font-black uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+              {HERO_DATA.title}
+            </h1>
+
+            {/* Description */}
+            <p className="text-base lg:text-lg text-white/65 leading-relaxed text-pretty max-w-2xl mx-auto mb-8 lg:mb-10">
+              {HERO_DATA.description}
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.primaryButton.text}
+              </AppButton>
+
+              <AppButton href={CTA_DATA.secondaryButton.href} variant="outline" className=" sm:w-auto">
+                {CTA_DATA.secondaryButton.text}
+              </AppButton>
             </div>
           </div>
+        </div>
 
-          <div className="border-t border-brand-navy/10 grid grid-cols-2 lg:grid-cols-4">
-            {STATS.map((stat, i) => (
-              <div
-                key={i}
-                className={`py-8 lg:py-10 px-4 sm:px-6 ${i % 2 === 0 ? "border-r border-brand-navy/10" : ""
-                  } ${i < 2 ? "border-b border-brand-navy/10 lg:border-b-0" : ""
-                  } ${i < STATS.length - 1 ? "lg:border-r lg:border-brand-navy/10" : ""
-                  }`}
-              >
-                <p className="text-3xl lg:text-5xl font-semibold text-brand-navy tracking-tight mb-1">
-                  {stat.value}
-                </p>
-                <p className="text-[12px] lg:text-[13px] text-brand-navy/45 leading-snug">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+        {/* Stats — editorial strip */}
+        <div className="relative w-full border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
+            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+              {STATS.map((stat, i) => (
+                <div
+                  key={i}
+                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
+                    }`}
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-[10px] font-mono text-brand-coral/80">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="h-px w-6 bg-white/20" />
+                  </div>
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                    {stat.value}
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── TRUST MARQUEE ──────────────────────────────────────────────────── */}
-      <div className="bg-brand-navy overflow-hidden py-3 sm:py-4 select-none">
+      {/* ── Trust marquee (coral accent bar) ─────────────────────────────── */}
+      <div className="relative bg-brand-coral overflow-hidden py-3.5 select-none">
         <div className="flex whitespace-nowrap animate-marquee">
-          {[...TRUST_ITEMS, ...TRUST_ITEMS].map((item, i) => (
+          {[...TRUST_ITEMS, ...TRUST_ITEMS, ...TRUST_ITEMS].map((item, i) => (
             <span
               key={i}
-              className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 text-[11px] sm:text-[13px] font-medium text-brand-white/55"
+              className="inline-flex items-center gap-3 sm:gap-4 px-5 sm:px-8 text-[11px] sm:text-[13px] font-semibold text-brand-white uppercase tracking-[0.15em]"
             >
-              <span className="w-1 h-1 rounded-full bg-brand-coral inline-block flex-shrink-0" />
+              <span className="text-white/50">✦</span>
               {item.text}
             </span>
           ))}
         </div>
       </div>
 
-      {/* ── ROLES WE PLACE ─────────────────────────────────────────────────── */}
+      {/* ── ROLES WE PLACE: 2-column role grid ───────────────────────────── */}
       <ScrollReveal>
-        <section className="py-16 lg:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-10 lg:mb-16">
-              <div>
-                <Eyebrow>Specialisms</Eyebrow>
-                <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight">
-                  Roles we lead
-                </h2>
+        <section className="relative w-full bg-brand-white">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 py-20 lg:py-32">
+            {/* Centered header */}
+            <div className="mb-12 lg:mb-16 text-center">
+              <SectionIndicator index={1} label="Specialisms" centered />
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+                Roles{" "}
+                <span className="text-brand-coral">we lead</span>
+              </h2>
+              <div className="flex items-center justify-center gap-3 mt-4">
+                <div className="h-px w-10 bg-brand-coral" />
+                <span className="text-[11px] font-mono text-brand-navy/40">
+                  {String(SERVICE_CARDS.length).padStart(2, "0")} / {String(SERVICE_CARDS.length).padStart(2, "0")}
+                </span>
+                <div className="h-px w-10 bg-brand-coral" />
               </div>
-              <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                We operate at the principal level - every search run by a senior partner with direct skin in the game.
+              <p className="mt-4 text-brand-navy/45 text-sm max-w-sm mx-auto leading-relaxed">
+                We operate at the principal level — every search run by a senior partner with direct skin in the game.
               </p>
             </div>
 
-            <HRule className="mb-0" />
-
-            <div className="divide-y divide-brand-navy/10">
+            {/* 2-column grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-brand-navy/10 border-l border-brand-navy/10">
               {SERVICE_CARDS.map((card, i) => {
                 const Icon = card.icon
                 return (
-                  <div
+                  <Link
                     key={i}
-                    className="group grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 py-6 lg:py-8 items-start hover:bg-brand-navy/[0.025] transition-colors duration-300 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10"
+                    href={card.href}
+                    className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-500 ease-out overflow-hidden"
                   >
-                    <div className="md:col-span-1 hidden md:flex pt-1">
-                      <span className="text-[13px] font-mono text-brand-navy/25">
+                    {/* Massive index */}
+                    <div className="pt-1 shrink-0">
+                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
 
-                    <div className="md:col-span-4 flex items-start gap-3 lg:gap-4">
-                      <div
-                        className={`w-9 h-9 lg:w-10 lg:h-10 flex-shrink-0 flex items-center justify-center rounded-xl ${card.iconBg}`}
-                      >
-                        <Icon className="w-4 h-4 lg:w-5 lg:h-5" style={{ color: card.accent }} />
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start gap-3 mb-3">
+                        <div
+                          className={`w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl ${card.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
+                        >
+                          <Icon
+                            className="w-5 h-5"
+                            style={{ color: card.accent }}
+                            strokeWidth={1.7}
+                          />
+                        </div>
+                        <h3 className="flex-1 text-base sm:text-lg font-bold text-brand-navy leading-tight pt-1 group-hover:text-brand-coral transition-colors duration-200">
+                          {card.title}
+                        </h3>
+                        <ArrowUpRight className="w-4 h-4 text-brand-navy/25 group-hover:text-brand-coral group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 shrink-0 mt-2" />
                       </div>
-                      <h3 className="text-base lg:text-[17px] font-semibold text-brand-navy leading-tight pt-1 lg:pt-1.5 group-hover:text-brand-blue transition-colors duration-200">
-                        {card.title}
-                      </h3>
-                    </div>
 
-                    <div className="md:col-span-4">
-                      <p className="text-[13px] lg:text-[14px] text-brand-navy/50 leading-relaxed">
+                      <p className="text-sm text-brand-navy/55 leading-relaxed mb-4">
                         {card.description}
                       </p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {card.tags.map((tag, j) => (
+                          <span
+                            key={j}
+                            className="text-[11px] font-semibold px-3 py-1 rounded-full bg-brand-navy/5 text-brand-navy/65 group-hover:bg-brand-coral/10 group-hover:text-brand-coral transition-colors duration-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
-                    <div className="md:col-span-3 flex flex-wrap items-start gap-2 md:justify-end">
-                      {card.tags.map((tag, j) => (
-                        <span
-                          key={j}
-                          className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-brand-navy/12 text-brand-navy/45 group-hover:border-brand-coral/30 group-hover:text-brand-navy/60 transition-colors duration-200"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                      <ArrowUpRight className="w-4 h-4 text-brand-navy/20 group-hover:text-brand-coral group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 mt-0.5" />
-                    </div>
-                  </div>
+                    {/* Animated coral underline */}
+                    <span
+                      aria-hidden
+                      className="absolute left-0 right-0 bottom-0 h-px w-0 bg-brand-coral group-hover:w-full transition-all duration-700 ease-out"
+                    />
+                  </Link>
                 )
               })}
             </div>
@@ -189,106 +273,135 @@ export default function ExecutiveSearchPage() {
         </section>
       </ScrollReveal>
 
-      {/* ── INDUSTRIES ─────────────────────────────────────────────────────── */}
-      {/*
-        New section - split panel: dark left label, light right content.
-        Communicates sector depth without being a generic logos strip.
-      */}
+      {/* ── INDUSTRIES ────────────────────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="py-16 lg:py-24 bg-brand-navy/[0.025]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-              <div className="lg:col-span-4 lg:sticky lg:top-32">
-                <Eyebrow>Sectors</Eyebrow>
-                <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight mb-4 lg:mb-6 text-balance">
-                  Industries we know deeply
-                </h2>
-                <p className="text-sm lg:text-[15px] text-brand-navy/45 leading-relaxed">
-                  Executive search only works when the recruiter genuinely understands the market. We've spent 15 years building that depth across four core technology sectors.
-                </p>
-              </div>
-
-              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
-                {INDUSTRIES.map((item, i) => (
-                  <div
-                    key={i}
-                    className="group rounded-2xl border border-brand-navy/10 bg-brand-white p-6 lg:p-8 hover:border-brand-coral/35 hover:shadow-sm transition-all duration-300"
-                  >
-                    <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest text-brand-coral mb-4">
-                      <span className="w-1 h-1 rounded-full bg-brand-coral inline-block" />
-                      {item.roles}
-                    </span>
-                    <h3 className="text-[15px] lg:text-base font-semibold text-brand-navy mb-2 leading-snug group-hover:text-brand-blue transition-colors duration-200">
-                      {item.sector}
-                    </h3>
-                    <p className="text-[12px] lg:text-[13px] text-brand-navy/45 leading-relaxed">
-                      {item.detail}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
-
-      {/* ── SEARCH METHODOLOGY (PROCESS) ───────────────────────────────────── */}
-      <ScrollReveal>
-        <section className="py-16 lg:py-32 bg-brand-navy">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-10 lg:mb-16">
-              <div>
-                <p className="text-xs font-semibold text-brand-coral/80 uppercase tracking-[0.2em] mb-3">
-                  HOW WE WORK
-                </p>
-                <h2 className="text-2xl lg:text-4xl font-semibold text-brand-white tracking-tight">
-                  Our search methodology
-                </h2>
-              </div>
-              <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                A five-stage process refined across 300+ senior mandates - rigorous enough to be worth trusting, structured enough to move at pace.
+        <section className="relative w-full bg-brand-navy/[0.025] py-20 lg:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
+            <div className="mb-12 lg:mb-16 text-center">
+              <SectionIndicator index={2} label="Sectors" centered />
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+                Industries we know{" "}
+                <span className="text-brand-coral">deeply</span>
+              </h2>
+              <p className="mt-4 text-brand-navy/45 text-sm max-w-md mx-auto leading-relaxed">
+                Executive search only works when the recruiter genuinely understands the market. We've spent 15 years building that depth.
               </p>
             </div>
 
-            {/* Card grid: 3-col on desktop, 2-col tablet, 1-col mobile */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-brand-navy/10 border-l border-brand-navy/10">
+              {INDUSTRIES.map((item, i) => (
+                <div
+                  key={i}
+                  className="group relative p-6 lg:p-8 border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-300 overflow-hidden"
+                >
+                  {/* Ghost index */}
+                  <span
+                    aria-hidden
+                    className="absolute top-4 right-5 text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-navy/[0.07] leading-none pointer-events-none select-none group-hover:text-brand-coral/20 transition-colors duration-500"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-brand-coral mb-4">
+                    <span className="w-1 h-1 rounded-full bg-brand-coral inline-block" />
+                    {item.roles}
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-brand-navy mb-2 leading-snug group-hover:text-brand-coral transition-colors duration-200">
+                    {item.sector}
+                  </h3>
+                  <p className="text-[13px] text-brand-navy/50 leading-relaxed">
+                    {item.detail}
+                  </p>
+
+                  {/* Animated coral underline */}
+                  <span
+                    aria-hidden
+                    className="absolute left-0 right-0 bottom-0 h-px w-0 bg-brand-coral group-hover:w-full transition-all duration-700 ease-out"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* ── PROCESS: Horizontal timeline ──────────────────────────────────── */}
+      <ScrollReveal>
+        <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
+          {/* Glow */}
+          <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+
+          {/* Watermark */}
+          <div
+            aria-hidden
+            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+          >
+            METHOD
+          </div>
+
+          {/* Header */}
+          <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
+            <div className="mb-8 lg:mb-10">
+              <SectionIndicator index={3} label="HOW WE WORK" tone="dark" centered />
+            </div>
+            <div className="text-center">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white mb-4">
+                Our search{" "}
+                <span className="text-brand-coral">methodology</span>
+              </h2>
+              <p className="text-white/45 text-sm lg:text-base leading-relaxed max-w-xl mx-auto">
+                A five-stage process refined across 300+ senior mandates.
+              </p>
+            </div>
+          </div>
+
+          {/* Grid */}
+          <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20">
+            {/* Connecting line (desktop) */}
+            <div
+              aria-hidden
+              className="hidden lg:block absolute left-20 right-20 top-[54px] h-px bg-gradient-to-r from-transparent via-brand-coral/30 to-transparent pointer-events-none z-0"
+            />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
               {PROCESS_STEPS.map((step, i) => {
                 const Icon = step.icon
-                const isLast = i === PROCESS_STEPS.length - 1
-
                 return (
-                  <div
-                    key={i}
-                    className={`
-                      group relative rounded-2xl border border-brand-white/10
-                      bg-brand-white/[0.04] p-6 lg:p-8
-                      hover:bg-brand-white/[0.08] hover:border-brand-coral/30
-                      transition-all duration-300
-                      flex flex-col min-h-[280px] lg:min-h-[320px]
-                      ${isLast ? "sm:col-span-2 lg:col-span-1 lg:col-start-2" : ""}
-                    `}
-                  >
-                    {/* Large faded number */}
-                    <span className="absolute top-5 right-6 lg:top-6 lg:right-7 text-[2.5rem] lg:text-[3.5rem] font-semibold text-brand-white/[0.06] leading-none pointer-events-none select-none">
-                      {step.number}
-                    </span>
-
-                    <div className="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center rounded-xl bg-brand-white/10 mb-5 lg:mb-6 flex-shrink-0">
-                      <Icon className="w-4 h-4 lg:w-5 lg:h-5 text-brand-coral" />
+                  <div key={i} className="relative">
+                    {/* Node dot (desktop) */}
+                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -top-[calc(54px-8px)] w-4 h-4 rounded-full bg-brand-navy border-2 border-brand-coral z-10 items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
                     </div>
 
-                    <p className="text-[11px] font-semibold text-brand-coral/70 uppercase tracking-widest mb-2">
-                      STEP {step.number}
-                    </p>
+                    {/* Card */}
+                    <div className="group relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 lg:p-7 hover:bg-white/[0.08] hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
+                      {/* Watermark step number */}
+                      <span
+                        aria-hidden
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-black text-white/[0.04] leading-none pointer-events-none select-none"
+                      >
+                        {step.number}
+                      </span>
 
-                    <h3 className="text-base lg:text-[17px] font-semibold text-brand-white mb-3 leading-tight">
-                      {step.title}
-                    </h3>
+                      <div className="relative">
+                        <div className="flex items-center gap-3 mb-5">
+                          <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-coral/15 group-hover:bg-brand-coral/25 transition-colors duration-300 shrink-0">
+                            <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.7} />
+                          </div>
+                          <div className="flex-1 h-px bg-white/10 group-hover:bg-brand-coral/40 transition-colors duration-300" />
+                        </div>
 
-                    <p className="text-[13px] lg:text-[14px] text-brand-white/40 leading-relaxed flex-1">
-                      {step.description}
-                    </p>
+                        <p className="text-[10px] font-bold text-brand-coral/80 uppercase tracking-[0.3em] mb-2">
+                          STEP {step.number}
+                        </p>
+                        <h3 className="text-base lg:text-lg font-bold text-white mb-3 leading-tight tracking-tight">
+                          {step.title}
+                        </h3>
+                        <p className="text-[13px] text-white/45 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 )
               })}
@@ -297,32 +410,45 @@ export default function ExecutiveSearchPage() {
         </section>
       </ScrollReveal>
 
-      {/* ── WHY US (BENEFITS) ──────────────────────────────────────────────── */}
+      {/* ── BENEFITS: Asymmetric bento ──────────────────────────────────── */}
       <ScrollReveal>
-        <section className="py-16 lg:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <section className="relative w-full bg-brand-white py-20 lg:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
+            <div className="mb-12 lg:mb-16 text-center">
+              <SectionIndicator index={4} label="Why us" centered />
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+                Precision <span className="text-brand-coral">hiring</span>
+              </h2>
+            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 lg:gap-4">
+              {/* Hero card */}
+              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-navy text-white p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[440px]">
+                <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
-              {/* Left: sticky heading block */}
-              <div className="lg:col-span-4 lg:sticky lg:top-32">
-                <Eyebrow>Why us</Eyebrow>
-                <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight mb-4 lg:mb-6 text-balance">
-                  Built on two decades of trust
-                </h2>
-                <p className="text-sm lg:text-[15px] text-brand-navy/45 leading-relaxed mb-6 lg:mb-8">
-                  We don't compete on volume. Every mandate we accept gets a senior partner's full attention from brief to onboarding - and beyond.
-                </p>
-                {/* Inline trust signals */}
-                <ul className="space-y-2.5">
+                <div className="relative">
+                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-black uppercase leading-[0.92] tracking-tight mb-6">
+                    Built on two
+                    <br />
+                    <span className="text-brand-coral">decades of trust</span>
+                  </h2>
+                  <p className="text-sm lg:text-base text-white/60 leading-relaxed max-w-sm">
+                    We don't compete on volume. Every mandate we accept gets a
+                    senior partner's full attention from brief to onboarding —
+                    and beyond.
+                  </p>
+                </div>
+
+                {/* Trust signal checklist */}
+                <ul className="relative mt-8 space-y-2.5">
                   {[
-                    "No junior handoffs - ever",
+                    "No junior handoffs — ever",
                     "Full confidentiality guaranteed",
                     "Off-market candidate access",
                     "Replacement guarantee included",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-[13px] text-brand-navy/60">
-                      <span className="w-4 h-4 rounded-full bg-brand-coral/10 flex items-center justify-center flex-shrink-0">
+                    <li key={i} className="flex items-center gap-2.5 text-[13px] text-white/60">
+                      <span className="w-4 h-4 rounded-full bg-brand-coral/20 flex items-center justify-center flex-shrink-0">
                         <Check className="w-2.5 h-2.5 text-brand-coral" />
                       </span>
                       {item}
@@ -331,79 +457,84 @@ export default function ExecutiveSearchPage() {
                 </ul>
               </div>
 
-              {/* Right: benefit cards */}
-              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-px bg-brand-navy/10 rounded-2xl overflow-hidden border border-brand-navy/10">
-                {BENEFITS.map((benefit, i) => {
-                  const Icon = benefit.icon
-                  return (
-                    <div
-                      key={i}
-                      className="relative bg-brand-white p-6 lg:p-8 hover:bg-brand-navy/[0.02] transition-colors duration-300 group overflow-hidden"
+              {/* Benefit cards */}
+              {BENEFITS.map((benefit, i) => {
+                const Icon = benefit.icon
+                return (
+                  <div
+                    key={i}
+                    className="lg:col-span-3 rounded-3xl bg-brand-navy/[0.025] border border-brand-navy/10 p-7 lg:p-8 hover:bg-brand-navy/[0.045] hover:border-brand-coral/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden min-h-[200px] lg:min-h-[210px]"
+                  >
+                    <span
+                      aria-hidden
+                      className="absolute top-5 right-6 text-[3rem] font-black text-brand-navy/[0.06] leading-none pointer-events-none select-none"
                     >
-                      {/* Faded large number */}
-                      <span
-                        className="absolute top-4 right-5 text-[3.5rem] lg:text-[4.5rem] font-semibold text-brand-navy/[0.04] leading-none select-none pointer-events-none"
-                        aria-hidden
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div className="relative">
-                        <div className="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center rounded-xl bg-[#e8f3ff] mb-4 lg:mb-5">
-                          <Icon className="w-4 h-4 lg:w-5 lg:h-5 text-brand-blue" />
-                        </div>
-                        <h3 className="text-[15px] lg:text-[16px] font-semibold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors duration-200">
-                          {benefit.title}
-                        </h3>
-                        <p className="text-[13px] lg:text-[14px] text-brand-navy/45 leading-relaxed">
-                          {benefit.body}
-                        </p>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
 
+                    <div className="relative h-full flex flex-col">
+                      <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-coral/12 mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.7} />
+                      </div>
+                      <h3 className="text-lg font-bold text-brand-navy mb-2.5 group-hover:text-brand-coral transition-colors duration-200">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-sm text-brand-navy/55 leading-relaxed">
+                        {benefit.body}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
       </ScrollReveal>
 
-      {/* ── CTA ────────────────────────────────────────────────────────────── */}
+      {/* ── CTA: Dramatic finale ────────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="py-16 lg:py-32 mb-8 lg:mb-16 mx-3 sm:mx-4 lg:mx-10 rounded-2xl lg:rounded-3xl bg-brand-navy overflow-hidden relative">
+        <section className="relative w-full px-3 sm:px-5 lg:px-10 pb-12 lg:pb-20">
+          <div className="relative bg-brand-navy rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
+            {/* Glows */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-coral/20 blur-[150px] pointer-events-none" />
+            <div className="absolute -top-20 -left-20 w-[300px] h-[300px] rounded-full bg-brand-coral/15 blur-[100px] pointer-events-none" />
+            <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] rounded-full bg-brand-coral/10 blur-[100px] pointer-events-none" />
 
-          <p
-            className="hidden lg:block absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-[16rem] font-semibold text-brand-white/[0.03] leading-none pointer-events-none select-none whitespace-nowrap overflow-hidden"
-            aria-hidden
-          >
-            EXEC
-          </p>
+            {/* Corner brackets */}
+            <div aria-hidden className="absolute top-5 left-5 w-8 h-8 border-l-2 border-t-2 border-brand-coral/40 rounded-tl-xl pointer-events-none" />
+            <div aria-hidden className="absolute top-5 right-5 w-8 h-8 border-r-2 border-t-2 border-brand-coral/40 rounded-tr-xl pointer-events-none" />
+            <div aria-hidden className="absolute bottom-5 left-5 w-8 h-8 border-l-2 border-b-2 border-brand-coral/40 rounded-bl-xl pointer-events-none" />
+            <div aria-hidden className="absolute bottom-5 right-5 w-8 h-8 border-r-2 border-b-2 border-brand-coral/40 rounded-br-xl pointer-events-none" />
 
-          {/* Decorative rings */}
-          <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full border border-brand-coral/10 pointer-events-none" aria-hidden />
-          <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full border border-brand-coral/8 pointer-events-none" aria-hidden />
-          <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full border border-brand-white/5 pointer-events-none" aria-hidden />
-
-          <div className="relative max-w-4xl mx-auto px-6 sm:px-8 text-center">
-            <p className="text-xs font-semibold text-brand-coral uppercase tracking-[0.2em] mb-3 lg:mb-4">
-              {CTA_DATA.eyebrow}
+            {/* Watermark */}
+            <p
+              aria-hidden
+              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-black uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+            >
+              EXEC
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-semibold text-brand-white tracking-tight mb-4 lg:mb-6 text-balance">
-              {CTA_DATA.title}
-            </h2>
-            <p className="text-sm lg:text-[15px] text-brand-white/45 leading-relaxed max-w-xl mx-auto mb-8 lg:mb-10">
-              {CTA_DATA.description}
-            </p>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
-              <Button
-                asChild
-                className="bg-brand-coral text-brand-white hover:bg-brand-coral-hover rounded-xl px-8 py-5 text-sm lg:text-[15px] font-medium transition-colors duration-200"
-              >
-                <Link href={CTA_DATA.primaryButton.href}>
+
+            <div className="relative max-w-4xl mx-auto px-6 sm:px-10 py-20 lg:py-32 text-center">
+              <div className="flex items-center justify-center gap-3 mb-6 lg:mb-8">
+                <span className="block h-px w-10 bg-brand-coral" />
+                <Eyebrow>{CTA_DATA.eyebrow}</Eyebrow>
+                <span className="block h-px w-10 bg-brand-coral" />
+              </div>
+
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+                {CTA_DATA.title}
+              </h2>
+
+              <p className="text-base lg:text-lg text-white/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
+                {CTA_DATA.description}
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+                <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
                   {CTA_DATA.primaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+                </AppButton>
+              </div>
+
             </div>
           </div>
         </section>

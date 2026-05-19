@@ -39,6 +39,7 @@ export interface ServiceCard {
   tags: string[]
   accent: string
   iconBg: string
+  href: string
 }
 
 export interface BenefitItem {
@@ -131,6 +132,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["CTO", "CIO", "CISO", "VP Engineering", "VP Product"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    href: "/services/technology-c-suite-vp-search",
   },
   {
     icon: Code2,
@@ -140,6 +142,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Head of Engineering", "Engineering Director", "Principal Engineer"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
+    href: "/services/engineering-leadership-search",
   },
   {
     icon: LineChart,
@@ -149,6 +152,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["CDO", "Head of Data Science", "VP AI", "Head of ML"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    href: "/services/data-ai-analytics-leadership-search",
   },
   {
     icon: ShieldCheck,
@@ -158,6 +162,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["CISO", "Head of Security", "Head of Compliance", "DPO"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
+    href: "/services/cybersecurity-risk-leadership-search",
   },
   {
     icon: Zap,
@@ -167,6 +172,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["CPO", "Head of Product", "VP Design", "Head of UX"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    href: "/services/product-design-leadership-search",
   },
 ]
 
@@ -244,7 +250,7 @@ export const CTA_DATA: CtaData = {
     "Share your brief - or simply the challenge you're trying to solve. We'll respond within 24 hours with a tailored search strategy and current market intelligence.",
   primaryButton: {
     text: "Start a Search",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Learn how we do it",

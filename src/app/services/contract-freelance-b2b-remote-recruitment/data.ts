@@ -37,6 +37,7 @@ export interface ServiceCard {
   tags: string[]
   accent: string
   iconBg: string
+  href: string
 }
 
 export interface BenefitItem {
@@ -119,6 +120,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["React", "Node.js", "TypeScript", "Next.js", "PostgreSQL"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    href: "/services/full-stack-web-developers",
   },
   {
     icon: LineChart,
@@ -128,6 +130,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Python", "AI/ML", "dbt", "Spark", "LLMs"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
+    href: "/services/data-ai-ml-developers",
   },
   {
     icon: Zap,
@@ -137,6 +140,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["React Native", "Swift", "Kotlin", "Flutter"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    href: "/services/mobile-developers",
   },
   {
     icon: ShieldCheck,
@@ -146,6 +150,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["AWS", "Kubernetes", "Terraform", "CI/CD"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
+    href: "/services/devops-cloud-engineers",
   },
   {
     icon: Users,
@@ -155,9 +160,9 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Java", "Go", ".NET", "Python", "Microservices"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+    href: "/services/backend-api-developers",
   },
 ]
-
 // ─── Benefits ─────────────────────────────────────────────────────────────────
 export const BENEFITS: BenefitItem[] = [
   {
@@ -202,7 +207,7 @@ export const CTA_DATA: CtaData = {
     "Tell us your stack and timeline. We'll come back with a shortlist of matched, available developers within 3–5 days.",
   primaryButton: {
     text: "Contact Us",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Download our Contract Hiring Guide",
