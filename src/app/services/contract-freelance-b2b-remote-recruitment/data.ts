@@ -62,7 +62,7 @@ export const HERO_DATA: HeroData = {
   eyebrow: "Flexible Developer Recruitment",
   title: "Contract freelance, b2b, Remote Hiring",
   description:
-    "Pre-vetted contract developers and freelance programmers ready to join your team in 3–10 days. Scale fast, commit less, and ship more — with zero long-term risk.",
+    "Pre-vetted contract developers and freelance programmers ready to join your team in 3–10 days. Scale fast, commit less, and ship more - with zero long-term risk.",
 }
 
 export const STATS: StatItem[] = [
@@ -77,7 +77,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "01",
     title: "Tell Us What You Need",
     description:
-      "Share your stack, timeline, and team setup. We get up to speed fast so we can start matching immediately — no lengthy briefing decks required.",
+      "Share your stack, timeline, and team setup. We get up to speed fast so we can start matching immediately - no lengthy briefing decks required.",
     icon: Users,
   },
   {
@@ -98,14 +98,14 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "04",
     title: "Interview & Choose",
     description:
-      "Meet your favourites and pick the right fit. We facilitate everything — scheduling, rate negotiation, and contract paperwork — so you can move at pace.",
+      "Meet your favourites and pick the right fit. We facilitate everything - scheduling, rate negotiation, and contract paperwork - so you can move at pace.",
     icon: ShieldCheck,
   },
   {
     number: "05",
     title: "They Join. They Deliver.",
     description:
-      "Your developer integrates with your team and jumps straight into sprints. We stay close to ensure a smooth start — and to scale further if needed.",
+      "Your developer integrates with your team and jumps straight into sprints. We stay close to ensure a smooth start - and to scale further if needed.",
     icon: Clock,
   },
 ]
@@ -115,7 +115,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Code2,
     title: "Full-Stack & Web",
     description:
-      "Frontend and backend engineers who can own features end-to-end across modern web stacks — from design system to database.",
+      "Frontend and backend engineers who can own features end-to-end across modern web stacks - from design system to database.",
     tags: ["React", "Node.js", "TypeScript", "Next.js", "PostgreSQL"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
@@ -151,7 +151,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Users,
     title: "Backend & APIs",
     description:
-      "Experienced backend engineers who design and build reliable services, APIs, and integrations — ready to contribute from day one.",
+      "Experienced backend engineers who design and build reliable services, APIs, and integrations - ready to contribute from day one.",
     tags: ["Java", "Go", ".NET", "Python", "Microservices"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",

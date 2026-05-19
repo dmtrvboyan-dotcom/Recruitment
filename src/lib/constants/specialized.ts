@@ -49,7 +49,7 @@ export const TECH_CATEGORIES: TechCategory[] = [
     whatYouGet: [
       "Pre-vetted software engineers",
       "Candidates ready to interview",
-      "Fast delivery — CVs in 3–5 days",
+      "Fast delivery - CVs in 3–5 days",
       "Adaptable hiring models",
     ],
     stat1Value: "300+",

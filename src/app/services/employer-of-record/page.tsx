@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Employer of Record (EOR) Bulgaria & Eastern Europe | Hire Without a Local Entity",
   description:
-    "Hire employees in Bulgaria and Eastern Europe without setting up a local entity. Full employment compliance, contractor-to-employee conversions, and cross-border workforce expansion — handled end to end.",
+    "Hire employees in Bulgaria and Eastern Europe without setting up a local entity. Full employment compliance, contractor-to-employee conversions, and cross-border workforce expansion - handled end to end.",
 }
 
 // ─── Shared primitives ────────────────────────────────────────────────────────
@@ -165,7 +165,7 @@ export default function EmployerOfRecordPage() {
                 </h2>
               </div>
               <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                From international hiring and cross-border employment to contractor conversions — all without incorporating locally.
+                From international hiring and cross-border employment to contractor conversions - all without incorporating locally.
               </p>
             </div>
 
@@ -177,7 +177,7 @@ export default function EmployerOfRecordPage() {
                     key={i}
                     className="group relative rounded-2xl border border-brand-navy/10 bg-white p-6 lg:p-7 hover:border-brand-navy/25 hover:shadow-[0_8px_32px_rgba(8,30,60,0.07)] transition-all duration-300 flex flex-col gap-4"
                   >
-                    {/* Contract type badge — top right */}
+                    {/* Contract type badge - top right */}
                     <span className="absolute top-5 right-5 text-[10px] font-medium text-brand-navy/30 bg-brand-navy/[0.05] rounded-full px-2.5 py-1">
                       {card.contractTypes}
                     </span>
@@ -230,17 +230,17 @@ export default function EmployerOfRecordPage() {
                   How it works
                 </p>
                 <h2 className="text-2xl lg:text-4xl font-semibold text-brand-white tracking-tight">
-                  From brief to employed — no entity required
+                  From brief to employed - no entity required
                 </h2>
               </div>
               <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                A lean five-step process that gets your people hired, compliant, and working — fast.
+                A lean five-step process that gets your people hired, compliant, and working - fast.
               </p>
             </div>
 
             {/* Timeline list */}
             <div className="relative">
-              {/* Vertical line — desktop only */}
+              {/* Vertical line - desktop only */}
               <div className="hidden lg:block absolute left-[calc(50%-0.5px)] top-0 bottom-0 w-px bg-brand-white/10" />
 
               <div className="flex flex-col gap-0">
@@ -348,7 +348,7 @@ export default function EmployerOfRecordPage() {
                 </h2>
               </div>
               <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                Expand into Bulgaria and Eastern Europe with full legal compliance — without the cost, complexity, or time of entity setup.
+                Expand into Bulgaria and Eastern Europe with full legal compliance - without the cost, complexity, or time of entity setup.
               </p>
             </div>
 

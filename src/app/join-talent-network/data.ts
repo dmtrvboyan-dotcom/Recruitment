@@ -25,7 +25,7 @@ export const HOW_IT_WORKS: HowItWorksStep[] = [
     number: "01",
     phase: "Step One",
     heading: "Apply",
-    body: "Submit your profile in under 1 minute. Share your stack, your rate, and how you want to work — full-time, contract, freelance, or remote.",
+    body: "Submit your profile in under 1 minute. Share your stack, your rate, and how you want to work - full-time, contract, freelance, or remote.",
     icon: FileText,
   },
   {
@@ -33,7 +33,7 @@ export const HOW_IT_WORKS: HowItWorksStep[] = [
     number: "02",
     phase: "Step Two",
     heading: "Get Reviewed",
-    body: "A senior recruiter — not a bot — reviews your application within 48 hours. We assess skills, experience, and what makes you a strong fit.",
+    body: "A senior recruiter - not a bot - reviews your application within 48 hours. We assess skills, experience, and what makes you a strong fit.",
     icon: ScanSearch,
   },
   {
@@ -41,7 +41,7 @@ export const HOW_IT_WORKS: HowItWorksStep[] = [
     number: "03",
     phase: "Step Three",
     heading: "Get Matched",
-    body: "When a role aligns with your profile, we introduce you directly to the hiring team. No spam, no irrelevant pitches — only opportunities worth your time.",
+    body: "When a role aligns with your profile, we introduce you directly to the hiring team. No spam, no irrelevant pitches - only opportunities worth your time.",
     icon: Handshake,
   },
 ]
@@ -132,7 +132,7 @@ export interface FAQItem {
 export const FAQS: FAQItem[] = [
   {
     q: "Is joining the network free?",
-    a: "Yes — completely. Candidates never pay anything. Our fees are paid by the hiring companies, only when a successful placement is made.",
+    a: "Yes - completely. Candidates never pay anything. Our fees are paid by the hiring companies, only when a successful placement is made.",
   },
   {
     q: "How long until I hear back?",
@@ -140,7 +140,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     q: "What kinds of roles do you have?",
-    a: "We work on full-time, contract, freelance, and remote positions across the full stack — frontend, backend, mobile, DevOps, data, ML, security, and leadership roles from senior IC through CTO.",
+    a: "We work on full-time, contract, freelance, and remote positions across the full stack - frontend, backend, mobile, DevOps, data, ML, security, and leadership roles from senior IC through CTO.",
   },
   {
     q: "Will my current employer find out?",
@@ -148,7 +148,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     q: "Can I update my profile later?",
-    a: "Absolutely. Once you're in the network, you can refresh your stack, rate, availability, or preferences at any time — just reply to our welcome email or reach out to your recruiter.",
+    a: "Absolutely. Once you're in the network, you can refresh your stack, rate, availability, or preferences at any time - just reply to our welcome email or reach out to your recruiter.",
   },
   {
     q: "Do you work with junior developers?",

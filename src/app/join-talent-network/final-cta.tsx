@@ -80,7 +80,7 @@ export const FinalCta = memo(function FinalCta() {
         </h2>
 
         <p className="text-sm sm:text-base lg:text-lg text-brand-white/55 leading-relaxed max-w-xl mx-auto mb-10 sm:mb-12">
-          Join hundreds of developers and tech professionals already in the network. Three minutes today — opportunities for years.
+          Join hundreds of developers and tech professionals already in the network. Three minutes today - opportunities for years.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">

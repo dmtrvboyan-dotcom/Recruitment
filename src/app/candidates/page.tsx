@@ -245,7 +245,7 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
             <span className="text-brand-coral"> Your Search.</span>
           </h2>
           <p className="mt-6 text-base sm:text-lg text-brand-navy/50 leading-relaxed text-center max-w-2xl mx-auto">
-            You'll work with recruiters who actually take the time to understand what you want — not just what fits a keyword search.
+            You'll work with recruiters who actually take the time to understand what you want - not just what fits a keyword search.
           </p>
         </div>
 
@@ -622,7 +622,7 @@ const FAQSection = memo(function FAQSection() {
     <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
       <div className="max-w-4xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
-        {/* Header — untouched */}
+        {/* Header - untouched */}
         <div
           ref={headerRef}
           className="mb-14"
@@ -701,7 +701,7 @@ const FAQSection = memo(function FAQSection() {
                   </span>
                 </button>
 
-                {/* Answer — grid-row expand */}
+                {/* Answer - grid-row expand */}
                 <div
                   className="grid"
                   style={{

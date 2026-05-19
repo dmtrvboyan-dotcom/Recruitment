@@ -74,7 +74,7 @@ export const HERO_DATA: HeroData = {
   eyebrow: "Employer of Record (EOR)",
   title: "Hire in Eastern Europe without opening a local entity",
   description:
-    "Deploy skilled IT contractors and specialist freelancers exactly when you need them — no long-term overhead, no hiring delays. From sprint-based squads to multi-month delivery teams, we match the right talent to your project timeline.",
+    "Deploy skilled IT contractors and specialist freelancers exactly when you need them - no long-term overhead, no hiring delays. From sprint-based squads to multi-month delivery teams, we match the right talent to your project timeline.",
 }
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
@@ -90,14 +90,14 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "01",
     title: "Project Brief",
     description:
-      "We deep-dive into your project scope, tech stack, timeline, and team dynamics — so we source professionals who can contribute from day one, not week three.",
+      "We deep-dive into your project scope, tech stack, timeline, and team dynamics - so we source professionals who can contribute from day one, not week three.",
     icon: FileSearch,
   },
   {
     number: "02",
     title: "Rapid Talent Sourcing",
     description:
-      "We tap our pre-vetted contractor network and use active market mapping to surface available specialists — including passive talent not found on job boards.",
+      "We tap our pre-vetted contractor network and use active market mapping to surface available specialists - including passive talent not found on job boards.",
     icon: Globe,
   },
   {
@@ -111,14 +111,14 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "04",
     title: "Curated Shortlist",
     description:
-      "You receive a focused shortlist of 3–5 interview-ready candidates, complete with rate benchmarks and our assessment notes — no noise, just signal.",
+      "You receive a focused shortlist of 3–5 interview-ready candidates, complete with rate benchmarks and our assessment notes - no noise, just signal.",
     icon: CheckCircle,
   },
   {
     number: "05",
     title: "Deployment & Ongoing Support",
     description:
-      "We handle contracting logistics, manage the onboarding handoff, and stay close throughout the engagement — ready to extend, replace, or scale as your project evolves.",
+      "We handle contracting logistics, manage the onboarding handoff, and stay close throughout the engagement - ready to extend, replace, or scale as your project evolves.",
     icon: Rocket,
   },
 ]
@@ -149,7 +149,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Zap,
     title: "Cloud & DevOps Engineers",
     description:
-      "Infrastructure, platform, and SRE contractors to build, migrate, or stabilise cloud environments — without locking in permanent headcount.",
+      "Infrastructure, platform, and SRE contractors to build, migrate, or stabilise cloud environments - without locking in permanent headcount.",
     tags: ["AWS", "GCP", "Azure", "Kubernetes", "Terraform"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
@@ -179,7 +179,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Users,
     title: "Project & Programme Managers",
     description:
-      "Delivery leads, scrum masters, and programme managers who keep complex IT projects on time, on budget, and on scope — from day one.",
+      "Delivery leads, scrum masters, and programme managers who keep complex IT projects on time, on budget, and on scope - from day one.",
     tags: ["Scrum", "PMP", "SAFe", "Prince2", "Change Mgmt"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
@@ -192,7 +192,7 @@ export const BENEFITS: BenefitItem[] = [
   {
     icon: Timer,
     title: "Speed to Productivity",
-    body: "Contract hires are project-ready professionals. No ramp-up curve — they integrate fast and deliver from week one.",
+    body: "Contract hires are project-ready professionals. No ramp-up curve - they integrate fast and deliver from week one.",
     stat: "Avg. 5–7 days to deploy",
   },
   {
@@ -210,7 +210,7 @@ export const BENEFITS: BenefitItem[] = [
   {
     icon: Globe,
     title: "Specialist Access, Instantly",
-    body: "Access niche skills — AI engineers, security architects, cloud specialists — that are hard to find and expensive to hire full-time.",
+    body: "Access niche skills - AI engineers, security architects, cloud specialists - that are hard to find and expensive to hire full-time.",
     stat: "800+ active specialist contractors",
   },
 ]
@@ -237,7 +237,7 @@ export const CTA_DATA: CtaData = {
   eyebrow: "Start Your Project",
   title: "Need a contractor deployed this week?",
   description:
-    "Share your project brief and we'll have a qualified shortlist in your inbox within 48 hours — no retainer required, no long-term commitment.",
+    "Share your project brief and we'll have a qualified shortlist in your inbox within 48 hours - no retainer required, no long-term commitment.",
   primaryButton: {
     text: "Submit a Brief",
     href: "/#contact",

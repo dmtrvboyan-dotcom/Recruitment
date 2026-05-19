@@ -145,7 +145,7 @@ export const FULL_TALENT_HEADER: SectionHeader = {
 }
 
 export const FULL_TALENT_SUBTITLE =
-  "From foundational engineering to trading systems — we place specialists across the entire fintech stack."
+  "From foundational engineering to trading systems - we place specialists across the entire fintech stack."
 
 export const ROLE_CATEGORIES: RoleCategory[] = [
   {

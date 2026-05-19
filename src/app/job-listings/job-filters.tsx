@@ -60,7 +60,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
     setTechQuery("")
   }
 
-  // Filter tech options by typed query — keeps "all" visible
+  // Filter tech options by typed query - keeps "all" visible
   const filteredTech = useMemo(() => {
     const q = techQuery.trim().toLowerCase()
     if (!q) return TECH_OPTIONS

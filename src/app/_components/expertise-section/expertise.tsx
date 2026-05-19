@@ -60,7 +60,7 @@ export function ExpertiseSection() {
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base lg:text-lg text-brand-navy/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
-            From specialized technical roles to executive leadership — tailored
+            From specialized technical roles to executive leadership - tailored
             recruitment across every sector that matters.
           </p>
         </div>

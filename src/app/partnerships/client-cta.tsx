@@ -19,7 +19,7 @@ export const ClientsCTA = memo(function ClientsCTA() {
   return (
     <section className="relative w-full bg-brand-white overflow-hidden py-20 lg:py-32">
 
-      {/* Top chapter divider — bridges from previous section */}
+      {/* Top chapter divider - bridges from previous section */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-32 bg-gradient-to-r from-transparent via-brand-coral to-transparent" />
 
       {/* Mesh gradient (boosted for visibility on pure white) */}
@@ -49,7 +49,7 @@ export const ClientsCTA = memo(function ClientsCTA() {
             <span className="text-brand-coral">Work with us?</span>
           </h2>
           <p className="text-sm sm:text-lg text-brand-navy/55 max-w-lg mx-auto leading-relaxed">
-            Whether you're hiring for one critical role or scaling an entire department — we help you find people who make an impact.
+            Whether you're hiring for one critical role or scaling an entire department - we help you find people who make an impact.
           </p>
         </div>
 

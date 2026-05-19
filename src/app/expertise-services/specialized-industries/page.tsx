@@ -50,7 +50,7 @@ export default function SpecializedIndustries() {
           INDUSTRIES
         </div>
 
-        {/* Vertical tag — desktop only */}
+        {/* Vertical tag - desktop only */}
         <div className="hidden lg:flex absolute left-8 top-1/2 -translate-y-1/2 flex-col items-center gap-4 pointer-events-none">
           <div className="h-16 w-px bg-brand-white/10" />
           <span
@@ -117,7 +117,7 @@ export default function SpecializedIndustries() {
                 INDUSTRIES WE SERVE
               </h2>
               <p className="text-sm text-brand-navy/45 max-w-sm mx-auto leading-relaxed">
-                From regulated environments to high-scale platforms — precise hiring for niche and complex sectors.
+                From regulated environments to high-scale platforms - precise hiring for niche and complex sectors.
               </p>
             </div>
 

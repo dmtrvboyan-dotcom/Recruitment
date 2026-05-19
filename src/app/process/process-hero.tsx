@@ -21,7 +21,7 @@ export const ProcessHero = memo(function ProcessHero() {
         06
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 pt-28 pb-16 lg:pb-24 w-full">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 pt-28 pb-16 lg:pb-24 w-full mt-20">
         <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4">
           Our Process
         </span>
@@ -35,7 +35,7 @@ export const ProcessHero = memo(function ProcessHero() {
         </h1>
 
         <p className="text-sm sm:text-base lg:text-lg text-white/50 max-w-xl leading-relaxed">
-          Six deliberate steps. Zero guesswork. Every engagement runs the same rigorous way — because consistency is what creates results.
+          Six deliberate steps. Zero guesswork. Every engagement runs the same rigorous way - because consistency is what creates results.
         </p>
 
         {/* Horizontal divider rule */}

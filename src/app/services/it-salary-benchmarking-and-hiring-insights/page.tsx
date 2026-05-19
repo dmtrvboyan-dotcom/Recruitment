@@ -182,7 +182,7 @@ export default function SalaryBenchmarkingPage() {
       {/* ── SALARY SNAPSHOT ────────────────────────────────────────────────── */}
       {/*
         New section unique to this page: a live-feel salary snapshot table.
-        Shows role, indicative range, and trend badge — communicates
+        Shows role, indicative range, and trend badge - communicates
         the product concretely without claiming to be a real-time tool.
       */}
 
@@ -266,7 +266,7 @@ export default function SalaryBenchmarkingPage() {
                 </h2>
               </div>
               <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                Benchmarks are only as good as the data behind them. Ours come from live hiring activity — not self-reported surveys.
+                Benchmarks are only as good as the data behind them. Ours come from live hiring activity - not self-reported surveys.
               </p>
             </div>
 

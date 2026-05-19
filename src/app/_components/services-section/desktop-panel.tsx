@@ -113,7 +113,6 @@ export const DesktopPanel = memo(function DesktopPanel({
 
             </div>
 
-            {/* Stats footer — dark navy block at the bottom */}
             <div className="bg-brand-navy text-brand-white px-6 lg:px-12 py-10 lg:py-12">
               <div className="grid grid-cols-3 gap-4 lg:gap-8 max-w-2xl mx-auto">
                 {service.stats.map((stat, idx) => (

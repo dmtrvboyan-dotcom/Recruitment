@@ -46,7 +46,7 @@ export const RolesSection = memo(function RolesSection() {
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
-            From software engineering to executive leadership — click any
+            From software engineering to executive leadership - click any
             specialization to see how we source and deliver.
           </p>
         </div>

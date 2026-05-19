@@ -42,7 +42,7 @@ const StepCard = memo(function StepCard({
           )}
         </div>
 
-        {/* Centre — node */}
+        {/* Centre - node */}
         <div className="flex flex-col items-center pt-3">
           {/* Numbered circle */}
           <div className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center z-10 shadow-md ring-4 ring-[#f9f9fb]">
@@ -119,7 +119,7 @@ export const ProcessTimeline = memo(function ProcessTimeline() {
             THE SIX PHASES
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-brand-navy/50 max-w-lg mx-auto leading-relaxed">
-            From first conversation to signed offer — here is exactly what happens and when.
+            From first conversation to signed offer - here is exactly what happens and when.
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export const ProcessTimeline = memo(function ProcessTimeline() {
           <div className="w-1 self-stretch bg-brand-coral rounded-full shrink-0 hidden sm:block" />
           <p className="text-sm sm:text-base text-brand-navy/70 leading-relaxed">
             <span className="font-bold text-brand-navy">No hire, no invoice.</span>{" "}
-            Our fee is only due upon a successful placement. If the process starts over, so do we — at no extra cost.
+            Our fee is only due upon a successful placement. If the process starts over, so do we - at no extra cost.
           </p>
         </div>
 

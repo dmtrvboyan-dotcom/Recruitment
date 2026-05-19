@@ -95,7 +95,7 @@ Job <span className="text-brand-coral">Listings</span>
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
-            Briefs from companies hiring across the EU and US — full-time,
+            Briefs from companies hiring across the EU and US - full-time,
             contract, and remote.
           </p>
         </div>

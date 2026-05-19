@@ -9,14 +9,14 @@ export const showcaseData = {
       id: 1,
       label: "Dashboard",
       content:
-        "Get a real-time overview of your operations with key metrics, activity tracking, and insights—all in one clean, intuitive dashboard.",
+        "Get a real-time overview of your operations with key metrics, activity tracking, and insights-all in one clean, intuitive dashboard.",
       image: "/smartr/1.png",
     },
     {
       id: 2,
       label: "Hiring board",
       content:
-        "Streamline recruitment with a smart.r hiring board—track candidates, manage stages, and collaborate with your team effortlessly.",
+        "Streamline recruitment with a smart.r hiring board-track candidates, manage stages, and collaborate with your team effortlessly.",
       image: "/smartr/2.png",
     },
     {
@@ -37,7 +37,7 @@ export const showcaseData = {
       id: 5,
       label: "Calendar",
       content:
-        "Stay organized with an integrated calendar—schedule tasks, track deadlines, and manage events without missing a beat.",
+        "Stay organized with an integrated calendar-schedule tasks, track deadlines, and manage events without missing a beat.",
       image: "/smartr/5.png",
     },
     {

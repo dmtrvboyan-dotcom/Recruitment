@@ -64,7 +64,7 @@ export const TechStackField = memo(function TechStackField({
           type="text"
           value={freeText}
           onChange={(e) => onFreeTextChange(e.target.value)}
-          placeholder="Write your stack here — e.g. Elixir, Phoenix, Postgres…"
+          placeholder="Write your stack here - e.g. Elixir, Phoenix, Postgres…"
           className={fieldInputClass}
         />
       </div>

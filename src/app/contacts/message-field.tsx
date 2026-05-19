@@ -8,14 +8,14 @@ import type { ContactFormData } from "@/lib/schemas"
 type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT" | "remoteIT" | "executiveSearch" | "salary"
 
 const PLACEHOLDER_MAP: Record<Interest, string> = {
-  hiring:          "Tell us about your hiring needs — roles, headcount, budget, timeline…",
+  hiring:          "Tell us about your hiring needs - roles, headcount, budget, timeline…",
   demo:            "I'd like to schedule a Smart.r ATS/CRM demonstration…",
   permanentIT:     "Tell us about your permanent IT hiring needs, roles, timeline…",
   hireContract:    "Tell us about your contract or freelance developer needs…",
-  projectIT:       "Tell us about your project — requirements, expertise, deliverables…",
-  remoteIT:        "Tell us about your remote hiring needs — locations, skills, team…",
+  projectIT:       "Tell us about your project - requirements, expertise, deliverables…",
+  remoteIT:        "Tell us about your remote hiring needs - locations, skills, team…",
   executiveSearch: "Tell us about the leadership role you're hiring for…",
-  salary:          "Tell us about your benchmarking needs — titles, seniority, location…",
+  salary:          "Tell us about your benchmarking needs - titles, seniority, location…",
 }
 
 const MAX = 1000

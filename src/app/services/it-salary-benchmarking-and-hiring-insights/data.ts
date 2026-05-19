@@ -73,7 +73,7 @@ export const HERO_DATA: HeroData = {
   eyebrow: "Tech Compensation Intelligence",
   title: "IT Salary Benchmarking & Hiring Market Insights",
   description:
-    "Make smarter, faster hiring decisions with real-time IT salary benchmarks and talent market intelligence. Know exactly what top tech professionals expect — before you make the offer.",
+    "Make smarter, faster hiring decisions with real-time IT salary benchmarks and talent market intelligence. Know exactly what top tech professionals expect - before you make the offer.",
 }
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
@@ -90,21 +90,21 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "01",
     title: "Live Placement Data",
     description:
-      "Every salary benchmark is anchored in real placements — not survey guesswork. We draw on live offer, acceptance, and negotiation data from active hiring mandates across our client base.",
+      "Every salary benchmark is anchored in real placements - not survey guesswork. We draw on live offer, acceptance, and negotiation data from active hiring mandates across our client base.",
     icon: FileSearch,
   },
   {
     number: "02",
     title: "Market & Network Intelligence",
     description:
-      "We combine placement data with ongoing conversations across our candidate and hiring network — giving us ground-level intelligence on shifting expectations, counter-offers, and emerging salary pressures.",
+      "We combine placement data with ongoing conversations across our candidate and hiring network - giving us ground-level intelligence on shifting expectations, counter-offers, and emerging salary pressures.",
     icon: Globe,
   },
   {
     number: "03",
     title: "Role & Seniority Segmentation",
     description:
-      "Benchmarks are broken down by role, seniority level, tech stack, and market — so you're comparing like for like, not averaging across roles that have nothing in common.",
+      "Benchmarks are broken down by role, seniority level, tech stack, and market - so you're comparing like for like, not averaging across roles that have nothing in common.",
     icon: Layers,
   },
   {
@@ -129,7 +129,7 @@ export const BENCHMARK_CATEGORIES: BenchmarkCategory[] = [
     icon: BarChart2,
     title: "By Role & Seniority",
     description:
-      "Granular salary ranges from junior to principal level across every major IT discipline — engineering, data, product, security, and infrastructure.",
+      "Granular salary ranges from junior to principal level across every major IT discipline - engineering, data, product, security, and infrastructure.",
     examples: ["Junior → Staff → Principal", "IC vs. Management tracks", "Specialist vs. Generalist"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
@@ -138,7 +138,7 @@ export const BENCHMARK_CATEGORIES: BenchmarkCategory[] = [
     icon: Globe,
     title: "By Geography & Market",
     description:
-      "Compensation varies enormously by location. Our benchmarks cover major UK, European, and global hiring markets — including remote-first salary structures.",
+      "Compensation varies enormously by location. Our benchmarks cover major UK, European, and global hiring markets - including remote-first salary structures.",
     examples: ["UK & Ireland", "Western Europe", "Remote & distributed"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
@@ -217,7 +217,7 @@ export const BENEFITS: BenefitItem[] = [
   {
     icon: Zap,
     title: "Make Competitive Offers, First Time",
-    body: "Offers that land on market rate get accepted faster and trigger fewer counter-offers — saving weeks of lost time in competitive hiring processes.",
+    body: "Offers that land on market rate get accepted faster and trigger fewer counter-offers - saving weeks of lost time in competitive hiring processes.",
   },
   {
     icon: ShieldCheck,

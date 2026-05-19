@@ -16,7 +16,7 @@ const WHAT_WE_ARE_NOT = [
   "Not a volume-driven, pushy agency",
   "Not promising overnight results",
   "Not a fit for companies that only care about price",
-  "Not here for quick wins — we build long-term relationships",
+  "Not here for quick wins - we build long-term relationships",
 ]
 
 function useInView(threshold = 0.2) {
@@ -217,7 +217,7 @@ export const WhatYouGet = memo(function WhatYouGet() {
           <div className="w-1 self-stretch bg-brand-coral rounded-full shrink-0 hidden sm:block" />
           <p className="text-sm sm:text-base text-brand-navy/70 leading-relaxed">
             <span className="font-bold text-brand-navy">No templates, no automated replies.</span>{" "}
-            A real person will get back to you within one business day. We're not the right fit for everyone — and that's exactly how we like it.
+            A real person will get back to you within one business day. We're not the right fit for everyone - and that's exactly how we like it.
           </p>
         </div>
 

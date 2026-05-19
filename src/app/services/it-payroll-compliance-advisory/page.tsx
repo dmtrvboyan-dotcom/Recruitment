@@ -128,7 +128,7 @@ export default function RemoteHiringPage() {
                                 </h2>
                                 <p className="text-sm lg:text-[15px] text-brand-navy/50 leading-relaxed max-w-md">
                                     Limiting hiring to a single geography means missing 95% of available talent.
-                                    Remote-first companies consistently outperform on engineering quality —
+                                    Remote-first companies consistently outperform on engineering quality -
                                     because they hire the best person, not just the closest one.
                                 </p>
                             </div>
@@ -173,7 +173,7 @@ export default function RemoteHiringPage() {
                                 </h2>
                             </div>
                             <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                                Deep networks across four major remote talent regions — each with its own strengths, time zone advantages, and technical expertise.
+                                Deep networks across four major remote talent regions - each with its own strengths, time zone advantages, and technical expertise.
                             </p>
                         </div>
 
@@ -291,7 +291,7 @@ export default function RemoteHiringPage() {
                                 </h2>
                             </div>
                             <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                                A five-step global hiring process — rigorous enough for permanent remote hires, fast enough not to lose great candidates.
+                                A five-step global hiring process - rigorous enough for permanent remote hires, fast enough not to lose great candidates.
                             </p>
                         </div>
 

@@ -120,7 +120,7 @@ export default function ContractHiringPage() {
                                 </h2>
                                 <p className="text-sm lg:text-[15px] text-brand-navy/50 leading-relaxed max-w-md">
                                     When deadlines are tight and permanent hiring takes too long, contract developers give you
-                                    experienced talent without the wait — or the commitment.
+                                    experienced talent without the wait - or the commitment.
                                 </p>
                             </div>
 
@@ -163,7 +163,7 @@ export default function ContractHiringPage() {
                                 </h2>
                             </div>
                             <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                                100+ vetted developers across every major stack — available now, not months away.
+                                100+ vetted developers across every major stack - available now, not months away.
                             </p>
                         </div>
 
@@ -231,7 +231,7 @@ export default function ContractHiringPage() {
                                 </h2>
                             </div>
                             <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                                A five-step process built for speed — without cutting corners on quality.
+                                A five-step process built for speed - without cutting corners on quality.
                             </p>
                         </div>
 

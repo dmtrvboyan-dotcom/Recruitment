@@ -63,7 +63,7 @@ export const HERO_DATA: HeroData = {
   eyebrow: "Worldwide Tech Recruitment",
   title: "Hire Beyond Borders. Build Exceptional Remote Teams.",
   description:
-    "We connect ambitious companies with world-class IT professionals. Expand your talent reach, build distributed teams that thrive, and hire the best — wherever they are.",
+    "We connect ambitious companies with world-class IT professionals. Expand your talent reach, build distributed teams that thrive, and hire the best - wherever they are.",
 }
 
 export const STATS: StatItem[] = [
@@ -78,21 +78,21 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "01",
     title: "Define the Role & Team",
     description:
-      "We start by understanding your product, stack, and team culture — not just the job spec. The more context you share, the sharper our global search.",
+      "We start by understanding your product, stack, and team culture - not just the job spec. The more context you share, the sharper our global search.",
     icon: Users,
   },
   {
     number: "02",
     title: "Search Across Countries",
     description:
-      "We tap a deep global network of senior IT professionals actively seeking remote roles — engineers, architects, and tech leads who've been pre-assessed before you ever see them.",
+      "We tap a deep global network of senior IT professionals actively seeking remote roles - engineers, architects, and tech leads who've been pre-assessed before you ever see them.",
     icon: Globe,
   },
   {
     number: "03",
     title: "Shortlist the Best Matches",
     description:
-      "You receive a tight shortlist of candidates matched on skills, time zone, language, and culture fit. No noise — just the profiles that are genuinely worth your time.",
+      "You receive a tight shortlist of candidates matched on skills, time zone, language, and culture fit. No noise - just the profiles that are genuinely worth your time.",
     icon: CheckCircle,
   },
   {
@@ -106,7 +106,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "05",
     title: "Compliant Hire & Smooth Onboarding",
     description:
-      "We guide you through compliant international contracts, payroll structures, and remote onboarding — so your new hire is set up to deliver from day one.",
+      "We guide you through compliant international contracts, payroll structures, and remote onboarding - so your new hire is set up to deliver from day one.",
     icon: Clock,
   },
 ]
@@ -116,7 +116,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Code2,
     title: "Full-Stack & Web Engineers",
     description:
-      "Remote-ready engineers who own features end-to-end — from UI to database — across modern web stacks, with strong async communication and independent delivery.",
+      "Remote-ready engineers who own features end-to-end - from UI to database - across modern web stacks, with strong async communication and independent delivery.",
     tags: ["React", "Node.js", "TypeScript", "Next.js", "PostgreSQL"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
@@ -134,7 +134,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Zap,
     title: "Mobile Engineers",
     description:
-      "iOS, Android, and cross-platform engineers from markets with deep mobile expertise — ready to work remotely within your product team structure.",
+      "iOS, Android, and cross-platform engineers from markets with deep mobile expertise - ready to work remotely within your product team structure.",
     tags: ["React Native", "Swift", "Kotlin", "Flutter"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
@@ -143,7 +143,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: ShieldCheck,
     title: "DevOps & Cloud Engineers",
     description:
-      "Remote infrastructure and platform engineers who build, automate, and scale your cloud environment — with clear async communication and strong documentation habits.",
+      "Remote infrastructure and platform engineers who build, automate, and scale your cloud environment - with clear async communication and strong documentation habits.",
     tags: ["AWS", "Kubernetes", "Terraform", "CI/CD"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
@@ -152,7 +152,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Users,
     title: "Backend & API Engineers",
     description:
-      "Experienced backend professionals from across the globe who design and ship reliable services — with the autonomy and communication skills remote work demands.",
+      "Experienced backend professionals from across the globe who design and ship reliable services - with the autonomy and communication skills remote work demands.",
     tags: ["Java", "Go", ".NET", "Python", "Microservices"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
@@ -161,7 +161,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: MapPin,
     title: "Tech Leads & Architects",
     description:
-      "Senior technical leaders who can drive architecture decisions, mentor distributed teams, and align engineering with product — all without needing to be in the room.",
+      "Senior technical leaders who can drive architecture decisions, mentor distributed teams, and align engineering with product - all without needing to be in the room.",
     tags: ["System Design", "Team Leadership", "Architecture", "Strategy"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
@@ -178,17 +178,17 @@ export const BENEFITS: BenefitItem[] = [
   {
     icon: ShieldCheck,
     title: "Compliance Handled for You",
-    body: "International contracts, tax structures, and payroll compliance — we navigate the complexity so you don't have to.",
+    body: "International contracts, tax structures, and payroll compliance - we navigate the complexity so you don't have to.",
   },
   {
     icon: Clock,
     title: "Time Zone Matched",
-    body: "We find professionals with overlap that works for your team — not just technically capable, but practically collaborative.",
+    body: "We find professionals with overlap that works for your team - not just technically capable, but practically collaborative.",
   },
   {
     icon: LineChart,
     title: "Built for Long-Term Retention",
-    body: "Our 94% 12-month retention rate reflects rigorous culture and communication screening — not just skill matching.",
+    body: "Our 94% 12-month retention rate reflects rigorous culture and communication screening - not just skill matching.",
   },
 ]
 

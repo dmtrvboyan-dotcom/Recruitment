@@ -82,7 +82,7 @@ export const PartnersHero = memo(function PartnersHero() {
           className="max-w-2xl mx-auto mb-14 sm:mb-20"
         >
           <p className="text-sm sm:text-lg text-white/50 leading-relaxed">
-            We partner with companies that understand great hiring is about building teams that create long-term business impact — not just filling open roles.
+            We partner with companies that understand great hiring is about building teams that create long-term business impact - not just filling open roles.
           </p>
         </div>
 

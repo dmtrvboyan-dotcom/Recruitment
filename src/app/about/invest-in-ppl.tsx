@@ -57,7 +57,7 @@ const TRAINING_ITEMS: TrainingItem[] = [
     id: 6,
     icon: Mic,
     heading: "12 Months Interview Shadowing",
-    body: "We shadow and learn how to run great interviews — for a full year.",
+    body: "We shadow and learn how to run great interviews - for a full year.",
   },
   {
     id: 7,
@@ -75,7 +75,7 @@ const TRAINING_ITEMS: TrainingItem[] = [
     id: 9,
     icon: Share2,
     heading: "Knowledge Sharing Culture",
-    body: "We document, share and learn from each other — every day.",
+    body: "We document, share and learn from each other - every day.",
   },
 ]
 

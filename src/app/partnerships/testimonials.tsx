@@ -7,7 +7,7 @@ const FEATURED = {
   role: "CEO",
   company: "Pragmatic",
   quote:
-    "They understand the industry, move quickly, and consistently deliver high-quality candidates — essentially everything I was looking for in a recruitment partner.",
+    "They understand the industry, move quickly, and consistently deliver high-quality candidates - essentially everything I was looking for in a recruitment partner.",
 }
 
 const TESTIMONIALS = [
@@ -23,21 +23,21 @@ const TESTIMONIALS = [
     role: "HR Director",
     company: "Despark",
     quote:
-      "When it comes to hiring, I'm not looking for just another vendor — I need a partner I can rely on completely. That's exactly what I found in Recruitment.bg. Whether it's niche, difficult, or high-volume roles, Vesko and his team take ownership and deliver results. Even in complex situations with tight deadlines and requirements that would discourage other agencies, they always find a solution.",
+      "When it comes to hiring, I'm not looking for just another vendor - I need a partner I can rely on completely. That's exactly what I found in Recruitment.bg. Whether it's niche, difficult, or high-volume roles, Vesko and his team take ownership and deliver results. Even in complex situations with tight deadlines and requirements that would discourage other agencies, they always find a solution.",
   },
   {
     name: "Yuriy Boev",
     role: "General Manager",
     company: "OSF",
     quote:
-      "We've worked with Recruitment.bg to hire across several roles, and honestly, they've made our lives much easier — and even enjoyable. The candidates they introduced were consistently strong, and the entire process felt like a true partnership rather than a transaction. Highly recommended!",
+      "We've worked with Recruitment.bg to hire across several roles, and honestly, they've made our lives much easier - and even enjoyable. The candidates they introduced were consistently strong, and the entire process felt like a true partnership rather than a transaction. Highly recommended!",
   },
   {
     name: "Ani Koleva",
     role: "General Manager",
     company: "Scaleflex",
     quote:
-      "Throughout our collaboration, the team demonstrated fast response times, a professional approach toward candidates, and excellent organization throughout the entire recruitment process. What I appreciated most was their ability to balance speed with quality — something that's essential when hiring for IT roles.",
+      "Throughout our collaboration, the team demonstrated fast response times, a professional approach toward candidates, and excellent organization throughout the entire recruitment process. What I appreciated most was their ability to balance speed with quality - something that's essential when hiring for IT roles.",
   },
   {
     name: "Plamena Getova",

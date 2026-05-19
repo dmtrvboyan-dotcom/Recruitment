@@ -21,9 +21,9 @@ const sections = [
   { id: "hero", label: "Overview" },
   { id: "trust", label: "Our Partners" },
   { id: "services", label: "Services" },
+  { id: "team", label: "Our Team" },
   { id: "specialized", label: "Tech Recruitment" },
   { id: "why", label: "Why us" },
-  { id: "team", label: "Our Team" },
   { id: "expertise", label: "Industry Expertise" },
   { id: "smart-r", label: "Smart-R" },
   { id: "faq", label: "FAQ" },
@@ -52,7 +52,7 @@ export default function LandingPage() {
         </ScrollReveal>
       </section>
 
-        <section id="team">
+      <section id="team">
         <ScrollReveal>
           <MeetTheTeam />
         </ScrollReveal>

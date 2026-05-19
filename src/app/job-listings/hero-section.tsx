@@ -63,7 +63,7 @@ export function HeroSection() {
               <div className="lg:col-span-4 lg:pl-6 lg:border-l lg:border-brand-white/10 space-y-6 sm:space-y-7">
                 <p className="text-sm sm:text-base text-brand-white/65 leading-relaxed max-w-md">
                   Engineering, product, and design roles from European and US
-                  companies. Curated briefs for senior makers —{" "}
+                  companies. Curated briefs for senior makers -{" "}
                   <span className="text-brand-white underline">
                     many never advertised
                   </span>{" "}

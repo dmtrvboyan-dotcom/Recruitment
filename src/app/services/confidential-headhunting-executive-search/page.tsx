@@ -17,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: "Executive Search & Headhunting for Technology Leaders | Tech Recruitment",
   description:
-    "Partner-led executive search and headhunting for senior technology roles — CTO, VP Engineering, CISO, CPO, and beyond. 92% two-year retention. 300+ mandates completed. Discreet, strategic, and results-driven.",
+    "Partner-led executive search and headhunting for senior technology roles - CTO, VP Engineering, CISO, CPO, and beyond. 92% two-year retention. 300+ mandates completed. Discreet, strategic, and results-driven.",
 }
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -133,7 +133,7 @@ export default function ExecutiveSearchPage() {
                 </h2>
               </div>
               <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                We operate at the principal level — every search run by a senior partner with direct skin in the game.
+                We operate at the principal level - every search run by a senior partner with direct skin in the game.
               </p>
             </div>
 
@@ -191,7 +191,7 @@ export default function ExecutiveSearchPage() {
 
       {/* ── INDUSTRIES ─────────────────────────────────────────────────────── */}
       {/*
-        New section — split panel: dark left label, light right content.
+        New section - split panel: dark left label, light right content.
         Communicates sector depth without being a generic logos strip.
       */}
       <ScrollReveal>
@@ -247,7 +247,7 @@ export default function ExecutiveSearchPage() {
                 </h2>
               </div>
               <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                A five-stage process refined across 300+ senior mandates — rigorous enough to be worth trusting, structured enough to move at pace.
+                A five-stage process refined across 300+ senior mandates - rigorous enough to be worth trusting, structured enough to move at pace.
               </p>
             </div>
 
@@ -311,12 +311,12 @@ export default function ExecutiveSearchPage() {
                   Built on two decades of trust
                 </h2>
                 <p className="text-sm lg:text-[15px] text-brand-navy/45 leading-relaxed mb-6 lg:mb-8">
-                  We don't compete on volume. Every mandate we accept gets a senior partner's full attention from brief to onboarding — and beyond.
+                  We don't compete on volume. Every mandate we accept gets a senior partner's full attention from brief to onboarding - and beyond.
                 </p>
                 {/* Inline trust signals */}
                 <ul className="space-y-2.5">
                   {[
-                    "No junior handoffs — ever",
+                    "No junior handoffs - ever",
                     "Full confidentiality guaranteed",
                     "Off-market candidate access",
                     "Replacement guarantee included",

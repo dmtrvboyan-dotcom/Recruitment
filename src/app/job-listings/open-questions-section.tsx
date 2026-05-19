@@ -67,7 +67,7 @@ export function OpenQuestionsSection() {
                   className="relative flex items-center justify-center cursor-pointer focus:outline-none group"
                   style={{ width: 28, height: 28 }}
                 >
-                  {/* Ping ring — only on active */}
+                  {/* Ping ring - only on active */}
                   {i === questionIdx && (
                     <span
                       aria-hidden

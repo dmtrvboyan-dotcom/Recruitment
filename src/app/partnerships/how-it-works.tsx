@@ -94,13 +94,13 @@ export const HowItWorks = memo(function HowItWorks() {
             <span className="text-brand-coral">WITH UNDERSTANDING.</span>
           </h2>
           <p className="mt-6 text-sm sm:text-base text-white/45 max-w-xl leading-relaxed">
-            We begin by learning your hiring goals, internal processes, and culture. Then we build a recruitment strategy tailored specifically to your business — and act as an extension of your hiring team.
+            We begin by learning your hiring goals, internal processes, and culture. Then we build a recruitment strategy tailored specifically to your business - and act as an extension of your hiring team.
           </p>
         </div>
 
         <div className="relative">
 
-          {/* Connector line — desktop only */}
+          {/* Connector line - desktop only */}
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-3">
             {STEPS.map((step, i) => {
@@ -147,7 +147,7 @@ export const HowItWorks = memo(function HowItWorks() {
             <Handshake className="w-6 h-6 text-brand-coral" strokeWidth={1.5} />
           </div>
           <p className="text-sm sm:text-base text-white/55 leading-relaxed">
-            <span className="text-white font-bold">We act as an extension of your hiring team</span> — keeping the process efficient, transparent, and focused on long-term success.
+            <span className="text-white font-bold">We act as an extension of your hiring team</span> - keeping the process efficient, transparent, and focused on long-term success.
           </p>
         </div>
 

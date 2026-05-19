@@ -102,7 +102,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
           {/* Overview */}
           <section>
             <div className="flex items-center gap-3 mb-5 sm:mb-6">
-              <span className="font-serif italic text-brand-coral text-base">—</span>
+              <span className="font-serif italic text-brand-coral text-base">-</span>
               <h4 className="text-[10px] sm:text-xs font-semibold text-brand-navy uppercase tracking-[0.28em]">
                 Role Overview
               </h4>

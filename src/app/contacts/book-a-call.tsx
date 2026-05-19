@@ -34,7 +34,7 @@ export function BookACall() {
     })()
   }, [])
 
-  // ── Booked confirmation ────────────────────────────────────────────────────
+  // ── Booked confirmation
 
   if (booked) {
     return (
@@ -46,7 +46,7 @@ export function BookACall() {
         mb-1
         animate-in fade-in slide-in-from-bottom-2 duration-400
       ">
-        {/* Subtle glow */}
+
         <div
           aria-hidden
           className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-brand-teal/20 blur-2xl pointer-events-none"
@@ -68,8 +68,6 @@ export function BookACall() {
     )
   }
 
-  // ── CTA card ───────────────────────────────────────────────────────────────
-
   return (
     <button
       type="button"
@@ -89,9 +87,7 @@ export function BookACall() {
         active:translate-y-0 active:shadow-none
       "
     >
-      {/* ── Background atmosphere ─────────────────────────────────────────── */}
-
-      {/* Coral (blue) glow — top-right, blooms on hover */}
+     
       <div
         aria-hidden
         className="
@@ -102,21 +98,19 @@ export function BookACall() {
         "
       />
 
-      {/* Teal (deep blue) glow — bottom-left */}
       <div
         aria-hidden
         className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-brand-teal/15 blur-2xl pointer-events-none"
       />
 
-      {/* ── Top badge row ─────────────────────────────────────────────────── */}
       <div className="relative flex items-center justify-between mb-4 sm:mb-5">
-        {/* Pulsing "live" availability badge */}
+
         <span className="inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] text-brand-coral">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-coral animate-pulse" />
           Available now
         </span>
 
-        {/* Duration pill */}
+
         <span className="
           inline-flex items-center gap-1
           px-2.5 py-1 rounded-full
@@ -127,9 +121,8 @@ export function BookACall() {
         </span>
       </div>
 
-      {/* ── Icon + heading ────────────────────────────────────────────────── */}
       <div className="relative flex items-start gap-3 sm:gap-4">
-        {/* Icon circle */}
+
         <span className="
           flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
           border border-white/15 bg-white/8
@@ -146,24 +139,23 @@ export function BookACall() {
             Schedule a 30-min intro call
           </p>
           <p className="text-[11px] sm:text-xs text-white/50 leading-snug">
-            Pick a slot that works — no back-and-forth
+            Pick a slot that works - no back-and-forth
           </p>
         </div>
       </div>
 
-      {/* ── Bottom row ────────────────────────────────────────────────────── */}
       <div className="
         relative flex items-center justify-between
         mt-4 sm:mt-5 pt-4
         border-t border-white/10
       ">
-        {/* Availability hours */}
+
         <span className="flex items-center gap-1.5 text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/35 font-semibold">
           <Clock className="w-3 h-3 flex-shrink-0" strokeWidth={1.75} />
           Mon–Fri, 9–18 EET
         </span>
 
-        {/* CTA */}
+
         <span className="
           inline-flex items-center gap-1.5
           text-[9px] sm:text-[10px] uppercase tracking-[0.22em] font-bold text-brand-coral

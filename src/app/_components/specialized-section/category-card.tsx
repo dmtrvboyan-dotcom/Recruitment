@@ -24,17 +24,14 @@ export const CategoryCard = memo(function CategoryCard({
 }) {
   const iconConfig = ICON_MAP[category.icon] || ICON_MAP["code-2"]
   const IconComponent = iconConfig.icon
-  const visibleTechs = category.techs;
-  const remaining = category.techs.length - visibleTechs.length
+  const visibleTechs = category.techs
   const atomicNumber = String(index + 1).padStart(2, "0")
-  const elementCode = getElementCode(category.title)
 
   return (
     <button
       onClick={onClick}
       className="group relative w-full text-left bg-brand-navy/[0.02] border border-brand-navy/10 hover:border-brand-coral/50 hover:bg-brand-navy/[0.04] rounded-2xl p-5 sm:p-6 lg:p-7 transition-all duration-300 overflow-hidden cursor-pointer"
     >
-
       <div className="flex items-start justify-between mb-5 sm:mb-6">
         <div className="flex items-center gap-2">
           <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-coral">
@@ -42,12 +39,15 @@ export const CategoryCard = memo(function CategoryCard({
           </span>
           <div className="h-px w-5 sm:w-6 bg-brand-coral/40" />
         </div>
-        <IconComponent
-          className="w-4 h-4 text-brand-navy/30 group-hover:text-brand-coral transition-colors duration-300"
-        />
-      </div>
 
- 
+        {/* Mobile: "View more" label — hidden on sm and up */}
+        <span className="sm:hidden text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-navy/60">
+          View more
+        </span>
+
+        {/* Desktop: icon — hidden below sm */}
+        <IconComponent className="hidden sm:block w-4 h-4 text-brand-navy/30 group-hover:text-brand-coral transition-colors duration-300" />
+      </div>
 
       {/* Title */}
       <h3 className="text-sm sm:text-base lg:text-lg font-black uppercase tracking-[-0.01em] leading-tight text-brand-navy mb-1.5">
@@ -59,7 +59,7 @@ export const CategoryCard = memo(function CategoryCard({
         {category.categoryLabel}
       </p>
 
-      {/* Tech badges — the valence shell */}
+      {/* Tech badges */}
       <div className="flex flex-wrap gap-1.5">
         {visibleTechs.map((tech) => (
           <span
@@ -69,7 +69,6 @@ export const CategoryCard = memo(function CategoryCard({
             {tech}
           </span>
         ))}
-      
       </div>
 
       <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">

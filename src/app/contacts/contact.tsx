@@ -63,25 +63,25 @@ export function Contact() {
     >
       {/* ─── BACKGROUND ATMOSPHERE ────────────────────────── */}
 
-      {/* Coral glow — top center on mobile, top-left on desktop */}
+      {/* Coral glow - top center on mobile, top-left on desktop */}
       <div
         aria-hidden
         className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
-      {/* Teal glow — middle right, hidden on small screens */}
+      {/* Teal glow - middle right, hidden on small screens */}
       <div
         aria-hidden
         className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
-      {/* Secondary coral glow — top right */}
+      {/* Secondary coral glow - top right */}
       <div
         aria-hidden
         className="absolute top-0 right-0 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] rounded-full bg-brand-coral/10 blur-[140px] pointer-events-none -translate-y-1/3 translate-x-1/4"
       />
 
-      {/* Secondary teal glow — bottom left */}
+      {/* Secondary teal glow - bottom left */}
       <div
         aria-hidden
         className="absolute bottom-0 left-0 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-brand-teal/8 blur-[140px] pointer-events-none translate-y-1/3 -translate-x-1/4"
@@ -128,14 +128,14 @@ export function Contact() {
 
           <p className="mt-6 sm:mt-8 text-base sm:text-lg text-brand-navy/60 leading-relaxed max-w-xl">
             Whether you&apos;re scaling a tech team or hunting for your next
-            challenge — our senior partners are listening. Real humans.
+            challenge - our senior partners are listening. Real humans.
             Sharp questions. Honest answers.
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
 
-          {/* LEFT RAIL — Contact methods + meta */}
+          {/* LEFT RAIL - Contact methods + meta */}
           <aside className="lg:col-span-4 lg:order-1 order-2">
             <div className="lg:sticky lg:top-24 space-y-10">
 
@@ -203,7 +203,7 @@ export function Contact() {
                       Follow us
                     </p>
                     <p className="text-brand-navy/60 text-sm max-w-md">
-                      Stay close — insights, open roles, and behind-the-scenes from our team.
+                      Stay close - insights, open roles, and behind-the-scenes from our team.
                     </p>
                   </div>
 
@@ -227,7 +227,7 @@ export function Contact() {
             </div>
           </aside>
 
-          {/* RIGHT — Form */}
+          {/* RIGHT - Form */}
           <div className="lg:col-span-8 lg:order-2 order-1">
             <div className="relative">
               <div className="relative bg-white border border-brand-navy/8 rounded-[1.75rem] sm:rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(26,26,46,0.12)] overflow-hidden">

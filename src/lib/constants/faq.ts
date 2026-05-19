@@ -26,11 +26,11 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: "What if the role is hard to fill?",
-    a: "For challenging roles, we take a consultative approach. We analyze the brief, provide honest feedback, and adjust the strategy where needed. This might include refining requirements, repositioning the role, or exploring alternative talent pools—always with realistic expectations.",
+    a: "For challenging roles, we take a consultative approach. We analyze the brief, provide honest feedback, and adjust the strategy where needed. This might include refining requirements, repositioning the role, or exploring alternative talent pools-always with realistic expectations.",
   },
   {
     q: "Do you provide a guarantee period?",
-    a: "Yes, every successful hire comes with a guarantee period. If things don't work out during that time, we provide a replacement candidate at no additional cost—ensuring continuity and reducing your hiring risk.",
+    a: "Yes, every successful hire comes with a guarantee period. If things don't work out during that time, we provide a replacement candidate at no additional cost-ensuring continuity and reducing your hiring risk.",
   },
   {
     q: "What's your experience in IT recruitment?",
@@ -38,6 +38,6 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: "Is exclusivity part of your terms?",
-    a: "No exclusivity required. You're free to work with one or multiple providers—we're confident in our ability to deliver value without locking you in.",
+    a: "No exclusivity required. You're free to work with one or multiple providers-we're confident in our ability to deliver value without locking you in.",
   },
 ]

@@ -27,7 +27,7 @@ import { createContactFormSchema, type ContactFormData } from "@/lib/schemas"
 import { MessageField } from "./message-field"
 import { TagInput } from "./tag-input"
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// Types 
 
 type Mode = "candidate" | "company"
 type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT" | "remoteIT" | "executiveSearch" | "salary"
@@ -37,7 +37,6 @@ interface ContactFormProps {
   mode?: Mode
 }
 
-// ─── Constants ────────────────────────────────────────────────────────────────
 
 const SHARED_TAGS = ["urgent", "follow-up", "question", "custom-request"]
 
@@ -62,7 +61,7 @@ const CONTACT_METHOD_OPTIONS: {
     { value: "phone", label: "Phone", hint: "We'll call you back", icon: Phone },
   ]
 
-// ─── Style tokens ─────────────────────────────────────────────────────────────
+// Style tokens
 
 const fieldLabelClass =
   "text-[10px] font-bold uppercase tracking-[0.2em] text-brand-navy/60 mb-2 block"
@@ -70,7 +69,7 @@ const fieldLabelClass =
 const inputClass =
   "h-12 rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30"
 
-// ─── SectionMarker ────────────────────────────────────────────────────────────
+// SectionMarker 
 
 function SectionMarker({ num, label }: { num: string; label: string }) {
   return (
@@ -82,7 +81,7 @@ function SectionMarker({ num, label }: { num: string; label: string }) {
   )
 }
 
-// ─── ContactMethodPill ────────────────────────────────────────────────────────
+// ContactMethodPill 
 
 function ContactMethodPill({
   option,
@@ -108,7 +107,7 @@ function ContactMethodPill({
         }
       `}
     >
-      {/* Check badge */}
+
       <span className={`
         absolute top-2.5 right-2.5 w-4 h-4 rounded-full border-2 flex items-center justify-center
         transition-all duration-200
@@ -121,7 +120,6 @@ function ContactMethodPill({
         )}
       </span>
 
-      {/* Icon */}
       <span className={`
         w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
         ${selected
@@ -142,7 +140,6 @@ function ContactMethodPill({
   )
 }
 
-// ─── ContactForm ──────────────────────────────────────────────────────────────
 
 export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
@@ -214,7 +211,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
   if (!siteKey) throw new Error("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not set")
 
-  // ── Success ────────────────────────────────────────────────────────────────
+  // if there's a success
 
   if (isSubmitted) {
     return (
@@ -228,7 +225,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-coral mb-3">[ Message Received ]</p>
         <h3 className="text-3xl sm:text-4xl font-black text-brand-navy mb-4 tracking-tight">We&apos;ll be in touch.</h3>
         <p className="text-brand-navy/60 max-w-sm mx-auto leading-relaxed">
-          A senior partner will reply within 24 hours. Check your inbox — and your spam folder, just in case.
+          A senior partner will reply within 24 hours. Check your inbox - and your spam folder, just in case.
         </p>
         <Button
           variant="outline"
@@ -241,7 +238,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
     )
   }
 
-  // ── Form ───────────────────────────────────────────────────────────────────
+  // Form
 
   return (
     <Form {...form}>
@@ -249,7 +246,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
         {mode === "company" ? (
           <>
-            {/* 01 — Your company */}
+            {/* 01 - Your company */}
             <section>
               <SectionMarker num="01" label="Your company" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -279,7 +276,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
               </div>
             </section>
 
-            {/* 02 — What are you looking for */}
+            {/* 02 - What are you looking for */}
             <section className="animate-in fade-in slide-in-from-top-2 duration-300">
               <SectionMarker num="02" label="What are you looking for" />
               <div className="space-y-5">
@@ -301,14 +298,14 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                 </div>
                 <div>
                   <FormLabel className={fieldLabelClass}>
-                    Focus areas <span className="font-normal opacity-50 normal-case tracking-normal">— optional, up to 5</span>
+                    Focus areas <span className="font-normal opacity-50 normal-case tracking-normal">- optional, up to 5</span>
                   </FormLabel>
                   <TagInput value={tags} onChange={setTags} suggestions={INTEREST_TAGS[interest]} placeholder="Add focus areas…" />
                 </div>
               </div>
             </section>
 
-            {/* 03 — How should we contact you */}
+            {/* 03 - How should we contact you */}
             <section className="animate-in fade-in slide-in-from-top-2 duration-300">
               <SectionMarker num="03" label="How should we contact you" />
 
@@ -363,7 +360,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
               )}
             </section>
 
-            {/* 04 — Message */}
+            {/* 04 - Message */}
             <section>
               <SectionMarker num="04" label="Your message" />
               <MessageField form={form} interest={interest} mode={mode} />
@@ -439,11 +436,11 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                       {file ? file.name : "Drop your CV here or click to browse"}
                     </p>
                     <p className="text-xs text-brand-navy/50 mt-0.5">
-                      {file ? `${(file.size / 1024).toFixed(0)} KB — attached` : "PDF, DOC, DOCX — max 10MB"}
+                      {file ? `${(file.size / 1024).toFixed(0)} KB - attached` : "PDF, DOC, DOCX - max 10MB"}
                     </p>
                   </div>
 
-                  {/* Remove button — only shown when a file is selected */}
+                  {/* Remove button - only shown when a file is selected */}
                   {file && (
                     <button
                       type="button"

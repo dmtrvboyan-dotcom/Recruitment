@@ -7,7 +7,7 @@ export function CVUploadSection() {
       id="cv-upload"
       className="relative py-16 sm:py-20 lg:py-32 bg-brand-white overflow-hidden"
     >
-      {/* Watermark — only decorative on large screens */}
+      {/* Watermark - only decorative on large screens */}
       <div
         aria-hidden
         className="hidden lg:block absolute -bottom-20 -right-10 text-[clamp(11rem,22vw,22rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.025] select-none pointer-events-none whitespace-nowrap"
@@ -43,7 +43,7 @@ export function CVUploadSection() {
         ── */}
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-12 lg:grid-rows-[auto_auto_auto] lg:gap-x-16 lg:gap-y-6">
 
-          {/* Intro — row 1 left */}
+          {/* Intro - row 1 left */}
           <p className="order-1 lg:col-span-5 lg:row-start-1 text-base text-brand-navy/75 leading-relaxed font-light">
             Share details, and we&apos;ll contact you when a relevant
             full-time opportunity matches your background and career goals.
@@ -51,7 +51,7 @@ export function CVUploadSection() {
             international engineering teams.
           </p>
 
-          {/* Numbered list — row 1-3 right (spans all rows on desktop) */}
+          {/* Numbered list - row 1-3 right (spans all rows on desktop) */}
           <div className="order-2 lg:col-span-7 lg:row-start-1 lg:row-span-3">
             <div className="flex flex-col divide-y divide-brand-navy/10">
               {[
@@ -91,7 +91,7 @@ export function CVUploadSection() {
             </div>
           </div>
 
-          {/* Trust badge — row 2 left */}
+          {/* Trust badge - row 2 left */}
           <div className="order-3 lg:col-span-5 lg:row-start-2">
             <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-brand-navy/[0.04] border border-brand-navy/10">
               <Lock className="w-3.5 h-3.5 text-brand-teal shrink-0" strokeWidth={2} />
@@ -101,7 +101,7 @@ export function CVUploadSection() {
             </div>
           </div>
 
-          {/* CTA — row 3 left */}
+          {/* CTA - row 3 left */}
           <div className="order-4 lg:col-span-5 lg:row-start-3">
             <Link
               href="/contacts"
@@ -114,7 +114,7 @@ export function CVUploadSection() {
               />
             </Link>
             <p className="mt-3 text-[11px] text-brand-navy/40 font-serif italic leading-relaxed">
-              Reach out through our contact page — we&apos;ll take it from
+              Reach out through our contact page - we&apos;ll take it from
               there.
             </p>
           </div>

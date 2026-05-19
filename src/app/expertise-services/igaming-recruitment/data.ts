@@ -201,7 +201,7 @@ export const DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     title: "Industry Understanding",
     description:
-      "We know the iGaming landscape inside out — from regulations to player expectations to technical requirements.",
+      "We know the iGaming landscape inside out - from regulations to player expectations to technical requirements.",
   },
   {
     title: "Access to Passive Candidates",

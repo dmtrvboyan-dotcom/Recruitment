@@ -122,7 +122,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Code2,
     title: "Software Engineers & Developers",
     description:
-      "Full-stack, backend, and frontend engineers who build robust, scalable products — from early-stage MVPs to complex enterprise systems.",
+      "Full-stack, backend, and frontend engineers who build robust, scalable products - from early-stage MVPs to complex enterprise systems.",
     tags: ["React", "Node.js", "Java", ".NET", "Vue", "Angular", "TypeScript"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",

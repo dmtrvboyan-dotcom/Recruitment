@@ -95,21 +95,21 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: "02",
     title: "Market Mapping & Sourcing",
     description:
-      "We conduct proprietary market mapping across active and passive senior candidates — tapping our 15-year network of technology leaders, not just job boards. Many of our best placements were never on the market.",
+      "We conduct proprietary market mapping across active and passive senior candidates - tapping our 15-year network of technology leaders, not just job boards. Many of our best placements were never on the market.",
     icon: Globe,
   },
   {
     number: "03",
     title: "Rigorous Candidate Assessment",
     description:
-      "Structured competency interviews, technical evaluation, leadership profiling, and culture-fit analysis — followed by in-depth reference checks. Only candidates who clear our full process reach your shortlist.",
+      "Structured competency interviews, technical evaluation, leadership profiling, and culture-fit analysis - followed by in-depth reference checks. Only candidates who clear our full process reach your shortlist.",
     icon: ShieldCheck,
   },
   {
     number: "04",
     title: "Shortlist, Interviews & Offer",
     description:
-      "We present a curated shortlist of two to four candidates and manage the full interview and offer process — including negotiation, counter-offer management, and timeline coordination — with complete transparency.",
+      "We present a curated shortlist of two to four candidates and manage the full interview and offer process - including negotiation, counter-offer management, and timeline coordination - with complete transparency.",
     icon: Award,
   },
   {
@@ -163,7 +163,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     icon: Zap,
     title: "Product & Design Leadership",
     description:
-      "CPO, Head of Product, and VP of Design search for companies where product strategy is the primary growth lever — from Series B scale-ups to publicly listed software businesses.",
+      "CPO, Head of Product, and VP of Design search for companies where product strategy is the primary growth lever - from Series B scale-ups to publicly listed software businesses.",
     tags: ["CPO", "Head of Product", "VP Design", "Head of UX"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
@@ -176,7 +176,7 @@ export const INDUSTRIES: IndustryItem[] = [
     sector: "Fintech & Financial Services",
     roles: "CTO, CISO, Head of Engineering",
     detail:
-      "From challenger banks to established institutions undergoing digital transformation — we understand the regulatory and technical complexity of hiring in financial services.",
+      "From challenger banks to established institutions undergoing digital transformation - we understand the regulatory and technical complexity of hiring in financial services.",
   },
   {
     sector: "SaaS & B2B Software",
@@ -203,7 +203,7 @@ export const BENEFITS: BenefitItem[] = [
   {
     icon: ShieldCheck,
     title: "Partner-Led, Not Delegated",
-    body: "Every engagement is owned by a senior partner from brief to placement — not handed off to junior researchers after the kickoff call.",
+    body: "Every engagement is owned by a senior partner from brief to placement - not handed off to junior researchers after the kickoff call.",
   },
   {
     icon: Globe,
@@ -218,7 +218,7 @@ export const BENEFITS: BenefitItem[] = [
   {
     icon: Clock,
     title: "Discreet by Design",
-    body: "We operate with full confidentiality at every stage — essential for sensitive leadership transitions and market-sensitive executive appointments.",
+    body: "We operate with full confidentiality at every stage - essential for sensitive leadership transitions and market-sensitive executive appointments.",
   },
 ]
 
@@ -241,7 +241,7 @@ export const CTA_DATA: CtaData = {
   eyebrow: "Start a Search",
   title: "The right technology leader changes everything.",
   description:
-    "Share your brief — or simply the challenge you're trying to solve. We'll respond within 24 hours with a tailored search strategy and current market intelligence.",
+    "Share your brief - or simply the challenge you're trying to solve. We'll respond within 24 hours with a tailored search strategy and current market intelligence.",
   primaryButton: {
     text: "Start a Search",
     href: "/#contact",

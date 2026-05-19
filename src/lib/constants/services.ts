@@ -134,14 +134,14 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Employer of Record (EOR)",
-    subtitle: "Hire in Eastern Europe — No Local Entity Needed",
+    subtitle: "Hire in Eastern Europe - No Local Entity Needed",
     intro: "",
     sections: [
       {
         heading: "Expand Without the Overhead",
         points: [
           "Hire employees in Bulgaria and Eastern Europe under our legal entity",
-          "Full local employment compliance — contracts, tax, and social contributions handled",
+          "Full local employment compliance - contracts, tax, and social contributions handled",
           "Seamless contractor-to-employee conversions",
           "Scale your international workforce without incorporation costs",
         ],

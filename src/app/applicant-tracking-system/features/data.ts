@@ -58,7 +58,7 @@ export const featuresData = {
       icon: Headset,
       title: "Bulgarian Support",
       description:
-        "We’re just a call or email away with Smart.R support. Get fast, reliable assistance in Bulgarian—whether it’s onboarding, troubleshooting, or optimizing your hiring workflows.",
+        "We’re just a call or email away with Smart.R support. Get fast, reliable assistance in Bulgarian-whether it’s onboarding, troubleshooting, or optimizing your hiring workflows.",
     },
   ] as Feature[],
 }

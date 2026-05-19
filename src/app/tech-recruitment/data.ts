@@ -15,7 +15,7 @@ export const HERO_DATA = {
   tagline: "Technical Specialized Recruitment",
   title: "Specialist IT Recruitment for Every Tech Hire.",
   subtitle:
-    "From software engineering to executive leadership — we help companies hire niche technical talent quickly, across every stack and seniority level.",
+    "From software engineering to executive leadership - we help companies hire niche technical talent quickly, across every stack and seniority level.",
   primaryCta: { text: "Hire Tech Talent", href: "/contacts" },
   secondaryCta: { text: "Explore Specializations", href: "#roles" },
   stats: [
@@ -58,7 +58,7 @@ export const PROCESS_STEPS = [
     icon: Phone,
     title: "Discovery Call",
     description:
-      "We learn your tech stack, team structure, hiring goals, and timeline — so we can target the right candidates from day one.",
+      "We learn your tech stack, team structure, hiring goals, and timeline - so we can target the right candidates from day one.",
   },
   {
     number: "02",
@@ -72,14 +72,14 @@ export const PROCESS_STEPS = [
     icon: ClipboardList,
     title: "Candidate Shortlist",
     description:
-      "You receive a curated shortlist of screened candidates — with profiles, tech assessments, and availability confirmed.",
+      "You receive a curated shortlist of screened candidates - with profiles, tech assessments, and availability confirmed.",
   },
   {
     number: "04",
     icon: Handshake,
     title: "Interviews & Placement",
     description:
-      "We coordinate interviews, manage offers, and support onboarding — so nothing falls through the cracks.",
+      "We coordinate interviews, manage offers, and support onboarding - so nothing falls through the cracks.",
   },
 ]
 
@@ -102,7 +102,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: "Do you recruit contract and permanent roles?",
-    a: "Yes — we support both contract and permanent placements across all specializations. Many of our clients use a mix of both depending on project needs and team structure.",
+    a: "Yes - we support both contract and permanent placements across all specializations. Many of our clients use a mix of both depending on project needs and team structure.",
   },
   {
     q: "Do you recruit internationally?",
@@ -110,11 +110,11 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: "What industries do you support?",
-    a: "We work across SaaS, fintech, healthtech, e-commerce, cybersecurity, and enterprise software — anywhere technical talent is the bottleneck.",
+    a: "We work across SaaS, fintech, healthtech, e-commerce, cybersecurity, and enterprise software - anywhere technical talent is the bottleneck.",
   },
   {
     q: "How do your fees work?",
-    a: "We operate on a success-based fee model — you only pay when a candidate is successfully placed. No retainers, no upfront costs. Pricing is discussed during the initial discovery call.",
+    a: "We operate on a success-based fee model - you only pay when a candidate is successfully placed. No retainers, no upfront costs. Pricing is discussed during the initial discovery call.",
   },
   {
     q: "Do you replace candidates if things don't work out?",

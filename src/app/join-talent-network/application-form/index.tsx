@@ -96,7 +96,7 @@ export const ApplicationForm = memo(function ApplicationForm() {
                         <div className="flex items-center gap-3 mb-8 pb-6 border-b border-brand-white/10">
                             <div className="w-2 h-2 rounded-full bg-brand-coral animate-pulse" />
                             <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-white/40">
-                                Step 1 of 1 — Profile Submission
+                                Step 1 of 1 - Profile Submission
                             </span>
                         </div>
 
@@ -152,7 +152,7 @@ export const ApplicationForm = memo(function ApplicationForm() {
                             >
                                 privacy policy
                             </Link>
-                            . Your information stays confidential — always.
+                            . Your information stays confidential - always.
                         </p>
                     </form>
 
