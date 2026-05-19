@@ -19,29 +19,33 @@ export async function POST(req: Request) {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
-        secret:   process.env.RECAPTCHA_SECRET_KEY!,
+        secret: process.env.RECAPTCHA_SECRET_KEY!,
         response: token,
       }),
     })
 
     const verifyData = await verifyRes.json()
+
+    console.log("reCAPTCHA verify response:", JSON.stringify(verifyData))
+
     if (!verifyData.success) {
+      console.log("reCAPTCHA error codes:", verifyData["error-codes"])
       return NextResponse.json({ error: "Bot detected" }, { status: 403 })
     }
 
     // ── 2. Extract fields ──────────────────────────────────────────────────
 
-    const mode    = (formData.get("mode")    as string) ?? "candidate"
-    const name    = (formData.get("name")    as string) ?? ""
-    const email   = (formData.get("email")   as string) || undefined
-    const phone   = (formData.get("phone")   as string) || undefined
-    const title   = (formData.get("title")   as string) || undefined
+    const mode = (formData.get("mode") as string) ?? "candidate"
+    const name = (formData.get("name") as string) ?? ""
+    const email = (formData.get("email") as string) || undefined
+    const phone = (formData.get("phone") as string) || undefined
+    const title = (formData.get("title") as string) || undefined
     const company = (formData.get("company") as string) || undefined
     const message = (formData.get("message") as string) ?? ""
 
     // Company-only extras
-    const interest       = (formData.get("interest") as string) || undefined
-    const tags           = JSON.parse((formData.get("tags") as string) || "[]") as string[]
+    const interest = (formData.get("interest") as string) || undefined
+    const tags = JSON.parse((formData.get("tags") as string) || "[]") as string[]
     const contactMethods = JSON.parse((formData.get("contactMethods") as string) || "[]") as string[]
 
     // ── 3. Build the email ─────────────────────────────────────────────────
@@ -67,12 +71,12 @@ export async function POST(req: Request) {
     // ── 5. Send via Resend ─────────────────────────────────────────────────
 
     const { error } = await resend.emails.send({
-      from:    process.env.CONTACT_FROM_EMAIL!,
-      to:      process.env.CONTACT_TO_EMAIL!,
+      from: process.env.CONTACT_FROM_EMAIL!,
+      to: process.env.CONTACT_TO_EMAIL!,
       replyTo: email,
       subject,
-      html:    buildEmailHtml(templateProps),
-      text:    buildEmailText(templateProps),
+      html: buildEmailHtml(templateProps),
+      text: buildEmailText(templateProps),
       ...(attachments.length > 0 && { attachments }),
     })
 
