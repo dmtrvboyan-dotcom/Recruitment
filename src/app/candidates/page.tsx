@@ -23,6 +23,8 @@ import {
   Plus
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { AppButton } from '@/components/ui/app-button';
+
 
 import {
   candidatesMetadata,
@@ -64,7 +66,7 @@ function useInView(threshold = 0.15) {
 const HeroSection = memo(function HeroSection() {
   return (
     <section className="relative w-full min-h-[90vh] flex items-end overflow-hidden bg-brand-navy">
- 
+
       {/* Large watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <span className="text-[25vw] font-black uppercase text-brand-white/[0.03] leading-none tracking-tighter whitespace-nowrap">
@@ -99,26 +101,20 @@ const HeroSection = memo(function HeroSection() {
           <p className="text-base sm:text-lg text-brand-white/55 max-w-lg leading-relaxed">
             {heroData.subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-            <Button
-              asChild
-              className="group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-8 py-5 sm:py-6 text-xs font-semibold tracking-widest uppercase rounded-3xl transition-colors duration-200"
-            >
-              <Link href="/contacts">
-                <span className="flex items-center gap-2.5">
-                  {heroData.primaryCta.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border border-white/20 bg-transparent text-brand-white hover:bg-brand-white/8 px-8 py-5 sm:py-6 text-xs font-semibold tracking-widest uppercase rounded-3xl transition-colors duration-200"
-            >
-              <Link href={"/job-listings"}>{heroData.secondaryCta.text}</Link>
-            </Button>
+
+
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
+              {heroData.primaryCta.text}
+            </AppButton>
+
+            <AppButton href="/job-listings" variant="outline" className="sm:w-auto">
+              {heroData.secondaryCta.text}
+            </AppButton>
           </div>
+
+
         </div>
 
         {/* Stats strip */}
@@ -285,7 +281,7 @@ const YourGoalsSection = memo(function YourGoalsSection() {
 
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
-     
+
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-coral/8 blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
@@ -672,11 +668,10 @@ const FAQSection = memo(function FAQSection() {
 
                     {/* Question */}
                     <span
-                      className={`text-sm sm:text-base font-black uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${
-                        isOpen
-                          ? "text-brand-coral"
-                          : "text-brand-navy group-hover:text-brand-coral"
-                      }`}
+                      className={`text-sm sm:text-base font-black uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${isOpen
+                        ? "text-brand-coral"
+                        : "text-brand-navy group-hover:text-brand-coral"
+                        }`}
                     >
                       {faq.question}
                     </span>
@@ -684,18 +679,16 @@ const FAQSection = memo(function FAQSection() {
 
                   {/* Plus / × button */}
                   <span
-                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-                      isOpen
-                        ? "bg-brand-coral rotate-45"
-                        : "bg-brand-navy/5 group-hover:bg-brand-coral/15"
-                    }`}
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen
+                      ? "bg-brand-coral rotate-45"
+                      : "bg-brand-navy/5 group-hover:bg-brand-coral/15"
+                      }`}
                   >
                     <Plus
-                      className={`w-4 h-4 transition-colors duration-300 ${
-                        isOpen
-                          ? "text-white"
-                          : "text-brand-navy/60 group-hover:text-brand-coral"
-                      }`}
+                      className={`w-4 h-4 transition-colors duration-300 ${isOpen
+                        ? "text-white"
+                        : "text-brand-navy/60 group-hover:text-brand-coral"
+                        }`}
                       strokeWidth={2}
                     />
                   </span>
@@ -736,7 +729,7 @@ const CTASection = memo(function CTASection() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
       <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-brand-coral via-transparent to-transparent pointer-events-none" />
-    
+
       <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-16 sm:py-20 lg:py-28 flex flex-col items-center gap-8 lg:gap-10">
         <div className="text-center">
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4">
@@ -753,27 +746,20 @@ const CTASection = memo(function CTASection() {
           <p className="text-sm text-brand-white/50 max-w-xs leading-relaxed sm:text-base text-center">
             A real person will get back to you within one business day. No templates, no automated replies.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button
-              asChild
-              className="group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-8 py-5 sm:py-6 text-xs font-semibold tracking-widest uppercase rounded-3xl transition-colors duration-200"
-            >
-              <Link href={ctaData.primaryCta.href}>
-                <span className="flex items-center gap-2.5">
-                  <Upload className="w-4 h-4" />
-                  {ctaData.primaryCta.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border border-white/20 bg-transparent text-brand-white hover:bg-brand-white/8 px-8 py-5 sm:py-6 text-xs font-semibold tracking-widest uppercase rounded-3xl transition-colors duration-200"
-            >
-              <Link href={ctaData.secondaryCta.href}>{ctaData.secondaryCta.text}</Link>
-            </Button>
+
+
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton href={ctaData.primaryCta.href} icon="arrow" className="sm:w-auto">
+              {ctaData.primaryCta.text}
+            </AppButton>
+
+            <AppButton href={ctaData.secondaryCta.href} variant="outline" className="sm:w-auto">
+             {ctaData.secondaryCta.text}
+            </AppButton>
           </div>
+
+        
         </div>
       </div>
     </section>

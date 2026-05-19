@@ -4,13 +4,15 @@ import Link from 'next/link'
 import { memo } from "react"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { scrollToSection } from "@/lib/utils/scroll"
+import { scrollToSection } from "@/lib/utils/scroll";
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const ProcessCTA = memo(function ProcessCTA() {
   return (
     <section className="relative w-full bg-brand-white overflow-hidden">
 
-  
+
 
       <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32 text-center">
 
@@ -30,20 +32,20 @@ export const ProcessCTA = memo(function ProcessCTA() {
           An introductory call costs nothing. Tell us what you're looking for and we'll tell you honestly whether we're the right fit.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href={"/contacts"}
-            className="bg-brand-coral hover:bg-brand-coral/90 text-white font-semibold rounded-3xl tracking-wide uppercase px-8 py-3 text-sm flex items-center gap-2 group cursor-pointer"
-          >
+
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+          <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
             Start the conversation
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            href={"/about"}
-            className=" font-semibold rounded-3xl border border-brand-navy hover:bg-brand-navy hover:text-brand-white text-brand-navy tracking-wide uppercase px-8 py-3 text-sm cursor-pointer"
-          >
+          </AppButton>
+
+          <AppButton href="/about" variant="navy" className=" sm:w-auto">
             Learn about us
-          </Link>
+          </AppButton>
         </div>
+
+
+       
 
       </div>
     </section>

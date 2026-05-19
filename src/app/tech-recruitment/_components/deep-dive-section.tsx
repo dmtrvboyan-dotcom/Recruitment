@@ -4,7 +4,9 @@ import { memo } from "react"
 import Link from "next/link"
 import { ArrowRight, Search, CheckCircle } from "lucide-react"
 import { type TechCategory } from "@/lib/constants/specialized"
-import { SECTION_IDS } from "../data"
+import { SECTION_IDS } from "../data";
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const DeepDiveSection = memo(function DeepDiveSection({
   category,
@@ -40,24 +42,22 @@ export const DeepDiveSection = memo(function DeepDiveSection({
       className={`relative py-20 sm:py-24 lg:py-28 ${bg} overflow-hidden`}
     >
 
-  
+
 
       {/* Coral glow — alternating position */}
       <div
         aria-hidden
-        className={`absolute -top-32 w-[360px] h-[360px] lg:w-[480px] lg:h-[480px] rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none ${
-          index % 2 === 0
+        className={`absolute -top-32 w-[360px] h-[360px] lg:w-[480px] lg:h-[480px] rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none ${index % 2 === 0
             ? "left-1/4"
             : "right-1/4"
-        }`}
+          }`}
       />
 
       {/* Watermark — category element code */}
       <div
         aria-hidden
-        className={`hidden lg:block absolute top-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,15rem)] font-black uppercase leading-[0.85] tracking-tighter ${watermarkColor} select-none pointer-events-none whitespace-nowrap ${
-          index % 2 === 0 ? "right-0" : "left-0"
-        }`}
+        className={`hidden lg:block absolute top-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,15rem)] font-black uppercase leading-[0.85] tracking-tighter ${watermarkColor} select-none pointer-events-none whitespace-nowrap ${index % 2 === 0 ? "right-0" : "left-0"
+          }`}
       >
         {number}
       </div>
@@ -196,15 +196,16 @@ export const DeepDiveSection = memo(function DeepDiveSection({
             </div>
           </div>
 
-          {/* CTA */}
-          <Link
-            href="/contacts"
-            className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200"
-          >
-            Hire {category.title.split(" ")[0]}{" "}
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
+               Hire {category.title.split(" ")[0]}{" "}
             {category.title.split(" ")[1] ?? "Talent"}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </Link>
+            </AppButton>
+          </div>
+
+
+        
         </div>
       </div>
     </section>

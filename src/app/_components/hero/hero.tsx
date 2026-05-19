@@ -104,20 +104,12 @@ export const Hero = memo(function Hero() {
           </div>
 
 
-          <div className="flex flex-col sm:flex-row gap-3">
-            <AppButton
-              onClick={() => handleNavigate("#services")}
-              icon="arrow"
-              className="w-full sm:w-auto"
-            >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton onClick={() => handleNavigate("#services")} icon="arrow" className="w-full sm:w-auto">
               Learn More
             </AppButton>
 
-            <AppButton
-              href="/job-listings"
-              variant="navy"
-              className="w-full sm:w-auto"
-            >
+            <AppButton href="/job-listings" variant="navy" className="w-full sm:w-auto">
               Find a Job
             </AppButton>
           </div>

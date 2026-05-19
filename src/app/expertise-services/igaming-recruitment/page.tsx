@@ -11,7 +11,9 @@ import {
   DIFFERENTIATORS,
   CTA_DATA,
   STATS_DATA,
-} from "./data"
+} from "./data";
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const metadata: Metadata = {
   title: "iGaming Recruitment Bulgaria | Hire Gaming Talent",
@@ -58,7 +60,7 @@ export default function IGamingRecruitmentPage() {
             </span>
 
             <h1 className="text-[clamp(3.2rem,10vw,7rem)] font-black leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
-            iGaming & Gambling <span className="text-brand-coral">Recruitment</span>
+              iGaming & Gambling <span className="text-brand-coral">Recruitment</span>
             </h1>
 
             <p className="text-sm sm:text-base text-brand-white/45 max-w-xl mx-auto leading-relaxed">
@@ -243,6 +245,20 @@ export default function IGamingRecruitmentPage() {
               {CTA_DATA.description}
             </p>
 
+
+
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.primaryButton.text}
+              </AppButton>
+
+              <AppButton href={CTA_DATA.secondaryButton.href} variant="navy" className="sm:w-auto">
+                {CTA_DATA.secondaryButton.text}
+              </AppButton>
+            </div>
+
+{/* 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild
@@ -262,7 +278,7 @@ export default function IGamingRecruitmentPage() {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-            </div>
+            </div> */}
 
             {/* Bottom row */}
             <div className="mt-16 pt-10 border-t border-brand-navy/8 flex flex-col sm:flex-row items-center justify-between gap-4">

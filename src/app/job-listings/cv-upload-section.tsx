@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Lock, ArrowRight } from "lucide-react"
+import { Lock, ArrowRight } from "lucide-react";
+import { AppButton } from '@/components/ui/app-button';
 
 export function CVUploadSection() {
   return (
@@ -101,18 +102,15 @@ export function CVUploadSection() {
             </div>
           </div>
 
-          {/* CTA - row 3 left */}
+
+
+         
+
           <div className="order-4 lg:col-span-5 lg:row-start-3">
-            <Link
-              href="/contacts"
-              className="group inline-flex w-full sm:w-auto items-center justify-between gap-6 px-7 py-4 bg-brand-navy text-brand-white rounded-full hover:bg-navy-button-hover active:scale-[0.98] transition-all duration-200 text-[11px] font-semibold tracking-[0.22em] uppercase"
-            >
-              <span>Get in touch</span>
-              <ArrowRight
-                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                strokeWidth={2}
-              />
-            </Link>
+          
+             <AppButton href="/contacts" icon="arrow" className="text-center justify-center sm:w-auto">
+              Get in touch
+            </AppButton>
             <p className="mt-3 text-[11px] text-brand-navy/40 font-serif italic leading-relaxed">
               Reach out through our contact page - we&apos;ll take it from
               there.

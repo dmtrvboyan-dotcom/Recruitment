@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { memo } from "react"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { scrollToSection } from "@/lib/utils/scroll"
+import { scrollToSection } from "@/lib/utils/scroll";
+import { AppButton } from '@/components/ui/app-button';
 
 export const AboutCTA = memo(function AboutCTA() {
 
@@ -40,15 +41,15 @@ export const AboutCTA = memo(function AboutCTA() {
                     <p className="text-sm text-brand-white/50 max-w-xs leading-relaxed sm:text-base lg:text-right">
                         No templates, no automated replies. A real person will get back to you within one business day.
                     </p>
-                    <Link
-                    href={"/contacts"}
-                        className="w-full sm:w-auto group bg-brand-coral hover:bg-brand-coral-hover text-white px-8 py-5 sm:py-6 text-xs sm:text-sm font-semibold tracking-widest uppercase cursor-pointer transition-colors duration-200 rounded-3xl"
-                    >
-                        <span className="flex items-center justify-center gap-2.5">
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-4">
+                        <AppButton href="/contacts" icon="arrow" className="w sm:w-auto">
                             Contact Us
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                        </span>
-                    </Link>
+                        </AppButton>
+
+                    </div>
+
+
                 </div>
 
             </div>

@@ -1,7 +1,9 @@
 "use client"
 
 import { memo, useRef, useState, useEffect } from "react"
-import Link from "next/link"
+import Link from "next/link";
+import { AppButton } from '@/components/ui/app-button';
+
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
@@ -23,7 +25,7 @@ export const PartnersHero = memo(function PartnersHero() {
   const { ref, visible } = useInView(0.1)
 
   return (
-    <section className="relative w-full bg-brand-navy overflow-hidden min-h-[92dvh] flex flex-col justify-end">      
+    <section className="relative w-full bg-brand-navy overflow-hidden min-h-[80dvh] sm:min-h-[90dvh] flex flex-col justify-end">
 
       {/* Radial glow top-right */}
       <div className="absolute top-0 right-0 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-brand-coral/10 rounded-full blur-3xl pointer-events-none -translate-y-1/3 translate-x-1/4" />
@@ -86,7 +88,6 @@ export const PartnersHero = memo(function PartnersHero() {
           </p>
         </div>
 
-        {/* CTAs */}
         <div
           style={{
             opacity: visible ? 1 : 0,
@@ -94,19 +95,18 @@ export const PartnersHero = memo(function PartnersHero() {
           }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Link
-            href="/contacts"
-            className="group relative px-10 py-4 bg-brand-coral hover:bg-brand-coral/90 text-brand-navy font-semibold text-sm sm:text-base tracking-wider uppercase transition-all duration-300 rounded-3xl flex items-center justify-center min-w-[240px]"
-          >
-            Partner With Us
-          </Link>
 
-          <Link
-            href="/process"
-            className="group px-10 py-4 border border-white/30 hover:border-white/50 text-white font-semibold text-sm sm:text-base tracking-wider uppercase transition-all duration-300 rounded-3xl flex items-center justify-center min-w-[240px]"
-          >
-            See how we do it
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton href="/contacts" className="sm:w-auto">
+              Partner With Us
+            </AppButton>
+
+            <AppButton href="/process" variant="outline" className="sm:w-auto">
+              See how we do it
+            </AppButton>
+          </div>
+
+
         </div>
       </div>
     </section>

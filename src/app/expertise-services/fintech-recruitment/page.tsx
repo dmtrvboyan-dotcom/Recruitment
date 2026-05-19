@@ -11,7 +11,9 @@ import {
   FULL_TALENT_HEADER,
   FULL_TALENT_SUBTITLE,
   ROLE_CATEGORIES,
-} from "./data"
+} from "./data";
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const metadata: Metadata = {
   title: "Fintech Recruitment Bulgaria | Hire Fintech Talent",
@@ -24,7 +26,7 @@ export default function FintechRecruitmentPage() {
     <>
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-    
+
 
         <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
         <div className="absolute top-10 right-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
@@ -263,26 +265,18 @@ export default function FintechRecruitmentPage() {
               {CTA_DATA.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-semibold rounded-3xl tracking-wide uppercase px-8 py-6 text-sm flex items-center gap-2 group"
-              >
-                <Link href={CTA_DATA.primaryButton.href}>
-                  {CTA_DATA.primaryButton.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                className="bg-brand-white  border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group font-semibold rounded-3xl"
-              >
-                <Link href={CTA_DATA.secondaryButton.href}>
-                  {CTA_DATA.secondaryButton.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.primaryButton.text}
+              </AppButton>
+
+              <AppButton href={CTA_DATA.secondaryButton.href}  variant="navy" className="w-[95%] sm:w-auto">
+                {CTA_DATA.secondaryButton.text}
+              </AppButton>
             </div>
+
+          
 
             <div className="mt-16 pt-10 border-t border-brand-navy/8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">

@@ -6,6 +6,8 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { TECHNOLOGY_PILLS } from "@/lib/constants/specialized"
 import { HERO_DATA } from "../data"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const HeroSection = memo(function HeroSection() {
   return (
@@ -59,30 +61,18 @@ export const HeroSection = memo(function HeroSection() {
             <div className="mt-5 sm:mt-6 h-[2px] w-12 sm:w-16 bg-brand-coral" />
           </div>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-12 sm:mb-14">
-            <Button
-              asChild
-              className="w-full sm:w-auto group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-7 sm:px-8 py-5 sm:py-6 text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
-            >
-              <Link href={HERO_DATA.primaryCta.href}>
-                <span className="flex items-center justify-center gap-2.5">
-                  {HERO_DATA.primaryCta.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
-            </Button>
 
-            <Button
-              asChild
-              variant="outline"
-              className="w-full sm:w-auto bg-transparent border border-brand-white/25 hover:bg-brand-white/10 text-brand-white px-7 sm:px-8 py-5 sm:py-6 text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
-            >
-              <Link href={HERO_DATA.secondaryCta.href}>
-                {HERO_DATA.secondaryCta.text}
-              </Link>
-            </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mb-12 sm:mb-14">
+            <AppButton href={HERO_DATA.primaryCta.href} icon="arrow" className="sm:w-auto">
+                  {HERO_DATA.primaryCta.text}
+            </AppButton>
+
+            <AppButton href={HERO_DATA.secondaryCta.href} variant="outline" className="sm:w-auto">
+                  {HERO_DATA.secondaryCta.text}
+            </AppButton>
           </div>
+
+  
 
           {/* Tech pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-12 sm:mb-14 max-w-3xl mx-auto">
@@ -104,11 +94,10 @@ export const HeroSection = memo(function HeroSection() {
           {HERO_DATA.stats.map((stat, i) => (
             <div
               key={stat.label}
-              className={`px-4 py-5 sm:px-6 sm:py-7 text-center ${
-                i !== HERO_DATA.stats.length - 1
+              className={`px-4 py-5 sm:px-6 sm:py-7 text-center ${i !== HERO_DATA.stats.length - 1
                   ? "border-r border-brand-white/8"
                   : ""
-              }`}
+                }`}
             >
               <div className="flex items-baseline justify-center gap-1.5 mb-1.5">
                 <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-white tabular-nums tracking-tight leading-none">

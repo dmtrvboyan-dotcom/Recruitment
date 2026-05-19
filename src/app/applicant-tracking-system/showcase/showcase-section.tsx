@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils"
 import { ChevronLeft, ChevronRight, Plus, X } from "lucide-react"
 import { showcaseData } from "./data"
 import { Button } from "@/components/ui/button"
+import { AppButton } from '@/components/ui/app-button';
+
 
 const items = showcaseData.items
 
@@ -245,26 +247,18 @@ export function ShowcaseSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="flex justify-center mt-16">
-          <Link href={showcaseData.ctaButton.href}>
-            <Button
-              className="group bg-brand-navy hover:bg-brand-teal text-brand-white px-10 py-6 text-xs sm:text-sm font-semibold tracking-widest uppercase cursor-pointer transition-colors duration-200 rounded-3xl"
-            >
-              <span className="flex items-center gap-2.5">
-                {showcaseData.ctaButton.text}
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </Button>
-          </Link>
-        </div>
 
-      </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-14">
+          <AppButton href={showcaseData.ctaButton.href} className="sm:w-auto">
+ {showcaseData.ctaButton.text}
+           </AppButton>
+           </div>
+
+
+
+
+        </div>
     </section>
   )
 }

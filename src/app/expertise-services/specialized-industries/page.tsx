@@ -3,7 +3,9 @@ import Link from "next/link"
 import { ScrollReveal } from "@/components/layout"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
-import { HERO_DATA, INDUSTRIES, CTA_DATA, STATS } from "./data"
+import { HERO_DATA, INDUSTRIES, CTA_DATA, STATS } from "./data";
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const metadata: Metadata = {
   title: "Specialized Industry Recruitment | Manufacturing, Energy, Fintech & More",
@@ -36,7 +38,7 @@ export default function SpecializedIndustries() {
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-       
+
 
         {/* Glow blobs */}
         <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
@@ -313,26 +315,14 @@ export default function SpecializedIndustries() {
               {CTA_DATA.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-bold tracking-wide uppercase px-8 py-6 font-semibold rounded-3xl text-sm flex items-center gap-2 group"
-              >
-                <Link href={CTA_DATA.primaryButton.href}>
-                  {CTA_DATA.primaryButton.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-brand-white/20 text-brand-white font-semibold rounded-3xl tracking-wide uppercase px-8 py-6  text-sm bg-brand-navy/0 hover:bg-brand-white"
-              >
-                <Link href={CTA_DATA.secondaryButton.href}>
-                  {CTA_DATA.secondaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.primaryButton.text}
+              </AppButton>
+
+              <AppButton href={CTA_DATA.secondaryButton.href} variant="outline" className="sm:w-auto">
+                {CTA_DATA.secondaryButton.text}
+              </AppButton>
             </div>
 
             {/* Bottom row */}

@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { ArrowRight, ArrowDown } from "lucide-react"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export function HeroSection() {
   const handleScrollToJobs = () => {
@@ -47,7 +49,7 @@ export function HeroSection() {
               <div className="lg:col-span-8">
                 <h1 className="font-black uppercase leading-[0.9] tracking-[-0.02em] text-brand-white">
                   <span className="block text-[clamp(2.75rem,9vw,7.5rem)]">
-                    Get 
+                    Get
                   </span>
                   <span className="block text-[clamp(2.75rem,9vw,7.5rem)]">
                     <span className="text-brand-coral tracking-tight pr-2">
@@ -70,8 +72,20 @@ export function HeroSection() {
                   publicly.
                 </p>
 
+
+                <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+                  <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
+                   Send us your CV
+                  </AppButton>
+
+                  <AppButton    onClick={handleScrollToJobs} variant="outline" className="sm:w-auto">
+                    Explore Open Roles
+                  </AppButton>
+                </div>
+
+
                 {/* CTAs */}
-                <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:gap-3 pt-2">
+                {/* <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:gap-3 pt-2">
                   <Link
                     href={"/contacts"}
                     className="group relative inline-flex items-center justify-between gap-4 px-6 py-4 bg-brand-coral text-brand-navy rounded-full hover:bg-brand-coral-hover transition-colors duration-200 text-[11px] font-semibold tracking-[0.22em] uppercase cursor-pointer"
@@ -92,7 +106,7 @@ export function HeroSection() {
                       strokeWidth={2}
                     />
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
 

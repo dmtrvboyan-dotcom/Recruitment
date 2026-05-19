@@ -1,7 +1,9 @@
 import { ctaData } from "./data"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react";
+import { AppButton } from '@/components/ui/app-button';
+
 
 export function CTASection() {
   return (
@@ -19,7 +21,7 @@ export function CTASection() {
       <div className="relative max-w-4xl mx-auto text-center px-5 sm:px-10">
 
         <span className="inline-flex items-center gap-3 text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral mb-6">
-       
+
         </span>
 
         <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy mb-6">
@@ -30,17 +32,10 @@ export function CTASection() {
           {ctaData.description}
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          
-          <a
-            href={ctaData.primaryCta.href}
-            rel="noopener noreferrer"
-          >
-            <Button className="bg-brand-navy text-brand-white hover:bg-brand-white hover: border-brand-navy border-2 hover:text-brand-navy rounded-3xl  px-8 py-6 text-sm font-black uppercase tracking-[0.12em] group cursor-pointer transition-all duration-300">
-              {ctaData.primaryCta.text}
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" strokeWidth={1.6} />
-            </Button>
-          </a>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-14">
+          <AppButton href={ctaData.primaryCta.href} icon="arrow" className="sm:w-auto">
+            {ctaData.primaryCta.text}
+          </AppButton>
         </div>
 
       </div>

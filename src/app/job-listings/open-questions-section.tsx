@@ -2,7 +2,10 @@
 
 import { useState } from "react"
 import { Quote, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import Link from "next/link";
+import { AppButton } from '@/components/ui/app-button';
+
+
 
 const QUESTIONS = [
   "What kind of opportunity would genuinely interest you?",
@@ -18,7 +21,7 @@ export function OpenQuestionsSection() {
       id="open-questions"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden"
     >
-     
+
 
       <div
         aria-hidden
@@ -81,28 +84,20 @@ export function OpenQuestionsSection() {
                     />
                   )}
                   <span
-                    className={`relative inline-flex rounded-full transition-all duration-300 ${
-                      i === questionIdx
+                    className={`relative inline-flex rounded-full transition-all duration-300 ${i === questionIdx
                         ? "w-4 h-4 bg-brand-coral shadow-[0_0_12px_2px_rgba(255,100,80,0.45)]"
                         : "w-2.5 h-2.5 bg-brand-white/25 group-hover:bg-brand-white/55"
-                    }`}
+                      }`}
                   />
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="mt-12 sm:mt-14">
-            <Link
-              href="/contacts"
-              className="group inline-flex items-center gap-3 text-sm font-semibold tracking-[0.12em] uppercase text-brand-white transition-colors duration-200 p-4 rounded-4xl bg-brand-coral hover:bg-brand-coral-hover"
-            >
-              <span>Start the conversation</span>
-              <ArrowRight
-                className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200"
-                strokeWidth={2}
-              />
-            </Link>
+           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-15">
+            <AppButton href="/contacts" icon="arrow" className="text-center justify-center sm:w-auto">
+              Start the conversation
+            </AppButton>
           </div>
         </div>
       </div>

@@ -13,6 +13,8 @@ import {
   HOW_WE_HELP,
   CTA_DATA,
 } from "./data"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const metadata: Metadata = {
   title: "Ecommerce Recruitment | Hire Shopify, Magento & Ecommerce Talent",
@@ -277,26 +279,15 @@ export default function EcommerceRecruitment() {
               {CTA_DATA.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group"
-              >
-                <Link href={CTA_DATA.primaryButton.href}>
-                  {CTA_DATA.primaryButton.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-brand-white/20 bg-brand-navy text-brand-white font-bold tracking-wide uppercase px-8 py-6 font-semibold rounded-3xl text-sm hover:bg-brand-white "
-              >
-                <Link href={CTA_DATA.secondaryButton.href}>
-                  {CTA_DATA.secondaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.primaryButton.text}
+              </AppButton>
+
+              <AppButton href={CTA_DATA.secondaryButton.href} variant="outline" className="sm:w-auto">
+                {CTA_DATA.secondaryButton.text}
+              </AppButton>
             </div>
 
             {/* Bottom row */}

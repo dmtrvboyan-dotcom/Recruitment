@@ -4,6 +4,8 @@ import { memo } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { PROCESS_DATA, PROCESS_STEPS } from "../data"
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const ProcessSection = memo(function ProcessSection() {
   return (
@@ -86,13 +88,15 @@ export const ProcessSection = memo(function ProcessSection() {
           <p className="text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-brand-white/40 text-center">
             {PROCESS_DATA.cta.label}
           </p>
-          <Link
-            href={PROCESS_DATA.cta.href}
-            className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-5 sm:py-6 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-[11px] font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200"
-          >
-            {PROCESS_DATA.cta.text}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-          </Link>
+
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton href={PROCESS_DATA.cta.href} icon="arrow" className="sm:w-auto">
+              {PROCESS_DATA.cta.text}
+            </AppButton>
+          </div>
+
+         
         </div>
       </div>
     </section>

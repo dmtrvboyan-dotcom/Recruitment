@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { useAnimatedCounter } from "@/lib/hooks/use-animated-counter"
 import { ArrowDown, Sparkles } from "lucide-react"
-import { TRUST_STATS } from "./data"
+import { TRUST_STATS } from "./data";
+import { AppButton } from '@/components/ui/app-button';
+
 
 const StatBlock = memo(function StatBlock({
   value,
@@ -110,26 +112,17 @@ export const TalentNetworkHero = memo(function TalentNetworkHero() {
             <div className="mt-5 sm:mt-6 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
-            <Button
-              onClick={handleApplyClick}
-              className="w-full sm:w-auto group bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-7 sm:px-8 py-5 sm:py-6 text-sm font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
-            >
-              <span className="flex items-center justify-center gap-2.5">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton onClick={handleApplyClick} className="sm:w-auto">
                 Apply Now
-                <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
-              </span>
-            </Button>
+            </AppButton>
 
-            <Button
-              onClick={handleHowItWorks}
-              variant="outline"
-              className="w-full sm:w-auto bg-transparent text-brand-white border-2 border-brand-white/30 hover:bg-brand-white hover:text-brand-navy hover:border-brand-white px-7 sm:px-8 py-5 sm:py-6 text-sm font-semibold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
-            >
+            <AppButton  onClick={handleHowItWorks} variant="outline" className="sm:w-auto">
               How it works
-            </Button>
+            </AppButton>
           </div>
 
+       
           <p className="mt-7 sm:mt-8 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-brand-white/35 font-medium animate-fade-in-up delay-[350ms]">
             Free for candidates &nbsp;·&nbsp; Reviewed by humans &nbsp;·&nbsp; 100% confidential
           </p>

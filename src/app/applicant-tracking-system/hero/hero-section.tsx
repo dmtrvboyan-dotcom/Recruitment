@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { heroData } from "./data"
+import { AppButton } from '@/components/ui/app-button';
 
 export function HeroSection() {
   return (
@@ -21,14 +22,15 @@ export function HeroSection() {
             {heroData.subtitle}
           </p>
 
-          <Link href={heroData.secondaryCta.href}>
-            <Button
-              variant="outline"
-              className="bg-brand-navy text-brand-white hover:bg-brand-coral hover:border-brand-coral/40 rounded-xl px-8 py-6 text-base font-medium transition-all duration-300 cursor-pointer"
-            >
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton href={heroData.secondaryCta.href} className="sm:w-auto">
               {heroData.secondaryCta.text}
-            </Button>
-          </Link>
+            </AppButton>
+
+    
+          </div>
+
+         
         </div>
       </div>
 

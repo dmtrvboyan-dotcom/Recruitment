@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { ArrowUp, Mail } from "lucide-react"
 import Link from 'next/link';
+import { AppButton } from '@/components/ui/app-button';
+
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
@@ -84,16 +86,17 @@ export const FinalCta = memo(function FinalCta() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <Button
-            className="group w-full sm:w-auto bg-brand-coral hover:bg-brand-coral-hover text-brand-white px-9 sm:px-10 py-6 sm:py-7 text-sm font-bold tracking-[0.22em] uppercase rounded-full cursor-pointer transition-colors duration-200"
-          >
-             <Link href="/contacts" className="flex items-center justify-center gap-2.5">
+        
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+            <AppButton href="/contacts" className="sm:w-auto">
               <Mail className="w-4 h-4" strokeWidth={2} />
               Get in touch
-            </Link>
-          </Button>
+            </AppButton>
 
-    
+
+          </div>
+
         </div>
 
         <div className="mt-12 sm:mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-brand-white/35 font-medium">

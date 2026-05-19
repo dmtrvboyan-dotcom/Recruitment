@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { memo } from "react"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { scrollToSection } from "@/lib/utils/scroll"
+import { scrollToSection } from "@/lib/utils/scroll";
+import { AppButton } from '@/components/ui/app-button';
+
 
 export const ClientsCTA = memo(function ClientsCTA() {
   const handleContact = () => {
@@ -53,17 +55,13 @@ export const ClientsCTA = memo(function ClientsCTA() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <Link
-            href={"contacts"}
-            className="group bg-brand-coral hover:bg-brand-coral-hover text-white px-10 py-5 sm:py-6 text-xs sm:text-sm font-semibold tracking-widest uppercase cursor-pointer transition-all duration-300 rounded-3xl w-full sm:w-aut hover:-translate-y-0.5"
-          >
-            <span className="flex items-center justify-center gap-2.5">
-              Start Hiring
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </span>
-          </Link>
-        </div>
+       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
+                 Start Hiring
+              </AppButton>
+
+  
+            </div>
 
       </div>
     </section>
