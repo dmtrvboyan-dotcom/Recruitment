@@ -16,6 +16,11 @@ interface Draft {
   generatedAt: string;
 }
 
+interface PublishedPost {
+  slug: string;
+  filename: string;
+}
+
 const THEME_COLORS: Record<string, string> = {
   "ats-software":   "bg-blue-100 text-blue-700",
   "for-companies":  "bg-violet-100 text-violet-700",
@@ -24,19 +29,32 @@ const THEME_COLORS: Record<string, string> = {
 };
 
 export default function AdminPage() {
+  const [tab, setTab] = useState<"drafts" | "published">("drafts");
   const [drafts, setDrafts] = useState<Draft[]>([]);
+  const [published, setPublished] = useState<PublishedPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [preview, setPreview] = useState<Draft | null>(null);
-  const [actionState, setActionState] = useState<Record<string, "publishing" | "deleting">>({});
+  const [actionState, setActionState] = useState<Record<string, string>>({});
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
 
-  useEffect(() => { fetchDrafts(); }, []);
+  useEffect(() => {
+    if (tab === "drafts") fetchDrafts();
+    else fetchPublished();
+  }, [tab]);
 
   async function fetchDrafts() {
     setLoading(true);
     const res = await fetch("/api/admin/drafts");
     const data = await res.json();
     setDrafts(data.drafts ?? []);
+    setLoading(false);
+  }
+
+  async function fetchPublished() {
+    setLoading(true);
+    const res = await fetch("/api/admin/published");
+    const data = await res.json();
+    setPublished(data.posts ?? []);
     setLoading(false);
   }
 
@@ -76,16 +94,32 @@ export default function AdminPage() {
     setActionState((s) => { const n = { ...s }; delete n[slug]; return n; });
   }
 
+  async function deletePublished(slug: string) {
+    if (!confirm(`Delete "${slug}" permanently? This removes it from GitHub and the live site.`)) return;
+    setActionState((s) => ({ ...s, [slug]: "deleting" }));
+    const res = await fetch("/api/admin/delete-post", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug }),
+    });
+    if (res.ok) {
+      showToast("Post deleted. Vercel is deploying…", "success");
+      setPublished((p) => p.filter((post) => post.slug !== slug));
+    } else {
+      showToast("Delete failed. Check GitHub env vars.", "error");
+    }
+    setActionState((s) => { const n = { ...s }; delete n[slug]; return n; });
+  }
+
   async function triggerGeneration() {
-    const secret = prompt("Enter CRON_SECRET:");
-    if (!secret) return;
     const res = await fetch("/api/cron/generate-blog", {
-      headers: { Authorization: `Bearer ${secret}` },
+      headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_CRON_SECRET}` },
     });
     if (res.ok) {
       const data = await res.json();
-      showToast(`Generated: "${data.title}" (${data.theme})`, "success");
-      fetchDrafts();
+      showToast(`Generated: "${data.title}"`, "success");
+      if (tab === "drafts") fetchDrafts();
+      else setTab("drafts");
     } else {
       showToast("Generation failed — check server logs.", "error");
     }
@@ -101,12 +135,32 @@ export default function AdminPage() {
         </div>
       )}
 
+      {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-semibold text-gray-900">Blog Admin</h1>
-          <p className="text-sm text-gray-500">
-            {drafts.length} draft{drafts.length !== 1 ? "s" : ""} awaiting review
-          </p>
+          <div className="flex gap-4 mt-2">
+            <button
+              onClick={() => { setTab("drafts"); setPreview(null); }}
+              className={`text-sm font-medium pb-0.5 border-b-2 transition-colors ${
+                tab === "drafts"
+                  ? "border-gray-900 text-gray-900"
+                  : "border-transparent text-gray-400 hover:text-gray-600"
+              }`}
+            >
+              Drafts {drafts.length > 0 && <span className="ml-1 text-xs bg-gray-900 text-white px-1.5 py-0.5 rounded-full">{drafts.length}</span>}
+            </button>
+            <button
+              onClick={() => { setTab("published"); setPreview(null); }}
+              className={`text-sm font-medium pb-0.5 border-b-2 transition-colors ${
+                tab === "published"
+                  ? "border-gray-900 text-gray-900"
+                  : "border-transparent text-gray-400 hover:text-gray-600"
+              }`}
+            >
+              Published
+            </button>
+          </div>
         </div>
         <button
           onClick={triggerGeneration}
@@ -116,72 +170,89 @@ export default function AdminPage() {
         </button>
       </header>
 
-      <div className="flex h-[calc(100vh-73px)]">
+      <div className="flex h-[calc(100vh-85px)]">
+        {/* Sidebar */}
         <aside className="w-96 shrink-0 border-r border-gray-200 bg-white overflow-y-auto">
           {loading ? (
-            <div className="p-8 text-center text-gray-400 text-sm">Loading drafts…</div>
-          ) : drafts.length === 0 ? (
-            <div className="p-8 text-center">
-              <p className="text-gray-400 text-sm">No drafts yet.</p>
-              <p className="text-gray-300 text-xs mt-1">Cron runs Mon + Thu at 9am UTC.</p>
-            </div>
+            <div className="p-8 text-center text-gray-400 text-sm">Loading…</div>
+          ) : tab === "drafts" ? (
+            drafts.length === 0 ? (
+              <div className="p-8 text-center">
+                <p className="text-gray-400 text-sm">No drafts yet.</p>
+                <p className="text-gray-300 text-xs mt-1">Cron runs Mon + Thu at 9am UTC.</p>
+              </div>
+            ) : (
+              <ul className="divide-y divide-gray-100">
+                {drafts.map((draft) => {
+                  const isActive = preview?.slug === draft.slug;
+                  const state = actionState[draft.slug];
+                  return (
+                    <li key={draft.slug} onClick={() => setPreview(draft)}
+                      className={`p-4 cursor-pointer transition ${isActive ? "bg-gray-50" : "hover:bg-gray-50"}`}>
+                      <div className="flex gap-2 mb-2">
+                        <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${THEME_COLORS[draft.themeId] ?? "bg-gray-100 text-gray-600"}`}>
+                          {draft.themeLabel}
+                        </span>
+                        <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
+                          {draft.category}
+                        </span>
+                      </div>
+                      <p className="text-sm font-medium text-gray-900 leading-snug line-clamp-2">{draft.title}</p>
+                      <p className="text-xs text-gray-400 mt-1 line-clamp-2">{draft.description}</p>
+                      <p className="text-xs text-gray-400 mt-1">🔑 {draft.keyword}</p>
+                      <p className="text-xs text-gray-300 mt-1">
+                        {new Date(draft.generatedAt).toLocaleDateString("en-GB", {
+                          day: "numeric", month: "short", year: "numeric",
+                          hour: "2-digit", minute: "2-digit",
+                        })}
+                      </p>
+                      <div className="flex gap-2 mt-3" onClick={(e) => e.stopPropagation()}>
+                        <button onClick={() => publish(draft.slug)} disabled={!!state}
+                          className="flex-1 text-xs bg-emerald-600 text-white py-1.5 rounded-lg hover:bg-emerald-700 transition disabled:opacity-50">
+                          {state === "publishing" ? "Publishing…" : "✓ Publish"}
+                        </button>
+                        <button onClick={() => deleteDraft(draft.slug)} disabled={!!state}
+                          className="text-xs bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg hover:bg-red-50 hover:text-red-600 transition disabled:opacity-50">
+                          {state === "deleting" ? "…" : "✕"}
+                        </button>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            )
           ) : (
-            <ul className="divide-y divide-gray-100">
-              {drafts.map((draft) => {
-                const isActive = preview?.slug === draft.slug;
-                const state = actionState[draft.slug];
-                return (
-                  <li
-                    key={draft.slug}
-                    onClick={() => setPreview(draft)}
-                    className={`p-4 cursor-pointer transition ${isActive ? "bg-gray-50" : "hover:bg-gray-50"}`}
-                  >
-                    <div className="flex gap-2 mb-2">
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${THEME_COLORS[draft.themeId] ?? "bg-gray-100 text-gray-600"}`}>
-                        {draft.themeLabel}
-                      </span>
-                      <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">
-                        {draft.category}
-                      </span>
-                    </div>
-
-                    <p className="text-sm font-medium text-gray-900 leading-snug line-clamp-2">
-                      {draft.title}
-                    </p>
-                    <p className="text-xs text-gray-400 mt-1 line-clamp-2">{draft.description}</p>
-                    <p className="text-xs text-gray-400 mt-1">🔑 {draft.keyword}</p>
-                    <p className="text-xs text-gray-300 mt-1">
-                      {new Date(draft.generatedAt).toLocaleDateString("en-GB", {
-                        day: "numeric", month: "short", year: "numeric",
-                        hour: "2-digit", minute: "2-digit",
-                      })}
-                    </p>
-
-                    <div className="flex gap-2 mt-3" onClick={(e) => e.stopPropagation()}>
+            // Published tab
+            published.length === 0 ? (
+              <div className="p-8 text-center text-gray-400 text-sm">No published posts found.</div>
+            ) : (
+              <ul className="divide-y divide-gray-100">
+                {published.map((post) => {
+                  const state = actionState[post.slug];
+                  return (
+                    <li key={post.slug} className="p-4 flex items-center justify-between gap-3">
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-gray-900 truncate">{post.slug}</p>
+                        <p className="text-xs text-gray-400 mt-0.5">{post.filename}</p>
+                      </div>
                       <button
-                        onClick={() => publish(draft.slug)}
+                        onClick={() => deletePublished(post.slug)}
                         disabled={!!state}
-                        className="flex-1 text-xs bg-emerald-600 text-white py-1.5 rounded-lg hover:bg-emerald-700 transition disabled:opacity-50"
+                        className="shrink-0 text-xs bg-red-50 text-red-600 px-3 py-1.5 rounded-lg hover:bg-red-100 transition disabled:opacity-50"
                       >
-                        {state === "publishing" ? "Publishing…" : "✓ Publish"}
+                        {state === "deleting" ? "Deleting…" : "Delete"}
                       </button>
-                      <button
-                        onClick={() => deleteDraft(draft.slug)}
-                        disabled={!!state}
-                        className="text-xs bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg hover:bg-red-50 hover:text-red-600 transition disabled:opacity-50"
-                      >
-                        {state === "deleting" ? "…" : "✕"}
-                      </button>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+                    </li>
+                  );
+                })}
+              </ul>
+            )
           )}
         </aside>
 
+        {/* Preview pane (drafts only) */}
         <main className="flex-1 overflow-y-auto">
-          {preview ? (
+          {tab === "drafts" && preview ? (
             <div className="max-w-3xl mx-auto p-8">
               <div className="flex items-start justify-between mb-6">
                 <div>
@@ -196,35 +267,28 @@ export default function AdminPage() {
                   <h2 className="text-2xl font-bold text-gray-900">{preview.title}</h2>
                   <p className="text-sm text-gray-500 mt-1">{preview.description}</p>
                   <p className="text-xs text-gray-400 mt-1">
-                    🔑 {preview.keyword}
-                    {" · "}tab: <code className="bg-gray-100 px-1 rounded">{preview.tab}</code>
+                    🔑 {preview.keyword} · tab: <code className="bg-gray-100 px-1 rounded">{preview.tab}</code>
                     {" · "}slug: <code className="bg-gray-100 px-1 rounded">{preview.slug}</code>
                   </p>
                 </div>
                 <div className="flex gap-2 shrink-0 ml-4">
-                  <button
-                    onClick={() => publish(preview.slug)}
-                    disabled={!!actionState[preview.slug]}
-                    className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition disabled:opacity-50"
-                  >
+                  <button onClick={() => publish(preview.slug)} disabled={!!actionState[preview.slug]}
+                    className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition disabled:opacity-50">
                     {actionState[preview.slug] === "publishing" ? "Publishing…" : "✓ Publish"}
                   </button>
-                  <button
-                    onClick={() => deleteDraft(preview.slug)}
-                    className="text-sm bg-gray-100 text-gray-600 px-4 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition"
-                  >
+                  <button onClick={() => deleteDraft(preview.slug)}
+                    className="text-sm bg-gray-100 text-gray-600 px-4 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition">
                     Delete
                   </button>
                 </div>
               </div>
-
               <pre className="bg-gray-900 text-gray-100 text-xs p-6 rounded-2xl overflow-x-auto whitespace-pre-wrap leading-relaxed">
                 {preview.content}
               </pre>
             </div>
           ) : (
             <div className="flex items-center justify-center h-full text-gray-300 text-sm">
-              ← Select a draft to preview it
+              {tab === "drafts" ? "← Select a draft to preview it" : "← Select a post to delete it"}
             </div>
           )}
         </main>
