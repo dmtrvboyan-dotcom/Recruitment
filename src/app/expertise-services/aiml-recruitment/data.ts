@@ -105,6 +105,10 @@ export const WHY_BULGARIA: WhyBulgariaData = {
     "Data scientists and data engineers",
     "NLP and computer vision specialists",
     "MLOps and AI infrastructure experts",
+    "Generative AI and large language model engineers",
+    "Artificial intelligence consultants and strategists",
+    "AI chatbot and conversational developers",
+    "Business intelligence and data analytics experts"
   ],
     
   right: [
@@ -112,6 +116,10 @@ export const WHY_BULGARIA: WhyBulgariaData = {
     "Predictive analytics and data modeling",
     "AI product and research roles",
     "Scalable AI systems and automation",
+    "Cloud AI architects and platform engineers",
+    "Software engineers and full-stack AI developers",
+    "Computer vision and image recognition engineers",
+    "AI automation and process optimization specialists"
   ],
 }
 

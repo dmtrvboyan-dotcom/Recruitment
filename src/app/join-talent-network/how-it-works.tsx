@@ -123,9 +123,7 @@ export const HowItWorks = memo(function HowItWorks() {
                         <br />
                         <span className="text-brand-coral">THAT&apos;S IT.</span>
                     </h2>
-                    <p className="text-sm sm:text-base lg:text-lg text-brand-navy/50 leading-relaxed">
-                        No endless screening rounds. No questionnaires that go nowhere. We move quickly because your time matters.
-                    </p>
+                  
                 </div>
 
                 <div ref={gridRef} className="grid lg:grid-cols-3 gap-6 lg:gap-8">

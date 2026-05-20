@@ -9,6 +9,7 @@ import {
   CheckCircle,
   Layers,
   Smartphone,
+  Crown,
   type LucideIcon,
 } from "lucide-react"
 
@@ -193,10 +194,20 @@ export const SERVICE_CARDS: ServiceCard[] = [
     title: "Engineering Leadership",
     description:
       "CTOs, VPs of Engineering, Tech Leads, and Engineering Managers who set technical direction and build high-performing teams.",
-    tags: ["CTO", "VP Engineering", "Tech Lead", "Engineering Manager"],
+    tags: ["CTO", "Tech Lead", "Engineering Manager"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
     href: "/tech-recruitment/#engineering-leadership",
+  },
+  {
+    icon: Crown,
+    title: "VP Engineering & Executive Search",
+    description:
+      "Confidential, partner-led search for VP Engineering, CTO, and C-suite technology leaders. We go beyond the active market — mapping, approaching, and securing the best operators regardless of whether they're looking.",
+    tags: ["VP Engineering", "CTO", "C-Suite", "Executive Search", "Confidential", "Headhunting"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
+    href: "/services/confidential-headhunting-executive-search",
   },
 ]
 

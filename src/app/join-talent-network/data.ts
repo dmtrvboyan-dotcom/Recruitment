@@ -167,8 +167,8 @@ export interface TrustStat {
 }
 
 export const TRUST_STATS: TrustStat[] = [
-  { value: "100", suffix: "hrs", label: "Reviewed by humans" },
-  { value: "650+", label: "Placements made" },
+  { value: "100", suffix: "%", label: "Reviewed by humans" },
+  { value: "850+", label: "Placements made" },
   { value: "100%", label: "Confidential" },
   { value: "0", suffix: "fees", label: "Free for candidates" },
 ]

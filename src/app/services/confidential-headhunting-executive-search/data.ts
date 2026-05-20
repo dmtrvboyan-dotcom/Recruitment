@@ -14,6 +14,11 @@ import {
   RefreshCw,
   Rocket,
   EyeOff,
+  UserCog,
+  DollarSign,
+  Settings2,
+  BarChart2,
+  Scale,
   type LucideIcon,
 } from "lucide-react"
 
@@ -63,6 +68,14 @@ export interface IndustryItem {
   detail: string
 }
 
+export interface RolePractice {
+  number: string
+  icon: LucideIcon
+  practice: string
+  description: string
+  roles: string[]
+}
+
 export interface CtaData {
   eyebrow: string
   title: string
@@ -79,14 +92,6 @@ export const HERO_DATA: HeroData = {
   description:
     "A guide to confidential executive search – when to use it, how it works, and the impact it creates.",
 }
-
-// ─── Stats (Feature Cards) ────────────────────────────────────────────────────
-// export const STATS: StatItem[] = [
-//   { value: "Confidential", label: "by Design — every search handled with complete discretion to protect your business, people and reputation" },
-//   { value: "Hidden Talent", label: "Access — we engage passive, in-demand leaders who are not visible through traditional hiring" },
-//   { value: "Strategic &", label: "Consultative — we act as your trusted advisor, aligning the right leadership with your long-term business goals" },
-//   { value: "High Impact", label: "Outcomes — we deliver transformational leaders who drive growth, change and long-term value" },
-// ]
 
 // ─── Process ──────────────────────────────────────────────────────────────────
 export const PROCESS_STEPS: ProcessStep[] = [
@@ -124,6 +129,50 @@ export const PROCESS_STEPS: ProcessStep[] = [
     description:
       "We support negotiations and ensure a smooth, confidential transition and onboarding.",
     icon: Handshake,
+  },
+]
+
+// ─── Roles We Place ───────────────────────────────────────────────────────────
+export const ROLE_PRACTICES: RolePractice[] = [
+  {
+    number: "01",
+    icon: UserCog,
+    practice: "HR, People & HR Leadership",
+    description:
+      "Executive HR and People leadership search for organisations scaling internationally, navigating transformation, or building high-performance cultures.",
+    roles: ["CHRO", "VP People", "HR Director", "HR Manager", "Talent Acquisition Director", "People Operations Lead"],
+  },
+  {
+    number: "02",
+    icon: DollarSign,
+    practice: "Commercial & Revenue Leadership",
+    description:
+      "Revenue and commercial leadership placements for SaaS, technology, and growth-stage organisations expanding into new markets or restructuring sales operations.",
+    roles: ["CRO", "VP Sales", "Sales Director", "GTM Leader", "Revenue Operations"],
+  },
+  {
+    number: "03",
+    icon: Settings2,
+    practice: "Operations & Transformation Leadership",
+    description:
+      "Operational and transformation leaders who bring structure, scale and delivery rigour to complex, fast-moving organisations.",
+    roles: ["COO", "Operations Director", "Transformation Lead", "Program Director", "Delivery Director"],
+  },
+  {
+    number: "04",
+    icon: BarChart2,
+    practice: "Finance & Strategy Leadership",
+    description:
+      "Finance and strategy executives who bring commercial acumen, capital discipline and long-range thinking to boards and leadership teams.",
+    roles: ["CFO", "FP&A Director", "Finance Director", "Strategy Director", "M&A Lead"],
+  },
+  {
+    number: "05",
+    icon: Scale,
+    practice: "Legal, Compliance & Governance",
+    description:
+      "Senior legal, compliance and governance leaders for organisations navigating regulatory complexity, M&A activity, or board-level accountability.",
+    roles: ["General Counsel", "Legal Director", "Compliance Director", "Governance Lead", "Risk Director"],
   },
 ]
 
@@ -234,7 +283,7 @@ export const TRUST_ITEMS: TrustItem[] = [
 ]
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
-export const CTA_DATA: CtaData = {
+export const CtaData: CtaData = {
   eyebrow: "Get Started",
   title: "Your Search. Our Expertise. Total Confidentiality.",
   description:
@@ -248,3 +297,5 @@ export const CTA_DATA: CtaData = {
     href: "/process",
   },
 }
+
+export const CTA_DATA = CtaData

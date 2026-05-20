@@ -11,6 +11,7 @@ import {
   INDUSTRIES,
   TRUST_ITEMS,
   CTA_DATA,
+  ROLE_PRACTICES,
 } from "./data"
 import { AppButton } from '@/components/ui/app-button';
 
@@ -140,37 +141,8 @@ export default function ExecutiveSearchPage() {
             </div>
           </div>
         </div>
-
-        {/* Stats — editorial strip */}
-        {/* <div className="relative w-full border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
-              {STATS.map((stat, i) => (
-                <div
-                  key={i}
-                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
-                    }`}
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[10px] font-mono text-brand-coral/80">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="h-px w-6 bg-white/20" />
-                  </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
-                    {stat.value}
-                  </p>
-                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
       </section>
 
-      {/* ── Trust marquee (coral accent bar) ─────────────────────────────── */}
       <div className="relative bg-brand-coral overflow-hidden py-3.5 select-none">
         <div className="flex whitespace-nowrap animate-marquee">
           {[...TRUST_ITEMS, ...TRUST_ITEMS, ...TRUST_ITEMS].map((item, i) => (
@@ -193,8 +165,8 @@ export default function ExecutiveSearchPage() {
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={1} label="Specialisms" centered />
               <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
-                Roles{" "}
-                <span className="text-brand-coral">we lead</span>
+                How we{" "}
+                <span className="text-brand-coral">do it</span>
               </h2>
               <div className="flex items-center justify-center gap-3 mt-4">
                 <div className="h-px w-10 bg-brand-coral" />
@@ -274,29 +246,29 @@ export default function ExecutiveSearchPage() {
 
       {/* ── INDUSTRIES ────────────────────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="relative w-full bg-brand-navy/[0.025] py-20 lg:py-32">
+        <section className="relative w-full bg-brand-navy py-20 lg:py-32">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={2} label="Sectors" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-white">
                 Industries we know{" "}
                 <span className="text-brand-coral">deeply</span>
               </h2>
-              <p className="mt-4 text-brand-navy/45 text-sm max-w-md mx-auto leading-relaxed">
+              <p className="mt-4 text-brand-white/45 text-sm max-w-md mx-auto leading-relaxed">
                 Executive search only works when the recruiter genuinely understands the market. We've spent 15 years building that depth.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-brand-navy/10 border-l border-brand-navy/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-brand-white/10 border-l border-white-navy/10">
               {INDUSTRIES.map((item, i) => (
                 <div
                   key={i}
-                  className="group relative p-6 lg:p-8 border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-300 overflow-hidden"
+                  className="group relative p-6 lg:p-8 border-b border-r border-brand-white/10 hover:bg-brand-white/[0.025] transition-all duration-300 overflow-hidden"
                 >
                   {/* Ghost index */}
                   <span
                     aria-hidden
-                    className="absolute top-4 right-5 text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-navy/[0.07] leading-none pointer-events-none select-none group-hover:text-brand-coral/20 transition-colors duration-500"
+                    className="absolute top-4 right-5 text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-white/[0.07] leading-none pointer-events-none select-none group-hover:text-brand-coral/20 transition-colors duration-500"
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -305,10 +277,10 @@ export default function ExecutiveSearchPage() {
                     <span className="w-1 h-1 rounded-full bg-brand-coral inline-block" />
                     {item.roles}
                   </span>
-                  <h3 className="text-base sm:text-lg font-bold text-brand-navy mb-2 leading-snug group-hover:text-brand-coral transition-colors duration-200">
+                  <h3 className="text-base sm:text-lg font-bold text-brand-white mb-2 leading-snug group-hover:text-brand-coral transition-colors duration-200">
                     {item.sector}
                   </h3>
-                  <p className="text-[13px] text-brand-navy/50 leading-relaxed">
+                  <p className="text-[13px] text-brand-white/50 leading-relaxed">
                     {item.detail}
                   </p>
 
@@ -319,6 +291,95 @@ export default function ExecutiveSearchPage() {
                   />
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* ── ROLES WE PLACE ────────────────────────────────────────────────── */}
+      <ScrollReveal>
+        <section className="relative w-full bg-brand-white overflow-hidden py-20 lg:py-32">
+          {/* Glows */}
+          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-coral/10 blur-[140px] pointer-events-none" />
+          <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/08 blur-[130px] pointer-events-none" />
+
+          {/* Watermark */}
+          <div
+            aria-hidden
+            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+          >
+            ROLES
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
+            {/* Header */}
+            <div className="mb-12 lg:mb-16 text-center">
+              <SectionIndicator index={3} label="Practices" tone="dark" centered />
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+                Roles we{" "}
+                <span className="text-brand-coral">place</span>
+              </h2>
+              <p className="mt-4 text-navy/45 text-sm max-w-md mx-auto leading-relaxed">
+                Senior leadership search across every critical function — from the boardroom to the leadership layer that drives execution.
+              </p>
+            </div>
+
+            <div className="space-y-0 border-t border-navy/10">
+              {ROLE_PRACTICES.map((practice, i) => {
+                const Icon = practice.icon
+                return (
+                  <div
+                    key={i}
+                    className="group relative border-b border-navy/10 hover:bg-navy/[0.04] transition-all duration-500 overflow-hidden"
+                  >
+                    {/* Coral left accent line on hover */}
+                    <span
+                      aria-hidden
+                      className="absolute left-0 top-0 bottom-0 w-0.5 bg-brand-coral scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"
+                    />
+
+                    <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-10 px-6 lg:px-8 py-8 lg:py-10">
+
+                      {/* Left: number + icon + practice name */}
+                      <div className="flex items-start gap-4 lg:w-72 shrink-0">
+                        <span className="text-[clamp(2rem,4vw,3rem)] font-black text-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral/40 transition-colors duration-500 select-none w-14 shrink-0 pt-0.5">
+                          {practice.number}
+                        </span>
+                        <div className="flex flex-col gap-3">
+                          <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-brand-coral/15 group-hover:bg-brand-coral/25 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shrink-0">
+                            <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.7} />
+                          </div>
+                          <h3 className="text-base sm:text-lg font-bold text-navy leading-tight group-hover:text-brand-coral transition-colors duration-200">
+                            {practice.practice}
+                          </h3>
+                        </div>
+                      </div>
+
+                      {/* Middle: description */}
+                      <div className="lg:flex-1 lg:max-w-md">
+                        <p className="text-[13px] sm:text-sm text-navy/50 leading-relaxed">
+                          {practice.description}
+                        </p>
+                      </div>
+
+                      {/* Right: role pills */}
+                      <div className="lg:w-80 shrink-0">
+                        <div className="flex flex-wrap gap-2">
+                          {practice.roles.map((role, j) => (
+                            <span
+                              key={j}
+                              className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1.5 rounded-full border border-navy/10 text-navy/55 group-hover:border-brand-coral/30 group-hover:text-navy/80 transition-all duration-300"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-brand-coral/60 inline-block flex-shrink-0" />
+                              {role}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -341,7 +402,7 @@ export default function ExecutiveSearchPage() {
           {/* Header */}
           <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
             <div className="mb-8 lg:mb-10">
-              <SectionIndicator index={3} label="HOW WE WORK" tone="dark" centered />
+              <SectionIndicator index={4} label="HOW WE WORK" tone="dark" centered />
             </div>
             <div className="text-center">
               <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white mb-4">
@@ -414,7 +475,7 @@ export default function ExecutiveSearchPage() {
         <section className="relative w-full bg-brand-white py-20 lg:py-32">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
-              <SectionIndicator index={4} label="Why us" centered />
+              <SectionIndicator index={5} label="Why us" centered />
               <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Precision <span className="text-brand-coral">hiring</span>
               </h2>

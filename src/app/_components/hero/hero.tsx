@@ -118,7 +118,7 @@ export const Hero = memo(function Hero() {
 
       <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full pb-8 sm:pb-10 animate-fade-in-up delay-[400ms]">
         <div className="grid grid-cols-2 lg:grid-cols-4 bg-brand-navy/92 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-brand-white/10 overflow-hidden shadow-2xl shadow-brand-navy/20">
-          <StatBlock value="650+" label="Successful hirings" isMobileTop />
+          <StatBlock value="850+" label="Successful hirings" isMobileTop />
           <StatBlock value="12+" label="Senior recruiters" isMobileTop />
           <StatBlock value="100%" label="Recruiting All tech stacks" isMobileTop />
           <StatBlock
