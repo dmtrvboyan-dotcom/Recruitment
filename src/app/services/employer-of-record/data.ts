@@ -1,26 +1,18 @@
 import {
-  Code2,
-  Users,
-  ShieldCheck,
   Globe,
+  ShieldCheck,
+  DollarSign,
+  TrendingUp,
+  FileSearch,
+  Users,
+  CheckCircle,
+  BarChart2,
   Clock,
   Zap,
-  LineChart,
-  CheckCircle,
-  FileSearch,
-  Layers,
-  Timer,
-  Rocket,
   type LucideIcon,
 } from "lucide-react"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-export interface HeroData {
-  tagline: string
-  eyebrow: string
-  title: string
-  description: string
-}
 
 export interface StatItem {
   value: string
@@ -41,26 +33,13 @@ export interface ServiceCard {
   tags: string[]
   accent: string
   iconBg: string
-  contractTypes: string
+  href: string
 }
 
 export interface BenefitItem {
   icon: LucideIcon
   title: string
   body: string
-  stat: string
-}
-
-export interface TrustItem {
-  text: string
-}
-
-export interface CtaData {
-  eyebrow: string
-  title: string
-  description: string
-  primaryButton: { text: string; href: string }
-  secondaryButton: { text: string; href: string }
 }
 
 export interface FaqItem {
@@ -69,177 +48,221 @@ export interface FaqItem {
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
-export const HERO_DATA: HeroData = {
-  tagline: "On-Demand Tech Talent",
-  eyebrow: "Employer of Record (EOR)",
-  title: "Hire in Eastern Europe without opening a local entity",
+
+export const HERO = {
+  eyebrow: "Employer of Record (EoR)",
+  tagline: "Hire anywhere. Quickly. Compliantly.",
+  title: "Employer of Record (EoR) Services",
   description:
-    "Deploy skilled IT contractors and specialist freelancers exactly when you need them - no long-term overhead, no hiring delays. From sprint-based squads to multi-month delivery teams, we match the right talent to your project timeline.",
+    "Our Employer of Record services enable you to hire talent in Bulgaria and around the world without setting up a local entity. We handle employment, compliance and payroll — so you can focus on growth.",
 }
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
+
 export const STATS: StatItem[] = [
   { value: "6+", label: "Eastern European countries covered" },
   { value: "100%", label: "Local compliance guaranteed" },
-  { value: "2–4 wks", label: "Average employee onboarded" },
+  { value: "2–4 wks", label: "Average time to onboard" },
   { value: "Zero", label: "Local entity setup required" },
 ]
+
+// ─── Trust Items ──────────────────────────────────────────────────────────────
+
+export const TRUST_ITEMS = [
+  { text: "Global Hiring" },
+  { text: "100% Compliant" },
+  { text: "Fast & Flexible" },
+  { text: "Zero Entity Setup" },
+  { text: "Payroll & Benefits" },
+  { text: "Local Labor Law" },
+  { text: "Contractor Conversion" },
+  { text: "Cross-Border Employment" },
+]
+
+// ─── Services ─────────────────────────────────────────────────────────────────
+
+export const SERVICE_CARDS: ServiceCard[] = [
+  {
+    icon: Globe,
+    title: "Hire Without Setting Up an Entity",
+    description:
+      "Expand into new markets in days, not months. We act as the legal employer of your talent, so you can hire quickly without local entity setup.",
+    tags: ["Bulgaria", "Eastern Europe", "Global", "Fast Setup"],
+    accent: "#FF6B4A",
+    iconBg: "bg-brand-coral/15",
+    href: "/eor/hire-without-entity",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Stay Compliant Everywhere",
+    description:
+      "We manage employment contracts, local labor laws, tax, social security and benefits in full compliance with local regulations.",
+    tags: ["Labor Law", "Contracts", "Tax & Social", "Benefits"],
+    accent: "#FF6B4A",
+    iconBg: "bg-brand-coral/15",
+    href: "/eor/compliance",
+  },
+  {
+    icon: DollarSign,
+    title: "Simplify Payroll & Benefits",
+    description:
+      "We run payroll, handle deductions, taxes and statutory benefits, ensuring your team is paid accurately and on time, every time.",
+    tags: ["Payroll", "Deductions", "Benefits", "Accuracy"],
+    accent: "#FF6B4A",
+    iconBg: "bg-brand-coral/15",
+    href: "/eor/payroll",
+  },
+  {
+    icon: TrendingUp,
+    title: "Scale with Confidence",
+    description:
+      "Whether you're hiring one expert or building a global team, our EoR solution scales with your business needs — without added complexity.",
+    tags: ["Scalable", "Global Teams", "Flexible", "Growth"],
+    accent: "#FF6B4A",
+    iconBg: "bg-brand-coral/15",
+    href: "/eor/scale",
+  },
+]
+
 // ─── Process ──────────────────────────────────────────────────────────────────
+
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Project Brief",
+    title: "You Select Your Talent",
     description:
-      "We deep-dive into your project scope, tech stack, timeline, and team dynamics - so we source professionals who can contribute from day one, not week three.",
+      "You find the right talent — we handle the rest. Share your candidate and we take over the entire employment process from there.",
     icon: FileSearch,
   },
   {
     number: "02",
-    title: "Rapid Talent Sourcing",
+    title: "We Onboard Your Employee",
     description:
-      "We tap our pre-vetted contractor network and use active market mapping to surface available specialists - including passive talent not found on job boards.",
-    icon: Globe,
+      "We sign the employment contract in compliance with all local laws, completing onboarding quickly and correctly.",
+    icon: Users,
   },
   {
     number: "03",
-    title: "Technical Screening",
+    title: "We Handle Compliance",
     description:
-      "Every candidate undergoes role-specific technical assessment, availability confirmation, and reference checks before they reach your desk.",
+      "We manage taxes, social contributions, benefits and all legal obligations — keeping your workforce fully compliant.",
     icon: ShieldCheck,
   },
   {
     number: "04",
-    title: "Curated Shortlist",
+    title: "Payroll & Benefits Management",
     description:
-      "You receive a focused shortlist of 3–5 interview-ready candidates, complete with rate benchmarks and our assessment notes - no noise, just signal.",
-    icon: CheckCircle,
+      "We run payroll and ensure your team is paid accurately and on time, with all statutory benefits correctly administered.",
+    icon: DollarSign,
   },
   {
     number: "05",
-    title: "Deployment & Ongoing Support",
+    title: "You Manage Their Work",
     description:
-      "We handle contracting logistics, manage the onboarding handoff, and stay close throughout the engagement - ready to extend, replace, or scale as your project evolves.",
-    icon: Rocket,
+      "You manage daily tasks and performance — we manage the employment. Your team delivers results while we handle the rest.",
+    icon: CheckCircle,
+  },
+  {
+    number: "06",
+    title: "Easily Scale Your Team",
+    description:
+      "Add new hires anytime, in any country, with complete peace of mind. Scale up or down as your business evolves.",
+    icon: TrendingUp,
   },
 ]
 
-// ─── Services ─────────────────────────────────────────────────────────────────
-export const SERVICE_CARDS: ServiceCard[] = [
-  {
-    icon: Code2,
-    title: "Software Engineering Contractors",
-    description:
-      "Full-stack, backend, frontend, and mobile developers available for fixed-term sprints, product builds, legacy migrations, or platform scaling projects.",
-    tags: ["React", "Node.js", "Python", "Java", "AWS"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
-    contractTypes: "Sprint · Fixed-Term · Rolling",
-  },
-  {
-    icon: LineChart,
-    title: "Data, AI & Analytics",
-    description:
-      "Data engineers, ML specialists, and BI developers placed into project teams that need to move fast on pipelines, models, and insights delivery.",
-    tags: ["Python", "SQL", "TensorFlow", "Spark", "dbt"],
-    accent: "#ff5d77",
-    iconBg: "bg-[#fff0f3]",
-    contractTypes: "Project · Retainer · Advisory",
-  },
-  {
-    icon: Zap,
-    title: "Cloud & DevOps Engineers",
-    description:
-      "Infrastructure, platform, and SRE contractors to build, migrate, or stabilise cloud environments - without locking in permanent headcount.",
-    tags: ["AWS", "GCP", "Azure", "Kubernetes", "Terraform"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
-    contractTypes: "Short-Term · Long-Term · Hybrid",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Cybersecurity Specialists",
-    description:
-      "Pen testers, security architects, and compliance consultants brought in for audits, incident response, product hardening, and regulatory programmes.",
-    tags: ["Pen Testing", "ISO 27001", "SOC 2", "Cloud Security"],
-    accent: "#ff5d77",
-    iconBg: "bg-[#fff0f3]",
-    contractTypes: "Audit · Engagement · Ongoing",
-  },
-  {
-    icon: Layers,
-    title: "Product & UX Contractors",
-    description:
-      "Contract product managers, UX designers, and researchers embedded into delivery teams to drive roadmap execution and user-centred design.",
-    tags: ["Product Strategy", "Figma", "UX Research", "Agile"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
-    contractTypes: "Discovery · Delivery · Fractional",
-  },
-  {
-    icon: Users,
-    title: "Project & Programme Managers",
-    description:
-      "Delivery leads, scrum masters, and programme managers who keep complex IT projects on time, on budget, and on scope - from day one.",
-    tags: ["Scrum", "PMP", "SAFe", "Prince2", "Change Mgmt"],
-    accent: "#ff5d77",
-    iconBg: "bg-[#fff0f3]",
-    contractTypes: "Fixed · Outcome-Based · Interim",
-  },
+// ─── Why Items ────────────────────────────────────────────────────────────────
+
+export const WHY_ITEMS = [
+  "Enter new markets quickly",
+  "Reduce legal and financial risk",
+  "Ensure full compliance",
+  "Avoid entity setup costs",
+  "Flexible & cost-effective",
+  "Focus on your core business",
+  "Expert local support",
+  "Scalable for growth",
 ]
 
 // ─── Benefits ─────────────────────────────────────────────────────────────────
+
 export const BENEFITS: BenefitItem[] = [
   {
-    icon: Timer,
-    title: "Speed to Productivity",
-    body: "Contract hires are project-ready professionals. No ramp-up curve - they integrate fast and deliver from week one.",
-    stat: "Avg. 5–7 days to deploy",
-  },
-  {
-    icon: Zap,
-    title: "Flexible Workforce Scaling",
-    body: "Scale up for peak delivery, then scale back without redundancy risk. Contract hiring gives you elastic capacity on demand.",
-    stat: "Zero long-term overhead",
+    icon: Clock,
+    title: "Speed to Market",
+    body: "Hire in a new country within days, not months. Our EoR infrastructure removes every bottleneck between you and your next great hire.",
   },
   {
     icon: ShieldCheck,
-    title: "Pre-Vetted Talent Pool",
-    body: "Every contractor in our network has been technically assessed and reference-checked. You interview people who are genuinely qualified.",
-    stat: "100% screened before shortlist",
+    title: "Zero Compliance Risk",
+    body: "We become the legal employer of record — carrying full responsibility for employment law compliance, social contributions, and statutory obligations.",
   },
   {
-    icon: Globe,
-    title: "Specialist Access, Instantly",
-    body: "Access niche skills - AI engineers, security architects, cloud specialists - that are hard to find and expensive to hire full-time.",
-    stat: "800+ active specialist contractors",
+    icon: Zap,
+    title: "No Entity Overhead",
+    body: "Skip the cost and complexity of opening a foreign subsidiary. Test new markets and build remote teams without committing to a permanent structure.",
   },
-]
-
-// ─── Trust bar ────────────────────────────────────────────────────────────────
-export const TRUST_ITEMS: TrustItem[] = [
-  { text: "Fintech & Banking" },
-  { text: "SaaS Scale-ups" },
-  { text: "E-Commerce Platforms" },
-  { text: "AI & Deep Tech" },
-  { text: "Enterprise IT" },
-  { text: "Cybersecurity Firms" },
-  { text: "Cloud-Native Startups" },
-  { text: "Digital Transformation" },
-  { text: "HealthTech" },
-  { text: "Contract Specialists" },
+  {
+    icon: BarChart2,
+    title: "Full Visibility & Control",
+    body: "Retain complete management of your employees day-to-day. We handle the legal layer; you retain full operational control of your team.",
+  },
 ]
 
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 
+export const FAQ_ITEMS: FaqItem[] = [
+  {
+    question: "What is an Employer of Record (EoR)?",
+    answer: "An Employer of Record is a third-party organisation that legally employs workers on behalf of another company. The EoR handles all formal employment responsibilities — contracts, payroll, taxes, and compliance — while the client company directs the employee's actual work.",
+  },
+  {
+    question: "How is EoR different from outsourcing or staffing?",
+    answer: "Unlike outsourcing, EoR employees work exclusively for you and are fully integrated into your team. Unlike staffing agencies, EoR provides a compliant, long-term employment relationship — not a temporary placement. You stay in control; we handle the legal employer obligations.",
+  },
+  {
+    question: "In which countries do you offer EoR services?",
+    answer: "We specialise in Bulgaria and Eastern Europe, covering 6+ countries including Romania, Poland, Czech Republic, Hungary, and Serbia. Our local expertise ensures compliant employment in each jurisdiction.",
+  },
+  {
+    question: "How quickly can you onboard an employee?",
+    answer: "Typically 2–4 weeks from signed agreement to first payroll. In straightforward cases, onboarding can be completed in as little as 5–7 business days.",
+  },
+  {
+    question: "Who handles payroll and taxes?",
+    answer: "We do. We run payroll, calculate and remit all employer and employee taxes, manage social security contributions, and ensure statutory deductions are handled correctly each pay cycle.",
+  },
+  {
+    question: "Are employees hired through EoR on your payroll?",
+    answer: "Employees are on our payroll, not yours. We are the legal employer and carry all payroll obligations. However, you fund the employment costs and retain full management oversight of the employee's work.",
+  },
+  {
+    question: "Can I manage the employee's daily work?",
+    answer: "Absolutely. You direct the employee's work, set objectives, and manage performance. We handle the employment infrastructure — contracts, payroll, compliance — behind the scenes.",
+  },
+  {
+    question: "What are the costs of EoR services?",
+    answer: "EoR pricing is typically structured as a flat monthly fee per employee on top of employment costs (salary, employer social contributions, benefits). Contact us for a tailored quote based on your specific requirements.",
+  },
+  {
+    question: "Is EoR compliant with local labor laws?",
+    answer: "Yes. Our service is built around full compliance with local employment legislation in every country we operate. We stay up to date with regulatory changes so your business is always protected.",
+  },
+  {
+    question: "Can I convert an EoR employee to our entity later?",
+    answer: "Yes. If you decide to set up your own legal entity, we support a smooth transition — transferring employment to your entity with minimal disruption to the employee or your operations.",
+  },
+]
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
-export const CTA_DATA: CtaData = {
-  eyebrow: "Start Your Project",
-  title: "Need a contractor deployed this week?",
+
+export const CTA = {
+  eyebrow: "Ready to Hire Globally?",
+  title: "Let's help you hire faster",
   description:
-    "Share your project brief and we'll have a qualified shortlist in your inbox within 48 hours - no retainer required, no long-term commitment.",
+    "Let's help you hire faster, stay compliant and grow your business anywhere in the world.",
   primaryButton: {
-    text: "Submit a Brief",
+    text: "Let's Talk About Your Hiring Needs",
     href: "/#contact",
   },
   secondaryButton: {

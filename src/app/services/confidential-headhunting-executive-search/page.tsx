@@ -5,7 +5,6 @@ import { ArrowRight, ArrowUpRight, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   HERO_DATA,
-  STATS,
   PROCESS_STEPS,
   SERVICE_CARDS,
   BENEFITS,
@@ -143,7 +142,7 @@ export default function ExecutiveSearchPage() {
         </div>
 
         {/* Stats — editorial strip */}
-        <div className="relative w-full border-t border-white/10">
+        {/* <div className="relative w-full border-t border-white/10">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
               {STATS.map((stat, i) => (
@@ -168,7 +167,7 @@ export default function ExecutiveSearchPage() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* ── Trust marquee (coral accent bar) ─────────────────────────────── */}

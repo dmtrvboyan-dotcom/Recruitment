@@ -95,28 +95,28 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     number: "02",
-    title: "Market & Network Intelligence",
+    title: "Market & Network",
     description:
       "We combine placement data with ongoing conversations across our candidate and hiring network - giving us ground-level intelligence on shifting expectations, counter-offers, and emerging salary pressures.",
     icon: Globe,
   },
   {
     number: "03",
-    title: "Role & Seniority Segmentation",
+    title: "Role & Seniority",
     description:
       "Benchmarks are broken down by role, seniority level, tech stack, and market - so you're comparing like for like, not averaging across roles that have nothing in common.",
     icon: Layers,
   },
   {
     number: "04",
-    title: "Location & Remote Adjustment",
+    title: "Location & Remote",
     description:
       "Salary expectations differ significantly by geography and remote policy. Our benchmarks account for on-site, hybrid, and fully remote compensation structures across major hiring markets.",
     icon: MapPin,
   },
   {
     number: "05",
-    title: "Quarterly Review & Publication",
+    title: "Quarterly Review",
     description:
       "The tech market moves fast. We refresh our benchmarks quarterly and publish hiring insights reports so your compensation strategy never falls behind the market.",
     icon: TrendingUp,
@@ -258,7 +258,7 @@ export const CTA_DATA: CtaData = {
     "Request our latest IT salary benchmarking report or speak to our team about a custom compensation analysis for your specific roles and markets.",
   primaryButton: {
     text: "Request Salary Report",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "Speak to our team",

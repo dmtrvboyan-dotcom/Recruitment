@@ -1,41 +1,97 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/layout"
-import { ArrowRight, ArrowUpRight, Plus, Minus } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { AppButton } from "@/components/ui/app-button"
+import { ArrowUpRight } from "lucide-react"
+
 import {
-  HERO_DATA,
+  HERO,
   STATS,
-  PROCESS_STEPS,
-  SERVICE_CARDS,
-  BENEFITS,
   TRUST_ITEMS,
-  CTA_DATA,
+  SERVICE_CARDS,
+  PROCESS_STEPS,
+  WHY_ITEMS,
+  BENEFITS,
+  FAQ_ITEMS,
+  CTA,
 } from "./data"
 
 export const metadata: Metadata = {
-  title: "Employer of Record (EOR) Bulgaria & Eastern Europe | Hire Without a Local Entity",
+  title: "Employer of Record (EoR) Services | Hire Globally Without a Local Entity",
   description:
-    "Hire employees in Bulgaria and Eastern Europe without setting up a local entity. Full employment compliance, contractor-to-employee conversions, and cross-border workforce expansion - handled end to end.",
+    "Hire employees in Bulgaria and Eastern Europe without setting up a local entity. Full employment compliance, payroll, and benefits — handled end to end.",
 }
 
-// ─── Shared primitives ────────────────────────────────────────────────────────
 
-function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+
+// ─── Atoms ────────────────────────────────────────────────────────────────────
+
+function Eyebrow({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
   return (
-    <p className={`text-xs font-semibold uppercase tracking-[0.2em] mb-3 ${light ? "text-brand-coral" : "text-brand-coral"}`}>
+    <span
+      className={`inline-block text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] text-brand-coral ${className}`}
+    >
       {children}
-    </p>
+    </span>
   )
 }
 
-function HRule({ className = "" }: { className?: string }) {
-  return <hr className={`border-t border-brand-navy/10 ${className}`} />
+function SectionIndicator({
+  index,
+  label,
+  tone = "light",
+  centered = false,
+}: {
+  index: number
+  label: string
+  tone?: "light" | "dark"
+  centered?: boolean
+}) {
+  const muted = tone === "dark" ? "text-white/30" : "text-brand-navy/30"
+  const line = tone === "dark" ? "bg-white/15" : "bg-brand-navy/15"
+
+  if (centered) {
+    return (
+      <div className="flex items-center justify-center gap-3 sm:gap-4">
+        <span className={`block h-px w-8 sm:w-16 ${line}`} />
+        <span className={`text-[10px] font-mono ${muted}`}>
+          {String(index).padStart(2, "0")}
+        </span>
+        <span className="block h-px w-8 bg-brand-coral" />
+        <Eyebrow>{label}</Eyebrow>
+        <span className="block h-px w-8 bg-brand-coral" />
+        <span className={`block h-px w-8 sm:w-16 ${line}`} />
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex items-center gap-3 sm:gap-4">
+      <span className={`text-[10px] font-mono ${muted}`}>
+        {String(index).padStart(2, "0")}
+      </span>
+      <span className="block h-px w-8 bg-brand-coral" />
+      <Eyebrow>{label}</Eyebrow>
+      <span className={`block h-px flex-1 ${line}`} />
+    </div>
+  )
 }
 
-// ─── FAQ Item (client component pattern using details/summary) ────────────────
-
-function FaqRow({ question, answer, index }: { question: string; answer: string; index: number }) {
+function FaqRow({
+  question,
+  answer,
+  index,
+}: {
+  question: string
+  answer: string
+  index: number
+}) {
   return (
     <details className="group border-t border-brand-navy/10 last:border-b last:border-brand-navy/10">
       <summary className="flex items-center justify-between gap-6 py-5 lg:py-6 cursor-pointer list-none select-none">
@@ -47,9 +103,9 @@ function FaqRow({ question, answer, index }: { question: string; answer: string;
             {question}
           </span>
         </div>
-        <span className="flex-shrink-0 w-6 h-6 rounded-full border border-brand-navy/15 flex items-center justify-center">
-          <Plus className="w-3 h-3 text-brand-navy/40 group-open:hidden" />
-          <Minus className="w-3 h-3 text-brand-coral hidden group-open:block" />
+        <span className="flex-shrink-0 w-7 h-7 rounded-full border border-brand-navy/15 flex items-center justify-center">
+          <span className="text-brand-navy/40 group-open:hidden text-lg leading-none">+</span>
+          <span className="text-brand-coral hidden group-open:block text-lg leading-none">−</span>
         </span>
       </summary>
       <div className="pb-5 lg:pb-6 sm:pl-9">
@@ -66,150 +122,255 @@ function FaqRow({ question, answer, index }: { question: string; answer: string;
 export default function EmployerOfRecordPage() {
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative pt-24 pb-0 lg:pt-48 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      <section className="relative w-full bg-brand-navy overflow-hidden flex flex-col mt-20 sm:mt-5">
+        {/* Coral glows */}
+        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none" />
+        <div className="absolute -bottom-60 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/10 blur-[130px] pointer-events-none" />
 
-          {/* Top rule + eyebrow */}
-          <div className="flex items-center gap-3 sm:gap-5 mb-8 lg:mb-10">
-            <span className="block h-px flex-1 bg-brand-navy/15" />
-            <Eyebrow>{HERO_DATA.eyebrow}</Eyebrow>
-            <span className="block h-px flex-1 bg-brand-navy/15" />
-          </div>
+        {/* Plus marks (decorative) */}
+        <div aria-hidden className="absolute top-32 right-24 text-white/[0.08] text-3xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute top-72 right-72 text-white/[0.06] text-xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute bottom-44 right-44 text-white/[0.06] text-2xl font-thin pointer-events-none hidden lg:block">+</div>
 
-          {/* Split layout: big title left, description right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end pb-16 lg:pb-28">
-            <div className="lg:col-span-7">
-              <p className="text-xs font-semibold text-brand-coral uppercase tracking-[0.2em] mb-4 lg:mb-6">
-                {HERO_DATA.tagline}
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] font-semibold text-brand-navy leading-[1.05] tracking-tight text-balance">
-                {HERO_DATA.title}
-              </h1>
+        {/* Vertical text rail */}
+        <div className="hidden lg:flex absolute left-7 top-1/2 -translate-y-1/2 flex-col items-center gap-6 pointer-events-none z-10">
+          <div className="h-16 w-px bg-white/15" />
+          <span
+            className="text-[10px] font-bold tracking-[0.4em] uppercase text-white/40 whitespace-nowrap"
+            style={{ writingMode: "vertical-rl" }}
+          >
+            {HERO.eyebrow}
+          </span>
+          <div className="h-16 w-px bg-white/15" />
+        </div>
+
+        {/* Main — centered */}
+        <div className="relative flex-1 w-full pt-32 lg:pt-44 pb-12 lg:pb-20">
+          <div className="w-full max-w-5xl mx-auto px-5 sm:px-10 lg:px-20 text-center">
+            {/* Eyebrow */}
+            <div className="flex items-center justify-center gap-3 mb-6 lg:mb-8">
+              <span className="block h-px w-12 bg-brand-coral" />
+              <Eyebrow>{HERO.tagline}</Eyebrow>
+              <span className="block h-px w-12 bg-brand-coral" />
             </div>
 
-            <div className="lg:col-span-5 flex flex-col justify-end gap-6 lg:gap-8">
-              <p className="text-base lg:text-lg text-brand-navy/55 leading-relaxed text-pretty">
-                {HERO_DATA.description}
-              </p>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-                <Button
-                  asChild
-                  className="w-full sm:w-auto bg-brand-navy text-brand-white hover:bg-brand-blue rounded-xl px-7 py-5 text-sm font-medium transition-colors duration-200"
-                >
-                  <Link href={CTA_DATA.primaryButton.href}>
-                    {CTA_DATA.primaryButton.text}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  className="w-full sm:w-auto bg-brand-coral text-brand-white hover:bg-brand-navy rounded-xl px-7 py-5 text-sm font-medium transition-colors duration-200"
-                >
-                  <Link href={CTA_DATA.secondaryButton.href}>
-                    {CTA_DATA.secondaryButton.text}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-              </div>
+            {/* Title */}
+            <h1 className="text-[clamp(2.8rem,8vw,6.5rem)] font-black uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+              {HERO.title}
+            </h1>
+
+            {/* Description */}
+            <p className="text-base lg:text-lg text-white/65 leading-relaxed text-pretty max-w-2xl mx-auto mb-8 lg:mb-10">
+              {HERO.description}
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <AppButton href={CTA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                {CTA.primaryButton.text}
+              </AppButton>
+              <AppButton href={CTA.secondaryButton.href} variant="outline" className="sm:w-auto">
+                {CTA.secondaryButton.text}
+              </AppButton>
             </div>
           </div>
+        </div>
 
-          {/* Stats strip */}
-          <div className="border-t border-brand-navy/10 grid grid-cols-2 lg:grid-cols-4">
-            {STATS.map((stat, i) => (
-              <div
-                key={i}
-                className={`py-8 lg:py-10 px-4 sm:px-6 ${i % 2 === 0 ? "border-r border-brand-navy/10" : ""
-                  } ${i < 2 ? "border-b border-brand-navy/10 lg:border-b-0" : ""
-                  } ${i < STATS.length - 1 ? "lg:border-r lg:border-brand-navy/10" : ""
-                  }`}
-              >
-                <p className="text-3xl lg:text-5xl font-semibold text-brand-navy tracking-tight mb-1">
-                  {stat.value}
-                </p>
-                <p className="text-[12px] lg:text-[13px] text-brand-navy/45 leading-snug">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+        {/* Stats strip */}
+        <div className="relative w-full border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
+            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+              {STATS.map((stat, i) => (
+                <div
+                  key={i}
+                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""}`}
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-[10px] font-mono text-brand-coral/80">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="h-px w-6 bg-white/20" />
+                  </div>
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                    {stat.value}
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Trust marquee strip ────────────────────────────────────────────── */}
-      <div className="bg-brand-navy overflow-hidden py-3 sm:py-4 select-none">
+      {/* ── Trust marquee ──────────────────────────────────────────────────── */}
+      <div className="relative bg-brand-coral overflow-hidden py-3.5 select-none">
         <div className="flex whitespace-nowrap animate-marquee">
-          {[...TRUST_ITEMS, ...TRUST_ITEMS].map((item, i) => (
+          {[...TRUST_ITEMS, ...TRUST_ITEMS, ...TRUST_ITEMS].map((item, i) => (
             <span
               key={i}
-              className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-8 text-[11px] sm:text-[13px] font-medium text-brand-white/55"
+              className="inline-flex items-center gap-3 sm:gap-4 px-5 sm:px-8 text-[11px] sm:text-[13px] font-semibold text-brand-white uppercase tracking-[0.15em]"
             >
-              <span className="w-1 h-1 rounded-full bg-brand-coral inline-block flex-shrink-0" />
+              <span className="text-white/50">✦</span>
               {item.text}
             </span>
           ))}
         </div>
       </div>
 
-      {/* ── Services grid ─────────────────────────────────────────────────── */}
+      {/* ── SERVICES: 2-column grid ────────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="py-16 lg:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-10 lg:mb-16">
-              <div>
-                <Eyebrow>EOR Coverage</Eyebrow>
-                <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight">
-                  Hiring solutions across Eastern Europe
-                </h2>
+        <section className="relative w-full bg-brand-white">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 py-20 lg:py-32">
+            {/* Header */}
+            <div className="mb-12 lg:mb-16 text-center">
+              <SectionIndicator index={1} label="What we do" centered />
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+                One partner.{" "}
+                <span className="text-brand-coral">Every market.</span>
+              </h2>
+              <div className="flex items-center justify-center gap-3 mt-4">
+                <div className="h-px w-10 bg-brand-coral" />
+                <span className="text-[11px] font-mono text-brand-navy/40">
+                  {String(SERVICE_CARDS.length).padStart(2, "0")} / {String(SERVICE_CARDS.length).padStart(2, "0")}
+                </span>
+                <div className="h-px w-10 bg-brand-coral" />
               </div>
-              <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                From international hiring and cross-border employment to contractor conversions - all without incorporating locally.
-              </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+            {/* 2-column grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-brand-navy/10 border-l border-brand-navy/10">
               {SERVICE_CARDS.map((card, i) => {
                 const Icon = card.icon
                 return (
-                  <div
+                  <Link
                     key={i}
-                    className="group relative rounded-2xl border border-brand-navy/10 bg-white p-6 lg:p-7 hover:border-brand-navy/25 hover:shadow-[0_8px_32px_rgba(8,30,60,0.07)] transition-all duration-300 flex flex-col gap-4"
+                    href={card.href}
+                    className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-500 ease-out overflow-hidden"
                   >
-                    {/* Contract type badge - top right */}
-                    <span className="absolute top-5 right-5 text-[10px] font-medium text-brand-navy/30 bg-brand-navy/[0.05] rounded-full px-2.5 py-1">
-                      {card.contractTypes}
-                    </span>
-
-                    {/* Icon */}
-                    <div
-                      className={`w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl ${card.iconBg}`}
-                    >
-                      <Icon className="w-5 h-5" style={{ color: card.accent }} />
+                    {/* Massive index */}
+                    <div className="pt-1 shrink-0">
+                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-[15px] lg:text-[16px] font-semibold text-brand-navy leading-tight pr-24 group-hover:text-brand-blue transition-colors duration-200">
-                      {card.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-[13px] text-brand-navy/50 leading-relaxed flex-1">
-                      {card.description}
-                    </p>
-
-                    {/* Divider + tags */}
-                    <div className="pt-2 border-t border-brand-navy/8 flex flex-wrap gap-1.5 items-center">
-                      {card.tags.map((tag, j) => (
-                        <span
-                          key={j}
-                          className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-brand-navy/12 text-brand-navy/45"
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start gap-3 mb-3">
+                        <div
+                          className={`w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl ${card.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
                         >
-                          {tag}
-                        </span>
-                      ))}
-                      <ArrowUpRight className="w-3.5 h-3.5 text-brand-navy/20 group-hover:text-brand-coral ml-auto group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+                          <Icon
+                            className="w-5 h-5 text-brand-coral"
+                            strokeWidth={1.7}
+                          />
+                        </div>
+                        <h3 className="flex-1 text-base sm:text-lg font-bold text-brand-navy leading-tight pt-1 group-hover:text-brand-coral transition-colors duration-200">
+                          {card.title}
+                        </h3>
+                        <ArrowUpRight className="w-4 h-4 text-brand-navy/25 group-hover:text-brand-coral group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 shrink-0 mt-2" />
+                      </div>
+
+                      <p className="text-sm text-brand-navy/55 leading-relaxed mb-4">
+                        {card.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {card.tags.map((tag, j) => (
+                          <span
+                            key={j}
+                            className="text-[11px] font-semibold px-3 py-1 rounded-full bg-brand-navy/5 text-brand-navy/65 group-hover:bg-brand-coral/10 group-hover:text-brand-coral transition-colors duration-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Animated coral underline */}
+                    <span
+                      aria-hidden
+                      className="absolute left-0 right-0 bottom-0 h-px w-0 bg-brand-coral group-hover:w-full transition-all duration-700 ease-out"
+                    />
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* ── PROCESS: 6-step timeline ──────────────────────────────────────── */}
+      <ScrollReveal>
+        <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
+          {/* Glow */}
+          <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+
+          {/* Watermark */}
+          <div
+            aria-hidden
+            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+          >
+            PROCESS
+          </div>
+
+          {/* Header */}
+          <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
+            <div className="mb-8 lg:mb-10">
+              <SectionIndicator index={2} label="How it works" tone="dark" centered />
+            </div>
+            <div className="text-center">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white mb-4">
+                Our EoR{" "}
+                <span className="text-brand-coral">process</span>
+              </h2>
+              <p className="text-white/45 text-sm lg:text-base leading-relaxed max-w-xl mx-auto">
+                From talent selection to fully employed — no entity required.
+              </p>
+            </div>
+          </div>
+
+          {/* Grid — 1 col mobile, 2 col tablet, 3+3 desktop */}
+          <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+              {PROCESS_STEPS.map((step, i) => {
+                const Icon = step.icon
+                return (
+                  <div key={i} className="relative">
+                    <div className="group relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 lg:p-7 hover:bg-white/[0.08] hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
+                      {/* Watermark step number */}
+                      <span
+                        aria-hidden
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-black text-white/[0.04] leading-none pointer-events-none select-none"
+                      >
+                        {step.number}
+                      </span>
+
+                      <div className="relative">
+                        <div className="flex items-center gap-3 mb-5">
+                          <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-coral/15 group-hover:bg-brand-coral/25 transition-colors duration-300 shrink-0">
+                            <Icon
+                              className="w-5 h-5 text-brand-coral"
+                              strokeWidth={1.7}
+                            />
+                          </div>
+                          <div className="flex-1 h-px bg-white/10 group-hover:bg-brand-coral/40 transition-colors duration-300" />
+                        </div>
+
+                        <p className="text-[10px] font-bold text-brand-coral/80 uppercase tracking-[0.3em] mb-2">
+                          STEP {step.number}
+                        </p>
+
+                        <h3 className="text-base lg:text-lg font-bold text-white mb-3 leading-tight tracking-tight">
+                          {step.title}
+                        </h3>
+
+                        <p className="text-[13px] text-white/45 leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 )
@@ -219,162 +380,85 @@ export default function EmployerOfRecordPage() {
         </section>
       </ScrollReveal>
 
-      {/* ── Process ───────────────────────────────────────────────────────── */}
+      {/* ── WHY EoR: Asymmetric bento ─────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="py-16 lg:py-32 bg-brand-navy">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-12 lg:mb-20">
-              <div>
-                <p className="text-xs font-semibold text-brand-coral uppercase tracking-[0.2em] mb-3">
-                  How it works
-                </p>
-                <h2 className="text-2xl lg:text-4xl font-semibold text-brand-white tracking-tight">
-                  From brief to employed - no entity required
-                </h2>
-              </div>
-              <p className="text-brand-white/35 text-sm lg:text-[15px] max-w-xs leading-relaxed">
-                A lean five-step process that gets your people hired, compliant, and working - fast.
-              </p>
+        <section className="relative w-full bg-brand-white py-20 lg:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
+            <div className="mb-12 lg:mb-16 text-center">
+              <SectionIndicator index={3} label="Why EoR" centered />
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+                Why companies choose{" "}
+                <span className="text-brand-coral">Employer of Record</span>
+              </h2>
             </div>
 
-            {/* Timeline list */}
-            <div className="relative">
-              {/* Vertical line - desktop only */}
-              <div className="hidden lg:block absolute left-[calc(50%-0.5px)] top-0 bottom-0 w-px bg-brand-white/10" />
+            {/* Bento: hero card + 4 benefit cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 lg:gap-4">
+              {/* Hero card */}
+              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-navy text-white p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[440px]">
+                <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
-              <div className="flex flex-col gap-0">
-                {PROCESS_STEPS.map((step, i) => {
-                  const Icon = step.icon
-                  const isEven = i % 2 === 0
+                <div className="relative">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-coral mb-4">
+                    The smart global hiring solution
+                  </p>
+                  <h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-black uppercase leading-[0.92] tracking-tight mb-6">
+                    EoR is the smarter way
+                    <br />
+                    to build teams
+                    <br />
+                    <span className="text-brand-coral">across borders</span>
+                  </h3>
+                  <p className="text-sm lg:text-base text-white/60 leading-relaxed max-w-sm">
+                    EoR is the smart solution for companies that want to expand
+                    globally, test new markets, or hire specialised talent without
+                    the complexity of establishing a local entity.
+                  </p>
+                </div>
 
-                  return (
-                    <div
-                      key={i}
-                      className={`group relative grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-10 ${i < PROCESS_STEPS.length - 1 ? "mb-0" : ""}`}
-                    >
-                      {/* Desktop: left column */}
-                      <div
-                        className={`hidden lg:flex items-start py-8 ${isEven ? "justify-end pr-10 text-right" : "order-2 pl-10"}`}
-                      >
-                        {isEven ? (
-                          <div className="max-w-[340px]">
-                            <p className="text-[11px] font-semibold text-brand-coral/70 uppercase tracking-widest mb-2">
-                              Step {step.number}
-                            </p>
-                            <h3 className="text-[17px] font-semibold text-brand-white mb-2 leading-tight">
-                              {step.title}
-                            </h3>
-                            <p className="text-[13px] text-brand-white/40 leading-relaxed">
-                              {step.description}
-                            </p>
-                          </div>
-                        ) : (
-                          <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-brand-white/10 group-hover:bg-brand-coral/20 transition-colors duration-300">
-                            <Icon className="w-5 h-5 text-brand-coral" />
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Center dot */}
-                      <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10">
-                        <div className="w-3 h-3 rounded-full bg-brand-coral ring-4 ring-brand-navy" />
-                      </div>
-
-                      {/* Desktop: right column */}
-                      <div
-                        className={`hidden lg:flex items-start py-8 ${isEven ? "pl-10 order-2" : "justify-end pr-10"}`}
-                      >
-                        {isEven ? (
-                          <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-brand-white/10 group-hover:bg-brand-coral/20 transition-colors duration-300">
-                            <Icon className="w-5 h-5 text-brand-coral" />
-                          </div>
-                        ) : (
-                          <div className="max-w-[340px] text-right">
-                            <p className="text-[11px] font-semibold text-brand-coral/70 uppercase tracking-widest mb-2">
-                              Step {step.number}
-                            </p>
-                            <h3 className="text-[17px] font-semibold text-brand-white mb-2 leading-tight">
-                              {step.title}
-                            </h3>
-                            <p className="text-[13px] text-brand-white/40 leading-relaxed">
-                              {step.description}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Mobile: simple stacked card */}
-                      <div className="lg:hidden flex gap-4 py-5 border-t border-brand-white/10 first:border-t-0">
-                        <div className="flex flex-col items-center gap-2 flex-shrink-0">
-                          <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-brand-white/10">
-                            <Icon className="w-4 h-4 text-brand-coral" />
-                          </div>
-                          {i < PROCESS_STEPS.length - 1 && (
-                            <div className="w-px flex-1 bg-brand-white/10 min-h-[20px]" />
-                          )}
-                        </div>
-                        <div className="pb-2">
-                          <p className="text-[10px] font-semibold text-brand-coral/70 uppercase tracking-widest mb-1">
-                            Step {step.number}
-                          </p>
-                          <h3 className="text-[15px] font-semibold text-brand-white mb-1.5 leading-tight">
-                            {step.title}
-                          </h3>
-                          <p className="text-[13px] text-brand-white/40 leading-relaxed">
-                            {step.description}
-                          </p>
-                        </div>
-                      </div>
+                {/* Why checklist */}
+                <div className="relative mt-8 grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4">
+                  {WHY_ITEMS.map((item, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-brand-coral/20 flex items-center justify-center flex-shrink-0">
+                        <svg className="w-2.5 h-2.5 text-brand-coral" viewBox="0 0 10 10" fill="none">
+                          <path d="M2 5l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      <span className="text-[12px] text-white/65 leading-none">{item}</span>
                     </div>
-                  )
-                })}
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
 
-      {/* ── Benefits ──────────────────────────────────────────────────────── */}
-      <ScrollReveal>
-        <section className="py-16 lg:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-10 lg:mb-16">
-              <div>
-                <Eyebrow>Why EOR</Eyebrow>
-                <h2 className="text-2xl lg:text-4xl font-semibold text-brand-navy tracking-tight max-w-xs lg:max-w-md text-balance">
-                  The smarter way to build teams across borders
-                </h2>
-              </div>
-              <p className="text-brand-navy/45 text-sm lg:text-[15px] max-w-sm leading-relaxed">
-                Expand into Bulgaria and Eastern Europe with full legal compliance - without the cost, complexity, or time of entity setup.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
+              {/* Benefit cards */}
               {BENEFITS.map((benefit, i) => {
                 const Icon = benefit.icon
                 return (
                   <div
                     key={i}
-                    className="group relative rounded-2xl border border-brand-navy/10 bg-white p-6 lg:p-8 hover:border-brand-navy/20 hover:shadow-[0_8px_32px_rgba(8,30,60,0.06)] transition-all duration-300 overflow-hidden"
+                    className="lg:col-span-3 rounded-3xl bg-brand-navy/[0.025] border border-brand-navy/10 p-7 lg:p-8 hover:bg-brand-navy/[0.045] hover:border-brand-coral/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden min-h-[200px] lg:min-h-[210px]"
                   >
-                    {/* Stat callout */}
-                    <p className="absolute bottom-4 right-5 text-[11px] font-semibold text-brand-coral/60 tracking-wide">
-                      {benefit.stat}
-                    </p>
-
-                    <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#e8f3ff] mb-5">
-                      <Icon className="w-5 h-5 text-brand-blue" />
+                    <span
+                      aria-hidden
+                      className="absolute top-5 right-6 text-[3rem] font-black text-brand-navy/[0.06] leading-none pointer-events-none select-none"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="relative h-full flex flex-col">
+                      <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-coral/12 mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        <Icon
+                          className="w-5 h-5 text-brand-coral"
+                          strokeWidth={1.7}
+                        />
+                      </div>
+                      <h3 className="text-lg font-bold text-brand-navy mb-2.5 group-hover:text-brand-coral transition-colors duration-200">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-sm text-brand-navy/55 leading-relaxed">
+                        {benefit.body}
+                      </p>
                     </div>
-
-                    <h3 className="text-[15px] lg:text-[16px] font-semibold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors duration-200">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-[13px] lg:text-[14px] text-brand-navy/45 leading-relaxed pr-4">
-                      {benefit.body}
-                    </p>
                   </div>
                 )
               })}
@@ -383,70 +467,97 @@ export default function EmployerOfRecordPage() {
         </section>
       </ScrollReveal>
 
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="py-16 lg:py-32 mb-8 lg:mb-16 mx-3 sm:mx-4 lg:mx-10 rounded-2xl lg:rounded-3xl bg-brand-navy overflow-hidden relative">
-
-          {/* Decorative background text */}
-          <p
-            className="hidden lg:block absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-[14rem] font-semibold text-brand-white/[0.03] leading-none pointer-events-none select-none whitespace-nowrap overflow-hidden"
-            aria-hidden
-          >
-            EMPLOY
-          </p>
-
-          {/* Subtle top gradient */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-brand-coral/40 to-transparent" />
-
-          <div className="relative max-w-4xl mx-auto px-6 sm:px-8 text-center">
-            <p className="text-xs font-semibold text-brand-coral uppercase tracking-[0.2em] mb-3 lg:mb-4">
-              {CTA_DATA.eyebrow}
-            </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-semibold text-brand-white tracking-tight mb-4 lg:mb-6 text-balance">
-              {CTA_DATA.title}
-            </h2>
-            <p className="text-sm lg:text-[15px] text-brand-white/45 leading-relaxed max-w-xl mx-auto mb-8 lg:mb-10">
-              {CTA_DATA.description}
-            </p>
-
-            {/* EOR service type pills */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8 lg:mb-10">
-              {[
-                "International Hiring",
-                "Cross-Border Employment",
-                "Local Compliance",
-                "Contractor-to-Employee",
-                "Global Workforce Expansion",
-              ].map((label) => (
-                <span
-                  key={label}
-                  className="text-[11px] font-medium px-3 py-1.5 rounded-full border border-brand-white/15 text-brand-white/40"
-                >
-                  {label}
-                </span>
-              ))}
+        <section className="relative w-full bg-brand-white py-20 lg:py-28 border-t border-brand-navy/8">
+          <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
+            <div className="mb-12 lg:mb-16 text-center">
+              <SectionIndicator index={4} label="Your questions answered" centered />
+              <h2 className="mt-8 text-[clamp(2rem,5vw,3.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+                Employer of Record (EoR)
+                <br />
+                <span className="text-brand-coral">your questions answered</span>
+              </h2>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
-              <Button
-                asChild
-                className="bg-brand-coral text-brand-white hover:bg-brand-coral-hover rounded-xl px-8 py-5 text-sm lg:text-[15px] font-medium transition-colors duration-200"
-              >
-                <Link href={CTA_DATA.primaryButton.href}>
-                  {CTA_DATA.primaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="ghost"
-                className="text-brand-white/55 hover:text-brand-white hover:bg-brand-white/10 rounded-xl px-8 py-5 text-sm lg:text-[15px] font-medium transition-colors duration-200"
-              >
-                <Link href={CTA_DATA.secondaryButton.href}>
-                  {CTA_DATA.secondaryButton.text}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+            {/* Two-column FAQ grid on lg */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16">
+              <div>
+                {FAQ_ITEMS.slice(0, 5).map((item, i) => (
+                  <FaqRow key={i} question={item.question} answer={item.answer} index={i} />
+                ))}
+              </div>
+              <div>
+                {FAQ_ITEMS.slice(5).map((item, i) => (
+                  <FaqRow key={i + 5} question={item.question} answer={item.answer} index={i + 5} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      {/* ── CTA: Dramatic finale ──────────────────────────────────────────── */}
+      <ScrollReveal>
+        <section className="relative w-full px-3 sm:px-5 lg:px-10 pb-12 lg:pb-20">
+          <div className="relative bg-brand-navy rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
+            {/* Glows */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-coral/20 blur-[150px] pointer-events-none" />
+            <div className="absolute -top-20 -left-20 w-[300px] h-[300px] rounded-full bg-brand-coral/15 blur-[100px] pointer-events-none" />
+            <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] rounded-full bg-brand-coral/10 blur-[100px] pointer-events-none" />
+
+            {/* Corner brackets */}
+            <div aria-hidden className="absolute top-5 left-5 w-8 h-8 border-l-2 border-t-2 border-brand-coral/40 rounded-tl-xl pointer-events-none" />
+            <div aria-hidden className="absolute top-5 right-5 w-8 h-8 border-r-2 border-t-2 border-brand-coral/40 rounded-tr-xl pointer-events-none" />
+            <div aria-hidden className="absolute bottom-5 left-5 w-8 h-8 border-l-2 border-b-2 border-brand-coral/40 rounded-bl-xl pointer-events-none" />
+            <div aria-hidden className="absolute bottom-5 right-5 w-8 h-8 border-r-2 border-b-2 border-brand-coral/40 rounded-br-xl pointer-events-none" />
+
+            {/* Watermark */}
+            <p
+              aria-hidden
+              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-black uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+            >
+              EoR
+            </p>
+
+            <div className="relative max-w-4xl mx-auto px-6 sm:px-10 py-20 lg:py-32 text-center">
+              <div className="flex items-center justify-center gap-3 mb-6 lg:mb-8">
+                <span className="block h-px w-10 bg-brand-coral" />
+                <Eyebrow>{CTA.eyebrow}</Eyebrow>
+                <span className="block h-px w-10 bg-brand-coral" />
+              </div>
+
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+                {CTA.title}
+              </h2>
+
+              <p className="text-base lg:text-lg text-white/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
+                {CTA.description}
+              </p>
+
+              {/* Service pills */}
+              <div className="flex flex-wrap justify-center gap-2 mb-8 lg:mb-10">
+                {[
+                  "Global Hiring",
+                  "Cross-Border Employment",
+                  "Local Compliance",
+                  "Payroll & Benefits",
+                  "Contractor Conversion",
+                ].map((label) => (
+                  <span
+                    key={label}
+                    className="text-[11px] font-semibold px-3 py-1.5 rounded-full border border-white/15 text-white/40"
+                  >
+                    {label}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <AppButton href={CTA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                  {CTA.primaryButton.text}
+                </AppButton>
+              </div>
             </div>
           </div>
         </section>

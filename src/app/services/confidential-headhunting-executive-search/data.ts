@@ -9,6 +9,11 @@ import {
   Target,
   Award,
   Handshake,
+  Lock,
+  TrendingUp,
+  RefreshCw,
+  Rocket,
+  EyeOff,
   type LucideIcon,
 } from "lucide-react"
 
@@ -68,188 +73,174 @@ export interface CtaData {
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 export const HERO_DATA: HeroData = {
-  tagline: "Search & Headhunting",
-  eyebrow: "Strategic Talent Acquisition",
-  title: "Confidential Headhunting and Executive search",
+  tagline: "Executive Search & Headhunting",
+  eyebrow: "Executive Search, Explained",
+  title: "Executive Search, Explained",
   description:
-    "We identify, engage, and place the senior technology leaders your business needs to scale. Discreet, partner-led executive search with a measurable track record across tech leadership hiring.",
+    "A guide to confidential executive search – when to use it, how it works, and the impact it creates.",
 }
 
-// ─── Stats ────────────────────────────────────────────────────────────────────
-export const STATS: StatItem[] = [
-  { value: "2×", label: "Longer retention vs. industry average" },
-  { value: "89%", label: "Offer acceptance on first-choice candidates" },
-  { value: "92%", label: "Placements still in role after 24 months" },
-  { value: "300+", label: "Senior technology mandates completed" },
-]
+// ─── Stats (Feature Cards) ────────────────────────────────────────────────────
+// export const STATS: StatItem[] = [
+//   { value: "Confidential", label: "by Design — every search handled with complete discretion to protect your business, people and reputation" },
+//   { value: "Hidden Talent", label: "Access — we engage passive, in-demand leaders who are not visible through traditional hiring" },
+//   { value: "Strategic &", label: "Consultative — we act as your trusted advisor, aligning the right leadership with your long-term business goals" },
+//   { value: "High Impact", label: "Outcomes — we deliver transformational leaders who drive growth, change and long-term value" },
+// ]
 
 // ─── Process ──────────────────────────────────────────────────────────────────
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "Discovery & Strategic Brief",
+    title: "Discovery & Alignment",
     description:
-      "A deep-dive consultation with your leadership team to map technical requirements, team dynamics, company culture, and the long-term strategic context behind the hire. We never start searching before we fully understand what success looks like.",
+      "We understand your business, leadership needs, culture and success profile.",
     icon: Target,
   },
   {
     number: "02",
-    title: "Market Mapping & Sourcing",
+    title: "Research & Market Mapping",
     description:
-      "We conduct proprietary market mapping across active and passive senior candidates - tapping our 15-year network of technology leaders, not just job boards. Many of our best placements were never on the market.",
+      "We map the market, identify top talent and create a targeted search strategy.",
     icon: Globe,
   },
   {
     number: "03",
-    title: "Rigorous Candidate Assessment",
+    title: "Confidential Outreach",
     description:
-      "Structured competency interviews, technical evaluation, leadership profiling, and culture-fit analysis - followed by in-depth reference checks. Only candidates who clear our full process reach your shortlist.",
-    icon: ShieldCheck,
+      "We discreetly engage and assess passive candidates through trusted conversations.",
+    icon: Lock,
   },
   {
     number: "04",
-    title: "Shortlist, Interviews & Offer",
+    title: "Evaluation & Shortlisting",
     description:
-      "We present a curated shortlist of two to four candidates and manage the full interview and offer process - including negotiation, counter-offer management, and timeline coordination - with complete transparency.",
+      "We conduct in-depth evaluation and present only the right leaders for your consideration.",
     icon: Award,
   },
   {
     number: "05",
-    title: "Onboarding & Retention Support",
+    title: "Offer & Transition Support",
     description:
-      "Our commitment doesn't end at acceptance. We support the onboarding process with structured check-ins throughout the first year to protect your investment and maximise long-term retention.",
+      "We support negotiations and ensure a smooth, confidential transition and onboarding.",
     icon: Handshake,
   },
 ]
 
-// ─── Roles We Place ───────────────────────────────────────────────────────────
+// ─── Roles We Place (Info boxes) ──────────────────────────────────────────────
 export const SERVICE_CARDS: ServiceCard[] = [
   {
-    icon: Users,
-    title: "Technology C-Suite & VP-Level",
+    icon: Target,
+    title: "What Is Executive Search?",
     description:
-      "CTO, CIO, CISO, VP of Engineering, and VP of Product search for scale-ups, PE-backed businesses, and enterprise organisations navigating technical transformation or rapid growth.",
-    tags: ["CTO", "CIO", "CISO", "VP Engineering", "VP Product"],
+      "Executive search is a specialised recruitment approach used to identify and attract senior leaders and experts for critical roles. Unlike traditional recruitment, it is proactive, research-driven and focused on confidentially engaging top talent across the market.",
+    tags: ["Proactive", "Research-Driven", "Confidential", "Senior Leaders"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/services/technology-c-suite-vp-search",
+    href: "/services/executive-search",
   },
   {
-    icon: Code2,
-    title: "Engineering Leadership",
+    icon: Clock,
+    title: "When Should You Use It?",
     description:
-      "Head of Engineering, Principal Engineer, Staff Engineer, and Engineering Director placements for product-led companies that need leaders who can build, scale, and retain high-performing teams.",
-    tags: ["Head of Engineering", "Engineering Director", "Principal Engineer"],
+      "Executive search is ideal when: the role is business-critical, you need to replace or transition a senior leader, the market for talent is competitive, confidentiality is essential, or you want the best, not just active candidates.",
+    tags: ["Business-Critical Roles", "Senior Transitions", "Confidential Hires"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-    href: "/services/engineering-leadership-search",
-  },
-  {
-    icon: LineChart,
-    title: "Data, AI & Analytics Leadership",
-    description:
-      "Chief Data Officer, Head of Data Science, and VP of AI placements for organisations building a data-driven competitive advantage or deploying artificial intelligence at scale.",
-    tags: ["CDO", "Head of Data Science", "VP AI", "Head of ML"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
-    href: "/services/data-ai-analytics-leadership-search",
+    href: "/services/when-to-use-executive-search",
   },
   {
     icon: ShieldCheck,
-    title: "Cybersecurity & Risk Leadership",
+    title: "Why Confidentiality Matters?",
     description:
-      "CISO, Head of Security, and Head of Compliance search for regulated industries and high-growth technology businesses where security leadership is board-level critical.",
-    tags: ["CISO", "Head of Security", "Head of Compliance", "DPO"],
-    accent: "#ff5d77",
-    iconBg: "bg-[#fff0f3]",
-    href: "/services/cybersecurity-risk-leadership-search",
-  },
-  {
-    icon: Zap,
-    title: "Product & Design Leadership",
-    description:
-      "CPO, Head of Product, and VP of Design search for companies where product strategy is the primary growth lever - from Series B scale-ups to publicly listed software businesses.",
-    tags: ["CPO", "Head of Product", "VP Design", "Head of UX"],
+      "Leadership transitions, replacements or new hires at the top level require discretion to avoid uncertainty, rumours and disruption. We ensure a completely confidential process, protecting your organisation at every step.",
+    tags: ["Discretion", "Zero Disruption", "Protected Process"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/services/product-design-leadership-search",
+    href: "/services/confidential-executive-search",
   },
 ]
 
-// ─── Industries ───────────────────────────────────────────────────────────────
+// ─── Industries (When Companies Use Executive Search) ─────────────────────────
 export const INDUSTRIES: IndustryItem[] = [
   {
-    sector: "Fintech & Financial Services",
-    roles: "CTO, CISO, Head of Engineering",
+    sector: "Leadership Replacement",
+    roles: "CTO, CEO, C-Suite",
     detail:
-      "From challenger banks to established institutions undergoing digital transformation - we understand the regulatory and technical complexity of hiring in financial services.",
+      "Replacing underperforming or departing leaders with minimal disruption.",
   },
   {
-    sector: "SaaS & B2B Software",
-    roles: "VP Engineering, CPO, Head of Product",
+    sector: "Succession Planning",
+    roles: "Board, VP-Level",
     detail:
-      "Pre-IPO and growth-stage software businesses scaling product and engineering organisations rapidly and need leaders who've done it before.",
+      "Building a strong pipeline of future-ready leaders.",
   },
   {
-    sector: "Deep Tech & AI",
-    roles: "CTO, VP AI, Head of Research",
+    sector: "Business Growth",
+    roles: "CPO, VP Engineering, VP Sales",
     detail:
-      "Frontier AI labs, robotics, and applied machine learning companies requiring rare, senior technical leadership with genuine domain depth.",
+      "Hiring transformational leaders to scale, expand and innovate.",
   },
   {
-    sector: "PE-Backed & Enterprise",
+    sector: "Transformation & Change",
     roles: "CIO, CTO, Head of Transformation",
     detail:
-      "Private equity portfolio companies and enterprise organisations navigating technology change, modernisation mandates, or post-acquisition integration.",
+      "Bringing in leaders to drive change, restructure and optimise.",
+  },
+  {
+    sector: "Confidential Hiring",
+    roles: "CISO, C-Suite, Senior Directors",
+    detail:
+      "Hiring for sensitive roles where confidentiality is mission-critical.",
   },
 ]
 
 // ─── Benefits ─────────────────────────────────────────────────────────────────
 export const BENEFITS: BenefitItem[] = [
   {
-    icon: ShieldCheck,
-    title: "Partner-Led, Not Delegated",
-    body: "Every engagement is owned by a senior partner from brief to placement - not handed off to junior researchers after the kickoff call.",
+    icon: Lock,
+    title: "Confidential by Design",
+    body: "Every search is handled with complete discretion to protect your business, people and reputation.",
   },
   {
-    icon: Globe,
-    title: "Access to Passive Talent",
-    body: "The leaders you need are rarely looking. Our 15-year network means we engage exceptional candidates before they ever consider the open market.",
+    icon: Users,
+    title: "Access to Hidden Talent",
+    body: "We engage passive, in-demand leaders who are not visible through traditional hiring.",
   },
   {
-    icon: Award,
-    title: "92% Two-Year Retention",
-    body: "Our leadership and culture profiling methodology produces placements that stay, perform, and grow with your business long after the hire.",
+    icon: Target,
+    title: "Strategic & Consultative",
+    body: "We act as your trusted advisor, aligning the right leadership with your long-term business goals.",
   },
   {
-    icon: Clock,
-    title: "Discreet by Design",
-    body: "We operate with full confidentiality at every stage - essential for sensitive leadership transitions and market-sensitive executive appointments.",
+    icon: TrendingUp,
+    title: "High Impact Outcomes",
+    body: "We deliver transformational leaders who drive growth, change and long-term value.",
   },
 ]
 
 // ─── Trust bar ────────────────────────────────────────────────────────────────
 export const TRUST_ITEMS: TrustItem[] = [
-  { text: "CTO & CIO Search" },
-  { text: "Fintech & SaaS" },
-  { text: "VP Engineering" },
-  { text: "Deep Tech & AI" },
-  { text: "PE-Backed Companies" },
+  { text: "Confidential by Design" },
+  { text: "Access to Hidden Talent" },
+  { text: "Strategic & Consultative" },
+  { text: "High Impact Outcomes" },
   { text: "Partner-Led Mandates" },
-  { text: "92% Two-Year Retention" },
-  { text: "300+ Senior Placements" },
-  { text: "Confidential Search" },
+  { text: "Senior Leadership Experts" },
+  { text: "Proactive Research-Driven" },
+  { text: "Trusted by Leading Organisations" },
+  { text: "Discreet Executive Search" },
   { text: "Passive Candidate Access" },
 ]
 
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 export const CTA_DATA: CtaData = {
-  eyebrow: "Start a Search",
-  title: "The right technology leader changes everything.",
+  eyebrow: "Get Started",
+  title: "Your Search. Our Expertise. Total Confidentiality.",
   description:
-    "Share your brief - or simply the challenge you're trying to solve. We'll respond within 24 hours with a tailored search strategy and current market intelligence.",
+    "We help organisations hire exceptional leaders through a confidential, intelligent and results-driven executive search process.",
   primaryButton: {
-    text: "Start a Search",
+    text: "Let's Discuss Your Search",
     href: "/contacts",
   },
   secondaryButton: {
