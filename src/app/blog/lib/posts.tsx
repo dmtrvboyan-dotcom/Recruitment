@@ -12,6 +12,7 @@ export type PostMeta = {
   date: string
   category: string
   tab: TabKey
+  draft?: boolean
 }
 
 export type Post = PostMeta & {
@@ -38,7 +39,13 @@ export const getAllPosts = (): Post[] => {
         date: data.date ?? "",
         category: data.category ?? "",
         tab: (data.tab ?? "ats") as TabKey,
+        draft: data.draft ?? false,
       } satisfies Post
+    })
+    // ── Draft filter: hide draft: true posts on production ──
+    .filter((post) => {
+      if (process.env.NODE_ENV === "production") return post.draft !== true
+      return true
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
@@ -50,6 +57,9 @@ export const getPostBySlug = (slug: string): Post | null => {
   const fileContents = fs.readFileSync(filePath, "utf8")
   const { content, data } = matter(fileContents)
 
+  // Block direct URL access to drafts in production
+  if (process.env.NODE_ENV === "production" && data.draft === true) return null
+
   return {
     slug,
     content,
@@ -58,13 +68,23 @@ export const getPostBySlug = (slug: string): Post | null => {
     date: data.date ?? "",
     category: data.category ?? "",
     tab: (data.tab ?? "ats") as TabKey,
+    draft: data.draft ?? false,
   }
 }
 
 export const getAllPostSlugs = (): string[] => {
   if (!fs.existsSync(postsDir)) return []
+
   return fs
     .readdirSync(postsDir)
     .filter((f) => f.endsWith(".md"))
+    .filter((f) => {
+      // Exclude drafts from static generation in production
+      // (prevents build errors when a draft exists but getPostBySlug returns null)
+      if (process.env.NODE_ENV !== "production") return true
+      const filePath = path.join(postsDir, f)
+      const { data } = matter(fs.readFileSync(filePath, "utf8"))
+      return data.draft !== true
+    })
     .map((f) => f.replace(/\.md$/, ""))
 }

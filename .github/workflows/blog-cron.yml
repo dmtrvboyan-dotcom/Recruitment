@@ -1,0 +1,17 @@
+name: Generate Blog Post
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+    - cron: "0 9 * * 4"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger blog generation
+        run: |
+          curl -f \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            https://YOUR-DOMAIN.vercel.app/api/cron/generate-blog
