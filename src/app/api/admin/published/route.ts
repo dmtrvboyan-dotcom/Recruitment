@@ -22,20 +22,31 @@ export async function GET() {
     { headers: headers() }
   );
 
+  // 404 means folder is empty or doesn't exist yet — not an error
+  if (res.status === 404) {
+    return NextResponse.json({ posts: [] });
+  }
+
   if (!res.ok) {
-    return NextResponse.json({ error: "Failed to fetch from GitHub" }, { status: 500 });
+    return NextResponse.json({ posts: [] });
   }
 
   const files = await res.json();
 
-  // Filter only .md files and return slug + name
-  const posts = (Array.isArray(files) ? files : [])
+  // GitHub can return an object instead of array if path is a single file
+  if (!Array.isArray(files)) {
+    return NextResponse.json({ posts: [] });
+  }
+
+  const posts = files
     .filter((f: { name: string }) => f.name.endsWith(".md"))
-    .map((f: { name: string; sha: string }) => ({
+    .map((f: { name: string }) => ({
       slug: f.name.replace(/\.md$/, ""),
       filename: f.name,
     }))
-    .sort((a: { slug: string }, b: { slug: string }) => a.slug.localeCompare(b.slug));
+    .sort((a: { slug: string }, b: { slug: string }) =>
+      a.slug.localeCompare(b.slug)
+    );
 
   return NextResponse.json({ posts });
 }

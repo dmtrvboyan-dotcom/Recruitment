@@ -22,10 +22,10 @@ interface PublishedPost {
 }
 
 const THEME_COLORS: Record<string, string> = {
-  "ats-software":   "bg-blue-100 text-blue-700",
-  "for-companies":  "bg-violet-100 text-violet-700",
+  "ats-software": "bg-blue-100 text-blue-700",
+  "for-companies": "bg-violet-100 text-violet-700",
   "for-candidates": "bg-emerald-100 text-emerald-700",
-  "it-news":        "bg-amber-100 text-amber-700",
+  "it-news": "bg-amber-100 text-amber-700",
 };
 
 export default function AdminPage() {
@@ -36,6 +36,9 @@ export default function AdminPage() {
   const [preview, setPreview] = useState<Draft | null>(null);
   const [actionState, setActionState] = useState<Record<string, string>>({});
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editContent, setEditContent] = useState("");
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (tab === "drafts") fetchDrafts();
@@ -112,8 +115,8 @@ export default function AdminPage() {
   }
 
   async function triggerGeneration() {
-    const res = await fetch("/api/cron/generate-blog", {
-      headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_CRON_SECRET}` },
+    const res = await fetch("/api/admin/trigger", {
+      method: "POST",
     });
     if (res.ok) {
       const data = await res.json();
@@ -125,49 +128,86 @@ export default function AdminPage() {
     }
   }
 
+  async function saveEdit(slug: string) {
+    setSaving(true);
+    const res = await fetch("/api/admin/update-draft", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug, content: editContent }),
+    });
+    if (res.ok) {
+      // Update local state so preview reflects edits immediately
+      setPreview((p) => p ? { ...p, content: editContent } : null);
+      setDrafts((d) =>
+        d.map((draft) =>
+          draft.slug === slug ? { ...draft, content: editContent } : draft
+        )
+      );
+      setIsEditing(false);
+      showToast("Changes saved.", "success");
+    } else {
+      showToast("Save failed.", "error");
+    }
+    setSaving(false);
+  }
+
+  async function handleLogout() {
+    await fetch("/api/admin/logout", { method: "POST" })
+    window.location.href = "/admin/login"
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {toast && (
-        <div className={`fixed top-4 right-4 z-50 max-w-sm px-4 py-3 rounded-xl shadow-lg text-sm font-medium ${
-          toast.type === "success" ? "bg-emerald-600 text-white" : "bg-red-600 text-white"
-        }`}>
+        <div className={`fixed top-4 right-4 z-50 max-w-sm px-4 py-3 rounded-xl shadow-lg text-sm font-medium ${toast.type === "success" ? "bg-emerald-600 text-white" : "bg-red-600 text-white"
+          }`}>
           {toast.msg}
         </div>
       )}
 
-      {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-semibold text-gray-900">Blog Admin</h1>
           <div className="flex gap-4 mt-2">
             <button
               onClick={() => { setTab("drafts"); setPreview(null); }}
-              className={`text-sm font-medium pb-0.5 border-b-2 transition-colors ${
-                tab === "drafts"
-                  ? "border-gray-900 text-gray-900"
-                  : "border-transparent text-gray-400 hover:text-gray-600"
-              }`}
+              className={`text-sm font-medium pb-0.5 border-b-2 transition-colors ${tab === "drafts"
+                ? "border-gray-900 text-gray-900"
+                : "border-transparent text-gray-400 hover:text-gray-600"
+                }`}
             >
-              Drafts {drafts.length > 0 && <span className="ml-1 text-xs bg-gray-900 text-white px-1.5 py-0.5 rounded-full">{drafts.length}</span>}
+              Drafts {drafts.length > 0 && (
+                <span className="ml-1 text-xs bg-gray-900 text-white px-1.5 py-0.5 rounded-full">
+                  {drafts.length}
+                </span>
+              )}
             </button>
             <button
               onClick={() => { setTab("published"); setPreview(null); }}
-              className={`text-sm font-medium pb-0.5 border-b-2 transition-colors ${
-                tab === "published"
-                  ? "border-gray-900 text-gray-900"
-                  : "border-transparent text-gray-400 hover:text-gray-600"
-              }`}
+              className={`text-sm font-medium pb-0.5 border-b-2 transition-colors ${tab === "published"
+                ? "border-gray-900 text-gray-900"
+                : "border-transparent text-gray-400 hover:text-gray-600"
+                }`}
             >
               Published
             </button>
           </div>
         </div>
-        <button
-          onClick={triggerGeneration}
-          className="text-sm bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition"
-        >
-          + Generate Now
-        </button>
+
+        <div className="flex items-center gap-3">
+          <button
+            onClick={triggerGeneration}
+            className="text-sm bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition"
+          >
+            + Generate Now
+          </button>
+          <button
+            onClick={handleLogout}
+            className="text-sm text-gray-400 hover:text-red-500 transition px-3 py-2 rounded-lg hover:bg-red-50"
+          >
+            Log out
+          </button>
+        </div>
       </header>
 
       <div className="flex h-[calc(100vh-85px)]">
@@ -250,10 +290,10 @@ export default function AdminPage() {
           )}
         </aside>
 
-        {/* Preview pane (drafts only) */}
         <main className="flex-1 overflow-y-auto">
           {tab === "drafts" && preview ? (
             <div className="max-w-3xl mx-auto p-8">
+              {/* Header */}
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <div className="flex gap-2 mb-2">
@@ -267,24 +307,76 @@ export default function AdminPage() {
                   <h2 className="text-2xl font-bold text-gray-900">{preview.title}</h2>
                   <p className="text-sm text-gray-500 mt-1">{preview.description}</p>
                   <p className="text-xs text-gray-400 mt-1">
-                    🔑 {preview.keyword} · tab: <code className="bg-gray-100 px-1 rounded">{preview.tab}</code>
-                    {" · "}slug: <code className="bg-gray-100 px-1 rounded">{preview.slug}</code>
+                    🔑 {preview.keyword} · tab:{" "}
+                    <code className="bg-gray-100 px-1 rounded">{preview.tab}</code>
+                    {" · "}slug:{" "}
+                    <code className="bg-gray-100 px-1 rounded">{preview.slug}</code>
                   </p>
                 </div>
+
+                {/* Action buttons */}
                 <div className="flex gap-2 shrink-0 ml-4">
-                  <button onClick={() => publish(preview.slug)} disabled={!!actionState[preview.slug]}
-                    className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition disabled:opacity-50">
-                    {actionState[preview.slug] === "publishing" ? "Publishing…" : "✓ Publish"}
-                  </button>
-                  <button onClick={() => deleteDraft(preview.slug)}
-                    className="text-sm bg-gray-100 text-gray-600 px-4 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition">
-                    Delete
-                  </button>
+                  {isEditing ? (
+                    <>
+                      <button
+                        onClick={() => saveEdit(preview.slug)}
+                        disabled={saving}
+                        className="text-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
+                      >
+                        {saving ? "Saving…" : "Save"}
+                      </button>
+                      <button
+                        onClick={() => { setIsEditing(false); setEditContent(""); }}
+                        disabled={saving}
+                        className="text-sm bg-gray-100 text-gray-600 px-4 py-2 rounded-lg hover:bg-gray-200 transition"
+                      >
+                        Cancel
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        onClick={() => { setIsEditing(true); setEditContent(preview.content); }}
+                        className="text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition"
+                      >
+                        ✎ Edit
+                      </button>
+                      <button
+                        onClick={() => publish(preview.slug)}
+                        disabled={!!actionState[preview.slug]}
+                        className="text-sm bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition disabled:opacity-50"
+                      >
+                        {actionState[preview.slug] === "publishing" ? "Publishing…" : "✓ Publish"}
+                      </button>
+                      <button
+                        onClick={() => deleteDraft(preview.slug)}
+                        className="text-sm bg-gray-100 text-gray-600 px-4 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition"
+                      >
+                        Delete
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
-              <pre className="bg-gray-900 text-gray-100 text-xs p-6 rounded-2xl overflow-x-auto whitespace-pre-wrap leading-relaxed">
-                {preview.content}
-              </pre>
+
+              {/* Content — edit mode or preview mode */}
+              {isEditing ? (
+                <div>
+                  <p className="text-xs text-gray-400 mb-2">
+                    Editing raw markdown — frontmatter at the top, post body below.
+                  </p>
+                  <textarea
+                    value={editContent}
+                    onChange={(e) => setEditContent(e.target.value)}
+                    className="w-full h-[65vh] bg-gray-900 text-gray-100 text-xs p-6 rounded-2xl font-mono leading-relaxed resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    spellCheck={false}
+                  />
+                </div>
+              ) : (
+                <pre className="bg-gray-900 text-gray-100 text-xs p-6 rounded-2xl overflow-x-auto whitespace-pre-wrap leading-relaxed">
+                  {preview.content}
+                </pre>
+              )}
             </div>
           ) : (
             <div className="flex items-center justify-center h-full text-gray-300 text-sm">

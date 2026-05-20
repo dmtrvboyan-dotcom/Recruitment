@@ -33,13 +33,7 @@ export function BlogPostView({ post }: Props) {
 
       {/* ─── HERO HEADER ─── */}
       <section className="relative w-full bg-brand-navy overflow-hidden py-16 sm:py-20 lg:py-28">
-        {/* Background texture */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
-          style={{
-            backgroundImage: "repeating-linear-gradient(135deg, #7291C7 0px, #7291C7 1px, transparent 1px, transparent 40px)",
-          }}
-        />
+       
         {/* Glow */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-brand-coral/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl pointer-events-none" />
 

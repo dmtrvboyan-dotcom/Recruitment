@@ -153,12 +153,7 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
           className="w-full h-36 sm:h-40 rounded-xl bg-brand-navy/[0.04] group-hover:bg-brand-coral/[0.07] mb-5
             flex items-center justify-center transition-colors duration-500 relative overflow-hidden"
         >
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: "repeating-linear-gradient(135deg, #1A1A2E 0px, #1A1A2E 1px, transparent 1px, transparent 28px)",
-            }}
-          />
+          
           <div
             className="w-10 h-10 rounded-xl bg-brand-coral/10 group-hover:bg-brand-coral/20 flex items-center justify-center
               transition-colors duration-300 relative"
@@ -235,12 +230,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
   return (
     <>
       <section className="relative w-full bg-brand-navy overflow-hidden pt-32 h-[90vh] lg:pt-44 lg:pb-32">
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
-          style={{
-            backgroundImage: "repeating-linear-gradient(135deg, #7291C7 0px, #7291C7 1px, transparent 1px, transparent 40px)",
-          }}
-        />
+      
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-coral/10 rounded-full -translate-y-1/2 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-brand-teal/10 rounded-full translate-y-1/2 blur-3xl pointer-events-none" />
 
@@ -328,12 +318,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
 
       <ScrollReveal>
         <section className="relative w-full bg-brand-white overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none opacity-[0.022]"
-            style={{
-              backgroundImage: "repeating-linear-gradient(135deg, #1A1A2E 0px, #1A1A2E 1px, transparent 1px, transparent 40px)",
-            }}
-          />
+         
 
           <div className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 py-16 lg:py-24">
 

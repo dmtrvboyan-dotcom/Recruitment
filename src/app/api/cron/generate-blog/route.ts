@@ -1,24 +1,39 @@
 // app/api/cron/generate-blog/route.ts
-// ─────────────────────────────────────────────────────────────
-// Vercel Cron endpoint — called twice a week (see vercel.json).
-// Generates ONE blog post per run (2 runs = 2 posts/week).
-// Protected by CRON_SECRET env var.
-// ─────────────────────────────────────────────────────────────
-
 import { NextRequest, NextResponse } from "next/server";
-import { THEMES, getThemesForThisWeek, ThemeId } from "@/lib/blog-automation/themes";
+import { THEMES, ThemeId } from "@/lib/blog-automation/themes";
 import { pickKeywordForTheme } from "@/lib/blog-automation/keyword-picker";
 import { generateBlogPost } from "@/lib/blog-automation/generator";
-import {
-  saveDraft,
-  getUsedKeywordsFromDrafts,
-} from "@/lib/blog-automation/kv-storage";
+import { saveDraft, getUsedKeywordsFromDrafts } from "@/lib/blog-automation/kv-storage";
+import { kv } from "@vercel/kv";
 
-export const runtime = "nodejs"; // needs Node.js for Buffer, etc.
-export const maxDuration = 60;   // generous timeout for AI calls
+export const runtime = "nodejs";
+export const maxDuration = 60;
+
+const THEME_IDS = Object.keys(THEMES) as ThemeId[];
+
+/** Get next theme in rotation — cycles ats → companies → candidates → it → ats … */
+async function getNextTheme(): Promise<ThemeId> {
+  const lastIndex = await kv.get<number>("blog:theme_index") ?? -1;
+  const nextIndex = (lastIndex + 1) % THEME_IDS.length;
+  await kv.set("blog:theme_index", nextIndex);
+  return THEME_IDS[nextIndex];
+}
+
+/** Get recently used categories for a theme to avoid repetition */
+async function getRecentCategories(themeId: ThemeId): Promise<string[]> {
+  const recent = await kv.get<string[]>(`blog:recent_categories:${themeId}`) ?? [];
+  return recent;
+}
+
+/** Save used category — keeps last 3 per theme */
+async function saveUsedCategory(themeId: ThemeId, category: string): Promise<void> {
+  const recent = await getRecentCategories(themeId);
+  const updated = [category, ...recent].slice(0, 3); // keep last 3
+  await kv.set(`blog:recent_categories:${themeId}`, updated);
+}
 
 export async function GET(req: NextRequest) {
-  // ── Auth ───────────────────────────────────────────────────
+  // ── Auth ──────────────────────────────────────────────────
   const authHeader = req.headers.get("authorization");
   const secret = process.env.CRON_SECRET;
   if (!secret || authHeader !== `Bearer ${secret}`) {
@@ -26,31 +41,30 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    // ── Decide which theme to use this run ──────────────────
-    // Run 1 (Mon) → first theme of the week
-    // Run 2 (Thu) → second theme of the week
-    const [themeA, themeB] = getThemesForThisWeek();
-    const dayOfWeek = new Date().getDay(); // 0=Sun … 6=Sat
-    // Thursday = 4, Monday = 1; anything else defaults to themeA
-    const themeId: ThemeId = dayOfWeek === 4 ? themeB : themeA;
+    // ── Rotate through all 4 themes evenly ────────────────
+    const themeId = await getNextTheme();
     const theme = THEMES[themeId];
+    console.log(`[blog-cron] Theme: ${theme.label}`);
 
-    console.log(`[blog-cron] Generating post for theme: ${theme.label}`);
-
-    // ── Avoid keyword repetition ────────────────────────────
+    // ── Avoid repeating keywords and categories ───────────
     const usedKeywords = await getUsedKeywordsFromDrafts();
+    const recentCategories = await getRecentCategories(themeId);
 
-    // ── Pick a keyword ──────────────────────────────────────
-    const keywordResult = await pickKeywordForTheme(theme, usedKeywords);
-    console.log(`[blog-cron] Chosen keyword: "${keywordResult.keyword}"`);
+    // ── Pick keyword (passes recent categories to avoid) ──
+    const keywordResult = await pickKeywordForTheme(
+      theme,
+      usedKeywords,
+      recentCategories
+    );
+    console.log(`[blog-cron] Keyword: "${keywordResult.keyword}" | Category: ${keywordResult.suggestedCategory}`);
 
-    // ── Generate the blog post ──────────────────────────────
+    // ── Generate post ─────────────────────────────────────
     const post = await generateBlogPost(theme, keywordResult);
-    console.log(`[blog-cron] Generated: "${post.title}" (${post.slug})`);
+    console.log(`[blog-cron] Generated: "${post.title}"`);
 
-    // ── Save as draft to Vercel KV ──────────────────────────
+    // ── Save draft + update rotation state ────────────────
     await saveDraft(post);
-    console.log(`[blog-cron] Saved draft: ${post.slug}`);
+    await saveUsedCategory(themeId, post.category);
 
     return NextResponse.json({
       success: true,
@@ -58,6 +72,7 @@ export async function GET(req: NextRequest) {
       title: post.title,
       theme: theme.label,
       keyword: keywordResult.keyword,
+      category: post.category,
     });
   } catch (error) {
     console.error("[blog-cron] Error:", error);

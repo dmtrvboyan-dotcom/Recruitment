@@ -41,7 +41,7 @@ export async function generateBlogPost(
   keywordResult: KeywordResult
 ): Promise<GeneratedPost> {
   const date = formatDate();
-  const categoryOptions = theme.categoryOptions.join(", ");
+  const category = keywordResult.suggestedCategory || theme.categoryOptions[0];
 
   const prompt = `You are a senior content writer for a recruitment-tech company.
 
@@ -50,27 +50,29 @@ Write a complete, high-quality SEO blog post using the details below.
 THEME: ${theme.label}
 TARGET KEYWORD: "${keywordResult.keyword}"
 BLOG TITLE: ${keywordResult.title}
+CATEGORY: ${category}
 AUDIENCE: ${theme.audience}
 TONE: ${theme.tone}
 CONTEXT: ${theme.context}
 SEARCH INTENT: ${keywordResult.intent}
 
-REQUIREMENTS:
+CONTENT REQUIREMENTS:
 - Length: 900–1200 words (not counting frontmatter)
-- Use the target keyword naturally in: title, first paragraph, at least 2 H2 subheadings, conclusion
+- Use the target keyword naturally in: first paragraph, at least 2 H2 subheadings, conclusion
 - Structure: intro → 3–5 H2 sections → conclusion with a soft CTA
 - Use ## and ### headings, short paragraphs, bullet lists where appropriate
 - Write for humans first — no keyword stuffing
-- Pick the most fitting category from this list: ${categoryOptions}
+- Be SPECIFIC and ORIGINAL — avoid generic "10 ways to improve" type content
+- Include concrete examples, real scenarios, or data where possible
 - Write a meta description for the "description" field (150–160 characters)
 
-Respond ONLY with valid markdown starting with the frontmatter — no preamble, no explanation:
+Respond ONLY with valid markdown starting with the frontmatter — no preamble:
 
 ---
 title: "${keywordResult.title}"
 description: "<150-160 char meta description>"
 date: "${date}"
-category: "<pick one: ${categoryOptions}>"
+category: "${category}"
 tab: "${theme.tab}"
 keyword: "${keywordResult.keyword}"
 draft: true
@@ -82,20 +84,15 @@ draft: true
     model: "llama-3.3-70b-versatile",
     messages: [{ role: "user", content: prompt }],
     max_tokens: 2500,
-    temperature: 0.75,
+    temperature: 0.8,
   });
 
   const content = (completion.choices[0]?.message?.content ?? "").trim();
 
   const descriptionMatch = content.match(/description:\s*["']?(.+?)["']?\n/);
-  const categoryMatch = content.match(/category:\s*["']?(.+?)["']?\n/);
-
   const description = descriptionMatch
     ? descriptionMatch[1].replace(/^["']|["']$/g, "")
     : "";
-  const category = categoryMatch
-    ? categoryMatch[1].replace(/^["']|["']$/g, "")
-    : theme.categoryOptions[0];
 
   return {
     slug: slugify(keywordResult.title),
