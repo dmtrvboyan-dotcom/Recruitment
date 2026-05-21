@@ -19,6 +19,13 @@ const TESTIMONIALS = [
       "They have a refreshingly approachable communication style, always move quickly when presenting candidates, and bring great energy to the process. We've made more hires through Recruitment.bg than through any other recruitment partner.",
   },
   {
+    name: "Denys Yukno",
+    role: "General Manager",
+    company: "Dataart Bulgaria",
+    quote:
+      "Our team, responsible for working with recruitment agencies, collaborated with recruitment.bg during a period of very high demand. We recommend them for cooperation.",
+  },
+  {
     name: "Rady Chamova",
     role: "HR Director",
     company: "Despark",
@@ -81,6 +88,7 @@ const TESTIMONIALS = [
     quote:
       "In the HR space, it's rare to come across recruitment partners that build such a consistent and professional presence in IT recruitment. I truly appreciate their understanding, communication, and the way they approach their work.",
   },
+   
 ]
 
 function useInView(threshold = 0.15) {
