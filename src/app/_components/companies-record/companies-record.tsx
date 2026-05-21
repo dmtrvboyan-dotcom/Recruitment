@@ -18,7 +18,7 @@ function MarqueeRow({
   duration?: string
   variant?: "white" | "coral"
 }) {
-  const items = [...companies, ...companies, ...companies, ...companies]
+const items = [...companies, ...companies];
 
   const textColor =
     variant === "coral" ? "text-brand-coral/60" : "text-brand-white/35"
@@ -50,17 +50,7 @@ function MarqueeRow({
         ))}
       </div>
 
-      <style>{`
-        @keyframes marquee {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-25%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          [style*="animation: marquee"] {
-            animation: none !important;
-          }
-        }
-      `}</style>
+   
     </div>
   )
 }
