@@ -31,6 +31,16 @@ export interface CtaData {
     text: string
     href: string
   }
+  whatWeCoverCTA: {
+    text: string
+    href: string
+  }
+  whatWeCoverSecondCTA: {
+    text: string
+    href: string
+  }
+
+
 }
 
 export const HERO_DATA: HeroData = {
@@ -90,4 +100,12 @@ export const CTA_DATA: CtaData = {
     text: "Talk to an Expert",
     href: "/#companies",
   },
+  whatWeCoverCTA: {
+    text: "Start a permanent security search",
+    href: "/services/permanent-it-recruitment",
+  },
+   whatWeCoverSecondCTA: {
+    text: "Hiring a CISO or Security VP?",
+    href: "/services/confidential-headhunting-executive-search",
+  }
 }

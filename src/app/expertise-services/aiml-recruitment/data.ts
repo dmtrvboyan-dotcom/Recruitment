@@ -43,6 +43,18 @@ export interface CtaData {
     text: string
     href: string
   }
+  permanentRecruitmentCTA: {
+    text: string
+    href: string
+  }
+  heroCTA: {
+    text: string
+    href: string
+  }
+  whatYouGet: {
+    text: string
+    href: string
+  }
 }
 
 export const HERO_DATA: HeroData = {
@@ -110,7 +122,7 @@ export const WHY_BULGARIA: WhyBulgariaData = {
     "AI chatbot and conversational developers",
     "Business intelligence and data analytics experts"
   ],
-    
+
   right: [
     "Deep learning and neural networks",
     "Predictive analytics and data modeling",
@@ -145,5 +157,17 @@ export const CTA_DATA: CtaData = {
   secondaryButton: {
     text: "Talk to an Expert",
     href: "/#companies",
+  },
+  permanentRecruitmentCTA: {
+    text: "Build your team permanently",
+    href: "/services/permanent-it-recruitment",
+  },
+  heroCTA: {
+    text: "Need an AI/MLOps contractor fast?",
+    href: "/services/contract-freelance-b2b-remote-recruitment",
+  },
+   whatYouGet: {
+    text: "See who we've built AI teams for?",
+    href: "/partnerships",
   },
 }

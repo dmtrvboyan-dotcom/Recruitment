@@ -135,6 +135,16 @@ export default function EcommerceRecruitment() {
               })}
             </div>
 
+            {/* CTAs: permanent hire + contract specialist — below roles grid */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.rolesWeCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.rolesWeCTA.text}
+              </AppButton>
+              <AppButton href={CTA_DATA.rolesWeSecondCTA.href} variant="navy" icon="arrow" className="sm:w-auto">
+                {CTA_DATA.rolesWeSecondCTA.text}
+              </AppButton>
+            </div>
+
           </div>
         </section>
       </ScrollReveal>
@@ -192,6 +202,8 @@ export default function EcommerceRecruitment() {
               })}
             </div>
 
+           
+
           </div>
         </section>
       </ScrollReveal>
@@ -241,6 +253,13 @@ export default function EcommerceRecruitment() {
                   </div>
                 )
               })}
+            </div>
+
+            {/* CTA: full recruitment process — below the 3-step overview */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.howWeHelpCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.howWeHelpCTA.text}
+              </AppButton>
             </div>
 
           </div>
@@ -299,13 +318,7 @@ export default function EcommerceRecruitment() {
                   Our fee is only due on a successful placement.
                 </p>
               </div>
-              <Link
-                href="/#expertise-services"
-                className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-white/25 hover:text-brand-coral transition-colors flex items-center gap-1"
-              >
-                All expertise services
-                <ArrowUpRight className="w-3 h-3" />
-              </Link>
+             
             </div>
 
           </div>

@@ -27,7 +27,7 @@ export default function SaasRecruitmentPage() {
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-     
+
 
         {/* Glow blobs */}
         <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
@@ -136,6 +136,9 @@ export default function SaasRecruitmentPage() {
               })}
             </div>
 
+
+
+
             {/* Footer Bar */}
             <div className="mt-8 rounded-2xl border border-brand-navy/8 bg-brand-navy/3 px-7 py-5 flex flex-col md:flex-row items-center gap-5 md:justify-between">
               <div className="flex items-center gap-4">
@@ -165,7 +168,14 @@ export default function SaasRecruitmentPage() {
                 })}
               </div>
             </div>
-
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.whatWeCoverCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.whatWeCoverCTA.text}
+              </AppButton>
+              <AppButton href={CTA_DATA.whatWeCoverSecondCTA.href} variant="navy" icon="arrow" className="sm:w-auto">
+                {CTA_DATA.whatWeCoverSecondCTA.text}
+              </AppButton>
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -222,7 +232,12 @@ export default function SaasRecruitmentPage() {
                 )
               })}
             </div>
-
+           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.perfectForCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.perfectForCTA.text}
+              </AppButton>
+              
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -231,7 +246,7 @@ export default function SaasRecruitmentPage() {
       <ScrollReveal>
         <section className="relative w-full bg-brand-white overflow-hidden">
 
-        
+
           <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32 text-center">
 
             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">

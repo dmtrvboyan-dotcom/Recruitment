@@ -71,6 +71,12 @@ export default function AiMlRecruitment() {
               </p>
             )}
 
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.heroCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.heroCTA.text}
+              </AppButton>
+            </div>
+
             {/* Divider */}
             <div className="flex items-center justify-center gap-4 mt-12">
               <div className="h-px w-16 bg-brand-white/10" />
@@ -112,6 +118,12 @@ export default function AiMlRecruitment() {
                   </p>
                 </div>
               ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.permanentRecruitmentCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.permanentRecruitmentCTA.text}
+              </AppButton>
             </div>
 
           </div>
@@ -170,7 +182,11 @@ export default function AiMlRecruitment() {
                 )
               })}
             </div>
-
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.whatYouGet.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.whatYouGet.text}
+              </AppButton>
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -180,7 +196,7 @@ export default function AiMlRecruitment() {
         <section className="relative w-full bg-brand-white overflow-hidden">
 
           {/* Diagonal accent */}
-        
+
 
           <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32 text-center">
 
@@ -198,7 +214,7 @@ export default function AiMlRecruitment() {
               {CTA_DATA.description}
             </p>
 
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
               <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
                 {CTA_DATA.primaryButton.text}

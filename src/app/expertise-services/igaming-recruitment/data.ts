@@ -37,6 +37,18 @@ export interface CtaData {
     text: string
     href: string
   }
+  itRecruitmentCTA: {
+    text: string
+    href: string
+  }
+   itSecondRecruitmentCTA: {
+    text: string
+    href: string
+  }
+  heroCTA: {
+    text: string
+    href: string
+  }
 }
 
 export interface StatItem {
@@ -226,5 +238,17 @@ export const CTA_DATA: CtaData = {
   secondaryButton: {
     text: "Learn More About Our Team",
     href: "/about",
+  },
+   heroCTA: {
+    text: "Need an iGaming contractor fast?",
+    href: "/services/contract-freelance-b2b-remote-recruitment",
+  },
+   itRecruitmentCTA: {
+    text: "Start a permanent iGaming search",
+    href: "/services/permanent-it-recruitment",
+  },
+    itSecondRecruitmentCTA: {
+    text: "Need a Compliance Director or VP?",
+    href: "/services/confidential-headhunting-executive-search",
   },
 }

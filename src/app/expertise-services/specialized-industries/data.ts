@@ -18,6 +18,12 @@ export interface IndustryData {
   description: string
   highlights: string[]
   slug: string
+  iconBg?: string
+  color?: string
+  cta?: {
+    text: string
+    href: string
+  }
 }
 
 export interface HeroData {
@@ -37,6 +43,12 @@ export interface CtaData {
     text: string
     href: string
   }
+  // Below "Why It Matters" / domain knowledge section
+  domainKnowledgeCTA: {
+    text: string
+    href: string
+  }
+ 
 }
 
 export const HERO_DATA: HeroData = {
@@ -59,6 +71,8 @@ export const INDUSTRIES: IndustryData[] = [
       "Fraud detection and risk management systems",
       "Core banking and financial data platforms",
     ],
+    // Inline CTA: routes fintech visitors to dedicated vertical page
+    
   },
   {
     icon: ShoppingCart,
@@ -72,8 +86,10 @@ export const INDUSTRIES: IndustryData[] = [
       "Payment integrations and checkout optimization",
       "Omnichannel and customer journey platforms",
     ],
+    // Inline CTA: routes ecommerce visitors to dedicated vertical page
+    
   },
-   {
+  {
     icon: Zap,
     title: "Renewable Energy",
     slug: "renewable-energy",
@@ -137,6 +153,8 @@ export const INDUSTRIES: IndustryData[] = [
       "Recommendation and user engagement algorithms",
       "AdTech and monetization systems",
     ],
+    // Inline CTA: routes iGaming / AI visitors to dedicated vertical pages
+  
   },
   {
     icon: Scale,
@@ -151,7 +169,6 @@ export const INDUSTRIES: IndustryData[] = [
       "AI-driven legal research and analytics solutions",
     ],
   },
-
   {
     icon: GraduationCap,
     title: "EdTech",
@@ -169,8 +186,7 @@ export const INDUSTRIES: IndustryData[] = [
 
 export const CTA_DATA: CtaData = {
   title: "Learn More About Our Reach",
-  description:
-    "",
+  description: "",
   primaryButton: {
     text: "Contact Us",
     href: "/contacts",
@@ -179,6 +195,13 @@ export const CTA_DATA: CtaData = {
     text: "Learn More About Our Team",
     href: "/about",
   },
+  // Below "Why It Matters" / domain knowledge section
+  domainKnowledgeCTA: {
+    text: "See our full recruitment process",
+    href: "/process",
+  },
+  // CTA section bottom row — replaces plain ArrowUpRight link
+ 
 }
 
 export const STATS = [

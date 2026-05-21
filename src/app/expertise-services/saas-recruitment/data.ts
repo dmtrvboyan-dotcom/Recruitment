@@ -59,6 +59,18 @@ export interface CtaData {
     text: string
     href: string
   }
+   whatWeCoverCTA: {
+    text: string
+    href: string
+  }
+   whatWeCoverSecondCTA: {
+    text: string
+    href: string
+  }
+   perfectForCTA: {
+    text: string
+    href: string
+  }
 }
 
 export interface FooterBarItem {
@@ -69,7 +81,7 @@ export interface FooterBarItem {
 export const HERO_DATA: HeroData = {
   tagline: "SaaS Recruitment",
   title: "SaaS Specialists Acquisition & B2B Software Hiring",
-  description:"We specialize in SaaS recruitment, helping companies hire top specialists for cloud-based software, B2B SaaS platforms, and subscription products.",
+  description: "We specialize in SaaS recruitment, helping companies hire top specialists for cloud-based software, B2B SaaS platforms, and subscription products.",
 }
 
 export const WHAT_WE_COVER_HEADER: SectionHeader = {
@@ -187,7 +199,7 @@ export const WHAT_WE_COVER: RoleItem[] = [
       "ERP Implementation Consultants",
     ],
   },
- 
+
 ]
 
 export const PERFECT_FOR_HEADER: SectionHeader = {
@@ -245,4 +257,16 @@ export const CTA_DATA: CtaData = {
     text: "Talk to a SaaS Recruiter",
     href: "/#companies",
   },
+  whatWeCoverCTA: {
+    text: "Start a SaaS team search",
+    href: "/services/permanent-it-recruitment",
+  },
+  whatWeCoverSecondCTA: {
+    text: "Need to scale  fast?",
+    href: "/services/contract-freelance-b2b-remote-recruitment",
+  },
+  perfectForCTA: {
+    text: "See Our EoR",
+    href: "/services/contract-freelance-b2b-remote-recruitment",
+  }
 }

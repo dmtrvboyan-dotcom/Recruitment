@@ -38,8 +38,6 @@ export default function SpecializedIndustries() {
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
-
-
         {/* Glow blobs */}
         <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
         <div className="absolute top-10 right-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
@@ -167,6 +165,15 @@ export default function SpecializedIndustries() {
                           </span>
                         ))}
                       </div>
+
+                      {/* Inline CTA — only rendered for cards that have a dedicated vertical page */}
+                      {industry.cta && (
+                        <div className="mt-5 pt-4 border-t border-brand-navy/5">
+                          <AppButton href={industry.cta.href} icon="arrow" className="w-full sm:w-auto">
+                            {industry.cta.text}
+                          </AppButton>
+                        </div>
+                      )}
                     </div>
                   </article>
                 )
@@ -250,6 +257,13 @@ export default function SpecializedIndustries() {
               ))}
             </div>
 
+            {/* CTA: full recruitment process — domain expertise claim needs methodology proof */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.domainKnowledgeCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.domainKnowledgeCTA.text}
+              </AppButton>
+            </div>
+
           </div>
         </section>
       </ScrollReveal>
@@ -325,7 +339,7 @@ export default function SpecializedIndustries() {
               </AppButton>
             </div>
 
-            {/* Bottom row */}
+            {/* Bottom row — client portfolio + salary benchmarks replace the plain link */}
             <div className="mt-16 pt-10 border-t border-brand-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-1 h-8 rounded-full bg-brand-coral" />
@@ -334,13 +348,7 @@ export default function SpecializedIndustries() {
                   Our fee is only due on a successful placement.
                 </p>
               </div>
-              <Link
-                href="/#expertise-services"
-                className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-white/25 hover:text-brand-coral transition-colors flex items-center gap-1"
-              >
-                All expertise services
-                <ArrowUpRight className="w-3 h-3" />
-              </Link>
+              
             </div>
 
           </div>

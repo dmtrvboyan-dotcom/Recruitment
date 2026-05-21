@@ -60,6 +60,14 @@ export interface CtaData {
     text: string
     href: string
   }
+   spectrumCTA: {
+    text: string
+    href: string
+  }
+    whyCTA: {
+    text: string
+    href: string
+  }
 }
 
 export const HERO_DATA: HeroData = {
@@ -246,4 +254,13 @@ export const CTA_DATA: CtaData = {
     text: "Learn more about our team",
     href: "/about",
   },
+  spectrumCTA: {
+    text: "Start a permanent fintech search",
+    href: "/services/permanent-it-recruitment",
+  },
+  whyCTA: {
+    text: "see Our EoR ",
+    href: "/services/employer-of-record",
+  },
+  
 }

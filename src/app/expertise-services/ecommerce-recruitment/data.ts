@@ -63,6 +63,19 @@ export interface CtaData {
     text: string
     href: string
   }
+  rolesWeCTA: {
+    text: string
+    href: string
+  }
+  rolesWeSecondCTA: {
+    text: string
+    href: string
+  }
+
+  howWeHelpCTA: {
+    text: string
+    href: string
+  }
 }
 
 export const HERO_DATA: HeroData = {
@@ -265,5 +278,21 @@ export const CTA_DATA: CtaData = {
   secondaryButton: {
     text: "Explore More About Our Team",
     href: "/about",
+  },
+  // After roles grid (Dev / Platform categories)
+  rolesWeCTA: {
+    text: "Start a ecommerce search",
+    href: "/services/permanent-it-recruitment",
+  },
+  // After Digital Marketing & Growth category
+  rolesWeSecondCTA: {
+    text: "Need a growth specialist?",
+    href: "/services/contract-freelance-b2b-remote-recruitment",
+  },
+ 
+  // After "How We Help" 3-step process
+  howWeHelpCTA: {
+    text: "See our full recruitment process",
+    href: "/process",
   },
 }

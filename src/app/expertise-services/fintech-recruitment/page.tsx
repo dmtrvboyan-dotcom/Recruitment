@@ -173,6 +173,11 @@ export default function FintechRecruitmentPage() {
                 )
               })}
             </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.spectrumCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.spectrumCTA.text}
+              </AppButton>
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -225,7 +230,11 @@ export default function FintechRecruitmentPage() {
                 </div>
               ))}
             </div>
-
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.whyCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.whyCTA.text}
+              </AppButton>
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -271,12 +280,12 @@ export default function FintechRecruitmentPage() {
                 {CTA_DATA.primaryButton.text}
               </AppButton>
 
-              <AppButton href={CTA_DATA.secondaryButton.href}  variant="navy" className="w-[95%] sm:w-auto">
+              <AppButton href={CTA_DATA.secondaryButton.href} variant="navy" className="w-[95%] sm:w-auto">
                 {CTA_DATA.secondaryButton.text}
               </AppButton>
             </div>
 
-          
+
 
             <div className="mt-16 pt-10 border-t border-brand-navy/8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">

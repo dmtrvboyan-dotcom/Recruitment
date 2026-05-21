@@ -67,6 +67,12 @@ export default function IGamingRecruitmentPage() {
               {HERO_DATA.description}
             </p>
 
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.heroCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.heroCTA.text}
+              </AppButton>
+            </div>
+
             {/* Stats row */}
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 mt-14">
               {STATS_DATA.map((stat, i) => (
@@ -147,6 +153,15 @@ export default function IGamingRecruitmentPage() {
                   </div>
                 )
               })}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.itRecruitmentCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.itRecruitmentCTA.text}
+              </AppButton>
+              <AppButton href={CTA_DATA.itSecondRecruitmentCTA.href} variant="navy" icon="arrow" className="sm:w-auto">
+                {CTA_DATA.itSecondRecruitmentCTA.text}
+              </AppButton>
             </div>
 
           </div>
@@ -258,7 +273,7 @@ export default function IGamingRecruitmentPage() {
               </AppButton>
             </div>
 
-{/* 
+            {/* 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 asChild

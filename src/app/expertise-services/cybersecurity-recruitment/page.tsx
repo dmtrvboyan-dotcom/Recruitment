@@ -130,6 +130,15 @@ export default function RecruitmentAgencyBulgariaPage() {
               })}
             </div>
 
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.whatWeCoverCTA.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.whatWeCoverCTA.text}
+              </AppButton>
+              <AppButton href={CTA_DATA.whatWeCoverSecondCTA.href} variant="navy" icon="arrow" className="sm:w-auto">
+                {CTA_DATA.whatWeCoverSecondCTA.text}
+              </AppButton>
+            </div>
+
           </div>
         </section>
       </ScrollReveal>
@@ -149,7 +158,7 @@ export default function RecruitmentAgencyBulgariaPage() {
             SECURE
           </div>
 
-      
+
 
           <div className="relative max-w-5xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32 text-center">
 
@@ -167,12 +176,12 @@ export default function RecruitmentAgencyBulgariaPage() {
               {CTA_DATA.description}
             </p>
 
-           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
-                      <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
-                        {CTA_DATA.primaryButton.text}
-                      </AppButton>
-                    </div>
-        
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.primaryButton.text}
+              </AppButton>
+            </div>
+
 
             {/* Bottom row */}
             <div className="mt-16 pt-10 border-t border-brand-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
