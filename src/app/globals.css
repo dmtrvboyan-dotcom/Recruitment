@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-
-
 @source "../**/*.{ts,tsx}";
 
 @plugin "@tailwindcss/typography";
@@ -60,9 +58,7 @@
   
 
 
-  /* background */
-      --color-brand-navy: #1A1A2E;
-    --color-brand-blue: #085689;
+      --color-brand-blue: #085689;
     --color-accent-soft: #4DA8DA;
 
 
