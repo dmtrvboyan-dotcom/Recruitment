@@ -23,8 +23,7 @@ import {
   Plus
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { AppButton } from '@/components/ui/app-button';
-
+import { AppButton } from "@/components/ui/app-button"
 
 import {
   candidatesMetadata,
@@ -62,22 +61,20 @@ function useInView(threshold = 0.15) {
 }
 
 
+/* ─────────────────────────── HERO ─────────────────────────── */
 
 const HeroSection = memo(function HeroSection() {
   return (
     <section className="relative w-full min-h-[90vh] flex items-end overflow-hidden bg-brand-navy">
 
-      {/* Large watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <span className="text-[25vw] font-black uppercase text-brand-white/[0.03] leading-none tracking-tighter whitespace-nowrap">
           CAREERS
         </span>
       </div>
 
-      {/* Coral glow top-right */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-coral/10 blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
 
-      {/* Bottom wave transition */}
       <div className="absolute bottom-0 left-0 w-full pointer-events-none">
         <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" className="w-full block" preserveAspectRatio="none">
           <path fill="#f9f9fb" d="M0,100 L0,60 Q400,10 720,45 Q1040,80 1440,30 L1440,100 Z" />
@@ -86,23 +83,18 @@ const HeroSection = memo(function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 pt-40 pb-32 lg:pb-44 w-full">
 
-        {/* Eyebrow */}
         <span className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-brand-coral block mb-5">
           {heroData.tagline}
         </span>
 
-        {/* Headline */}
         <h1 className="text-[clamp(3rem,10vw,8.5rem)] font-black leading-none tracking-tight text-brand-white mb-8 max-w-5xl">
           {heroData.title}
         </h1>
 
-        {/* Sub + CTA row */}
         <div className="flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-16">
           <p className="text-base sm:text-lg text-brand-white/55 max-w-lg leading-relaxed">
             {heroData.subtitle}
           </p>
-
-
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
             <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
@@ -113,11 +105,8 @@ const HeroSection = memo(function HeroSection() {
               {heroData.secondaryCta.text}
             </AppButton>
           </div>
-
-
         </div>
 
-        {/* Stats strip */}
         <div className="mt-16 flex flex-wrap gap-10 sm:gap-16">
           {[
             { value: "4–8", unit: "weeks", label: "avg. time to offer" },
@@ -143,6 +132,7 @@ const HeroSection = memo(function HeroSection() {
 
 const HowItWorksSection = memo(function HowItWorksSection() {
   const { ref: headerRef, visible: headerVisible } = useInView()
+  const { ref: ctaRef, visible: ctaVisible } = useInView()
 
   return (
     <section id="how-it-works" className="relative w-full bg-brand-white overflow-hidden">
@@ -207,18 +197,34 @@ const HowItWorksSection = memo(function HowItWorksSection() {
           })}
         </div>
 
+      
+        <div
+          ref={ctaRef}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+          style={{
+            opacity: ctaVisible ? 1 : 0,
+            transition: "opacity 0.7s ease 200ms",
+          }}
+        >
+          <AppButton href="/job-listings" icon="arrow" className="sm:w-auto">
+            Browse open roles
+          </AppButton>
+          <AppButton href="/join-talent-network" variant="navy" icon="arrow" className="sm:w-auto">
+            Freelancer? Join our B2B network
+          </AppButton>
+        </div>
+
       </div>
     </section>
   )
 })
 
-
-// HERE
-{/* ─────────────────────────── MEET THE TEAM ─────────────────────────── */ }
+/* ─────────────────────────── MEET THE TEAM ─────────────────────────── */
 
 const MeetTheTeamSection = memo(function MeetTheTeamSection() {
   const { ref: headerRef, visible: headerVisible } = useInView()
   const { ref: contentRef, visible: contentVisible } = useInView()
+  const { ref: ctaRef, visible: ctaVisible } = useInView()
 
   return (
     <section className="relative w-full bg-brand-white overflow-hidden">
@@ -245,7 +251,6 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
           </p>
         </div>
 
-        {/* Full-width image */}
         <div
           ref={contentRef}
           style={{
@@ -263,10 +268,23 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
           </div>
 
-
           <div className="max-w-3xl mx-auto mt-8">
             <TeamCarousel showQuote={false} />
           </div>
+        </div>
+
+      
+        <div
+          ref={ctaRef}
+          className="mt-10 flex justify-center"
+          style={{
+            opacity: ctaVisible ? 1 : 0,
+            transition: "opacity 0.7s ease 200ms",
+          }}
+        >
+          <AppButton href="/partnerhships" variant="navy" icon="arrow" className="sm:w-auto">
+            See our partner companies
+          </AppButton>
         </div>
 
       </div>
@@ -326,7 +344,7 @@ const YourGoalsSection = memo(function YourGoalsSection() {
                   <Icon className="w-6 h-6 text-brand-coral" strokeWidth={1.6} />
                 </div>
                 <div>
-                  <h3 className="text-base font-black uppercase tracking-tight text-brand-white mb-2 ">
+                  <h3 className="text-base font-black uppercase tracking-tight text-brand-white mb-2">
                     {goal.title}
                   </h3>
                   <p className="text-sm text-brand-white/45 leading-relaxed">
@@ -423,6 +441,7 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
   )
 })
 
+/* ─────────────────────────── OPPORTUNITIES ─────────────────────────── */
 
 const OpportunitiesSection = memo(function OpportunitiesSection() {
   const { ref: leftRef, visible: leftVisible } = useInView()
@@ -542,15 +561,10 @@ const OpportunitiesSection = memo(function OpportunitiesSection() {
 
         </div>
 
-        {/* Bottom pill */}
-
-
       </div>
     </section>
   )
-});
-
-<PeopleTestimonialsSection />
+})
 
 /* ─────────────────────────── TESTIMONIAL ─────────────────────────── */
 
@@ -572,7 +586,6 @@ const TestimonialSection = memo(function TestimonialSection() {
           <div className="absolute -top-20 -left-20 w-72 h-72 bg-brand-coral/10 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-          {/* Decorative quote mark */}
           <div className="relative text-[8rem] font-black text-brand-coral/15 leading-none mb-4 -mt-4">&ldquo;</div>
 
           <blockquote
@@ -595,7 +608,6 @@ const TestimonialSection = memo(function TestimonialSection() {
             {testimonialData.author}
           </p>
 
-          {/* Decorative dot grid */}
           <div className="absolute top-8 right-8 hidden sm:grid grid-cols-5 gap-2 opacity-15">
             {Array.from({ length: 25 }).map((_, i) => (
               <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
@@ -618,7 +630,6 @@ const FAQSection = memo(function FAQSection() {
     <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
       <div className="max-w-4xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
-        {/* Header - untouched */}
         <div
           ref={headerRef}
           className="mb-14"
@@ -638,7 +649,6 @@ const FAQSection = memo(function FAQSection() {
           </h2>
         </div>
 
-        {/* Q&A list */}
         <div ref={listRef} className="space-y-3">
           {faqData.items.map((faq, i) => {
             const isOpen = open === i
@@ -661,12 +671,9 @@ const FAQSection = memo(function FAQSection() {
                   aria-expanded={isOpen}
                 >
                   <span className="flex items-center gap-4 sm:gap-6 min-w-0">
-                    {/* Number + Q label */}
                     <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-brand-coral tabular-nums shrink-0">
                       {number}. Q
                     </span>
-
-                    {/* Question */}
                     <span
                       className={`text-sm sm:text-base font-black uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${isOpen
                         ? "text-brand-coral"
@@ -677,7 +684,6 @@ const FAQSection = memo(function FAQSection() {
                     </span>
                   </span>
 
-                  {/* Plus / × button */}
                   <span
                     className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen
                       ? "bg-brand-coral rotate-45"
@@ -694,7 +700,6 @@ const FAQSection = memo(function FAQSection() {
                   </span>
                 </button>
 
-                {/* Answer - grid-row expand */}
                 <div
                   className="grid"
                   style={{
@@ -712,7 +717,6 @@ const FAQSection = memo(function FAQSection() {
                     </div>
                   </div>
                 </div>
-
               </div>
             )
           })}
@@ -747,25 +751,22 @@ const CTASection = memo(function CTASection() {
             A real person will get back to you within one business day. No templates, no automated replies.
           </p>
 
-
-
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
             <AppButton href={ctaData.primaryCta.href} icon="arrow" className="sm:w-auto">
               {ctaData.primaryCta.text}
             </AppButton>
 
             <AppButton href={ctaData.secondaryCta.href} variant="outline" className="sm:w-auto">
-             {ctaData.secondaryCta.text}
+              {ctaData.secondaryCta.text}
             </AppButton>
           </div>
-
-        
         </div>
       </div>
     </section>
   )
 })
 
+/* ─────────────────────────── PAGE ─────────────────────────── */
 
 export default function CandidatesPage() {
 
@@ -778,7 +779,7 @@ export default function CandidatesPage() {
     { id: "opportunities", label: "What We Can Offer" },
     { id: "testimonials", label: "What Others are Saying" },
     { id: "faq", label: "Have any Questions?" },
-  ];
+  ]
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
@@ -818,7 +819,6 @@ export default function CandidatesPage() {
       </section>
 
       <CTASection />
-
 
       <SectionNav sections={sections} headerOffset={80} />
       <BackToTop hideOnMobile />

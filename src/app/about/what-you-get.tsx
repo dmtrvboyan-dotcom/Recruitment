@@ -2,6 +2,7 @@
 
 import { memo, useRef, useState, useEffect } from "react"
 import { Check, X } from "lucide-react"
+import { AppButton } from "@/components/ui/app-button"
 
 const WHAT_YOU_GET = [
   "Motivated, well-trained and continuously developing recruiters",
@@ -87,9 +88,7 @@ export const WhatYouGet = memo(function WhatYouGet() {
         aria-hidden
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
-        <span
-          className="text-[18vw] font-black uppercase tracking-tighter text-brand-navy/[0.025] whitespace-nowrap leading-none"
-        >
+        <span className="text-[18vw] font-black uppercase tracking-tighter text-brand-navy/[0.025] whitespace-nowrap leading-none">
           VS
         </span>
       </div>
@@ -131,7 +130,6 @@ export const WhatYouGet = memo(function WhatYouGet() {
               transition: "opacity 0.7s ease, transform 0.7s ease",
             }}
           >
-            {/* card glow accent */}
             <div className="absolute -top-12 -left-12 w-48 h-48 bg-brand-coral/15 rounded-full pointer-events-none blur-2xl" />
 
             <div className="relative">
@@ -177,19 +175,17 @@ export const WhatYouGet = memo(function WhatYouGet() {
               transition: "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
             }}
           >
-            {/* decorative X watermark */}
-           
             <div className="relative">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-8 rounded-full bg-brand-navy/10  flex items-center justify-center shrink-0">
-                  <X className="w-4 h-4 text-brand-navy/50 " strokeWidth={2.5} />
+                <div className="w-8 h-8 rounded-full bg-brand-navy/10 flex items-center justify-center shrink-0">
+                  <X className="w-4 h-4 text-brand-navy/50" strokeWidth={2.5} />
                 </div>
-                <span className="text-xs font-bold tracking-[0.25em] uppercase text-brand-navy/40 ">
+                <span className="text-xs font-bold tracking-[0.25em] uppercase text-brand-navy/40">
                   What we're not
                 </span>
               </div>
 
-              <ul className="space-y-0 ">
+              <ul className="space-y-0">
                 {WHAT_WE_ARE_NOT.map((item, i) => (
                   <ListItem
                     key={i}
@@ -219,6 +215,19 @@ export const WhatYouGet = memo(function WhatYouGet() {
             <span className="font-bold text-brand-navy">No templates, no automated replies.</span>{" "}
             A real person will get back to you within one business day. We're not the right fit for everyone - and that's exactly how we like it.
           </p>
+        </div>
+
+        {/* CTA: trust earned from values → natural next step is service discovery */}
+        <div
+          className="mt-8 flex justify-start"
+          style={{
+            opacity: headerVisible ? 1 : 0,
+            transition: "opacity 0.7s ease 650ms",
+          }}
+        >
+          <AppButton href="/#services" variant="navy" icon="arrow" className="sm:w-auto">
+            Explore our services
+          </AppButton>
         </div>
 
       </div>

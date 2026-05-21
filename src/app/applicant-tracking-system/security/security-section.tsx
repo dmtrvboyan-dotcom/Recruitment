@@ -2,6 +2,7 @@
 
 import { memo, useRef, useState, useEffect } from "react"
 import { securityData } from "./data"
+import { AppButton } from "@/components/ui/app-button"
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
@@ -25,9 +26,6 @@ export const SecuritySection = memo(function SecuritySection() {
 
   return (
     <section className="relative w-full bg-brand-white overflow-hidden">
-
-      {/* Diagonal background texture */}
-    
 
       {/* Glow blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-brand-coral/6 rounded-full blur-3xl pointer-events-none" />
@@ -94,6 +92,28 @@ export const SecuritySection = memo(function SecuritySection() {
               <div className="h-8 w-px bg-brand-coral/0 group-hover:bg-brand-coral/20 transition-colors duration-300 shrink-0" />
             </div>
           ))}
+
+          {/* CTA: GDPR / compliance focus signals international hiring — natural EoR bridge.
+              Fades in after the last list item settles. */}
+          <div
+            className="mt-10 pt-8 border-t border-brand-navy/8 flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4"
+            style={{
+              opacity: listVisible ? 1 : 0,
+              transition: `opacity 0.5s ease ${securityData.items.length * 80 + 100}ms`,
+            }}
+          >
+            <p className="text-sm text-brand-navy/50 leading-relaxed max-w-xs">
+              Hiring across borders? Compliance is only one piece of the puzzle.
+            </p>
+            <AppButton
+              href="/services/employer-of-record"
+              variant="navy"
+              icon="arrow"
+              className="sm:w-auto shrink-0"
+            >
+              Hiring across borders? See our EoR service
+            </AppButton>
+          </div>
         </div>
 
       </div>

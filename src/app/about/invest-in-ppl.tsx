@@ -14,6 +14,7 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { TeamCarousel } from "../_components/team-section/team-carousel"
+import { AppButton } from "@/components/ui/app-button"
 
 interface TrainingItem {
   id: number
@@ -113,7 +114,6 @@ const TrainingCard = memo(function TrainingCard({
         transition: `opacity 0.5s ease ${index * 60}ms, transform 0.5s ease ${index * 60}ms, box-shadow 0.3s ease, border-color 0.3s ease`,
       }}
     >
-      {/* subtle corner accent */}
       <div className="absolute top-0 right-0 w-16 h-16 bg-brand-coral/[0.04] rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="flex items-start justify-between">
@@ -156,7 +156,7 @@ export const InvestInPeople = memo(function InvestInPeople() {
   return (
     <section className="relative w-full bg-white overflow-hidden">
 
-      {/* Background texture: faint diagonal rule lines */}
+      {/* Background texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
@@ -206,7 +206,6 @@ export const InvestInPeople = memo(function InvestInPeople() {
 
         {/* Bottom banner */}
         <div className="relative rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-12 py-10 sm:py-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          {/* subtle coral glow */}
           <div className="absolute top-0 left-0 w-64 h-64 bg-brand-coral/10 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
@@ -219,16 +218,31 @@ export const InvestInPeople = memo(function InvestInPeople() {
             </p>
           </div>
 
-          {/* decorative dots grid */}
           <div className="relative hidden sm:grid grid-cols-5 gap-2 shrink-0 opacity-20">
             {Array.from({ length: 25 }).map((_, i) => (
               <div key={i} className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
             ))}
           </div>
         </div>
+
+
+
+        {/* Team carousel */}
         <div className="mt-15 max-w-3xl mx-auto">
           <TeamCarousel showQuote={false} />
         </div>
+
+
+        <div className="flex flex-col sm:flex-row items-center justify-center
+            gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12"
+        >          <AppButton href="/candidates" icon="arrow" className="sm:w-auto">
+            Looking for a job? Start here
+          </AppButton>
+          <AppButton href="/candidates#client-testimonials" variant="navy" icon="arrow" className="sm:w-auto">
+            See what our clients say
+          </AppButton>
+        </div>
+
       </div>
     </section>
   )

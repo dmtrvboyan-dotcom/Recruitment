@@ -3,6 +3,7 @@
 import { memo, useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { benefitsData } from "./data"
+import { AppButton } from "@/components/ui/app-button"
 
 function useInView(threshold = 0.2) {
   const ref = useRef<HTMLDivElement>(null)
@@ -39,8 +40,6 @@ export const BenefitsSection = memo(function BenefitsSection() {
 
   return (
     <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
-
-
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
@@ -168,6 +167,19 @@ export const BenefitsSection = memo(function BenefitsSection() {
                 </div>
               </div>
             ))}
+
+            {/* CTA: ATS buyers often have a hiring problem too — cross-sell at the credibility peak,
+                near the time-to-hire stat that demonstrates results */}
+            <div className="mt-8 pt-6 border-t border-brand-navy/8">
+              <AppButton
+                href="/services/permanent-it-recruitment"
+                variant="navy"
+                icon="arrow"
+                className="sm:w-auto"
+              >
+                Need recruitment partners, not just software?
+              </AppButton>
+            </div>
           </div>
 
         </div>

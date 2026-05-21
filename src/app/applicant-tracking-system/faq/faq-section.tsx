@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Plus } from "lucide-react"
 import { faqData } from "./data"
+import { AppButton } from "@/components/ui/app-button"
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
@@ -32,7 +33,7 @@ export function FAQSection() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
-      {/* Radial glow — untouched */}
+      {/* Radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -43,7 +44,7 @@ export function FAQSection() {
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
-        {/* Header — untouched */}
+        {/* Header */}
         <div
           ref={headerRef}
           className="text-center mb-16 lg:mb-20"
@@ -72,7 +73,7 @@ export function FAQSection() {
             return (
               <div
                 key={index}
-                className="group relative rounded-2xl  overflow-hidden transition-all duration-300"
+                className="group relative rounded-2xl overflow-hidden transition-all duration-300"
                 style={{
                   opacity: listVisible ? 1 : 0,
                   transform: listVisible ? "translateY(0)" : "translateY(24px)",
@@ -88,7 +89,7 @@ export function FAQSection() {
                     : "none",
                 }}
               >
-                {/* Hover shimmer — untouched */}
+                {/* Hover shimmer */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
                   style={{
@@ -104,12 +105,9 @@ export function FAQSection() {
                   aria-expanded={isOpen}
                 >
                   <span className="flex items-center gap-4 sm:gap-5 min-w-0">
-                    {/* Number + Q label */}
                     <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-brand-coral tabular-nums shrink-0">
                       {number}. Q
                     </span>
-
-                    {/* Question */}
                     <h3
                       className={`font-black uppercase tracking-tight text-sm leading-snug transition-colors duration-300 ${
                         isOpen
@@ -121,7 +119,6 @@ export function FAQSection() {
                     </h3>
                   </span>
 
-                  {/* Plus / × button */}
                   <span
                     className="w-8 h-8 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300"
                     style={{
@@ -139,7 +136,7 @@ export function FAQSection() {
                   </span>
                 </button>
 
-                {/* Answer — grid-row expand */}
+                {/* Answer */}
                 <div
                   className="grid"
                   style={{
@@ -161,7 +158,6 @@ export function FAQSection() {
                   </div>
                 </div>
 
-
                 <div
                   className="absolute bottom-0 left-6 right-6 h-px transition-all duration-500 rounded-full"
                   style={{
@@ -173,6 +169,23 @@ export function FAQSection() {
               </div>
             )
           })}
+        </div>
+
+        <div
+          className="max-w-3xl mx-auto mt-12 flex flex-col sm:flex-row items-center justify-center gap-5 pt-8 border-t"
+          style={{ borderColor: "rgba(249,249,251,0.08)" }}
+        >
+         
+          <div className="flex flex-col sm:flex-row items-center gap-3">
+            {/* Primary: contact */}
+            <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
+              Contact our team
+            </AppButton>
+            {/* Secondary: blog — keeps researchers in the funnel while they evaluate */}
+            <AppButton href="/blog" variant="outline" icon="arrow" className="sm:w-auto">
+              ATS best practice guides
+            </AppButton>
+          </div>
         </div>
 
       </div>

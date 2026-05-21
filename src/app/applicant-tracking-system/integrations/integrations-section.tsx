@@ -2,6 +2,7 @@
 
 import { memo, useRef, useState, useEffect } from "react"
 import { integrationsData } from "./data"
+import { AppButton } from "@/components/ui/app-button"
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
@@ -26,8 +27,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
 
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
-
-  
 
       {/* Radial glow */}
       <div
@@ -154,6 +153,20 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
               </div>
             )
           })}
+        </div>
+
+        {/* CTA: ATS buyers are sceptical — real client logos validate the product.
+            Placed after the integrations grid where credibility is highest. */}
+        <div
+          className="mt-10 flex justify-center"
+          style={{
+            opacity: gridVisible ? 1 : 0,
+            transition: `opacity 0.5s ease ${integrationsData.items.length * 70 + 100}ms`,
+          }}
+        >
+          <AppButton href="/partnerships" icon="arrow" className="sm:w-auto">
+            See how our clients hire smarter
+          </AppButton>
         </div>
 
       </div>
