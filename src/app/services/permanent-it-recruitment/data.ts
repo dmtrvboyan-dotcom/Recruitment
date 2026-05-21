@@ -59,6 +59,8 @@ export interface CtaData {
   description: string
   primaryButton: { text: string; href: string }
   secondaryButton: { text: string; href: string }
+  specialismsBtn: { text: string; href: string }
+  processBtn: { text: string; href: string }
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -261,4 +263,14 @@ export const CTA_DATA: CtaData = {
     text: "Learn how we do it",
     href: "/process",
   },
+  specialismsBtn: {
+    text: "See Our Tech Specializations Hub",
+    href: "/tech-recruitment",
+  },
+  processBtn: {
+    text: "Our Full Recruitment Process",
+    href: "/process",
+  },
+
+
 }

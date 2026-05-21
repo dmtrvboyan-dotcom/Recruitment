@@ -185,19 +185,17 @@ export default function ExecutiveSearchPage() {
               {SERVICE_CARDS.map((card, i) => {
                 const Icon = card.icon
                 return (
-                  <Link
+                  <div
                     key={i}
-                    href={card.href}
                     className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-500 ease-out overflow-hidden"
+
                   >
-                    {/* Massive index */}
                     <div className="pt-1 shrink-0">
                       <span className="block text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
 
-                    {/* Content */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start gap-3 mb-3">
                         <div
@@ -212,7 +210,6 @@ export default function ExecutiveSearchPage() {
                         <h3 className="flex-1 text-base sm:text-lg font-bold text-brand-navy leading-tight pt-1 group-hover:text-brand-coral transition-colors duration-200">
                           {card.title}
                         </h3>
-                        <ArrowUpRight className="w-4 h-4 text-brand-navy/25 group-hover:text-brand-coral group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 shrink-0 mt-2" />
                       </div>
 
                       <p className="text-sm text-brand-navy/55 leading-relaxed mb-4">
@@ -236,7 +233,7 @@ export default function ExecutiveSearchPage() {
                       aria-hidden
                       className="absolute left-0 right-0 bottom-0 h-px w-0 bg-brand-coral group-hover:w-full transition-all duration-700 ease-out"
                     />
-                  </Link>
+                  </div>
                 )
               })}
             </div>
@@ -291,6 +288,14 @@ export default function ExecutiveSearchPage() {
                   />
                 </div>
               ))}
+            </div>
+               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.sectorsBtn.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.sectorsBtn.text}
+              </AppButton>
+               <AppButton variant="outline" href={CTA_DATA.sectorsBtnSecond.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.sectorsBtnSecond.text}
+              </AppButton>
             </div>
           </div>
         </section>
@@ -548,6 +553,12 @@ export default function ExecutiveSearchPage() {
               })}
             </div>
           </div>
+           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.whyUsBtn.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.whyUsBtn.text}
+              </AppButton>
+              
+            </div>
         </section>
       </ScrollReveal>
 

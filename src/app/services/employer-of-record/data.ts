@@ -33,7 +33,6 @@ export interface ServiceCard {
   tags: string[]
   accent: string
   iconBg: string
-  href: string
 }
 
 export interface BenefitItem {
@@ -90,7 +89,6 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Bulgaria", "Eastern Europe", "Global", "Fast Setup"],
     accent: "#FF6B4A",
     iconBg: "bg-brand-coral/15",
-    href: "/eor/hire-without-entity",
   },
   {
     icon: ShieldCheck,
@@ -100,7 +98,6 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Labor Law", "Contracts", "Tax & Social", "Benefits"],
     accent: "#FF6B4A",
     iconBg: "bg-brand-coral/15",
-    href: "/eor/compliance",
   },
   {
     icon: DollarSign,
@@ -110,7 +107,6 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Payroll", "Deductions", "Benefits", "Accuracy"],
     accent: "#FF6B4A",
     iconBg: "bg-brand-coral/15",
-    href: "/eor/payroll",
   },
   {
     icon: TrendingUp,
@@ -120,7 +116,6 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Scalable", "Global Teams", "Flexible", "Growth"],
     accent: "#FF6B4A",
     iconBg: "bg-brand-coral/15",
-    href: "/eor/scale",
   },
 ]
 
@@ -263,10 +258,14 @@ export const CTA = {
     "Let's help you hire faster, stay compliant and grow your business anywhere in the world.",
   primaryButton: {
     text: "Let's Talk About Your Hiring Needs",
-    href: "/#contact",
+    href: "/contacts",
   },
   secondaryButton: {
     text: "See how it works",
     href: "/process",
+  },
+  thirdButton: {
+    text: "Need payroll & compliance managed?",
+    href: "/services/it-payroll-compliance-advisory",
   },
 }

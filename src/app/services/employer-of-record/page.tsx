@@ -165,6 +165,13 @@ export default function EmployerOfRecordPage() {
               {HERO.description}
             </p>
 
+            <p className="text-sm text-white/45 mb-8 lg:mb-10">
+              Need help finding the talent first?{" "}
+              <Link href="/services/permanent-it-recruitment" className="text-brand-coral underline underline-offset-2 hover:text-brand-coral/80 transition-colors font-medium">
+                 See Permanent IT Recruitment →
+              </Link>
+            </p>
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <AppButton href={CTA.primaryButton.href} icon="arrow" className="sm:w-auto">
                 {CTA.primaryButton.text}
@@ -201,6 +208,7 @@ export default function EmployerOfRecordPage() {
               ))}
             </div>
           </div>
+          
         </div>
       </section>
 
@@ -244,9 +252,8 @@ export default function EmployerOfRecordPage() {
               {SERVICE_CARDS.map((card, i) => {
                 const Icon = card.icon
                 return (
-                  <Link
+                  <div
                     key={i}
-                    href={card.href}
                     className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-500 ease-out overflow-hidden"
                   >
                     {/* Massive index */}
@@ -287,6 +294,7 @@ export default function EmployerOfRecordPage() {
                           </span>
                         ))}
                       </div>
+                      
                     </div>
 
                     {/* Animated coral underline */}
@@ -294,9 +302,14 @@ export default function EmployerOfRecordPage() {
                       aria-hidden
                       className="absolute left-0 right-0 bottom-0 h-px w-0 bg-brand-coral group-hover:w-full transition-all duration-700 ease-out"
                     />
-                  </Link>
+                  </div>
                 )
               })}
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA.thirdButton.href} icon="arrow" className="sm:w-auto">
+                {CTA.thirdButton.text}
+              </AppButton>
             </div>
           </div>
         </section>

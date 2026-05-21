@@ -50,7 +50,7 @@ function SectionIndicator({
   centered?: boolean
 }) {
   const muted = tone === "dark" ? "text-white/30" : "text-brand-navy/30"
-  const line  = tone === "dark" ? "bg-white/15"  : "bg-brand-navy/15"
+  const line = tone === "dark" ? "bg-white/15" : "bg-brand-navy/15"
 
   if (centered) {
     return (
@@ -83,9 +83,9 @@ function SectionIndicator({
 
 export default function ExecutiveSearchPage() {
   // Last card gets full-width treatment if total is odd
-  const mainCards    = SERVICE_CARDS.slice(0, -1)
+  const mainCards = SERVICE_CARDS.slice(0, -1)
   const featuredCard = SERVICE_CARDS[SERVICE_CARDS.length - 1]
-  const isOdd        = SERVICE_CARDS.length % 2 !== 0
+  const isOdd = SERVICE_CARDS.length % 2 !== 0
 
   return (
     <>
@@ -147,9 +147,8 @@ export default function ExecutiveSearchPage() {
               {STATS.map((stat, i) => (
                 <div
                   key={i}
-                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${
-                    i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
-                  }`}
+                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
+                    }`}
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[10px] font-mono text-brand-coral/80">
@@ -260,7 +259,7 @@ export default function ExecutiveSearchPage() {
               {/* ── Card 09: VP Engineering & Executive Search — full-width featured ── */}
               {isOdd && (() => {
                 const Icon = featuredCard.icon
-                const i    = SERVICE_CARDS.length - 1
+                const i = SERVICE_CARDS.length - 1
                 return (
                   <Link
                     href={featuredCard.href}
@@ -317,6 +316,8 @@ export default function ExecutiveSearchPage() {
                       </div>
                     </div>
 
+
+
                     {/* Coral bottom line */}
                     <span
                       aria-hidden
@@ -325,6 +326,11 @@ export default function ExecutiveSearchPage() {
                   </Link>
                 )
               })()}
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.specialismsBtn.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.specialismsBtn.text}
+              </AppButton>
             </div>
           </div>
         </section>
@@ -405,6 +411,11 @@ export default function ExecutiveSearchPage() {
                 )
               })}
             </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+              <AppButton href={CTA_DATA.processBtn.href} icon="arrow" className="sm:w-auto">
+                {CTA_DATA.processBtn.text}
+              </AppButton>
+            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -437,11 +448,11 @@ export default function ExecutiveSearchPage() {
                 </div>
 
                 <Link
-                  href="/tech-recruitment"
+                  href="/partnerships"
                   className="relative inline-flex items-center justify-between gap-4 mt-8 group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-coral/40 rounded-2xl px-5 py-4 transition-all duration-300"
                 >
                   <span className="text-sm font-bold text-white">
-                    Explore our approach
+                    Meet the companies we've worked with 
                   </span>
                   <span className="flex items-center justify-center w-9 h-9 rounded-full bg-brand-coral group-hover:rotate-45 transition-transform duration-300">
                     <ArrowUpRight className="w-4 h-4 text-white" />

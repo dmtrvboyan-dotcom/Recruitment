@@ -49,7 +49,6 @@ export interface ServiceCard {
   tags: string[]
   accent: string
   iconBg: string
-  href: string
 }
 
 export interface BenefitItem {
@@ -82,6 +81,10 @@ export interface CtaData {
   description: string
   primaryButton: { text: string; href: string }
   secondaryButton: { text: string; href: string }
+  sectorsBtn: { text: string; href: string }
+  sectorsBtnSecond: { text: string; href: string }
+  whyUsBtn: { text: string; href: string }
+
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -186,7 +189,6 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Proactive", "Research-Driven", "Confidential", "Senior Leaders"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/services/executive-search",
   },
   {
     icon: Clock,
@@ -196,7 +198,6 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Business-Critical Roles", "Senior Transitions", "Confidential Hires"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-    href: "/services/when-to-use-executive-search",
   },
   {
     icon: ShieldCheck,
@@ -206,7 +207,6 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Discretion", "Zero Disruption", "Protected Process"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/services/confidential-executive-search",
   },
 ]
 
@@ -295,6 +295,18 @@ export const CtaData: CtaData = {
   secondaryButton: {
     text: "Learn how we do it",
     href: "/process",
+  },
+  sectorsBtn: {
+    text: "Ready to Build Your Team?",
+    href: "/services/permanent-it-recruitment",
+  },
+   sectorsBtnSecond: {
+    text: "Hiring Across Borders? ",
+    href: "/services/employer-of-record",
+  },
+  whyUsBtn: {
+    text: "See who we've partnered with",
+    href: "/partnerships",
   },
 }
 
