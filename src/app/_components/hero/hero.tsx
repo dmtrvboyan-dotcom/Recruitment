@@ -15,7 +15,7 @@ const SERVICES = [
 ] as const
 
 const PAUSE_MS = 2000
-const EXIT_MS  = 500
+const EXIT_MS = 500
 const ENTER_MS = 580
 
 
@@ -121,7 +121,7 @@ const StatBlock = memo(function StatBlock({
       ref={ref}
       className={`px-5 py-5 sm:px-6 sm:py-6 lg:px-8 text-center
         ${isMobileTop ? "border-b border-brand-white/8 lg:border-b-0" : ""}
-        ${!isLast     ? "lg:border-r border-brand-white/8"             : ""}
+        ${!isLast ? "lg:border-r border-brand-white/8" : ""}
       `}
     >
       <div className="flex items-baseline justify-center gap-1.5 sm:gap-2 mb-1.5">
@@ -196,9 +196,8 @@ export const Hero = memo(function Hero() {
 
           <h1
             className="text-[clamp(2.25rem,9vw,6rem)] font-black
-              leading-[0.95] sm:leading-[0.92] tracking-tight uppercase
-              text-brand-navy mb-6 sm:mb-8 max-w-5xl
-              animate-fade-in-up delay-150"
+    leading-[0.95] sm:leading-[0.92] tracking-tight uppercase
+    text-brand-navy mb-6 sm:mb-8 max-w-5xl"
           >
             IT Recruitment Agency for
             <br />
@@ -249,10 +248,10 @@ export const Hero = memo(function Hero() {
           border border-brand-white/10
           overflow-hidden shadow-2xl shadow-brand-navy/20"
         >
-          <StatBlock value="850+" label="Successful hirings"         isMobileTop={true} />
-          <StatBlock value="12+"  label="Senior recruiters"          isMobileTop={true} />
-          <StatBlock value="100%" label="Recruiting All tech stacks"  isMobileTop={true} />
-          <StatBlock value="1"    suffix="Built in House" label="Smart.R ATS" isLast={true} />
+          <StatBlock value="850+" label="Successful hirings" isMobileTop={true} />
+          <StatBlock value="12+" label="Senior recruiters" isMobileTop={true} />
+          <StatBlock value="100%" label="Recruiting All tech stacks" isMobileTop={true} />
+          <StatBlock value="1" suffix="Built in House" label="Smart.R ATS" isLast={true} />
         </div>
       </div>
 
