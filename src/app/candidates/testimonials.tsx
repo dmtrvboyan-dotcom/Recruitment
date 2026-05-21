@@ -3,6 +3,8 @@
 import { memo, useState, useRef, useEffect } from "react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { testimonials } from "./testimonials-data"
+import Image from "next/image"
+
 
 const PAGE_SIZE = 8
 
@@ -114,9 +116,10 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                                 transition: "opacity 0.32s ease, transform 0.32s ease",
                                             }}
                                         >
-                                            <img
+                                            <Image
                                                 src={testimonials[active].image}
                                                 alt={`Testimonial ${active + 1}`}
+                                                fill
                                                 className="w-full h-full object-contain"
                                             />
                                         </div>
@@ -188,8 +191,9 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                         >
                                             {/* fixed ratio container */}
                                             <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
-                                                <img
+                                                <Image
                                                     src={t.image}
+                                                    fill
                                                     alt={`Testimonial ${t.id}`}
                                                     className="absolute inset-0 w-full h-full object-cover"
                                                 />
@@ -240,9 +244,10 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                         transition: "opacity 0.32s ease, transform 0.32s ease",
                                     }}
                                 >
-                                    <img
+                                    <Image
                                         src={testimonials[active].image}
                                         alt={`Testimonial ${active + 1}`}
+                                        fill
                                         className="w-full h-full object-contain"
                                     />
                                 </div>
@@ -285,10 +290,11 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                             }`}
                                     >
                                         <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
-                                            <img
+                                            <Image
                                                 src={t.image}
                                                 alt={`Testimonial ${t.id}`}
                                                 className="absolute inset-0 w-full h-full object-cover"
+                                                fill
                                             />
                                         </div>
                                         {isActive && <div className="absolute inset-0 bg-brand-coral/5 pointer-events-none" />}

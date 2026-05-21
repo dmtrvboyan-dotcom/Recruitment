@@ -7,7 +7,7 @@ import {
   Building2,
   Layers,
   Heart,
-  Truck  // example for new card
+  Truck 
 } from "lucide-react";
 
 export const EXPERTISE_AREAS = [

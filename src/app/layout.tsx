@@ -16,13 +16,13 @@ const firaCode = Fira_Code({
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'], // Most commonly used weights
+  weight: ['400', '500', '600', '700'],
   variable: '--font-sans',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: "IT recruitment agency and services in Bulgaria for companies hiring IT professionals",
+  title: "IT Recruitment Agency in Bulgaria & Executive Headhunting",
   description:
     "Bulgaria's premier executive search and IT headhunting agency. We connect top talent with leading companies through personalized recruitment solutions.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Recruitment.bg" }],
   openGraph: {
-    title: "IT recruitment agency in Bulgaria & executive headhunting",
+    title: "IT Recruitment Agency in Bulgaria & Executive Headhunting",
     description:
       "Bulgaria's premier executive search and IT headhunting agency.",
     type: "website",

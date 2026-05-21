@@ -1,7 +1,3 @@
-/**
- * Landing page feature components
- */
-
 export { Hero } from "./hero/hero"
 export { Services } from "./services-section/services"
 export { SpecializedRecruitment } from "./specialized-section/specialized"

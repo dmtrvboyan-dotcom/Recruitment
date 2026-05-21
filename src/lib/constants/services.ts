@@ -32,7 +32,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Permanent IT Recruitment",
-    subtitle: "Lorem ipsum dolor sit amet",
+    subtitle: "Permanent Tech Hiring Built Around Retention & Long-Term Team Stability",
     intro: "",
     sections: [
       {
@@ -66,7 +66,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Contract / Freelance / B2B / Remote Hiring",
-    subtitle: "Lorem ipsum dolor sit amet",
+    subtitle: "Pre-Vetted Contract & Freelance IT Talent",
     intro: "",
     sections: [
       {
@@ -100,7 +100,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Confidential Headhunting and Executive search",
-    subtitle: "Lorem ipsum dolor sit amet",
+    subtitle: "Discreet IT Executive Search for CTOs, Tech Leads & Senior Engineers",
     intro: "",
     sections: [
       {
@@ -168,7 +168,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "IT Salary Benchmarking & Hiring Insights",
-    subtitle: "Lorem ipsum dolor sit amet",
+    subtitle: "Real-Time IT Salary Benchmarks by Role, Seniority & Tech Stack",
     intro: "",
     sections: [
       {
@@ -197,12 +197,12 @@ export const SERVICES: Service[] = [
     ],
     href: "/services/it-salary-benchmarking-and-hiring-insights",
   },
-{
+  {
     icon: Globe,
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "IT Payroll, Compliance & Business Advisory",
-    subtitle: "Operational & compliance support for international tech companies",
+    subtitle: "Operational & Compliance Support for International Tech Companies",
     intro: "",
     sections: [
       {

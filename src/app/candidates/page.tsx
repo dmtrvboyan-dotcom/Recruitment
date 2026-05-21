@@ -2,6 +2,8 @@
 
 import { memo, useRef, useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
+
 import {
   ArrowRight,
   Upload,
@@ -260,10 +262,11 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
           }}
         >
           <div className="relative rounded-3xl overflow-hidden aspect-[16/9]">
-            <img
+            <Image
               src="/uploaded/team.jpg"
               alt="The recruiting team"
               className="absolute inset-0 w-full h-full object-cover"
+              fill
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
           </div>

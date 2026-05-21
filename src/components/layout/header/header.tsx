@@ -2,6 +2,8 @@
 
 import { useCallback, useRef, useState, type MouseEvent } from "react"
 import Link from "next/link"
+import Image from "next/image"
+
 import { Menu, Phone } from "lucide-react"
 import {
   useBodyScrollLock,
@@ -73,11 +75,10 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-brand-white backdrop-blur-sm pt-3 pb-0 shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
-            : "bg-brand-white pt-6 pb-0"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "bg-brand-white backdrop-blur-sm pt-3 pb-0 shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
+          : "bg-brand-white pt-6 pb-0"
+          }`}
         style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
       >
         <div className="max-w-[1500px] mx-auto px-6 lg:px-10 xl:px-12">
@@ -88,12 +89,14 @@ export function Header() {
             <Link
               href="/"
               onClick={handleLogoClick}
-              className="block flex-shrink-0"
+              className="block shrink-0"
               aria-label="Recruitment.bg — Home"
             >
-              <img
+              <Image
                 src="/uploaded/recr-logo.png"
                 alt="Recruitment.bg"
+                width={180}
+                height={44}
                 className="h-9 lg:h-11 w-auto transition-all duration-300"
               />
             </Link>
@@ -108,11 +111,10 @@ export function Header() {
             <div className="flex items-center gap-4">
               <a
                 href={PHONE_HREF}
-                className={`hidden lg:flex items-center gap-2 text-sm font-medium text-brand-navy/70 hover:text-brand-coral transition-all duration-300 ${
-                  isScrolled
-                    ? "opacity-100 pointer-events-auto"
-                    : "opacity-0 pointer-events-none"
-                }`}
+                className={`hidden lg:flex items-center gap-2 text-sm font-medium text-brand-navy/70 hover:text-brand-coral transition-all duration-300 ${isScrolled
+                  ? "opacity-100 pointer-events-auto"
+                  : "opacity-0 pointer-events-none"
+                  }`}
               >
                 <Phone size={14} className="text-brand-coral" />
                 {PHONE_NUMBER}
@@ -121,9 +123,8 @@ export function Header() {
               <button
                 onClick={openMenu}
                 aria-label="Open menu"
-                className={`p-2 text-brand-navy hover:text-brand-coral transition-colors duration-200 ${
-                  isScrolled ? "block" : "block lg:hidden"
-                }`}
+                className={`p-2 text-brand-navy hover:text-brand-coral transition-colors duration-200 ${isScrolled ? "block" : "block lg:hidden"
+                  }`}
               >
                 <Menu size={22} />
               </button>

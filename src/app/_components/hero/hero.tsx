@@ -5,7 +5,6 @@ import { scrollToSection } from "@/lib/utils/scroll"
 import { useAnimatedCounter } from "@/lib/hooks/use-animated-counter"
 import { AppButton } from "@/components/ui/app-button"
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const SERVICES = [
   "Hiring in Bulgaria",
@@ -19,7 +18,6 @@ const PAUSE_MS = 2000
 const EXIT_MS  = 500
 const ENTER_MS = 580
 
-// ─── Rotation keyframes ────────────────────────────────────────────────────────
 
 const ROTATION_STYLES = `
   @keyframes rtext-in {
@@ -84,7 +82,7 @@ const RotatingText = memo(function RotatingText() {
     <>
       <style dangerouslySetInnerHTML={{ __html: ROTATION_STYLES }} />
       <span
-        className="relative block w-full min-h-[2rem] sm:min-h-[1.6em] overflow-hidden mt-1 text-md sm:text-2xl"
+        className="relative block w-full min-h-8 sm:min-h-[1.6em] overflow-hidden mt-1 text-md sm:text-2xl"
         aria-live="polite"
         aria-atomic="true"
       >
@@ -100,7 +98,6 @@ const RotatingText = memo(function RotatingText() {
   )
 })
 
-// ─── StatBlock ────────────────────────────────────────────────────────────────
 
 interface StatBlockProps {
   value: string
@@ -208,7 +205,6 @@ export const Hero = memo(function Hero() {
             <span className="text-brand-coral">Tech Roles</span>
           </h1>
 
-          {/* Supporting text + rotating service */}
           <div className="flex flex-col items-center max-w-lg w-full
             mb-8 sm:mb-10 animate-fade-in-up delay-200 px-4 sm:px-0  text-center justify-center p-4"
           >
@@ -221,7 +217,6 @@ export const Hero = memo(function Hero() {
             <div className="mt-4 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center
             gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300"
           >
@@ -245,9 +240,8 @@ export const Hero = memo(function Hero() {
         </div>
       </div>
 
-      {/* ── Stats bar ── */}
       <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full
-        pb-8 sm:pb-10 animate-fade-in-up delay-[400ms]"
+        pb-8 sm:pb-10 animate-fade-in-up delay-400"
       >
         <div className="grid grid-cols-2 lg:grid-cols-4
           bg-brand-navy/92 backdrop-blur-md
