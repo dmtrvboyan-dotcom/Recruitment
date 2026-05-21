@@ -3,6 +3,7 @@
 import { memo, useRef, useState, useEffect } from "react"
 import { CheckCircle2 } from "lucide-react"
 import { WHY_US } from "./data"
+import { AppButton } from "@/components/ui/app-button"
 
 function useInView(threshold = 0.2) {
   const ref = useRef<HTMLDivElement>(null)
@@ -32,7 +33,6 @@ export const WhyUs = memo(function WhyUs() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
-   
       {/* Coral glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-coral/15 rounded-full blur-[140px] pointer-events-none" />
 
@@ -105,6 +105,23 @@ export const WhyUs = memo(function WhyUs() {
                 </li>
               ))}
             </ul>
+
+            {/* CTA: near the 31,000+ stat — industries verticals prove the network applies to their sector */}
+            <div
+              className="mt-6 pt-6 border-t border-white/8"
+              style={{
+                opacity: listVisible ? 1 : 0,
+                transition: `opacity 0.5s ease ${200 + WHY_US.length * 80}ms`,
+              }}
+            >
+              <AppButton
+                href="/#expertise-services"
+                icon="arrow"
+                className="w-full sm:w-auto"
+              >
+                We recruit for your specific industry
+              </AppButton>
+            </div>
           </div>
 
         </div>

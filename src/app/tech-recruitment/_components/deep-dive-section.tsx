@@ -4,8 +4,8 @@ import { memo } from "react"
 import Link from "next/link"
 import { ArrowRight, Search, CheckCircle } from "lucide-react"
 import { type TechCategory } from "@/lib/constants/specialized"
-import { SECTION_IDS } from "../data";
-import { AppButton } from '@/components/ui/app-button';
+import { SECTION_IDS } from "../data"
+import { AppButton } from "@/components/ui/app-button"
 
 
 export const DeepDiveSection = memo(function DeepDiveSection({
@@ -32,32 +32,33 @@ export const DeepDiveSection = memo(function DeepDiveSection({
   const watermarkColor = isDark
     ? "text-brand-white/[0.025]"
     : "text-brand-navy/[0.03]"
-  const diagonalColor = isDark
-    ? "rgba(114,145,199,0.05)"
-    : "rgba(26,26,46,0.022)"
+
+  // Derive a short role name for button labels (first two words of title)
+  const titleWords = category.title.split(" ")
+  const roleShort = titleWords.slice(0, 2).join(" ")
+
+  // Secondary button variant adapts to section background
+  const secondaryVariant = isDark ? "outline" : "navy"
 
   return (
     <section
       id={sectionId}
       className={`relative py-20 sm:py-24 lg:py-28 ${bg} overflow-hidden`}
     >
-
-
-
       {/* Coral glow — alternating position */}
       <div
         aria-hidden
-        className={`absolute -top-32 w-[360px] h-[360px] lg:w-[480px] lg:h-[480px] rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none ${index % 2 === 0
-            ? "left-1/4"
-            : "right-1/4"
-          }`}
+        className={`absolute -top-32 w-[360px] h-[360px] lg:w-[480px] lg:h-[480px] rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none ${
+          index % 2 === 0 ? "left-1/4" : "right-1/4"
+        }`}
       />
 
-      {/* Watermark — category element code */}
+      {/* Watermark — category number */}
       <div
         aria-hidden
-        className={`hidden lg:block absolute top-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,15rem)] font-black uppercase leading-[0.85] tracking-tighter ${watermarkColor} select-none pointer-events-none whitespace-nowrap ${index % 2 === 0 ? "right-0" : "left-0"
-          }`}
+        className={`hidden lg:block absolute top-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,15rem)] font-black uppercase leading-[0.85] tracking-tighter ${watermarkColor} select-none pointer-events-none whitespace-nowrap ${
+          index % 2 === 0 ? "right-0" : "left-0"
+        }`}
       >
         {number}
       </div>
@@ -88,7 +89,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
 
         {/* ── Tech pills: What we recruit for ── */}
         <div className="max-w-3xl mx-auto mb-12 sm:mb-14">
-          <p className={`text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-coral text-center mb-4 sm:mb-5`}>
+          <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-coral text-center mb-4 sm:mb-5">
             What we recruit for
           </p>
           <div className="flex flex-wrap justify-center gap-2">
@@ -108,9 +109,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
         {/* ── Two-column: How We Source / What You Get ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 max-w-5xl mx-auto mb-12 sm:mb-14">
           {/* How We Source */}
-          <div
-            className={`rounded-3xl ${cardBg} border ${borderColor} p-6 sm:p-8`}
-          >
+          <div className={`rounded-3xl ${cardBg} border ${borderColor} p-6 sm:p-8`}>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-brand-coral/15 flex items-center justify-center shrink-0">
                 <Search className="w-5 h-5 text-brand-coral" strokeWidth={1.5} />
@@ -119,16 +118,13 @@ export const DeepDiveSection = memo(function DeepDiveSection({
                 How we source talent
               </h3>
             </div>
-
             <ul className="space-y-3 sm:space-y-4">
               {category.howWeSource.map((point, i) => (
                 <li
                   key={i}
                   className={`flex items-start gap-3 text-sm sm:text-base ${bodyColor} leading-relaxed`}
                 >
-                  <span className="text-brand-coral text-lg leading-none mt-0.5 shrink-0">
-                    &bull;
-                  </span>
+                  <span className="text-brand-coral text-lg leading-none mt-0.5 shrink-0">&bull;</span>
                   <span>{point}</span>
                 </li>
               ))}
@@ -136,30 +132,22 @@ export const DeepDiveSection = memo(function DeepDiveSection({
           </div>
 
           {/* What You Get */}
-          <div
-            className={`rounded-3xl ${cardBg} border ${borderColor} p-6 sm:p-8`}
-          >
+          <div className={`rounded-3xl ${cardBg} border ${borderColor} p-6 sm:p-8`}>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-brand-coral/15 flex items-center justify-center shrink-0">
-                <CheckCircle
-                  className="w-5 h-5 text-brand-coral"
-                  strokeWidth={1.5}
-                />
+                <CheckCircle className="w-5 h-5 text-brand-coral" strokeWidth={1.5} />
               </div>
               <h3 className="text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-coral">
                 What you get
               </h3>
             </div>
-
             <ul className="space-y-3 sm:space-y-4">
               {category.whatYouGet.map((point, i) => (
                 <li
                   key={i}
                   className={`flex items-start gap-3 text-sm sm:text-base ${bodyColor} leading-relaxed`}
                 >
-                  <span className="text-brand-coral text-lg leading-none mt-0.5 shrink-0">
-                    &bull;
-                  </span>
+                  <span className="text-brand-coral text-lg leading-none mt-0.5 shrink-0">&bull;</span>
                   <span>{point}</span>
                 </li>
               ))}
@@ -167,16 +155,15 @@ export const DeepDiveSection = memo(function DeepDiveSection({
           </div>
         </div>
 
-        {/* ── Stats + CTA ── */}
+        {/* ── Stats + CTAs ── */}
         <div className="max-w-3xl mx-auto flex flex-col items-center">
+
           {/* Stats row */}
           <div
-            className={`inline-flex items-center gap-6 sm:gap-8 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl ${cardBg} border ${borderColor} mb-8 sm:mb-10`}
+            className={`inline-flex items-center gap-6 sm:gap-8 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl ${cardBg} border ${borderColor} mb-5`}
           >
             <div className="text-center">
-              <span
-                className={`text-2xl sm:text-3xl font-black ${statColor} tabular-nums tracking-tight leading-none`}
-              >
+              <span className={`text-2xl sm:text-3xl font-black ${statColor} tabular-nums tracking-tight leading-none`}>
                 {category.stat1Value}
               </span>
               <span className="block text-[9px] sm:text-[10px] tracking-[0.22em] uppercase text-brand-coral mt-1.5 font-semibold">
@@ -185,9 +172,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
             </div>
             <div className={`h-8 w-px ${borderColor}`} />
             <div className="text-center">
-              <span
-                className={`text-2xl sm:text-3xl font-black ${statColor} tabular-nums tracking-tight leading-none`}
-              >
+              <span className={`text-2xl sm:text-3xl font-black ${statColor} tabular-nums tracking-tight leading-none`}>
                 {category.stat2Value}
               </span>
               <span className="block text-[9px] sm:text-[10px] tracking-[0.22em] uppercase text-brand-coral mt-1.5 font-semibold">
@@ -196,16 +181,27 @@ export const DeepDiveSection = memo(function DeepDiveSection({
             </div>
           </div>
 
+       
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
-            <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
-               Hire {category.title.split(" ")[0]}{" "}
-            {category.title.split(" ")[1] ?? "Talent"}
+          {/* Dual CTAs: permanent hire + contract — clear decision path */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+            <AppButton
+              href="/services/permanent-it-recruitment"
+              icon="arrow"
+              className="sm:w-auto"
+            >
+              Hire {roleShort} permanently
+            </AppButton>
+            <AppButton
+              href="/services/contract-freelance-b2b-remote-recruitment"
+              variant={secondaryVariant as "outline" | "navy"}
+              icon="arrow"
+              className="sm:w-auto"
+            >
+              Hire on contract
             </AppButton>
           </div>
 
-
-        
         </div>
       </div>
     </section>

@@ -24,7 +24,7 @@ export const ClientsCTA = memo(function ClientsCTA() {
       {/* Top chapter divider - bridges from previous section */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-32 bg-gradient-to-r from-transparent via-brand-coral to-transparent" />
 
-      {/* Mesh gradient (boosted for visibility on pure white) */}
+      {/* Mesh gradient */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-brand-coral/15 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-[35vw] h-[35vw] max-w-[450px] max-h-[450px] bg-brand-teal/12 rounded-full blur-3xl" />
@@ -55,13 +55,12 @@ export const ClientsCTA = memo(function ClientsCTA() {
           </p>
         </div>
 
-       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
-              <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
-                 Start Hiring
-              </AppButton>
-
-  
-            </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+          {/* Primary CTA: mirrors the social proof context — "join" the 30+ companies */}
+          <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
+            Join 30+ partner companies
+          </AppButton>
+        </div>
 
       </div>
     </section>

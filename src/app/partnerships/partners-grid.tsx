@@ -1,6 +1,7 @@
 "use client"
 
 import { memo, useRef, useState, useEffect } from "react"
+import { AppButton } from "@/components/ui/app-button"
 
 const PARTNERS = [
   { name: "EnduroSat", size: "lg" },
@@ -132,16 +133,26 @@ export const PartnersGrid = memo(function PartnersGrid() {
           </div>
         </div>
 
-        {/* Bottom text */}
-        <p
-          className="mt-10 sm:mt-12 text-sm sm:text-base text-brand-navy/45 max-w-2xl leading-relaxed"
+        {/* Bottom text + candidate CTA */}
+        <div
+          className="mt-10 sm:mt-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
           style={{
             opacity: visible ? 1 : 0,
             transition: "opacity 0.7s ease 800ms",
           }}
         >
-          We've helped fast-growing startups, scale-ups, and established international businesses hire top talent across Bulgaria and Europe.
-        </p>
+          <p className="text-sm sm:text-base text-brand-navy/45 max-w-2xl leading-relaxed">
+            We've helped fast-growing startups, scale-ups, and established international businesses hire top talent across Bulgaria and Europe.
+          </p>
+
+          {/* CTA: dual audience — candidates land here too and need a clear path to open roles */}
+          <div className="shrink-0">
+            <AppButton href="/job-listings" icon="arrow" className="sm:w-auto whitespace-nowrap">
+              Candidate? Browse open roles
+            </AppButton>
+          </div>
+        </div>
+
       </div>
     </section>
   )

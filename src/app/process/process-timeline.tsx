@@ -1,7 +1,8 @@
 "use client"
 
-import { memo } from "react"
+import { memo, Fragment } from "react"
 import { PROCESS_STEPS, type ProcessStep } from "./data"
+import { AppButton } from "@/components/ui/app-button"
 
 const StepCard = memo(function StepCard({
   step,
@@ -130,7 +131,18 @@ export const ProcessTimeline = memo(function ProcessTimeline() {
 
           <div className="flex flex-col gap-14 lg:gap-20 relative pl-10 lg:pl-0">
             {PROCESS_STEPS.map((step, i) => (
-              <StepCard key={step.id} step={step} index={i} />
+              <Fragment key={step.id}>
+                <StepCard step={step} index={i} />
+
+                {/* Inline CTA — rendered between this step and the next when ctaAfter is set */}
+                {step.ctaAfter && (
+                  <div className="flex justify-center lg:justify-center">
+                    <AppButton href={step.ctaAfter.href} icon="arrow" className="sm:w-auto">
+                      {step.ctaAfter.text}
+                    </AppButton>
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
         </div>

@@ -14,6 +14,11 @@ export type ProcessStep = {
   heading: string
   body: string
   icon: LucideIcon
+  // Optional CTA rendered inline between this step and the next
+  ctaAfter?: {
+    text: string
+    href: string
+  }
 }
 
 export const PROCESS_STEPS: ProcessStep[] = [
@@ -30,6 +35,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     heading: "Define Your Criteria",
     body: "Beyond the job description, we capture every nuance: compensation bands, location preferences, seniority signals, deal-breakers. Your standards become our filter before we search a single profile.",
     icon: SlidersHorizontal,
+  
   },
   {
     id: "search",
@@ -58,6 +64,10 @@ export const PROCESS_STEPS: ProcessStep[] = [
     heading: "Offer & Onboard",
     body: "When you make an offer and the candidate accepts, the role is closed. Our fee is due only on a successful placement. No hire, no invoice - and we restart the process if anything falls through.",
     icon: Trophy,
+    ctaAfter: {
+      text: "Need someone faster? See our contract fast-track",
+      href: "/services/contract-freelance-b2b-remote-recruitment",
+    },
   },
 ]
 

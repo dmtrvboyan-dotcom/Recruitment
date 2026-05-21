@@ -4,13 +4,12 @@ import { memo } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { PROCESS_DATA, PROCESS_STEPS } from "../data"
-import { AppButton } from '@/components/ui/app-button';
+import { AppButton } from "@/components/ui/app-button"
 
 
 export const ProcessSection = memo(function ProcessSection() {
   return (
     <section className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden">
-
 
       {/* Coral glow */}
       <div
@@ -62,10 +61,7 @@ export const ProcessSection = memo(function ProcessSection() {
                     {step.number}
                   </span>
                   <div className="w-10 h-10 rounded-xl bg-brand-coral/15 flex items-center justify-center shrink-0">
-                    <Icon
-                      className="w-5 h-5 text-brand-coral"
-                      strokeWidth={1.5}
-                    />
+                    <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.5} />
                   </div>
                 </div>
 
@@ -83,20 +79,19 @@ export const ProcessSection = memo(function ProcessSection() {
           })}
         </div>
 
-        {/* CTA */}
+        {/* CTAs */}
         <div className="flex flex-col items-center gap-4 sm:gap-5">
           <p className="text-[11px] sm:text-[12px] tracking-[0.22em] uppercase text-brand-white/40 text-center">
             {PROCESS_DATA.cta.label}
           </p>
 
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
             <AppButton href={PROCESS_DATA.cta.href} icon="arrow" className="sm:w-auto">
               {PROCESS_DATA.cta.text}
             </AppButton>
-          </div>
 
-         
+          
+          </div>
         </div>
       </div>
     </section>

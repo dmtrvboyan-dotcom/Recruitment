@@ -10,6 +10,7 @@ import {
   TrendingUp,
   FileCheck,
 } from "lucide-react"
+import { AppButton } from "@/components/ui/app-button"
 
 const STEPS = [
   {
@@ -71,8 +72,6 @@ export const HowItWorks = memo(function HowItWorks() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
 
-  
-
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] bg-brand-coral/8 rounded-full blur-3xl pointer-events-none" />
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16">
@@ -99,9 +98,6 @@ export const HowItWorks = memo(function HowItWorks() {
         </div>
 
         <div className="relative">
-
-          {/* Connector line - desktop only */}
-
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-3">
             {STEPS.map((step, i) => {
               const Icon = step.icon
@@ -149,6 +145,19 @@ export const HowItWorks = memo(function HowItWorks() {
           <p className="text-sm sm:text-base text-white/55 leading-relaxed">
             <span className="text-white font-bold">We act as an extension of your hiring team</span> - keeping the process efficient, transparent, and focused on long-term success.
           </p>
+        </div>
+
+        {/* CTA: high-intent buyers want the full methodology after seeing the overview */}
+        <div
+          className="mt-8 flex justify-center"
+          style={{
+            opacity: visible ? 1 : 0,
+            transition: "opacity 0.7s ease 1000ms",
+          }}
+        >
+          <AppButton href="/process" icon="arrow" className="sm:w-auto">
+            See our full 6-phase recruitment process
+          </AppButton>
         </div>
 
       </div>

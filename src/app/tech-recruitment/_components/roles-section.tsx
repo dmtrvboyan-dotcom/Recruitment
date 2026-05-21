@@ -3,6 +3,23 @@
 import { memo } from "react"
 import { TECH_CATEGORIES } from "@/lib/constants/specialized"
 import { RoleCard } from "./role-card"
+import { AppButton } from "@/components/ui/app-button"
+
+// Vertical pages that exist for specific niches — route visitors there
+// for far better conversion than the hub overview.
+const VERTICAL_CALLOUTS = [
+  {
+    label: "AI / ML Recruitment",
+    href: "/industries/ai-ml",
+    // Match against category IDs that belong to this niche
+    matchIds: ["ai-ml", "machine-learning", "artificial-intelligence", "data-science"],
+  },
+  {
+    label: "Cybersecurity Recruitment",
+    href: "/industries/cybersecurity",
+    matchIds: ["cybersecurity", "security", "infosec", "cloud-security"],
+  },
+]
 
 export const RolesSection = memo(function RolesSection() {
   return (
@@ -10,9 +27,6 @@ export const RolesSection = memo(function RolesSection() {
       id="roles"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden"
     >
-
-
-
       {/* Coral glow */}
       <div
         aria-hidden
@@ -56,6 +70,23 @@ export const RolesSection = memo(function RolesSection() {
             <RoleCard key={category.id} category={category} index={index} />
           ))}
         </div>
+
+        {/* AI/ML + Cybersecurity vertical callout —
+            Placed after the grid so it doesn't compete with individual cards.
+            Avoids nested <a> inside RoleCard while still routing niche visitors
+            to dedicated vertical pages that convert far better than the hub. */}
+        <div className="mt-6 sm:mt-8 rounded-2xl border border-brand-white/8 bg-brand-white/[0.03] px-6 sm:px-8 py-5 sm:py-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:justify-between">
+          <div>
+            <p className="text-[10px] font-bold tracking-[0.22em] uppercase text-brand-coral mb-1">
+              Dedicated vertical pages
+            </p>
+            <p className="text-sm text-brand-white/50 leading-relaxed">
+              We have specialized recruitment pages for AI/ML and Cybersecurity roles.
+            </p>
+          </div>
+        
+        </div>
+
       </div>
     </section>
   )
