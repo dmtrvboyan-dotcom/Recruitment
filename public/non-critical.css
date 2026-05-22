@@ -135,6 +135,7 @@
   100% { transform: translateX(-50%); }
 }
 
+
 .animate-linkedin-glow {
   animation: linkedin-glow 2s ease-in-out infinite;
 }

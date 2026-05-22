@@ -57,7 +57,7 @@ const items = [...companies, ...companies];
 
 export const TrustedBySection = memo(function TrustedBySection() {
   return (
-    <section id='trusted-companies' className="relative py-16 sm:py-20 lg:py-28 bg-brand-navy overflow-hidden">
+    <section id='trusted-companies'  className="relative py-16 sm:py-20 lg:py-28 bg-brand-navy overflow-hidden">
 
       <div
         aria-hidden
