@@ -101,13 +101,14 @@ export const DesktopPanel = memo(function DesktopPanel({
                 ))}
               </div>
 
-              <AppButton href={service.href} ping aria-label={`Learn more about ${service.title}`}>
-                Learn more
+              <AppButton href={service.href} ping>
+                Learn more <span className="sr-only">about {service.title}</span>
                 <ArrowUpRight
                   className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
                   strokeWidth={1.5}
                 />
               </AppButton>
+
               {/* <Link
                 href={service.href}
                 className="group relative inline-flex items-center justify-center gap-2.5 py-5 px-10 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-md font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 mb-3 active:scale-95"

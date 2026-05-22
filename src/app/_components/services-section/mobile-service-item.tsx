@@ -184,9 +184,8 @@ export const MobileServiceItem = memo(function MobileServiceItem({
               href={service.href}
               variant={isFeature ? "primary" : "navy"}
               className="mt-6 w-full"
-              aria-label={`Learn more about ${service.title}`}
             >
-              Learn more
+              Learn more <span className="sr-only">about {service.title}</span>
               <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />
             </AppButton>
           </div>
