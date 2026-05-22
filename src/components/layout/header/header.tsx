@@ -99,7 +99,7 @@ export function Header() {
                 height={0}
                 sizes="180px"
                 style={{ width: 'auto', height: '44px' }}
-                loading="eager"
+                priority
               />
             </Link>
 
