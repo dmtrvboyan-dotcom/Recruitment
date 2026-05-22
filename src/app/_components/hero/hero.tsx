@@ -126,7 +126,7 @@ const StatBlock = memo(function StatBlock({
     >
       <div className="flex items-baseline justify-center gap-1.5 sm:gap-2 mb-1.5">
         <span
-          className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-white tabular-nums tracking-tight leading-none"
+          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-white tabular-nums tracking-tight leading-none"
           style={{ minWidth: `${value.length}ch` }}
         >
           {displayValue}
@@ -172,7 +172,7 @@ export const Hero = memo(function Hero() {
       <div
         aria-hidden
         className="hidden lg:block absolute top-[42%] left-1/2 -translate-x-1/2
-          text-[clamp(14rem,26vw,22rem)] font-black uppercase
+          text-[clamp(14rem,26vw,22rem)] font-bold uppercase
           leading-[0.85] tracking-tighter text-brand-navy/2
           select-none pointer-events-none whitespace-nowrap"
       >
@@ -198,7 +198,7 @@ export const Hero = memo(function Hero() {
           </div>
 
           <h1
-            className="text-[clamp(2.25rem,9vw,6rem)] font-black
+            className="text-[clamp(2.25rem,9vw,6rem)] font-bold
     leading-[0.95] sm:leading-[0.92] tracking-tight uppercase
     text-brand-navy mb-6 sm:mb-8 max-w-5xl"
           >

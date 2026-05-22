@@ -6,9 +6,6 @@ const nextConfig = {
   images: {
     unoptimized: false,
   },
-  experimental: {
-    optimizeCss: true,
-  },
   compiler: {
     removeConsole: true,
   },

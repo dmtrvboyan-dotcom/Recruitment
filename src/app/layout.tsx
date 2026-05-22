@@ -4,8 +4,8 @@ import "./globals.css"
 import NonCriticalStyles from "./NonCriticalStyles"
 
 const poppins = Poppins({
-  weight: ['400', '600', '700'],
-    subsets: ['latin'],
+  weight: ['400', '600', '700', '900'],
+  subsets: ['latin'],
   display: 'swap',
   preload: true,
   variable: '--font-sans',
@@ -67,6 +67,10 @@ export default function RootLayout({
       className={`${poppins.variable} ${firaCode.variable} bg-background`}
       suppressHydrationWarning
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-screen font-sans antialiased">
         <NonCriticalStyles />
         {children}
