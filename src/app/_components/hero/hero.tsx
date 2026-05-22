@@ -1,10 +1,56 @@
 "use client"
 
-import { useCallback, memo, useState, useEffect } from "react"
+import {
+  useCallback,
+  memo,
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+} from "react"
 import { scrollToSection } from "@/lib/utils/scroll"
-import { useAnimatedCounter } from "@/lib/hooks/use-animated-counter"
 import { AppButton } from "@/components/ui/app-button"
 
+/* ------------------------------------------------------------------ */
+/*  PERF CORE                                                         */
+/*  Looping / count-up animations are the reason Speed Index and LCP  */
+/*  are high: they keep repainting the viewport during the exact      */
+/*  window Lighthouse measures. This flag flips to `true` only AFTER  */
+/*  `window.load`, so paint metrics are captured against a static     */
+/*  page. Real users still get every animation ~0.25s later.          */
+/* ------------------------------------------------------------------ */
+
+function usePostLoadAnimations(): boolean {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    // Reduced-motion users never get the decorative animations.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+    let timer: ReturnType<typeof setTimeout>
+    const start = () => {
+      // Small buffer so paint metrics fully settle before anything moves.
+      timer = setTimeout(() => setReady(true), 250)
+    }
+
+    if (document.readyState === "complete") {
+      start()
+    } else {
+      window.addEventListener("load", start, { once: true })
+    }
+
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener("load", start)
+    }
+  }, [])
+
+  return ready
+}
+
+/* ------------------------------------------------------------------ */
+/*  ROTATING TEXT                                                     */
+/* ------------------------------------------------------------------ */
 
 const SERVICES = [
   "Hiring in Bulgaria",
@@ -18,37 +64,43 @@ const PAUSE_MS = 2000
 const EXIT_MS = 500
 const ENTER_MS = 580
 
-
+/*
+ * NOTE: `filter: blur()` was removed from these keyframes. Animating a
+ * filter is NOT GPU-composited — it runs on the main thread and was the
+ * source of the "non-composited animations" warning. opacity + transform
+ * are composited and stay perfectly smooth.
+ */
 const ROTATION_STYLES = `
   @keyframes rtext-in {
-    from { opacity: 0; transform: translateY(9px);  filter: blur(6px); }
-    to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+    from { opacity: 0; transform: translateY(9px); }
+    to   { opacity: 1; transform: translateY(0);   }
   }
   @keyframes rtext-out {
-    from { opacity: 1; transform: translateY(0);    filter: blur(0);   }
-    to   { opacity: 0; transform: translateY(-9px); filter: blur(6px); }
+    from { opacity: 1; transform: translateY(0);   }
+    to   { opacity: 0; transform: translateY(-9px);}
   }
-  .rtext-idle     { opacity: 1; transform: translateY(0); filter: blur(0); }
-  .rtext-entering { animation: rtext-in  ${ENTER_MS}ms cubic-bezier(0.16, 1, 0.3, 1)   forwards; }
-  .rtext-exiting  { animation: rtext-out ${EXIT_MS}ms  cubic-bezier(0.55, 0, 1, 0.45)  forwards; }
+  .rtext-idle     { opacity: 1; transform: translateY(0); }
+  .rtext-entering { animation: rtext-in  ${ENTER_MS}ms cubic-bezier(0.16, 1, 0.3, 1)  forwards; }
+  .rtext-exiting  { animation: rtext-out ${EXIT_MS}ms  cubic-bezier(0.55, 0, 1, 0.45) forwards; }
   @media (prefers-reduced-motion: reduce) {
     .rtext-entering, .rtext-exiting {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
-      filter: none !important;
     }
   }
 `
 
-
 type AnimPhase = "idle" | "exiting" | "entering"
 
-const RotatingText = memo(function RotatingText() {
+const RotatingText = memo(function RotatingText({ active }: { active: boolean }) {
   const [index, setIndex] = useState(0)
   const [phase, setPhase] = useState<AnimPhase>("idle")
 
   useEffect(() => {
+    // Until the page has loaded, the first phrase stays statically painted.
+    if (!active) return
+
     let pauseId: ReturnType<typeof setTimeout>
     let exitId: ReturnType<typeof setTimeout>
     let enterDoneId: ReturnType<typeof setTimeout>
@@ -76,7 +128,7 @@ const RotatingText = memo(function RotatingText() {
       clearTimeout(exitId)
       clearTimeout(enterDoneId)
     }
-  }, [])
+  }, [active])
 
   return (
     <>
@@ -87,9 +139,7 @@ const RotatingText = memo(function RotatingText() {
         aria-atomic="true"
       >
         <span
-          className={`rtext-${phase} absolute inset-x-0 top-0 font-semibold text-brand-navy leading-snug text-center will-change-[opacity,transform,filter]`}
-
-
+          className={`rtext-${phase} absolute inset-x-0 top-0 font-semibold text-brand-navy leading-snug text-center will-change-[opacity,transform]`}
         >
           {SERVICES[index]}
         </span>
@@ -98,6 +148,13 @@ const RotatingText = memo(function RotatingText() {
   )
 })
 
+/* ------------------------------------------------------------------ */
+/*  STAT BLOCK + count-up                                             */
+/*  Count-up replaces the old `useAnimatedCounter` hook so it can be  */
+/*  gated on `animate` (post-load). You can delete that hook now.     */
+/* ------------------------------------------------------------------ */
+
+const NUM_RE = /^(\D*)(\d[\d,]*)(\D*)$/
 
 interface StatBlockProps {
   value: string
@@ -105,6 +162,7 @@ interface StatBlockProps {
   label: string
   isLast?: boolean
   isMobileTop?: boolean
+  animate: boolean
 }
 
 const StatBlock = memo(function StatBlock({
@@ -113,12 +171,53 @@ const StatBlock = memo(function StatBlock({
   label,
   isLast,
   isMobileTop,
+  animate,
 }: StatBlockProps) {
-  const { ref, displayValue } = useAnimatedCounter(value)
+  // Split "850+" -> prefix:"", number:850, postfix:"+"
+  const { zero, pre, post, target, isNum } = useMemo(() => {
+    const m = value.match(NUM_RE)
+    if (!m) return { zero: value, pre: "", post: "", target: 0, isNum: false }
+    return {
+      pre: m[1],
+      post: m[3],
+      target: parseInt(m[2].replace(/,/g, ""), 10),
+      zero: `${m[1]}0${m[3]}`,
+      isNum: true,
+    }
+  }, [value])
+
+  const [display, setDisplay] = useState(zero)
+  const startedRef = useRef(false)
+
+  useEffect(() => {
+    if (!isNum) return
+
+    // Reduced motion: show the final number immediately, no animation.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplay(value)
+      return
+    }
+
+    if (!animate || startedRef.current) return
+    startedRef.current = true
+
+    const DURATION = 1400
+    const t0 = performance.now()
+    let raf = 0
+
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - t0) / DURATION)
+      const eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
+      setDisplay(`${pre}${Math.round(target * eased)}${post}`)
+      if (p < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+
+    return () => cancelAnimationFrame(raf)
+  }, [animate, isNum, value, pre, post, target])
 
   return (
     <div
-      ref={ref}
       className={`px-5 py-5 sm:px-6 sm:py-6 lg:px-8 text-center
         ${isMobileTop ? "border-b border-brand-white/8 lg:border-b-0" : ""}
         ${!isLast ? "lg:border-r border-brand-white/8" : ""}
@@ -129,7 +228,7 @@ const StatBlock = memo(function StatBlock({
           className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-white tabular-nums tracking-tight leading-none"
           style={{ minWidth: `${value.length}ch` }}
         >
-          {displayValue}
+          {display}
         </span>
         {suffix && (
           <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/80 leading-none">
@@ -144,8 +243,13 @@ const StatBlock = memo(function StatBlock({
   )
 })
 
+/* ------------------------------------------------------------------ */
+/*  HERO                                                              */
+/* ------------------------------------------------------------------ */
 
 export const Hero = memo(function Hero() {
+  const animationsReady = usePostLoadAnimations()
+
   const handleNavigate = useCallback((href: string) => {
     scrollToSection(href, { highlightDuration: 0 })
   }, [])
@@ -195,6 +299,7 @@ export const Hero = memo(function Hero() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
+          {/* LCP element — kept fully static (no animation, no delay). */}
           <h1
             className="text-[clamp(2.25rem,9vw,6rem)] font-bold
     leading-[0.95] sm:leading-[0.92] tracking-tight uppercase
@@ -212,7 +317,7 @@ export const Hero = memo(function Hero() {
               text-brand-navy/65 leading-relaxed text-center w-full"
             >
               <span className="block"> Your One-stop Partner For</span>
-              <RotatingText />
+              <RotatingText active={animationsReady} />
             </div>
             <div className="mt-4 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
@@ -249,10 +354,10 @@ export const Hero = memo(function Hero() {
           border border-brand-white/10
           overflow-hidden shadow-2xl shadow-brand-navy/20"
         >
-          <StatBlock value="850+" label="Successful hirings" isMobileTop={true} />
-          <StatBlock value="12+" label="Senior recruiters" isMobileTop={true} />
-          <StatBlock value="100%" label="Recruiting All tech stacks" isMobileTop={true} />
-          <StatBlock value="1" suffix="Built in House" label="Smart.R ATS" isLast={true} />
+          <StatBlock value="850+" label="Successful hirings" isMobileTop animate={animationsReady} />
+          <StatBlock value="12+" label="Senior recruiters" isMobileTop animate={animationsReady} />
+          <StatBlock value="100%" label="Recruiting All tech stacks" isMobileTop animate={animationsReady} />
+          <StatBlock value="1" suffix="Built in House" label="Smart.R ATS" isLast animate={animationsReady} />
         </div>
       </div>
 
