@@ -1,21 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
 import { ArrowUp } from "lucide-react"
 import { scrollToTop } from "@/lib/section-navigation"
 
 interface BackToTopProps {
   threshold?: number
-
   className?: string
   hideOnMobile?: boolean
 }
 
 /**
  * Global back-to-top button. Appears once the user scrolls past `threshold`.
- *
- * Mount once in your root layout — it's safe across all pages and SSR.
+ * framer-motion is lazy-loaded after mount so it never blocks the critical path.
  */
 export function BackToTop({
   threshold = 400,
@@ -23,7 +20,21 @@ export function BackToTop({
   hideOnMobile = false,
 }: BackToTopProps) {
   const [visible, setVisible] = useState(false)
-  const reduced = useReducedMotion()
+  const [MotionButton, setMotionButton] = useState<React.ElementType | null>(null)
+  const [AnimatePresence, setAnimatePresence] = useState<React.ElementType | null>(null)
+  const reducedRef = useRef(false)
+
+  // Lazy-load framer-motion after hydration
+  useEffect(() => {
+    reducedRef.current =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+    import("framer-motion").then((m) => {
+      setMotionButton(() => m.motion.button)
+      setAnimatePresence(() => m.AnimatePresence)
+    })
+  }, [])
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -44,10 +55,29 @@ export function BackToTop({
     return () => window.removeEventListener("scroll", onScroll)
   }, [threshold])
 
+  const baseClass = cn(
+    "fixed z-40 inline-flex h-10 w-10 items-center justify-center rounded-full",
+    "border border-border/60 bg-background/80 text-foreground shadow-sm backdrop-blur-md",
+    "transition-colors hover:bg-background",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    hideOnMobile && "hidden lg:inline-flex",
+    "bottom-5 right-6",
+    className,
+  )
+
+  // Before framer-motion loads, render nothing (button is only shown on scroll anyway)
+  if (!MotionButton || !AnimatePresence) {
+    return null
+  }
+
+  const AP = AnimatePresence as React.FC<{ children: React.ReactNode }>
+  const MB = MotionButton as React.ElementType
+  const reduced = reducedRef.current
+
   return (
-    <AnimatePresence>
+    <AP>
       {visible && (
-        <motion.button
+        <MB
           type="button"
           onClick={scrollToTop}
           aria-label="Back to top"
@@ -55,21 +85,12 @@ export function BackToTop({
           animate={reduced ? { opacity: 1 } : { opacity: 1, y: 0 }}
           exit={reduced ? { opacity: 0 } : { opacity: 0, y: 8 }}
           transition={{ duration: reduced ? 0 : 0.18, ease: "easeOut" }}
-          className={cn(
-            "fixed z-40 inline-flex h-10 w-10 items-center justify-center rounded-full",
-            "border border-border/60 bg-background/80 text-foreground shadow-sm backdrop-blur-md",
-            "transition-colors hover:bg-background",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-            hideOnMobile && "hidden lg:inline-flex",
-            // Default position — `className` can override.
-            "bottom-5 right-6",
-            className,
-          )}
+          className={baseClass}
         >
           <ArrowUp className="h-4 w-4" aria-hidden />
-        </motion.button>
+        </MB>
       )}
-    </AnimatePresence>
+    </AP>
   )
 }
 

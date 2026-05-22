@@ -2,6 +2,7 @@
 
 import { memo, useCallback } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Phone } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { FOOTER_LINKS, SOCIAL_LINKS, COMPANY_INFO } from "@/lib/constants/footer"
@@ -98,10 +99,12 @@ export function Footer() {
         {/* Brand Info Column */}
         <div className="col-span-2 md:col-span-1">
           <Link href="/" className="inline-block mb-8 transition-opacity hover:opacity-80">
-            <img
-              src="/uploaded/recr-logo.png"
+            <Image
+              src="/uploaded/recr-logo.webp"
               alt={COMPANY_INFO.name}
-              className="h-9 w-auto"
+              width={328}
+              height={88}
+              style={{ width: "auto", height: "36px" }}
             />
           </Link>
 

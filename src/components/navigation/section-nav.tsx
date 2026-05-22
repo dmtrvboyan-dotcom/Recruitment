@@ -1,8 +1,7 @@
 // components/navigation/SectionNav.tsx
 "use client"
 
-import { useCallback, useEffect, useMemo, useState } from "react"
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import {
   DEFAULT_HEADER_OFFSET,
@@ -16,50 +15,14 @@ import { ScrollProgress } from "./scroll-progress"
 import { useActiveSection } from "@/lib/hooks/useActiveSection"
 
 interface SectionNavProps {
-  /** Ordered list of sections. Pass `hidden: true` to omit from the nav. */
   sections: Section[]
-  /** Sticky header offset in px. Default 80. */
   headerOffset?: number
-  /** Extra classes for the desktop nav wrapper. */
   className?: string
-  /**
-   * Suppress the mobile FAB + sheet. Useful if you render your own mobile nav.
-   * @default false
-   */
   hideOnMobile?: boolean
-  /**
-   * Suppress the desktop floating rail. Useful for pages that already render
-   * a sidebar.
-   * @default false
-   */
   hideOnDesktop?: boolean
-  /**
-   * Suppress the thin mobile-only top progress bar. Set to `true` if you
-   * already render `<ScrollProgress />` somewhere globally.
-   * @default false
-   */
   hideMobileProgress?: boolean
 }
 
-/**
- * Global section navigation system.
- *
- *  - Desktop: floating, vertically-centered rail on the right with collapsible
- *    state persisted to `localStorage`.
- *  - Mobile: compact pill FAB + bottom sheet with a thin top progress bar.
- *  - Active section tracked via a single `IntersectionObserver`.
- *  - SSR-safe, keyboard-accessible, respects `prefers-reduced-motion`.
- *
- * @example
- * const sections = [
- *   { id: "hero",     label: "Hero" },
- *   { id: "features", label: "Features" },
- *   { id: "pricing",  label: "Pricing" },
- *   { id: "faq",      label: "FAQ" },
- * ]
- *
- * <SectionNav sections={sections} />
- */
 export function SectionNav({
   sections,
   headerOffset = DEFAULT_HEADER_OFFSET,
@@ -76,9 +39,14 @@ export function SectionNav({
 
   const activeId = useActiveSection({ sectionIds, headerOffset })
 
-  /* ----- Collapsed state, persisted to localStorage --------------------- */
   const [collapsed, setCollapsed] = useState(false)
   const [hydrated, setHydrated] = useState(false)
+
+  // Lazy-load framer-motion — don't block the critical path
+  const [motion, setMotion] = useState<typeof import("framer-motion") | null>(null)
+  useEffect(() => {
+    import("framer-motion").then((m) => setMotion(m))
+  }, [])
 
   useEffect(() => {
     try {
@@ -86,7 +54,7 @@ export function SectionNav({
         setCollapsed(true)
       }
     } catch {
-      /* localStorage may be disabled — fail open. */
+      /* localStorage may be disabled */
     }
     setHydrated(true)
   }, [])
@@ -110,11 +78,13 @@ export function SectionNav({
 
   if (visibleSections.length === 0) return null
 
+  // Don't render the nav until framer-motion is ready — it's non-critical UI
+  if (!motion) return null
+
+  const { motion: m, AnimatePresence, useReducedMotion } = motion
+
   return (
     <>
-      {/* ------------------------------------------------------------------
-       *  Desktop: floating rail
-       * ----------------------------------------------------------------- */}
       {!hideOnDesktop && (
         <nav
           aria-label="Page sections"
@@ -129,6 +99,8 @@ export function SectionNav({
                 key="collapsed"
                 onClick={toggleCollapsed}
                 hydrated={hydrated}
+                motion={m}
+                useReducedMotion={useReducedMotion}
               />
             ) : (
               <ExpandedRail
@@ -138,15 +110,14 @@ export function SectionNav({
                 onNavigate={handleNav}
                 onCollapse={toggleCollapsed}
                 hydrated={hydrated}
+                motion={m}
+                useReducedMotion={useReducedMotion}
               />
             )}
           </AnimatePresence>
         </nav>
       )}
 
-      {/* ------------------------------------------------------------------
-       *  Mobile: FAB + sheet + top progress bar
-       * ----------------------------------------------------------------- */}
       {!hideOnMobile && (
         <>
           {!hideMobileProgress && (
@@ -156,6 +127,7 @@ export function SectionNav({
             sections={visibleSections}
             activeId={activeId}
             headerOffset={headerOffset}
+            motion={motion}
           />
         </>
       )}
@@ -164,10 +136,10 @@ export function SectionNav({
 }
 
 /* ============================================================================
- *  Internal pieces
- *  Splitting these out keeps `useScrollProgress`/`AnimatePresence` updates
- *  scoped, so the section list doesn't re-render on every scroll frame.
+ *  Internal pieces — accept motion as props so they don't re-import it
  * ========================================================================= */
+
+type MotionLib = typeof import("framer-motion")
 
 interface ExpandedRailProps {
   sections: Section[]
@@ -175,6 +147,8 @@ interface ExpandedRailProps {
   onNavigate: (id: string) => void
   onCollapse: () => void
   hydrated: boolean
+  motion: MotionLib["motion"]
+  useReducedMotion: MotionLib["useReducedMotion"]
 }
 
 function ExpandedRail({
@@ -183,20 +157,21 @@ function ExpandedRail({
   onNavigate,
   onCollapse,
   hydrated,
+  motion: m,
+  useReducedMotion,
 }: ExpandedRailProps) {
   const reduced = useReducedMotion()
   const initial =
     hydrated && !reduced ? { opacity: 0, x: 6 } : ({ opacity: 1, x: 0 } as const)
 
   return (
-    <motion.div
+    <m.div
       initial={initial}
       animate={{ opacity: 1, x: 0 }}
       exit={reduced ? { opacity: 0 } : { opacity: 0, x: 6 }}
       transition={{ duration: reduced ? 0 : 0.16, ease: "easeOut" }}
       className="flex items-stretch gap-2"
     >
-      {/* Vertical scroll-progress fill, isolated so it re-renders on its own */}
       <ScrollProgress variant="rail" />
 
       <div
@@ -213,6 +188,7 @@ function ExpandedRail({
               isActive={activeId === section.id}
               onSelect={onNavigate}
               reduced={!!reduced}
+              motion={m}
             />
           ))}
         </ul>
@@ -231,7 +207,7 @@ function ExpandedRail({
           <ChevronRight className="h-3.5 w-3.5" aria-hidden />
         </button>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -240,16 +216,16 @@ interface SectionItemProps {
   isActive: boolean
   onSelect: (id: string) => void
   reduced: boolean
+  motion: MotionLib["motion"]
 }
 
-function SectionItem({ section, isActive, onSelect, reduced }: SectionItemProps) {
+function SectionItem({ section, isActive, onSelect, reduced, motion: m }: SectionItemProps) {
   const Icon = section.icon
 
   return (
     <li className="relative">
-      {/* Animated active indicator — smoothly slides between rows via layoutId. */}
       {isActive && (
-        <motion.span
+        <m.span
           layoutId="section-nav-active-indicator"
           aria-hidden
           transition={
@@ -292,15 +268,17 @@ function SectionItem({ section, isActive, onSelect, reduced }: SectionItemProps)
 interface CollapsedTriggerProps {
   onClick: () => void
   hydrated: boolean
+  motion: MotionLib["motion"]
+  useReducedMotion: MotionLib["useReducedMotion"]
 }
 
-function CollapsedTrigger({ onClick, hydrated }: CollapsedTriggerProps) {
+function CollapsedTrigger({ onClick, hydrated, motion: m, useReducedMotion }: CollapsedTriggerProps) {
   const reduced = useReducedMotion()
   const initial =
     hydrated && !reduced ? { opacity: 0, x: 6 } : ({ opacity: 1, x: 0 } as const)
 
   return (
-    <motion.button
+    <m.button
       type="button"
       onClick={onClick}
       aria-label="Expand section navigation"
@@ -317,7 +295,7 @@ function CollapsedTrigger({ onClick, hydrated }: CollapsedTriggerProps) {
       )}
     >
       <ChevronLeft className="h-4 w-4" aria-hidden />
-    </motion.button>
+    </m.button>
   )
 }
 

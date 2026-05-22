@@ -9,7 +9,6 @@ import {
   useState,
   type CSSProperties,
 } from "react"
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { ChevronUp, X } from "lucide-react"
 import {
   DEFAULT_HEADER_OFFSET,
@@ -17,28 +16,27 @@ import {
   type Section,
 } from "@/lib/section-navigation"
 
+type MotionLib = typeof import("framer-motion")
+
 interface MobileSectionNavProps {
   sections: Section[]
   activeId: string | null
   headerOffset?: number
-  /** Label shown on the FAB when no section is active. Default: "Sections". */
   fallbackLabel?: string
+  /** framer-motion module, passed from SectionNav after lazy-load */
+  motion: MotionLib
 }
 
-/**
- * Mobile-only floating nav: a compact pill that shows the current section,
- * opening a bottom sheet on tap.
- *
- * Rendered automatically by `<SectionNav />` — most consumers won't import
- * this directly.
- */
 export function MobileSectionNav({
   sections,
   activeId,
   headerOffset = DEFAULT_HEADER_OFFSET,
   fallbackLabel = "Sections",
+  motion: motionLib,
 }: MobileSectionNavProps) {
   const [open, setOpen] = useState(false)
+
+  const { motion: m, AnimatePresence, useReducedMotion } = motionLib
   const reduced = useReducedMotion()
 
   const triggerRef = useRef<HTMLButtonElement | null>(null)
@@ -49,7 +47,6 @@ export function MobileSectionNav({
     [sections, activeId],
   )
 
-  /* --- Body scroll lock while the sheet is open ------------------------- */
   useEffect(() => {
     if (!open) return
     const previous = document.body.style.overflow
@@ -59,7 +56,6 @@ export function MobileSectionNav({
     }
   }, [open])
 
-  /* --- Keyboard: Escape closes, basic focus restoration ----------------- */
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => {
@@ -69,7 +65,6 @@ export function MobileSectionNav({
       }
     }
     window.addEventListener("keydown", onKey)
-    // Move focus into the sheet for keyboard users.
     closeRef.current?.focus()
     return () => {
       window.removeEventListener("keydown", onKey)
@@ -78,15 +73,12 @@ export function MobileSectionNav({
 
   const handleClose = useCallback(() => {
     setOpen(false)
-    // Return focus to the trigger after the close animation runs.
     window.setTimeout(() => triggerRef.current?.focus(), 0)
   }, [])
 
   const handleNav = useCallback(
     (id: string) => {
       setOpen(false)
-      // Wait one tick so the sheet starts closing before we scroll,
-      // and so the body's overflow is restored.
       window.setTimeout(() => smoothScrollTo(id, headerOffset), 120)
     },
     [headerOffset],
@@ -100,7 +92,6 @@ export function MobileSectionNav({
 
   return (
     <>
-      {/* Floating trigger — pill showing the current section. */}
       <button
         ref={triggerRef}
         type="button"
@@ -124,11 +115,10 @@ export function MobileSectionNav({
         <ChevronUp className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
       </button>
 
-      {/* Sheet + backdrop */}
       <AnimatePresence>
         {open && (
           <>
-            <motion.div
+            <m.div
               key="backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -139,7 +129,7 @@ export function MobileSectionNav({
               aria-hidden
             />
 
-            <motion.div
+            <m.div
               key="sheet"
               role="dialog"
               aria-modal="true"
@@ -150,7 +140,6 @@ export function MobileSectionNav({
               transition={sheetTransition}
               style={
                 {
-                  // Respect the iOS safe area.
                   paddingBottom: "max(env(safe-area-inset-bottom), 0.75rem)",
                 } satisfies CSSProperties
               }
@@ -159,12 +148,8 @@ export function MobileSectionNav({
                 "rounded-t-2xl border-t border-border/60 bg-background shadow-lg",
               )}
             >
-              {/* Drag handle (decorative) */}
               <div className="flex justify-center pt-2.5">
-                <span
-                  className="h-1 w-9 rounded-full bg-border"
-                  aria-hidden
-                />
+                <span className="h-1 w-9 rounded-full bg-border" aria-hidden />
               </div>
 
               <div className="flex items-center justify-between px-4 pt-2 pb-1">
@@ -226,7 +211,7 @@ export function MobileSectionNav({
                   )
                 })}
               </ul>
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>
