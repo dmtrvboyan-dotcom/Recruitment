@@ -8,7 +8,7 @@ const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
   preload: true,
-  variable: '--font-sans',
+  variable: '--font-poppins',
   adjustFontFallback: false,
 })
 
@@ -17,7 +17,7 @@ const firaCode = Fira_Code({
   weight: ['400', '500', '700'],
   display: 'swap',
   preload: false,
-  variable: '--font-mono',
+  variable: '--font-fira-code',
   adjustFontFallback: false,
 })
 
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`${poppins.variable} bg-background`}  // ← removed firaCode.variable
+      className={`${poppins.variable} bg-background`}  // ← poppins sets --font-poppins, consumed by @theme --font-sans
       suppressHydrationWarning
     >
       <head>

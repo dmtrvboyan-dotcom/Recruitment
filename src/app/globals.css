@@ -7,8 +7,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Poppins";
-  --font-mono: "Fira Code", "Fira Code Fallback";
+  --font-sans: var(--font-poppins, system-ui, sans-serif);
+  --font-mono: var(--font-fira-code, "Fira Code", monospace);
 
   --color-background: oklch(0.9821 0 0);
   --color-foreground: oklch(14.08% 0 0);
@@ -169,5 +169,3 @@
     overflow-y: scroll;
   }
 }
-
-
