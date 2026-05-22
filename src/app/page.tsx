@@ -37,7 +37,7 @@ export default function LandingPage() {
       <SocialSidebar />
 
       <section id="hero">
-        <ScrollReveal><Hero /></ScrollReveal>
+        <Hero />
       </section>
 
       <section id="trust">
