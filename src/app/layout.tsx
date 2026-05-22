@@ -67,7 +67,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <head>
         {/* removed the two Google Fonts preconnect links */}
-        <link rel="preload" as="image" href="/uploaded/recr-logo.png" fetchPriority="high" />
+        <link rel="preload" as="image" href="/uploaded/recr-logo.webp" fetchPriority="high" />
       </head>
       <body className={`${firaCode.variable} min-h-screen font-sans antialiased`}>
         {/* ↑ moved firaCode to body so it loads after html/head is parsed */}

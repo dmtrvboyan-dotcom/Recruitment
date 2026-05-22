@@ -25,22 +25,7 @@ function usePostLoadAnimations(): boolean {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-
-    let timer: ReturnType<typeof setTimeout>
-    const start = () => {
-      timer = setTimeout(() => setReady(true), 0)
-    }
-
-    if (document.readyState === "complete") {
-      start()
-    } else {
-      window.addEventListener("load", start, { once: true })
-    }
-
-    return () => {
-      clearTimeout(timer)
-      window.removeEventListener("load", start)
-    }
+    setReady(true)
   }, [])
 
   return ready
@@ -62,7 +47,12 @@ const PAUSE_MS = 2000
 const EXIT_MS = 500
 const ENTER_MS = 580
 
-
+/*
+ * NOTE: `filter: blur()` was removed from these keyframes. Animating a
+ * filter is NOT GPU-composited — it runs on the main thread and was the
+ * source of the "non-composited animations" warning. opacity + transform
+ * are composited and stay perfectly smooth.
+ */
 const ROTATION_STYLES = `
   @keyframes rtext-in {
     from { opacity: 0; transform: translateY(9px); }
@@ -91,6 +81,7 @@ const RotatingText = memo(function RotatingText({ active }: { active: boolean })
   const [phase, setPhase] = useState<AnimPhase>("idle")
 
   useEffect(() => {
+    // Until the page has loaded, the first phrase stays statically painted.
     if (!active) return
 
     let pauseId: ReturnType<typeof setTimeout>
@@ -165,6 +156,7 @@ const StatBlock = memo(function StatBlock({
   isMobileTop,
   animate,
 }: StatBlockProps) {
+  // Split "850+" -> prefix:"", number:850, postfix:"+"
   const { zero, pre, post, target, isNum } = useMemo(() => {
     const m = value.match(NUM_RE)
     if (!m) return { zero: value, pre: "", post: "", target: 0, isNum: false }
@@ -183,6 +175,7 @@ const StatBlock = memo(function StatBlock({
   useEffect(() => {
     if (!isNum) return
 
+    // Reduced motion: show the final number immediately, no animation.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setDisplay(value)
       return
@@ -197,7 +190,7 @@ const StatBlock = memo(function StatBlock({
 
     const tick = (now: number) => {
       const p = Math.min(1, (now - t0) / DURATION)
-      const eased = 1 - Math.pow(1 - p, 3)
+      const eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
       setDisplay(`${pre}${Math.round(target * eased)}${post}`)
       if (p < 1) raf = requestAnimationFrame(tick)
     }
@@ -336,7 +329,7 @@ export const Hero = memo(function Hero() {
       </div>
 
       <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full
-        pb-8 sm:pb-10 animate-fade-in-up delay-400"
+        pb-8 sm:pb-10"
       >
         <div className="grid grid-cols-2 lg:grid-cols-4
           bg-brand-navy/92 backdrop-blur-md

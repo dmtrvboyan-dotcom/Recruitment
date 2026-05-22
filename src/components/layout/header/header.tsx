@@ -93,11 +93,10 @@ export function Header() {
               aria-label="Recruitment.bg — Home"
             >
               <Image
-                src="/uploaded/recr-logo.png"
+                src="/uploaded/recr-logo.webp"
                 alt="Recruitment.bg"
-                width={0}
-                height={0}
-                sizes="180px"
+                width={328}
+                height={88}
                 style={{ width: 'auto', height: '44px' }}
                 priority
               />
