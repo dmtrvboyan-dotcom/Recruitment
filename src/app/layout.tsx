@@ -3,17 +3,20 @@ import { Fira_Code, Poppins } from "next/font/google"
 import "./globals.css"
 import NonCriticalStyles from "./NonCriticalStyles"
 
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-mono",
-  preload: false
-})
-
 const poppins = Poppins({
   weight: ['400', '600', '700'],
-  variable: '--font-sans',
+  subsets: ['latin'],
   display: 'swap',
+  preload: true,           
+  variable: '--font-sans',
+})
+
+const firaCode = Fira_Code({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  preload: false,          
+  variable: '--font-mono',
 })
 
 export const metadata: Metadata = {
