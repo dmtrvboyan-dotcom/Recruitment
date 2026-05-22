@@ -24,13 +24,11 @@ function usePostLoadAnimations(): boolean {
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    // Reduced-motion users never get the decorative animations.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
     let timer: ReturnType<typeof setTimeout>
     const start = () => {
-      // Small buffer so paint metrics fully settle before anything moves.
-      timer = setTimeout(() => setReady(true), 250)
+      timer = setTimeout(() => setReady(true), 0)
     }
 
     if (document.readyState === "complete") {
@@ -64,12 +62,7 @@ const PAUSE_MS = 2000
 const EXIT_MS = 500
 const ENTER_MS = 580
 
-/*
- * NOTE: `filter: blur()` was removed from these keyframes. Animating a
- * filter is NOT GPU-composited — it runs on the main thread and was the
- * source of the "non-composited animations" warning. opacity + transform
- * are composited and stay perfectly smooth.
- */
+
 const ROTATION_STYLES = `
   @keyframes rtext-in {
     from { opacity: 0; transform: translateY(9px); }
@@ -98,7 +91,6 @@ const RotatingText = memo(function RotatingText({ active }: { active: boolean })
   const [phase, setPhase] = useState<AnimPhase>("idle")
 
   useEffect(() => {
-    // Until the page has loaded, the first phrase stays statically painted.
     if (!active) return
 
     let pauseId: ReturnType<typeof setTimeout>
@@ -173,7 +165,6 @@ const StatBlock = memo(function StatBlock({
   isMobileTop,
   animate,
 }: StatBlockProps) {
-  // Split "850+" -> prefix:"", number:850, postfix:"+"
   const { zero, pre, post, target, isNum } = useMemo(() => {
     const m = value.match(NUM_RE)
     if (!m) return { zero: value, pre: "", post: "", target: 0, isNum: false }
@@ -192,7 +183,6 @@ const StatBlock = memo(function StatBlock({
   useEffect(() => {
     if (!isNum) return
 
-    // Reduced motion: show the final number immediately, no animation.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setDisplay(value)
       return
@@ -207,7 +197,7 @@ const StatBlock = memo(function StatBlock({
 
     const tick = (now: number) => {
       const p = Math.min(1, (now - t0) / DURATION)
-      const eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
+      const eased = 1 - Math.pow(1 - p, 3)
       setDisplay(`${pre}${Math.round(target * eased)}${post}`)
       if (p < 1) raf = requestAnimationFrame(tick)
     }

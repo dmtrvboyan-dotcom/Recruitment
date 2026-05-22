@@ -1,8 +1,7 @@
-"use client"
+'use client'
 
-import { memo, type ReactNode } from "react"
-import { motion } from "framer-motion"
-import { SCROLL_REVEAL_CONFIG } from "@/lib/utils/animation"
+import { memo, type ReactNode, useEffect, useState } from 'react'
+import { SCROLL_REVEAL_CONFIG } from '@/lib/utils/animation'
 
 export interface ScrollRevealProps {
   children: ReactNode
@@ -15,42 +14,34 @@ export interface ScrollRevealProps {
   className?: string
 }
 
-/**
- * Scroll reveal animation wrapper component
- */
 export const ScrollReveal = memo(function ScrollReveal({
   children,
+  className = '',
   delay = 0,
   duration = SCROLL_REVEAL_CONFIG.transition.duration,
   y = 60,
   scale = 0.96,
-  blur = 8,
   once = true,
-  className = "",
 }: ScrollRevealProps) {
+  const [MotionDiv, setMotionDiv] = useState<React.ElementType | null>(null)
+
+  useEffect(() => {
+    import('framer-motion').then((m) => setMotionDiv(() => m.motion.div))
+  }, [])
+
+  if (!MotionDiv) {
+    return <div className={className}>{children}</div>
+  }
+
   return (
-    <motion.div
+    <MotionDiv
       className={className}
-      initial={{
-        opacity: 0,
-        y,
-        scale,
-        filter: `blur(${blur}px)`,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-      }}
+      initial={{ opacity: 0, y, scale }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once, amount: 0.05 }}
-      transition={{
-        duration,
-        delay,
-        ease: SCROLL_REVEAL_CONFIG.transition.ease,
-      }}
+      transition={{ duration, delay, ease: SCROLL_REVEAL_CONFIG.transition.ease }}
     >
       {children}
-    </motion.div>
+    </MotionDiv>
   )
 })

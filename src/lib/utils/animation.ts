@@ -12,21 +12,15 @@ const DEFAULT_COUNTER_CONFIG: AnimationConfig = {
   steps: 50,
 }
 
-/**
- * Parses a value string like "650+" and returns numeric value and suffix
- */
 export function parseValueWithSuffix(value: string): {
   numericValue: number
   suffix: string
 } {
-  const numericValue = parseInt(value.replace(/\D/g, "")) || 0
-  const suffix = value.replace(/[0-9]/g, "")
+  const numericValue = parseInt(value.replace(/\D/g, '')) || 0
+  const suffix = value.replace(/[0-9]/g, '')
   return { numericValue, suffix }
 }
 
-/**
- * Animates a counter from 0 to target value
- */
 export function animateCounter(
   target: number,
   onUpdate: (value: number) => void,
@@ -38,7 +32,6 @@ export function animateCounter(
 
   const timer = setInterval(() => {
     current += increment
-
     if (current >= target) {
       onUpdate(target)
       clearInterval(timer)
@@ -50,21 +43,17 @@ export function animateCounter(
   return () => clearInterval(timer)
 }
 
-/**
- * Default scroll reveal animation configuration
- */
 export const SCROLL_REVEAL_CONFIG = {
   initial: {
     opacity: 0,
     y: 60,
     scale: 0.96,
-    filter: "blur(8px)",
+    // blur removed — filter is not GPU-composited and hurts LCP/CLS
   },
   animate: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: "blur(0px)",
   },
   transition: {
     duration: 0.8,
