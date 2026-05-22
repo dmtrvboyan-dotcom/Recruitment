@@ -12,7 +12,9 @@ import {
   TRUST_ITEMS,
   WHY_ITEMS,
   CTA_DATA,
-} from "./data"
+} from "./data";
+import { BackToTop } from "@/components/navigation/back-to-top"
+
 
 export const metadata: Metadata = {
   title: "IT Payroll, Compliance & Business Advisory | Recruitment.bg",
@@ -50,7 +52,7 @@ function SectionIndicator({
   centered?: boolean
 }) {
   const muted = tone === "dark" ? "text-white/30" : "text-brand-navy/30"
-  const line  = tone === "dark" ? "bg-white/15"  : "bg-brand-navy/15"
+  const line = tone === "dark" ? "bg-white/15" : "bg-brand-navy/15"
 
   if (centered) {
     return (
@@ -142,9 +144,8 @@ export default function PayrollCompliancePage() {
               {STATS.map((stat, i) => (
                 <div
                   key={i}
-                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${
-                    i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
-                  }`}
+                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
+                    }`}
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[10px] font-mono text-brand-coral/80">
@@ -525,6 +526,7 @@ export default function PayrollCompliancePage() {
           </div>
         </section>
       </ScrollReveal>
+      < BackToTop hideOnMobile />
     </>
   )
 }

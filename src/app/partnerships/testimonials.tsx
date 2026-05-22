@@ -19,9 +19,16 @@ const TESTIMONIALS = [
       "They have a refreshingly approachable communication style, always move quickly when presenting candidates, and bring great energy to the process. We've made more hires through Recruitment.bg than through any other recruitment partner.",
   },
   {
+    name: "Dimitar Peev",
+    role: " CEO, Tech Director",
+    company: "Za Utre",
+    quote:
+      "Veselin and it's team helped us quick, efficient and together we close several positions of high importance. Highly recommended.",
+  },
+  {
     name: "Denys Yukno",
     role: "General Manager",
-    company: "Dataart Bulgaria",
+    company: "DataArt Bulgaria",
     quote:
       "Our team, responsible for working with recruitment agencies, collaborated with recruitment.bg during a period of very high demand. We recommend them for cooperation.",
   },
@@ -40,7 +47,7 @@ const TESTIMONIALS = [
       "We've worked with Recruitment.bg to hire across several roles, and honestly, they've made our lives much easier - and even enjoyable. The candidates they introduced were consistently strong, and the entire process felt like a true partnership rather than a transaction. Highly recommended!",
   },
   {
-    name: "Ani Koleva",
+    name: "Nik Jordanov",
     role: "General Manager",
     company: "Scaleflex",
     quote:
@@ -82,13 +89,27 @@ const TESTIMONIALS = [
       "The Recruitment.bg team approached the hiring process with professionalism and strong organization. I truly appreciated their communication, timely feedback, and the quality of candidates they presented.",
   },
   {
+    name: "Latinka Koulin",
+    role: "Senior HR Expert",
+    company: "AIOPSGROUP",
+    quote:
+      "We had challenging technical positions to fill, and Recruitment.bg delivered strong candidates while making the entire collaboration seamless.",
+  },
+  {
+    name: "Pepi Drinkova",
+    role: "Senior HR Business Partner",
+    company: "Tide",
+    quote:
+      "Recruitment.bg's team is great to work with. They ask the right questions and genuinely try to understand what kind of candidate you need instead of just going through the motions. they stay real. You can expect honest communication and a true partnership.",
+  },
+  {
     name: "Ina Radeva",
     role: "HR Manager",
     company: "UST",
     quote:
       "In the HR space, it's rare to come across recruitment partners that build such a consistent and professional presence in IT recruitment. I truly appreciate their understanding, communication, and the way they approach their work.",
   },
-   
+
 ]
 
 function useInView(threshold = 0.15) {
@@ -115,7 +136,7 @@ export const Testimonials = memo(function Testimonials() {
   const { ref, visible } = useInView(0.1)
 
   return (
-    <section className="relative w-full bg-brand-white overflow-hidden py-20 lg:py-32">
+    <section id="companies-testimonials" className="relative w-full bg-brand-white overflow-hidden py-20 lg:py-32">
       {/* Subtle dot grid background */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.4]"
@@ -145,14 +166,14 @@ export const Testimonials = memo(function Testimonials() {
           </span>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase">
-            Feedback from
+              Feedback from
               <br />
               <span className="text-brand-coral uppercase">our clients</span>
             </h2>
             <div className="flex items-center gap-4 lg:pb-3">
               <div className="h-px w-12 bg-brand-navy/20" />
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-brand-navy/45">
-                11 verified reviews
+                15 verified reviews
               </span>
             </div>
           </div>
@@ -167,7 +188,7 @@ export const Testimonials = memo(function Testimonials() {
             transition: "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
           }}
         >
-     
+
           {/* Coral glow */}
           <div className="absolute -top-32 -right-32 w-[420px] h-[420px] bg-brand-coral/20 rounded-full blur-3xl pointer-events-none" />
 
@@ -248,11 +269,10 @@ export const Testimonials = memo(function Testimonials() {
                 <div className={`h-px w-10 mb-4 ${isAccent ? "bg-brand-coral/40" : "bg-brand-navy/10"}`} />
 
                 <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-[11px] font-bold shrink-0 ${
-                    isAccent
-                      ? "bg-brand-coral/20 text-brand-coral border border-brand-coral/30"
-                      : "bg-brand-navy/5 text-brand-navy border border-brand-navy/10"
-                  }`}>
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-[11px] font-bold shrink-0 ${isAccent
+                    ? "bg-brand-coral/20 text-brand-coral border border-brand-coral/30"
+                    : "bg-brand-navy/5 text-brand-navy border border-brand-navy/10"
+                    }`}>
                     {getInitials(t.name)}
                   </div>
                   <div className="min-w-0">

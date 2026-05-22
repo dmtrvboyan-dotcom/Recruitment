@@ -14,8 +14,9 @@ import {
   ROLE_PRACTICES,
   PAGE_METADATA
 } from "./data";
-
 import { AppButton } from '@/components/ui/app-button';
+import { BackToTop } from "@/components/navigation/back-to-top"
+
 
 
 export const metadata: Metadata = {
@@ -650,7 +651,7 @@ export default function ExecutiveSearchPage() {
       <ScrollReveal>
         <section className="relative w-full px-3 sm:px-5 lg:px-10 pb-12 lg:pb-20">
           <div className="relative bg-brand-white rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
-          
+
 
             {/* Corner brackets */}
             <div aria-hidden className="absolute top-5 left-5 w-8 h-8 border-l-2 border-t-2 border-brand-coral/40 rounded-tl-xl pointer-events-none" />
@@ -691,6 +692,7 @@ export default function ExecutiveSearchPage() {
           </div>
         </section>
       </ScrollReveal>
+      < BackToTop hideOnMobile />
     </>
   )
 }

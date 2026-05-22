@@ -14,7 +14,9 @@ import {
   BENEFITS,
   FAQ_ITEMS,
   CTA,
-} from "./data"
+} from "./data";
+import { BackToTop } from "@/components/navigation/back-to-top"
+
 
 export const metadata: Metadata = {
   title: "Employer of Record (EoR) Services | Hire Globally Without a Local Entity",
@@ -168,7 +170,7 @@ export default function EmployerOfRecordPage() {
             <p className="text-sm text-white/45 mb-8 lg:mb-10">
               Need help finding the talent first?{" "}
               <Link href="/services/permanent-it-recruitment" className="text-brand-coral underline underline-offset-2 hover:text-brand-coral/80 transition-colors font-medium">
-                 See Permanent IT Recruitment →
+                See Permanent IT Recruitment →
               </Link>
             </p>
 
@@ -208,7 +210,7 @@ export default function EmployerOfRecordPage() {
               ))}
             </div>
           </div>
-          
+
         </div>
       </section>
 
@@ -294,7 +296,7 @@ export default function EmployerOfRecordPage() {
                           </span>
                         ))}
                       </div>
-                      
+
                     </div>
 
                     {/* Animated coral underline */}
@@ -575,6 +577,8 @@ export default function EmployerOfRecordPage() {
           </div>
         </section>
       </ScrollReveal>
+      < BackToTop hideOnMobile />
+
     </>
   )
 }

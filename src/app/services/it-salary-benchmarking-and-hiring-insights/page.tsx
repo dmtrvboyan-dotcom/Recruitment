@@ -12,7 +12,9 @@ import {
   BENEFITS,
   TRUST_ITEMS,
   CTA_DATA,
-} from "./data"
+} from "./data";
+import { BackToTop } from "@/components/navigation/back-to-top"
+
 
 export const metadata: Metadata = {
   title: "IT Salary Benchmarking & Hiring Insights | Tech Compensation Data",
@@ -579,6 +581,7 @@ export default function SalaryBenchmarkingPage() {
           </div>
         </section>
       </ScrollReveal>
+          < BackToTop hideOnMobile />
     </>
   )
 }

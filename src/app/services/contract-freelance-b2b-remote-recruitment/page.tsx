@@ -13,7 +13,7 @@ import {
   CTA_DATA,
 } from "./data";
 import { AppButton } from '@/components/ui/app-button';
-
+import { BackToTop } from "@/components/navigation/back-to-top";
 
 export const metadata: Metadata = {
   title: "Hire Contract & Freelance Developers | Start in 3–10 Days",
@@ -531,7 +531,7 @@ export default function ContractHiringPage() {
               <p className="text-base lg:text-lg text-white/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
                 {CTA_DATA.description}
               </p>
-              
+
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
                 <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
                   {CTA_DATA.primaryButton.text}
@@ -541,6 +541,7 @@ export default function ContractHiringPage() {
           </div>
         </section>
       </ScrollReveal>
+      < BackToTop hideOnMobile />
     </>
   )
 }

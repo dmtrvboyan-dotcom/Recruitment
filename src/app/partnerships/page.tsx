@@ -7,6 +7,8 @@ import { ClientsCTA } from "./client-cta"
 import { Testimonials } from "./testimonials"
 import { BackToTop } from "@/components/navigation/back-to-top"
 import { SectionNav } from "@/components/navigation/section-nav"
+import { HashCleaner } from "../../components/layout/hash-cleaner"
+
 
 export const metadata: Metadata = {
   title: "Clients & Partnerships | Recruitment.bg",
@@ -25,6 +27,10 @@ const sections = [
 export default function ClientsPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
+
+      <HashCleaner />
+      HashClearn
+
 
       <section id="hero">
         <PartnersHero />

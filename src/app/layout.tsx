@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Recruitment.bg - Executive Search & IT Headhunting",
-    description: "Bulgaria's premier executive search and IT headhunting agency.",
+    description: "Bulgaria's Premier Executive Search and IT Recruit Agency.",
     images: ["/og-image.jpg"], // ← added for SEO
   },
   alternates: {

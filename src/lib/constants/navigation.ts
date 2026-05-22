@@ -256,8 +256,8 @@ export const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-   {
-    label: "About Us",
+  {
+   label: "About Us",
     hasMegaMenu: true,
     megaSections: [
       {
@@ -270,15 +270,22 @@ export const NAV_ITEMS: NavItem[] = [
             href: "/about",
           },
           {
-            label: "Client Testimonials",
+            label: "Candidates Feedbacks",
             description: "What our clients say about us",
             icon: "Phone",
             href: "/candidates#client-testimonials",
+          },
+          {
+            label: "Companies Feedbacks",
+            description: "What our partners say about working with us",
+            icon: "Star",
+            href: "/partnerships#companies-testimonials",
           },
         ],
       },
     ],
   },
+
   // { label: "About Us", href: "/about" },
 ]
 

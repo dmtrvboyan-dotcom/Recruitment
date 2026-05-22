@@ -13,6 +13,7 @@ import {
   TRUST_ITEMS,
   CTA_DATA,
 } from "./data"
+import { BackToTop } from "@/components/navigation/back-to-top"
 
 export const metadata: Metadata = {
   title: "Permanent IT Recruitment Services | Tech Talent Acquisition",
@@ -452,7 +453,7 @@ export default function ExecutiveSearchPage() {
                   className="relative inline-flex items-center justify-between gap-4 mt-8 group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-coral/40 rounded-2xl px-5 py-4 transition-all duration-300"
                 >
                   <span className="text-sm font-bold text-white">
-                    Meet the companies we've worked with 
+                    Meet the companies we've worked with
                   </span>
                   <span className="flex items-center justify-center w-9 h-9 rounded-full bg-brand-coral group-hover:rotate-45 transition-transform duration-300">
                     <ArrowUpRight className="w-4 h-4 text-white" />
@@ -537,6 +538,10 @@ export default function ExecutiveSearchPage() {
           </div>
         </section>
       </ScrollReveal>
+          < BackToTop hideOnMobile />
+
     </>
+    
   )
+
 }
