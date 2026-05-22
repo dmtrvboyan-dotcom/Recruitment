@@ -1,23 +1,30 @@
 "use client"
 
-import { memo, useCallback } from "react"
-import { Upload, FileText, X } from "lucide-react"
+import { memo, useCallback, useState, useEffect } from "react"
+import { Upload, FileText, X, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { FieldLabel } from "./field-label"
+import { FieldLabel, FieldError } from "./field-label"
 
 interface ResumeUploadProps {
   resume: File | null
   onChange: (file: File | null) => void
+  error?: string
 }
 
 export const ResumeUpload = memo(function ResumeUpload({
   resume,
   onChange,
+  error,
 }: ResumeUploadProps) {
+  const [showToast, setShowToast] = useState(false)
+
   const handleFile = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const f = e.target.files?.[0]
-      if (f) onChange(f)
+      if (f) {
+        onChange(f)
+        setShowToast(true)
+      }
     },
     [onChange]
   )
@@ -27,22 +34,32 @@ export const ResumeUpload = memo(function ResumeUpload({
       e.preventDefault()
       e.stopPropagation()
       onChange(null)
+      setShowToast(false)
     },
     [onChange]
   )
 
+  // Auto-dismiss the toast after 3.5s
+  useEffect(() => {
+    if (!showToast) return
+    const timer = setTimeout(() => setShowToast(false), 3500)
+    return () => clearTimeout(timer)
+  }, [showToast])
+
   return (
-    <div className="mb-7">
+    <div className="mb-7 relative">
       <FieldLabel icon={Upload} htmlFor="resume-upload" required>
         Resume / CV
       </FieldLabel>
 
       <label
         htmlFor="resume-upload"
-        className={`relative flex items-center justify-between gap-3 w-full bg-brand-white/[0.04] border border-dashed rounded-xl px-4 py-4 cursor-pointer transition-all duration-200 hover:bg-brand-white/[0.06] ${
-          resume
+        className={`relative flex items-center justify-between gap-3 w-full border border-dashed rounded-xl px-4 py-4 cursor-pointer transition-all duration-200 hover:bg-brand-white/[0.06] ${
+          error
+            ? "border-red-500/60 bg-brand-white/[0.04]"
+            : resume
             ? "border-brand-coral/40 bg-brand-coral/[0.04]"
-            : "border-brand-white/15 hover:border-brand-coral/50"
+            : "border-brand-white/15 bg-brand-white/[0.04] hover:border-brand-coral/50"
         }`}
       >
         <div className="flex items-center gap-3 min-w-0">
@@ -84,9 +101,21 @@ export const ResumeUpload = memo(function ResumeUpload({
           accept=".pdf,.doc,.docx"
           onChange={handleFile}
           className="sr-only"
-          required={!resume}
         />
       </label>
+
+      <FieldError message={error} />
+
+      {/* ── Upload success toast ─────────────────────────────────── */}
+      {showToast && (
+        <div
+          className="absolute -bottom-12 left-0 right-0 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-emerald-500/15 border border-emerald-400/25 text-emerald-400 text-xs font-medium animate-[fadeSlideIn_0.3s_ease]"
+          role="status"
+        >
+          <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+          Resume uploaded successfully
+        </div>
+      )}
     </div>
   )
 })

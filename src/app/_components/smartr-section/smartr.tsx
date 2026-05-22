@@ -21,9 +21,9 @@ const FEATURES = [
 ]
 
 const STATS = [
-  { value: 3, suffix: "x", label: "Faster hiring" },
-  { value: 94, suffix: "%", label: "Client retention" },
-  { value: 12, suffix: "k+", label: "Candidates tracked" },
+  { value: 100, suffix: "%", label: "Candidates in One Place" },
+  { value: 0, suffix: "%", label: "To Miss a Hire" },
+  { value: 33, suffix: "k+", label: "Candidates Tracked" },
 ]
 
 function useCountUp(target: number, duration = 1800, start = false) {

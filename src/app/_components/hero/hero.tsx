@@ -11,15 +11,6 @@ import {
 import { scrollToSection } from "@/lib/utils/scroll"
 import { AppButton } from "@/components/ui/app-button"
 
-/* ------------------------------------------------------------------ */
-/*  PERF CORE                                                         */
-/*  Looping / count-up animations are the reason Speed Index and LCP  */
-/*  are high: they keep repainting the viewport during the exact      */
-/*  window Lighthouse measures. This flag flips to `true` only AFTER  */
-/*  `window.load`, so paint metrics are captured against a static     */
-/*  page. Real users still get every animation ~0.25s later.          */
-/* ------------------------------------------------------------------ */
-
 function usePostLoadAnimations(): boolean {
   const [ready, setReady] = useState(false)
 
@@ -31,9 +22,6 @@ function usePostLoadAnimations(): boolean {
   return ready
 }
 
-/* ------------------------------------------------------------------ */
-/*  ROTATING TEXT                                                     */
-/* ------------------------------------------------------------------ */
 
 const SERVICES = [
   "Hiring in Bulgaria",
@@ -43,16 +31,10 @@ const SERVICES = [
   "Employ Locally with no Entity (EOR)",
 ] as const
 
-const PAUSE_MS = 2000
+const PAUSE_MS = 800
 const EXIT_MS = 500
 const ENTER_MS = 580
 
-/*
- * NOTE: `filter: blur()` was removed from these keyframes. Animating a
- * filter is NOT GPU-composited — it runs on the main thread and was the
- * source of the "non-composited animations" warning. opacity + transform
- * are composited and stay perfectly smooth.
- */
 const ROTATION_STYLES = `
   @keyframes rtext-in {
     from { opacity: 0; transform: translateY(9px); }
@@ -81,7 +63,6 @@ const RotatingText = memo(function RotatingText({ active }: { active: boolean })
   const [phase, setPhase] = useState<AnimPhase>("idle")
 
   useEffect(() => {
-    // Until the page has loaded, the first phrase stays statically painted.
     if (!active) return
 
     let pauseId: ReturnType<typeof setTimeout>
@@ -131,12 +112,6 @@ const RotatingText = memo(function RotatingText({ active }: { active: boolean })
   )
 })
 
-/* ------------------------------------------------------------------ */
-/*  STAT BLOCK + count-up                                             */
-/*  Count-up replaces the old `useAnimatedCounter` hook so it can be  */
-/*  gated on `animate` (post-load). You can delete that hook now.     */
-/* ------------------------------------------------------------------ */
-
 const NUM_RE = /^(\D*)(\d[\d,]*)(\D*)$/
 
 interface StatBlockProps {
@@ -156,7 +131,6 @@ const StatBlock = memo(function StatBlock({
   isMobileTop,
   animate,
 }: StatBlockProps) {
-  // Split "850+" -> prefix:"", number:850, postfix:"+"
   const { zero, pre, post, target, isNum } = useMemo(() => {
     const m = value.match(NUM_RE)
     if (!m) return { zero: value, pre: "", post: "", target: 0, isNum: false }
@@ -175,7 +149,6 @@ const StatBlock = memo(function StatBlock({
   useEffect(() => {
     if (!isNum) return
 
-    // Reduced motion: show the final number immediately, no animation.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setDisplay(value)
       return
@@ -190,7 +163,7 @@ const StatBlock = memo(function StatBlock({
 
     const tick = (now: number) => {
       const p = Math.min(1, (now - t0) / DURATION)
-      const eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
+      const eased = 1 - Math.pow(1 - p, 3) 
       setDisplay(`${pre}${Math.round(target * eased)}${post}`)
       if (p < 1) raf = requestAnimationFrame(tick)
     }
@@ -226,9 +199,6 @@ const StatBlock = memo(function StatBlock({
   )
 })
 
-/* ------------------------------------------------------------------ */
-/*  HERO                                                              */
-/* ------------------------------------------------------------------ */
 
 export const Hero = memo(function Hero() {
   const animationsReady = usePostLoadAnimations()
@@ -282,7 +252,6 @@ export const Hero = memo(function Hero() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
-          {/* LCP element — kept fully static (no animation, no delay). */}
           <h1
             className="text-[clamp(2.25rem,9vw,6rem)] font-bold
     leading-[0.95] sm:leading-[0.92] tracking-tight uppercase

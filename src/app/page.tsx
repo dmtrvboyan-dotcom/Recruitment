@@ -1,4 +1,3 @@
-// app/page.tsx (or wherever this lives)
 import { Header } from "@/components/layout/header/header"
 import { Footer, ScrollReveal, SocialSidebar } from "@/components/layout"
 import {

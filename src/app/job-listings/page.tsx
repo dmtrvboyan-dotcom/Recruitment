@@ -1,7 +1,6 @@
 import { HeroSection } from "./hero-section"
 import { JobsSection } from "./jobs"
 import { CVUploadSection } from "./cv-upload-section"
-import { OpenQuestionsSection } from "./open-questions-section"
 import { BackToTop } from "@/components/navigation/back-to-top"
 
 export default function JobsListings() {
@@ -10,7 +9,6 @@ export default function JobsListings() {
       <HeroSection />
       <JobsSection />
       <CVUploadSection />
-      <OpenQuestionsSection />
 
       <BackToTop hideOnMobile />
 

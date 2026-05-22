@@ -73,7 +73,7 @@ export default function FintechRecruitmentPage() {
               {/* Stats row */}
               <div className="mt-10 grid w-full max-w-lg grid-cols-3 gap-4 sm:mt-12 sm:gap-8">
                 {[
-                  { num: "6+", label: "Years in market" },
+                  { num: "13+", label: "Years in market" },
                   { num: "400+", label: "Placements made" },
                   { num: "94%", label: "Retention rate" },
                 ].map(({ num, label }) => (

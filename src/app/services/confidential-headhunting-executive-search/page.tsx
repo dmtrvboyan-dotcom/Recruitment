@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { ScrollReveal } from "@/components/layout"
-import { ArrowRight, ArrowUpRight, Check } from "lucide-react"
+import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   HERO_DATA,
@@ -9,20 +8,21 @@ import {
   SERVICE_CARDS,
   BENEFITS,
   INDUSTRIES,
+  INDUSTRY_SECTORS,
   TRUST_ITEMS,
   CTA_DATA,
   ROLE_PRACTICES,
-} from "./data"
+  PAGE_METADATA
+} from "./data";
+
 import { AppButton } from '@/components/ui/app-button';
 
 
 export const metadata: Metadata = {
-  title: "Executive Search & Headhunting for Technology Leaders | Tech Recruitment",
-  description:
-    "Partner-led executive search and headhunting for senior technology roles - CTO, VP Engineering, CISO, CPO, and beyond. 92% two-year retention. 300+ mandates completed. Discreet, strategic, and results-driven.",
+  title: PAGE_METADATA.title,
+  description: PAGE_METADATA.description,
 }
 
-// ─── Atoms ────────────────────────────────────────────────────────────────────
 
 function Eyebrow({
   children,
@@ -81,12 +81,12 @@ function SectionIndicator({
   )
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ExecutiveSearchPage() {
+
+
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative w-full bg-brand-navy overflow-hidden flex flex-col mt-20 sm:mt-5">
         {/* Coral glows */}
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none" />
@@ -131,12 +131,8 @@ export default function ExecutiveSearchPage() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
-              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
-                {CTA_DATA.primaryButton.text}
-              </AppButton>
-
-              <AppButton href={CTA_DATA.secondaryButton.href} variant="outline" className=" sm:w-auto">
-                {CTA_DATA.secondaryButton.text}
+              <AppButton href="#specialism" icon="arrow" className="sm:w-auto">
+                Explore More
               </AppButton>
             </div>
           </div>
@@ -157,9 +153,9 @@ export default function ExecutiveSearchPage() {
         </div>
       </div>
 
-      {/* ── ROLES WE PLACE: 2-column role grid ───────────────────────────── */}
+      {/* ── HOW WE DO IT: 2-column role grid ─────────────────────────────── */}
       <ScrollReveal>
-        <section className="relative w-full bg-brand-white">
+        <section id="specialism" className="relative w-full bg-brand-white">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 py-20 lg:py-32">
             {/* Centered header */}
             <div className="mb-12 lg:mb-16 text-center">
@@ -188,7 +184,6 @@ export default function ExecutiveSearchPage() {
                   <div
                     key={i}
                     className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-500 ease-out overflow-hidden"
-
                   >
                     <div className="pt-1 shrink-0">
                       <span className="block text-[clamp(2rem,5vw,3.5rem)] font-bold text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
@@ -248,8 +243,8 @@ export default function ExecutiveSearchPage() {
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={2} label="Sectors" centered />
               <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-white">
-                Industries we know{" "}
-                <span className="text-brand-coral">deeply</span>
+                When Companies Use{" "}
+                <span className="text-brand-coral">Executive Search</span>
               </h2>
               <p className="mt-4 text-brand-white/45 text-sm max-w-md mx-auto leading-relaxed">
                 Executive search only works when the recruiter genuinely understands the market. We've spent 15 years building that depth.
@@ -289,11 +284,11 @@ export default function ExecutiveSearchPage() {
                 </div>
               ))}
             </div>
-               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
               <AppButton href={CTA_DATA.sectorsBtn.href} icon="arrow" className="sm:w-auto">
                 {CTA_DATA.sectorsBtn.text}
               </AppButton>
-               <AppButton variant="outline" href={CTA_DATA.sectorsBtnSecond.href} icon="arrow" className="sm:w-auto">
+              <AppButton variant="outline" href={CTA_DATA.sectorsBtnSecond.href} icon="arrow" className="sm:w-auto">
                 {CTA_DATA.sectorsBtnSecond.text}
               </AppButton>
             </div>
@@ -324,6 +319,13 @@ export default function ExecutiveSearchPage() {
                 Roles we{" "}
                 <span className="text-brand-coral">place</span>
               </h2>
+              <div className="flex items-center justify-center gap-3 mt-4">
+                <div className="h-px w-10 bg-brand-coral" />
+                <span className="text-[11px] font-mono text-brand-navy/40">
+                  {String(ROLE_PRACTICES.length).padStart(2, "0")} practices
+                </span>
+                <div className="h-px w-10 bg-brand-coral" />
+              </div>
               <p className="mt-4 text-navy/45 text-sm max-w-md mx-auto leading-relaxed">
                 Senior leadership search across every critical function — from the boardroom to the leadership layer that drives execution.
               </p>
@@ -390,16 +392,100 @@ export default function ExecutiveSearchPage() {
         </section>
       </ScrollReveal>
 
+      {/* ── INDUSTRIES WE SERVE ───────────────────────────────────────────── */}
+      <ScrollReveal>
+        <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-28">
+          {/* Subtle glow behind grid */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-brand-coral/10 blur-[160px] pointer-events-none" />
+
+          {/* Watermark */}
+          <div
+            aria-hidden
+            className="absolute -bottom-8 left-0 text-[20vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+          >
+            SECTORS
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
+            {/* Header */}
+            <div className="mb-12 lg:mb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <div>
+                <SectionIndicator index={4} label="Industries" tone="dark" />
+                <h2 className="mt-6 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white">
+                  Industries we{" "}
+                  <span className="text-brand-coral">serve</span>
+                </h2>
+              </div>
+              <p className="text-white/40 text-sm max-w-xs leading-relaxed lg:text-right lg:pb-2">
+                Sector-deep expertise built across 300+ senior mandates in the world's most competitive talent markets.
+              </p>
+            </div>
+
+            {/* Icon grid — 5 across on desktop, 2 on mobile */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0 border-t border-l border-white/10">
+              {INDUSTRY_SECTORS.map((sector, i) => {
+                const Icon = sector.icon
+                return (
+                  <div
+                    key={i}
+                    className="group relative flex flex-col items-start gap-3 p-5 lg:p-6 border-b border-r border-white/10 hover:bg-white/[0.04] transition-all duration-300 overflow-hidden cursor-default"
+                  >
+                    {/* Hover coral top bar */}
+                    <span
+                      aria-hidden
+                      className="absolute left-0 top-0 right-0 h-0.5 bg-brand-coral scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                    />
+
+                    {/* Ghost index */}
+                    <span
+                      aria-hidden
+                      className="absolute bottom-3 right-4 text-[2.5rem] font-bold text-white/[0.04] leading-none pointer-events-none select-none group-hover:text-brand-coral/10 transition-colors duration-500"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    {/* Icon */}
+                    <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-brand-coral/10 border border-brand-coral/20 group-hover:bg-brand-coral/20 group-hover:border-brand-coral/40 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 shrink-0">
+                      <Icon className="w-4.5 h-4.5 text-brand-coral" strokeWidth={1.6} />
+                    </div>
+
+                    {/* Name + description */}
+                    <div>
+                      <p className="text-[13px] font-bold text-white group-hover:text-brand-coral transition-colors duration-200 leading-tight mb-1.5">
+                        {sector.name}
+                      </p>
+                      <p className="text-[11px] text-white/35 leading-relaxed group-hover:text-white/55 transition-colors duration-300">
+                        {sector.description}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Footnote row */}
+            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-white/10">
+              <p className="text-[12px] text-white/30 leading-relaxed">
+                Don't see your sector? We place senior leaders across all industries — speak with our team.
+              </p>
+              <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="shrink-0">
+                Discuss Your Search
+              </AppButton>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
       {/* ── PROCESS: Horizontal timeline ──────────────────────────────────── */}
       <ScrollReveal>
-        <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
+        <section className="relative w-full bg-brand-whtie overflow-hidden py-20 lg:py-32">
           {/* Glow */}
           <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-navy/[0.025] select-none pointer-events-none"
           >
             METHOD
           </div>
@@ -407,14 +493,14 @@ export default function ExecutiveSearchPage() {
           {/* Header */}
           <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
             <div className="mb-8 lg:mb-10">
-              <SectionIndicator index={4} label="HOW WE WORK" tone="dark" centered />
+              <SectionIndicator index={5} label="HOW WE WORK" tone="dark" centered />
             </div>
             <div className="text-center">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white mb-4">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy mb-4">
                 Our search{" "}
                 <span className="text-brand-coral">methodology</span>
               </h2>
-              <p className="text-white/45 text-sm lg:text-base leading-relaxed max-w-xl mx-auto">
+              <p className="text-brand-navy/45 text-sm lg:text-base leading-relaxed max-w-xl mx-auto">
                 A five-stage process refined across 300+ senior mandates.
               </p>
             </div>
@@ -434,16 +520,16 @@ export default function ExecutiveSearchPage() {
                 return (
                   <div key={i} className="relative">
                     {/* Node dot (desktop) */}
-                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -top-[calc(54px-8px)] w-4 h-4 rounded-full bg-brand-navy border-2 border-brand-coral z-10 items-center justify-center">
+                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -top-[calc(54px-8px)] w-4 h-4 rounded-full bg-brand-white border-2 border-brand-coral z-10 items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
                     </div>
 
                     {/* Card */}
-                    <div className="group relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 lg:p-7 hover:bg-white/[0.08] hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
+                    <div className="group relative rounded-2xl border border-navy/10 bg-navy/[0.04] backdrop-blur-sm p-6 lg:p-7 hover:bg-navy/[0.08] hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
                       {/* Watermark step number */}
                       <span
                         aria-hidden
-                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-white/[0.04] leading-none pointer-events-none select-none"
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-brand-navy/[0.04] leading-none pointer-events-none select-none"
                       >
                         {step.number}
                       </span>
@@ -453,16 +539,16 @@ export default function ExecutiveSearchPage() {
                           <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-coral/15 group-hover:bg-brand-coral/25 transition-colors duration-300 shrink-0">
                             <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.7} />
                           </div>
-                          <div className="flex-1 h-px bg-white/10 group-hover:bg-brand-coral/40 transition-colors duration-300" />
+                          <div className="flex-1 h-px bg-brand-navy/10 group-hover:bg-brand-coral/40 transition-colors duration-300" />
                         </div>
 
                         <p className="text-[10px] font-bold text-brand-coral/80 uppercase tracking-[0.3em] mb-2">
                           STEP {step.number}
                         </p>
-                        <h3 className="text-base lg:text-lg font-bold text-white mb-3 leading-tight tracking-tight">
+                        <h3 className="text-base lg:text-lg font-bold text-brand-navvy mb-3 leading-tight tracking-tight">
                           {step.title}
                         </h3>
-                        <p className="text-[13px] text-white/45 leading-relaxed">
+                        <p className="text-[13px] text-brand-navy/45 leading-relaxed">
                           {step.description}
                         </p>
                       </div>
@@ -477,18 +563,18 @@ export default function ExecutiveSearchPage() {
 
       {/* ── BENEFITS: Asymmetric bento ──────────────────────────────────── */}
       <ScrollReveal>
-        <section className="relative w-full bg-brand-white py-20 lg:py-32">
+        <section className="relative w-full bg-brand-navy py-20 lg:py-32">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
-              <SectionIndicator index={5} label="Why us" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <SectionIndicator index={6} label="Why us" centered />
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-white">
                 Precision <span className="text-brand-coral">hiring</span>
               </h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 lg:gap-4">
               {/* Hero card */}
-              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-navy text-white p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[440px]">
+              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-white text-brand-navy p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[440px]">
                 <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
                 <div className="relative">
@@ -497,14 +583,13 @@ export default function ExecutiveSearchPage() {
                     <br />
                     <span className="text-brand-coral">decades of trust</span>
                   </h2>
-                  <p className="text-sm lg:text-base text-white/60 leading-relaxed max-w-sm">
+                  <p className="text-sm lg:text-base text-brand-navy/60 leading-relaxed max-w-sm">
                     We don't compete on volume. Every mandate we accept gets a
                     senior partner's full attention from brief to onboarding —
                     and beyond.
                   </p>
                 </div>
 
-                {/* Trust signal checklist */}
                 <ul className="relative mt-8 space-y-2.5">
                   {[
                     "No junior handoffs — ever",
@@ -512,7 +597,7 @@ export default function ExecutiveSearchPage() {
                     "Off-market candidate access",
                     "Replacement guarantee included",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-[13px] text-white/60">
+                    <li key={i} className="flex items-center gap-2.5 text-[13px] text-brand-navy/60">
                       <span className="w-4 h-4 rounded-full bg-brand-coral/20 flex items-center justify-center flex-shrink-0">
                         <Check className="w-2.5 h-2.5 text-brand-coral" />
                       </span>
@@ -528,11 +613,11 @@ export default function ExecutiveSearchPage() {
                 return (
                   <div
                     key={i}
-                    className="lg:col-span-3 rounded-3xl bg-brand-navy/[0.025] border border-brand-navy/10 p-7 lg:p-8 hover:bg-brand-navy/[0.045] hover:border-brand-coral/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden min-h-[200px] lg:min-h-[210px]"
+                    className="lg:col-span-3 rounded-3xl bg-brand-white/[0.025] border border-brand-white/10 p-7 lg:p-8 hover:bg-brand-white/[0.045] hover:border-brand-coral/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden min-h-[200px] lg:min-h-[210px]"
                   >
                     <span
                       aria-hidden
-                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-navy/[0.06] leading-none pointer-events-none select-none"
+                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-white/[0.06] leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -541,10 +626,10 @@ export default function ExecutiveSearchPage() {
                       <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-coral/12 mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                         <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.7} />
                       </div>
-                      <h3 className="text-lg font-bold text-brand-navy mb-2.5 group-hover:text-brand-coral transition-colors duration-200">
+                      <h3 className="text-lg font-bold text-brand-white mb-2.5 group-hover:text-brand-coral transition-colors duration-200">
                         {benefit.title}
                       </h3>
-                      <p className="text-sm text-brand-navy/55 leading-relaxed">
+                      <p className="text-sm text-brand-white/55 leading-relaxed">
                         {benefit.body}
                       </p>
                     </div>
@@ -553,23 +638,19 @@ export default function ExecutiveSearchPage() {
               })}
             </div>
           </div>
-           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
-              <AppButton href={CTA_DATA.whyUsBtn.href} icon="arrow" className="sm:w-auto">
-                {CTA_DATA.whyUsBtn.text}
-              </AppButton>
-              
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+            <AppButton href={CTA_DATA.whyUsBtn.href} icon="arrow" className="sm:w-auto">
+              {CTA_DATA.whyUsBtn.text}
+            </AppButton>
+          </div>
         </section>
       </ScrollReveal>
 
       {/* ── CTA: Dramatic finale ────────────────────────────────────────── */}
       <ScrollReveal>
         <section className="relative w-full px-3 sm:px-5 lg:px-10 pb-12 lg:pb-20">
-          <div className="relative bg-brand-navy rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
-            {/* Glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-coral/20 blur-[150px] pointer-events-none" />
-            <div className="absolute -top-20 -left-20 w-[300px] h-[300px] rounded-full bg-brand-coral/15 blur-[100px] pointer-events-none" />
-            <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] rounded-full bg-brand-coral/10 blur-[100px] pointer-events-none" />
+          <div className="relative bg-brand-white rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
+          
 
             {/* Corner brackets */}
             <div aria-hidden className="absolute top-5 left-5 w-8 h-8 border-l-2 border-t-2 border-brand-coral/40 rounded-tl-xl pointer-events-none" />
@@ -580,7 +661,7 @@ export default function ExecutiveSearchPage() {
             {/* Watermark */}
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-brand-navy/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               EXEC
             </p>
@@ -592,11 +673,11 @@ export default function ExecutiveSearchPage() {
                 <span className="block h-px w-10 bg-brand-coral" />
               </div>
 
-              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-brand-navy mb-6 lg:mb-8 text-balance">
                 {CTA_DATA.title}
               </h2>
 
-              <p className="text-base lg:text-lg text-white/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
+              <p className="text-base lg:text-lg text-brand-navy/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
                 {CTA_DATA.description}
               </p>
 

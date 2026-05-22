@@ -14,6 +14,16 @@ import { FulltimeToggle, type FulltimeValue } from "./fulltime-toggle"
 import { PreferenceSelects } from "./preference-selects"
 import { SubmitButton } from "./submit-button"
 
+export type FieldErrors = Record<string, string | undefined>
+
+function isValidEmail(v: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+}
+
+function isValidLinkedin(v: string) {
+    if (!v) return true // optional
+    return /^https?:\/\/(www\.)?linkedin\.com\/in\/.+/i.test(v)
+}
 
 export const ApplicationForm = memo(function ApplicationForm() {
     const { ref: formRef, visible: formVisible } = useInView<HTMLFormElement>()
@@ -22,7 +32,7 @@ export const ApplicationForm = memo(function ApplicationForm() {
     const [email, setEmail] = useState("")
     const [linkedin, setLinkedin] = useState("")
     const [resume, setResume] = useState<File | null>(null)
-    const [stacks, setStacks] = useState<string[]>([]);
+    const [stacks, setStacks] = useState<string[]>([])
     const [stackFreeText, setStackFreeText] = useState("")
     const [rateAmount, setRateAmount] = useState("")
     const [rateBasis, setRateBasis] = useState<RateBasis>("hour")
@@ -33,25 +43,72 @@ export const ApplicationForm = memo(function ApplicationForm() {
     const [submitting, setSubmitting] = useState(false)
     const [submitted, setSubmitted] = useState(false)
 
+    // Track which fields have been blurred / interacted with
+    const [touched, setTouched] = useState<Record<string, boolean>>({})
+    // Whether the user has attempted a submit (shows all errors)
+    const [submitAttempted, setSubmitAttempted] = useState(false)
+
+    const markTouched = useCallback((field: string) => {
+        setTouched((prev) => ({ ...prev, [field]: true }))
+    }, [])
+
+    // ── Derive errors from current state ──────────────────────────────
+    const computeErrors = useCallback((): FieldErrors => {
+        const e: FieldErrors = {}
+
+        if (!fullName.trim()) e.fullName = "Full name is required"
+        else if (fullName.trim().length < 2) e.fullName = "Name must be at least 2 characters"
+
+        if (!email.trim()) e.email = "Email is required"
+        else if (!isValidEmail(email)) e.email = "Enter a valid email address"
+
+        if (linkedin && !isValidLinkedin(linkedin))
+            e.linkedin = "Enter a valid LinkedIn URL (https://linkedin.com/in/…)"
+
+        if (!resume) e.resume = "Please upload your resume"
+
+        if (stacks.length === 0 && !stackFreeText.trim())
+            e.techStack = "Select at least one technology or type your stack"
+
+        if (!rateAmount.trim()) e.rateAmount = "Rate is required"
+        else if (Number(rateAmount) <= 0) e.rateAmount = "Rate must be greater than 0"
+
+        return e
+    }, [fullName, email, linkedin, resume, stacks, stackFreeText, rateAmount])
+
+    const errors = computeErrors()
+
+    // Only show an error when the field has been touched or submit attempted
+    const visibleError = useCallback(
+        (field: string) => (touched[field] || submitAttempted ? errors[field] : undefined),
+        [touched, submitAttempted, errors]
+    )
+
     const toggleStack = useCallback((tech: string) => {
         setStacks((prev) =>
             prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
         )
+        setTouched((prev) => ({ ...prev, techStack: true }))
     }, [])
 
-    const handleSubmit = useCallback(async (e: React.FormEvent) => {
-        e.preventDefault()
-        setSubmitting(true)
+    const handleSubmit = useCallback(
+        async (e: React.FormEvent) => {
+            e.preventDefault()
+            setSubmitAttempted(true)
 
-        // TODO: replace with a real API route, e.g.:
-        //   const fd = new FormData()
-        //   fd.append("fullName", fullName) ...
-        //   await fetch("/api/applications", { method: "POST", body: fd })
-        await new Promise((r) => setTimeout(r, 1200))
+            const errs = computeErrors()
+            if (Object.keys(errs).length > 0) return
 
-        setSubmitting(false)
-        setSubmitted(true)
-    }, [])
+            setSubmitting(true)
+
+            // TODO: replace with a real API route
+            await new Promise((r) => setTimeout(r, 1200))
+
+            setSubmitting(false)
+            setSubmitted(true)
+        },
+        [computeErrors]
+    )
 
     if (submitted) {
         return <SuccessState firstName={fullName.split(" ")[0]} />
@@ -80,23 +137,24 @@ export const ApplicationForm = memo(function ApplicationForm() {
 
             <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
                 <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 xl:gap-20 items-start">
-
                     <FormAside />
 
                     <form
                         ref={formRef}
                         onSubmit={handleSubmit}
+                        noValidate
                         className="relative rounded-3xl bg-brand-white/[0.03] border border-brand-white/10 p-6 sm:p-8 lg:p-10 backdrop-blur-md"
                         style={{
                             opacity: formVisible ? 1 : 0,
                             transform: formVisible ? "translateY(0)" : "translateY(28px)",
-                            transition: "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
+                            transition:
+                                "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
                         }}
                     >
                         <div className="flex items-center gap-3 mb-8 pb-6 border-b border-brand-white/10">
                             <div className="w-2 h-2 rounded-full bg-brand-coral animate-pulse" />
                             <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-white/40">
-                                Step 1 of 1 - Profile Submission
+                                Step 1 of 1 – Profile Submission
                             </span>
                         </div>
 
@@ -107,16 +165,31 @@ export const ApplicationForm = memo(function ApplicationForm() {
                             onFullNameChange={setFullName}
                             onEmailChange={setEmail}
                             onLinkedinChange={setLinkedin}
+                            onBlur={markTouched}
+                            errors={{
+                                fullName: visibleError("fullName"),
+                                email: visibleError("email"),
+                                linkedin: visibleError("linkedin"),
+                            }}
                         />
 
-                        <ResumeUpload resume={resume} onChange={setResume} />
+                        <ResumeUpload
+                            resume={resume}
+                            onChange={setResume}
+                            error={visibleError("resume")}
+                        />
 
                         <TechStackField
                             selected={stacks}
                             onToggle={toggleStack}
                             freeText={stackFreeText}
-                            onFreeTextChange={setStackFreeText}
+                            onFreeTextChange={(v) => {
+                                setStackFreeText(v)
+                                setTouched((prev) => ({ ...prev, techStack: true }))
+                            }}
+                            error={visibleError("techStack")}
                         />
+
                         <RateField
                             amount={rateAmount}
                             currency={rateCurrency}
@@ -124,6 +197,8 @@ export const ApplicationForm = memo(function ApplicationForm() {
                             onAmountChange={setRateAmount}
                             onCurrencyChange={setRateCurrency}
                             onBasisChange={setRateBasis}
+                            onBlur={() => markTouched("rateAmount")}
+                            error={visibleError("rateAmount")}
                         />
 
                         <FulltimeToggle value={openFulltime} onChange={setOpenFulltime} />
@@ -152,10 +227,9 @@ export const ApplicationForm = memo(function ApplicationForm() {
                             >
                                 privacy policy
                             </Link>
-                            . Your information stays confidential - always.
+                            . Your information stays confidential – always.
                         </p>
                     </form>
-
                 </div>
             </div>
         </section>

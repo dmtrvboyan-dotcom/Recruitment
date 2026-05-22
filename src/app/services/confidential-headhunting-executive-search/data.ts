@@ -19,8 +19,28 @@ import {
   Settings2,
   BarChart2,
   Scale,
+  LockKeyhole,
+  Cpu,
+  Cloud,
+  CreditCard,
+  Truck,
+  Heart,
+  ShoppingBag,
+  Building2,
+  Briefcase,
+  Megaphone,
+  Package,
+  Database,
+  Crown,
   type LucideIcon,
 } from "lucide-react"
+
+export const PAGE_METADATA = {
+  title:
+    "Executive Search & Headhunting for Technology Leaders | Tech Recruitment",
+  description:
+    "Partner-led executive search and headhunting for senior technology roles - CTO, VP Engineering, CISO, CPO, and beyond.",
+}
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 export interface HeroData {
@@ -67,6 +87,12 @@ export interface IndustryItem {
   detail: string
 }
 
+export interface IndustrySector {
+  icon: LucideIcon
+  name: string
+  description: string
+}
+
 export interface RolePractice {
   number: string
   icon: LucideIcon
@@ -84,7 +110,6 @@ export interface CtaData {
   sectorsBtn: { text: string; href: string }
   sectorsBtnSecond: { text: string; href: string }
   whyUsBtn: { text: string; href: string }
-
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -140,7 +165,7 @@ export const ROLE_PRACTICES: RolePractice[] = [
   {
     number: "01",
     icon: UserCog,
-    practice: "HR, People & HR Leadership",
+    practice: "HR, People & Talent Leadership",
     description:
       "Executive HR and People leadership search for organisations scaling internationally, navigating transformation, or building high-performance cultures.",
     roles: ["CHRO", "VP People", "HR Director", "HR Manager", "Talent Acquisition Director", "People Operations Lead"],
@@ -151,7 +176,7 @@ export const ROLE_PRACTICES: RolePractice[] = [
     practice: "Commercial & Revenue Leadership",
     description:
       "Revenue and commercial leadership placements for SaaS, technology, and growth-stage organisations expanding into new markets or restructuring sales operations.",
-    roles: ["CRO", "VP Sales", "Sales Director", "GTM Leader", "Revenue Operations"],
+    roles: ["CRO", "VP Sales", "Sales Director", "GTM Leader", "Revenue Operations", "Account Director"],
   },
   {
     number: "03",
@@ -176,6 +201,46 @@ export const ROLE_PRACTICES: RolePractice[] = [
     description:
       "Senior legal, compliance and governance leaders for organisations navigating regulatory complexity, M&A activity, or board-level accountability.",
     roles: ["General Counsel", "Legal Director", "Compliance Director", "Governance Lead", "Risk Director"],
+  },
+  {
+    number: "06",
+    icon: Code2,
+    practice: "Technology & Engineering Leadership",
+    description:
+      "Senior technology and engineering leaders for product-led, digital-first, and enterprise organisations building for scale and resilience.",
+    roles: ["CTO", "VP Engineering", "Head of Engineering", "Software Architect", "Engineering Director", "DevOps Lead"],
+  },
+  {
+    number: "07",
+    icon: Megaphone,
+    practice: "Marketing & Growth Leadership",
+    description:
+      "Marketing and growth executives who combine brand strategy, demand generation and digital expertise to accelerate revenue and market position.",
+    roles: ["CMO", "VP Marketing", "Marketing Director", "Head of Growth", "Brand Director", "Demand Gen Lead"],
+  },
+  {
+    number: "08",
+    icon: Package,
+    practice: "Product Leadership",
+    description:
+      "Product leaders who translate vision into roadmap, align cross-functional teams, and deliver outcomes that drive user adoption and business value.",
+    roles: ["CPO", "VP Product", "Product Director", "Head of Product", "Product Strategy Lead", "GM Product"],
+  },
+  {
+    number: "09",
+    icon: Crown,
+    practice: "C-Suite & Board Level",
+    description:
+      "Principal-level search for CEO, Managing Director, and board appointments at growth-stage, PE-backed, and enterprise organisations.",
+    roles: ["CEO", "Managing Director", "President", "Executive Director", "Board Director", "Chair"],
+  },
+  {
+    number: "10",
+    icon: Database,
+    practice: "Data, AI & Digital Leadership",
+    description:
+      "Data, AI and digital transformation executives who build analytical capability, drive AI adoption and lead organisations through digital change.",
+    roles: ["CDO", "VP Data", "Head of AI", "Analytics Director", "Digital Director", "Data Science Lead"],
   },
 ]
 
@@ -207,6 +272,69 @@ export const SERVICE_CARDS: ServiceCard[] = [
     tags: ["Discretion", "Zero Disruption", "Protected Process"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
+  },
+  {
+    icon: LockKeyhole,
+    title: "100% Confidential Executive Search",
+    description:
+      "Our confidential executive search service ensures complete discretion when hiring senior leaders, C-level executives and specialist talent.",
+    tags: ["Confidential Executive Search", "C-Level Recruitment", "Discreet Hiring"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
+  },
+]
+
+// ─── Industries We Serve ──────────────────────────────────────────────────────
+export const INDUSTRY_SECTORS: IndustrySector[] = [
+  {
+    icon: Cpu,
+    name: "Technology",
+    description: "Software, hardware, and deep-tech organisations scaling globally.",
+  },
+  {
+    icon: Cloud,
+    name: "SaaS",
+    description: "B2B and B2C SaaS platforms at every stage of growth.",
+  },
+  {
+    icon: CreditCard,
+    name: "Fintech",
+    description: "Payments, lending, wealth management, and financial infrastructure.",
+  },
+  {
+    icon: Building2,
+    name: "Manufacturing",
+    description: "Industrial, advanced manufacturing, and supply chain leaders.",
+  },
+  {
+    icon: Truck,
+    name: "Logistics",
+    description: "Freight, last-mile delivery, and supply chain technology.",
+  },
+  {
+    icon: Heart,
+    name: "Healthcare",
+    description: "Health-tech, medical devices, pharma, and care providers.",
+  },
+  {
+    icon: ShoppingBag,
+    name: "Retail",
+    description: "Omnichannel, e-commerce, and consumer-facing retail brands.",
+  },
+  {
+    icon: Zap,
+    name: "Energy",
+    description: "Renewables, utilities, and energy transition businesses.",
+  },
+  {
+    icon: Briefcase,
+    name: "Professional Services",
+    description: "Consulting, advisory, and managed service organisations.",
+  },
+  {
+    icon: Globe,
+    name: "Construction",
+    description: "Real estate, infrastructure, and built environment firms.",
   },
 ]
 
@@ -285,7 +413,7 @@ export const TRUST_ITEMS: TrustItem[] = [
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 export const CtaData: CtaData = {
   eyebrow: "Get Started",
-  title: "Your Search. Our Expertise. Total Confidentiality.",
+  title: "Your Search. Our Expertise.",
   description:
     "We help organisations hire exceptional leaders through a confidential, intelligent and results-driven executive search process.",
   primaryButton: {
@@ -300,8 +428,8 @@ export const CtaData: CtaData = {
     text: "Ready to Build Your Team?",
     href: "/services/permanent-it-recruitment",
   },
-   sectorsBtnSecond: {
-    text: "Hiring Across Borders? ",
+  sectorsBtnSecond: {
+    text: "Hiring Across Borders?",
     href: "/services/employer-of-record",
   },
   whyUsBtn: {

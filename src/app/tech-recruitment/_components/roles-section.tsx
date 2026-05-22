@@ -52,10 +52,10 @@ export const RolesSection = memo(function RolesSection() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
           <h2 className="text-[clamp(1.75rem,5.5vw,3.25rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
-            Specialist Tech Recruitment
+            Specialist Hiring For Every
             <br />
             <span className="text-brand-coral">
-              Across Every Critical Hire.
+              Technical Team
             </span>
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
@@ -75,18 +75,7 @@ export const RolesSection = memo(function RolesSection() {
             Placed after the grid so it doesn't compete with individual cards.
             Avoids nested <a> inside RoleCard while still routing niche visitors
             to dedicated vertical pages that convert far better than the hub. */}
-        <div className="mt-6 sm:mt-8 rounded-2xl border border-brand-white/8 bg-brand-white/[0.03] px-6 sm:px-8 py-5 sm:py-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:justify-between">
-          <div>
-            <p className="text-[10px] font-bold tracking-[0.22em] uppercase text-brand-coral mb-1">
-              Dedicated vertical pages
-            </p>
-            <p className="text-sm text-brand-white/50 leading-relaxed">
-              We have specialized recruitment pages for AI/ML and Cybersecurity roles.
-            </p>
-          </div>
-        
-        </div>
-
+    
       </div>
     </section>
   )

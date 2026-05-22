@@ -13,13 +13,13 @@ import {
 
 export const HERO_DATA = {
   tagline: "Technical Specialized Recruitment",
-  title: "Specialist IT Recruitment for Every Tech Hire.",
+  title: "Specialist Hiring Across Every",
   subtitle:
     "From software engineering to executive leadership - we help companies hire niche technical talent quickly, across every stack and seniority level.",
   primaryCta: { text: "Hire Tech Talent", href: "/contacts" },
   secondaryCta: { text: "Explore Specializations", href: "#roles" },
   stats: [
-    { value: "650+", label: "Engineers placed" },
+    { value: "850+", label: "Hires" },
     { value: "3–10", suffix: "days", label: "To first CV" },
     { value: "8", label: "Specializations" },
   ],
@@ -110,7 +110,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: "What industries do you support?",
-    a: "We work across SaaS, fintech, healthtech, e-commerce, cybersecurity, and enterprise software - anywhere technical talent is the bottleneck.",
+    a: "We work across FinTech, iGaming, AI / ML Data, Cybersecurity, SAAS, E-commerce, Enterprise Software, Banking, Healthcare, Hospitality, Legal - anywhere technical talent is the bottleneck.",
   },
   {
     q: "How do your fees work?",

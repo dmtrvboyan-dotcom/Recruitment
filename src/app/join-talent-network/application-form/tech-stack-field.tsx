@@ -4,14 +4,17 @@ import { memo } from "react"
 import { Code2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { FieldLabel, fieldInputClass } from "./field-label"
+import { FieldLabel, FieldError, fieldInputClass, fieldInputErrorClass } from "./field-label"
 import { TECH_STACKS } from "../data"
+
+const FREE_TEXT_MAX = 160
 
 interface TechStackFieldProps {
   selected: string[]
   onToggle: (tech: string) => void
   freeText: string
   onFreeTextChange: (value: string) => void
+  error?: string
 }
 
 export const TechStackField = memo(function TechStackField({
@@ -19,7 +22,10 @@ export const TechStackField = memo(function TechStackField({
   onToggle,
   freeText,
   onFreeTextChange,
+  error,
 }: TechStackFieldProps) {
+  const remaining = FREE_TEXT_MAX - freeText.length
+
   return (
     <div className="mb-7">
       <FieldLabel icon={Code2} required>
@@ -59,15 +65,33 @@ export const TechStackField = memo(function TechStackField({
         <div className="flex-1 h-px bg-brand-white/10" />
       </div>
 
-      <div className="mt-3">
+      <div className="mt-3 relative">
         <Input
           type="text"
           value={freeText}
-          onChange={(e) => onFreeTextChange(e.target.value)}
-          placeholder="Write your stack here - e.g. Elixir, Phoenix, Postgres…"
-          className={fieldInputClass}
+          onChange={(e) => {
+            if (e.target.value.length <= FREE_TEXT_MAX) {
+              onFreeTextChange(e.target.value)
+            }
+          }}
+          maxLength={FREE_TEXT_MAX}
+          placeholder="Write your stack here – e.g. Elixir, Phoenix, Postgres…"
+          className={error ? fieldInputErrorClass : fieldInputClass}
         />
+        <span
+          className={`absolute right-3 top-1/2 -translate-y-1/2 text-[10px] tabular-nums ${
+            remaining <= 20
+              ? remaining <= 0
+                ? "text-red-400"
+                : "text-amber-400/70"
+              : "text-brand-white/25"
+          }`}
+        >
+          {remaining}
+        </span>
       </div>
+
+      <FieldError message={error} />
     </div>
   )
 })

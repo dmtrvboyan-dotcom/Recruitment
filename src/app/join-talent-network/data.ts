@@ -156,8 +156,10 @@ export const FAQS: FAQItem[] = [
   },
   {
     q: "Which countries do you operate in?",
-    a: "We place candidates with companies across the EU, the UK, and North America. Many roles are fully remote, but we also support relocation and hybrid setups depending on the role.",
+    a: "We mainly support companies hiring in Bulgaria, while also working with clients across the EU, the UK, and North America. We recruit for remote, hybrid, and on-site roles depending on the position.",
   },
+
+
 ]
 
 export interface TrustStat {

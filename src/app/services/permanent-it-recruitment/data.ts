@@ -77,7 +77,7 @@ export const STATS: StatItem[] = [
   { value: "2×", label: "Longer employee retention" },
   { value: "89%", label: "Stronger cultural alignment" },
   { value: "70%+", label: "Reduction in hiring risk" },
-  { value: "150+", label: "Successful IT placements" },
+  { value: "850+", label: "Successful IT placements" },
 ]
 
 // ─── Process ──────────────────────────────────────────────────────────────────

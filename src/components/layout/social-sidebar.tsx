@@ -81,15 +81,8 @@ export function SocialSidebar() {
         icon={Mail}
       />
 
-      <span aria-hidden className="my-3 h-16 w-px bg-[#085689]/20" />
-
       {/* Original text styling preserved. */}
-      <span
-        className="text-md font-bold tracking-[3px] uppercase text-black"
-        style={{ writingMode: "sideways-lr", textOrientation: "mixed" }}
-      >
-        Recruitment agency
-      </span>
+     
     </aside>
   )
 }

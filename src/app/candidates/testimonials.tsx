@@ -76,10 +76,10 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                         transition: "opacity 0.7s ease, transform 0.7s ease",
                     }}
                 >
-                    <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
+                    <span className="text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
                         Candidate Stories
                     </span>
-                    <h2 className="text-[clamp(2.5rem,6vw,5rem)] fold-bold leading-none tracking-tight text-brand-navy uppercase text-center">
+                    <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase text-center">
                         Words from the
                         <br />
                         <span className="text-brand-coral">People We've Placed.</span>

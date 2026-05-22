@@ -49,8 +49,8 @@ export const HeroSection = memo(function HeroSection() {
 
           {/* Headline */}
           <h1 className="text-[clamp(2.25rem,8vw,6.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 max-w-5xl">
-            {HERO_DATA.title.split(".")[0]}
-            <span className="text-brand-coral">.</span>
+            {HERO_DATA.title} {' '}
+            <span className="text-brand-coral">Tech Discipline</span>
           </h1>
 
           {/* Subhead */}
@@ -63,11 +63,10 @@ export const HeroSection = memo(function HeroSection() {
 
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mb-12 sm:mb-14">
-            <AppButton href={HERO_DATA.primaryCta.href} icon="arrow" className="sm:w-auto">
-                  {HERO_DATA.primaryCta.text}
-            </AppButton>
+          
+          
 
-            <AppButton href={HERO_DATA.secondaryCta.href} variant="outline" className="sm:w-auto">
+            <AppButton href={HERO_DATA.secondaryCta.href} className="sm:w-auto">
                   {HERO_DATA.secondaryCta.text}
             </AppButton>
           </div>

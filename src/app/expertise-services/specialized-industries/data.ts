@@ -205,7 +205,7 @@ export const CTA_DATA: CtaData = {
 }
 
 export const STATS = [
-  { value: "650+", label: "Hires" },
+  { value: "850+", label: "Hires" },
   { value: "75%", label: "Hires From Passive Candidates" },
   { value: "80%+", label: "Offer Acceptance Rate" },
   { value: "4-8", label: "Days to Present Candidates" },

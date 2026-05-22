@@ -13,7 +13,9 @@ import {
 } from "@/components/ui/select"
 import {
   FieldLabel,
+  FieldError,
   fieldInputClass,
+  fieldInputErrorClass,
   selectContentClass,
   selectItemClass,
 } from "./field-label"
@@ -27,6 +29,8 @@ interface RateFieldProps {
   onAmountChange: (value: string) => void
   onCurrencyChange: (value: string) => void
   onBasisChange: (basis: RateBasis) => void
+  onBlur?: () => void
+  error?: string
 }
 
 const CURRENCIES = [
@@ -42,10 +46,12 @@ export const RateField = memo(function RateField({
   onAmountChange,
   onCurrencyChange,
   onBasisChange,
+  onBlur,
+  error,
 }: RateFieldProps) {
   return (
     <div className="mb-5">
-      <FieldLabel icon={DollarSign} htmlFor="rate-amount">
+      <FieldLabel icon={DollarSign} htmlFor="rate-amount" required iconClassName="w-4 h-4">
         Hourly / day rate
       </FieldLabel>
 
@@ -71,9 +77,11 @@ export const RateField = memo(function RateField({
           min={0}
           value={amount}
           onChange={(e) => onAmountChange(e.target.value)}
+          onBlur={onBlur}
           placeholder="e.g. 75"
           inputMode="numeric"
-          className={fieldInputClass}
+          aria-invalid={!!error}
+          className={error ? fieldInputErrorClass : fieldInputClass}
         />
 
         <div
@@ -99,6 +107,8 @@ export const RateField = memo(function RateField({
           ))}
         </div>
       </div>
+
+      <FieldError message={error} />
     </div>
   )
 })

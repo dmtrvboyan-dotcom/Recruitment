@@ -3,7 +3,7 @@
 import { memo } from "react"
 import { User, Mail, Linkedin } from "lucide-react"
 import { Input } from "@/components/ui/input"
-import { FieldLabel, fieldInputClass } from "./field-label"
+import { FieldLabel, FieldError, fieldInputClass, fieldInputErrorClass } from "./field-label"
 
 interface TextFieldsProps {
     fullName: string
@@ -12,6 +12,12 @@ interface TextFieldsProps {
     onFullNameChange: (value: string) => void
     onEmailChange: (value: string) => void
     onLinkedinChange: (value: string) => void
+    onBlur: (field: string) => void
+    errors: {
+        fullName?: string
+        email?: string
+        linkedin?: string
+    }
 }
 
 export const TextFields = memo(function TextFields({
@@ -21,6 +27,8 @@ export const TextFields = memo(function TextFields({
     onFullNameChange,
     onEmailChange,
     onLinkedinChange,
+    onBlur,
+    errors,
 }: TextFieldsProps) {
     return (
         <>
@@ -34,11 +42,15 @@ export const TextFields = memo(function TextFields({
                         type="text"
                         value={fullName}
                         onChange={(e) => onFullNameChange(e.target.value)}
+                        onBlur={() => onBlur("fullName")}
                         placeholder="Jane Doe"
                         required
                         autoComplete="name"
-                        className={fieldInputClass}
+                        aria-invalid={!!errors.fullName}
+                        aria-describedby={errors.fullName ? "full-name-error" : undefined}
+                        className={errors.fullName ? fieldInputErrorClass : fieldInputClass}
                     />
+                    <FieldError message={errors.fullName} />
                 </div>
                 <div>
                     <FieldLabel icon={Mail} htmlFor="email" required>
@@ -49,11 +61,15 @@ export const TextFields = memo(function TextFields({
                         type="email"
                         value={email}
                         onChange={(e) => onEmailChange(e.target.value)}
+                        onBlur={() => onBlur("email")}
                         placeholder="jane@example.com"
                         required
                         autoComplete="email"
-                        className={fieldInputClass}
+                        aria-invalid={!!errors.email}
+                        aria-describedby={errors.email ? "email-error" : undefined}
+                        className={errors.email ? fieldInputErrorClass : fieldInputClass}
                     />
+                    <FieldError message={errors.email} />
                 </div>
             </div>
 
@@ -66,10 +82,14 @@ export const TextFields = memo(function TextFields({
                     type="url"
                     value={linkedin}
                     onChange={(e) => onLinkedinChange(e.target.value)}
+                    onBlur={() => onBlur("linkedin")}
                     placeholder="https://linkedin.com/in/your-handle"
                     autoComplete="url"
-                    className={fieldInputClass}
+                    aria-invalid={!!errors.linkedin}
+                    aria-describedby={errors.linkedin ? "linkedin-error" : undefined}
+                    className={errors.linkedin ? fieldInputErrorClass : fieldInputClass}
                 />
+                <FieldError message={errors.linkedin} />
             </div>
         </>
     )
