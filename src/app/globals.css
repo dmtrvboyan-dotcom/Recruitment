@@ -114,6 +114,40 @@
   --color-sidebar-ring: oklch(83.89% 0 0);
 }
 
+/* ── Hero / page entrance animation ─────────────────────────────────────────
+   Defined here (not non-critical.css) so elements start invisible on first
+   paint, preventing the late-CSS-injection repaint that inflates LCP.
+   animation-fill-mode: both → backwards (start at from-keyframe during delay)
+                              + forwards (hold to-keyframe after finish).       */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
+}
+
+/* animation-delay helpers used alongside .animate-fade-in-up */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

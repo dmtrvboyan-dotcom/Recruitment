@@ -5,9 +5,9 @@ import NonCriticalStyles from "./NonCriticalStyles"
 
 const poppins = Poppins({
   weight: ['400', '600', '700'],
-  subsets: ['latin'],
+    subsets: ['latin'],
   display: 'swap',
-  preload: true,           
+  preload: true,
   variable: '--font-sans',
 })
 

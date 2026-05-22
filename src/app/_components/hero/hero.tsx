@@ -125,7 +125,10 @@ const StatBlock = memo(function StatBlock({
       `}
     >
       <div className="flex items-baseline justify-center gap-1.5 sm:gap-2 mb-1.5">
-        <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-white tabular-nums tracking-tight leading-none min-w-[3ch]">
+        <span
+          className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-white tabular-nums tracking-tight leading-none"
+          style={{ minWidth: `${value.length}ch` }}
+        >
           {displayValue}
         </span>
         {suffix && (
