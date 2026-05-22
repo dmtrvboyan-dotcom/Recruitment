@@ -256,7 +256,30 @@ export const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  { label: "About Us", href: "/about" },
+   {
+    label: "About Us",
+    hasMegaMenu: true,
+    megaSections: [
+      {
+        title: "See Who We Are",
+        items: [
+          {
+            label: "About Us",
+            description: "The team behind it all",
+            icon: "Users",
+            href: "/about",
+          },
+          {
+            label: "Client Testimonials",
+            description: "What our clients say about us",
+            icon: "Phone",
+            href: "/candidates#client-testimonials",
+          },
+        ],
+      },
+    ],
+  },
+  // { label: "About Us", href: "/about" },
 ]
 
 export const HEADER_SCROLL_THRESHOLD = 80
