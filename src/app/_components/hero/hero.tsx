@@ -87,9 +87,9 @@ const RotatingText = memo(function RotatingText() {
         aria-atomic="true"
       >
         <span
-          className={`rtext-${phase} absolute inset-x-0 top-0
-            font-semibold text-brand-coral leading-snug
-            text-center will-change-[opacity,transform,filter]`}
+          className={`rtext-${phase} absolute inset-x-0 top-0 font-semibold text-brand-navy leading-snug text-center will-change-[opacity,transform,filter]`}
+
+
         >
           {SERVICES[index]}
         </span>
@@ -132,12 +132,12 @@ const StatBlock = memo(function StatBlock({
           {displayValue}
         </span>
         {suffix && (
-          <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-coral leading-none">
+          <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/80 leading-none">
             {suffix}
           </span>
         )}
       </div>
-      <p className="text-[9px] sm:text-[10px] tracking-[0.22em] sm:tracking-[0.25em] uppercase text-brand-white/45 font-medium">
+      <p className="text-[9px] sm:text-[10px] tracking-[0.22em] sm:tracking-[0.25em] uppercase text-brand-white/70 font-medium">
         {label}
       </p>
     </div>
@@ -189,9 +189,7 @@ export const Hero = memo(function Hero() {
             mb-5 sm:mb-7 animate-fade-in-up delay-100"
           >
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
-            <span className="text-[10px] sm:text-[11px] font-semibold
-              tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral"
-            >
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-navy/75">
               IT Recruitment Agency
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />

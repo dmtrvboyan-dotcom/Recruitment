@@ -20,19 +20,7 @@ export function ExpertiseSection() {
         className="absolute -top-32 right-1/4 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
       />
 
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(26,26,46,0.022) 70px,
-            rgba(26,26,46,0.022) 71px
-          )`,
-        }}
-      />
+      
 
 
        <div
@@ -49,7 +37,7 @@ export function ExpertiseSection() {
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
           <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
-            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-navy/75">
               Our Expertise
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />

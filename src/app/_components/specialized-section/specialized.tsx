@@ -53,7 +53,7 @@ export function SpecializedRecruitment() {
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-16">
           <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
-            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-coral">
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-navy/75">
               Industry-Focused Expertise
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
