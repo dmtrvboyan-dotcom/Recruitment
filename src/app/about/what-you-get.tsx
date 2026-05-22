@@ -88,7 +88,7 @@ export const WhatYouGet = memo(function WhatYouGet() {
         aria-hidden
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
-        <span className="text-[18vw] font-black uppercase tracking-tighter text-brand-navy/[0.025] whitespace-nowrap leading-none">
+        <span className="text-[18vw] font-bold uppercase tracking-tighter text-brand-navy/[0.025] whitespace-nowrap leading-none">
           VS
         </span>
       </div>
@@ -108,7 +108,7 @@ export const WhatYouGet = memo(function WhatYouGet() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
             The Partnership
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy">
             WHAT YOU GET
             <br />
             <span className="relative inline-block">

@@ -33,7 +33,7 @@ const StatBlock = memo(function StatBlock({
       `}
     >
       <div className="flex items-baseline justify-center gap-1.5 sm:gap-2 mb-1.5">
-        <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-white tabular-nums tracking-tight leading-none">
+        <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-white tabular-nums tracking-tight leading-none">
           {displayValue}
         </span>
         {suffix && (
@@ -76,7 +76,7 @@ export const TalentNetworkHero = memo(function TalentNetworkHero() {
       <div
         aria-hidden
         className="hidden lg:block absolute top-[44%] left-1/2 -translate-x-1/2
-                   text-[clamp(14rem,26vw,22rem)] font-black uppercase
+                   text-[clamp(14rem,26vw,22rem)] font-bold uppercase
                    leading-[0.85] tracking-tighter text-brand-white/[0.025]
                    select-none pointer-events-none whitespace-nowrap"
       >
@@ -95,7 +95,7 @@ export const TalentNetworkHero = memo(function TalentNetworkHero() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
-          <h1 className="text-[clamp(2.25rem,9vw,8rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 max-w-5xl animate-fade-in-up delay-150">
+          <h1 className="text-[clamp(2.25rem,9vw,8rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 max-w-5xl animate-fade-in-up delay-150">
             Join Our Freelance/b2b
             <br />
             <span className="text-brand-coral">network</span>

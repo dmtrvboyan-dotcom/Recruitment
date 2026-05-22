@@ -44,7 +44,7 @@ export function SpecializedRecruitment() {
 
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         STACK
       </div>
@@ -58,7 +58,7 @@ export function SpecializedRecruitment() {
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] uppercase text-brand-navy">
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] uppercase text-brand-navy">
             Tech <span className="text-brand-coral"> Recruitment.</span>
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mt-10 sm:mb-8" />

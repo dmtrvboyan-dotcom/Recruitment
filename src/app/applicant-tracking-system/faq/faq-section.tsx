@@ -59,7 +59,7 @@ export function FAQSection() {
             {faqData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-white mb-5">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white mb-5">
             {faqData.title}
           </h2>
         </div>
@@ -109,7 +109,7 @@ export function FAQSection() {
                       {number}. Q
                     </span>
                     <h3
-                      className={`font-black uppercase tracking-tight text-sm leading-snug transition-colors duration-300 ${
+                      className={`font-bold uppercase tracking-tight text-sm leading-snug transition-colors duration-300 ${
                         isOpen
                           ? "text-brand-white"
                           : "text-brand-white/70 group-hover/btn:text-brand-white"

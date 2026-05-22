@@ -25,7 +25,7 @@ export const SuccessState = memo(function SuccessState({
                     <Check className="w-10 h-10 text-brand-coral" strokeWidth={2.5} />
                 </div>
 
-                <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-black uppercase leading-none tracking-tight text-brand-white mb-6 animate-fade-in-up delay-100">
+                <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-white mb-6 animate-fade-in-up delay-100">
                     You&apos;re <span className="text-brand-coral">in.</span>
                 </h2>
 

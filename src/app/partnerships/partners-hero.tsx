@@ -37,7 +37,7 @@ export const PartnersHero = memo(function PartnersHero() {
         aria-hidden
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
-        <span className="text-[20vw] font-black uppercase tracking-tighter text-white/[0.02] whitespace-nowrap leading-none">
+        <span className="text-[20vw] font-bold uppercase tracking-tighter text-white/[0.02] whitespace-nowrap leading-none">
           PARTNERS
         </span>
       </div>
@@ -67,7 +67,7 @@ export const PartnersHero = memo(function PartnersHero() {
             transition: "opacity 0.7s ease 80ms, transform 0.7s ease 80ms",
           }}
         >
-          <h1 className="text-[clamp(3rem,10vw,8rem)] font-black leading-none tracking-tight text-brand-white mb-6 sm:mb-8">
+          <h1 className="text-[clamp(3rem,10vw,8rem)] font-bold leading-none tracking-tight text-brand-white mb-6 sm:mb-8">
             TRUSTED BY
             <br />
             <span className="text-brand-coral">LEADERS.</span>

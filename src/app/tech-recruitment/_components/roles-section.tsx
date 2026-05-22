@@ -36,7 +36,7 @@ export const RolesSection = memo(function RolesSection() {
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         ROLES
       </div>
@@ -51,7 +51,7 @@ export const RolesSection = memo(function RolesSection() {
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,5.5vw,3.25rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
+          <h2 className="text-[clamp(1.75rem,5.5vw,3.25rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
             Specialist Tech Recruitment
             <br />
             <span className="text-brand-coral">

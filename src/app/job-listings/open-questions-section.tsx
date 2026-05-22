@@ -34,7 +34,7 @@ export function OpenQuestionsSection() {
 
       <div
         aria-hidden
-        className="hidden lg:block absolute -top-10 left-1/2 -translate-x-1/2 text-[clamp(12rem,24vw,24rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.02] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute -top-10 left-1/2 -translate-x-1/2 text-[clamp(12rem,24vw,24rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.02] select-none pointer-events-none whitespace-nowrap"
       >
         Talk
       </div>

@@ -77,7 +77,7 @@ export const PartnersGrid = memo(function PartnersGrid() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
             Our Network
           </span>
-          <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-brand-navy">
+          <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-none tracking-tight text-brand-navy">
             COMPANIES WE'VE
             <br />
             <span className="text-brand-coral">BUILT TEAMS FOR</span>
@@ -108,7 +108,7 @@ export const PartnersGrid = memo(function PartnersGrid() {
 
               <span
                 className={`
-                  font-black uppercase tracking-tight text-center leading-tight
+                  font-bold uppercase tracking-tight text-center leading-tight
                   text-brand-navy group-hover:text-brand-white
                   transition-colors duration-400
                   ${sizeMap[partner.size]}

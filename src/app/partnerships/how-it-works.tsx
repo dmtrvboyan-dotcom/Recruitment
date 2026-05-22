@@ -87,7 +87,7 @@ export const HowItWorks = memo(function HowItWorks() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
             How It Works
           </span>
-          <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-brand-white">
+          <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-none tracking-tight text-brand-white">
             EVERY HIRE STARTS
             <br />
             <span className="text-brand-coral">WITH UNDERSTANDING.</span>
@@ -115,7 +115,7 @@ export const HowItWorks = memo(function HowItWorks() {
                     <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.6} />
                   </div>
                   <div className="lg:text-center">
-                    <span className="block text-xs font-black uppercase tracking-widest text-white mb-1">
+                    <span className="block text-xs font-bold uppercase tracking-widest text-white mb-1">
                       {step.label}
                     </span>
                     <p className="text-xs text-white/35 leading-snug lg:hidden xl:block">

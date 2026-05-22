@@ -20,7 +20,7 @@ export const ProcessSection = memo(function ProcessSection() {
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute bottom-0 -right-8 text-[clamp(10rem,16vw,14rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute bottom-0 -right-8 text-[clamp(10rem,16vw,14rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         PROCESS
       </div>
@@ -35,7 +35,7 @@ export const ProcessSection = memo(function ProcessSection() {
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
             {PROCESS_DATA.title.split("Works")[0]}
             <br />
             <span className="text-brand-coral">Works.</span>
@@ -57,7 +57,7 @@ export const ProcessSection = memo(function ProcessSection() {
               >
                 {/* Top: number + icon */}
                 <div className="flex items-start justify-between">
-                  <span className="text-4xl sm:text-5xl font-black leading-[0.85] tracking-[-0.04em] text-brand-white/[0.07]">
+                  <span className="text-4xl sm:text-5xl font-bold leading-[0.85] tracking-[-0.04em] text-brand-white/[0.07]">
                     {step.number}
                   </span>
                   <div className="w-10 h-10 rounded-xl bg-brand-coral/15 flex items-center justify-center shrink-0">
@@ -67,7 +67,7 @@ export const ProcessSection = memo(function ProcessSection() {
 
                 {/* Content */}
                 <div>
-                  <h3 className="font-black uppercase tracking-[-0.01em] leading-[1.1] text-brand-white text-base sm:text-lg mb-3">
+                  <h3 className="font-bold uppercase tracking-[-0.01em] leading-[1.1] text-brand-white text-base sm:text-lg mb-3">
                     {step.title}
                   </h3>
                   <p className="text-sm text-brand-white/50 leading-relaxed">

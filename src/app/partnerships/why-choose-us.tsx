@@ -57,7 +57,7 @@ export const WhyChooseUs = memo(function WhyChooseUs() {
             <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
               Why Us
             </span>
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-brand-white mb-6">
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-none tracking-tight text-brand-white mb-6">
               QUALITY
               <br />
               <span className="text-brand-coral">OVER VOLUME.</span>
@@ -78,7 +78,7 @@ export const WhyChooseUs = memo(function WhyChooseUs() {
                     transition: `opacity 0.5s ease ${300 + i * 100}ms, transform 0.5s ease ${300 + i * 100}ms`,
                   }}
                 >
-                  <span className="text-[2rem] sm:text-[2.5rem] font-black leading-none text-brand-white tracking-tight">
+                  <span className="text-[2rem] sm:text-[2.5rem] font-bold leading-none text-brand-white tracking-tight">
                     {stat.value}
                   </span>
                   <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-brand-coral">

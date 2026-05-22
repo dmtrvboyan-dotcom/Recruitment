@@ -50,7 +50,7 @@ export const CategoryCard = memo(function CategoryCard({
       </div>
 
       {/* Title */}
-      <h3 className="text-sm sm:text-base lg:text-lg font-black uppercase tracking-[-0.01em] leading-tight text-brand-navy mb-1.5">
+      <h3 className="text-sm sm:text-base lg:text-lg font-bold uppercase tracking-[-0.01em] leading-tight text-brand-navy mb-1.5">
         {category.title}
       </h3>
 

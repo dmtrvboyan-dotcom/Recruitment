@@ -116,7 +116,7 @@ export default function PayrollCompliancePage() {
               <span className="block h-px w-12 bg-brand-coral" />
             </div>
 
-            <h1 className="text-[clamp(3rem,9vw,7rem)] font-black uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+            <h1 className="text-[clamp(3rem,9vw,7rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
               {HERO_DATA.title}
             </h1>
 
@@ -152,7 +152,7 @@ export default function PayrollCompliancePage() {
                     </span>
                     <div className="h-px w-6 bg-white/20" />
                   </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
                     {stat.value}
                   </p>
                   <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
@@ -186,7 +186,7 @@ export default function PayrollCompliancePage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={1} label="Why it matters" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 The gaps that{" "}
                 <span className="text-brand-coral">quietly cost you</span>
               </h2>
@@ -219,7 +219,7 @@ export default function PayrollCompliancePage() {
                     <span className="block text-[10px] font-mono text-brand-coral/70 mb-3">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-sm font-black uppercase tracking-tight text-brand-navy mb-2 group-hover:text-brand-coral transition-colors duration-200">
+                    <h3 className="text-sm font-bold uppercase tracking-tight text-brand-navy mb-2 group-hover:text-brand-coral transition-colors duration-200">
                       {item.label}
                     </h3>
                     <p className="text-[13px] text-brand-navy/55 leading-relaxed">
@@ -243,7 +243,7 @@ export default function PayrollCompliancePage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 py-20 lg:py-32">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={2} label="What we cover" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Six services.{" "}
                 <span className="text-brand-coral">One partner.</span>
               </h2>
@@ -268,7 +268,7 @@ export default function PayrollCompliancePage() {
                   >
                     {/* Index */}
                     <div className="pt-1 shrink-0">
-                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
+                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-bold text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -322,7 +322,7 @@ export default function PayrollCompliancePage() {
 
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
           >
             METHOD
           </div>
@@ -330,7 +330,7 @@ export default function PayrollCompliancePage() {
           <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 mb-16 lg:mb-24">
             <SectionIndicator index={3} label="How we work" tone="dark" centered />
             <div className="text-center mt-8">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white mb-4">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white mb-4">
                 From brief to{" "}
                 <span className="text-brand-coral">ongoing compliance</span>
               </h2>
@@ -368,7 +368,7 @@ export default function PayrollCompliancePage() {
                     <div className="group relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 lg:p-7 hover:bg-white/[0.08] hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 flex flex-col flex-1 overflow-hidden">
                       <span
                         aria-hidden
-                        className="absolute -bottom-3 -right-1 text-[5.5rem] font-black text-white/[0.04] leading-none pointer-events-none select-none"
+                        className="absolute -bottom-3 -right-1 text-[5.5rem] font-bold text-white/[0.04] leading-none pointer-events-none select-none"
                       >
                         {step.number}
                       </span>
@@ -380,11 +380,11 @@ export default function PayrollCompliancePage() {
                         <div className="flex-1 h-px bg-white/10 group-hover:bg-brand-coral/40 transition-colors duration-500" />
                       </div>
 
-                      <p className="text-[9px] font-black text-brand-coral uppercase tracking-[0.35em] mb-2.5">
+                      <p className="text-[9px] font-bold text-brand-coral uppercase tracking-[0.35em] mb-2.5">
                         STEP {String(step.number).padStart(2, "0")}
                       </p>
 
-                      <h3 className="text-sm lg:text-[15px] font-black uppercase tracking-tight text-white leading-tight mb-3 group-hover:text-brand-coral transition-colors duration-200">
+                      <h3 className="text-sm lg:text-[15px] font-bold uppercase tracking-tight text-white leading-tight mb-3 group-hover:text-brand-coral transition-colors duration-200">
                         {step.title}
                       </h3>
 
@@ -406,7 +406,7 @@ export default function PayrollCompliancePage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={4} label="Our advantage" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Why 400+{" "}
                 <span className="text-brand-coral">IT companies</span> trust us
               </h2>
@@ -418,7 +418,7 @@ export default function PayrollCompliancePage() {
                 <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
                 <div className="relative">
-                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-black uppercase leading-[0.92] tracking-tight mb-6">
+                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold uppercase leading-[0.92] tracking-tight mb-6">
                     Operations
                     <br />
                     <span className="text-brand-coral">handled.</span>
@@ -453,7 +453,7 @@ export default function PayrollCompliancePage() {
                   >
                     <span
                       aria-hidden
-                      className="absolute top-5 right-6 text-[3rem] font-black text-brand-navy/[0.06] leading-none pointer-events-none select-none"
+                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-navy/[0.06] leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -493,7 +493,7 @@ export default function PayrollCompliancePage() {
 
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-black uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               COMPLY
             </p>
@@ -505,7 +505,7 @@ export default function PayrollCompliancePage() {
                 <span className="block h-px w-10 bg-brand-coral" />
               </div>
 
-              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
                 {CTA_DATA.title}
               </h2>
 

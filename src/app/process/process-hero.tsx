@@ -16,7 +16,7 @@ export const ProcessHero = memo(function ProcessHero() {
       {/* Large watermark number */}
       <div
         aria-hidden
-        className="absolute bottom-0 right-5 sm:right-10 xl:right-16 text-[20vw] font-black leading-none tracking-tighter text-white/[0.03] select-none pointer-events-none"
+        className="absolute bottom-0 right-5 sm:right-10 xl:right-16 text-[20vw] font-bold leading-none tracking-tighter text-white/[0.03] select-none pointer-events-none"
       >
         06
       </div>
@@ -26,7 +26,7 @@ export const ProcessHero = memo(function ProcessHero() {
           Our Process
         </span>
 
-        <h1 className="text-[clamp(3rem,9vw,8rem)] font-black leading-none tracking-tight text-white mb-6 max-w-4xl">
+        <h1 className="text-[clamp(3rem,9vw,8rem)] font-bold leading-none tracking-tight text-white mb-6 max-w-4xl">
           HOW WE
           <br />
           <span className="text-brand-coral">FIND YOUR</span>

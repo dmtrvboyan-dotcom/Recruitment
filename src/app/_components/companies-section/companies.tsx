@@ -39,7 +39,7 @@ export function CompaniesSection() {
             </span>
             <span className="block w-5 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.5rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-4 sm:mb-6">
+          <h2 className="text-[clamp(1.5rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-4 sm:mb-6">
             Why <span className="text-brand-coral">Companies</span> Work With Us
           </h2>
           <div className="mx-auto h-[2px] w-10 sm:w-16 bg-brand-coral" />

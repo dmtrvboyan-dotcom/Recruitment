@@ -49,7 +49,7 @@ export const FinalCta = memo(function FinalCta() {
 
       <div
         aria-hidden
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,22vw,20rem)] font-black uppercase tracking-tighter text-brand-white/[0.025] leading-[0.85] select-none pointer-events-none whitespace-nowrap"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,22vw,20rem)] font-bold uppercase tracking-tighter text-brand-white/[0.025] leading-[0.85] select-none pointer-events-none whitespace-nowrap"
       >
         READY?
       </div>
@@ -71,7 +71,7 @@ export const FinalCta = memo(function FinalCta() {
           <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
         </div>
 
-        <h2 className="text-[clamp(2.5rem,8vw,7rem)] font-black uppercase leading-[0.92] tracking-tight text-brand-white mb-8">
+        <h2 className="text-[clamp(2.5rem,8vw,7rem)] font-bold uppercase leading-[0.92] tracking-tight text-brand-white mb-8">
           STOP CHASING
           <br />
           <span className="text-brand-coral">JOBS.</span>

@@ -36,7 +36,7 @@ export default function EcommerceRecruitment() {
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 left-0 text-[20vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 left-0 text-[20vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
         >
           ECOM
         </div>
@@ -60,7 +60,7 @@ export default function EcommerceRecruitment() {
               {HERO_DATA.tagline}
             </span>
 
-            <h1 className="text-[clamp(3.2rem,10vw,6rem)] font-black leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
+            <h1 className="text-[clamp(3.2rem,10vw,6rem)] font-bold leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
               Ecommerce Experts & Online <span className="text-brand-coral">Retail Hiring</span>
             </h1>
 
@@ -90,7 +90,7 @@ export default function EcommerceRecruitment() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 {ROLES_WE_HIRE_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy">
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-navy">
                 {ROLES_WE_HIRE_HEADER.title}
               </h2>
             </div>
@@ -105,7 +105,7 @@ export default function EcommerceRecruitment() {
                   >
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-black leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -159,7 +159,7 @@ export default function EcommerceRecruitment() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[14vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
           >
             BULGARIA
           </div>
@@ -170,7 +170,7 @@ export default function EcommerceRecruitment() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-6">
                 {BULGARIA_DELIVERS_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-white">
+              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-white">
                 {BULGARIA_DELIVERS_HEADER.title}
               </h2>
               <div className="flex items-center justify-center gap-3 mt-8">
@@ -217,7 +217,7 @@ export default function EcommerceRecruitment() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 {HOW_WE_HELP_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy">
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-navy">
                 {HOW_WE_HELP_HEADER.title}
               </h2>
             </div>
@@ -233,7 +233,7 @@ export default function EcommerceRecruitment() {
                     {/* Step watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-black leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
                     >
                       {item.step}
                     </div>
@@ -276,7 +276,7 @@ export default function EcommerceRecruitment() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+            className="absolute bottom-0 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
           >
             GO
           </div>
@@ -287,7 +287,7 @@ export default function EcommerceRecruitment() {
             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">
               Ready to Start?
             </span>
-            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-black uppercase leading-none tracking-tight text-brand-white mb-6">
+            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-white mb-6">
               {CTA_DATA.title.split(" ").slice(0, 3).join(" ")}
               <br />
               <span className="text-brand-coral">

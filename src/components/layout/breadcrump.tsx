@@ -114,7 +114,7 @@ export function Breadcrumb() {
               <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-brand-navy/[0.04] group-hover:bg-brand-coral/10 transition-colors duration-200">
                 <Home className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               </span>
-              <span className="hidden sm:inline font-medium">Home</span>
+              <span className="hidden sm:inline font-bold">Home</span>
             </Link>
           </li>
 
@@ -140,7 +140,7 @@ export function Breadcrumb() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="font-medium text-brand-white/50 hover:text-brand-coral transition-colors duration-200 truncate max-w-[90px] sm:max-w-[180px] md:max-w-[220px]"
+                      className="font-bold text-brand-white/50 hover:text-brand-coral transition-colors duration-200 truncate max-w-[90px] sm:max-w-[180px] md:max-w-[220px]"
                     >
                       {item.label}
                     </Link>

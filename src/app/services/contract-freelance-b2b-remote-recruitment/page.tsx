@@ -119,7 +119,7 @@ export default function ContractHiringPage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-[clamp(3rem,9vw,7rem)] font-black uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+            <h1 className="text-[clamp(3rem,9vw,7rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
               {HERO_DATA.title}
             </h1>
 
@@ -155,7 +155,7 @@ export default function ContractHiringPage() {
                     </span>
                     <div className="h-px w-6 bg-white/20" />
                   </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
                     {stat.value}
                   </p>
                   <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
@@ -197,7 +197,7 @@ export default function ContractHiringPage() {
               {/* Left — heading block */}
               <div>
                 <SectionIndicator index={1} label="Why contract hiring" />
-                <h2 className="mt-8 text-[clamp(2rem,5vw,3.5rem)] font-black uppercase leading-[0.92] tracking-tight text-brand-navy text-balance">
+                <h2 className="mt-8 text-[clamp(2rem,5vw,3.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-brand-navy text-balance">
                   The fastest way to{" "}
                   <span className="text-brand-coral">strengthen</span> your team
                 </h2>
@@ -223,7 +223,7 @@ export default function ContractHiringPage() {
                     {/* Ghost index */}
                     <span
                       aria-hidden
-                      className="absolute top-3 right-4 text-[3rem] font-black text-brand-navy/[0.05] leading-none pointer-events-none select-none"
+                      className="absolute top-3 right-4 text-[3rem] font-bold text-brand-navy/[0.05] leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -248,7 +248,7 @@ export default function ContractHiringPage() {
             {/* Centered header */}
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={2} label="Specialisms" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Roles{" "}
                 <span className="text-brand-coral">we fill</span>
               </h2>
@@ -336,7 +336,7 @@ export default function ContractHiringPage() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
           >
             METHOD
           </div>
@@ -347,7 +347,7 @@ export default function ContractHiringPage() {
               <SectionIndicator index={3} label="HOW WE WORK" tone="dark" centered />
             </div>
             <div className="text-center">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white mb-4">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white mb-4">
                 From brief to hired{" "}
                 <span className="text-brand-coral">in days</span>
               </h2>
@@ -380,7 +380,7 @@ export default function ContractHiringPage() {
                       {/* Watermark step number */}
                       <span
                         aria-hidden
-                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-black text-white/[0.04] leading-none pointer-events-none select-none"
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-white/[0.04] leading-none pointer-events-none select-none"
                       >
                         {step.number}
                       </span>
@@ -418,7 +418,7 @@ export default function ContractHiringPage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={4} label="Our advantage" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Why teams{" "}
                 <span className="text-brand-coral">choose us</span>
               </h2>
@@ -430,7 +430,7 @@ export default function ContractHiringPage() {
                 <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
                 <div className="relative">
-                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-black uppercase leading-[0.92] tracking-tight mb-6">
+                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold uppercase leading-[0.92] tracking-tight mb-6">
                     Why teams
                     <br />
                     <span className="text-brand-coral">choose us</span>
@@ -470,7 +470,7 @@ export default function ContractHiringPage() {
                   >
                     <span
                       aria-hidden
-                      className="absolute top-5 right-6 text-[3rem] font-black text-brand-navy/[0.06] leading-none pointer-events-none select-none"
+                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-navy/[0.06] leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -512,7 +512,7 @@ export default function ContractHiringPage() {
             {/* Watermark */}
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-black uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               CONTRACT
             </p>
@@ -524,7 +524,7 @@ export default function ContractHiringPage() {
                 <span className="block h-px w-10 bg-brand-coral" />
               </div>
 
-              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
                 {CTA_DATA.title}
               </h2>
 

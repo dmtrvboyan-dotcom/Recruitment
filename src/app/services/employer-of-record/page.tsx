@@ -156,7 +156,7 @@ export default function EmployerOfRecordPage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-[clamp(2.8rem,8vw,6.5rem)] font-black uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+            <h1 className="text-[clamp(2.8rem,8vw,6.5rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
               {HERO.title}
             </h1>
 
@@ -198,7 +198,7 @@ export default function EmployerOfRecordPage() {
                     </span>
                     <div className="h-px w-6 bg-white/20" />
                   </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
                     {stat.value}
                   </p>
                   <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
@@ -234,7 +234,7 @@ export default function EmployerOfRecordPage() {
             {/* Header */}
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={1} label="What we do" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 One partner.{" "}
                 <span className="text-brand-coral">Every market.</span>
               </h2>
@@ -258,7 +258,7 @@ export default function EmployerOfRecordPage() {
                   >
                     {/* Massive index */}
                     <div className="pt-1 shrink-0">
-                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
+                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-bold text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -324,7 +324,7 @@ export default function EmployerOfRecordPage() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
           >
             PROCESS
           </div>
@@ -335,7 +335,7 @@ export default function EmployerOfRecordPage() {
               <SectionIndicator index={2} label="How it works" tone="dark" centered />
             </div>
             <div className="text-center">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white mb-4">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white mb-4">
                 Our EoR{" "}
                 <span className="text-brand-coral">process</span>
               </h2>
@@ -356,7 +356,7 @@ export default function EmployerOfRecordPage() {
                       {/* Watermark step number */}
                       <span
                         aria-hidden
-                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-black text-white/[0.04] leading-none pointer-events-none select-none"
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-white/[0.04] leading-none pointer-events-none select-none"
                       >
                         {step.number}
                       </span>
@@ -399,7 +399,7 @@ export default function EmployerOfRecordPage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={3} label="Why EoR" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Why companies choose{" "}
                 <span className="text-brand-coral">Employer of Record</span>
               </h2>
@@ -415,7 +415,7 @@ export default function EmployerOfRecordPage() {
                   <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-coral mb-4">
                     The smart global hiring solution
                   </p>
-                  <h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-black uppercase leading-[0.92] tracking-tight mb-6">
+                  <h3 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold uppercase leading-[0.92] tracking-tight mb-6">
                     EoR is the smarter way
                     <br />
                     to build teams
@@ -454,7 +454,7 @@ export default function EmployerOfRecordPage() {
                   >
                     <span
                       aria-hidden
-                      className="absolute top-5 right-6 text-[3rem] font-black text-brand-navy/[0.06] leading-none pointer-events-none select-none"
+                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-navy/[0.06] leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -486,7 +486,7 @@ export default function EmployerOfRecordPage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={4} label="Your questions answered" centered />
-              <h2 className="mt-8 text-[clamp(2rem,5vw,3.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2rem,5vw,3.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Employer of Record (EoR)
                 <br />
                 <span className="text-brand-coral">your questions answered</span>
@@ -528,7 +528,7 @@ export default function EmployerOfRecordPage() {
             {/* Watermark */}
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-black uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               EoR
             </p>
@@ -540,7 +540,7 @@ export default function EmployerOfRecordPage() {
                 <span className="block h-px w-10 bg-brand-coral" />
               </div>
 
-              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
                 {CTA.title}
               </h2>
 

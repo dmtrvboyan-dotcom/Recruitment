@@ -62,7 +62,7 @@ export const TeamMemberCard = memo(function TeamMemberCard({
         )}
 
         <div className="absolute inset-x-4 bottom-4">
-          <p className="font-black uppercase tracking-[-0.01em] leading-tight text-brand-white text-sm sm:text-base lg:text-lg">
+          <p className="font-bold uppercase tracking-[-0.01em] leading-tight text-brand-white text-sm sm:text-base lg:text-lg">
             {member.name}
           </p>
         </div>

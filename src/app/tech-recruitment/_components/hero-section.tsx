@@ -30,7 +30,7 @@ export const HeroSection = memo(function HeroSection() {
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,20vw,17rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,20vw,17rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         SPECIALIZED
       </div>
@@ -48,7 +48,7 @@ export const HeroSection = memo(function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="text-[clamp(2.25rem,8vw,6.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 max-w-5xl">
+          <h1 className="text-[clamp(2.25rem,8vw,6.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 max-w-5xl">
             {HERO_DATA.title.split(".")[0]}
             <span className="text-brand-coral">.</span>
           </h1>
@@ -100,7 +100,7 @@ export const HeroSection = memo(function HeroSection() {
                 }`}
             >
               <div className="flex items-baseline justify-center gap-1.5 mb-1.5">
-                <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-white tabular-nums tracking-tight leading-none">
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-white tabular-nums tracking-tight leading-none">
                   {stat.value}
                 </span>
                 {stat.suffix && (

@@ -32,7 +32,7 @@ export default function FintechRecruitmentPage() {
         <div className="absolute top-10 right-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
         <div
           aria-hidden
-          className="absolute bottom-0 right-0 text-[22vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 right-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
         >
           FINTECH
         </div>
@@ -57,7 +57,7 @@ export default function FintechRecruitmentPage() {
               </span>
 
 
-              <h1 className="mb-6 text-[clamp(2.8rem,14vw,7rem)] font-black uppercase leading-[0.92] tracking-tight text-brand-white sm:mb-8">
+              <h1 className="mb-6 text-[clamp(2.8rem,14vw,7rem)] font-bold uppercase leading-[0.92] tracking-tight text-brand-white sm:mb-8">
                 Fintech{" "}
                 <span className="text-brand-coral">
                   Recruitment
@@ -78,7 +78,7 @@ export default function FintechRecruitmentPage() {
                   { num: "94%", label: "Retention rate" },
                 ].map(({ num, label }) => (
                   <div key={label} className="text-center">
-                    <div className="text-2xl font-black leading-none text-brand-coral sm:text-3xl">
+                    <div className="text-2xl font-bold leading-none text-brand-coral sm:text-3xl">
                       {num}
                     </div>
 
@@ -114,7 +114,7 @@ export default function FintechRecruitmentPage() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 {FULL_TALENT_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy mb-5">
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-navy mb-5">
                 {FULL_TALENT_HEADER.title}
               </h2>
               <p className="text-sm text-brand-navy/45 max-w-sm mx-auto leading-relaxed">
@@ -139,7 +139,7 @@ export default function FintechRecruitmentPage() {
                     {/* Card index watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-black leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -192,7 +192,7 @@ export default function FintechRecruitmentPage() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[14vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
           >
             BULGARIA
           </div>
@@ -204,7 +204,7 @@ export default function FintechRecruitmentPage() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-6">
                 {BULGARIA_STRENGTHS_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-white">
+              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-white">
                 {BULGARIA_STRENGTHS_HEADER.title}
               </h2>
               <div className="flex items-center justify-center gap-3 mt-8">
@@ -221,7 +221,7 @@ export default function FintechRecruitmentPage() {
                   className="flex items-start gap-4 rounded-xl border border-white/6 bg-brand-white/4 px-5 py-4 hover:border-brand-coral/30 hover:bg-brand-white/6 transition-all duration-300"
                   style={{ backdropFilter: "blur(6px)" }}
                 >
-                  <span className="text-[11px] font-black text-brand-coral/70 mt-0.5 w-5 shrink-0 leading-none">
+                  <span className="text-[11px] font-bold text-brand-coral/70 mt-0.5 w-5 shrink-0 leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm text-brand-white/70 leading-relaxed font-medium">
@@ -263,7 +263,7 @@ export default function FintechRecruitmentPage() {
             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">
               Ready to Start?
             </span>
-            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-black uppercase leading-none tracking-tight text-brand-navy mb-6">
+            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-navy mb-6">
               {CTA_DATA.title.split(" ").slice(0, 3).join(" ")}
               <br />
               <span className="text-brand-coral">

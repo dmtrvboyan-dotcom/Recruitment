@@ -44,7 +44,7 @@ export const FAQItem = memo(function FAQItem({
 
           {/* Question */}
           <h3
-            className={`text-base sm:text-lg lg:text-xl font-black uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${
+            className={`text-base sm:text-lg lg:text-xl font-bold uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${
               isOpen
                 ? "text-brand-coral"
                 : "text-brand-navy group-hover:text-brand-coral"

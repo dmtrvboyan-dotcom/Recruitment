@@ -61,7 +61,7 @@ const StepCard = memo(function StepCard({
 
                 <div
                     aria-hidden
-                    className="absolute top-5 right-6 text-[5.5rem] lg:text-[6.5rem] font-black leading-none tracking-tighter text-brand-navy/[0.04] select-none pointer-events-none"
+                    className="absolute top-5 right-6 text-[5.5rem] lg:text-[6.5rem] font-bold leading-none tracking-tighter text-brand-navy/[0.04] select-none pointer-events-none"
                 >
                     {step.number}
                 </div>
@@ -77,7 +77,7 @@ const StepCard = memo(function StepCard({
                     {step.phase}
                 </span>
 
-                <h3 className="relative text-2xl lg:text-3xl font-black uppercase tracking-tight text-brand-navy mb-3">
+                <h3 className="relative text-2xl lg:text-3xl font-bold uppercase tracking-tight text-brand-navy mb-3">
                     {step.heading}
                 </h3>
 
@@ -118,7 +118,7 @@ export const HowItWorks = memo(function HowItWorks() {
                     <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
                         How It Works
                     </span>
-                    <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy mb-5">
+                    <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-5">
                         THREE STEPS.
                         <br />
                         <span className="text-brand-coral">THAT&apos;S IT.</span>

@@ -60,7 +60,7 @@ export const DesktopPanel = memo(function DesktopPanel({
                 />
               </div>
 
-              <h3 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-black uppercase tracking-tight leading-[1.05] text-brand-navy mb-3 max-w-xl">
+              <h3 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold uppercase tracking-tight leading-[1.05] text-brand-navy mb-3 max-w-xl">
                 {service.title}
               </h3>
 
@@ -133,7 +133,7 @@ export const DesktopPanel = memo(function DesktopPanel({
                       : ""
                       }`}
                   >
-                    <div className="text-3xl lg:text-[2.5rem] font-black text-brand-white leading-none tracking-tight mb-2">
+                    <div className="text-3xl lg:text-[2.5rem] font-bold text-brand-white leading-none tracking-tight mb-2">
                       {stat.value}
                     </div>
                     <div className="text-[10px] tracking-[0.22em] uppercase text-brand-coral font-semibold leading-snug">

@@ -100,7 +100,7 @@ export function TeamCarousel({ showQuote = true }: TeamCarouselProps) {
 
         {/* Editorial page indicator */}
         <div className="flex items-baseline gap-2">
-          <span className="text-2xl sm:text-3xl font-black text-brand-white tabular-nums tracking-tight leading-none">
+          <span className="text-2xl sm:text-3xl font-bold text-brand-white tabular-nums tracking-tight leading-none">
             {String(currentPage + 1).padStart(2, "0")}
           </span>
           <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-white/35">

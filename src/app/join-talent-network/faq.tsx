@@ -105,7 +105,7 @@ export const Faq = memo(function Faq() {
         <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
             <div
                 aria-hidden
-                className="absolute -bottom-10 -right-10 text-[16vw] font-black uppercase tracking-tighter text-brand-navy/[0.025] leading-none select-none pointer-events-none whitespace-nowrap hidden lg:block"
+                className="absolute -bottom-10 -right-10 text-[16vw] font-bold uppercase tracking-tighter text-brand-navy/[0.025] leading-none select-none pointer-events-none whitespace-nowrap hidden lg:block"
             >
                 FAQ
             </div>
@@ -126,7 +126,7 @@ export const Faq = memo(function Faq() {
                         <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4">
                             Frequently Asked
                         </span>
-                        <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-black leading-none tracking-tight text-brand-navy mb-6">
+                        <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold leading-none tracking-tight text-brand-navy mb-6">
                             QUESTIONS,
                             <br />
                             <span className="text-brand-coral">ANSWERED.</span>

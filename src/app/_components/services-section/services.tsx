@@ -92,7 +92,7 @@ export function Services() {
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
             Our  <span className="text-brand-coral">six</span> Services
             <br />
           </h2>

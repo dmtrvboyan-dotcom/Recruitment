@@ -70,7 +70,7 @@ const HeroSection = memo(function HeroSection() {
     <section className="relative w-full min-h-[90vh] flex items-end overflow-hidden bg-brand-navy">
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span className="text-[25vw] font-black uppercase text-brand-white/[0.03] leading-none tracking-tighter whitespace-nowrap">
+        <span className="text-[25vw] font-bold uppercase text-brand-white/[0.03] leading-none tracking-tighter whitespace-nowrap">
           CAREERS
         </span>
       </div>
@@ -89,7 +89,7 @@ const HeroSection = memo(function HeroSection() {
           {heroData.tagline}
         </span>
 
-        <h1 className="text-[clamp(3rem,10vw,8.5rem)] font-black leading-none tracking-tight text-brand-white mb-8 max-w-5xl">
+        <h1 className="text-[clamp(3rem,10vw,8.5rem)] font-bold leading-none tracking-tight text-brand-white mb-8 max-w-5xl">
           {heroData.title}
         </h1>
 
@@ -117,7 +117,7 @@ const HeroSection = memo(function HeroSection() {
           ].map((s) => (
             <div key={s.label}>
               <div className="flex items-baseline gap-1.5">
-                <span className="text-4xl font-black text-brand-white leading-none">{s.value}</span>
+                <span className="text-4xl font-bold text-brand-white leading-none">{s.value}</span>
                 {s.unit && <span className="text-xs font-bold tracking-widest uppercase text-brand-coral">{s.unit}</span>}
               </div>
               <p className="text-xs text-brand-white/35 uppercase tracking-widest mt-1">{s.label}</p>
@@ -153,7 +153,7 @@ const HowItWorksSection = memo(function HowItWorksSection() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
             {howItWorksData.tagline}
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy uppercase text-center">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase text-center">
             Your Journey to the
             <span className="text-brand-coral"> Right Role.</span>
           </h2>
@@ -176,7 +176,7 @@ const HowItWorksSection = memo(function HowItWorksSection() {
                 }}
               >
                 <div className="flex items-start justify-between">
-                  <span className="text-[4rem] font-black text-brand-navy/[0.07] leading-none tracking-tighter">
+                  <span className="text-[4rem] font-bold text-brand-navy/[0.07] leading-none tracking-tighter">
                     {step.number}
                   </span>
                   <div className="w-11 h-11 rounded-xl bg-brand-coral/10 flex items-center justify-center shrink-0">
@@ -184,7 +184,7 @@ const HowItWorksSection = memo(function HowItWorksSection() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-black uppercase tracking-tight text-brand-navy mb-3">
+                  <h3 className="text-lg font-bold uppercase tracking-tight text-brand-navy mb-3">
                     {step.title}
                   </h3>
                   <p className="text-sm text-brand-navy/55 leading-relaxed mb-4">
@@ -244,7 +244,7 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
             Our Team
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy uppercase text-center">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase text-center">
             Meet the People Behind
             <span className="text-brand-coral"> Your Search.</span>
           </h2>
@@ -319,7 +319,7 @@ const YourGoalsSection = memo(function YourGoalsSection() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
             {yourGoalsData.tagline}
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-white uppercase text-center">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white uppercase text-center">
             {yourGoalsData.title}
             <br />
             <span className="text-brand-coral">Matters to You</span>
@@ -347,7 +347,7 @@ const YourGoalsSection = memo(function YourGoalsSection() {
                   <Icon className="w-6 h-6 text-brand-coral" strokeWidth={1.6} />
                 </div>
                 <div>
-                  <h3 className="text-base font-black uppercase tracking-tight text-brand-white mb-2">
+                  <h3 className="text-base font-bold uppercase tracking-tight text-brand-white mb-2">
                     {goal.title}
                   </h3>
                   <p className="text-sm text-brand-white/45 leading-relaxed">
@@ -393,7 +393,7 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
             <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
               {whatYouGetData.tagline}
             </span>
-            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy uppercase">
+            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase">
               {whatYouGetData.title}
               <br />
               <span className="text-brand-coral">ADVANTAGE.</span>
@@ -401,7 +401,7 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
           </div>
           <div className="hidden lg:flex flex-col items-end gap-1 pb-2 shrink-0">
             <div className="flex items-baseline gap-2">
-              <span className="text-[3.5rem] font-black leading-none text-brand-navy tracking-tight">
+              <span className="text-[3.5rem] font-bold leading-none text-brand-navy tracking-tight">
                 {whatYouGetData.items.length}
               </span>
               <span className="text-sm font-bold uppercase tracking-widest text-brand-coral pb-2">services</span>
@@ -431,7 +431,7 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
                   <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.6} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-black uppercase tracking-tight text-brand-navy mb-2">{item.title}</h3>
+                  <h3 className="text-sm font-bold uppercase tracking-tight text-brand-navy mb-2">{item.title}</h3>
                   <p className="text-sm text-brand-navy/50 leading-relaxed">{item.description}</p>
                 </div>
               </div>
@@ -457,7 +457,7 @@ const OpportunitiesSection = memo(function OpportunitiesSection() {
         aria-hidden
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
-        <span className="text-[18vw] font-black uppercase tracking-tighter text-brand-navy/[0.025] whitespace-nowrap leading-none">
+        <span className="text-[18vw] font-bold uppercase tracking-tighter text-brand-navy/[0.025] whitespace-nowrap leading-none">
           ROLES
         </span>
       </div>
@@ -476,7 +476,7 @@ const OpportunitiesSection = memo(function OpportunitiesSection() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
             {opportunitiesData.tagline}
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy">
             WHERE WE
             <br />
             <span className="text-brand-coral">PLACE PEOPLE.</span>
@@ -589,7 +589,7 @@ const TestimonialSection = memo(function TestimonialSection() {
           <div className="absolute -top-20 -left-20 w-72 h-72 bg-brand-coral/10 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-          <div className="relative text-[8rem] font-black text-brand-coral/15 leading-none mb-4 -mt-4">&ldquo;</div>
+          <div className="relative text-[8rem] font-bold text-brand-coral/15 leading-none mb-4 -mt-4">&ldquo;</div>
 
           <blockquote
             className="relative text-xl sm:text-2xl lg:text-3xl font-bold text-brand-white leading-snug tracking-tight max-w-3xl -mt-8"
@@ -645,7 +645,7 @@ const FAQSection = memo(function FAQSection() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
             {faqData.tagline}
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy text-center uppercase">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy text-center uppercase">
             {faqData.title}
             <br />
             <span className="text-brand-coral">QUESTIONS.</span>
@@ -678,7 +678,7 @@ const FAQSection = memo(function FAQSection() {
                       {number}. Q
                     </span>
                     <span
-                      className={`text-sm sm:text-base font-black uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${isOpen
+                      className={`text-sm sm:text-base font-bold uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${isOpen
                         ? "text-brand-coral"
                         : "text-brand-navy group-hover:text-brand-coral"
                         }`}
@@ -742,7 +742,7 @@ const CTASection = memo(function CTASection() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4">
             Ready to Start?
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-white">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white">
             LET'S FIND
             <br />
             <span className="text-brand-coral">YOUR NEXT ROLE.</span>

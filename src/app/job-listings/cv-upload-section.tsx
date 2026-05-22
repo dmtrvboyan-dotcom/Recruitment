@@ -11,7 +11,7 @@ export function CVUploadSection() {
       {/* Watermark - only decorative on large screens */}
       <div
         aria-hidden
-        className="hidden lg:block absolute -bottom-20 -right-10 text-[clamp(11rem,22vw,22rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute -bottom-20 -right-10 text-[clamp(11rem,22vw,22rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         Radar
       </div>
@@ -30,7 +30,7 @@ export function CVUploadSection() {
             </span>
           </div>
 
-          <h2 className="text-[clamp(2rem,9vw,5rem)] font-black uppercase leading-[0.92] tracking-tight text-brand-navy max-w-4xl">
+          <h2 className="text-[clamp(2rem,9vw,5rem)] font-bold uppercase leading-[0.92] tracking-tight text-brand-navy max-w-4xl">
             Share your background.{" "}
             <span className="font-bold uppercase text-brand-coral">
               we&apos;ll listen.
@@ -76,7 +76,7 @@ export function CVUploadSection() {
                   key={item.n}
                   className="flex gap-4 sm:gap-6 py-5 sm:py-6 first:pt-0 last:pb-0"
                 >
-                  <span className="text-base font-black tabular-nums tracking-tight text-brand-coral shrink-0 leading-none pt-0.5">
+                  <span className="text-base font-bold tabular-nums tracking-tight text-brand-coral shrink-0 leading-none pt-0.5">
                     {item.n}
                   </span>
                   <div className="min-w-0">

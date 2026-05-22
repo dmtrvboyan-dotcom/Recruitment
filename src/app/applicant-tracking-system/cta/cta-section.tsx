@@ -24,7 +24,7 @@ export function CTASection() {
 
         </span>
 
-        <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy mb-6">
+        <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-6">
           {ctaData.title}
         </h2>
 

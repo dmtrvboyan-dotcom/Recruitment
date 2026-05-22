@@ -39,7 +39,7 @@ export const WhyUs = memo(function WhyUs() {
       {/* Watermark text */}
       <div
         aria-hidden
-        className="absolute bottom-0 left-0 text-[18vw] font-black uppercase tracking-tighter text-white/[0.025] whitespace-nowrap leading-none select-none pointer-events-none"
+        className="absolute bottom-0 left-0 text-[18vw] font-bold uppercase tracking-tighter text-white/[0.025] whitespace-nowrap leading-none select-none pointer-events-none"
       >
         WHY US
       </div>
@@ -60,7 +60,7 @@ export const WhyUs = memo(function WhyUs() {
             <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4">
               Why Companies Choose Us
             </span>
-            <h2 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-black leading-none tracking-tight text-white mb-6">
+            <h2 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-bold leading-none tracking-tight text-white mb-6">
               BIG ENOUGH
               <br />
               TO SCALE.

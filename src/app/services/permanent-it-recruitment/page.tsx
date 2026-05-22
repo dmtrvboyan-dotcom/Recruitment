@@ -121,7 +121,7 @@ export default function ExecutiveSearchPage() {
               <span className="block h-px w-12 bg-brand-coral" />
             </div>
 
-            <h1 className="text-[clamp(3rem,9vw,7rem)] font-black uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+            <h1 className="text-[clamp(3rem,9vw,7rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
               {HERO_DATA.title}
             </h1>
 
@@ -156,7 +156,7 @@ export default function ExecutiveSearchPage() {
                     </span>
                     <div className="h-px w-6 bg-white/20" />
                   </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
                     {stat.value}
                   </p>
                   <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
@@ -190,7 +190,7 @@ export default function ExecutiveSearchPage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 py-20 lg:py-32">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={1} label="Specialisms" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Roles{" "}
                 <span className="text-brand-coral">we hire</span>
               </h2>
@@ -214,7 +214,7 @@ export default function ExecutiveSearchPage() {
                     className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-500 ease-out overflow-hidden"
                   >
                     <div className="pt-1 shrink-0">
-                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-black text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
+                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-bold text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -271,7 +271,7 @@ export default function ExecutiveSearchPage() {
                       <div className="absolute -top-20 -left-20 w-48 h-48 rounded-full bg-brand-coral/20 blur-[80px] pointer-events-none" />
 
                       <div className="relative">
-                        <span className="block text-[clamp(3rem,6vw,5rem)] font-black text-white/[0.10] leading-none tracking-tighter mb-6">
+                        <span className="block text-[clamp(3rem,6vw,5rem)] font-bold text-white/[0.10] leading-none tracking-tighter mb-6">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <div
@@ -283,7 +283,7 @@ export default function ExecutiveSearchPage() {
 
                       {/* "Executive Search" badge */}
                       <div className="relative mt-6">
-                        <span className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-brand-coral">
+                        <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-brand-coral">
                           <span>✦</span> Executive Search
                         </span>
                       </div>
@@ -343,7 +343,7 @@ export default function ExecutiveSearchPage() {
 
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
           >
             METHOD
           </div>
@@ -353,7 +353,7 @@ export default function ExecutiveSearchPage() {
               <SectionIndicator index={2} label="HOW WE WORK" tone="dark" centered />
             </div>
             <div className="text-center">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white mb-4">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white mb-4">
                 Our search{" "}
                 <span className="text-brand-coral">methodology</span>
               </h2>
@@ -381,7 +381,7 @@ export default function ExecutiveSearchPage() {
                     <div className="group relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 lg:p-7 hover:bg-white/[0.08] hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
                       <span
                         aria-hidden
-                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-black text-white/[0.04] leading-none pointer-events-none select-none"
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-white/[0.04] leading-none pointer-events-none select-none"
                       >
                         {step.number}
                       </span>
@@ -426,7 +426,7 @@ export default function ExecutiveSearchPage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={3} label="Why us" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Precision <span className="text-brand-coral">hiring</span>
               </h2>
             </div>
@@ -436,7 +436,7 @@ export default function ExecutiveSearchPage() {
                 <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
                 <div className="relative">
-                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-black uppercase leading-[0.92] tracking-tight mb-6">
+                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold uppercase leading-[0.92] tracking-tight mb-6">
                     Precision
                     <br />
                     <span className="text-brand-coral">hiring</span>
@@ -469,7 +469,7 @@ export default function ExecutiveSearchPage() {
                   >
                     <span
                       aria-hidden
-                      className="absolute top-5 right-6 text-[3rem] font-black text-brand-navy/[0.06] leading-none pointer-events-none select-none"
+                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-navy/[0.06] leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -508,7 +508,7 @@ export default function ExecutiveSearchPage() {
 
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-black uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               EXEC
             </p>
@@ -520,7 +520,7 @@ export default function ExecutiveSearchPage() {
                 <span className="block h-px w-10 bg-brand-coral" />
               </div>
 
-              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
                 {CTA_DATA.title}
               </h2>
 

@@ -127,7 +127,7 @@ const TrainingCard = memo(function TrainingCard({
       </div>
 
       <div>
-        <h3 className="text-sm font-black uppercase tracking-tight text-brand-navy leading-snug mb-2">
+        <h3 className="text-sm font-bold uppercase tracking-tight text-brand-navy leading-snug mb-2">
           {item.heading}
         </h3>
         <p className="text-sm text-brand-navy/50 leading-relaxed">
@@ -180,7 +180,7 @@ export const InvestInPeople = memo(function InvestInPeople() {
             <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
               Learn More About Us
             </span>
-            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy">
+            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy">
               WE INVEST IN PEOPLE,
               <br />
               <span className="text-brand-coral">SO WE DELIVER REAL VALUE.</span>
@@ -190,7 +190,7 @@ export const InvestInPeople = memo(function InvestInPeople() {
           {/* Decorative stat pill */}
           <div className="hidden lg:flex flex-col items-end gap-1 pb-2 shrink-0">
             <div className="flex items-baseline gap-2">
-              <span className="text-[3.5rem] font-black leading-none text-brand-navy tracking-tight">9</span>
+              <span className="text-[3.5rem] font-bold leading-none text-brand-navy tracking-tight">9</span>
               <span className="text-sm font-bold uppercase tracking-widest text-brand-coral pb-2">pillars</span>
             </div>
             <span className="text-xs text-brand-navy/40 tracking-widest uppercase">of team development</span>
@@ -210,7 +210,7 @@ export const InvestInPeople = memo(function InvestInPeople() {
           <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
           <div className="relative">
-            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mb-2">
+            <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white mb-2">
               People First. <span className="text-brand-coral">Always.</span>
             </h3>
             <p className="text-sm sm:text-base text-white/55 max-w-md leading-relaxed">

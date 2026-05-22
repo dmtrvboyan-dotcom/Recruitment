@@ -56,7 +56,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
       {/* Watermark — category number */}
       <div
         aria-hidden
-        className={`hidden lg:block absolute top-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,15rem)] font-black uppercase leading-[0.85] tracking-tighter ${watermarkColor} select-none pointer-events-none whitespace-nowrap ${
+        className={`hidden lg:block absolute top-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,15rem)] font-bold uppercase leading-[0.85] tracking-tighter ${watermarkColor} select-none pointer-events-none whitespace-nowrap ${
           index % 2 === 0 ? "right-0" : "left-0"
         }`}
       >
@@ -75,7 +75,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
           </div>
 
           <h2
-            className={`text-[clamp(1.5rem,5vw,3rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase ${headingColor} mb-4 sm:mb-5`}
+            className={`text-[clamp(1.5rem,5vw,3rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase ${headingColor} mb-4 sm:mb-5`}
           >
             {category.title}
           </h2>
@@ -163,7 +163,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
             className={`inline-flex items-center gap-6 sm:gap-8 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl ${cardBg} border ${borderColor} mb-5`}
           >
             <div className="text-center">
-              <span className={`text-2xl sm:text-3xl font-black ${statColor} tabular-nums tracking-tight leading-none`}>
+              <span className={`text-2xl sm:text-3xl font-bold ${statColor} tabular-nums tracking-tight leading-none`}>
                 {category.stat1Value}
               </span>
               <span className="block text-[9px] sm:text-[10px] tracking-[0.22em] uppercase text-brand-coral mt-1.5 font-semibold">
@@ -172,7 +172,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
             </div>
             <div className={`h-8 w-px ${borderColor}`} />
             <div className="text-center">
-              <span className={`text-2xl sm:text-3xl font-black ${statColor} tabular-nums tracking-tight leading-none`}>
+              <span className={`text-2xl sm:text-3xl font-bold ${statColor} tabular-nums tracking-tight leading-none`}>
                 {category.stat2Value}
               </span>
               <span className="block text-[9px] sm:text-[10px] tracking-[0.22em] uppercase text-brand-coral mt-1.5 font-semibold">

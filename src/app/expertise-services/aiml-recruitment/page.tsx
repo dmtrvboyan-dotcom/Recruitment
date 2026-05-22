@@ -34,7 +34,7 @@ export default function AiMlRecruitment() {
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 right-0 text-[22vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 right-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
         >
           AI
         </div>
@@ -58,7 +58,7 @@ export default function AiMlRecruitment() {
               {HERO_DATA.tagline}
             </span>
 
-            <h1 className="text-[clamp(2.7rem,10vw,6rem)] font-black leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
+            <h1 className="text-[clamp(2.7rem,10vw,6rem)] font-bold leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
               Hire AI Engineers & Machine <span className="text-brand-coral">Learning Experts</span>
             </h1>
 
@@ -99,7 +99,7 @@ export default function AiMlRecruitment() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 {WHY_BULGARIA_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy">
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-navy">
                 {WHY_BULGARIA_HEADER.title}
               </h2>
             </div>
@@ -110,7 +110,7 @@ export default function AiMlRecruitment() {
                   key={i}
                   className="flex items-start gap-4 rounded-xl border border-brand-navy/8 bg-brand-white p-5 hover:border-brand-coral/40 hover:shadow-md transition-all duration-300"
                 >
-                  <span className="text-[11px] font-black text-brand-coral/70 mt-0.5 w-5 shrink-0 leading-none">
+                  <span className="text-[11px] font-bold text-brand-coral/70 mt-0.5 w-5 shrink-0 leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm text-brand-navy/70 leading-relaxed font-medium">
@@ -140,7 +140,7 @@ export default function AiMlRecruitment() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 right-0 text-[14vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 right-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
           >
             WHAT YOU GET
           </div>
@@ -151,7 +151,7 @@ export default function AiMlRecruitment() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-6">
                 {WHAT_YOU_GET_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-white">
+              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-white">
                 {WHAT_YOU_GET_HEADER.title}
               </h2>
               <div className="flex items-center justify-center gap-3 mt-8">
@@ -203,7 +203,7 @@ export default function AiMlRecruitment() {
             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">
               Ready to Start?
             </span>
-            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-black uppercase leading-none tracking-tight text-brand-navy mb-6">
+            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-navy mb-6">
               {CTA_DATA.title.split(" ").slice(0, 3).join(" ")}
               <br />
               <span className="text-brand-coral">

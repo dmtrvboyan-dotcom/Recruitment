@@ -34,7 +34,7 @@ export function MeetTheTeam() {
 
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,20vw,18rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,20vw,18rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         PEOPLE
       </div>
@@ -49,7 +49,7 @@ export function MeetTheTeam() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
             Nice to meet
             <br />
             <span className="text-brand-coral">you.</span>
@@ -64,7 +64,7 @@ export function MeetTheTeam() {
                 className="inline-flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 rounded-2xl bg-brand-white/5 border border-brand-white/10"
               >
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl sm:text-3xl font-black text-brand-white tabular-nums tracking-tight leading-none">
+                  <span className="text-2xl sm:text-3xl font-bold text-brand-white tabular-nums tracking-tight leading-none">
                     {stat.value}
                   </span>
                   {stat.suffix && (

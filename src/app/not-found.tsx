@@ -36,7 +36,7 @@ export default function NotFound() {
       <div
         aria-hidden
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                   text-[clamp(10rem,40vw,32rem)] font-black uppercase leading-none
+                   text-[clamp(10rem,40vw,32rem)] font-bold uppercase leading-none
                    tracking-tighter text-brand-white/[0.025] select-none
                    pointer-events-none whitespace-nowrap"
       >
@@ -52,7 +52,7 @@ export default function NotFound() {
           <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
         </div>
 
-        <h1 className="text-[clamp(2rem,8vw,6rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 animate-fade-in-up delay-150">
+        <h1 className="text-[clamp(2rem,8vw,6rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-6 sm:mb-8 animate-fade-in-up delay-150">
           Looks like you took a
           <br />
           <span className="text-brand-coral">wrong turn.</span>

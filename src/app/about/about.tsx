@@ -26,7 +26,7 @@ export const About = memo(function About() {
           {ABOUT_CONTENT.tagline}
         </span>
 
-        <h1 className="text-[clamp(3rem,10vw,8rem)] font-black leading-none tracking-tight text-brand-white mb-5 sm:mb-6">
+        <h1 className="text-[clamp(3rem,10vw,8rem)] font-bold leading-none tracking-tight text-brand-white mb-5 sm:mb-6">
           {ABOUT_CONTENT.title}
         </h1>
 

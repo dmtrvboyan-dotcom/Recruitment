@@ -223,7 +223,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
           </div>
         </div>
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-coral mb-3">[ Message Received ]</p>
-        <h3 className="text-3xl sm:text-4xl font-black text-brand-navy mb-4 tracking-tight">We&apos;ll be in touch.</h3>
+        <h3 className="text-3xl sm:text-4xl font-bold text-brand-navy mb-4 tracking-tight">We&apos;ll be in touch.</h3>
         <p className="text-brand-navy/60 max-w-sm mx-auto leading-relaxed">
           A senior partner will reply within 24 hours. Check your inbox - and your spam folder, just in case.
         </p>

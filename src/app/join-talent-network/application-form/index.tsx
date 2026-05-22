@@ -73,7 +73,7 @@ export const ApplicationForm = memo(function ApplicationForm() {
 
             <div
                 aria-hidden
-                className="absolute top-1/2 -translate-y-1/2 -right-10 text-[18vw] font-black uppercase tracking-tighter text-brand-white/[0.02] leading-none select-none pointer-events-none whitespace-nowrap hidden lg:block"
+                className="absolute top-1/2 -translate-y-1/2 -right-10 text-[18vw] font-bold uppercase tracking-tighter text-brand-white/[0.02] leading-none select-none pointer-events-none whitespace-nowrap hidden lg:block"
             >
                 APPLY
             </div>

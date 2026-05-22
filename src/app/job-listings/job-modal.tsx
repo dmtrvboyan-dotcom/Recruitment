@@ -72,7 +72,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase leading-[0.95] tracking-tight pr-12 max-w-3xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-[0.95] tracking-tight pr-12 max-w-3xl">
               {job.title}
             </h2>
 
@@ -121,7 +121,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
                 </span>
                 <span className="block w-6 h-px bg-brand-coral" />
               </div>
-              <h5 className="font-black text-brand-navy text-lg sm:text-xl uppercase tracking-tight mb-4 sm:mb-5">
+              <h5 className="font-bold text-brand-navy text-lg sm:text-xl uppercase tracking-tight mb-4 sm:mb-5">
                 Core Responsibilities
               </h5>
               <BulletList
@@ -136,7 +136,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
                 </span>
                 <span className="block w-6 h-px bg-brand-coral" />
               </div>
-              <h5 className="font-black text-brand-navy text-lg sm:text-xl uppercase tracking-tight mb-4 sm:mb-5">
+              <h5 className="font-bold text-brand-navy text-lg sm:text-xl uppercase tracking-tight mb-4 sm:mb-5">
                 Requirements
               </h5>
               <BulletList
@@ -155,7 +155,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
                 </span>
                 <span className="block w-6 h-px bg-brand-coral" />
               </div>
-              <h5 className="font-black text-brand-navy text-lg sm:text-xl uppercase tracking-tight mb-4 sm:mb-5">
+              <h5 className="font-bold text-brand-navy text-lg sm:text-xl uppercase tracking-tight mb-4 sm:mb-5">
                 Bonus / Nice to Have
               </h5>
               <BulletList
@@ -175,7 +175,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
                   </span>
                   <span className="block w-6 h-px bg-brand-coral" />
                 </div>
-                <h5 className="font-black text-brand-white text-lg sm:text-xl uppercase tracking-tight mb-4 sm:mb-5">
+                <h5 className="font-bold text-brand-white text-lg sm:text-xl uppercase tracking-tight mb-4 sm:mb-5">
                   What We Offer
                 </h5>
                 <ul className="space-y-2.5 mt-3">

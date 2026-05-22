@@ -40,7 +40,7 @@ const items = [...companies, ...companies];
             key={i}
             className={`mx-5 sm:mx-9 lg:mx-12 shrink-0 whitespace-nowrap 
                        text-[1.75rem] sm:text-[2.75rem] lg:text-[3.75rem] 
-                       font-black tracking-[0.02em] uppercase 
+                       font-bold tracking-[0.02em] uppercase 
                        leading-none transition-colors duration-300
                        hover:text-brand-white
                        ${textColor}`}
@@ -70,7 +70,7 @@ export const TrustedBySection = memo(function TrustedBySection() {
       />
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         TRUSTED
       </div>
@@ -84,7 +84,7 @@ export const TrustedBySection = memo(function TrustedBySection() {
           <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
         </div>
 
-        <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
+        <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
           Companies we&apos;ve
           <br />
           <span className="text-brand-coral">partnered with.</span>

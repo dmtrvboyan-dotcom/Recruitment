@@ -33,7 +33,7 @@ const StepCard = memo(function StepCard({
                   <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.6} />
                 </div>
               </div>
-              <h3 className="text-2xl xl:text-3xl font-black uppercase tracking-tight text-brand-navy mb-3">
+              <h3 className="text-2xl xl:text-3xl font-bold uppercase tracking-tight text-brand-navy mb-3">
                 {step.heading}
               </h3>
               <p className="text-base xl:text-lg text-brand-navy/55 leading-relaxed">
@@ -47,7 +47,7 @@ const StepCard = memo(function StepCard({
         <div className="flex flex-col items-center pt-3">
           {/* Numbered circle */}
           <div className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center z-10 shadow-md ring-4 ring-[#f9f9fb]">
-            <span className="text-[10px] font-black text-white leading-none">
+            <span className="text-[10px] font-bold text-white leading-none">
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
@@ -65,7 +65,7 @@ const StepCard = memo(function StepCard({
                   {step.phase}
                 </span>
               </div>
-              <h3 className="text-2xl xl:text-3xl font-black uppercase tracking-tight text-brand-navy mb-3">
+              <h3 className="text-2xl xl:text-3xl font-bold uppercase tracking-tight text-brand-navy mb-3">
                 {step.heading}
               </h3>
               <p className="text-base xl:text-lg text-brand-navy/55 leading-relaxed">
@@ -80,7 +80,7 @@ const StepCard = memo(function StepCard({
       <div className="flex lg:hidden items-start gap-5 w-full">
         <div className="flex flex-col items-center shrink-0 pt-1">
           <div className="w-7 h-7 rounded-full bg-brand-coral flex items-center justify-center shadow-sm ring-4 ring-[#f9f9fb] z-10">
-            <span className="text-[9px] font-black text-white leading-none">
+            <span className="text-[9px] font-bold text-white leading-none">
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
@@ -94,7 +94,7 @@ const StepCard = memo(function StepCard({
               {step.phase}
             </span>
           </div>
-          <h3 className="text-xl font-black uppercase tracking-tight text-brand-navy mb-2">
+          <h3 className="text-xl font-bold uppercase tracking-tight text-brand-navy mb-2">
             {step.heading}
           </h3>
           <p className="text-sm text-brand-navy/55 leading-relaxed">
@@ -116,7 +116,7 @@ export const ProcessTimeline = memo(function ProcessTimeline() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
             Step by Step
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy mb-5">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-5">
             THE SIX PHASES
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-brand-navy/50 max-w-lg mx-auto leading-relaxed">

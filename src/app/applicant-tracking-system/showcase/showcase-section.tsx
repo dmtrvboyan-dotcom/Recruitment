@@ -48,7 +48,7 @@ export function ShowcaseSection() {
             {showcaseData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy mb-5">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-5">
             {showcaseData.title}
           </h2>
           <p className="text-sm sm:text-base text-brand-navy/50 max-w-2xl mx-auto leading-relaxed">
@@ -128,7 +128,7 @@ export function ShowcaseSection() {
                         {/* Coral accent line */}
                         <div className="w-8 h-0.5 bg-brand-coral rounded-full mb-3" />
                         <p className="text-sm leading-relaxed text-brand-navy/70">
-                          <strong className="font-black uppercase tracking-tight text-brand-navy text-xs">
+                          <strong className="font-bold uppercase tracking-tight text-brand-navy text-xs">
                             {item.label}.
                           </strong>{" "}
                           {item.content}
@@ -205,7 +205,7 @@ export function ShowcaseSection() {
                 <div className="bg-brand-white/95 backdrop-blur-md rounded-xl p-4 border border-brand-navy/8 shadow-xl">
                   <div className="w-6 h-0.5 bg-brand-coral rounded-full mb-2" />
                   <p className="text-sm leading-relaxed text-brand-navy/70">
-                    <strong className="font-black uppercase tracking-tight text-brand-navy text-xs">
+                    <strong className="font-bold uppercase tracking-tight text-brand-navy text-xs">
                       {items[activeIdx].label}.
                     </strong>{" "}
                     {items[activeIdx].content}

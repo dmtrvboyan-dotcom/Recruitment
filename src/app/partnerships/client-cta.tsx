@@ -45,7 +45,7 @@ export const ClientsCTA = memo(function ClientsCTA() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-brand-coral block mb-4">
             Let's Build Together
           </span>
-          <h2 className="text-[clamp(2.8rem,8vw,7rem)] font-black leading-none tracking-tight uppercase text-brand-navy mb-6">
+          <h2 className="text-[clamp(2.8rem,8vw,7rem)] font-bold leading-none tracking-tight uppercase text-brand-navy mb-6">
             Ready to
             <br />
             <span className="text-brand-coral">Work with us?</span>

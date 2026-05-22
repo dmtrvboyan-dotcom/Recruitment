@@ -20,7 +20,7 @@ export const ProcessCTA = memo(function ProcessCTA() {
           Ready to Start?
         </span>
 
-        <h2 className="text-[clamp(2.5rem,7vw,6rem)] font-black leading-none tracking-tight text-brand-navy mb-6">
+        <h2 className="text-[clamp(2.5rem,7vw,6rem)] font-bold leading-none tracking-tight text-brand-navy mb-6">
           LET'S FIND
           <br />
           YOUR NEXT

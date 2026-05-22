@@ -47,7 +47,7 @@ export const SecuritySection = memo(function SecuritySection() {
             {securityData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy">
             {securityData.title}
           </h2>
         </div>
@@ -80,7 +80,7 @@ export const SecuritySection = memo(function SecuritySection() {
 
               {/* Text */}
               <div className="flex-1">
-                <h3 className="font-black uppercase tracking-tight text-sm text-brand-navy mb-1">
+                <h3 className="font-bold uppercase tracking-tight text-sm text-brand-navy mb-1">
                   {item.title}
                 </h3>
                 <p className="text-sm text-brand-navy/50 leading-relaxed">

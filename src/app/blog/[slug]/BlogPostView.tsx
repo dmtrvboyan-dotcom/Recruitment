@@ -50,7 +50,7 @@ export function BlogPostView({ post }: Props) {
           </div>
 
           {/* Title */}
-          <h1 className="text-[clamp(2rem,5vw,3.8rem)] font-black leading-none tracking-tight text-brand-white mb-6">
+          <h1 className="text-[clamp(2rem,5vw,3.8rem)] font-bold leading-none tracking-tight text-brand-white mb-6">
             {post.title}
           </h1>
 
@@ -71,7 +71,7 @@ export function BlogPostView({ post }: Props) {
         <div className="
           prose prose-base sm:prose-lg max-w-none
 
-          prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-brand-navy
+          prose-headings:font-bold prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-brand-navy
           prose-h1:text-4xl prose-h1:leading-none
           prose-h2:text-2xl prose-h2:leading-tight prose-h2:mt-14 prose-h2:mb-5
           prose-h2:border-b prose-h2:border-brand-navy/8 prose-h2:pb-3
@@ -82,7 +82,7 @@ export function BlogPostView({ post }: Props) {
           prose-a:text-brand-coral prose-a:no-underline prose-a:font-semibold
           hover:prose-a:underline
 
-          prose-strong:text-brand-navy prose-strong:font-black
+          prose-strong:text-brand-navy prose-strong:font-bold
 
           prose-ul:my-5 prose-ol:my-5
           prose-li:text-brand-navy/55 prose-li:my-2
@@ -119,7 +119,7 @@ export function BlogPostView({ post }: Props) {
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
             <div className="relative">
-              <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-brand-white mb-1">
+              <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-brand-white mb-1">
                 Want more insights?
                 <span className="text-brand-coral"> Keep reading.</span>
               </h3>

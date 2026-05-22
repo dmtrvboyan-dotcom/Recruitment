@@ -58,7 +58,7 @@ export const BenefitsSection = memo(function BenefitsSection() {
             {benefitsData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-navy">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy">
             {benefitsData.title}
           </h2>
         </div>
@@ -139,7 +139,7 @@ export const BenefitsSection = memo(function BenefitsSection() {
                     {index + 1}
                   </div>
                   <span
-                    className={`font-black uppercase tracking-tight text-base sm:text-lg transition-colors duration-300 ${
+                    className={`font-bold uppercase tracking-tight text-base sm:text-lg transition-colors duration-300 ${
                       active === index ? "text-brand-navy" : "text-brand-navy/35"
                     }`}
                   >
@@ -157,7 +157,7 @@ export const BenefitsSection = memo(function BenefitsSection() {
                       {benefit.description}
                     </p>
                     {benefit.stat && (
-                      <span className="font-black text-3xl text-brand-coral leading-none">
+                      <span className="font-bold text-3xl text-brand-coral leading-none">
                         {benefit.stat}
                       </span>
                     )}

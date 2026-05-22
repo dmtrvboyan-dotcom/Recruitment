@@ -174,7 +174,7 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
 
         {/* Title */}
         <h3
-          className="text-sm sm:text-base font-black uppercase tracking-tight text-brand-navy leading-snug mb-3
+          className="text-sm sm:text-base font-bold uppercase tracking-tight text-brand-navy leading-snug mb-3
             group-hover:text-brand-teal transition-colors duration-300"
         >
           {post.title}
@@ -247,7 +247,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
           </span>
 
           <h1
-            className="text-[clamp(2.8rem,8vw,7rem)] font-black leading-none tracking-tight text-brand-white mb-6"
+            className="text-[clamp(2.8rem,8vw,7rem)] font-bold leading-none tracking-tight text-brand-white mb-6"
             style={{
               opacity: heroVisible ? 1 : 0,
               transform: heroVisible ? "translateY(0)" : "translateY(24px)",

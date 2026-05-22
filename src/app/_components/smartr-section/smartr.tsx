@@ -57,7 +57,7 @@ function StatCounter({
   const count = useCountUp(value, 1600, animate)
   return (
     <div className="flex flex-col items-center gap-1">
-      <div className="text-[clamp(2rem,5vw,3.5rem)] font-black leading-none tracking-tight text-brand-white tabular-nums">
+      <div className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-brand-white tabular-nums">
         {count}
         <span className="text-brand-coral">{suffix}</span>
       </div>
@@ -104,7 +104,7 @@ export const SmartRSection = memo(function SmartRSection() {
 
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,18rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.022] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,18rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.022] select-none pointer-events-none whitespace-nowrap"
       >
         SMART.R
       </div>
@@ -121,7 +121,7 @@ export const SmartRSection = memo(function SmartRSection() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
-          <h2 className="text-[clamp(2.2rem,7vw,4.5rem)] font-black leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
+          <h2 className="text-[clamp(2.2rem,7vw,4.5rem)] font-bold leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
             <span className="text-brand-coral">Smart.R</span>
             <br />
             Our Own Applicant Tracking

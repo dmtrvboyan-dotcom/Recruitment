@@ -55,7 +55,7 @@ export function FAQSection() {
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute -bottom-8 -left-8 text-[clamp(12rem,20vw,18rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.03] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute -bottom-8 -left-8 text-[clamp(12rem,20vw,18rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.03] select-none pointer-events-none whitespace-nowrap"
       >
         Q &amp; A
       </div>
@@ -71,7 +71,7 @@ export function FAQSection() {
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
             Frequently
             <br />
             <span className="text-brand-coral">Asked.</span>

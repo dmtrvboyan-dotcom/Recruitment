@@ -45,7 +45,7 @@ export const ExpertiseCard = memo(function ExpertiseCard({
       </div>
 
       <div className="absolute inset-x-5 bottom-5 sm:inset-x-6 sm:bottom-6">
-        <h3 className="font-black uppercase tracking-[-0.02em] leading-[1.05] text-brand-white text-lg sm:text-xl lg:text-2xl mb-2">
+        <h3 className="font-bold uppercase tracking-[-0.02em] leading-[1.05] text-brand-white text-lg sm:text-xl lg:text-2xl mb-2">
           {item.title}
         </h3>
         <p className="text-brand-white/65 text-sm leading-snug line-clamp-2 mb-4 max-w-sm">

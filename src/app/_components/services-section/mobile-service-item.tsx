@@ -43,7 +43,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             </span>
           ) : (
             <span
-              className={`font-black leading-[0.85] tracking-[-0.04em] text-4xl sm:text-5xl transition-colors duration-300
+              className={`font-bold leading-[0.85] tracking-[-0.04em] text-4xl sm:text-5xl transition-colors duration-300
                 ${isOpen
                   ? "text-brand-coral/40"
                   : "text-brand-navy/8"
@@ -69,12 +69,12 @@ export const MobileServiceItem = memo(function MobileServiceItem({
         <div className="flex items-end justify-between gap-4">
           <div className="flex-1 min-w-0">
             {isFeature && (
-              <div className="font-black leading-[0.85] tracking-[-0.04em] text-brand-coral/20 text-6xl sm:text-7xl mb-2">
+              <div className="font-bold leading-[0.85] tracking-[-0.04em] text-brand-coral/20 text-6xl sm:text-7xl mb-2">
                 {number}
               </div>
             )}
             <h3
-              className={`font-black uppercase tracking-[-0.015em] leading-[1.05]
+              className={`font-bold uppercase tracking-[-0.015em] leading-[1.05]
                 ${isFeature ? "text-xl sm:text-2xl" : "text-base sm:text-lg"}
               `}
             >
@@ -164,7 +164,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
             {service.stats.map((stat, idx) => (
               <div key={idx} className="text-center">
                 <div
-                  className={`text-xl sm:text-2xl font-black tracking-tight ${isFeature ? "text-brand-coral" : "text-brand-navy"
+                  className={`text-xl sm:text-2xl font-bold tracking-tight ${isFeature ? "text-brand-coral" : "text-brand-navy"
                     }`}
                 >
                   {stat.value}

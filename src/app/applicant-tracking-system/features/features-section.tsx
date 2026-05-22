@@ -94,7 +94,7 @@ const FeatureCard = memo(function FeatureCard({
 
         {/* Title inside image */}
         <div className="absolute bottom-0 left-0 right-0 p-5 transition-transform duration-500 ease-out group-hover:-translate-y-1">
-          <h3 className="text-lg sm:text-xl font-black uppercase tracking-tight text-brand-white leading-tight drop-shadow-md">
+          <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-brand-white leading-tight drop-shadow-md">
             {feature.title}
           </h3>
         </div>
@@ -166,7 +166,7 @@ export const FeaturesSection = memo(function FeaturesSection() {
             {featuresData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-white mb-6">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white mb-6">
             {featuresData.title}
           </h2>
           <p className="text-sm sm:text-base text-brand-white/45 max-w-2xl mx-auto leading-relaxed">

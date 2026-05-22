@@ -144,7 +144,7 @@ export const Testimonials = memo(function Testimonials() {
             Testimonials from HR teams
           </span>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-brand-navy uppercase">
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase">
             Feedback from
               <br />
               <span className="text-brand-coral uppercase">our clients</span>
@@ -174,7 +174,7 @@ export const Testimonials = memo(function Testimonials() {
           {/* Giant decorative quote */}
           <span
             aria-hidden
-            className="absolute -top-6 left-2 sm:top-4 sm:left-8 text-[16rem] sm:text-[20rem] leading-none font-black text-brand-coral/15 select-none pointer-events-none"
+            className="absolute -top-6 left-2 sm:top-4 sm:left-8 text-[16rem] sm:text-[20rem] leading-none font-bold text-brand-coral/15 select-none pointer-events-none"
             style={{ fontFamily: "Georgia, serif" }}
           >
             &ldquo;
@@ -193,7 +193,7 @@ export const Testimonials = memo(function Testimonials() {
             <div className="h-px w-16 bg-brand-coral/40 mb-6" />
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-coral/15 border border-brand-coral/30 flex items-center justify-center text-brand-coral font-black text-sm sm:text-base shrink-0">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-coral/15 border border-brand-coral/30 flex items-center justify-center text-brand-coral font-bold text-sm sm:text-base shrink-0">
                 {getInitials(FEATURED.name)}
               </div>
               <div>
@@ -235,7 +235,7 @@ export const Testimonials = memo(function Testimonials() {
                 {/* Quote mark */}
                 <span
                   aria-hidden
-                  className={`absolute top-3 right-4 text-5xl leading-none font-black select-none pointer-events-none ${isAccent ? "text-brand-coral/35" : "text-brand-coral/25"}`}
+                  className={`absolute top-3 right-4 text-5xl leading-none font-bold select-none pointer-events-none ${isAccent ? "text-brand-coral/35" : "text-brand-coral/25"}`}
                   style={{ fontFamily: "Georgia, serif" }}
                 >
                   &ldquo;
@@ -248,7 +248,7 @@ export const Testimonials = memo(function Testimonials() {
                 <div className={`h-px w-10 mb-4 ${isAccent ? "bg-brand-coral/40" : "bg-brand-navy/10"}`} />
 
                 <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-[11px] font-black shrink-0 ${
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-[11px] font-bold shrink-0 ${
                     isAccent
                       ? "bg-brand-coral/20 text-brand-coral border border-brand-coral/30"
                       : "bg-brand-navy/5 text-brand-navy border border-brand-navy/10"

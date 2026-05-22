@@ -24,7 +24,7 @@ export const DesktopDropdown = memo(function DesktopDropdown({
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-haspopup="menu"
-        className="flex items-center gap-1.5 text-sm font-medium tracking-wide text-brand-navy/75 hover:text-brand-coral transition-colors duration-200 py-1 cursor-pointer uppercase"
+        className="flex items-center gap-1.5 text-sm font-bold tracking-wide text-brand-navy/75 hover:text-brand-coral transition-colors duration-200 py-1 cursor-pointer uppercase"
       >
         {item.label}
         <ChevronDown

@@ -25,7 +25,7 @@ export function HeroSection() {
 
       <div
         aria-hidden
-        className="hidden md:block absolute -bottom-12 lg:-bottom-20 -left-4 text-[clamp(11rem,22vw,22rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden md:block absolute -bottom-12 lg:-bottom-20 -left-4 text-[clamp(11rem,22vw,22rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         Careers
       </div>
@@ -47,7 +47,7 @@ export function HeroSection() {
           <div className="max-w-7xl mx-auto w-full px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-end">
               <div className="lg:col-span-8">
-                <h1 className="font-black uppercase leading-[0.9] tracking-[-0.02em] text-brand-white">
+                <h1 className="font-bold uppercase leading-[0.9] tracking-[-0.02em] text-brand-white">
                   <span className="block text-[clamp(2.75rem,9vw,7.5rem)]">
                     Get
                   </span>
@@ -118,7 +118,7 @@ export function HeroSection() {
                 { n: "Senior+", l: "Curated level" },
               ].map((item) => (
                 <div key={item.l}>
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-white tabular-nums tracking-tight leading-none mb-2 sm:mb-3">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-white tabular-nums tracking-tight leading-none mb-2 sm:mb-3">
                     {item.n}
                   </div>
                   <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-coral">

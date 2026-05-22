@@ -58,7 +58,7 @@ export function PhotoGallery() {
 
         {/* Editorial counter — top right */}
         <div className="absolute top-5 right-5 sm:top-7 sm:right-7 flex items-baseline gap-2">
-          <span className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-white leading-none tabular-nums tracking-tight">
+          <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-white leading-none tabular-nums tracking-tight">
             {activeStr}
           </span>
           <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-white/45 pb-1">

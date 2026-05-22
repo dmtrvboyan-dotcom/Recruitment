@@ -30,7 +30,7 @@ export const AboutCTA = memo(function AboutCTA() {
                     <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4">
                         Let's Talk
                     </span>
-                    <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-black leading-none tracking-tight text-brand-white">
+                    <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white">
                         READY TO HIRE
                         <br />
                         <span className="text-brand-coral">SMARTER?</span>

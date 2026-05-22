@@ -58,7 +58,7 @@ export function FeaturedExpertiseCard({
 
         {/* Title + description */}
         <div className="relative flex-1">
-          <h3 className="font-black uppercase tracking-[-0.02em] leading-[1.05] text-brand-white text-lg sm:text-xl mb-2">
+          <h3 className="font-bold uppercase tracking-[-0.02em] leading-[1.05] text-brand-white text-lg sm:text-xl mb-2">
             {title}
           </h3>
           <p className="text-brand-white/55 text-sm leading-snug line-clamp-2 mb-4">
@@ -123,7 +123,7 @@ export function FeaturedExpertiseCard({
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute -bottom-6 -right-6 text-[10rem] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.035] select-none pointer-events-none"
+        className="hidden lg:block absolute -bottom-6 -right-6 text-[10rem] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.035] select-none pointer-events-none"
       >
         REACH
       </div>
@@ -138,7 +138,7 @@ export function FeaturedExpertiseCard({
             </span>
           </div>
 
-          <h3 className="font-black uppercase tracking-[-0.02em] leading-[1.05] text-brand-white text-2xl sm:text-3xl lg:text-[2.5rem] mb-5 max-w-2xl">
+          <h3 className="font-bold uppercase tracking-[-0.02em] leading-[1.05] text-brand-white text-2xl sm:text-3xl lg:text-[2.5rem] mb-5 max-w-2xl">
             {title}
           </h3>
 

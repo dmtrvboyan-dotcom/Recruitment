@@ -36,7 +36,7 @@ export default function SaasRecruitmentPage() {
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 right-0 text-[22vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 right-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
         >
           SAAS
         </div>
@@ -60,7 +60,7 @@ export default function SaasRecruitmentPage() {
               {HERO_DATA.tagline}
             </span>
 
-            <h1 className="text-[clamp(2.7rem,10vw,6rem)] font-black leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
+            <h1 className="text-[clamp(2.7rem,10vw,6rem)] font-bold leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
               SaaS Specialists Acquisition & B2B <span className="text-brand-coral">Software Hiring</span>
             </h1>
 
@@ -90,7 +90,7 @@ export default function SaasRecruitmentPage() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 {WHAT_WE_COVER_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy">
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-navy">
                 {WHAT_WE_COVER_HEADER.title}
               </h2>
             </div>
@@ -106,7 +106,7 @@ export default function SaasRecruitmentPage() {
                     {/* Card index watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-black leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -190,7 +190,7 @@ export default function SaasRecruitmentPage() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[14vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
           >
             PERFECT FIT
           </div>
@@ -201,7 +201,7 @@ export default function SaasRecruitmentPage() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-6">
                 {PERFECT_FOR_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-white">
+              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-white">
                 {PERFECT_FOR_HEADER.title}
               </h2>
               <div className="flex items-center justify-center gap-3 mt-8">
@@ -252,7 +252,7 @@ export default function SaasRecruitmentPage() {
             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">
               Ready to Start?
             </span>
-            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-black uppercase leading-none tracking-tight text-brand-navy mb-6">
+            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-navy mb-6">
               {CTA_DATA.title.split(" ").slice(0, 3).join(" ")}
               <br />
               <span className="text-brand-coral">

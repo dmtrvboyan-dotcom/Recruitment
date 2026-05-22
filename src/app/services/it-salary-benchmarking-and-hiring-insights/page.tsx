@@ -144,7 +144,7 @@ export default function SalaryBenchmarkingPage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-[clamp(3rem,9vw,6rem)] font-black uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+            <h1 className="text-[clamp(3rem,9vw,6rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
               {HERO_DATA.title}
             </h1>
 
@@ -178,7 +178,7 @@ export default function SalaryBenchmarkingPage() {
                     </span>
                     <div className="h-px w-6 bg-white/20" />
                   </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-black text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
                     {stat.value}
                   </p>
                   <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
@@ -213,7 +213,7 @@ export default function SalaryBenchmarkingPage() {
             {/* Centered header */}
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={1} label="Why it matters" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
                 Decisions you can{" "}
                 <span className="text-brand-coral">stand behind</span>
               </h2>
@@ -262,7 +262,7 @@ export default function SalaryBenchmarkingPage() {
                     <span className="block text-[10px] font-mono text-brand-coral/70 mb-3">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-sm font-black uppercase tracking-tight text-brand-navy mb-2 group-hover:text-brand-coral transition-colors duration-200">
+                    <h3 className="text-sm font-bold uppercase tracking-tight text-brand-navy mb-2 group-hover:text-brand-coral transition-colors duration-200">
                       {item.label}
                     </h3>
                     <p className="text-[13px] text-brand-navy/55 leading-relaxed">
@@ -290,7 +290,7 @@ export default function SalaryBenchmarkingPage() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
           >
             DATA
           </div>
@@ -300,7 +300,7 @@ export default function SalaryBenchmarkingPage() {
             <div className="mb-12 lg:mb-16">
               <SectionIndicator index={2} label="Coverage" tone="dark" centered />
               <div className="text-center mt-8">
-                <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white mb-4">
+                <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white mb-4">
                   What our{" "}
                   <span className="text-brand-coral">benchmarks cover</span>
                 </h2>
@@ -333,7 +333,7 @@ export default function SalaryBenchmarkingPage() {
                       >
                         <Icon className="w-4 h-4 lg:w-5 lg:h-5" style={{ color: cat.accent }} />
                       </div>
-                      <h3 className="text-sm lg:text-base font-black uppercase tracking-tight text-white leading-tight pt-1 lg:pt-1.5 group-hover:text-brand-coral transition-colors duration-200">
+                      <h3 className="text-sm lg:text-base font-bold uppercase tracking-tight text-white leading-tight pt-1 lg:pt-1.5 group-hover:text-brand-coral transition-colors duration-200">
                         {cat.title}
                       </h3>
                     </div>
@@ -369,7 +369,7 @@ export default function SalaryBenchmarkingPage() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-brand-navy/[0.04] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-navy/[0.04] select-none pointer-events-none"
           >
             METHOD
           </div>
@@ -378,7 +378,7 @@ export default function SalaryBenchmarkingPage() {
           <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
             <SectionIndicator index={3} label="Methodology" centered />
             <div className="text-center mt-8">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-brand-navy mb-4">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy mb-4">
                 How we{" "}
                 <span className="text-brand-coral">gather the data</span>
               </h2>
@@ -411,7 +411,7 @@ export default function SalaryBenchmarkingPage() {
                       {/* Watermark step number */}
                       <span
                         aria-hidden
-                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-black text-brand-navy/[0.05] leading-none pointer-events-none select-none"
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-brand-navy/[0.05] leading-none pointer-events-none select-none"
                       >
                         {step.number}
                       </span>
@@ -431,7 +431,7 @@ export default function SalaryBenchmarkingPage() {
                           STEP {step.number}
                         </p>
 
-                        <h3 className="text-base lg:text-[17px] font-black uppercase tracking-tight text-brand-navy mb-3 leading-tight group-hover:text-brand-coral transition-colors duration-200">
+                        <h3 className="text-base lg:text-[17px] font-bold uppercase tracking-tight text-brand-navy mb-3 leading-tight group-hover:text-brand-coral transition-colors duration-200">
                           {step.title}
                         </h3>
 
@@ -457,7 +457,7 @@ export default function SalaryBenchmarkingPage() {
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={4} label="Our advantage" tone="dark" centered />
-              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-black uppercase leading-[0.9] tracking-tight text-white">
+              <h2 className="mt-8 text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white">
                 Better data,{" "}
                 <span className="text-brand-coral">better outcomes</span>
               </h2>
@@ -469,7 +469,7 @@ export default function SalaryBenchmarkingPage() {
                 <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
                 <div className="relative">
-                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-black uppercase leading-[0.92] tracking-tight mb-6">
+                  <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold uppercase leading-[0.92] tracking-tight mb-6">
                     What better
                     <br />
                     data{" "}
@@ -505,7 +505,7 @@ export default function SalaryBenchmarkingPage() {
                   >
                     <span
                       aria-hidden
-                      className="absolute top-5 right-6 text-[3rem] font-black text-white/[0.06] leading-none pointer-events-none select-none"
+                      className="absolute top-5 right-6 text-[3rem] font-bold text-white/[0.06] leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -517,7 +517,7 @@ export default function SalaryBenchmarkingPage() {
                           strokeWidth={1.7}
                         />
                       </div>
-                      <h3 className="text-base font-black uppercase tracking-tight text-white mb-2.5 group-hover:text-brand-coral transition-colors duration-200">
+                      <h3 className="text-base font-bold uppercase tracking-tight text-white mb-2.5 group-hover:text-brand-coral transition-colors duration-200">
                         {benefit.title}
                       </h3>
                       <p className="text-sm text-white/45 leading-relaxed">
@@ -550,7 +550,7 @@ export default function SalaryBenchmarkingPage() {
             {/* Watermark */}
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-black uppercase tracking-tighter text-brand-navy/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-brand-navy/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               DATA
             </p>
@@ -562,7 +562,7 @@ export default function SalaryBenchmarkingPage() {
                 <span className="block h-px w-10 bg-brand-coral" />
               </div>
 
-              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black uppercase leading-[0.92] tracking-tight text-brand-navy mb-6 lg:mb-8 text-balance">
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-brand-navy mb-6 lg:mb-8 text-balance">
                 {CTA_DATA.title}
               </h2>
 

@@ -45,7 +45,7 @@ export default function SpecializedIndustries() {
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 right-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
         >
           INDUSTRIES
         </div>
@@ -69,7 +69,7 @@ export default function SpecializedIndustries() {
               {HERO_DATA.tagline}
             </span>
 
-            <h1 className="text-[clamp(3.2rem,10vw,7rem)] font-black leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
+            <h1 className="text-[clamp(3.2rem,10vw,7rem)] font-bold leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
               Industry-Specific Tech <span className="text-brand-coral">Recruitment</span>
             </h1>
 
@@ -81,7 +81,7 @@ export default function SpecializedIndustries() {
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 mt-14">
               {STATS.map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-2xl sm:text-3xl font-black text-brand-coral leading-none">
+                  <div className="text-2xl sm:text-3xl font-bold text-brand-coral leading-none">
                     {stat.value}
                   </div>
                   <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/25 mt-1 max-w-[120px] mx-auto leading-snug">
@@ -113,7 +113,7 @@ export default function SpecializedIndustries() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 Our Expertise
               </span>
-              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy mb-5">
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-navy mb-5">
                 INDUSTRIES WE SERVE
               </h2>
               <p className="text-sm text-brand-navy/45 max-w-sm mx-auto leading-relaxed">
@@ -133,7 +133,7 @@ export default function SpecializedIndustries() {
                     {/* Index watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-5 top-3 text-[5rem] font-black leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-5 top-3 text-[5rem] font-bold leading-none text-brand-navy/[0.04] select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -194,7 +194,7 @@ export default function SpecializedIndustries() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[13vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 left-0 text-[13vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
           >
             DOMAIN
           </div>
@@ -205,7 +205,7 @@ export default function SpecializedIndustries() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-6">
                 Why It Matters
               </span>
-              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-white">
+              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-white">
                 DOMAIN KNOWLEDGE<br />
                 <span className="text-brand-coral">DRIVES SUCCESS.</span>
               </h2>
@@ -242,7 +242,7 @@ export default function SpecializedIndustries() {
                   className="flex items-start gap-4 rounded-xl border border-brand-white/6 bg-brand-white/4 px-5 py-5 hover:border-brand-coral/30 hover:bg-brand-white/6 transition-all duration-300"
                   style={{ backdropFilter: "blur(6px)" }}
                 >
-                  <span className="text-[11px] font-black text-brand-coral/70 mt-0.5 w-5 shrink-0 leading-none">
+                  <span className="text-[11px] font-bold text-brand-coral/70 mt-0.5 w-5 shrink-0 leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -308,7 +308,7 @@ export default function SpecializedIndustries() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[18vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+            className="absolute bottom-0 left-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
           >
             HIRE
           </div>
@@ -318,7 +318,7 @@ export default function SpecializedIndustries() {
             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">
               Ready to Start?
             </span>
-            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-black uppercase leading-none tracking-tight text-brand-white mb-6">
+            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-white mb-6">
               {CTA_DATA.title.split(" ").slice(0, 3).join(" ")}
               <br />
               <span className="text-brand-coral">

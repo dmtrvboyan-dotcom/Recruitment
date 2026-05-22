@@ -107,7 +107,7 @@ export function Contact() {
             <span className="block flex-1 h-px bg-gradient-to-r from-brand-coral/40 to-transparent max-w-[140px]" />
           </div>
 
-          <h1 className="font-black text-brand-navy leading-[0.92] tracking-tight">
+          <h1 className="font-bold text-brand-navy leading-[0.92] tracking-tight">
             <span className="block text-[clamp(2.5rem,8vw,5.5rem)]">
               Let&apos;s start
             </span>

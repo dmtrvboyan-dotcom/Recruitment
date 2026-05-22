@@ -46,7 +46,7 @@ export const RoleCard = memo(function RoleCard({
   
 
       {/* Title */}
-      <h3 className="font-black uppercase tracking-[-0.01em] leading-[1.05] text-brand-white text-sm sm:text-base mb-1.5">
+      <h3 className="font-bold uppercase tracking-[-0.01em] leading-[1.05] text-brand-white text-sm sm:text-base mb-1.5">
         {category.title}
       </h3>
 
@@ -72,7 +72,7 @@ export const RoleCard = memo(function RoleCard({
       {/* <div className="mt-auto pt-4 border-t border-brand-white/8 flex items-center justify-between">
         <div className="flex items-center gap-4 sm:gap-6">
           <div>
-            <span className="text-base sm:text-lg font-black text-brand-white leading-none">
+            <span className="text-base sm:text-lg font-bold text-brand-white leading-none">
               {category.stat1Value}
             </span>
             <span className="block text-[8px] sm:text-[9px] tracking-[0.18em] uppercase text-brand-white/40 mt-1">
@@ -81,7 +81,7 @@ export const RoleCard = memo(function RoleCard({
           </div>
           <div className="h-6 w-px bg-brand-white/10" />
           <div>
-            <span className="text-base sm:text-lg font-black text-brand-white leading-none">
+            <span className="text-base sm:text-lg font-bold text-brand-white leading-none">
               {category.stat2Value}
             </span>
             <span className="block text-[8px] sm:text-[9px] tracking-[0.18em] uppercase text-brand-white/40 mt-1">

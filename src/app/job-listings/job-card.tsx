@@ -31,7 +31,7 @@ export const JobCard = memo(function JobCard({
       {/* Top row: number + status pill */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-2.5">
-          <span className="text-3xl lg:text-4xl font-black leading-[0.85] tracking-[-0.04em] text-brand-white/10 group-hover:text-brand-coral/50 transition-colors duration-300 tabular-nums">
+          <span className="text-3xl lg:text-4xl font-bold leading-[0.85] tracking-[-0.04em] text-brand-white/10 group-hover:text-brand-coral/50 transition-colors duration-300 tabular-nums">
             {number}
           </span>
           <div className="h-px w-5 bg-brand-coral/40" />
@@ -52,7 +52,7 @@ export const JobCard = memo(function JobCard({
       </span>
 
       {/* Title */}
-      <h3 className="font-black uppercase tracking-[-0.015em] leading-[1.05] text-brand-white text-xl lg:text-[1.5rem] line-clamp-2">
+      <h3 className="font-bold uppercase tracking-[-0.015em] leading-[1.05] text-brand-white text-xl lg:text-[1.5rem] line-clamp-2">
         {job.title}
       </h3>
 

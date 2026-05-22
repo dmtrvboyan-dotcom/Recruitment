@@ -35,7 +35,7 @@ export default function IGamingRecruitmentPage() {
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 left-0 text-[22vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 left-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
         >
           IGAMING
         </div>
@@ -59,7 +59,7 @@ export default function IGamingRecruitmentPage() {
               {HERO_DATA.tagline}
             </span>
 
-            <h1 className="text-[clamp(3.2rem,10vw,7rem)] font-black leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
+            <h1 className="text-[clamp(3.2rem,10vw,7rem)] font-bold leading-[0.92] tracking-tight text-brand-white uppercase mb-8">
               iGaming & Gambling <span className="text-brand-coral">Recruitment</span>
             </h1>
 
@@ -77,7 +77,7 @@ export default function IGamingRecruitmentPage() {
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 mt-14">
               {STATS_DATA.map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-2xl sm:text-3xl font-black text-brand-coral leading-none">
+                  <div className="text-2xl sm:text-3xl font-bold text-brand-coral leading-none">
                     {stat.value}
                   </div>
                   <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/25 mt-1 max-w-[120px] mx-auto leading-snug">
@@ -109,7 +109,7 @@ export default function IGamingRecruitmentPage() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-4">
                 {ROLES_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-navy">
+              <h2 className="text-[clamp(2.4rem,5.5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-navy">
                 {ROLES_HEADER.title}
               </h2>
             </div>
@@ -125,7 +125,7 @@ export default function IGamingRecruitmentPage() {
                     {/* Card index watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-black leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -178,7 +178,7 @@ export default function IGamingRecruitmentPage() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 right-0 text-[14vw] font-black uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 right-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
           >
             WHY US
           </div>
@@ -189,7 +189,7 @@ export default function IGamingRecruitmentPage() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-6">
                 {DIFFERENTIATORS_HEADER.tagline}
               </span>
-              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-black uppercase leading-none tracking-tight text-brand-white">
+              <h2 className="text-[clamp(2.4rem,5vw,3.5rem)] font-bold uppercase leading-none tracking-tight text-brand-white">
                 {DIFFERENTIATORS_HEADER.title}
               </h2>
               <div className="flex items-center justify-center gap-3 mt-8">
@@ -207,7 +207,7 @@ export default function IGamingRecruitmentPage() {
                 >
                   {/* Number badge */}
                   <div className="w-10 h-10 rounded-full border border-brand-coral/30 flex items-center justify-center mb-5 shrink-0">
-                    <span className="text-[11px] font-black text-brand-coral leading-none">
+                    <span className="text-[11px] font-bold text-brand-coral leading-none">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -249,7 +249,7 @@ export default function IGamingRecruitmentPage() {
             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">
               Ready to Start?
             </span>
-            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-black uppercase leading-none tracking-tight text-brand-navy mb-6">
+            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-navy mb-6">
               {CTA_DATA.title.split(" ").slice(0, 3).join(" ")}
               <br />
               <span className="text-brand-coral">

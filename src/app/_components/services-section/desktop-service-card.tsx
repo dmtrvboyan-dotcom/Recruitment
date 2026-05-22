@@ -37,10 +37,10 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
         </div>
 
         <div>
-          <div className="font-black leading-[0.85] tracking-[-0.04em] text-brand-coral/50 text-5xl sm:text-6xl lg:text-7xl mb-2">
+          <div className="font-bold leading-[0.85] tracking-[-0.04em] text-brand-coral/50 text-5xl sm:text-6xl lg:text-7xl mb-2">
             {number}
           </div>
-          <h3 className="font-black uppercase tracking-[-0.02em] leading-[1.05] mb-3 text-lg sm:text-xl lg:text-[1.5rem]">
+          <h3 className="font-bold uppercase tracking-[-0.02em] leading-[1.05] mb-3 text-lg sm:text-xl lg:text-[1.5rem]">
             {service.title}
           </h3>
           {service.subtitle && (
@@ -67,7 +67,7 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
       >
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 lg:gap-8 h-full">
           <div className="flex items-center justify-between lg:justify-start lg:gap-6 lg:shrink-0">
-            <span className="font-black leading-[0.85] tracking-[-0.04em] text-brand-navy/50 group-hover:text-brand-navy/80 transition-colors duration-300 text-5xl sm:text-6xl lg:text-6xl">
+            <span className="font-bold leading-[0.85] tracking-[-0.04em] text-brand-navy/50 group-hover:text-brand-navy/80 transition-colors duration-300 text-5xl sm:text-6xl lg:text-6xl">
               {number}
             </span>
             <ArrowUpRight
@@ -77,7 +77,7 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
           </div>
 
           <div className="flex-1 lg:max-w-2xl">
-            <h3 className="font-black uppercase tracking-[-0.015em] leading-[1.05] text-brand-navy mb-1.5 text-lg sm:text-xl lg:text-[1.4rem]">
+            <h3 className="font-bold uppercase tracking-[-0.015em] leading-[1.05] text-brand-navy mb-1.5 text-lg sm:text-xl lg:text-[1.4rem]">
               {service.title}
             </h3>
             {service.subtitle && (
@@ -104,7 +104,7 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
       }`}
     >
       <div className="flex items-start justify-between">
-        <span className="font-black leading-[0.85] tracking-[-0.04em] text-brand-navy/50 group-hover:text-brand-navy/80 transition-colors duration-300 text-4xl sm:text-5xl lg:text-5xl">
+        <span className="font-bold leading-[0.85] tracking-[-0.04em] text-brand-navy/50 group-hover:text-brand-navy/80 transition-colors duration-300 text-4xl sm:text-5xl lg:text-5xl">
           {number}
         </span>
         <ArrowUpRight
@@ -114,7 +114,7 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
       </div>
 
       <div>
-        <h3 className="font-black uppercase tracking-[-0.015em] leading-[1.05] text-brand-navy mb-1.5 text-base sm:text-lg lg:text-[1.15rem]">
+        <h3 className="font-bold uppercase tracking-[-0.015em] leading-[1.05] text-brand-navy mb-1.5 text-base sm:text-lg lg:text-[1.15rem]">
           {service.title}
         </h3>
         {service.subtitle && (

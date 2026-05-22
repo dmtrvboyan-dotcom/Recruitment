@@ -68,7 +68,7 @@ export function JobsSection() {
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-black uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
       >
         Open Roles
       </div>
@@ -90,7 +90,7 @@ export function JobsSection() {
             </span>
             <span className="block w-8 sm:w-12 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-black leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
 Job <span className="text-brand-coral">Listings</span>
           </h2>
           <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
@@ -144,7 +144,7 @@ Job <span className="text-brand-coral">Listings</span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-coral" />
                 </span>
                 <div className="flex items-baseline gap-2.5">
-                  <span className="text-2xl lg:text-3xl font-black text-brand-white tabular-nums tracking-tight leading-none">
+                  <span className="text-2xl lg:text-3xl font-bold text-brand-white tabular-nums tracking-tight leading-none">
                     {filteredJobs.length}
                   </span>
                   <span className="text-[10px] font-semibold tracking-[0.22em] uppercase text-brand-coral">
@@ -176,7 +176,7 @@ Job <span className="text-brand-coral">Listings</span>
                   className="w-12 h-12 text-brand-white/20 mx-auto mb-5"
                   strokeWidth={1.5}
                 />
-                <h3 className="text-base font-black uppercase tracking-tight text-brand-white mb-2">
+                <h3 className="text-base font-bold uppercase tracking-tight text-brand-white mb-2">
                   No briefs match those filters
                 </h3>
                 <p className="text-sm text-brand-white/45 mb-6 font-serif italic">

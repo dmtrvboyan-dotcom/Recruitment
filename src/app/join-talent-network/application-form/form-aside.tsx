@@ -21,7 +21,7 @@ export const FormAside = memo(function FormAside() {
                 Candidate Application
             </span>
 
-            <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-black leading-none tracking-tight text-brand-white mb-6">
+            <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-bold leading-none tracking-tight text-brand-white mb-6">
                 TELL US
                 <br />
                 ABOUT
