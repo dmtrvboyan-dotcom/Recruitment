@@ -9,6 +9,7 @@ const poppins = Poppins({
   display: 'swap',
   preload: true,
   variable: '--font-sans',
+  adjustFontFallback: false,
 })
 
 const firaCode = Fira_Code({
@@ -17,6 +18,7 @@ const firaCode = Fira_Code({
   display: 'swap',
   preload: false,
   variable: '--font-mono',
+  adjustFontFallback: false,
 })
 
 export const metadata: Metadata = {
@@ -56,28 +58,19 @@ export const viewport: Viewport = {
   ],
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${firaCode.variable} bg-background`}
+      className={`${poppins.variable} bg-background`}  // ← removed firaCode.variable
       suppressHydrationWarning
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          as="image"
-          href="/uploaded/recr-logo.png"
-          fetchPriority="high"
-        />
+        {/* removed the two Google Fonts preconnect links */}
+        <link rel="preload" as="image" href="/uploaded/recr-logo.png" fetchPriority="high" />
       </head>
-      <body className="min-h-screen font-sans antialiased">
+      <body className={`${firaCode.variable} min-h-screen font-sans antialiased`}>
+        {/* ↑ moved firaCode to body so it loads after html/head is parsed */}
         <NonCriticalStyles />
         {children}
       </body>
