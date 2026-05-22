@@ -101,7 +101,7 @@ export const DesktopPanel = memo(function DesktopPanel({
                 ))}
               </div>
 
-              <AppButton href={service.href} ping>
+              <AppButton href={service.href} ping aria-label={`Learn more about ${service.title}`}>
                 Learn more
                 <ArrowUpRight
                   className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"

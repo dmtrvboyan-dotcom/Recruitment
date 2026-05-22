@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Upload } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const buttonVariants =  cva(
+const buttonVariants = cva(
   "relative inline-flex items-center justify-center gap-2.5 min-w-[300px] px-8 py-4 text-xs font-semibold tracking-widest uppercase rounded-3xl transition-colors duration-200 cursor-pointer",
   {
     variants: {
@@ -25,16 +25,15 @@ type BaseProps = VariantProps<typeof buttonVariants> & {
   className?: string;
   icon?: "arrow" | "upload";
   ping?: boolean;
-}
+} & { "aria-label"?: string };
 
 type AppButtonProps =
   | (BaseProps & { href: string; onClick?: never })
   | (BaseProps & { onClick: () => void; href?: never });
 
-export function AppButton({ href, onClick, variant, icon, ping, className, children }: AppButtonProps) {
+export function AppButton({ href, onClick, variant, icon, ping, className, children, "aria-label": ariaLabel }: AppButtonProps) {
   const classes = cn(buttonVariants({ variant }), className);
 
-  // update inner:
   const inner = (
     <>
       {ping && (
@@ -49,8 +48,8 @@ export function AppButton({ href, onClick, variant, icon, ping, className, child
   );
 
   if (href) {
-    return <Link href={href} className={cn("group", classes)}>{inner}</Link>;
+    return <Link href={href} className={cn("group", classes)} aria-label={ariaLabel}>{inner}</Link>;
   }
 
-  return <button onClick={onClick} className={cn("group", classes)}>{inner}</button>;
+  return <button onClick={onClick} className={cn("group", classes)} aria-label={ariaLabel}>{inner}</button>;
 }
