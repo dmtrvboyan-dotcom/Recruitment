@@ -29,9 +29,10 @@ export const ExpertiseCard = memo(function ExpertiseCard({
         src={item.image}
         alt={item.title}
         fill
+        loading="eager"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
       />
-
       <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/55 to-brand-navy/10" />
 
       <div className="absolute top-5 left-5 right-5 sm:top-6 sm:left-6 sm:right-6 flex items-start justify-between">

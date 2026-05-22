@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useSwipe } from "./useSwipe"
 
 const GALLERY_PHOTOS = [
-  { src: "/uploaded/team.jpg",  alt: "Team photo" },
+  { src: "/uploaded/team.jpg", alt: "Team photo" },
   { src: "/uploaded/team1.png", alt: "Team at work" },
   { src: "/uploaded/team2.png", alt: "Company culture" },
   { src: "/uploaded/team3.png", alt: "Team event" },
@@ -47,6 +47,7 @@ export function PhotoGallery() {
           src={GALLERY_PHOTOS[activeIndex].src}
           alt={GALLERY_PHOTOS[activeIndex].alt}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
           className="object-cover transition-opacity duration-500 select-none pointer-events-none"
           priority={activeIndex === 0}
           draggable={false}
@@ -92,11 +93,10 @@ export function PhotoGallery() {
             key={i}
             onClick={() => setActiveIndex(i)}
             aria-label={`View ${photo.alt}`}
-            className={`relative aspect-square rounded-xl overflow-hidden transition-all duration-300 ${
-              i === activeIndex
+            className={`relative aspect-square rounded-xl overflow-hidden transition-all duration-300 ${i === activeIndex
                 ? "ring-2 ring-brand-coral ring-offset-2 ring-offset-brand-navy scale-[1.04]"
                 : "opacity-45 hover:opacity-70"
-            }`}
+              }`}
           >
             <Image
               src={photo.src}

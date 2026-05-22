@@ -95,9 +95,11 @@ export function Header() {
               <Image
                 src="/uploaded/recr-logo.png"
                 alt="Recruitment.bg"
-                width={180}
-                height={44}
-                className="h-9 lg:h-11 w-auto transition-all duration-300"
+                width={0}
+                height={0}
+                sizes="180px"
+                style={{ width: 'auto', height: '44px' }}
+                loading="eager"
               />
             </Link>
 

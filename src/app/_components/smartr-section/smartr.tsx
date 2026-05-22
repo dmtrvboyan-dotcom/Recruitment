@@ -91,20 +91,7 @@ export const SmartRSection = memo(function SmartRSection() {
       ref={sectionRef}
       className="relative py-20 sm:py-28 lg:py-36 bg-brand-navy overflow-hidden"
     >
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            -62deg,
-            transparent,
-            transparent 70px,
-            rgba(114,145,199,0.05) 70px,
-            rgba(114,145,199,0.05) 71px
-          )`,
-        }}
-      />
-
+     
       <div
         aria-hidden
         className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none"
