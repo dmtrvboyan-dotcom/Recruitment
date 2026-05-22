@@ -15,7 +15,7 @@ const firaCode = Fira_Code({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   display: 'swap',
-  preload: false,          
+  preload: false,
   variable: '--font-mono',
 })
 
@@ -70,6 +70,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="image"
+          href="/uploaded/recr-logo.png"
+          fetchPriority="high"
+        />
       </head>
       <body className="min-h-screen font-sans antialiased">
         <NonCriticalStyles />
