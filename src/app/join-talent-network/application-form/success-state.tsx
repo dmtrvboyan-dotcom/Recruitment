@@ -17,7 +17,7 @@ export const SuccessState = memo(function SuccessState({
         >
             <div
                 aria-hidden
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none"
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-150 rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none"
             />
 
             <div className="relative max-w-3xl mx-auto px-5 sm:px-10 py-28 lg:py-40 text-center">

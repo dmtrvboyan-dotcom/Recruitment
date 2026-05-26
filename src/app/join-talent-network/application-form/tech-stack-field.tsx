@@ -49,7 +49,7 @@ export const TechStackField = memo(function TechStackField({
               className={`h-auto px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all duration-150 ${
                 active
                   ? "bg-brand-coral border-brand-coral text-brand-white hover:bg-brand-coral hover:text-brand-white"
-                  : "bg-brand-white/[0.03] border-brand-white/10 text-brand-white/60 hover:border-brand-coral/40 hover:bg-brand-white/[0.05] hover:text-brand-white"
+                  : "bg-brand-white/3 border-brand-white/10 text-brand-white/60 hover:border-brand-coral/40 hover:bg-brand-white/5 hover:text-brand-white"
               }`}
             >
               {tech}

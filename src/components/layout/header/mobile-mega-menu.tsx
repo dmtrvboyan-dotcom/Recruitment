@@ -34,7 +34,7 @@ export const MobileMegaMenu = memo(function MobileMegaMenu({
 
       <div
         className={`transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[2000px] opacity-100 pt-3 pb-4" : "max-h-0 opacity-0"
+          isOpen ? "max-h-500 opacity-100 pt-3 pb-4" : "max-h-0 opacity-0"
         }`}
       >
         {item.megaSections?.map((section) => (
@@ -54,7 +54,7 @@ export const MobileMegaMenu = memo(function MobileMegaMenu({
                     className="group/item flex items-start gap-3 py-2.5 text-left cursor-pointer"
                   >
                     {Icon && (
-                      <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-white/5 group-hover/item:bg-brand-coral/15 transition-colors">
+                      <span className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-white/5 group-hover/item:bg-brand-coral/15 transition-colors">
                         <Icon className="w-3.5 h-3.5 text-brand-coral" strokeWidth={1.75} />
                       </span>
                     )}

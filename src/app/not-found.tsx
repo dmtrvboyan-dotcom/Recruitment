@@ -21,23 +21,22 @@ export default function NotFound() {
 
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0
-                   w-[360px] h-[360px] lg:w-[520px] lg:h-[520px]
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0
+                   w-90 h-90 lg:w-130 lg:h-130
                    rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
       <div
         aria-hidden
         className="hidden lg:block absolute bottom-0 -right-32
-                   w-[420px] h-[420px]
-                   rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
+                   w-105 h-105 rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
       <div
         aria-hidden
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                    text-[clamp(10rem,40vw,32rem)] font-bold uppercase leading-none
-                   tracking-tighter text-brand-white/[0.025] select-none
+                   tracking-tighter text-brand-white/2.5 select-none
                    pointer-events-none whitespace-nowrap"
       >
         404
@@ -58,7 +57,7 @@ export default function NotFound() {
           <span className="text-brand-coral">wrong turn.</span>
         </h1>
 
-        <div className="h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8 animate-fade-in-up delay-150" />
+        <div className="h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8 animate-fade-in-up delay-150" />
 
         <p className="text-sm sm:text-base lg:text-lg text-brand-white/55 leading-relaxed px-2 sm:px-0 mb-10 sm:mb-12 animate-fade-in-up delay-200">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
@@ -84,7 +83,7 @@ export default function NotFound() {
 
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-brand-white/8 animate-fade-in-up delay-[400ms]">
+      <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-brand-white/8 animate-fade-in-up delay-400">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-5 sm:py-6 flex items-center justify-center gap-2">
           <span className="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase text-brand-white/25 font-medium">
             Need help?

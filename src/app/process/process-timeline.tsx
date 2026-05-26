@@ -46,7 +46,7 @@ const StepCard = memo(function StepCard({
         {/* Centre - node */}
         <div className="flex flex-col items-center pt-3">
           {/* Numbered circle */}
-          <div className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center z-10 shadow-md ring-4 ring-[#f9f9fb]">
+          <div className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center z-10 shadow-md ring-4 ring-brand-white">
             <span className="text-[10px] font-bold text-white leading-none">
               {String(index + 1).padStart(2, "0")}
             </span>
@@ -79,7 +79,7 @@ const StepCard = memo(function StepCard({
       {/* ── Mobile: single column ── */}
       <div className="flex lg:hidden items-start gap-5 w-full">
         <div className="flex flex-col items-center shrink-0 pt-1">
-          <div className="w-7 h-7 rounded-full bg-brand-coral flex items-center justify-center shadow-sm ring-4 ring-[#f9f9fb] z-10">
+          <div className="w-7 h-7 rounded-full bg-brand-coral flex items-center justify-center shadow-sm ring-4 ring-brand-white z-10">
             <span className="text-[9px] font-bold text-white leading-none">
               {String(index + 1).padStart(2, "0")}
             </span>
@@ -108,7 +108,7 @@ const StepCard = memo(function StepCard({
 
 export const ProcessTimeline = memo(function ProcessTimeline() {
   return (
-    <section className="relative w-full bg-[#f9f9fb]">
+    <section className="relative w-full bg-brand-white">
       <div className="max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
         {/* Section header */}
@@ -127,7 +127,7 @@ export const ProcessTimeline = memo(function ProcessTimeline() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical spine */}
-          <div className="absolute top-0 bottom-0 left-[13px] lg:left-1/2 lg:-translate-x-px w-px bg-brand-navy/10" />
+          <div className="absolute top-0 bottom-0 left-3.25 lg:left-1/2 lg:-translate-x-px w-px bg-brand-navy/10" />
 
           <div className="flex flex-col gap-14 lg:gap-20 relative pl-10 lg:pl-0">
             {PROCESS_STEPS.map((step, i) => (

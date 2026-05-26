@@ -29,13 +29,13 @@ export default function IGamingRecruitmentPage() {
 
 
         {/* Glow blobs */}
-        <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
-        <div className="absolute top-10 left-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-40 -right-40 w-130 h-130 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+        <div className="absolute top-10 left-0 w-75 h-75 rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
 
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 left-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 left-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none"
         >
           IGAMING
         </div>
@@ -80,7 +80,7 @@ export default function IGamingRecruitmentPage() {
                   <div className="text-2xl sm:text-3xl font-bold text-brand-coral leading-none">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/25 mt-1 max-w-[120px] mx-auto leading-snug">
+                  <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/25 mt-1 max-w-30 mx-auto leading-snug">
                     {stat.label}
                   </div>
                 </div>
@@ -125,7 +125,7 @@ export default function IGamingRecruitmentPage() {
                     {/* Card index watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/4 select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -173,12 +173,12 @@ export default function IGamingRecruitmentPage() {
         <section className="relative w-full bg-brand-navy overflow-hidden">
 
           {/* Glow */}
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+          <div className="absolute top-0 left-0 w-125 h-125 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 right-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 right-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
           >
             WHY US
           </div>
@@ -211,7 +211,7 @@ export default function IGamingRecruitmentPage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-brand-white mb-3 leading-snug">
+                  <h3 className="text-sm font-bold tracking-widest uppercase text-brand-white mb-3 leading-snug">
                     {item.title}
                   </h3>
                   <p className="text-sm text-brand-white/50 leading-relaxed">
@@ -273,28 +273,7 @@ export default function IGamingRecruitmentPage() {
               </AppButton>
             </div>
 
-            {/* 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                className="bg-brand-coral hover:bg-brand-coral/90 text-brand-white font-semibold rounded-3xl tracking-wide uppercase px-8 py-6 text-sm flex items-center gap-2 group"
-              >
-                <Link href={CTA_DATA.primaryButton.href}>
-                  {CTA_DATA.primaryButton.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                className="bg-brand-white  border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-brand-white font-bold tracking-wide uppercase px-8 py-6 rounded-xl text-sm flex items-center gap-2 group font-semibold rounded-3xl"
-              >
-                <Link href={CTA_DATA.secondaryButton.href}>
-                  {CTA_DATA.secondaryButton.text}
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-            </div> */}
-
+         
             {/* Bottom row */}
             <div className="mt-16 pt-10 border-t border-brand-navy/8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">

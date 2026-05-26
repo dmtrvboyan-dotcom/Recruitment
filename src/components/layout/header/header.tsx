@@ -81,7 +81,7 @@ export function Header() {
           }`}
         style={{ paddingRight: "var(--scrollbar-width, 0px)" }}
       >
-        <div className="max-w-[1500px] mx-auto px-6 lg:px-10 xl:px-12">
+        <div className="max-w-375 mx-auto px-6 lg:px-10 xl:px-12">
           <nav
             ref={navRef}
             className="relative flex items-center justify-between h-14"

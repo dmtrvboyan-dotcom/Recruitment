@@ -48,7 +48,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
       {/* Coral glow — alternating position */}
       <div
         aria-hidden
-        className={`absolute -top-32 w-[360px] h-[360px] lg:w-[480px] lg:h-[480px] rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none ${
+        className={`absolute -top-32 w-90 h-90 lg:w-120 lg:h-120 rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none ${
           index % 2 === 0 ? "left-1/4" : "right-1/4"
         }`}
       />
@@ -84,7 +84,7 @@ export const DeepDiveSection = memo(function DeepDiveSection({
             {category.subtitle}
           </p>
 
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mt-6" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mt-6" />
         </div>
 
         {/* ── Tech pills: What we recruit for ── */}

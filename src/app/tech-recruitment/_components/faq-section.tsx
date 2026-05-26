@@ -49,13 +49,13 @@ export function FAQSection() {
       {/* Coral glow */}
       <div
         aria-hidden
-        className="absolute -top-32 right-1/4 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
+        className="absolute -top-32 right-1/4 w-100 h-100 lg:w-130 lg:h-130 rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
       />
 
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute -bottom-8 -left-8 text-[clamp(12rem,20vw,18rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.03] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute -bottom-8 -left-8 text-[clamp(12rem,20vw,18rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-navy/3 select-none pointer-events-none whitespace-nowrap"
       >
         Q &amp; A
       </div>
@@ -76,7 +76,7 @@ export function FAQSection() {
             <br />
             <span className="text-brand-coral">Asked.</span>
           </h2>
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral" />
         </div>
 
         {/* Q&A list */}

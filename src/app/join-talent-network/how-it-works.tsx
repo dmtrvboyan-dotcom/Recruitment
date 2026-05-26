@@ -47,9 +47,9 @@ const StepCard = memo(function StepCard({
             {index < HOW_IT_WORKS.length - 1 && (
                 <div
                     aria-hidden
-                    className="hidden lg:flex absolute top-[68px] -right-7 z-20 w-14 h-14 items-center justify-center"
+                    className="hidden lg:flex absolute top-17 -right-7 z-20 w-14 h-14 items-center justify-center"
                 >
-                    <div className="w-full h-px bg-gradient-to-r from-brand-coral/40 via-brand-coral/20 to-transparent" />
+                    <div className="w-full h-px bg-lienar-to-r from-brand-coral/40 via-brand-coral/20 to-transparent" />
                     <ArrowRight
                         className="absolute right-0 w-4 h-4 text-brand-coral/50"
                         strokeWidth={2}
@@ -61,7 +61,7 @@ const StepCard = memo(function StepCard({
 
                 <div
                     aria-hidden
-                    className="absolute top-5 right-6 text-[5.5rem] lg:text-[6.5rem] font-bold leading-none tracking-tighter text-brand-navy/[0.04] select-none pointer-events-none"
+                    className="absolute top-5 right-6 text-[5.5rem] lg:text-[6.5rem] font-bold leading-none tracking-tighter text-brand-navy/4 select-none pointer-events-none"
                 >
                     {step.number}
                 </div>
@@ -101,7 +101,7 @@ export const HowItWorks = memo(function HowItWorks() {
             className="relative w-full bg-brand-white overflow-hidden"
         >      <div
                 aria-hidden
-                className="absolute top-1/2 -translate-y-1/2 -left-32 w-[420px] h-[420px] rounded-full bg-brand-coral/8 blur-[140px] pointer-events-none"
+                className="absolute top-1/2 -translate-y-1/2 -left-32 w-105 h-105 rounded-full bg-brand-coral/8 blur-[140px] pointer-events-none"
             />
 
             <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">

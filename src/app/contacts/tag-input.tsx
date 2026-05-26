@@ -108,7 +108,7 @@ export function TagInput({
   return (
     <div ref={containerRef} className={`relative ${className}`}>
       <div
-        className={`flex flex-wrap items-center gap-2 min-h-[52px] rounded-xl border border-brand-navy/10 bg-brand-bg/50 px-4 py-2 text-sm transition-all focus-within:ring-2 focus-within:ring-brand-blue/20 focus-within:bg-white focus-within:border-brand-blue ${atMax ? "opacity-60 cursor-not-allowed" : "cursor-text"
+        className={`flex flex-wrap items-center gap-2 min-h-13 rounded-xl border border-brand-navy/10 bg-brand-bg/50 px-4 py-2 text-sm transition-all focus-within:ring-2 focus-within:ring-brand-blue/20 focus-within:bg-white focus-within:border-brand-blue ${atMax ? "opacity-60 cursor-not-allowed" : "cursor-text"
           }`}
         onClick={() => {
           if (!atMax) {
@@ -153,7 +153,7 @@ export function TagInput({
             onKeyDown={handleKeyDown}
             onFocus={() => setIsOpen(true)}
             placeholder={value.length === 0 ? placeholder : ""}
-            className="flex-1 min-w-[120px] bg-transparent outline-none placeholder:text-brand-navy/30 text-sm font-medium"
+            className="flex-1 min-w-30 bg-transparent outline-none placeholder:text-brand-navy/30 text-sm font-medium"
             aria-label="Tag input"
             aria-expanded={isOpen}
             aria-autocomplete="list"

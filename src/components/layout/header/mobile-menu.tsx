@@ -61,7 +61,7 @@ export function MobileMenu({
 }: MobileMenuProps) {
   return (
     <div
-      className={`fixed inset-0 z-[999] transition-all duration-500 ${
+      className={`fixed inset-0 z-999 transition-all duration-500 ${
         isOpen ? "visible opacity-100" : "invisible opacity-0"
       }`}
       aria-hidden={!isOpen}
@@ -74,7 +74,7 @@ export function MobileMenu({
 
       {/* Panel */}
       <div
-        className={`absolute top-0 right-0 h-full w-full lg:w-[480px] shadow-2xl transform transition-transform duration-500 ease-out ${
+        className={`absolute top-0 right-0 h-full w-full lg:w-120 shadow-2xl transform transition-transform duration-500 ease-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ background: "linear-gradient(160deg, #1A1A2E 0%, #2C3E50 100%)" }}
@@ -130,11 +130,6 @@ export function MobileMenu({
           </div>
 
           <div className="mt-auto pt-10 flex flex-col gap-5">
-            {/*
-              `items-end` aligns the phone row (single line) with the BOTTOM of
-              the icon column on the right, so the phone and the email icon
-              share the same baseline while the socials stack above.
-            */}
             <div className="flex items-end gap-3">
               <a
                 href={PHONE_HREF}

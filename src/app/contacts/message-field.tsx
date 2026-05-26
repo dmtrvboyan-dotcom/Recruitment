@@ -46,7 +46,7 @@ export function MessageField({ form, interest, mode }: MessageFieldProps) {
           <FormControl>
             <Textarea
               placeholder={placeholder}
-              className="min-h-[140px] resize-none rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30 p-4 text-sm leading-relaxed"
+              className="min-h-35 resize-none rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30 p-4 text-sm leading-relaxed"
               {...field}
             />
           </FormControl>

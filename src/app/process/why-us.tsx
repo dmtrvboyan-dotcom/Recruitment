@@ -34,12 +34,12 @@ export const WhyUs = memo(function WhyUs() {
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
       {/* Coral glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-coral/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-125 h-125 bg-brand-coral/15 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Watermark text */}
       <div
         aria-hidden
-        className="absolute bottom-0 left-0 text-[18vw] font-bold uppercase tracking-tighter text-white/[0.025] whitespace-nowrap leading-none select-none pointer-events-none"
+        className="absolute bottom-0 left-0 text-[18vw] font-bold uppercase tracking-tighter text-white/2.5 whitespace-nowrap leading-none select-none pointer-events-none"
       >
         WHY US
       </div>

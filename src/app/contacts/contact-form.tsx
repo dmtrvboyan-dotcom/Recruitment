@@ -426,7 +426,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
                 <div className={`relative flex items-center gap-4 p-5 rounded-xl border-2 border-dashed transition-all ${file ? "border-brand-teal bg-brand-teal/5" : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
                   }`}>
-                  <span className={`flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
+                  <span className={`shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
                     }`}>
                     {file ? <CheckCircle className="w-5 h-5" strokeWidth={1.75} /> : <Upload className="w-5 h-5" strokeWidth={1.75} />}
                   </span>
@@ -446,7 +446,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                       type="button"
                       onClick={() => setFile(null)}
                       aria-label="Remove CV"
-                      className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-brand-navy/40 hover:text-brand-coral hover:bg-brand-coral/10 transition-all duration-200 z-20"
+                      className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-brand-navy/40 hover:text-brand-coral hover:bg-brand-coral/10 transition-all duration-200 z-20"
                     >
                       <X className="w-4 h-4" />
                     </button>

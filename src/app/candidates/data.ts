@@ -54,9 +54,6 @@ export interface SectionData<T> {
   items: T[]
 }
 
-// ============================================================================
-// SEO Metadata
-// ============================================================================
 
 export const candidatesMetadata: Metadata = {
   title: "For Candidates | Find Your Next Career Opportunity | Recruitment.bg",

@@ -105,7 +105,7 @@ export const Faq = memo(function Faq() {
         <section className="relative w-full bg-brand-white overflow-hidden">
             <div
                 aria-hidden
-                className="absolute -bottom-10 -right-10 text-[16vw] font-bold uppercase tracking-tighter text-brand-navy/[0.025] leading-none select-none pointer-events-none whitespace-nowrap hidden lg:block"
+                className="absolute -bottom-10 -right-10 text-[16vw] font-bold uppercase tracking-tighter text-brand-navy/2.5 leading-none select-none pointer-events-none whitespace-nowrap hidden lg:block"
             >
                 FAQ
             </div>

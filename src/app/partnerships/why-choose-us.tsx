@@ -99,7 +99,7 @@ export const WhyChooseUs = memo(function WhyChooseUs() {
             }}
           >
             {/* Top accent line */}
-            <div className="absolute top-0 left-8 right-8 h-[2px] bg-brand-coral/30 rounded-b-full" />
+            <div className="absolute top-0 left-8 right-8 h-0.5 bg-brand-coral/30 rounded-b-full" />
 
             <p className="text-xs font-bold tracking-[0.2em] uppercase text-brand-coral mb-8">
               Why clients keep coming back

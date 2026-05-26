@@ -30,13 +30,13 @@ export const RolesSection = memo(function RolesSection() {
       {/* Coral glow */}
       <div
         aria-hidden
-        className="absolute -top-32 right-1/4 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none"
+        className="absolute -top-32 right-1/4 w-100 h-100 lg:w-130 lg:h-130 rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none"
       />
 
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
       >
         ROLES
       </div>
@@ -58,7 +58,7 @@ export const RolesSection = memo(function RolesSection() {
               Technical Team
             </span>
           </h2>
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
             From software engineering to executive leadership - click any
             specialization to see how we source and deliver.
@@ -71,11 +71,6 @@ export const RolesSection = memo(function RolesSection() {
           ))}
         </div>
 
-        {/* AI/ML + Cybersecurity vertical callout —
-            Placed after the grid so it doesn't compete with individual cards.
-            Avoids nested <a> inside RoleCard while still routing niche visitors
-            to dedicated vertical pages that convert far better than the hub. */}
-    
       </div>
     </section>
   )

@@ -11,21 +11,21 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[100svh] bg-brand-navy overflow-hidden flex flex-col">
+    <section className="relative min-h-svh bg-brand-navy overflow-hidden flex flex-col">
 
 
       <div
         aria-hidden
-        className="absolute -top-32 -left-20 w-[420px] h-[420px] lg:w-[640px] lg:h-[640px] rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none"
+        className="absolute -top-32 -left-20 w-105 h-105] lg:w-160 lg:h-160 rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none"
       />
       <div
         aria-hidden
-        className="absolute bottom-0 right-0 w-[320px] h-[320px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-teal/20 blur-[140px] pointer-events-none"
+        className="absolute bottom-0 right-0 w-[320px] h-80 lg:w-130 lg:h-130 rounded-full bg-brand-teal/20 blur-[140px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="hidden md:block absolute -bottom-12 lg:-bottom-20 -left-4 text-[clamp(11rem,22vw,22rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden md:block absolute -bottom-12 lg:-bottom-20 -left-4 text-[clamp(11rem,22vw,22rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
       >
         Careers
       </div>
@@ -75,38 +75,13 @@ export function HeroSection() {
 
                 <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
                   <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
-                   Send us your CV
+                    Send us your CV
                   </AppButton>
 
-                  <AppButton    onClick={handleScrollToJobs} variant="outline" className="sm:w-auto">
+                  <AppButton onClick={handleScrollToJobs} variant="outline" className="sm:w-auto">
                     Explore Open Roles
                   </AppButton>
                 </div>
-
-
-                {/* CTAs */}
-                {/* <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:gap-3 pt-2">
-                  <Link
-                    href={"/contacts"}
-                    className="group relative inline-flex items-center justify-between gap-4 px-6 py-4 bg-brand-coral text-brand-navy rounded-full hover:bg-brand-coral-hover transition-colors duration-200 text-[11px] font-semibold tracking-[0.22em] uppercase cursor-pointer"
-                  >
-                    <span>Send us your CV</span>
-                    <ArrowRight
-                      className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
-                      strokeWidth={2}
-                    />
-                  </Link>
-                  <button
-                    onClick={handleScrollToJobs}
-                    className="group relative inline-flex items-center justify-between gap-4 px-6 py-4 bg-transparent border border-brand-white/20 text-brand-white rounded-full hover:border-brand-coral hover:text-brand-coral transition-colors duration-200 text-[11px] font-semibold tracking-[0.22em] uppercase cursor-pointer"
-                  >
-                    <span>Explore Open Roles</span>
-                    <ArrowDown
-                      className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-200"
-                      strokeWidth={2}
-                    />
-                  </button>
-                </div> */}
               </div>
             </div>
 

@@ -39,17 +39,17 @@ export const FinalCta = memo(function FinalCta() {
 
       <div
         aria-hidden
-        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-brand-coral/18 blur-[140px] pointer-events-none"
+        className="absolute -top-40 left-1/2 -translate-x-1/2 w-175 h-175 rounded-full bg-brand-coral/18 blur-[140px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="absolute -bottom-40 left-1/4 w-[460px] h-[460px] rounded-full bg-brand-teal/12 blur-[140px] pointer-events-none"
+        className="absolute -bottom-40 left-1/4 w-115 h-115 rounded-full bg-brand-teal/12 blur-[140px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,22vw,20rem)] font-bold uppercase tracking-tighter text-brand-white/[0.025] leading-[0.85] select-none pointer-events-none whitespace-nowrap"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,22vw,20rem)] font-bold uppercase tracking-tighter text-brand-white/2.5 leading-[0.85] select-none pointer-events-none whitespace-nowrap"
       >
         READY?
       </div>

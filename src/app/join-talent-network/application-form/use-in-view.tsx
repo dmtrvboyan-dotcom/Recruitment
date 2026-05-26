@@ -1,11 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-
-/* ──────────────────────────────────────────────────────────────────────────
-   useInView - fires once when the element scrolls into view.
-   Generic over the element type so it can be reused on form, div, etc.
-   ────────────────────────────────────────────────────────────────────────── */
    
 export function useInView<T extends HTMLElement = HTMLDivElement>(threshold = 0.1) {
   const ref = useRef<T>(null)

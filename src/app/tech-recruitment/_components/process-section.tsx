@@ -14,13 +14,13 @@ export const ProcessSection = memo(function ProcessSection() {
       {/* Coral glow */}
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-100 h-100 lg:w-130 lg:h-130 rounded-full bg-brand-coral/12 blur-[120px] pointer-events-none"
       />
 
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute bottom-0 -right-8 text-[clamp(10rem,16vw,14rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute bottom-0 -right-8 text-[clamp(10rem,16vw,14rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
       >
         PROCESS
       </div>
@@ -40,7 +40,7 @@ export const ProcessSection = memo(function ProcessSection() {
             <br />
             <span className="text-brand-coral">Works.</span>
           </h2>
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-xl mx-auto">
             {PROCESS_DATA.subtitle}
           </p>

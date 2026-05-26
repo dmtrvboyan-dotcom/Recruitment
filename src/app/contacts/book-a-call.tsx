@@ -52,7 +52,7 @@ export function BookACall() {
           className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-brand-teal/20 blur-2xl pointer-events-none"
         />
 
-        <span className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center">
+        <span className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-brand-teal flex items-center justify-center">
           <CheckCircle className="w-4 h-4 text-white" strokeWidth={1.75} />
         </span>
 
@@ -124,7 +124,7 @@ export function BookACall() {
       <div className="relative flex items-start gap-3 sm:gap-4">
 
         <span className="
-          flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
+          shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
           border border-white/15 bg-white/8
           flex items-center justify-center
           text-brand-coral
@@ -151,7 +151,7 @@ export function BookACall() {
       ">
 
         <span className="flex items-center gap-1.5 text-[9px] sm:text-[10px] uppercase tracking-[0.18em] text-white/35 font-semibold">
-          <Clock className="w-3 h-3 flex-shrink-0" strokeWidth={1.75} />
+          <Clock className="w-3 h-3 shrink-0" strokeWidth={1.75} />
           Mon–Fri, 9–18 EET
         </span>
 
@@ -163,7 +163,7 @@ export function BookACall() {
           group-hover:gap-2.5
         ">
           Book now
-          <ArrowRight className="w-3 h-3 flex-shrink-0" strokeWidth={2} />
+          <ArrowRight className="w-3 h-3 shrink-0" strokeWidth={2} />
         </span>
       </div>
     </button>

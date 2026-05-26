@@ -85,7 +85,7 @@ export const RateField = memo(function RateField({
         />
 
         <div
-          className="flex bg-brand-white/[0.04] border border-brand-white/10 rounded-xl p-1"
+          className="flex bg-brand-white/4 border border-brand-white/10 rounded-xl p-1"
           role="group"
           aria-label="Rate basis"
         >

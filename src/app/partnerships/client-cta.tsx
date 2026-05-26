@@ -22,12 +22,12 @@ export const ClientsCTA = memo(function ClientsCTA() {
     <section className="relative w-full bg-brand-white overflow-hidden py-20 lg:py-32">
 
       {/* Top chapter divider - bridges from previous section */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[2px] w-32 bg-gradient-to-r from-transparent via-brand-coral to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-32 bg-linear-to-r from-transparent via-brand-coral to-transparent" />
 
       {/* Mesh gradient */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-brand-coral/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-[35vw] h-[35vw] max-w-[450px] max-h-[450px] bg-brand-teal/12 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-[40vw] h-[40vw] max-w-125 max-h-125 bg-brand-coral/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-[35vw] h-[35vw] max-w-112.5 max-h-112.5 bg-brand-teal/12 rounded-full blur-3xl" />
       </div>
 
       {/* Dot grid */}

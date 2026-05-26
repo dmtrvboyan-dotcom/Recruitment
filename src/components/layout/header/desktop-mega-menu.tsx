@@ -63,7 +63,7 @@ export const DesktopMegaMenu = memo(function DesktopMegaMenu({
                       className="group/item flex items-start gap-3 text-left cursor-pointer"
                     >
                       {Icon && (
-                        <span className="flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-brand-navy/5 group-hover/item:bg-brand-coral/10 transition-colors">
+                        <span className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-brand-navy/5 group-hover/item:bg-brand-coral/10 transition-colors">
                           <Icon
                             className="w-4 h-4 text-brand-navy group-hover/item:text-brand-coral transition-colors"
                             strokeWidth={1.75}

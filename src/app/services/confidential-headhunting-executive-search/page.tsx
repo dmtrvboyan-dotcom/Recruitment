@@ -90,13 +90,13 @@ export default function ExecutiveSearchPage() {
     <>
       <section className="relative w-full bg-brand-navy overflow-hidden flex flex-col mt-20 sm:mt-5">
         {/* Coral glows */}
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none" />
-        <div className="absolute -bottom-60 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/10 blur-[130px] pointer-events-none" />
+        <div className="absolute -top-40 -right-40 ww-150 hw-150 rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none" />
+        <div className="absolute -bottom-60 -left-40 ww-125 hw-125 rounded-full bg-brand-coral/10 blur-[130px] pointer-events-none" />
 
         {/* Plus marks (decorative) */}
-        <div aria-hidden className="absolute top-32 right-24 text-white/[0.08] text-3xl font-thin pointer-events-none hidden lg:block">+</div>
-        <div aria-hidden className="absolute top-72 right-72 text-white/[0.06] text-xl font-thin pointer-events-none hidden lg:block">+</div>
-        <div aria-hidden className="absolute bottom-44 right-44 text-white/[0.06] text-2xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute top-32 right-24 text-brand-white/8 text-3xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute top-72 right-72 text-brand-white/6 text-xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute bottom-44 right-44 text-brand-white/6 text-2xl font-thin pointer-events-none hidden lg:block">+</div>
 
         {/* Vertical text rail (lg+) */}
         <div className="hidden lg:flex absolute left-7 top-1/2 -translate-y-1/2 flex-col items-center gap-6 pointer-events-none z-10">
@@ -178,16 +178,16 @@ export default function ExecutiveSearchPage() {
             </div>
 
             {/* 2-column grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-brand-navy/10 border-l border-brand-navy/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-l border-brand-navy/10">
               {SERVICE_CARDS.map((card, i) => {
                 const Icon = card.icon
                 return (
                   <div
                     key={i}
-                    className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/[0.025] transition-all duration-500 ease-out overflow-hidden"
+                    className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/2.5 transition-all duration-500 ease-out overflow-hidden"
                   >
                     <div className="pt-1 shrink-0">
-                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-bold text-brand-navy/[0.12] leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
+                      <span className="block text-[clamp(2rem,5vw,3.5rem)] font-bold text-brand-navy/12 leading-none tracking-tighter group-hover:text-brand-coral transition-colors duration-500">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </div>
@@ -195,7 +195,7 @@ export default function ExecutiveSearchPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start gap-3 mb-3">
                         <div
-                          className={`w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-xl ${card.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
+                          className={`w-10 h-10 shrink-0 flex items-center justify-center rounded-xl ${card.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
                         >
                           <Icon
                             className="w-5 h-5"
@@ -256,7 +256,7 @@ export default function ExecutiveSearchPage() {
               {INDUSTRIES.map((item, i) => (
                 <div
                   key={i}
-                  className="group relative p-6 lg:p-8 border-b border-r border-brand-white/10 hover:bg-brand-white/[0.025] transition-all duration-300 overflow-hidden"
+                  className="group relative p-6 lg:p-8 border-b border-r border-brand-white/10 hover:bg-brand-white/2.5] transition-all duration-300 overflow-hidden"
                 >
                   {/* Ghost index */}
                   <span
@@ -301,13 +301,13 @@ export default function ExecutiveSearchPage() {
       <ScrollReveal>
         <section className="relative w-full bg-brand-white overflow-hidden py-20 lg:py-32">
           {/* Glows */}
-          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-coral/10 blur-[140px] pointer-events-none" />
-          <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/08 blur-[130px] pointer-events-none" />
+          <div className="absolute -top-40 -right-40 ww-150 hw-150 rounded-full bg-brand-coral/10 blur-[140px] pointer-events-none" />
+          <div className="absolute -bottom-40 -left-40 ww-125 hw-125 rounded-full bg-brand-coral/08 blur-[130px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/2.5 select-none pointer-events-none"
           >
             ROLES
           </div>
@@ -378,7 +378,7 @@ export default function ExecutiveSearchPage() {
                               key={j}
                               className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1.5 rounded-full border border-navy/10 text-navy/55 group-hover:border-brand-coral/30 group-hover:text-navy/80 transition-all duration-300"
                             >
-                              <span className="w-1 h-1 rounded-full bg-brand-coral/60 inline-block flex-shrink-0" />
+                              <span className="w-1 h-1 rounded-full bg-brand-coral/60 inline-block shrink-0" />
                               {role}
                             </span>
                           ))}
@@ -397,12 +397,12 @@ export default function ExecutiveSearchPage() {
       <ScrollReveal>
         <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-28">
           {/* Subtle glow behind grid */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-brand-coral/10 blur-[160px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 hw-125 rounded-full bg-brand-coral/10 blur-[160px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -bottom-8 left-0 text-[20vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute -bottom-8 left-0 text-[20vw] font-bold uppercase leading-none tracking-tighter text-white/2.5 select-none pointer-events-none whitespace-nowrap"
           >
             SECTORS
           </div>
@@ -429,7 +429,7 @@ export default function ExecutiveSearchPage() {
                 return (
                   <div
                     key={i}
-                    className="group relative flex flex-col items-start gap-3 p-5 lg:p-6 border-b border-r border-white/10 hover:bg-white/[0.04] transition-all duration-300 overflow-hidden cursor-default"
+                    className="group relative flex flex-col items-start gap-3 p-5 lg:p-6 border-b border-r border-brand-white/10 hover:bg-white/4transition-all duration-300 overflow-hidden cursor-default"
                   >
                     {/* Hover coral top bar */}
                     <span
@@ -440,7 +440,7 @@ export default function ExecutiveSearchPage() {
                     {/* Ghost index */}
                     <span
                       aria-hidden
-                      className="absolute bottom-3 right-4 text-[2.5rem] font-bold text-white/[0.04] leading-none pointer-events-none select-none group-hover:text-brand-coral/10 transition-colors duration-500"
+                      className="absolute bottom-3 right-4 text-[2.5rem] font-bold text-brand-white/4 leading-none pointer-events-none select-none group-hover:text-brand-coral/10 transition-colors duration-500"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -481,18 +481,18 @@ export default function ExecutiveSearchPage() {
       <ScrollReveal>
         <section className="relative w-full bg-brand-whtie overflow-hidden py-20 lg:py-32">
           {/* Glow */}
-          <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/3 ww-150 hw-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-navy/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-navy/2.5 select-none pointer-events-none"
           >
             METHOD
           </div>
 
           {/* Header */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
+          <div className="relative w-full max-w-400 mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
             <div className="mb-8 lg:mb-10">
               <SectionIndicator index={5} label="HOW WE WORK" tone="dark" centered />
             </div>
@@ -508,11 +508,11 @@ export default function ExecutiveSearchPage() {
           </div>
 
           {/* Grid */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20">
+          <div className="relative w-full max-w-400 mx-auto px-5 sm:px-10 lg:px-20">
             {/* Connecting line (desktop) */}
             <div
               aria-hidden
-              className="hidden lg:block absolute left-20 right-20 top-[54px] h-px bg-gradient-to-r from-transparent via-brand-coral/30 to-transparent pointer-events-none z-0"
+              className="hidden lg:block absolute left-20 right-20 top-13.5 h-px bg-linear-to-r from-transparent via-brand-coral/30 to-transparent pointer-events-none z-0"
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
@@ -521,7 +521,7 @@ export default function ExecutiveSearchPage() {
                 return (
                   <div key={i} className="relative">
                     {/* Node dot (desktop) */}
-                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -top-[calc(54px-8px)] w-4 h-4 rounded-full bg-brand-white border-2 border-brand-coral z-10 items-center justify-center">
+                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -top-11.5 w-4 h-4 rounded-full bg-brand-white border-2 border-brand-coral z-10 items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
                     </div>
 
@@ -530,7 +530,7 @@ export default function ExecutiveSearchPage() {
                       {/* Watermark step number */}
                       <span
                         aria-hidden
-                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-brand-navy/[0.04] leading-none pointer-events-none select-none"
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-brand-navy/4 leading-none pointer-events-none select-none"
                       >
                         {step.number}
                       </span>
@@ -575,8 +575,8 @@ export default function ExecutiveSearchPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 lg:gap-4">
               {/* Hero card */}
-              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-white text-brand-navy p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[440px]">
-                <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
+              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-white text-brand-navy p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-80 lg:min-h-110">
+                <div className="absolute -top-24 -right-24 w-[320px] h-80 rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
                 <div className="relative">
                   <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold uppercase leading-[0.92] tracking-tight mb-6">
@@ -599,7 +599,7 @@ export default function ExecutiveSearchPage() {
                     "Replacement guarantee included",
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2.5 text-[13px] text-brand-navy/60">
-                      <span className="w-4 h-4 rounded-full bg-brand-coral/20 flex items-center justify-center flex-shrink-0">
+                      <span className="w-4 h-4 rounded-full bg-brand-coral/20 flex items-center justify-center shrink-0">
                         <Check className="w-2.5 h-2.5 text-brand-coral" />
                       </span>
                       {item}
@@ -614,11 +614,11 @@ export default function ExecutiveSearchPage() {
                 return (
                   <div
                     key={i}
-                    className="lg:col-span-3 rounded-3xl bg-brand-white/[0.025] border border-brand-white/10 p-7 lg:p-8 hover:bg-brand-white/[0.045] hover:border-brand-coral/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden min-h-[200px] lg:min-h-[210px]"
+                    className="lg:col-span-3 rounded-3xl bg-brand-white/2.5 border border-brand-white/10 p-7 lg:p-8 hover:bg-brand-white/4.5 hover:border-brand-coral/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden min-h-50 lg:min-h-52.5"
                   >
                     <span
                       aria-hidden
-                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-white/[0.06] leading-none pointer-events-none select-none"
+                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-white/6 leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -662,7 +662,7 @@ export default function ExecutiveSearchPage() {
             {/* Watermark */}
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-brand-navy/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 -bottom-8 text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-brand-navy/3 leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               EXEC
             </p>

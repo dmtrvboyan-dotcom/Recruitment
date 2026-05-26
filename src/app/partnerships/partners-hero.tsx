@@ -28,16 +28,16 @@ export const PartnersHero = memo(function PartnersHero() {
     <section className="relative w-full bg-brand-navy overflow-hidden min-h-[80dvh] sm:min-h-[90dvh] flex flex-col justify-end">
 
       {/* Radial glow top-right */}
-      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-brand-coral/10 rounded-full blur-3xl pointer-events-none -translate-y-1/3 translate-x-1/4" />
+      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] max-w-150 max-h-150 bg-brand-coral/10 rounded-full blur-3xl pointer-events-none -translate-y-1/3 translate-x-1/4" />
       {/* Radial glow bottom-left */}
-      <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] max-w-[400px] max-h-[400px] bg-brand-teal/10 rounded-full blur-3xl pointer-events-none translate-y-1/3 -translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] max-w-100 max-h-100 bg-brand-teal/10 rounded-full blur-3xl pointer-events-none translate-y-1/3 -translate-x-1/4" />
 
       {/* Large watermark text */}
       <div
         aria-hidden
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
-        <span className="text-[20vw] font-bold uppercase tracking-tighter text-white/[0.02] whitespace-nowrap leading-none">
+        <span className="text-[20vw] font-bold uppercase tracking-tighter text-brand-white/2 whitespace-nowrap leading-none">
           PARTNERS
         </span>
       </div>

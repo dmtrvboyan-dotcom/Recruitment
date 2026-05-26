@@ -47,7 +47,7 @@ export const MobileDropdown = memo(function MobileDropdown({
               className="flex items-center gap-3 py-2.5 text-sm text-white/70 hover:text-white w-full text-left tracking-wide cursor-pointer"
             >
               {Icon && (
-                <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-white/5">
+                <span className="shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-white/5">
                   <Icon className="w-3.5 h-3.5 text-brand-coral" strokeWidth={1.75} />
                 </span>
               )}

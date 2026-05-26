@@ -56,19 +56,19 @@ export function JobsSection() {
       {/* Coral glow top */}
       <div
         aria-hidden
-        className="absolute -top-32 left-1/4 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/4 w-100 h-100 lg:w-130 lg:h-130 rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
       />
 
       {/* Teal glow bottom right */}
       <div
         aria-hidden
-        className="hidden lg:block absolute bottom-0 -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
+        className="hidden lg:block absolute bottom-0 -right-32 w-105 h-105 rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
       />
 
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5select-none pointer-events-none whitespace-nowrap"
       >
         Open Roles
       </div>
@@ -93,7 +93,7 @@ export function JobsSection() {
           <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
 Job <span className="text-brand-coral">Listings</span>
           </h2>
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
             Briefs from companies hiring across the EU and US - full-time,
             contract, and remote.
@@ -171,7 +171,7 @@ Job <span className="text-brand-coral">Listings</span>
             </div>
 
             {filteredJobs.length === 0 && (
-              <div className="text-center py-20 lg:py-32 rounded-3xl bg-brand-white/[0.03] border border-dashed border-brand-white/15">
+              <div className="text-center py-20 lg:py-32 rounded-3xl bg-brand-white/3 border border-dashed border-brand-white/15">
                 <SlidersHorizontal
                   className="w-12 h-12 text-brand-white/20 mx-auto mb-5"
                   strokeWidth={1.5}

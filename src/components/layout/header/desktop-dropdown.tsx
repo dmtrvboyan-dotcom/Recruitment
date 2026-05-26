@@ -48,7 +48,7 @@ export const DesktopDropdown = memo(function DesktopDropdown({
               className="font-semibold group/item  w-full text-left px-5 py-2.5 text-sm text-brand-navy/80 hover:text-brand-coral hover:bg-brand-bg transition-colors cursor-pointer tracking-wide flex items-center gap-3 leading-tight"
             >
               {Icon && (
-                <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-brand-navy/5 group-hover/item:bg-brand-coral/10 transition-colors">
+                <span className="shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-brand-navy/5 group-hover/item:bg-brand-coral/10 transition-colors">
                   <Icon
                     className="w-3.5 h-3.5 text-brand-navy/60 group-hover/item:text-brand-coral transition-colors"
                     strokeWidth={1.75}

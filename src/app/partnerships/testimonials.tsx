@@ -147,8 +147,8 @@ export const Testimonials = memo(function Testimonials() {
       />
 
       {/* Ambient glows */}
-      <div className="absolute top-1/3 -left-24 w-[35vw] h-[35vw] max-w-[420px] max-h-[420px] bg-brand-coral/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-[30vw] h-[30vw] max-w-[380px] max-h-[380px] bg-brand-teal/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 -left-24 w-[35vw] h-[35vw] max-w-105 max-h-105 bg-brand-coral/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-[30vw] h-[30vw] max-w-95 max-h-95 bg-brand-teal/8 rounded-full blur-3xl pointer-events-none" />
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16">
 
@@ -190,7 +190,7 @@ export const Testimonials = memo(function Testimonials() {
         >
 
           {/* Coral glow */}
-          <div className="absolute -top-32 -right-32 w-[420px] h-[420px] bg-brand-coral/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-32 -right-32 w-105 h-105 bg-brand-coral/20 rounded-full blur-3xl pointer-events-none" />
 
           {/* Giant decorative quote */}
           <span

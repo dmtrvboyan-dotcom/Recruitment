@@ -28,11 +28,11 @@ export default function FintechRecruitmentPage() {
 
 
 
-        <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
-        <div className="absolute top-10 right-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-130 h-130 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+        <div className="absolute top-10 right-0 w-75 h-75 rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
         <div
           aria-hidden
-          className="absolute bottom-0 right-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 right-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none"
         >
           FINTECH
         </div>
@@ -139,7 +139,7 @@ export default function FintechRecruitmentPage() {
                     {/* Card index watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/4 select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -187,12 +187,12 @@ export default function FintechRecruitmentPage() {
         <section className="relative w-full bg-brand-navy overflow-hidden">
 
           {/* Coral glow */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-125 h-125 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
           >
             BULGARIA
           </div>

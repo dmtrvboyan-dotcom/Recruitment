@@ -66,25 +66,25 @@ export function Contact() {
       {/* Coral glow - top center on mobile, top-left on desktop */}
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 w-90 h-90 lg:w-130 lg:h-130 rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
       {/* Teal glow - middle right, hidden on small screens */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
+        className="hidden lg:block absolute top-[48%] -right-32 w-105 h-105 rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
       {/* Secondary coral glow - top right */}
       <div
         aria-hidden
-        className="absolute top-0 right-0 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] rounded-full bg-brand-coral/10 blur-[140px] pointer-events-none -translate-y-1/3 translate-x-1/4"
+        className="absolute top-0 right-0 w-[60vw] h-[60vw] max-w-175 max-h-175 rounded-full bg-brand-coral/10 blur-[140px] pointer-events-none -translate-y-1/3 translate-x-1/4"
       />
 
       {/* Secondary teal glow - bottom left */}
       <div
         aria-hidden
-        className="absolute bottom-0 left-0 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-brand-teal/8 blur-[140px] pointer-events-none translate-y-1/3 -translate-x-1/4"
+        className="absolute bottom-0 left-0 w-[50vw] h-[50vw] max-w-150 max-h-150 rounded-full bg-brand-teal/8 blur-[140px] pointer-events-none translate-y-1/3 -translate-x-1/4"
       />
 
       {/* Grain overlay for texture */}
@@ -104,7 +104,7 @@ export function Contact() {
             <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-brand-coral font-semibold">
               Contact
             </span>
-            <span className="block flex-1 h-px bg-gradient-to-r from-brand-coral/40 to-transparent max-w-[140px]" />
+            <span className="block flex-1 h-px bg-linear-to-r from-brand-coral/40 to-transparent max-w-35" />
           </div>
 
           <h1 className="font-bold text-brand-navy leading-[0.92] tracking-tight">
@@ -119,7 +119,7 @@ export function Contact() {
                 </span>
                 <span
                   aria-hidden
-                  className="absolute left-0 right-0 bottom-1 sm:bottom-2 h-[6px] sm:h-[10px] bg-brand-coral/30 -z-0"
+                  className="absolute left-0 right-0 bottom-1 sm:bottom-2 h-1.5 m:h-2.5 bg-brand-coral/30 z-0"
                 />
               </span>
               .
@@ -154,7 +154,7 @@ export function Contact() {
                         {...(external && { target: "_blank", rel: "noopener noreferrer" })}
                         className="group flex items-start gap-4 py-5 hover:pl-2 transition-all duration-300"
                       >
-                        <span className="flex-shrink-0 w-10 h-10 rounded-full border border-brand-navy/15 flex items-center justify-center text-brand-navy group-hover:bg-brand-navy group-hover:text-white group-hover:border-brand-navy transition-all duration-300">
+                        <span className="shrink-0 w-10 h-10 rounded-full border border-brand-navy/15 flex items-center justify-center text-brand-navy group-hover:bg-brand-navy group-hover:text-white group-hover:border-brand-navy transition-all duration-300">
                           <Icon className="w-4 h-4" strokeWidth={1.75} />
                         </span>
                         <span className="flex-1 min-w-0">
@@ -230,7 +230,7 @@ export function Contact() {
           {/* RIGHT - Form */}
           <div className="lg:col-span-8 lg:order-2 order-1">
             <div className="relative">
-              <div className="relative bg-white border border-brand-navy/8 rounded-[1.75rem] sm:rounded-[2rem] shadow-[0_20px_60px_-15px_rgba(26,26,46,0.12)] overflow-hidden">
+              <div className="relative bg-white border border-brand-navy/8 rounded-[1.75rem] sm:rounded-4xl shadow-[0_20px_60px_-15px_rgba(26,26,46,0.12)] overflow-hidden">
 
                 {/* Top bar with tabs */}
                 <div className="bg-brand-navy text-white px-6 sm:px-10 pt-7 pb-6">

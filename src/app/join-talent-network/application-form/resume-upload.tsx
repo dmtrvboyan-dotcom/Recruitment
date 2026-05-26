@@ -54,12 +54,12 @@ export const ResumeUpload = memo(function ResumeUpload({
 
       <label
         htmlFor="resume-upload"
-        className={`relative flex items-center justify-between gap-3 w-full border border-dashed rounded-xl px-4 py-4 cursor-pointer transition-all duration-200 hover:bg-brand-white/[0.06] ${
+        className={`relative flex items-center justify-between gap-3 w-full border border-dashed rounded-xl px-4 py-4 cursor-pointer transition-all duration-200 hover:bg-brand-white/6 ${
           error
-            ? "border-red-500/60 bg-brand-white/[0.04]"
+            ? "border-red-500/60 bg-brand-white/4"
             : resume
-            ? "border-brand-coral/40 bg-brand-coral/[0.04]"
-            : "border-brand-white/15 bg-brand-white/[0.04] hover:border-brand-coral/50"
+            ? "border-brand-coral/40 bg-brand-coral/4"
+            : "border-brand-white/15 bg-brand-white/4 hover:border-brand-coral/50"
         }`}
       >
         <div className="flex items-center gap-3 min-w-0">

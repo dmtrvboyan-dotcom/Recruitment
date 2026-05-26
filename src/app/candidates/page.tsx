@@ -1,40 +1,22 @@
 "use client"
 
 import { memo, useRef, useState, useEffect } from "react"
-import Link from "next/link"
 import Image from "next/image"
 
 import {
-  ArrowRight,
-  Upload,
   Globe,
   Briefcase,
   CheckCircle,
-  X,
   Check,
-  Search,
-  Users,
-  Star,
-  MessageSquare,
-  Shield,
-  TrendingUp,
-  Clock,
-  Zap,
-  MapPin,
-  ChevronDown,
   Plus
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { AppButton } from "@/components/ui/app-button"
 
 import {
-  candidatesMetadata,
-  candidatesJsonLd,
   heroData,
   howItWorksData,
   yourGoalsData,
   whatYouGetData,
-  whyChooseUsData,
   opportunitiesData,
   testimonialData,
   faqData,
@@ -70,12 +52,12 @@ const HeroSection = memo(function HeroSection() {
     <section className="relative w-full min-h-[90vh] flex items-end overflow-hidden bg-brand-navy">
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span className="text-[25vw] font-bold uppercase text-brand-white/[0.03] leading-none tracking-tighter whitespace-nowrap">
+        <span className="text-[25vw] font-bold uppercase text-brand-white/3 leading-none tracking-tighter whitespace-nowrap">
           CAREERS
         </span>
       </div>
 
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-brand-coral/10 blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
+      <div className="absolute top-0 right-0 w-150 h-150 rounded-full bg-brand-coral/10 blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
 
       <div className="absolute bottom-0 left-0 w-full pointer-events-none">
         <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" className="w-full block" preserveAspectRatio="none">
@@ -89,7 +71,7 @@ const HeroSection = memo(function HeroSection() {
           {heroData.tagline}
         </span>
 
-        <h1 className="text-[clamp(3rem,10vw,8.5rem)] font-bold leading-none tracking-tight text-brand-white mb-8 max-w-5xl">
+        <h1 className="text-[clamp(3rem,10vw,7.5rem)] font-bold uppercase leading-none tracking-tight text-brand-white mb-8 max-w-5xl lg:text-left text-center">
           {heroData.title}
         </h1>
 
@@ -208,10 +190,10 @@ const HowItWorksSection = memo(function HowItWorksSection() {
             transition: "opacity 0.7s ease 200ms",
           }}
         >
-          <AppButton href="/job-listings" icon="arrow" className="sm:w-auto">
+          <AppButton href="/job-listings" icon="arrow" className="w-full sm:w-auto">
             Browse open roles
           </AppButton>
-          <AppButton href="/join-talent-network" variant="navy" icon="arrow" className="sm:w-auto">
+          <AppButton href="/join-talent-network" variant="navy" icon="arrow" className="w-full sm:w-auto">
             Freelancer? Join our B2B network
           </AppButton>
         </div>
@@ -261,14 +243,14 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
             transition: "opacity 0.7s ease, transform 0.7s ease",
           }}
         >
-          <div className="relative rounded-3xl overflow-hidden aspect-[16/9]">
+          <div className="relative rounded-3xl overflow-hidden aspect-video">
             <Image
               src="/uploaded/team.webp"
               alt="The recruiting team"
               className="absolute inset-0 w-full h-full object-cover"
               fill
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-brand-navy/40 via-transparent to-transparent" />
           </div>
 
           <div className="max-w-3xl mx-auto mt-8">
@@ -303,7 +285,7 @@ const YourGoalsSection = memo(function YourGoalsSection() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-coral/8 blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute top-0 right-0 w-125 h-125 rounded-full bg-brand-coral/8 blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
@@ -335,14 +317,14 @@ const YourGoalsSection = memo(function YourGoalsSection() {
                 key={goal.title}
                 ref={ref}
                 className="group relative flex flex-col gap-5 p-8 sm:p-10 rounded-2xl border border-white/8 hover:border-brand-coral/30
-                  hover:bg-brand-white/[0.03] transition-all duration-400 cursor-default overflow-hidden"
+                  hover:bg-brand-white/3 transition-all duration-400 cursor-default overflow-hidden"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateY(0)" : "translateY(20px)",
                   transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
                 }}
               >
-                <div className="absolute top-0 right-0 w-20 h-20 bg-brand-coral/[0.05] rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-brand-coral/5 rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="w-12 h-12 rounded-xl bg-brand-coral/15 flex items-center justify-center shrink-0 group-hover:bg-brand-coral/25 transition-colors duration-300">
                   <Icon className="w-6 h-6 text-brand-coral" strokeWidth={1.6} />
                 </div>
@@ -457,7 +439,7 @@ const OpportunitiesSection = memo(function OpportunitiesSection() {
         aria-hidden
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
-        <span className="text-[18vw] font-bold uppercase tracking-tighter text-brand-navy/[0.025] whitespace-nowrap leading-none">
+        <span className="text-[18vw] font-bold uppercase tracking-tighter text-brand-navy/2.5 whitespace-nowrap leading-none">
           ROLES
         </span>
       </div>
@@ -630,7 +612,7 @@ const FAQSection = memo(function FAQSection() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
+    <section className="relative w-full bg-brand-white overflow-hidden">
       <div className="max-w-4xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
         <div
@@ -713,7 +695,7 @@ const FAQSection = memo(function FAQSection() {
                 >
                   <div className="overflow-hidden">
                     <div className="px-7 pb-6 -mt-1 flex gap-4 sm:gap-5">
-                      <div className="w-[2px] bg-brand-coral shrink-0 rounded-full" />
+                      <div className="w-0.5 bg-brand-coral shrink-0 rounded-full" />
                       <p className="text-sm sm:text-base text-brand-navy/55 leading-relaxed">
                         {faq.answer}
                       </p>

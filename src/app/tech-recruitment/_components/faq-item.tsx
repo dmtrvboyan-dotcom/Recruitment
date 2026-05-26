@@ -79,7 +79,7 @@ export const FAQItem = memo(function FAQItem({
       >
         <div className="overflow-hidden">
           <div className="pl-8 sm:pl-12 pr-12 pb-7 sm:pb-8 -mt-1 flex gap-4 sm:gap-5">
-            <div className="w-[2px] bg-brand-coral shrink-0 rounded-full" />
+            <div className="w-0.5 bg-brand-coral shrink-0 rounded-full" />
             <p className="text-sm sm:text-base text-brand-navy/60 leading-relaxed max-w-2xl">
               {faq.a}
             </p>

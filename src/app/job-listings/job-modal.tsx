@@ -20,7 +20,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
 
   const modalContent = (
     <div
-      className="fixed inset-0 z-[99999] bg-brand-navy/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
+      className="fixed inset-0 z-99999 bg-brand-navy/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
@@ -35,7 +35,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
         }
       `}</style>
 
-      <div className="animate-modal bg-brand-white w-full max-w-6xl h-[100dvh] sm:h-[90dvh] sm:rounded-[40px] flex flex-col overflow-hidden shadow-2xl">
+      <div className="animate-modal bg-brand-white w-full max-w-6xl h-dvh sm:h-[90dvh] sm:rounded-[40px] flex flex-col overflow-hidden shadow-2xl">
         {/* Header */}
         <div className="bg-brand-navy px-5 pt-5 pb-6 md:p-12 text-brand-white relative shrink-0 overflow-hidden">
           {/* texture */}
@@ -79,7 +79,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
             <div className="flex flex-wrap gap-2 pt-2 sm:pt-3">
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-brand-white/10 rounded-full text-[10px] sm:text-xs font-semibold border border-brand-white/10">
                 <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-coral shrink-0" />
-                <span className="truncate max-w-[140px] sm:max-w-none">
+                <span className="truncate max-w-35 sm:max-w-none">
                   {job.location}
                 </span>
               </div>
@@ -89,7 +89,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-brand-coral/15 rounded-full text-[10px] sm:text-xs font-semibold border border-brand-coral/30">
                 <Layers className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-coral shrink-0" />
-                <span className="truncate max-w-[180px] sm:max-w-none">
+                <span className="truncate max-w-45 sm:max-w-none">
                   {job.techStack.join(" · ")}
                 </span>
               </div>
@@ -114,7 +114,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
 
           {/* Primary details */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
-            <div className="bg-brand-navy/[0.03] rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brand-navy/5">
+            <div className="bg-brand-navy/3 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brand-navy/5">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-[10px] tabular-nums font-semibold tracking-[0.22em] uppercase text-brand-coral">
                   01
@@ -129,7 +129,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
                 color="var(--color-brand-coral)"
               />
             </div>
-            <div className="bg-brand-navy/[0.03] rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brand-navy/5">
+            <div className="bg-brand-navy/3 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brand-navy/5">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-[10px] tabular-nums font-semibold tracking-[0.22em] uppercase text-brand-coral">
                   02
@@ -148,7 +148,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
 
           {/* Secondary details */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
-            <div className="bg-brand-navy/[0.03] rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brand-navy/5">
+            <div className="bg-brand-navy/3 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-brand-navy/5">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-[10px] tabular-nums font-semibold tracking-[0.22em] uppercase text-brand-coral">
                   03

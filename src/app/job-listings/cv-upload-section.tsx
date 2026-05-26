@@ -11,7 +11,7 @@ export function CVUploadSection() {
       {/* Watermark - only decorative on large screens */}
       <div
         aria-hidden
-        className="hidden lg:block absolute -bottom-20 -right-10 text-[clamp(11rem,22vw,22rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-navy/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute -bottom-20 -right-10 text-[clamp(11rem,22vw,22rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-navy/2.5 select-none pointer-events-none whitespace-nowrap"
       >
         Radar
       </div>
@@ -20,7 +20,7 @@ export function CVUploadSection() {
 
         {/* ── Header ── */}
         <div className="mb-10 sm:mb-12 lg:mb-20">
-          <div className="flex items-center gap-3 mb-5 sm:mb-6 sm:mb-8">
+          <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <span className="text-[10px] font-semibold tracking-[0.32em] uppercase text-brand-coral tabular-nums">
               03
             </span>
@@ -94,7 +94,7 @@ export function CVUploadSection() {
 
           {/* Trust badge - row 2 left */}
           <div className="order-3 lg:col-span-5 lg:row-start-2">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-brand-navy/[0.04] border border-brand-navy/10">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-brand-navy/4 border border-brand-navy/10">
               <Lock className="w-3.5 h-3.5 text-brand-teal shrink-0" strokeWidth={2} />
               <span className="text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-navy/70">
                 Confidential · GDPR

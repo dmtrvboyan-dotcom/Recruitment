@@ -30,13 +30,13 @@ export default function SaasRecruitmentPage() {
 
 
         {/* Glow blobs */}
-        <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
-        <div className="absolute top-10 right-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-130 h-130 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+        <div className="absolute top-10 right-0 w-75 h-75 rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
 
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 right-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 right-0 text-[22vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none"
         >
           SAAS
         </div>
@@ -106,7 +106,7 @@ export default function SaasRecruitmentPage() {
                     {/* Card index watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/4 select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -142,7 +142,7 @@ export default function SaasRecruitmentPage() {
             {/* Footer Bar */}
             <div className="mt-8 rounded-2xl border border-brand-navy/8 bg-brand-navy/3 px-7 py-5 flex flex-col md:flex-row items-center gap-5 md:justify-between">
               <div className="flex items-center gap-4">
-                <div className={`w-10 h-10 flex items-center justify-center rounded-xl bg-brand-coral/10 text-brand-coral flex-shrink-0`}>
+                <div className={`w-10 h-10 flex items-center justify-center rounded-xl bg-brand-coral/10 text-brand-coral shrink-0`}>
                   <FOOTER_BAR.moreRoles.icon className="w-5 h-5" strokeWidth={1.6} />
                 </div>
                 <div>
@@ -159,7 +159,7 @@ export default function SaasRecruitmentPage() {
                   const BadgeIcon = badge.icon
                   return (
                     <div key={i} className="flex items-center gap-2 text-brand-navy/60">
-                      <BadgeIcon className="w-4 h-4 text-brand-coral flex-shrink-0" strokeWidth={1.6} />
+                      <BadgeIcon className="w-4 h-4 text-brand-coral shrink-0" strokeWidth={1.6} />
                       <span className="text-[12px] font-semibold tracking-wide uppercase whitespace-nowrap">
                         {badge.label}
                       </span>
@@ -185,12 +185,12 @@ export default function SaasRecruitmentPage() {
         <section className="relative w-full bg-brand-navy overflow-hidden">
 
           {/* Glow */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-125 h-125 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
           >
             PERFECT FIT
           </div>
@@ -222,7 +222,7 @@ export default function SaasRecruitmentPage() {
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${item.iconBg} ${item.color}`}>
                       <Icon className="w-6 h-6" strokeWidth={1.6} />
                     </div>
-                    <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-brand-white mb-3 leading-snug">
+                    <h3 className="text-sm font-bold tracking-widest uppercase text-brand-white mb-3 leading-snug">
                       {item.title}
                     </h3>
                     <p className="text-sm text-brand-white/50 leading-relaxed">

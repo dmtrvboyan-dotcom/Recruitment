@@ -88,13 +88,13 @@ export default function ContractHiringPage() {
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative w-full bg-brand-navy overflow-hidden flex flex-col mt-20 sm:mt-5">
         {/* Coral glows */}
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none" />
-        <div className="absolute -bottom-60 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/10 blur-[130px] pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-150 h-150 rounded-full bg-brand-coral/15 blur-[140px] pointer-events-none" />
+        <div className="absolute -bottom-60 -left-40 w-125 h-125 rounded-full bg-brand-coral/10 blur-[130px] pointer-events-none" />
 
         {/* Plus marks (decorative) */}
-        <div aria-hidden className="absolute top-32 right-24 text-white/[0.08] text-3xl font-thin pointer-events-none hidden lg:block">+</div>
-        <div aria-hidden className="absolute top-72 right-72 text-white/[0.06] text-xl font-thin pointer-events-none hidden lg:block">+</div>
-        <div aria-hidden className="absolute bottom-44 right-44 text-white/[0.06] text-2xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute top-32 right-24 text-brand-white/8 text-3xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute top-72 right-72 text-brand-white/6 text-xl font-thin pointer-events-none hidden lg:block">+</div>
+        <div aria-hidden className="absolute bottom-44 right-44 text-brand-white/6 text-2xl font-thin pointer-events-none hidden lg:block">+</div>
 
         {/* Vertical text rail (lg+) */}
         <div className="hidden lg:flex absolute left-7 top-1/2 -translate-y-1/2 flex-col items-center gap-6 pointer-events-none z-10">
@@ -188,7 +188,7 @@ export default function ContractHiringPage() {
         <section className="relative w-full bg-brand-white py-20 lg:py-32 overflow-hidden">
           {/* Subtle diagonal fill */}
           <div
-            className="absolute inset-y-0 right-0 w-1/2 lg:w-2/5 bg-brand-navy/[0.025] -skew-x-6 origin-top-right pointer-events-none"
+            className="absolute inset-y-0 right-0 w-1/2 lg:w-2/5 bg-brand-navy/2.5 -skew-x-6 origin-top-right pointer-events-none"
             aria-hidden
           />
 
@@ -223,7 +223,7 @@ export default function ContractHiringPage() {
                     {/* Ghost index */}
                     <span
                       aria-hidden
-                      className="absolute top-3 right-4 text-[3rem] font-bold text-brand-navy/[0.05] leading-none pointer-events-none select-none"
+                      className="absolute top-3 right-4 text-[3rem] font-bold text-brand-navy/5 leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -243,7 +243,7 @@ export default function ContractHiringPage() {
 
       {/* ── SERVICES: 2-column role grid ─────────────────────────────────── */}
       <ScrollReveal>
-        <section className="relative w-full bg-brand-navy/[0.025] py-20 lg:py-32">
+        <section className="relative w-full bg-brand-navy/2,5 py-20 lg:py-32">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             {/* Centered header */}
             <div className="mb-12 lg:mb-16 text-center">
@@ -272,8 +272,8 @@ export default function ContractHiringPage() {
                   <Link
                     key={i}
                     href={card.href}
-                    className={`group grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 py-6 lg:py-8 px-6 lg:px-8 items-start transition-all duration-300 hover:bg-brand-coral/[0.04] relative overflow-hidden ${i % 2 === 0 ? "bg-brand-white" : "bg-brand-navy/[0.02]"
-                      } ${i < SERVICE_CARDS.length - 1 ? "border-b border-brand-navy/[0.08]" : ""}`}
+                    className={`group grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 py-6 lg:py-8 px-6 lg:px-8 items-start transition-all duration-300 hover:bg-brand-coral/4 relative overflow-hidden ${i % 2 === 0 ? "bg-brand-white" : "bg-brand-navy/2"
+                      } ${i < SERVICE_CARDS.length - 1 ? "border-b border-brand-navy/8" : ""}`}
                   >
                     {/* Animated coral underline */}
                     <span
@@ -291,7 +291,7 @@ export default function ContractHiringPage() {
                     {/* Icon + Title */}
                     <div className="md:col-span-4 flex items-start gap-3 lg:gap-4">
                       <div
-                        className={`w-9 h-9 lg:w-10 lg:h-10 flex-shrink-0 flex items-center justify-center rounded-xl ${card.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
+                        className={`w-9 h-9 lg:w-10 lg:h-10 shrink-0 flex items-center justify-center rounded-xl ${card.iconBg} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}
                       >
                         <Icon className="w-4 h-4 lg:w-5 lg:h-5" style={{ color: card.accent }} strokeWidth={1.7} />
                       </div>
@@ -331,23 +331,23 @@ export default function ContractHiringPage() {
       <ScrollReveal>
         <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
           {/* Glow */}
-          <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/3 w-150 h-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/[0.025] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-white/2.5 select-none pointer-events-none"
           >
             METHOD
           </div>
 
           {/* Header */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
+          <div className="relative w-full max-w-400 mx-auto px-5 sm:px-10 lg:px-20 mb-12 lg:mb-20">
             <div className="mb-8 lg:mb-10">
               <SectionIndicator index={3} label="HOW WE WORK" tone="dark" centered />
             </div>
             <div className="text-center">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white mb-4">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-white mb-4">
                 From brief to hired{" "}
                 <span className="text-brand-coral">in days</span>
               </h2>
@@ -358,11 +358,11 @@ export default function ContractHiringPage() {
           </div>
 
           {/* Cards grid */}
-          <div className="relative w-full max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-20">
+          <div className="relative w-full max-w-400 mx-auto px-5 sm:px-10 lg:px-20">
             {/* Connecting line (desktop) */}
             <div
               aria-hidden
-              className="hidden lg:block absolute left-20 right-20 top-[54px] h-px bg-gradient-to-r from-transparent via-brand-coral/30 to-transparent pointer-events-none z-0"
+              className="hidden lg:block absolute left-20 right-20 top-13.5 h-px bg-linear-to-r from-transparent via-brand-coral/30 to-transparent pointer-events-none z-0"
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
@@ -371,16 +371,16 @@ export default function ContractHiringPage() {
                 return (
                   <div key={i} className="relative">
                     {/* Node dot (desktop) */}
-                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -top-[calc(54px-8px)] w-4 h-4 rounded-full bg-brand-navy border-2 border-brand-coral z-10 items-center justify-center">
+                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -top-11.5 w-4 h-4 rounded-full bg-brand-navy border-2 border-brand-coral z-10 items-center justify-center">
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
                     </div>
 
                     {/* Card */}
-                    <div className="group relative rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6 lg:p-7 hover:bg-white/[0.08] hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
+                    <div className="group relative rounded-2xl border border-white/10 bg-brand-white/4 backdrop-blur-sm p-6 lg:p-7 hover:bg-brand-white/4 hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
                       {/* Watermark step number */}
                       <span
                         aria-hidden
-                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-white/[0.04] leading-none pointer-events-none select-none"
+                        className="absolute -top-4 -right-2 text-[6rem] lg:text-[7rem] font-bold text-brand-white/4 leading-none pointer-events-none select-none"
                       >
                         {step.number}
                       </span>
@@ -426,8 +426,8 @@ export default function ContractHiringPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 lg:gap-4">
               {/* Hero card */}
-              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-navy text-white p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[440px]">
-                <div className="absolute -top-24 -right-24 w-[320px] h-[320px] rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
+              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-navy text-white p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-80 lg:min-h-110">
+                <div className="absolute -top-24 -right-24 w-[320px] h-80 rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
                 <div className="relative">
                   <h2 className="text-[clamp(2rem,4.5vw,3.5rem)] font-bold uppercase leading-[0.92] tracking-tight mb-6">
@@ -453,7 +453,7 @@ export default function ContractHiringPage() {
                       key={i}
                       className="inline-flex items-center gap-2 text-[11px] font-semibold text-white/60 bg-white/5 border border-white/10 rounded-full px-3 py-1.5"
                     >
-                      <span className="w-1 h-1 rounded-full bg-brand-coral inline-block flex-shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-brand-coral inline-block shrink-0" />
                       {item}
                     </span>
                   ))}
@@ -466,11 +466,11 @@ export default function ContractHiringPage() {
                 return (
                   <div
                     key={i}
-                    className="lg:col-span-3 rounded-3xl bg-brand-navy/[0.025] border border-brand-navy/10 p-7 lg:p-8 hover:bg-brand-navy/[0.045] hover:border-brand-coral/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden min-h-[200px] lg:min-h-[210px]"
+                    className="lg:col-span-3 rounded-3xl bg-brand-navy/2.5 border border-brand-navy/10 p-7 lg:p-8 hover:bg-brand-navy/4.5 hover:border-brand-coral/30 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden min-h-50 lg:min-h-52.5"
                   >
                     <span
                       aria-hidden
-                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-navy/[0.06] leading-none pointer-events-none select-none"
+                      className="absolute top-5 right-6 text-[3rem] font-bold text-brand-navy/6 leading-none pointer-events-none select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -499,9 +499,9 @@ export default function ContractHiringPage() {
         <section className="relative w-full px-3 sm:px-5 lg:px-10 pb-12 lg:pb-20">
           <div className="relative bg-brand-navy rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
             {/* Glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-coral/20 blur-[150px] pointer-events-none" />
-            <div className="absolute -top-20 -left-20 w-[300px] h-[300px] rounded-full bg-brand-coral/15 blur-[100px] pointer-events-none" />
-            <div className="absolute -bottom-20 -right-20 w-[300px] h-[300px] rounded-full bg-brand-coral/10 blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-brand-coral/20 blur-[150px] pointer-events-none" />
+            <div className="absolute -top-20 -left-20 w-75 h-75 rounded-full bg-brand-coral/15 blur-[100px] pointer-events-none" />
+            <div className="absolute -bottom-20 -right-20 w-75 h-75 rounded-full bg-brand-coral/10 blur-[100px] pointer-events-none" />
 
             {/* Corner brackets */}
             <div aria-hidden className="absolute top-5 left-5 w-8 h-8 border-l-2 border-t-2 border-brand-coral/40 rounded-tl-xl pointer-events-none" />
@@ -512,7 +512,7 @@ export default function ContractHiringPage() {
             {/* Watermark */}
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 bottom-[-2rem] text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-white/[0.03] leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 -bottom-8 text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-brand-white/3 leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               CONTRACT
             </p>

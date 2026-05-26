@@ -1,6 +1,5 @@
 import { SocialSidebar, Footer } from "@/components/layout"
 import { Header } from "@/components/layout/header/header"
-
 import { HashCleaner } from "../../components/layout/hash-cleaner"
 
 export default function CandidatesLayout({

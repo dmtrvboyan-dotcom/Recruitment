@@ -30,13 +30,13 @@ export default function EcommerceRecruitment() {
 
 
         {/* Glow blobs */}
-        <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
-        <div className="absolute top-10 left-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-40 -right-40 w-130 h-130 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+        <div className="absolute top-10 left-0 w-75 h-75 rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
 
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 left-0 text-[20vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 left-0 text-[20vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none"
         >
           ECOM
         </div>
@@ -105,7 +105,7 @@ export default function EcommerceRecruitment() {
                   >
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/4 select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -154,12 +154,12 @@ export default function EcommerceRecruitment() {
         <section className="relative w-full bg-brand-navy overflow-hidden">
 
           {/* Glow */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-125 h-125 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 left-0 text-[14vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
           >
             BULGARIA
           </div>
@@ -191,7 +191,7 @@ export default function EcommerceRecruitment() {
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${item.iconBg} ${item.color}`}>
                       <Icon className="w-6 h-6" strokeWidth={1.6} />
                     </div>
-                    <h3 className="text-sm font-bold tracking-[0.1em] uppercase text-brand-white mb-3 leading-snug">
+                    <h3 className="text-sm font-bold tracking-widest uppercase text-brand-white mb-3 leading-snug">
                       {item.title}
                     </h3>
                     <p className="text-sm text-brand-white/50 leading-relaxed">
@@ -233,7 +233,7 @@ export default function EcommerceRecruitment() {
                     {/* Step watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-4 top-2 text-[4rem] font-bold leading-none text-brand-navy/4 select-none"
                     >
                       {item.step}
                     </div>
@@ -271,12 +271,12 @@ export default function EcommerceRecruitment() {
         <section className="relative w-full bg-brand-navy overflow-hidden">
 
           {/* Glow */}
-          <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+          <div className="absolute -bottom-40 -right-40 w-130 h-130 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+            className="absolute bottom-0 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none"
           >
             GO
           </div>

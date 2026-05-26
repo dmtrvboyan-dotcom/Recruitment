@@ -95,7 +95,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
         <Filter className="w-4 h-4" strokeWidth={1.5} />
         {showFilters ? "Close filters" : "Filter positions"}
         {activeCount > 0 && !showFilters && (
-          <span className="ml-1 inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-brand-navy text-brand-coral text-[10px] tabular-nums">
+          <span className="ml-1 inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-brand-navy text-brand-coral text-[10px] tabular-nums">
             {activeCount}
           </span>
         )}
@@ -107,7 +107,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
           showFilters ? "block opacity-100" : "hidden opacity-0"
         } lg:block lg:opacity-100`}
       >
-        <div className="rounded-3xl p-6 lg:sticky lg:top-8 bg-brand-white/[0.03] border border-brand-white/10 backdrop-blur-sm">
+        <div className="rounded-3xl p-6 lg:sticky lg:top-8 bg-brand-white/3 border border-brand-white/10 backdrop-blur-sm">
           {/* Filter header */}
           <div className="flex items-center justify-between mb-2 pb-5 border-b border-brand-white/10">
             <div className="flex items-center gap-2.5">
@@ -148,7 +148,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                   value={techQuery}
                   onChange={(e) => setTechQuery(e.target.value)}
                   placeholder="Search stack..."
-                  className="w-full bg-brand-white/[0.04] border border-brand-white/10 rounded-lg pl-9 pr-8 py-2 text-[12px] text-brand-white placeholder:text-brand-white/30 focus:outline-none focus:border-brand-coral/50 transition-colors duration-200"
+                  className="w-full bg-brand-white/4 border border-brand-white/10 rounded-lg pl-9 pr-8 py-2 text-[12px] text-brand-white placeholder:text-brand-white/30 focus:outline-none focus:border-brand-coral/50 transition-colors duration-200"
                 />
                 {techQuery && (
                   <button

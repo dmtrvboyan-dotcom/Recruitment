@@ -63,16 +63,7 @@ export const APPLICATION_BENEFITS: Benefit[] = [
     title: "Confidential by default",
     body: "Your profile is never shared without your explicit approval.",
   },
-  // {
-  //   icon: Globe2,
-  //   title: "Remote-first opportunities",
-  //   body: "Work with companies hiring across Europe, the UK, and the US.",
-  // },
-  // {
-  //   icon: Wallet,
-  //   title: "Transparent rates",
-  //   body: "You set your rate. We'll only contact you about roles inside it.",
-  // },
+ 
 ]
 
 export const TECH_STACKS: string[] = [

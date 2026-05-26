@@ -10,13 +10,13 @@ export const ProcessHero = memo(function ProcessHero() {
      
 
       {/* Coral glow blob */}
-      <div className="absolute -bottom-32 -left-32 w-[480px] h-[480px] rounded-full bg-brand-coral/20 blur-[120px] pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[320px] h-[320px] rounded-full bg-brand-coral/8 blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-32 -left-32 w-120 h-120 rounded-full bg-brand-coral/20 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[320px] h-80 rounded-full bg-brand-coral/8 blur-[100px] pointer-events-none" />
 
       {/* Large watermark number */}
       <div
         aria-hidden
-        className="absolute bottom-0 right-5 sm:right-10 xl:right-16 text-[20vw] font-bold leading-none tracking-tighter text-white/[0.03] select-none pointer-events-none"
+        className="absolute bottom-0 right-5 sm:right-10 xl:right-16 text-[20vw] font-bold leading-none tracking-tighter text-white/3 select-none pointer-events-none"
       >
         06
       </div>

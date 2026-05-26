@@ -111,7 +111,7 @@ export function Breadcrumb() {
               className="group flex items-center gap-1.5 text-brand-white/80 hover:text-brand-coral transition-colors duration-200"
               aria-label="Home"
             >
-              <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-brand-navy/[0.04] group-hover:bg-brand-coral/10 transition-colors duration-200">
+              <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-brand-navy/4 group-hover:bg-brand-coral/10 transition-colors duration-200">
                 <Home className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               </span>
               <span className="hidden sm:inline font-bold">Home</span>
@@ -132,7 +132,7 @@ export function Breadcrumb() {
                 <li className={`flex items-center ${isLast ? "min-w-0" : "shrink-0"}`}>
                   {item.isCurrentPage ? (
                     <span
-                      className="font-semibold text-brand-white/80 truncate max-w-[140px] sm:max-w-[200px] md:max-w-[260px]"
+                      className="font-semibold text-brand-white/80 truncate max-w-35 sm:max-w-50 md:max-w-65"
                       aria-current="page"
                     >
                       {item.label}
@@ -140,7 +140,7 @@ export function Breadcrumb() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="font-bold text-brand-white/50 hover:text-brand-coral transition-colors duration-200 truncate max-w-[90px] sm:max-w-[180px] md:max-w-[220px]"
+                      className="font-bold text-brand-white/50 hover:text-brand-coral transition-colors duration-200 truncate max-w-22.5 sm:max-w-w-45 md:max-w-55"
                     >
                       {item.label}
                     </Link>

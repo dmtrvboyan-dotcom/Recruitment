@@ -39,13 +39,13 @@ export default function SpecializedIndustries() {
       <section className="relative w-full min-h-[85vh] bg-brand-navy overflow-hidden flex items-end">
 
         {/* Glow blobs */}
-        <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
-        <div className="absolute top-10 right-0 w-[300px] h-[300px] rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-130 h-130 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+        <div className="absolute top-10 right-0 w-75 h-75 rounded-full bg-brand-coral/6 blur-[100px] pointer-events-none" />
 
         {/* Giant background word */}
         <div
           aria-hidden
-          className="absolute bottom-0 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+          className="absolute bottom-0 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none"
         >
           INDUSTRIES
         </div>
@@ -84,7 +84,7 @@ export default function SpecializedIndustries() {
                   <div className="text-2xl sm:text-3xl font-bold text-brand-coral leading-none">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/25 mt-1 max-w-[120px] mx-auto leading-snug">
+                  <div className="text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/25 mt-1 max-w-30 mx-auto leading-snug">
                     {stat.label}
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export default function SpecializedIndustries() {
                     {/* Index watermark */}
                     <div
                       aria-hidden
-                      className="absolute right-5 top-3 text-[5rem] font-bold leading-none text-brand-navy/[0.04] select-none"
+                      className="absolute right-5 top-3 text-[5rem] font-bold leading-none text-brand-navy/4 select-none"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
@@ -189,12 +189,12 @@ export default function SpecializedIndustries() {
         <section className="relative w-full bg-brand-navy overflow-hidden">
 
           {/* Glow */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-125 h-125 rounded-full bg-brand-coral/12 blur-[140px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[13vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+            className="absolute bottom-0 left-0 text-[13vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
           >
             DOMAIN
           </div>
@@ -303,12 +303,12 @@ export default function SpecializedIndustries() {
         <section className="relative w-full bg-brand-navy overflow-hidden">
 
           {/* Glow */}
-          <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
+          <div className="absolute -bottom-40 -right-40 w-130 h-130 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
 
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/[0.025] select-none pointer-events-none"
+            className="absolute bottom-0 left-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none"
           >
             HIRE
           </div>

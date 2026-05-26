@@ -72,7 +72,7 @@ export const HowItWorks = memo(function HowItWorks() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
 
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-[480px] max-h-[480px] bg-brand-coral/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[40vw] h-[40vw] max-w-120 max-h-120 bg-brand-coral/8 rounded-full blur-3xl pointer-events-none" />
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16">
 
@@ -104,7 +104,7 @@ export const HowItWorks = memo(function HowItWorks() {
               return (
                 <div
                   key={step.label}
-                  className="relative z-10 flex flex-col items-start lg:items-center gap-4 p-5 lg:p-4 rounded-2xl bg-white/[0.04] border border-white/8 hover:border-brand-coral/30 hover:bg-white/[0.07] transition-all duration-400 group"
+                  className="relative z-10 flex flex-col items-start lg:items-center gap-4 p-5 lg:p-4 rounded-2xl bg-brand-white/4 border border-white/8 hover:border-brand-coral/30 hover:bg-white/[0.07] transition-all duration-400 group"
                   style={{
                     opacity: visible ? 1 : 0,
                     transform: visible ? "translateY(0)" : "translateY(20px)",
@@ -133,7 +133,7 @@ export const HowItWorks = memo(function HowItWorks() {
 
         {/* Bottom callout */}
         <div
-          className="mt-14 sm:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-5 p-7 sm:p-9 rounded-3xl bg-white/[0.04] border border-white/8"
+          className="mt-14 sm:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-5 p-7 sm:p-9 rounded-3xl bg-brand-white/4 border border-white/8"
           style={{
             opacity: visible ? 1 : 0,
             transition: "opacity 0.7s ease 900ms",

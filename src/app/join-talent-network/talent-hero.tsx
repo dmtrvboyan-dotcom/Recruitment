@@ -77,7 +77,7 @@ export const TalentNetworkHero = memo(function TalentNetworkHero() {
         aria-hidden
         className="hidden lg:block absolute top-[44%] left-1/2 -translate-x-1/2
                    text-[clamp(14rem,26vw,22rem)] font-bold uppercase
-                   leading-[0.85] tracking-tighter text-brand-white/[0.025]
+                   leading-[0.85] tracking-tighter text-brand-white/2.5
                    select-none pointer-events-none whitespace-nowrap"
       >
         TALENT
@@ -123,14 +123,14 @@ export const TalentNetworkHero = memo(function TalentNetworkHero() {
           </div>
 
        
-          <p className="mt-7 sm:mt-8 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-brand-white/35 font-medium animate-fade-in-up delay-[350ms]">
+          <p className="mt-7 sm:mt-8 text-[10px] sm:text-[11px] tracking-[0.22em] uppercase text-brand-white/35 font-medium animate-fade-in-up delay-350">
             Free for candidates &nbsp;·&nbsp; Reviewed by humans &nbsp;·&nbsp; 100% confidential
           </p>
 
         </div>
       </div>
 
-      <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full pb-8 sm:pb-10 animate-fade-in-up delay-[400ms]">
+      <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full pb-8 sm:pb-10 animate-fade-in-up delay-400">
         <div className="grid grid-cols-2 lg:grid-cols-4 bg-brand-white/5 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-brand-white/10 overflow-hidden shadow-2xl shadow-black/30">
           {TRUST_STATS.map((stat, i) => (
             <StatBlock

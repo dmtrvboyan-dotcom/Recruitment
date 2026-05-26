@@ -18,19 +18,19 @@ export const HeroSection = memo(function HeroSection() {
       {/* Coral glow top */}
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto  lg:translate-x-0 w-90 ch-90lg:w-[520px] lg:h-130 rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
       {/* Teal glow bottom right */}
       <div
         aria-hidden
-        className="hidden lg:block absolute bottom-0 -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
+        className="hidden lg:block absolute bottom-0 -right-32 w-105 h-105 rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
       />
 
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,20vw,17rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,20vw,17rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
       >
         SPECIALIZED
       </div>
@@ -58,7 +58,7 @@ export const HeroSection = memo(function HeroSection() {
             <p className="text-sm sm:text-base lg:text-lg text-brand-white/60 leading-relaxed px-2 sm:px-0">
               {HERO_DATA.subtitle}
             </p>
-            <div className="mt-5 sm:mt-6 h-[2px] w-12 sm:w-16 bg-brand-coral" />
+            <div className="mt-5 sm:mt-6 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
 
 
@@ -89,7 +89,7 @@ export const HeroSection = memo(function HeroSection() {
 
       {/* Stats strip */}
       <div className="relative z-10 px-5 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full pb-10">
-        <div className="grid grid-cols-3 bg-brand-white/[0.04] backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-brand-white/10 overflow-hidden">
+        <div className="grid grid-cols-3 bg-brand-white/4 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-brand-white/10 overflow-hidden">
           {HERO_DATA.stats.map((stat, i) => (
             <div
               key={stat.label}

@@ -121,16 +121,16 @@ export const ApplicationForm = memo(function ApplicationForm() {
         >
             <div
                 aria-hidden
-                className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none"
+                className="absolute -top-32 -left-32 w-120 h-120 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none"
             />
             <div
                 aria-hidden
-                className="absolute bottom-0 -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
+                className="absolute bottom-0 -right-32 w-105 h-105 rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
             />
 
             <div
                 aria-hidden
-                className="absolute top-1/2 -translate-y-1/2 -right-10 text-[18vw] font-bold uppercase tracking-tighter text-brand-white/[0.02] leading-none select-none pointer-events-none whitespace-nowrap hidden lg:block"
+                className="absolute top-1/2 -translate-y-1/2 -right-10 text-[18vw] font-bold uppercase tracking-tighter text-brand-white/2 leading-none select-none pointer-events-none whitespace-nowrap hidden lg:block"
             >
                 APPLY
             </div>
@@ -143,7 +143,7 @@ export const ApplicationForm = memo(function ApplicationForm() {
                         ref={formRef}
                         onSubmit={handleSubmit}
                         noValidate
-                        className="relative rounded-3xl bg-brand-white/[0.03] border border-brand-white/10 p-6 sm:p-8 lg:p-10 backdrop-blur-md"
+                        className="relative rounded-3xl bg-brand-white/3 border border-brand-white/10 p-6 sm:p-8 lg:p-10 backdrop-blur-md"
                         style={{
                             opacity: formVisible ? 1 : 0,
                             transform: formVisible ? "translateY(0)" : "translateY(28px)",

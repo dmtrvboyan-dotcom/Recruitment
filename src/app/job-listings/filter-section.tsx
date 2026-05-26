@@ -35,7 +35,7 @@ export const FilterSection = memo(function FilterSection({
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-[500px]" : "max-h-0"
+          isOpen ? "max-h-125" : "max-h-0"
         }`}
       >
         {children}
