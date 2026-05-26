@@ -11,6 +11,9 @@ const nextConfig = {
   compiler: {
     removeConsole: true,
   },
+  experimental: {
+    optimizeCss: true,
+  },
 }
 
 module.exports = nextConfig

@@ -1,7 +1,7 @@
 import { memo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { RiLinkedinBoxFill } from "react-icons/ri"
+import { Linkedin } from "lucide-react"
 import type { TeamMember } from "@/lib/constants/team"
 
 interface TeamMemberCardProps {
@@ -48,9 +48,9 @@ export const TeamMemberCard = memo(function TeamMemberCard({
             rel="noopener noreferrer"
             aria-label={`View ${member.name}'s LinkedIn profile`}
             onClick={(e) => e.stopPropagation()}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full backdrop-blur-sm border border-brand-white/20 flex items-center justify-center text-brand-white animate-linkedin-glow"
+            className="absolute top-4 right-4 w-8 h-8 rounded-full backdrop-blur-sm border border-brand-white/20 flex items-center justify-center text-brand-white bg-brand-coral animate-linkedin-glow will-change-transform"
           >
-            <RiLinkedinBoxFill size={16} />
+            <Linkedin size={14} />
           </Link>
         )}
 

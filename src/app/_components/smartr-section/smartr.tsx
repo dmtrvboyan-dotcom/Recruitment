@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { RiCheckLine } from "react-icons/ri"
+import { Check } from "lucide-react"
 import { AppButton } from '@/components/ui/app-button';
 
 
@@ -184,7 +184,7 @@ export const SmartRSection = memo(function SmartRSection() {
                 className="group flex items-center gap-3.5 px-6 py-5 bg-brand-navy hover:bg-brand-white/5 transition-colors duration-300"
               >
                 <div className="shrink-0 w-6 h-6 rounded-full border border-brand-coral/40 group-hover:border-brand-coral group-hover:bg-brand-coral/10 flex items-center justify-center transition-all duration-300">
-                  <RiCheckLine
+                  <Check
                     className="text-brand-coral"
                     size={13}
                   />
