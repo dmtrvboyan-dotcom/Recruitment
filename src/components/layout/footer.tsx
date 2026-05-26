@@ -51,7 +51,6 @@ const FooterLinkSection = memo(function FooterLinkSection({
 const SocialLinks = memo(function SocialLinks({ phoneHref }: { phoneHref: string }) {
   return (
     <div className="flex items-center gap-3">
-      {/* Mobile Phone Toggle */}
       <a
         href={phoneHref}
         aria-label="Call us"
@@ -85,18 +84,17 @@ export function Footer() {
   const handleNavigate = useCallback((href: string) => {
     scrollToSection(href, {
       highlightDuration: 1400,
-      highlightColor: "rgba(255, 93, 119, 0.1)" // Subtle Brand Coral highlight
+      highlightColor: "rgba(255, 93, 119, 0.1)"
     })
   }, [])
 
   return (
     <footer className="relative z-10 bg-brand-bg">      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
 
-      {/* Coral Signature Accent Line */}
-      <div className="w-12 h-[2px] bg-brand-coral mb-12" />
+      <div className="w-12 h-0.5 bg-brand-coral mb-12" />
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-16">
-        {/* Brand Info Column */}
+
         <div className="col-span-2 md:col-span-1">
           <Link href="/" className="inline-block mb-8 transition-opacity hover:opacity-80">
             <Image
@@ -108,12 +106,11 @@ export function Footer() {
             />
           </Link>
 
-          <p className="text-brand-navy/80 text-sm leading-relaxed mb-8 max-w-[260px] font-medium">
+          <p className="text-brand-navy/80 text-sm leading-relaxed mb-8 max-w-65 font-medium">
             {COMPANY_INFO.description}
           </p>
 
           <div className="flex flex-col gap-5 mb-8">
-            {/* Location Note in Coral */}
             <p className="text-brand-navy font-bold text-[10px] uppercase tracking-[0.25em]">
               {COMPANY_INFO.location}
             </p>
@@ -132,7 +129,6 @@ export function Footer() {
           <SocialLinks phoneHref={COMPANY_INFO.phoneHref} />
         </div>
 
-        {/* Link Sections */}
         <FooterLinkSection
           title="Services"
           links={FOOTER_LINKS.services}
@@ -154,7 +150,6 @@ export function Footer() {
 
       <Separator className="my-16 bg-brand-navy/5" />
 
-      {/* Bottom Bar */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <p className="text-brand-navy/70 text-[11px] font-bold uppercase tracking-wider">
           &copy; {currentYear} {COMPANY_INFO.name}. <span className="hidden sm:inline opacity-50 ml-1">Excellence in IT Recruitment.</span>

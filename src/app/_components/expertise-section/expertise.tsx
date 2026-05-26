@@ -1,9 +1,6 @@
 "use client"
 
-import {
-  EXPERTISE_AREAS,
-  EXPERTISE_FEATURED_AREA,
-} from "@/lib/constants/expertise"
+import { EXPERTISE_AREAS, EXPERTISE_FEATURED_AREA } from "@/lib/constants/expertise"
 import { ExpertiseCard } from "./expertise-card"
 import { FeaturedExpertiseCard } from "./featured-expertise-card"
 
@@ -17,20 +14,17 @@ export function ExpertiseSection() {
     >
       <div
         aria-hidden
-        className="absolute -top-32 right-1/4 w-[400px] h-[400px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
-      />
-
-      
-
-
-       <div
-        aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute -top-32 right-1/4 w-100 h-100 lg:w-130 lg:h-130 rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 w-90 h-90 lg:w-130 lg:h-130 rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+      />
+
+      <div
+        aria-hidden
+        className="hidden lg:block absolute top-[48%] -right-32 w-105 h-105 rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
@@ -46,7 +40,7 @@ export function ExpertiseSection() {
             We help companies hire across
             <span className="text-brand-coral"> different industries.</span>
           </h2>
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
           <p className="text-sm sm:text-base lg:text-lg text-brand-navy/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
             From specialized technical roles to executive leadership - tailored
             recruitment across every sector that matters.
@@ -56,9 +50,9 @@ export function ExpertiseSection() {
         <div
           className={[
             "grid gap-3 sm:gap-4",
-            "grid-cols-1",                         // mobile: 1 col
-            "md:grid-cols-2",                      // tablet: 2 col
-            "lg:grid-cols-12 lg:auto-rows-[260px]", // desktop: 12-col fixed rows
+            "grid-cols-1",                         
+            "md:grid-cols-2",                   
+            "lg:grid-cols-12 lg:auto-rows-[260px]", 
           ].join(" ")}
         >
           <ExpertiseCard
@@ -67,42 +61,36 @@ export function ExpertiseSection() {
             className="h-64 md:h-auto lg:col-[1/6] lg:row-[1/3]"
           />
 
-          {/* 1 — iGaming: col 6-12, row 1 */}
           <ExpertiseCard
             item={igaming}
             index={1}
             className="h-64 md:h-auto lg:col-[6/13] lg:row-[1/2]"
           />
 
-          {/* 2 — AI/ML: col 6-12, row 2 */}
           <ExpertiseCard
             item={aiml}
             index={2}
             className="h-64 md:h-auto lg:col-[6/13] lg:row-[2/3]"
           />
 
-          {/* 3 — Cybersecurity: col 1-7, row 3 (wider) */}
           <ExpertiseCard
             item={cyber}
             index={3}
             className="h-64 md:h-auto lg:col-[1/8] lg:row-[3/4]"
           />
 
-          {/* 4 — IT Services: col 7-12, row 3 */}
           <ExpertiseCard
             item={it}
             index={4}
             className="h-64 md:h-auto lg:col-[8/13] lg:row-[3/4]"
           />
 
-          {/* 5 — Ecommerce: col 1-4, row 4 (narrow/square-ish) */}
           <ExpertiseCard
             item={ecommerce}
             index={5}
             className="h-64 md:h-auto lg:col-[1/5] lg:row-[4/5]"
           />
 
-          {/* ★ — More Industries: col 5-13, row 4 (wide, all tags visible) */}
           <div className="h-64 md:h-auto lg:col-[5/13] lg:row-[4/5]">
             <FeaturedExpertiseCard
               data={EXPERTISE_FEATURED_AREA}
@@ -111,7 +99,6 @@ export function ExpertiseSection() {
           </div>
         </div>
 
-        {/* ── Bottom note ── */}
         <div className="mt-16 sm:mt-20 text-center">
           <p className="text-sm font-medium text-brand-navy/45">
             Not sure where to start?{" "}

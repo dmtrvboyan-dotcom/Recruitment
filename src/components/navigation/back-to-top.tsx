@@ -10,10 +10,6 @@ interface BackToTopProps {
   hideOnMobile?: boolean
 }
 
-/**
- * Global back-to-top button. Appears once the user scrolls past `threshold`.
- * framer-motion is lazy-loaded after mount so it never blocks the critical path.
- */
 export function BackToTop({
   threshold = 400,
   className,
@@ -24,7 +20,6 @@ export function BackToTop({
   const [AnimatePresence, setAnimatePresence] = useState<React.ElementType | null>(null)
   const reducedRef = useRef(false)
 
-  // Lazy-load framer-motion after hydration
   useEffect(() => {
     reducedRef.current =
       typeof window !== "undefined" &&
@@ -65,7 +60,6 @@ export function BackToTop({
     className,
   )
 
-  // Before framer-motion loads, render nothing (button is only shown on scroll anyway)
   if (!MotionButton || !AnimatePresence) {
     return null
   }

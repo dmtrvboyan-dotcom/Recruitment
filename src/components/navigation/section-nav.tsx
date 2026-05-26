@@ -1,4 +1,3 @@
-// components/navigation/SectionNav.tsx
 "use client"
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
@@ -42,7 +41,6 @@ export function SectionNav({
   const [collapsed, setCollapsed] = useState(false)
   const [hydrated, setHydrated] = useState(false)
 
-  // Lazy-load framer-motion — don't block the critical path
   const [motion, setMotion] = useState<typeof import("framer-motion") | null>(null)
   useEffect(() => {
     import("framer-motion").then((m) => setMotion(m))
@@ -54,7 +52,6 @@ export function SectionNav({
         setCollapsed(true)
       }
     } catch {
-      /* localStorage may be disabled */
     }
     setHydrated(true)
   }, [])
@@ -65,7 +62,6 @@ export function SectionNav({
       try {
         window.localStorage.setItem(SECTION_NAV_STORAGE_KEY, next ? "1" : "0")
       } catch {
-        /* ignore */
       }
       return next
     })
@@ -78,7 +74,6 @@ export function SectionNav({
 
   if (visibleSections.length === 0) return null
 
-  // Don't render the nav until framer-motion is ready — it's non-critical UI
   if (!motion) return null
 
   const { motion: m, AnimatePresence, useReducedMotion } = motion
@@ -135,10 +130,6 @@ export function SectionNav({
   )
 }
 
-/* ============================================================================
- *  Internal pieces — accept motion as props so they don't re-import it
- * ========================================================================= */
-
 type MotionLib = typeof import("framer-motion")
 
 interface ExpandedRailProps {
@@ -176,7 +167,7 @@ function ExpandedRail({
 
       <div
         className={cn(
-          "min-w-[168px] rounded-2xl border border-border/60 bg-background/70 p-1.5 shadow-sm backdrop-blur-md",
+          "min-w-42 rounded-2xl border border-border/60 bg-background/70 p-1.5 shadow-sm backdrop-blur-md",
           "flex flex-col gap-0.5",
         )}
       >
@@ -200,7 +191,7 @@ function ExpandedRail({
           aria-expanded="true"
           className={cn(
             "mt-0.5 inline-flex h-6 w-full items-center justify-center rounded-md",
-            "text-muted-foreground transition-colors hover:bg-foreground/[0.03] hover:text-foreground",
+            "text-muted-foreground transition-colors hover:bg-foreground/3 hover:text-foreground",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
           )}
         >

@@ -1,9 +1,7 @@
 "use client"
 
 import { memo, useEffect, useRef, useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
 import { RiCheckLine } from "react-icons/ri"
 import { AppButton } from '@/components/ui/app-button';
 
@@ -94,12 +92,12 @@ export const SmartRSection = memo(function SmartRSection() {
      
       <div
         aria-hidden
-        className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none"
+        className="absolute -top-40 -left-40 w-125 h-125 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="absolute bottom-0 -right-40 w-[460px] h-[460px] rounded-full bg-white-teal/15 blur-[120px] pointer-events-none"
+        className="absolute bottom-0 -right-40 w-115 h-115 rounded-full bg-white-teal/15 blur-[120px] pointer-events-none"
       />
 
       <div
@@ -127,7 +125,7 @@ export const SmartRSection = memo(function SmartRSection() {
             Our Own Applicant Tracking
           </h2>
 
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
 
           <div className="inline-flex items-center gap-2.5 border border-brand-white/10 bg-brand-white/5 rounded-full px-5 py-2.5 mb-14 sm:mb-16">
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -143,10 +141,7 @@ export const SmartRSection = memo(function SmartRSection() {
           </div>
         </div>
 
-
-
         <div className="relative mb-16 sm:mb-20 lg:mb-24">
-
           <div
             aria-hidden
             className="absolute inset-x-[10%] top-[15%] bottom-0 bg-brand-coral/10 blur-[80px] rounded-full pointer-events-none"
@@ -164,7 +159,7 @@ export const SmartRSection = memo(function SmartRSection() {
           >
 
 
-            <div className="relative aspect-[16/9]">
+            <div className="relative aspect-video">
               <Image
                 src="/uploaded/main.png"
                 alt="Smart.R Applicant Tracking System Dashboard"
@@ -173,7 +168,7 @@ export const SmartRSection = memo(function SmartRSection() {
                 sizes="(max-width: 768px) 100vw, 90vw"
                 priority
               />
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-brand-navy/50 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-brand-navy/50 to-transparent" />
             </div>
           </div>
         </div>

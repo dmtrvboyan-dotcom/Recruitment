@@ -1,7 +1,3 @@
-/**
- * Animation-related utility functions and configurations
- */
-
 export interface AnimationConfig {
   duration: number
   steps: number
@@ -48,7 +44,6 @@ export const SCROLL_REVEAL_CONFIG = {
     opacity: 0,
     y: 60,
     scale: 0.96,
-    // blur removed — filter is not GPU-composited and hurts LCP/CLS
   },
   animate: {
     opacity: 1,

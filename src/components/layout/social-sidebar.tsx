@@ -4,18 +4,12 @@ import { memo } from "react"
 import { Linkedin, Instagram, Facebook, Mail } from "lucide-react"
 import { COMPANY_INFO } from "@/lib/constants/footer"
 
-/* ---------------------------------------------------------------------------
- * Internal: a single icon link with a subtle hover affordance.
- * `mailto:` hrefs skip target/rel so the OS handles them natively.
- * ------------------------------------------------------------------------- */
 
 interface SocialLinkProps {
   href: string
   label: string
   icon: typeof Linkedin
-  /** Lucide icon size in px. Default 22. */
   size?: number
-  /** Override the default 40 × 40 hit area. */
   wrapperClass?: string
 }
 
@@ -46,13 +40,6 @@ const SocialLink = memo(function SocialLink({
   )
 })
 
-/* ---------------------------------------------------------------------------
- * <SocialSidebar /> — desktop-only vertical brand rail (lg+).
- *
- * Hidden on mobile/tablet so the section-nav FAB and back-to-top button keep
- * the bottom of the viewport clear. Mobile users see <SocialLinks /> in the
- * Footer instead.
- * ------------------------------------------------------------------------- */
 
 export function SocialSidebar() {
   return (
@@ -80,19 +67,10 @@ export function SocialSidebar() {
         label="Email"
         icon={Mail}
       />
-
-      {/* Original text styling preserved. */}
      
     </aside>
   )
 }
-
-/* ---------------------------------------------------------------------------
- * <SocialLinks /> — non-fixed inline cluster for the Footer.
- *
- * Smaller hit area than the sidebar version; intended to live in the footer
- * row so mobile users still get social access without a sticky bottom bar.
- * ------------------------------------------------------------------------- */
 
 export function SocialLinks({ className }: { className?: string }) {
   return (
@@ -128,8 +106,6 @@ export function SocialLinks({ className }: { className?: string }) {
     </div>
   )
 }
-
-/* ------------------------------------------------------------------------- */
 
 function cn(...classes: Array<string | false | null | undefined>): string {
   return classes.filter(Boolean).join(" ")

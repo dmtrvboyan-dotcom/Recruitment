@@ -37,45 +37,38 @@ export const FAQItem = memo(function FAQItem({
         aria-expanded={isOpen}
       >
         <span className="flex items-center gap-4 sm:gap-6 min-w-0">
-          {/* Number + Q label */}
           <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-brand-coral tabular-nums shrink-0">
             {number}. Q
           </span>
 
-          {/* Question */}
           <h3
-            className={`text-base sm:text-lg lg:text-xl font-bold uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${
-              isOpen
+            className={`text-base sm:text-lg lg:text-xl font-bold uppercase tracking-[-0.015em] leading-snug transition-colors duration-300 ${isOpen
                 ? "text-brand-coral"
                 : "text-brand-navy group-hover:text-brand-coral"
-            }`}
+              }`}
           >
             {faq.q}
           </h3>
         </span>
 
-        {/* Plus / × button */}
         <span
-          className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
-            isOpen
+          className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen
               ? "bg-brand-coral rotate-45"
               : "bg-brand-navy/5 group-hover:bg-brand-coral/15"
-          }`}
+            }`}
         >
           <Plus
-            className={`w-4 h-4 transition-colors duration-300 ${
-              isOpen
+            className={`w-4 h-4 transition-colors duration-300 ${isOpen
                 ? "text-white"
                 : "text-brand-navy/60 group-hover:text-brand-coral"
-            }`}
+              }`}
             strokeWidth={2}
           />
         </span>
       </button>
 
-      {/* Answer — grid-row expand */}
       <div
-        className="grid transition-all duration-[400ms] ease-out"
+        className="grid transition-all duration-400 ease-out"
         style={{
           gridTemplateRows: isOpen ? "1fr" : "0fr",
           opacity: isOpen ? 1 : 0,
@@ -84,7 +77,7 @@ export const FAQItem = memo(function FAQItem({
       >
         <div className="overflow-hidden">
           <div className="pl-8 sm:pl-12 pr-12 pb-7 sm:pb-8 -mt-1 flex gap-4 sm:gap-5">
-            <div className="w-[2px] bg-brand-coral shrink-0 rounded-full" />
+            <div className="w-0.5 bg-brand-coral shrink-0 rounded-full" />
             <p className="text-sm sm:text-base text-brand-navy/60 leading-relaxed max-w-2xl">
               {faq.a}
             </p>
