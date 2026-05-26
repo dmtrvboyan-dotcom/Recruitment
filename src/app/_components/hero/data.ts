@@ -1,4 +1,3 @@
-/** All service labels that rotate in the hero tagline. */
 export const SERVICES = [
   "Hiring in Bulgaria",
   "Executive Search",
@@ -7,15 +6,10 @@ export const SERVICES = [
   "Employ Locally with no Entity (EOR)",
 ] as const
 
-// ── Rotating-text animation timings ──────────────────────────────────────────
-/** How long (ms) each label stays fully visible before it starts to exit. */
 export const PAUSE_MS  = 800
-/** Duration (ms) of the exit (slide-up + fade-out) animation. */
 export const EXIT_MS   = 500
-/** Duration (ms) of the enter (slide-up + fade-in) animation. */
 export const ENTER_MS  = 580
 
-// ── Stat blocks ───────────────────────────────────────────────────────────────
 export interface StatItem {
   value:      string
   suffix?:    string

@@ -4,9 +4,6 @@ import { memo, useState, useEffect, useRef, useMemo } from "react"
 
 const NUM_RE = /^(\D*)(\d[\d,]*)(\D*)$/
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
 export interface StatBlockProps {
     value: string
     suffix?: string

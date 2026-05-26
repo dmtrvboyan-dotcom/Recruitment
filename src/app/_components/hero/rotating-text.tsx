@@ -3,21 +3,8 @@
 import { memo, useState, useEffect } from "react"
 import { SERVICES, PAUSE_MS, EXIT_MS, ENTER_MS } from "./data"
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
 type AnimPhase = "idle" | "exiting" | "entering"
 
-// ---------------------------------------------------------------------------
-// Component
-// ---------------------------------------------------------------------------
-/**
- * Cycles through every entry in SERVICES with a slide-up / fade animation.
- * Pass `active={false}` to freeze it on the first item (e.g. before hydration
- * or when the user prefers reduced motion).
- *
- * The required keyframes (`rtext-in` / `rtext-out`) live in `globals.css`.
- */
 export const RotatingText = memo(function RotatingText({
   active,
 }: {

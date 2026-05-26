@@ -8,9 +8,6 @@ import { RotatingText } from "./rotating-text"
 import { StatBlock } from "./stat-block"
 import { STATS } from "./data"
 
-// ---------------------------------------------------------------------------
-// Component
-// ---------------------------------------------------------------------------
 export const Hero = memo(function Hero() {
   const animationsReady = usePostLoadAnimations()
 
@@ -21,7 +18,6 @@ export const Hero = memo(function Hero() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white">
 
-      {/* ── Decorative blobs ───────────────────────────────────────────── */}
       <div
         aria-hidden
         className="absolute -top-32 left-1/2 -translate-x-1/2
@@ -38,7 +34,6 @@ export const Hero = memo(function Hero() {
           blur-[130px] pointer-events-none"
       />
 
-      {/* ── Watermark ──────────────────────────────────────────────────── */}
       <div
         aria-hidden
         className="hidden lg:block absolute top-[42%] left-1/2 -translate-x-1/2
@@ -49,14 +44,12 @@ export const Hero = memo(function Hero() {
         HIRE
       </div>
 
-      {/* ── Main copy ──────────────────────────────────────────────────── */}
       <div className="relative z-10 flex-1 flex items-center justify-center
         px-5 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full
         py-10 sm:py-12 lg:py-14"
       >
         <div className="w-full flex flex-col items-center text-center mt-30">
 
-          {/* Eye-brow label */}
           <div className="flex items-center justify-center gap-3 sm:gap-3.5
             mb-5 sm:mb-7 animate-fade-in-up delay-100"
           >
@@ -67,7 +60,6 @@ export const Hero = memo(function Hero() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
-          {/* Headline */}
           <h1 className="text-[clamp(2.25rem,9vw,6rem)] font-bold
             leading-[0.95] sm:leading-[0.92] tracking-tight uppercase
             text-brand-navy mb-6 sm:mb-8 max-w-5xl"
@@ -77,7 +69,6 @@ export const Hero = memo(function Hero() {
             <span className="text-brand-coral">Tech Roles</span>
           </h1>
 
-          {/* Rotating tagline */}
           <div className="flex flex-col items-center max-w-lg w-full
             mb-8 sm:mb-10 animate-fade-in-up delay-200 px-4 sm:px-0 text-center justify-center p-4"
           >
@@ -88,7 +79,6 @@ export const Hero = memo(function Hero() {
             <div className="mt-4 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center
             gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300"
           >
@@ -108,7 +98,6 @@ export const Hero = memo(function Hero() {
         </div>
       </div>
 
-      {/* ── Stats bar ──────────────────────────────────────────────────── */}
       <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full pb-8 sm:pb-10">
         <div className="grid grid-cols-2 lg:grid-cols-4
           bg-brand-navy/92 backdrop-blur-md
