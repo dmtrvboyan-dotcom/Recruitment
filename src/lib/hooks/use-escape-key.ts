@@ -2,9 +2,6 @@
 
 import { useEffect, RefObject } from "react"
 
-/**
- * Hook to handle escape key press
- */
 export function useEscapeKey(callback: () => void): void {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {

@@ -1,7 +1,3 @@
-/**
- * Services section data and configuration
- */
-
 import { Users, Briefcase, Clock, Globe, Search, UserCheck, type LucideIcon } from "lucide-react"
 
 export interface ServiceSection {
@@ -25,6 +21,45 @@ export interface Service {
   stats: ServiceStat[]
   href: string
 }
+
+export const SERVICE_LAYOUT = [
+  {
+    lg: "lg:col-span-7",
+    md: "md:col-span-2",
+    variant: "feature" as const,
+    borders: "border-b-3 lg:border-b-3 lg:border-r-3 border-brand-navy/10",
+  },
+  {
+    lg: "lg:col-span-5",
+    md: "md:col-span-1",
+    variant: "default" as const,
+    borders: "border-b-3 border-brand-navy/10",
+  },
+  {
+    lg: "lg:col-span-4",
+    md: "md:col-span-1",
+    variant: "default" as const,
+    borders: "border-b-3 md:border-r-3 lg:border-r-3 border-brand-navy/10",
+  },
+  {
+    lg: "lg:col-span-4",
+    md: "md:col-span-1",
+    variant: "default" as const,
+    borders: "border-b-3 lg:border-r-3 border-brand-navy/10",
+  },
+  {
+    lg: "lg:col-span-4",
+    md: "md:col-span-1",
+    variant: "default" as const,
+    borders: "border-b-3 md:border-r-3 lg:border-r-0 border-brand-navy/10",
+  },
+  {
+    lg: "lg:col-span-12",
+    md: "md:col-span-2",
+    variant: "wide" as const,
+    borders: "",
+  },
+]
 
 export const SERVICES: Service[] = [
   {
@@ -231,5 +266,4 @@ export const SERVICES: Service[] = [
     ],
     href: "/services/it-payroll-compliance-advisory",
   },
-
-]
+];

@@ -1,11 +1,9 @@
 "use client"
 
 import { memo } from "react"
-import { ChevronDown, ArrowUpRight, Users } from "lucide-react"
-import Link from "next/link"
+import { ChevronDown, ArrowUpRight } from "lucide-react"
 import { type Service } from "@/lib/constants/services"
 import { AppButton } from '@/components/ui/app-button';
-
 
 export const MobileServiceItem = memo(function MobileServiceItem({
   service,
@@ -46,7 +44,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
               className={`font-bold leading-[0.85] tracking-[-0.04em] text-4xl sm:text-5xl transition-colors duration-300
                 ${isOpen
                   ? "text-brand-coral/40"
-                  : "text-brand-navy/8"
+                  : "text-brand-navy/50"
                 }
               `}
             >
@@ -102,7 +100,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
       </button>
 
       <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[1600px] opacity-100" : "max-h-0 opacity-0"
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-400 opacity-100" : "max-h-0 opacity-0"
           }`}
       >
         <div className="px-5 sm:px-6 pb-6 sm:pb-7">
@@ -145,7 +143,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
                         }`}
                     >
                       <span
-                        className={`text-brand-coral text-lg leading-none mt-0.5 flex-shrink-0`}
+                        className={`text-brand-coral text-lg leading-none mt-0.5 shrink-0`}
                       >
                         &bull;
                       </span>

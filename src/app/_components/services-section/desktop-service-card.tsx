@@ -25,17 +25,9 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
     return (
       <button
         onClick={onSelect}
-        className={`group relative w-full h-full text-left flex flex-col justify-between overflow-hidden p-6 sm:p-7 lg:p-8 min-h-[220px] lg:min-h-[260px] bg-brand-navy text-brand-white transition-colors duration-300 cursor-pointer ${
-          isSelected ? "bg-brand-navy/95" : ""
-        }`}
+        className={`group relative w-full h-full text-left flex flex-col justify-between overflow-hidden p-6 sm:p-7 lg:p-8 min-h-55 lg:min-h-65 bg-brand-navy text-brand-white transition-colors duration-300 cursor-pointer ${isSelected ? "bg-brand-navy/95" : ""
+          }`}
       >
-        <div className="flex items-start justify-between">
-          <span className="font-serif italic text-[12px] sm:text-[13px] tracking-[0.18em] text-brand-coral">
-           
-          </span>
-        
-        </div>
-
         <div>
           <div className="font-bold leading-[0.85] tracking-[-0.04em] text-brand-coral/50 text-5xl sm:text-6xl lg:text-7xl mb-2">
             {number}
@@ -61,9 +53,8 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
     return (
       <button
         onClick={onSelect}
-        className={`group relative w-full h-full text-left overflow-hidden p-6 sm:p-7 lg:p-8 min-h-[140px] lg:min-h-[160px] bg-brand-white transition-colors duration-300 cursor-pointer ${
-          isSelected ? "bg-brand-coral/5" : ""
-        }`}
+        className={`group relative w-full h-full text-left overflow-hidden p-6 sm:p-7 lg:p-8 min-h-35 lg:min-h-40 bg-brand-white transition-colors duration-300 cursor-pointer ${isSelected ? "bg-brand-coral/5" : ""
+          }`}
       >
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 lg:gap-8 h-full">
           <div className="flex items-center justify-between lg:justify-start lg:gap-6 lg:shrink-0">
@@ -99,9 +90,8 @@ export const DesktopServiceCard = memo(function DesktopServiceCard({
   return (
     <button
       onClick={onSelect}
-      className={`group relative w-full h-full text-left flex flex-col justify-between overflow-hidden p-5 sm:p-6 lg:p-7 min-h-[160px] sm:min-h-[180px] lg:min-h-[200px] bg-brand-white transition-colors duration-300 cursor-pointer ${
-        isSelected ? "bg-brand-coral/5" : ""
-      }`}
+      className={`group relative w-full h-full text-left flex flex-col justify-between overflow-hidden p-5 sm:p-6 lg:p-7 min-h-40 sm:min-h-45 lg:min-h-50 bg-brand-white transition-colors duration-300 cursor-pointer ${isSelected ? "bg-brand-coral/5" : ""
+        }`}
     >
       <div className="flex items-start justify-between">
         <span className="font-bold leading-[0.85] tracking-[-0.04em] text-brand-navy/50 group-hover:text-brand-navy/80 transition-colors duration-300 text-4xl sm:text-5xl lg:text-5xl">

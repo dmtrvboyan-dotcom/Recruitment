@@ -1,11 +1,9 @@
 "use client"
 
-import Link from "next/link"
 import { memo } from "react"
 import { X, ArrowUpRight } from "lucide-react"
 import { type Service } from "@/lib/constants/services"
 import { AppButton } from '@/components/ui/app-button';
-
 
 export const DesktopPanel = memo(function DesktopPanel({
   service,
@@ -30,7 +28,7 @@ export const DesktopPanel = memo(function DesktopPanel({
         className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${service ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        <div className="sticky top-0 left-0 right-0 h-[3px] bg-brand-coral z-20" />
+        <div className="sticky top-0 left-0 right-0 h-0.75 bg-brand-coral z-20" />
 
         {service && (
           <div className="relative">
@@ -70,7 +68,7 @@ export const DesktopPanel = memo(function DesktopPanel({
                 </p>
               )}
 
-              <div className="h-[2px] w-12 bg-brand-coral mb-7" />
+              <div className="h-0.5 w-12 bg-brand-coral mb-7" />
 
               {service.intro && (
                 <p className="text-base lg:text-lg leading-relaxed text-brand-navy/60 mb-10 max-w-2xl">
@@ -90,7 +88,7 @@ export const DesktopPanel = memo(function DesktopPanel({
                           key={i}
                           className="flex items-start gap-3 text-[15px] lg:text-base leading-relaxed text-brand-navy/70"
                         >
-                          <span className="text-brand-coral text-lg leading-none mt-0.5 flex-shrink-0">
+                          <span className="text-brand-coral text-lg leading-none mt-0.5 shrink-0">
                             &bull;
                           </span>
                           <span>{point}</span>
@@ -108,19 +106,6 @@ export const DesktopPanel = memo(function DesktopPanel({
                   strokeWidth={1.5}
                 />
               </AppButton>
-
-              {/* <Link
-                href={service.href}
-                className="group relative inline-flex items-center justify-center gap-2.5 py-5 px-10 bg-brand-coral hover:bg-brand-coral-hover text-brand-white text-md font-semibold tracking-[0.22em] uppercase rounded-full transition-colors duration-200 mb-3 active:scale-95"
-              >
-                <span className="absolute inset-0 rounded-full animate-ping-slow bg-brand-coral opacity-30 pointer-events-none" />
-
-                Learn more
-                <ArrowUpRight
-                  className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
-                  strokeWidth={1.5}
-                />
-              </Link> */}
 
             </div>
 

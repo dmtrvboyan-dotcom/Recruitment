@@ -1,11 +1,8 @@
 "use client"
 
-import Link from 'next/link'
 import { memo } from "react"
-import { ArrowRight } from "lucide-react"
 import { COMPANIES } from "./companies"
 import { AppButton } from '@/components/ui/app-button';
-
 
 function MarqueeRow({
   companies,
@@ -18,15 +15,15 @@ function MarqueeRow({
   duration?: string
   variant?: "white" | "coral"
 }) {
-const items = [...companies, ...companies];
+  const items = [...companies, ...companies];
 
   const textColor =
     variant === "coral" ? "text-brand-coral/60" : "text-brand-white/35"
 
   return (
     <div className="relative overflow-hidden py-3 sm:py-5 w-screen left-1/2 -translate-x-1/2">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 lg:w-48 z-10 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 lg:w-48 z-10 bg-gradient-to-l from-brand-navy via-brand-navy/85 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 lg:w-48 z-10 bg-linear-to-r from-brand-navy via-brand-navy/85 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 lg:w-48 z-10 bg-linear-to-l from-brand-navy via-brand-navy/85 to-transparent" />
 
       <div
         className="flex w-max"
@@ -50,7 +47,7 @@ const items = [...companies, ...companies];
         ))}
       </div>
 
-   
+
     </div>
   )
 }
@@ -61,16 +58,16 @@ export const TrustedBySection = memo(function TrustedBySection() {
 
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-white-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 w-90 h-90 lg:w-130 lg:h-130 rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="hidden lg:block absolute top-[48%] -right-32 w-[420px] h-[420px] rounded-full bg-white-teal/18 blur-[130px] pointer-events-none"
+        className="hidden lg:block absolute top-[48%] -right-32 w-105 h-105 rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
       />
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
       >
         TRUSTED
       </div>
@@ -90,7 +87,7 @@ export const TrustedBySection = memo(function TrustedBySection() {
           <span className="text-brand-coral">partnered with.</span>
         </h2>
 
-        <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
+        <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
 
         <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
           From early-stage startups to scaling enterprises

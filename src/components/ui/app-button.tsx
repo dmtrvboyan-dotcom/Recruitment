@@ -1,4 +1,3 @@
-// components/ui/app-button.tsx
 import { cva, type VariantProps } from "class-variance-authority";
 import Link from "next/link";
 import { ArrowRight, Upload } from "lucide-react";
