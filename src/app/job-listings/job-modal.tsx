@@ -4,6 +4,8 @@ import { MapPin, X, Briefcase, Layers, CheckCircle2 } from "lucide-react"
 import { JOB_DETAILS, type Job } from "@/lib/data/jobs"
 import { useEscapeKey, useBodyScrollLockWithPosition } from "@/lib/hooks"
 import { BulletList } from "./bullet-list"
+import { AppButton } from "@/components/ui/app-button"
+
 
 interface JobModalProps {
   job: Job
@@ -216,16 +218,14 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
               </span>
             </p>
           </div>
-          <button
-            onClick={() => console.log(`Applying for: ${job.title}`)}
-            className="w-full sm:w-auto px-10 sm:px-12 bg-brand-navy hover:bg-brand-teal text-brand-white py-4 sm:py-5 rounded-full font-semibold uppercase tracking-[0.22em] text-[11px] transition-colors shadow-xl shadow-brand-navy/10 active:scale-[0.98] cursor-pointer"
-          >
+          <AppButton href="/contacts" variant="primary" className="sm:w-auto">
             Submit Application
-          </button>
+          </AppButton>
         </div>
       </div>
     </div>
   )
+
 
   return ReactDOM.createPortal(modalContent, document.body)
 })

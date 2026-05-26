@@ -323,7 +323,7 @@ export default function PayrollCompliancePage() {
 
           <div
             aria-hidden
-            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5] select-none pointer-events-none"
+            className="absolute -top-6 right-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5] text-brand-white/2 select-none pointer-events-none"
           >
             METHOD
           </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/layout"
 import { AppButton } from "@/components/ui/app-button"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, ArrowRight } from "lucide-react"
 
 import {
   HERO,
@@ -13,7 +13,9 @@ import {
   WHY_ITEMS,
   BENEFITS,
   FAQ_ITEMS,
+  MID_CTA,
   CTA,
+  CROSS_SELLS,
 } from "./data";
 import { BackToTop } from "@/components/navigation/back-to-top"
 
@@ -167,12 +169,9 @@ export default function EmployerOfRecordPage() {
               {HERO.description}
             </p>
 
-            <p className="text-sm text-white/45 mb-8 lg:mb-10">
-              Need help finding the talent first?{" "}
-              <Link href="/services/permanent-it-recruitment" className="text-brand-coral underline underline-offset-2 hover:text-brand-coral/80 transition-colors font-medium">
-                See Permanent IT Recruitment →
-              </Link>
-            </p>
+            {/* ✅ FIX 1: Removed the "See Permanent IT Recruitment" leak.
+                That link was sending users away before they'd read the page.
+                Moved to the cross-sell strip at the very bottom instead. */}
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <AppButton href={CTA.primaryButton.href} icon="arrow" className="sm:w-auto">
@@ -308,9 +307,11 @@ export default function EmployerOfRecordPage() {
                 )
               })}
             </div>
+
+            {/* ✅ FIX: Kept payroll cross-sell here — it's well-placed after services */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
-              <AppButton href={CTA.thirdButton.href} icon="arrow" className="sm:w-auto">
-                {CTA.thirdButton.text}
+              <AppButton href="/services/it-payroll-compliance-advisory" icon="arrow" className="sm:w-auto">
+                Need payroll &amp; compliance managed?
               </AppButton>
             </div>
           </div>
@@ -481,6 +482,7 @@ export default function EmployerOfRecordPage() {
         </section>
       </ScrollReveal>
 
+  
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <ScrollReveal>
         <section className="relative w-full bg-brand-white py-20 lg:py-28 border-t border-brand-navy/8">
@@ -511,7 +513,6 @@ export default function EmployerOfRecordPage() {
         </section>
       </ScrollReveal>
 
-      {/* ── CTA: Dramatic finale ──────────────────────────────────────────── */}
       <ScrollReveal>
         <section className="relative w-full px-3 sm:px-5 lg:px-10 pb-12 lg:pb-20">
           <div className="relative bg-brand-navy rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
@@ -571,12 +572,15 @@ export default function EmployerOfRecordPage() {
                 <AppButton href={CTA.primaryButton.href} icon="arrow" className="sm:w-auto">
                   {CTA.primaryButton.text}
                 </AppButton>
+                <AppButton href={CTA.secondaryButton.href} variant="outline" className="sm:w-auto">
+                  {CTA.secondaryButton.text}
+                </AppButton>
               </div>
             </div>
           </div>
         </section>
       </ScrollReveal>
-      < BackToTop hideOnMobile />
+      <BackToTop hideOnMobile />
 
     </>
   )

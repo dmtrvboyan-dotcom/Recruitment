@@ -268,8 +268,8 @@ export const CTA_DATA: CtaData = {
     href: "/tech-recruitment",
   },
   processBtn: {
-    text: "Our Full Recruitment Process",
-    href: "/process",
+    text: "Need someone faster? Contact hiring",
+    href: "/contacts",
   },
 
 

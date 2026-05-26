@@ -222,9 +222,10 @@ export const WhatYouGet = memo(function WhatYouGet() {
             transition: "opacity 0.7s ease 650ms",
           }}
         >
-          <AppButton href="/#services" variant="navy" icon="arrow" className="sm:w-auto">
-            Explore our services
+          <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
+            I want to hire
           </AppButton>
+         
         </div>
 
       </div>

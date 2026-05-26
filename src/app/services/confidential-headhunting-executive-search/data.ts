@@ -425,8 +425,8 @@ export const CtaData: CtaData = {
     href: "/process",
   },
   sectorsBtn: {
-    text: "Ready to Build Your Team?",
-    href: "/services/permanent-it-recruitment",
+    text: "Start a confidential search",
+    href: "/contacts",
   },
   sectorsBtnSecond: {
     text: "Hiring Across Borders?",

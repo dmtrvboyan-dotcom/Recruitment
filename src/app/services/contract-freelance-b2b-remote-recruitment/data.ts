@@ -55,7 +55,11 @@ export interface CtaData {
   title: string
   description: string
   primaryButton: { text: string; href: string }
-  secondaryButton: { text: string; href: string }
+  secondaryButton: { text: string; href: string },
+  methodCTA: { text: string; href: string },
+  secondMethodCTA: { text: string; href: string },
+  advantageCTA: { text: string; href: string },
+
 }
 
 export const HERO_DATA: HeroData = {
@@ -210,7 +214,19 @@ export const CTA_DATA: CtaData = {
     href: "/contacts",
   },
   secondaryButton: {
-    text: "Download our Contract Hiring Guide",
-    href: "/contract-hiring-guide.pdf",
+    text: "See how we work",
+    href: "/process",
   },
+  methodCTA: {
+    text: "Start hiring",
+    href: "/contacts",
+  },
+  secondMethodCTA: {
+    text: "Need permanent hires?",
+    href: "/services/permanent-it-recruitment",
+  },
+  advantageCTA: {
+    text: "Want to convert a contractor to full-time?",
+    href: "/services/employer-of-record",
+  }
 }

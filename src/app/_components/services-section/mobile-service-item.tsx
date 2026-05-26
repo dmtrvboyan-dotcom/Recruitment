@@ -180,15 +180,22 @@ export const MobileServiceItem = memo(function MobileServiceItem({
 
             <AppButton
               href={service.href}
-              variant={isFeature ? "primary" : "navy"}
               className="mt-6 w-full"
             >
-              Learn more <span className="sr-only">about {service.title}</span>
+              Learn more about our service <span className="sr-only">about {service.title}</span>
               <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />
             </AppButton>
+            <AppButton href="/contacts" variant="navy" >
+              Talk to Us
+              <ArrowUpRight
+                className="w-4 h-4"
+                strokeWidth={1.5}
+              />
+            </AppButton>
           </div>
+
         </div>
       </div>
-    </div>
+    </div >
   )
 })

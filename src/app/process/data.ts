@@ -65,8 +65,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
     body: "When you make an offer and the candidate accepts, the role is closed. Our fee is due only on a successful placement. No hire, no invoice - and we restart the process if anything falls through.",
     icon: Trophy,
     ctaAfter: {
-      text: "Need someone faster? See our contract fast-track",
-      href: "/services/contract-freelance-b2b-remote-recruitment",
+      text: "Ready to start the process?",
+      href: "/contacts",
     },
   },
 ]

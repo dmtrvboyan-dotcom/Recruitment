@@ -267,7 +267,7 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
             transition: "opacity 0.7s ease 200ms",
           }}
         >
-          <AppButton href="/partnerhships" variant="navy" icon="arrow" className="sm:w-auto">
+          <AppButton href="/partnerships" variant="navy" icon="arrow" className="sm:w-auto">
             See our partner companies
           </AppButton>
         </div>

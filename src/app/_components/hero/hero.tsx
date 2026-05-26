@@ -83,11 +83,11 @@ export const Hero = memo(function Hero() {
             gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300"
           >
             <AppButton
-              onClick={() => handleNavigate("#trusted-companies")}
+              onClick={() => handleNavigate("#services")}
               icon="arrow"
               className="sm:w-auto"
             >
-              Learn More
+              Start hiring
             </AppButton>
 
             <AppButton href="/job-listings" variant="navy" className="sm:w-auto">

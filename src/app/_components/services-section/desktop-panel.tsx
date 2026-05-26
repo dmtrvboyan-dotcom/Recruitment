@@ -99,13 +99,24 @@ export const DesktopPanel = memo(function DesktopPanel({
                 ))}
               </div>
 
-              <AppButton href={service.href} ping>
-                Learn more <span className="sr-only">about {service.title}</span>
-                <ArrowUpRight
-                  className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
-                  strokeWidth={1.5}
-                />
-              </AppButton>
+              <div className="flex flex-row items-center justify-center gap-4">
+                <AppButton href={service.href} ping>
+                  Learn more about our service{" "}
+                  <span className="sr-only">about {service.title}</span>
+                  <ArrowUpRight
+                    className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
+                    strokeWidth={1.5}
+                  />
+                </AppButton>
+
+                <AppButton href="/contacts" variant="navy" >
+                  Talk to Us
+                  <ArrowUpRight
+                    className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
+                    strokeWidth={1.5}
+                  />
+                </AppButton>
+              </div>
 
             </div>
 

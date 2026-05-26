@@ -46,6 +46,12 @@ export interface FaqItem {
   answer: string
 }
 
+export interface CrossSellItem {
+  text: string
+  linkLabel: string
+  href: string
+}
+
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 export const HERO = {
@@ -249,7 +255,24 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
 ]
 
-// ─── CTA ──────────────────────────────────────────────────────────────────────
+// ─── Mid-page CTA (between Why EoR and FAQ) ──────────────────────────────────
+
+export const MID_CTA = {
+  eyebrow: "Start hiring",
+  title: "Ready to build your team across borders?",
+  description:
+    "Tell us about your hiring needs and we'll walk you through how EoR works for your specific case — no commitment required.",
+  primaryButton: {
+    text: "Let's Talk",
+    href: "/contacts",
+  },
+  secondaryButton: {
+    text: "Need payroll & compliance managed?",
+    href: "/services/it-payroll-compliance-advisory",
+  },
+}
+
+// ─── Bottom CTA ───────────────────────────────────────────────────────────────
 
 export const CTA = {
   eyebrow: "Ready to Hire Globally?",
@@ -264,8 +287,24 @@ export const CTA = {
     text: "See how it works",
     href: "/process",
   },
-  thirdButton: {
+}
+
+// ─── Cross-sells (bottom of page, after main CTA) ────────────────────────────
+
+export const CROSS_SELLS: CrossSellItem[] = [
+  {
+    text: "Need help finding the talent first?",
+    linkLabel: "Permanent IT Recruitment →",
+    href: "/services/permanent-it-recruitment",
+  },
+  {
     text: "Need payroll & compliance managed?",
+    linkLabel: "IT Payroll & Compliance →",
     href: "/services/it-payroll-compliance-advisory",
   },
-}
+  {
+    text: "Hiring contractors or freelancers?",
+    linkLabel: "Contract & Freelance Hiring →",
+    href: "/services/contract-freelance-b2b-remote-recruitment",
+  },
+]

@@ -133,6 +133,9 @@ export default function ContractHiringPage() {
               <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
                 {CTA_DATA.primaryButton.text}
               </AppButton>
+              <AppButton href={CTA_DATA.secondaryButton.href} icon="arrow" variant="outline" className="sm:w-auto">
+                {CTA_DATA.secondaryButton.text}
+              </AppButton>
 
 
             </div>
@@ -140,9 +143,9 @@ export default function ContractHiringPage() {
         </div>
 
         {/* Stats — editorial strip */}
-        <div className="relative w-full border-t border-white/10">
+        <div className="relative w-full  border-white/10">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 ">
               {STATS.map((stat, i) => (
                 <div
                   key={i}
@@ -409,6 +412,14 @@ export default function ContractHiringPage() {
               })}
             </div>
           </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+            <AppButton href={CTA_DATA.methodCTA.href} icon="arrow" className="sm:w-auto">
+              {CTA_DATA.methodCTA.text}
+            </AppButton>
+            <AppButton href={CTA_DATA.secondMethodCTA.href} variant="outline" icon="arrow" className="sm:w-auto">
+              {CTA_DATA.secondMethodCTA.text}
+            </AppButton>
+          </div>
         </section>
       </ScrollReveal>
 
@@ -490,6 +501,12 @@ export default function ContractHiringPage() {
                 )
               })}
             </div>
+          </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+            <AppButton href={CTA_DATA.advantageCTA.href} icon="arrow" className="sm:w-auto">
+              {CTA_DATA.advantageCTA.text}
+            </AppButton>
+           
           </div>
         </section>
       </ScrollReveal>

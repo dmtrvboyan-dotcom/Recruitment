@@ -65,10 +65,9 @@ export function JobsSection() {
         className="hidden lg:block absolute bottom-0 -right-32 w-105 h-105 rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
       />
 
-      {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5select-none pointer-events-none whitespace-nowrap text-brand-navy"
       >
         Open Roles
       </div>

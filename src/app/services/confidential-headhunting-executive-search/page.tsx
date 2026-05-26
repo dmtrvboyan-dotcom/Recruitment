@@ -132,8 +132,11 @@ export default function ExecutiveSearchPage() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
-              <AppButton href="#specialism" icon="arrow" className="sm:w-auto">
-                Explore More
+              <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
+                Discuss your search
+              </AppButton>
+              <AppButton href="/process" icon="arrow" variant="outline" className="sm:w-auto">
+                How we work
               </AppButton>
             </div>
           </div>

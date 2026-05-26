@@ -103,7 +103,7 @@ export function ExpertiseSection() {
           <p className="text-sm font-medium text-brand-navy/45">
             Not sure where to start?{" "}
             <a
-              href="#contact"
+              href="/contacts"
               className="text-brand-coral hover:text-brand-coral-hover font-bold underline underline-offset-8 decoration-brand-coral/30 hover:decoration-brand-coral transition-all duration-200"
             >
               Contact us
