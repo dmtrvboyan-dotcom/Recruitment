@@ -9,7 +9,7 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
-export const TEAM_PHOTO = "/uploaded/team.jpg"
+export const TEAM_PHOTO = "/uploaded/team.webp"
 
 export const ABOUT_CONTENT = {
   tagline: "About Us",

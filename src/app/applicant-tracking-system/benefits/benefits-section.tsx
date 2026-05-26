@@ -22,10 +22,10 @@ function useInView(threshold = 0.2) {
 }
 
 const bgImages = [
-  "/smartr/time.png",
-  "/smartr/reduce.png",
-  "/smartr/experience.png",
-  "/smartr/gain.png",
+  "/smartr/time.webp",
+  "/smartr/reduce.webp",
+  "/smartr/experience.webp",
+  "/smartr/gain.webp",
 ]
 
 export const BenefitsSection = memo(function BenefitsSection() {
@@ -162,7 +162,7 @@ export const BenefitsSection = memo(function BenefitsSection() {
                       </span>
                     )}
                     {/* Animated accent line */}
-                    <div className="h-px w-12 bg-gradient-to-r from-brand-coral to-transparent" />
+                    <div className="h-px w-12 bg-linear-to-r from-brand-coral to-transparent" />
                   </div>
                 </div>
               </div>

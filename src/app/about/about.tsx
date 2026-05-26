@@ -2,15 +2,13 @@
 
 import { memo } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { scrollToSection } from "@/lib/utils/scroll"
 import { ABOUT_CONTENT } from "./data"
 
 export const About = memo(function About() {
   return (
     <section className="relative w-full h-dvh mx-auto overflow-hidden  mt-25">
       <Image
-        src="/uploaded/team.jpg"
+        src="/uploaded/team.webp"
         alt="Our team"
         fill
         sizes="97vw"

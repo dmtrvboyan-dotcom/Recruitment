@@ -37,7 +37,7 @@ export function HeroSection() {
       <div className="relative w-screen left-1/2 -translate-x-1/2 ">
 
         <Image
-          src="/smartr/smartr-1.png"
+          src="/smartr/smartr-1.webp"
           alt="Smart.R Dashboard - Visual Hiring Pipeline"
           width={1920}
           height={1080}

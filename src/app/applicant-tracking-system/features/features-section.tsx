@@ -5,12 +5,12 @@ import Image from "next/image"
 import { featuresData } from "./data"
 
 const featureImages: Record<string, string> = {
-  "Automated Workflows": "/smartr/workflow.png",
-  "Real-time Analytics": "/smartr/analytics.png",
-  "Team Collaboration": "/smartr/collab.png",
-  "Email Integration": "/smartr/email.png",
-  "Bulgarian Support": "/smartr/support.png",
-  "Resume Parsing": "/smartr/resume.png",
+  "Automated Workflows": "/smartr/workflow.webp",
+  "Real-time Analytics": "/smartr/analytics.webp",
+  "Team Collaboration": "/smartr/collab.webp",
+  "Email Integration": "/smartr/email.webp",
+  "Bulgarian Support": "/smartr/support.webp",
+  "Resume Parsing": "/smartr/resume.webp",
 }
 
 function useInView(threshold = 0.15) {

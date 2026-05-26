@@ -6,12 +6,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useSwipe } from "./useSwipe"
 
 const GALLERY_PHOTOS = [
-  { src: "/uploaded/team.jpg", alt: "Team photo" },
-  { src: "/uploaded/team1.png", alt: "Team at work" },
-  { src: "/uploaded/team2.png", alt: "Company culture" },
-  { src: "/uploaded/team3.png", alt: "Team event" },
-  { src: "/uploaded/team4.png", alt: "Office life" },
-  { src: "/uploaded/team5.png", alt: "Team gathering" },
+  { src: "/uploaded/team.webp", alt: "Team photo" },
+  { src: "/uploaded/team1.webp", alt: "Team at work" },
+  { src: "/uploaded/team2.webp", alt: "Company culture" },
+  { src: "/uploaded/team3.webp", alt: "Team event" },
+  { src: "/uploaded/team4.webp", alt: "Office life" },
+  { src: "/uploaded/team5.webp", alt: "Team gathering" },
 ]
 
 export function PhotoGallery() {
@@ -48,7 +48,6 @@ export function PhotoGallery() {
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
           className="object-cover transition-opacity duration-500 select-none pointer-events-none"
-          priority={activeIndex === 0}
           draggable={false}
         />
 

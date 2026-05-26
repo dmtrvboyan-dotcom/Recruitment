@@ -3,7 +3,7 @@ import { Fira_Code, Poppins } from "next/font/google"
 import "./globals.css"
 
 const poppins = Poppins({
-  weight: ["400", "600", "700", "900"],
+  weight: ["400", "600", "700"],
   subsets: ["latin"],
   display: "swap",
   preload: true,
@@ -13,7 +13,7 @@ const poppins = Poppins({
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "700"],
   display: "swap",
   preload: false,
   variable: "--font-fira-code",
@@ -66,9 +66,6 @@ export default function RootLayout({
       className={`${poppins.variable} bg-background`}
       suppressHydrationWarning
     >
-      <head>
-        <link rel="preload" as="image" href="/uploaded/recr-logo.webp" fetchPriority="high" />
-      </head>
       <body className={`${firaCode.variable} min-h-screen font-sans antialiased`}>
         {children}
       </body>

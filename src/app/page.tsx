@@ -1,19 +1,35 @@
+import dynamic from "next/dynamic"
 import { Header } from "@/components/layout/header/header"
 import { Footer, ScrollReveal, SocialSidebar } from "@/components/layout"
-import {
-  Hero,
-  Services,
-  SpecializedRecruitment,
-  TrustedBySection,
-  CompaniesSection,
-  SmartRSection,
-  FAQSection,
-  MeetTheTeam,
-  ExpertiseSection,
-} from "@/app/_components"
+import { Hero } from "@/app/_components/hero/hero"
 import { HashCleaner } from "../components/layout/hash-cleaner"
 import { SectionNav } from "@/components/navigation/section-nav"
 import { BackToTop } from "@/components/navigation/back-to-top"
+
+const TrustedBySection = dynamic(() =>
+  import("@/app/_components/companies-record/companies-record").then(m => m.TrustedBySection)
+)
+const Services = dynamic(() =>
+  import("@/app/_components/services-section/services").then(m => m.Services)
+)
+const MeetTheTeam = dynamic(() =>
+  import("@/app/_components/team-section/team").then(m => m.MeetTheTeam)
+)
+const SpecializedRecruitment = dynamic(() =>
+  import("@/app/_components/specialized-section/specialized").then(m => m.SpecializedRecruitment)
+)
+const CompaniesSection = dynamic(() =>
+  import("@/app/_components/companies-section/companies").then(m => m.CompaniesSection)
+)
+const ExpertiseSection = dynamic(() =>
+  import("@/app/_components/expertise-section/expertise").then(m => m.ExpertiseSection)
+)
+const SmartRSection = dynamic(() =>
+  import("@/app/_components/smartr-section/smartr").then(m => m.SmartRSection)
+)
+const FAQSection = dynamic(() =>
+  import("@/app/_components/faq-section/faq").then(m => m.FAQSection)
+)
 
 
 const sections = [

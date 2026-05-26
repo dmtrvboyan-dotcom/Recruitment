@@ -54,7 +54,7 @@ const SocialLinks = memo(function SocialLinks({ phoneHref }: { phoneHref: string
       <a
         href={phoneHref}
         aria-label="Call us"
-        className="md:hidden w-10 h-10 rounded-full bg-brand-navy/5 flex items-center justify-center hover:bg-brand-coral/10 transition-all group"
+        className="w-10 h-10 rounded-full bg-brand-navy/5 flex items-center justify-center hover:bg-brand-coral/10 transition-all group"
       >
         <Phone className="w-4 h-4 text-brand-blue group-hover:text-brand-coral transition-colors" />
       </a>
@@ -114,16 +114,6 @@ export function Footer() {
             <p className="text-brand-navy font-bold text-[10px] uppercase tracking-[0.25em]">
               {COMPANY_INFO.location}
             </p>
-
-            <a
-              href={COMPANY_INFO.phoneHref}
-              className="inline-flex items-center gap-3 text-sm text-brand-navy/80 hover:text-brand-coral transition-colors font-semibold group"
-            >
-              <div className="w-9 h-9 rounded-full bg-brand-navy/5 flex items-center justify-center group-hover:bg-brand-coral group-hover:text-white transition-all duration-300">
-                <Phone className="w-3.5 h-3.5" />
-              </div>
-              <span>{COMPANY_INFO.phoneNumber}</span>
-            </a>
           </div>
 
           <SocialLinks phoneHref={COMPANY_INFO.phoneHref} />

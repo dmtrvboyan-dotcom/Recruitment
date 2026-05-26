@@ -6,12 +6,11 @@ export function ProductImage() {
       <div className="relative w-[150%] left-1/2 -translate-x-1/2 max-w-none">
         <div className="relative aspect-video lg:aspect-16/8 rounded-2xl overflow-hidden">
           <Image
-            src="/uploaded/product-smart.png"
+            src="/uploaded/product-smart.webp"
             alt="Smart.R Applicant Tracking System Dashboard"
             fill
             className="object-cover object-top"
             sizes="100vw"
-            priority
           />
         </div>
       </div>

@@ -199,7 +199,7 @@ const HowItWorksSection = memo(function HowItWorksSection() {
           })}
         </div>
 
-      
+
         <div
           ref={ctaRef}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
@@ -263,7 +263,7 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
         >
           <div className="relative rounded-3xl overflow-hidden aspect-[16/9]">
             <Image
-              src="/uploaded/team.jpg"
+              src="/uploaded/team.webp"
               alt="The recruiting team"
               className="absolute inset-0 w-full h-full object-cover"
               fill
@@ -276,7 +276,7 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
           </div>
         </div>
 
-      
+
         <div
           ref={ctaRef}
           className="mt-10 flex justify-center"
