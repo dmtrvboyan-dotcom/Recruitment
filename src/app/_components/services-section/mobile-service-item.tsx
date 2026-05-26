@@ -25,7 +25,7 @@ export const MobileServiceItem = memo(function MobileServiceItem({
     <div
       className={`relative overflow-hidden transition-colors duration-300"
         ${isFeature
-          ? "bg-brand-navy text-brand-white  border-t-2 border-l-2 border-r-2"
+          ? "bg-brand-navy text-brand-white  border-t-2 border-b-2 border-l-2 border-r-2"
           : `bg-brand-white border-l-2 border-r-2 border-b-2 text-brand-navy ${isOpen ? "bg-brand-coral/5" : ""}`
         }
       `}

@@ -100,7 +100,7 @@ export function Services() {
           </div>
         </div>
 
-        <p className="text-center text-base sm:text-lg text-brand-navy/50 leading-relaxed mt-12 sm:mt-16 lg:mt-20 max-w-2xl mx-auto">
+        <p className="text-center sm:text-lg text-sm text-brand-navy/50 leading-relaxed mt-12 sm:mt-16 lg:mt-20 max-w-2xl mx-auto">
           End-to-end IT recruitment, helping companies hire tech professionals
           locally and globally.
         </p>

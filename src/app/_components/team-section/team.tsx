@@ -1,7 +1,5 @@
 "use client"
 
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 import { PhotoGallery } from "./photo-gallery"
 import { TeamCarousel } from "./team-carousel"
 import { AppButton } from '@/components/ui/app-button';
@@ -20,21 +18,19 @@ export function MeetTheTeam() {
       id="about"
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden"
     >
-
-
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/15 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 w-90 h-90 lg:w-130 lg:h-130 rounded-full bg-brand-coral/15 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="hidden lg:block absolute bottom-0 -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
+        className="hidden lg:block absolute bottom-0 -right-32 w-105 h-105 rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,20vw,18rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,20vw,18rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
       >
         PEOPLE
       </div>
@@ -55,13 +51,13 @@ export function MeetTheTeam() {
             <span className="text-brand-coral">you.</span>
           </h2>
 
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mb-8 sm:mb-10" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-8 sm:mb-10" />
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             {STATS.map((stat) => (
               <div
                 key={stat.label}
-                className="inline-flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 rounded-2xl bg-brand-white/5 border border-brand-white/10"
+                className="inline-flex w-90 items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 rounded-2xl bg-brand-white/5 border border-brand-white/10"
               >
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-2xl sm:text-3xl font-bold text-brand-white tabular-nums tracking-tight leading-none">

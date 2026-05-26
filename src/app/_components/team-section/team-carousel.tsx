@@ -57,7 +57,6 @@ export function TeamCarousel({ showQuote = true }: TeamCarouselProps) {
 
   return (
     <div>
-      {/* Carousel track */}
       <div
         className="relative overflow-hidden touch-pan-y"
         {...swipeHandlers}
@@ -69,7 +68,7 @@ export function TeamCarousel({ showQuote = true }: TeamCarouselProps) {
           {Array.from({ length: totalPages }).map((_, pageIndex) => (
             <div
               key={pageIndex}
-              className={`w-full flex-shrink-0 grid ${colsClass} gap-3 sm:gap-4`}
+              className={`w-full shrink-0 grid ${colsClass} gap-3 sm:gap-4`}
             >
               {TEAM_MEMBERS.slice(
                 pageIndex * membersPerPage,
@@ -87,7 +86,6 @@ export function TeamCarousel({ showQuote = true }: TeamCarouselProps) {
         </div>
       </div>
 
-      {/* Navigation: prev + "01 / 03" counter + next */}
       <div className="flex items-center justify-center gap-5 mt-8 bg-brand-navy rounded-4xl p-2">
         <button
           onClick={goToPrev}
@@ -98,7 +96,6 @@ export function TeamCarousel({ showQuote = true }: TeamCarouselProps) {
           <ChevronLeft className="w-5 h-5" strokeWidth={1.5} />
         </button>
 
-        {/* Editorial page indicator */}
         <div className="flex items-baseline gap-2">
           <span className="text-2xl sm:text-3xl font-bold text-brand-white tabular-nums tracking-tight leading-none">
             {String(currentPage + 1).padStart(2, "0")}

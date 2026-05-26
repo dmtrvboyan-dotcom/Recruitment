@@ -21,7 +21,7 @@ export const TeamMemberCard = memo(function TeamMemberCard({
   return (
     <div className="group relative overflow-hidden rounded-2xl bg-brand-navy border border-brand-white/10 hover:border-brand-coral/50 transition-colors duration-300 flex flex-col">
 
-      <div className="relative aspect-[3/3] overflow-hidden">
+      <div className="relative aspect-3/3 overflow-hidden">
         <Image
           src={member.image}
           alt={member.name}
@@ -30,7 +30,7 @@ export const TeamMemberCard = memo(function TeamMemberCard({
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/30 to-brand-navy/5" />
+        <div className="absolute inset-0 bg-linear-to-t from-brand-navy via-brand-navy/30 to-brand-navy/5" />
 
         {number && (
           <div className="absolute top-4 left-4 flex items-center gap-2">
@@ -63,14 +63,14 @@ export const TeamMemberCard = memo(function TeamMemberCard({
 
       {showQuote && member.quote && (
         <div className="flex gap-3 p-4">
-          <div className="w-[2px] bg-brand-coral/40 shrink-0" />
+          <div className="w-0.5 bg-brand-coral/40 shrink-0" />
           <p className="text-brand-white/50 text-xs italic leading-relaxed line-clamp-3 flex-1">
             &ldquo;{member.quote}&rdquo;
           </p>
         </div>
       )}
 
-      <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-brand-coral group-hover:w-full transition-all duration-500" />
+      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-coral group-hover:w-full transition-all duration-500" />
     </div>
   )
 })
