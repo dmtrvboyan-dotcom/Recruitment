@@ -9,7 +9,6 @@ import {
   Crown,
 } from "lucide-react"
 
-// All icons use navy color + light gray bg to match the reference design
 export const ICON_MAP: Record<
   string,
   { icon: React.ComponentType<{ className?: string }>; color: string; bg: string }

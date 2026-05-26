@@ -1,8 +1,6 @@
 "use client"
 
-import Link from 'next/link'
 import { useState } from "react"
-import { ArrowRight } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -14,7 +12,6 @@ import {
   TECH_CATEGORIES,
   type TechCategory,
 } from "@/lib/constants/specialized"
-import { scrollToSection } from "@/lib/utils/scroll"
 import { TechPill } from "./tech-pill"
 import { CategoryCard } from "./category-card"
 import { CategoryModal } from "./category-modal"
@@ -31,20 +28,19 @@ export function SpecializedRecruitment() {
       className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
     >
 
-
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:-left-32 lg:translate-x-0 w-[360px] h-[360px] lg:w-[520px] lg:h-[520px] rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 w-90 h-90 lg:w-130 lg:h-130 rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="hidden lg:block absolute bottom-0 -right-32 w-[420px] h-[420px] rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
+        className="hidden lg:block absolute bottom-0 -right-32 w-105 h-105 rounded-full bg-brand-teal/15 blur-[130px] pointer-events-none"
       />
 
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/[0.025] select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,22vw,20rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
       >
         STACK
       </div>
@@ -61,7 +57,7 @@ export function SpecializedRecruitment() {
           <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] uppercase text-brand-navy">
             Tech <span className="text-brand-coral"> Recruitment.</span>
           </h2>
-          <div className="mx-auto h-[2px] w-12 sm:w-16 bg-brand-coral mt-10 sm:mb-8" />
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mt-10 sm:mb-8" />
 
         </div>
 
@@ -96,12 +92,11 @@ export function SpecializedRecruitment() {
         </div>
       </div>
 
-
       <Dialog
         open={!!selectedCategory}
         onOpenChange={(open) => !open && setSelectedCategory(null)}
       >
-        <DialogContent className="max-w-2xl border-none bg-white p-0 rounded-3xl shadow-2xl overflow-hidden">
+        <DialogContent className="max-w-2xl border-none bg-brand-white p-0 rounded-3xl shadow-2xl overflow-hidden">
           <VisuallyHidden>
             <DialogTitle>{selectedCategory?.title}</DialogTitle>
           </VisuallyHidden>

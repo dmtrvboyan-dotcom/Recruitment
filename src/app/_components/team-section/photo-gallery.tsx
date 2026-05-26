@@ -37,7 +37,6 @@ export function PhotoGallery() {
 
   return (
     <div className="mb-12 sm:mb-16 lg:mb-20">
-      {/* Main image */}
       <div
         className="relative rounded-3xl overflow-hidden aspect-4/3 sm:aspect-video lg:aspect-video mb-3 cursor-grab active:cursor-grabbing touch-pan-y"
         {...swipeHandlers}
@@ -53,10 +52,8 @@ export function PhotoGallery() {
           draggable={false}
         />
 
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-linear-to-t from-brand-navy/75 via-brand-navy/15 to-brand-navy/20 pointer-events-none" />
 
-        {/* Editorial counter — top right */}
         <div className="absolute top-5 right-5 sm:top-7 sm:right-7 flex items-baseline gap-2">
           <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-white leading-none tabular-nums tracking-tight">
             {activeStr}
@@ -66,9 +63,6 @@ export function PhotoGallery() {
           </span>
         </div>
 
-
-
-        {/* Arrow navigation — bottom right */}
         <div className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7 flex items-center gap-2">
           <button
             onClick={goToPrev}

@@ -1,10 +1,6 @@
-/**
- * Specialized recruitment section data
- */
-
 export interface TechCategory {
   id: string
-  icon: string // lucide icon name or emoji fallback
+  icon: string 
   categoryLabel: string
   title: string
   subtitle: string
