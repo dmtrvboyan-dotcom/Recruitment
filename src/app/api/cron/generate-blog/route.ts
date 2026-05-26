@@ -1,4 +1,3 @@
-// app/api/cron/generate-blog/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { runBlogGeneration } from "@/lib/blog-automation/pipeline";
 

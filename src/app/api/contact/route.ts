@@ -8,8 +8,6 @@ export async function POST(req: Request) {
   try {
     const formData = await req.formData()
 
-    // reCAPTCHA Verification
-
     const token = formData.get("recaptchaToken")
     if (!token || typeof token !== "string") {
       return NextResponse.json({ error: "Missing reCAPTCHA token" }, { status: 400 })
@@ -33,7 +31,6 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Bot detected" }, { status: 403 })
     }
 
-    // Get / extract the fields
 
     const mode = (formData.get("mode") as string) ?? "candidate"
     const name = (formData.get("name") as string) ?? ""
@@ -44,12 +41,10 @@ export async function POST(req: Request) {
     const message = (formData.get("message") as string) ?? ""
 
 
-    // For company only option
     const interest = (formData.get("interest") as string) || undefined
     const tags = JSON.parse((formData.get("tags") as string) || "[]") as string[]
     const contactMethods = JSON.parse((formData.get("contactMethods") as string) || "[]") as string[]
 
-    // Build the email
 
     const templateProps = { mode: mode as "candidate" | "company", name, email, phone, title, company, message, interest, tags, contactMethods }
 
@@ -57,7 +52,6 @@ export async function POST(req: Request) {
       ? `New company inquiry from ${name}${company ? ` · ${company}` : ""}`
       : `New candidate application from ${name}`
 
-    // Handle CV attachment (candidate mode)
 
     const attachments: { filename: string; content: Buffer }[] = []
 
@@ -68,8 +62,6 @@ export async function POST(req: Request) {
         attachments.push({ filename: cv.name, content: buffer })
       }
     }
-
-    // Send via Resend
 
     const { error } = await resend.emails.send({
       from: process.env.CONTACT_FROM_EMAIL!,

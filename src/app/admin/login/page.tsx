@@ -1,4 +1,3 @@
-// app/admin/login/page.tsx  (server component)
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import { verifySessionToken, COOKIE_NAME } from "@/lib/session"
@@ -6,7 +5,7 @@ import { Suspense } from "react"
 import { LoginForm } from "./login-form"
 
 export default async function AdminLoginPage() {
-  // Check if already logged in — redirect straight to /admin if so
+
   const cookieStore = await cookies()
   const token = cookieStore.get(COOKIE_NAME)?.value
 

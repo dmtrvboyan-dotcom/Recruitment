@@ -1,4 +1,3 @@
-// app/api/admin/update-draft/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getDraft, saveDraft } from "@/lib/blog-automation/kv-storage";
 
@@ -15,7 +14,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Draft not found" }, { status: 404 });
   }
 
-  // Re-extract description from the edited frontmatter in case user changed it
   const descriptionMatch = content.match(/description:\s*["']?(.+?)["']?\n/);
   const description = descriptionMatch
     ? descriptionMatch[1].replace(/^["']|["']$/g, "")

@@ -1,4 +1,3 @@
-// app/api/admin/login/route.ts
 import { NextRequest, NextResponse } from "next/server"
 import { createSessionToken, cookieOptions, COOKIE_NAME } from "@/lib/session"
 
@@ -8,8 +7,6 @@ export async function POST(req: NextRequest) {
   const { password } = await req.json()
 
   if (!password || password !== process.env.ADMIN_SECRET) {
-    // Same error for wrong password and missing password
-    // (don't reveal which one it is)
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 

@@ -1,6 +1,3 @@
-// app/api/admin/update-post/route.ts
-// Updates an existing published post on GitHub
-
 import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -35,7 +32,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         message: `content(blog): update post "${slug}"`,
         content: Buffer.from(content).toString("base64"),
-        sha, // required by GitHub to update an existing file
+        sha,
         branch: process.env.GITHUB_BRANCH ?? "main",
       }),
     }

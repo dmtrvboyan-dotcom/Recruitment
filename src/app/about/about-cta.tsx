@@ -1,23 +1,9 @@
 "use client"
 
-import Link from 'next/link';
 import { memo } from "react"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { scrollToSection } from "@/lib/utils/scroll";
 import { AppButton } from '@/components/ui/app-button';
 
 export const AboutCTA = memo(function AboutCTA() {
-
-    const handleContactClick = () => {
-        const id = "#contact"
-
-        if (window.location.pathname === "/") {
-            scrollToSection(id)
-        } else {
-            window.location.href = `/${id}`
-        }
-    }
 
     return (
         <section className="relative w-full bg-brand-navy overflow-hidden">
@@ -46,12 +32,8 @@ export const AboutCTA = memo(function AboutCTA() {
                         <AppButton href="/contacts" icon="arrow" className="w sm:w-auto">
                             Contact Us
                         </AppButton>
-
                     </div>
-
-
                 </div>
-
             </div>
         </section>
     )

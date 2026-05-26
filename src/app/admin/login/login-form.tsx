@@ -1,4 +1,3 @@
-// app/admin/login/LoginForm.tsx  (client component)
 "use client"
 
 import { useState, FormEvent } from "react"
@@ -32,7 +31,7 @@ export function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-2xl shadow-sm p-8">
+    <div className="w-full max-w-sm bg-brand-white border border-gray-200 rounded-2xl shadow-sm p-8">
       <h1 className="text-2xl font-semibold text-gray-900 mb-1">Blog Admin</h1>
       <p className="text-sm text-gray-500 mb-6">Enter your admin password to continue.</p>
 

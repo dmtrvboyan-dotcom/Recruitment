@@ -82,13 +82,13 @@ export const WhatYouGet = memo(function WhatYouGet() {
   const { ref: headerRef, visible: headerVisible } = useInView()
 
   return (
-    <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
+    <section className="relative w-full bg-brand-white overflow-hidden">
 
       <div
         aria-hidden
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
-        <span className="text-[18vw] font-bold uppercase tracking-tighter text-brand-navy/[0.025] whitespace-nowrap leading-none">
+        <span className="text-[18vw] font-bold uppercase tracking-tighter text-brand-navy/2.5 whitespace-nowrap leading-none">
           VS
         </span>
       </div>
@@ -165,7 +165,6 @@ export const WhatYouGet = memo(function WhatYouGet() {
             </div>
           </div>
 
-          {/* NOT card */}
           <div
             ref={rightRef}
             className="relative rounded-3xl bg-white border border-brand-navy/8 p-8 sm:p-10 overflow-hidden"
@@ -201,7 +200,6 @@ export const WhatYouGet = memo(function WhatYouGet() {
 
         </div>
 
-        {/* Bottom quote strip */}
         <div
           className="mt-10 xl:mt-12 rounded-2xl border border-brand-coral/20 bg-brand-coral/5 px-8 py-6 flex flex-col sm:flex-row sm:items-center gap-4"
           style={{
@@ -217,9 +215,8 @@ export const WhatYouGet = memo(function WhatYouGet() {
           </p>
         </div>
 
-        {/* CTA: trust earned from values → natural next step is service discovery */}
         <div
-          className="mt-8 flex justify-start"
+          className="mt-8 flex justify-center"
           style={{
             opacity: headerVisible ? 1 : 0,
             transition: "opacity 0.7s ease 650ms",

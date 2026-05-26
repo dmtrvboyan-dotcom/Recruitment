@@ -106,7 +106,7 @@ const TrainingCard = memo(function TrainingCard({
     <div
       ref={ref}
       className="group relative flex flex-col gap-4 p-6 xl:p-7 bg-white border border-brand-navy/8 rounded-2xl
-        hover:border-brand-coral/30 hover:shadow-[0_0_0_1px_theme(colors.brand.coral/15),0_8px_32px_-8px_theme(colors.brand.coral/12)]
+        hover:border-brand-coral/30 hover:shadow-[0_0_0_1px_--theme(--color-brand-coral/15),0_8px_32px_-8px_--theme(--color-brand-coral/12)]
         transition-all duration-500 cursor-default overflow-hidden"
       style={{
         opacity: visible ? 1 : 0,
@@ -114,7 +114,7 @@ const TrainingCard = memo(function TrainingCard({
         transition: `opacity 0.5s ease ${index * 60}ms, transform 0.5s ease ${index * 60}ms, box-shadow 0.3s ease, border-color 0.3s ease`,
       }}
     >
-      <div className="absolute top-0 right-0 w-16 h-16 bg-brand-coral/[0.04] rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-0 right-0 w-16 h-16 bg-brand-coral/4 rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="flex items-start justify-between">
         <div className="w-10 h-10 rounded-xl bg-brand-coral/10 flex items-center justify-center shrink-0
@@ -154,9 +154,8 @@ export const InvestInPeople = memo(function InvestInPeople() {
   }, [])
 
   return (
-    <section className="relative w-full bg-white overflow-hidden">
+    <section className="relative w-full bg-brand-white overflow-hidden">
 
-      {/* Background texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
@@ -166,7 +165,6 @@ export const InvestInPeople = memo(function InvestInPeople() {
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
-        {/* Header */}
         <div
           ref={titleRef}
           className="grid lg:grid-cols-[1fr_auto] lg:items-end gap-10 mb-16 lg:mb-20"
@@ -187,7 +185,6 @@ export const InvestInPeople = memo(function InvestInPeople() {
             </h2>
           </div>
 
-          {/* Decorative stat pill */}
           <div className="hidden lg:flex flex-col items-end gap-1 pb-2 shrink-0">
             <div className="flex items-baseline gap-2">
               <span className="text-[3.5rem] font-bold leading-none text-brand-navy tracking-tight">9</span>
@@ -197,14 +194,12 @@ export const InvestInPeople = memo(function InvestInPeople() {
           </div>
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-5 mb-16 lg:mb-20">
           {TRAINING_ITEMS.map((item, i) => (
             <TrainingCard key={item.id} item={item} index={i} />
           ))}
         </div>
 
-        {/* Bottom banner */}
         <div className="relative rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-12 py-10 sm:py-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div className="absolute top-0 left-0 w-64 h-64 bg-brand-coral/10 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
@@ -225,20 +220,16 @@ export const InvestInPeople = memo(function InvestInPeople() {
           </div>
         </div>
 
-
-
-        {/* Team carousel */}
         <div className="mt-15 max-w-3xl mx-auto">
           <TeamCarousel showQuote={false} />
         </div>
 
-
         <div className="flex flex-col sm:flex-row items-center justify-center
             gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12"
-        >          <AppButton href="/candidates" icon="arrow" className="sm:w-auto">
+        >          <AppButton href="/candidates" icon="arrow" className="w-full sm:w-auto">
             Looking for a job? Start here
           </AppButton>
-          <AppButton href="/candidates#client-testimonials" variant="navy" icon="arrow" className="sm:w-auto">
+          <AppButton href="/candidates#client-testimonials" variant="navy" icon="arrow" className="w-full sm:w-auto">
             See what our clients say
           </AppButton>
         </div>

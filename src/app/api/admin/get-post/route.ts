@@ -1,5 +1,3 @@
-// app/api/admin/get-post/route.ts
-// Fetches the raw markdown content of a published post from GitHub
 
 import { NextRequest, NextResponse } from "next/server";
 
@@ -33,7 +31,6 @@ export async function GET(req: NextRequest) {
 
   const data = await res.json();
 
-  // GitHub returns content as base64
   const content = Buffer.from(data.content, "base64").toString("utf8");
 
   return NextResponse.json({ content, sha: data.sha });

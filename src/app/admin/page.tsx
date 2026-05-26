@@ -36,12 +36,10 @@ export default function AdminPage() {
   const [actionState, setActionState] = useState<Record<string, string>>({});
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
 
-  // Draft editing
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState("");
   const [saving, setSaving] = useState(false);
 
-  // Published post editing
   const [selectedPost, setSelectedPost] = useState<PublishedPost | null>(null);
   const [postContent, setPostContent] = useState("");
   const [postSha, setPostSha] = useState("");

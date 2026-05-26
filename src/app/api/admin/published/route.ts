@@ -1,4 +1,3 @@
-// app/api/admin/published/route.ts
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -22,7 +21,6 @@ export async function GET() {
     { headers: headers() }
   );
 
-  // 404 means folder is empty or doesn't exist yet — not an error
   if (res.status === 404) {
     return NextResponse.json({ posts: [] });
   }
@@ -33,7 +31,6 @@ export async function GET() {
 
   const files = await res.json();
 
-  // GitHub can return an object instead of array if path is a single file
   if (!Array.isArray(files)) {
     return NextResponse.json({ posts: [] });
   }
