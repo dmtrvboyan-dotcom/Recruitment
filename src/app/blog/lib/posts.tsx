@@ -42,7 +42,6 @@ export const getAllPosts = (): Post[] => {
         draft: data.draft ?? false,
       } satisfies Post
     })
-    // ── Draft filter: hide draft: true posts on production ──
     .filter((post) => {
       if (process.env.NODE_ENV === "production") return post.draft !== true
       return true
@@ -57,7 +56,6 @@ export const getPostBySlug = (slug: string): Post | null => {
   const fileContents = fs.readFileSync(filePath, "utf8")
   const { content, data } = matter(fileContents)
 
-  // Block direct URL access to drafts in production
   if (process.env.NODE_ENV === "production" && data.draft === true) return null
 
   return {
@@ -79,8 +77,7 @@ export const getAllPostSlugs = (): string[] => {
     .readdirSync(postsDir)
     .filter((f) => f.endsWith(".md"))
     .filter((f) => {
-      // Exclude drafts from static generation in production
-      // (prevents build errors when a draft exists but getPostBySlug returns null)
+
       if (process.env.NODE_ENV !== "production") return true
       const filePath = path.join(postsDir, f)
       const { data } = matter(fs.readFileSync(filePath, "utf8"))

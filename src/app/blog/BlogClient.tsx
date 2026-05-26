@@ -24,9 +24,18 @@ const TAB_ICONS: Record<TabKey, React.ElementType> = {
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+
   useEffect(() => {
     const el = ref.current
     if (!el) return
+
+    // If already in viewport on mount, show immediately
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true)
+      return
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -39,9 +48,9 @@ function useInView(threshold = 0.15) {
     observer.observe(el)
     return () => observer.disconnect()
   }, [threshold])
+
   return { ref, visible }
 }
-
 function MobileTabDropdown({
   tabs,
   posts,
@@ -68,7 +77,7 @@ function MobileTabDropdown({
         transition: "opacity 0.7s ease 280ms",
       }}
     >
-      {/* Trigger */}
+
       <button
         onClick={() => setOpen((o) => !o)}
         className="w-full flex items-center justify-between gap-3 px-5 py-3.5 rounded-full border border-brand-coral bg-brand-coral text-white text-xs font-semibold tracking-widest uppercase cursor-pointer transition-all duration-300"
@@ -86,7 +95,6 @@ function MobileTabDropdown({
         />
       </button>
 
-      {/* Dropdown */}
       <div
         className={`absolute top-full left-0 right-0 mt-2 rounded-2xl border border-brand-white/15 bg-brand-navy/95 backdrop-blur-sm overflow-hidden z-50 transition-all duration-300 origin-top ${
           open
@@ -136,7 +144,7 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
       href={`/blog/${post.slug}`}
       rel="noopener noreferrer"
       className="group relative flex flex-col bg-brand-white border border-brand-navy/8 rounded-2xl overflow-hidden
-        hover:border-brand-coral/30 hover:shadow-[0_0_0_1px_theme(colors.brand.coral/15),0_8px_32px_-8px_theme(colors.brand.coral/12)]
+        hover:border-brand-coral/30 hover:shadow-[0_0_0_1px_--theme(--color-brand-coral/15),0_8px_32px_-8px_--theme(--color-brand-coral/12)]
         transition-all duration-500 cursor-pointer"
       style={{
         opacity: parentVisible ? 1 : 0,
@@ -144,13 +152,12 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
         transition: `opacity 0.55s ease ${index * 70}ms, transform 0.55s ease ${index * 70}ms, box-shadow 0.3s ease, border-color 0.3s ease`,
       }}
     >
-      {/* Top accent bar */}
+
       <div className="h-1 w-full bg-brand-navy/5 group-hover:bg-brand-coral/40 transition-colors duration-500" />
 
       <div className="flex flex-col flex-1 p-6 xl:p-7">
-        {/* Thumbnail placeholder */}
         <div
-          className="w-full h-36 sm:h-40 rounded-xl bg-brand-navy/[0.04] group-hover:bg-brand-coral/[0.07] mb-5
+          className="w-full h-36 sm:h-40 rounded-xl bg-brand-navy/4 group-hover:bg-brand-coral/[0.07] mb-5
             flex items-center justify-center transition-colors duration-500 relative overflow-hidden"
         >
           
@@ -162,7 +169,6 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
           </div>
         </div>
 
-        {/* Meta */}
         <div className="flex items-center justify-between mb-3">
           <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-brand-coral">
             {post.category}
@@ -172,7 +178,6 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
           </span>
         </div>
 
-        {/* Title */}
         <h3
           className="text-sm sm:text-base font-bold uppercase tracking-tight text-brand-navy leading-snug mb-3
             group-hover:text-brand-teal transition-colors duration-300"
@@ -180,12 +185,10 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
           {post.title}
         </h3>
 
-        {/* Description */}
         <p className="text-sm text-brand-navy/50 leading-relaxed flex-1">
           {post.description}
         </p>
 
-        {/* Footer */}
         <div className="mt-5 pt-4 border-t border-brand-navy/8 flex items-center justify-end">
           <span
             className="text-xs font-semibold tracking-widest uppercase text-brand-coral flex items-center gap-1.5
@@ -206,7 +209,8 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
   const [animKey, setAnimKey] = useState(0)
 
   const { ref: heroRef, visible: heroVisible } = useInView(0.1)
-  const { ref: gridRef, visible: gridVisible } = useInView(0.05)
+const gridRef = useRef<HTMLDivElement>(null)
+const gridVisible = true
 
   const handleTabChange = (tab: TabKey) => {
     setActiveTab(tab)
@@ -270,7 +274,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
             {heroData.description}
           </p>
 
-          {/* Desktop tabs */}
           <div
             className="hidden lg:flex items-center justify-center gap-6 mt-12"
             style={{
@@ -305,7 +308,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
             })}
           </div>
 
-          {/* Mobile tab dropdown */}
           <MobileTabDropdown
             tabs={tabs}
             posts={posts}
@@ -322,7 +324,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
 
           <div className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 py-16 lg:py-24">
 
-            {/* Chip filters */}
             <div className="flex flex-wrap gap-2 mb-10 sm:mb-12">
               {chips.map((chip, i) => (
                 <button
@@ -340,7 +341,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
               ))}
             </div>
 
-            {/* Grid */}
             <div ref={gridRef}>
               {filteredPosts.length === 0 ? (
                 <div

@@ -51,7 +51,7 @@ const FeatureCard = memo(function FeatureCard({
         transition: `opacity 0.5s ease ${index * 70}ms, transform 0.5s ease ${index * 70}ms`,
       }}
     >
-      {/* Image card */}
+
       <div
         className="relative w-full overflow-hidden rounded-2xl border transition-all duration-500 ease-out group-hover:-translate-y-2"
         style={{
@@ -70,10 +70,8 @@ const FeatureCard = memo(function FeatureCard({
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
 
-        {/* Dark base overlay — heavier on navy bg */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/90 via-[#1A1A2E]/30 to-[#1A1A2E]/10 rounded-2xl transition-opacity duration-500 group-hover:opacity-80" />
+        <div className="absolute inset-0 bg-linear-to-t from-brand-navy/90 via-brand-navy/30 to-brand-navy/10 rounded-2xl transition-opacity duration-500 group-hover:opacity-80" />
 
-        {/* Hover shimmer */}
         <div
           className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
           style={{
@@ -81,7 +79,6 @@ const FeatureCard = memo(function FeatureCard({
           }}
         />
 
-        {/* Scan line effect on hover */}
         <div
           className="absolute inset-x-0 h-px pointer-events-none transition-all duration-700 ease-in-out"
           style={{
@@ -92,19 +89,14 @@ const FeatureCard = memo(function FeatureCard({
           }}
         />
 
-        {/* Title inside image */}
         <div className="absolute bottom-0 left-0 right-0 p-5 transition-transform duration-500 ease-out group-hover:-translate-y-1">
           <h3 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-brand-white leading-tight drop-shadow-md">
             {feature.title}
           </h3>
         </div>
 
-        {/* Corner accent dot */}
-        <div className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full bg-brand-white/0
-                       transition-all duration-500 delay-100
-                       group-hover:bg-brand-coral group-hover:shadow-[0_0_10px_3px_rgba(114,145,199,0.5)]" />
+        <div className="absolute top-4 right-4 w-2.5 h-2.5 rounded-full bg-brand-white/0 transition-all duration-500 delay-100 group-hover:bg-brand-coral group-hover:shadow-[0_0_10px_3px_rgba(114,145,199,0.5)]" />
 
-        {/* Bottom accent line */}
         <div
           className="absolute bottom-0 left-5 right-5 h-px transition-all duration-500 rounded-full"
           style={{
@@ -115,17 +107,12 @@ const FeatureCard = memo(function FeatureCard({
         />
       </div>
 
-      {/* Description */}
       <div className="mt-5 overflow-hidden">
-        <p className="text-brand-white/40 text-sm leading-relaxed
-                     transition-all duration-500 ease-out
-                     group-hover:text-brand-white/60 group-hover:translate-x-0.5">
+        <p className="text-brand-white/40 text-sm leading-relaxed transition-all duration-500 ease-out group-hover:text-brand-white/60 group-hover:translate-x-0.5">
           {feature.description}
         </p>
 
-        {/* Animated underline */}
-        <div className="mt-3 h-px w-0 bg-gradient-to-r from-brand-coral to-brand-navy/0
-                       transition-all duration-500 ease-out group-hover:w-12" />
+        <div className="mt-3 h-px w-0 bg-linear-to-r from-brand-coral to-brand-navy/0 transition-all duration-500 ease-out group-hover:w-12" />
       </div>
     </div>
   )
@@ -137,7 +124,6 @@ export const FeaturesSection = memo(function FeaturesSection() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
-      {/* Radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -146,12 +132,10 @@ export const FeaturesSection = memo(function FeaturesSection() {
         }}
       />
 
-      {/* Glow blob */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-coral/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
-        {/* Header */}
         <div
           ref={headerRef}
           className="text-center mb-16 lg:mb-20"
@@ -174,7 +158,6 @@ export const FeaturesSection = memo(function FeaturesSection() {
           </p>
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {featuresData.items.map((feature, index) => (
             <FeatureCard key={index} feature={feature} index={index} />

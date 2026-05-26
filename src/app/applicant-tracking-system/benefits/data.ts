@@ -15,9 +15,6 @@ export interface Benefit {
   stat?: string
 }
 
-
-
-
 export const benefitsData = {
   tagline: "Hire better",
   title: "Why Smart.R",

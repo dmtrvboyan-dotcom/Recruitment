@@ -13,9 +13,6 @@ export interface Feature {
   description: string
 }
 
-
-
-
 export const integrationsData = {
   tagline: "INTEGRATIONS",
   title: "Works With Your Stack",

@@ -28,7 +28,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
-      {/* Radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -38,8 +37,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
       />
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
-
-        {/* Header */}
         <div
           ref={headerRef}
           className="text-center mb-16 lg:mb-20"
@@ -62,7 +59,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
           </p>
         </div>
 
-        {/* Cards grid */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
@@ -93,7 +89,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
                     : "none",
                 }}
               >
-                {/* Hover shimmer */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
                   style={{
@@ -102,7 +97,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
                   }}
                 />
 
-                {/* Icon + number row */}
                 <div className="flex items-center justify-between">
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300"
@@ -131,7 +125,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
                   </span>
                 </div>
 
-                {/* Text */}
                 <div>
                   <h3 className="font-bold uppercase tracking-tight text-sm text-brand-white mb-2 transition-colors duration-300">
                     {item.title}
@@ -141,7 +134,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
                   </p>
                 </div>
 
-                {/* Bottom accent line */}
                 <div
                   className="absolute bottom-0 left-6 right-6 h-px transition-all duration-500 rounded-full"
                   style={{
@@ -154,9 +146,6 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
             )
           })}
         </div>
-
-        {/* CTA: ATS buyers are sceptical — real client logos validate the product.
-            Placed after the integrations grid where credibility is highest. */}
         <div
           className="mt-10 flex justify-center"
           style={{

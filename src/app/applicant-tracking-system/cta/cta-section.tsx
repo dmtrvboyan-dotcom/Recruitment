@@ -1,7 +1,4 @@
 import { ctaData } from "./data"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react";
 import { AppButton } from '@/components/ui/app-button';
 
 
@@ -9,7 +6,6 @@ export function CTASection() {
   return (
     <section className="py-20 md:py-40 bg-brand-white relative overflow-hidden">
 
-      {/* Radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{

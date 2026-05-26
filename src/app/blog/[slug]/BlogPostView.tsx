@@ -14,7 +14,6 @@ export function BlogPostView({ post }: Props) {
   return (
     <main className="min-h-screen bg-brand-white">
 
-      {/* ─── STICKY NAV BAR ─── */}
       <div className="sticky top-0 z-50 bg-brand-white/80 backdrop-blur-md border-b border-brand-navy/8">
         <div className="max-w-3xl mx-auto px-5 sm:px-10 py-4 flex items-center justify-between">
           <Link
@@ -31,14 +30,11 @@ export function BlogPostView({ post }: Props) {
         </div>
       </div>
 
-      {/* ─── HERO HEADER ─── */}
       <section className="relative w-full bg-brand-navy overflow-hidden py-16 sm:py-20 lg:py-28">
-       
-        {/* Glow */}
+
         <div className="absolute top-0 left-0 w-96 h-96 bg-brand-coral/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-3xl mx-auto px-5 sm:px-10">
-          {/* Meta row */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-bold bg-brand-coral/15
               text-brand-coral uppercase tracking-[0.2em]">
@@ -49,12 +45,10 @@ export function BlogPostView({ post }: Props) {
             </span>
           </div>
 
-          {/* Title */}
           <h1 className="text-[clamp(2rem,5vw,3.8rem)] font-bold leading-none tracking-tight text-brand-white mb-6">
             {post.title}
           </h1>
 
-          {/* Description / lead */}
           <p className="text-sm sm:text-base lg:text-lg text-brand-white/50 leading-relaxed
             border-l-2 border-brand-coral/40 pl-5">
             {post.description}
@@ -62,11 +56,9 @@ export function BlogPostView({ post }: Props) {
         </div>
       </section>
 
-      {/* ─── ARTICLE BODY ─── */}
       <article className="max-w-3xl mx-auto px-5 sm:px-10 py-14 sm:py-20">
 
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-brand-coral/20 via-brand-coral/10 to-transparent mb-12" />
+        <div className="h-px bg-linear-to-r from-brand-coral/20 via-brand-coral/10 to-transparent mb-12" />
 
         <div className="
           prose prose-base sm:prose-lg max-w-none
@@ -89,7 +81,7 @@ export function BlogPostView({ post }: Props) {
 
           prose-blockquote:not-italic
           prose-blockquote:border-l-2 prose-blockquote:border-brand-coral
-          prose-blockquote:bg-brand-coral/[0.05]
+         prose-blockquote:bg-brand-coral/5
           prose-blockquote:rounded-r-xl
           prose-blockquote:py-3 prose-blockquote:pr-5
           prose-blockquote:text-brand-navy/60
@@ -110,11 +102,10 @@ export function BlogPostView({ post }: Props) {
           </ReactMarkdown>
         </div>
 
-        {/* ─── BOTTOM CTA STRIP ─── */}
         <div className="mt-16 pt-10 border-t border-brand-navy/8">
           <div className="relative rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-10 py-10 sm:py-12
             flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            {/* Glow accents */}
+
             <div className="absolute top-0 left-0 w-48 h-48 bg-brand-coral/10 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-coral/5 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none" />
 

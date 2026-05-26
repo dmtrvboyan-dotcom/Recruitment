@@ -39,11 +39,10 @@ export const BenefitsSection = memo(function BenefitsSection() {
   }
 
   return (
-    <section className="relative w-full bg-[#f9f9fb] overflow-hidden">
+    <section className="relative w-full bg-brand-white overflow-hidden">
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
-        {/* Header */}
         <div
           ref={headerRef}
           className="text-center mb-16 lg:mb-20"
@@ -63,13 +62,10 @@ export const BenefitsSection = memo(function BenefitsSection() {
           </h2>
         </div>
 
-        {/* Two-column layout */}
         <div
           ref={contentRef}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
         >
-
-          {/* Sticky image — right on desktop, top on mobile */}
           <div
             className="order-1 lg:order-2 lg:sticky lg:top-10"
             style={{
@@ -78,40 +74,33 @@ export const BenefitsSection = memo(function BenefitsSection() {
               transition: "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
             }}
           >
-            <div className="rounded-2xl overflow-hidden aspect-4/3 relative
-                           border border-brand-navy/8
-                           shadow-[0_16px_48px_-12px_rgba(26,26,46,0.15)]">
+            <div className="rounded-2xl overflow-hidden aspect-4/3 relative border border-brand-navy/8 shadow-[0_16px_48px_-12px_rgba(26,26,46,0.15)]">
               {bgImages.map((src, index) => (
                 <Image
                   key={index}
                   src={src}
                   alt=""
                   fill
-                  className={`object-cover transition-opacity duration-500 ease-in-out ${
-                    active === index ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`object-cover transition-opacity duration-500 ease-in-out ${active === index ? "opacity-100" : "opacity-0"
+                    }`}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               ))}
 
-              {/* Subtle navy overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-brand-navy/20 to-transparent pointer-events-none" />
 
-              {/* Active index indicator */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
                 {bgImages.map((_, i) => (
                   <div
                     key={i}
-                    className={`h-1 rounded-full transition-all duration-300 ${
-                      active === i ? "w-6 bg-brand-coral" : "w-1.5 bg-brand-white/40"
-                    }`}
+                    className={`h-1 rounded-full transition-all duration-300 ${active === i ? "w-6 bg-brand-coral" : "w-1.5 bg-brand-white/40"
+                      }`}
                   />
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Accordion list — left on desktop */}
           <div
             className="order-2 lg:order-1 flex flex-col"
             style={{
@@ -124,33 +113,30 @@ export const BenefitsSection = memo(function BenefitsSection() {
               <div
                 key={index}
                 className="border-t border-brand-navy/8 last:border-b cursor-pointer py-6
-                           transition-colors duration-200 hover:bg-brand-navy/[0.015] px-2 -mx-2 rounded-lg"
+                           transition-colors duration-200 hover:bg-brand-navy/1.5 px-2 -mx-2 rounded-lg"
                 onClick={() => handleClick(index)}
               >
                 <div className="flex items-center gap-5 select-none">
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0
-                               border-[1.5px] transition-all duration-300 ${
-                      active === index
+                               border-[1.5px] transition-all duration-300 ${active === index
                         ? "bg-brand-coral border-brand-coral/20 text-brand-white shadow-[0_4px_14px_rgba(114,145,199,0.35)]"
                         : "border-brand-navy/20 text-brand-navy/35"
-                    }`}
+                      }`}
                   >
                     {index + 1}
                   </div>
                   <span
-                    className={`font-bold uppercase tracking-tight text-base sm:text-lg transition-colors duration-300 ${
-                      active === index ? "text-brand-navy" : "text-brand-navy/35"
-                    }`}
+                    className={`font-bold uppercase tracking-tight text-base sm:text-lg transition-colors duration-300 ${active === index ? "text-brand-navy" : "text-brand-navy/35"
+                      }`}
                   >
                     {benefit.title}
                   </span>
                 </div>
 
                 <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    active === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
-                  }`}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${active === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+                    }`}
                 >
                   <div className="pt-4 pb-1 pl-13 flex flex-col gap-4">
                     <p className="text-brand-navy/50 text-sm leading-relaxed">
@@ -161,27 +147,25 @@ export const BenefitsSection = memo(function BenefitsSection() {
                         {benefit.stat}
                       </span>
                     )}
-                    {/* Animated accent line */}
                     <div className="h-px w-12 bg-linear-to-r from-brand-coral to-transparent" />
                   </div>
                 </div>
               </div>
             ))}
 
-            {/* CTA: ATS buyers often have a hiring problem too — cross-sell at the credibility peak,
-                near the time-to-hire stat that demonstrates results */}
-            <div className="mt-8 pt-6 border-t border-brand-navy/8">
-              <AppButton
-                href="/services/permanent-it-recruitment"
-                variant="navy"
-                icon="arrow"
-                className="sm:w-auto"
-              >
-                Need recruitment partners, not just software?
-              </AppButton>
-            </div>
+
           </div>
 
+        </div>
+        <div className="mt-8 pt-6 border-t border-brand-navy/8 flex justify-center">
+          <AppButton
+            href="/services/permanent-it-recruitment"
+            variant="navy"
+            icon="arrow"
+            className="sm:w-auto"
+          >
+            Need recruitment partners, not just software?
+          </AppButton>
         </div>
       </div>
     </section>

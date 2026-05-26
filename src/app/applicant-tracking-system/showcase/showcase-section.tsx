@@ -1,12 +1,10 @@
 "use client"
 
-import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { ChevronLeft, ChevronRight, Plus, X } from "lucide-react"
 import { showcaseData } from "./data"
-import { Button } from "@/components/ui/button"
 import { AppButton } from '@/components/ui/app-button';
 
 
@@ -40,8 +38,6 @@ export function ShowcaseSection() {
 
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16">
-
-        {/* Header */}
         <div className="text-center mb-12 lg:mb-16">
           <span className="inline-flex items-center gap-3 text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral mb-4">
             <span className="block w-6 h-px bg-brand-coral/40" />
@@ -56,7 +52,6 @@ export function ShowcaseSection() {
           </p>
         </div>
 
-        {/* Desktop interactive viewer */}
         <div className="hidden md:block relative w-full overflow-hidden rounded-3xl aspect-video border border-brand-navy/8 shadow-[0_24px_64px_-16px_rgba(26,26,46,0.18)] bg-brand-navy/5">
           {items.map((item, i) => (
             <div
@@ -77,10 +72,7 @@ export function ShowcaseSection() {
             </div>
           ))}
 
-          {/* Navy gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/40 via-brand-navy/5 to-transparent pointer-events-none" />
-
-          {/* Close button */}
+          <div className="absolute inset-0 bg-linear-to-r from-brand-navy/40 via-brand-navy/5 to-transparent pointer-events-none" />
           <button
             onClick={handleClose}
             className={cn(
@@ -92,14 +84,12 @@ export function ShowcaseSection() {
             <X className="w-4 h-4" />
           </button>
 
-          {/* Left panel — pill buttons + expanded cards */}
           <div className="absolute inset-y-0 left-0 z-10 flex items-center px-8 md:px-10 lg:px-14">
-            <div className="flex flex-col gap-2 w-full max-w-[300px]">
+            <div className="flex flex-col gap-2 w-full max-w-75">
               {items.map((item, i) => {
                 const isActive = activeIdx === i
                 return (
                   <div key={item.id} className="relative">
-                    {/* Collapsed pill */}
                     <button
                       onClick={() => handleItemClick(i)}
                       aria-expanded={isActive}
@@ -111,13 +101,12 @@ export function ShowcaseSection() {
                           : "opacity-100 scale-100 max-h-12",
                       )}
                     >
-                      <Plus className="w-4 h-4 text-brand-coral flex-shrink-0" strokeWidth={2} />
+                      <Plus className="w-4 h-4 text-brand-coral shrink-0" strokeWidth={2} />
                       <span className="text-xs font-semibold uppercase tracking-wide text-brand-navy whitespace-nowrap">
                         {item.label}
                       </span>
                     </button>
 
-                    {/* Expanded card */}
                     <div
                       className={cn(
                         "transition-all duration-300 ease-out overflow-hidden",
@@ -125,7 +114,6 @@ export function ShowcaseSection() {
                       )}
                     >
                       <div className="bg-brand-white/90 backdrop-blur-md rounded-2xl p-5 border border-brand-navy/8 shadow-[0_8px_32px_-8px_rgba(26,26,46,0.15)]">
-                        {/* Coral accent line */}
                         <div className="w-8 h-0.5 bg-brand-coral rounded-full mb-3" />
                         <p className="text-sm leading-relaxed text-brand-navy/70">
                           <strong className="font-bold uppercase tracking-tight text-brand-navy text-xs">
@@ -142,8 +130,7 @@ export function ShowcaseSection() {
           </div>
         </div>
 
-        {/* Mobile layout */}
-        <div className="md:hidden relative mx-0 h-screen max-h-[680px] overflow-hidden rounded-2xl border border-brand-navy/8 shadow-[0_16px_48px_-12px_rgba(26,26,46,0.18)]">
+        <div className="md:hidden relative mx-0 h-screen max-h-170 overflow-hidden rounded-2xl border border-brand-navy/8 shadow-[0_16px_48px_-12px_rgba(26,26,46,0.18)]">
           {items.map((item, i) => (
             <div
               key={item.id}
@@ -163,9 +150,8 @@ export function ShowcaseSection() {
             </div>
           ))}
 
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/75 via-brand-navy/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-brand-navy/75 via-brand-navy/20 to-transparent pointer-events-none" />
 
-          {/* Close */}
           <button
             onClick={handleClose}
             className={cn(
@@ -177,7 +163,6 @@ export function ShowcaseSection() {
             <X className="w-4 h-4" />
           </button>
 
-          {/* Nav arrows */}
           <button
             onClick={navigateUp}
             className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-brand-white/15 backdrop-blur-sm flex items-center justify-center text-brand-white hover:bg-brand-white/25 transition-colors"
@@ -193,7 +178,6 @@ export function ShowcaseSection() {
             <ChevronRight className="w-4 h-4" />
           </button>
 
-          {/* Bottom content */}
           <div className="absolute bottom-0 left-0 right-0 z-10 p-4 pb-6">
             <div
               className={cn(
@@ -214,7 +198,6 @@ export function ShowcaseSection() {
               )}
             </div>
 
-            {/* Pills row */}
             <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
               {items.map((item, i) => (
                 <button
@@ -229,7 +212,7 @@ export function ShowcaseSection() {
                 >
                   <Plus
                     className={cn(
-                      "w-3.5 h-3.5 flex-shrink-0 transition-colors",
+                      "w-3.5 h-3.5 shrink-0 transition-colors",
                       activeIdx === i ? "text-brand-coral" : "text-brand-white",
                     )}
                   />

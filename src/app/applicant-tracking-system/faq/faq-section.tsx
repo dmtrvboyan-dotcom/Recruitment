@@ -33,7 +33,6 @@ export function FAQSection() {
   return (
     <section className="relative w-full bg-brand-navy overflow-hidden">
 
-      {/* Radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -44,7 +43,6 @@ export function FAQSection() {
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
-        {/* Header */}
         <div
           ref={headerRef}
           className="text-center mb-16 lg:mb-20"
@@ -64,7 +62,6 @@ export function FAQSection() {
           </h2>
         </div>
 
-        {/* FAQ list */}
         <div ref={listRef} className="max-w-3xl mx-auto space-y-3">
           {faqData.items.map((item, index) => {
             const isOpen = openIndex === index
@@ -89,7 +86,6 @@ export function FAQSection() {
                     : "none",
                 }}
               >
-                {/* Hover shimmer */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
                   style={{
@@ -109,11 +105,10 @@ export function FAQSection() {
                       {number}. Q
                     </span>
                     <h3
-                      className={`font-bold uppercase tracking-tight text-sm leading-snug transition-colors duration-300 ${
-                        isOpen
+                      className={`font-bold uppercase tracking-tight text-sm leading-snug transition-colors duration-300 ${isOpen
                           ? "text-brand-white"
                           : "text-brand-white/70 group-hover/btn:text-brand-white"
-                      }`}
+                        }`}
                     >
                       {item.question}
                     </h3>
@@ -136,7 +131,6 @@ export function FAQSection() {
                   </span>
                 </button>
 
-                {/* Answer */}
                 <div
                   className="grid"
                   style={{
@@ -148,7 +142,7 @@ export function FAQSection() {
                   <div className="overflow-hidden">
                     <div className="px-6 pb-6 -mt-1 flex gap-4 sm:gap-5">
                       <div
-                        className="w-[2px] shrink-0 rounded-full"
+                        className="w-0.5 shrink-0 rounded-full"
                         style={{ background: "rgba(114,145,199,0.4)" }}
                       />
                       <p className="text-sm text-brand-white/40 leading-relaxed">
@@ -175,13 +169,11 @@ export function FAQSection() {
           className="max-w-3xl mx-auto mt-12 flex flex-col sm:flex-row items-center justify-center gap-5 pt-8 border-t"
           style={{ borderColor: "rgba(249,249,251,0.08)" }}
         >
-         
+
           <div className="flex flex-col sm:flex-row items-center gap-3">
-            {/* Primary: contact */}
             <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
               Contact our team
             </AppButton>
-            {/* Secondary: blog — keeps researchers in the funnel while they evaluate */}
             <AppButton href="/blog" variant="outline" icon="arrow" className="sm:w-auto">
               ATS best practice guides
             </AppButton>
