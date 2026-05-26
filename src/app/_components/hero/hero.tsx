@@ -1,205 +1,16 @@
 "use client"
 
-import {
-  useCallback,
-  memo,
-  useState,
-  useEffect,
-  useRef,
-  useMemo,
-} from "react"
+import { memo, useCallback } from "react"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { AppButton } from "@/components/ui/app-button"
+import { usePostLoadAnimations } from "./use-post-load-animations"
+import { RotatingText } from "./rotating-text"
+import { StatBlock } from "./stat-block"
+import { STATS } from "./data"
 
-function usePostLoadAnimations(): boolean {
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-    setReady(true)
-  }, [])
-
-  return ready
-}
-
-
-const SERVICES = [
-  "Hiring in Bulgaria",
-  "Executive Search",
-  "Payroll and Compliance in Bulgaria",
-  "Benchmarking Salaries with Real data",
-  "Employ Locally with no Entity (EOR)",
-] as const
-
-const PAUSE_MS = 800
-const EXIT_MS = 500
-const ENTER_MS = 580
-
-const ROTATION_STYLES = `
-  @keyframes rtext-in {
-    from { opacity: 0; transform: translateY(9px); }
-    to   { opacity: 1; transform: translateY(0);   }
-  }
-  @keyframes rtext-out {
-    from { opacity: 1; transform: translateY(0);   }
-    to   { opacity: 0; transform: translateY(-9px);}
-  }
-  .rtext-idle     { opacity: 1; transform: translateY(0); }
-  .rtext-entering { animation: rtext-in  ${ENTER_MS}ms cubic-bezier(0.16, 1, 0.3, 1)  forwards; }
-  .rtext-exiting  { animation: rtext-out ${EXIT_MS}ms  cubic-bezier(0.55, 0, 1, 0.45) forwards; }
-  @media (prefers-reduced-motion: reduce) {
-    .rtext-entering, .rtext-exiting {
-      animation: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-`
-
-type AnimPhase = "idle" | "exiting" | "entering"
-
-const RotatingText = memo(function RotatingText({ active }: { active: boolean }) {
-  const [index, setIndex] = useState(0)
-  const [phase, setPhase] = useState<AnimPhase>("idle")
-
-  useEffect(() => {
-    if (!active) return
-
-    let pauseId: ReturnType<typeof setTimeout>
-    let exitId: ReturnType<typeof setTimeout>
-    let enterDoneId: ReturnType<typeof setTimeout>
-
-    const schedule = () => {
-      pauseId = setTimeout(() => {
-        setPhase("exiting")
-
-        exitId = setTimeout(() => {
-          setIndex(i => (i + 1) % SERVICES.length)
-          setPhase("entering")
-
-          enterDoneId = setTimeout(() => {
-            setPhase("idle")
-            schedule()
-          }, ENTER_MS)
-        }, EXIT_MS)
-      }, PAUSE_MS)
-    }
-
-    schedule()
-
-    return () => {
-      clearTimeout(pauseId)
-      clearTimeout(exitId)
-      clearTimeout(enterDoneId)
-    }
-  }, [active])
-
-  return (
-    <>
-      <style dangerouslySetInnerHTML={{ __html: ROTATION_STYLES }} />
-      <span
-        className="relative block w-full min-h-8 sm:min-h-[1.6em] overflow-hidden mt-1 text-md sm:text-2xl"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        <span
-          className={`rtext-${phase} absolute inset-x-0 top-0 font-semibold text-brand-navy leading-snug text-center will-change-[opacity,transform]`}
-        >
-          {SERVICES[index]}
-        </span>
-      </span>
-    </>
-  )
-})
-
-const NUM_RE = /^(\D*)(\d[\d,]*)(\D*)$/
-
-interface StatBlockProps {
-  value: string
-  suffix?: string
-  label: string
-  isLast?: boolean
-  isMobileTop?: boolean
-  animate: boolean
-}
-
-const StatBlock = memo(function StatBlock({
-  value,
-  suffix,
-  label,
-  isLast,
-  isMobileTop,
-  animate,
-}: StatBlockProps) {
-  const { zero, pre, post, target, isNum } = useMemo(() => {
-    const m = value.match(NUM_RE)
-    if (!m) return { zero: value, pre: "", post: "", target: 0, isNum: false }
-    return {
-      pre: m[1],
-      post: m[3],
-      target: parseInt(m[2].replace(/,/g, ""), 10),
-      zero: `${m[1]}0${m[3]}`,
-      isNum: true,
-    }
-  }, [value])
-
-  const [display, setDisplay] = useState(zero)
-  const startedRef = useRef(false)
-
-  useEffect(() => {
-    if (!isNum) return
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplay(value)
-      return
-    }
-
-    if (!animate || startedRef.current) return
-    startedRef.current = true
-
-    const DURATION = 1400
-    const t0 = performance.now()
-    let raf = 0
-
-    const tick = (now: number) => {
-      const p = Math.min(1, (now - t0) / DURATION)
-      const eased = 1 - Math.pow(1 - p, 3) 
-      setDisplay(`${pre}${Math.round(target * eased)}${post}`)
-      if (p < 1) raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-
-    return () => cancelAnimationFrame(raf)
-  }, [animate, isNum, value, pre, post, target])
-
-  return (
-    <div
-      className={`px-5 py-5 sm:px-6 sm:py-6 lg:px-8 text-center
-        ${isMobileTop ? "border-b border-brand-white/8 lg:border-b-0" : ""}
-        ${!isLast ? "lg:border-r border-brand-white/8" : ""}
-      `}
-    >
-      <div className="flex items-baseline justify-center gap-1.5 sm:gap-2 mb-1.5">
-        <span
-          className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-white tabular-nums tracking-tight leading-none"
-          style={{ minWidth: `${value.length}ch` }}
-        >
-          {display}
-        </span>
-        {suffix && (
-          <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.2em] uppercase text-brand-white/80 leading-none">
-            {suffix}
-          </span>
-        )}
-      </div>
-      <p className="text-[9px] sm:text-[10px] tracking-[0.22em] sm:tracking-[0.25em] uppercase text-brand-white/70 font-medium">
-        {label}
-      </p>
-    </div>
-  )
-})
-
-
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
 export const Hero = memo(function Hero() {
   const animationsReady = usePostLoadAnimations()
 
@@ -210,6 +21,7 @@ export const Hero = memo(function Hero() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white">
 
+      {/* ── Decorative blobs ───────────────────────────────────────────── */}
       <div
         aria-hidden
         className="absolute -top-32 left-1/2 -translate-x-1/2
@@ -226,6 +38,7 @@ export const Hero = memo(function Hero() {
           blur-[130px] pointer-events-none"
       />
 
+      {/* ── Watermark ──────────────────────────────────────────────────── */}
       <div
         aria-hidden
         className="hidden lg:block absolute top-[42%] left-1/2 -translate-x-1/2
@@ -236,12 +49,14 @@ export const Hero = memo(function Hero() {
         HIRE
       </div>
 
+      {/* ── Main copy ──────────────────────────────────────────────────── */}
       <div className="relative z-10 flex-1 flex items-center justify-center
         px-5 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full
         py-10 sm:py-12 lg:py-14"
       >
         <div className="w-full flex flex-col items-center text-center mt-30">
 
+          {/* Eye-brow label */}
           <div className="flex items-center justify-center gap-3 sm:gap-3.5
             mb-5 sm:mb-7 animate-fade-in-up delay-100"
           >
@@ -252,28 +67,28 @@ export const Hero = memo(function Hero() {
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
 
-          <h1
-            className="text-[clamp(2.25rem,9vw,6rem)] font-bold
-    leading-[0.95] sm:leading-[0.92] tracking-tight uppercase
-    text-brand-navy mb-6 sm:mb-8 max-w-5xl"
+          {/* Headline */}
+          <h1 className="text-[clamp(2.25rem,9vw,6rem)] font-bold
+            leading-[0.95] sm:leading-[0.92] tracking-tight uppercase
+            text-brand-navy mb-6 sm:mb-8 max-w-5xl"
           >
             IT Recruitment Agency for
             <br />
             <span className="text-brand-coral">Tech Roles</span>
           </h1>
 
+          {/* Rotating tagline */}
           <div className="flex flex-col items-center max-w-lg w-full
-            mb-8 sm:mb-10 animate-fade-in-up delay-200 px-4 sm:px-0  text-center justify-center p-4"
+            mb-8 sm:mb-10 animate-fade-in-up delay-200 px-4 sm:px-0 text-center justify-center p-4"
           >
-            <div className="text-sm sm:text-base lg:text-xl
-              text-brand-navy/65 leading-relaxed text-center w-full"
-            >
-              <span className="block"> Your One-stop Partner For</span>
+            <div className="text-sm sm:text-base lg:text-xl text-brand-navy/65 leading-relaxed text-center w-full">
+              <span className="block">Your One-stop Partner For</span>
               <RotatingText active={animationsReady} />
             </div>
             <div className="mt-4 h-0.5 w-12 sm:w-16 bg-brand-coral" />
           </div>
 
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center
             gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300"
           >
@@ -285,11 +100,7 @@ export const Hero = memo(function Hero() {
               Learn More
             </AppButton>
 
-            <AppButton
-              href="/job-listings"
-              variant="navy"
-              className="sm:w-auto"
-            >
+            <AppButton href="/job-listings" variant="navy" className="sm:w-auto">
               Find a Job
             </AppButton>
           </div>
@@ -297,19 +108,17 @@ export const Hero = memo(function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full
-        pb-8 sm:pb-10"
-      >
+      {/* ── Stats bar ──────────────────────────────────────────────────── */}
+      <div className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full pb-8 sm:pb-10">
         <div className="grid grid-cols-2 lg:grid-cols-4
           bg-brand-navy/92 backdrop-blur-md
           rounded-2xl sm:rounded-3xl
           border border-brand-white/10
           overflow-hidden shadow-2xl shadow-brand-navy/20"
         >
-          <StatBlock value="850+" label="Successful hirings" isMobileTop animate={animationsReady} />
-          <StatBlock value="12+" label="Senior recruiters" isMobileTop animate={animationsReady} />
-          <StatBlock value="100%" label="Recruiting All tech stacks" isMobileTop animate={animationsReady} />
-          <StatBlock value="1" suffix="Built in House" label="Smart.R ATS" isLast animate={animationsReady} />
+          {STATS.map((stat) => (
+            <StatBlock key={stat.label} {...stat} animate={animationsReady} />
+          ))}
         </div>
       </div>
 
