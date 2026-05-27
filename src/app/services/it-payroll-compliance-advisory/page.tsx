@@ -138,9 +138,9 @@ export default function PayrollCompliancePage() {
         </div>
 
         {/* Stats strip */}
-        <div className="relative w-full border-t border-white/10">
+        <div className="relative w-full">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
               {STATS.map((stat, i) => (
                 <div
                   key={i}
@@ -153,10 +153,10 @@ export default function PayrollCompliancePage() {
                     </span>
                     <div className="h-px w-6 bg-white/20" />
                   </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-brand-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
                     {stat.value}
                   </p>
-                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
+                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-brand-white/45 leading-snug">
                     {stat.label}
                   </p>
                 </div>
@@ -312,6 +312,11 @@ export default function PayrollCompliancePage() {
                 )
               })}
             </div>
+             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-12">
+            <AppButton href={CTA_DATA.whatWeCoverCTA.href} icon="arrow" className="sm:w-auto">
+              {CTA_DATA.whatWeCoverCTA.text}
+            </AppButton>
+          </div>
           </div>
         </section>
       </ScrollReveal>

@@ -142,9 +142,9 @@ export default function ExecutiveSearchPage() {
         </div>
 
         {/* Stats strip */}
-        <div className="relative w-full border-t border-white/10">
+        <div className="relative w-full ">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
               {STATS.map((stat, i) => (
                 <div
                   key={i}

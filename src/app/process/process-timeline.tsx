@@ -134,7 +134,6 @@ export const ProcessTimeline = memo(function ProcessTimeline() {
               <Fragment key={step.id}>
                 <StepCard step={step} index={i} />
 
-                {/* Inline CTA — rendered between this step and the next when ctaAfter is set */}
                 {step.ctaAfter && (
                   <div className="flex justify-center lg:justify-center">
                     <AppButton href={step.ctaAfter.href} icon="arrow" className="sm:w-auto">

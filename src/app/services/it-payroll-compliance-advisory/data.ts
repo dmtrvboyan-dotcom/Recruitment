@@ -37,7 +37,8 @@ export interface ServiceCard {
   icon: LucideIcon
   title: string
   description: string
-  tags: string[]
+  tags: string[],
+  href: string,
   accent: string
   iconBg: string
 }
@@ -56,8 +57,9 @@ export interface CtaData {
   eyebrow: string
   title: string
   description: string
-  primaryButton: { text: string; href: string }
-  secondaryButton: { text: string; href: string }
+  primaryButton: { text: string; href: string },
+  secondaryButton: { text: string; href: string },
+  whatWeCoverCTA: { text: string; href: string },
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -124,6 +126,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     description:
       "End-to-end payroll processing for IT companies — from salary calculations and net pay disbursements to payslips and year-end reporting. Accurate, timely, and fully documented for every employee and engagement type.",
     tags: ["Salary Processing", "Payslips", "Year-End Reports", "Multi-Currency"],
+    href: "",
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
@@ -133,6 +136,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     description:
       "Bookkeeping, financial record management, and accounting coordination tailored for technology businesses. We maintain clean books, prepare management accounts, and ensure your financials are always investor- and audit-ready.",
     tags: ["Bookkeeping", "Management Accounts", "P&L", "Audit Preparation"],
+    href: "",
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
@@ -142,6 +146,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     description:
       "Corporate tax, VAT, employment tax, and personal tax coordination for tech companies and their teams. We identify obligations across jurisdictions, prepare filings, and make sure you're never caught off guard at year-end.",
     tags: ["Corporate Tax", "VAT", "Employment Tax", "Cross-Border"],
+    href: "",
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
@@ -151,6 +156,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     description:
       "Properly structured B2B and freelance engagements that hold up under scrutiny. We handle contractor agreements, IR35/self-employment assessments, invoicing frameworks, and reclassification risk — protecting both you and your contractors.",
     tags: ["IR35", "B2B Agreements", "Freelance Contracts", "Risk Assessment"],
+    href: "",
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
@@ -160,6 +166,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     description:
       "Employment law is complex and changes constantly. We monitor legislative updates across your operating jurisdictions, advise on employment contracts, working time, benefits obligations, and termination — keeping your HR practices legally sound.",
     tags: ["Employment Contracts", "Working Time", "Termination", "Benefits Law"],
+    href: "",
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
   },
@@ -169,6 +176,7 @@ export const SERVICE_CARDS: ServiceCard[] = [
     description:
       "Planning to hire in a new country or set up an entity abroad? We provide end-to-end advisory — from market entry structure and local registration to payroll setup and ongoing compliance — so you expand without operational risk.",
     tags: ["Market Entry", "Entity Setup", "Local Payroll", "Multi-Country"],
+    href: "",
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
   },
@@ -257,8 +265,12 @@ export const CTA_DATA: CtaData = {
     text: "Contact Us",
     href: "/contacts",
   },
+  whatWeCoverCTA: {
+    text: "Not sure which services you need?",
+    href: "/contacts",
+  },
   secondaryButton: {
-    text: "Learn about our EOR service",
-    href: "/services/employer-of-record",
+    text: "See who we work with",
+    href: "/partnerships",
   },
 }

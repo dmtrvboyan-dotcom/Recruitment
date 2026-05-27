@@ -63,8 +63,11 @@ export interface CtaData {
   eyebrow: string
   title: string
   description: string
-  primaryButton: { text: string; href: string }
-  secondaryButton: { text: string; href: string }
+  primaryButton: { text: string; href: string },
+  secondaryButton: { text: string; href: string },
+  whyCTAPrimary: { text: string; href: string },
+  methodologyCTA: { text: string; href: string },
+  lastCTA: { text: string; href: string }
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -80,7 +83,7 @@ export const HERO_DATA: HeroData = {
 export const STATS: StatItem[] = [
   { value: "200+", label: "Technology roles benchmarked" },
   { value: "30+", label: "Markets covered globally" },
-  { value: "Quarterly", label: "Data refresh cycle" },
+  { value: "12", label: "Months of rolling data" },
   { value: "10k+", label: "Compensation data points" },
 ]
 
@@ -239,7 +242,6 @@ export const BENEFITS: BenefitItem[] = [
 // ─── Trust bar ────────────────────────────────────────────────────────────────
 export const TRUST_ITEMS: TrustItem[] = [
   { text: "200+ Roles Benchmarked" },
-  { text: "Quarterly Data Refresh" },
   { text: "UK & European Markets" },
   { text: "Stack-Level Granularity" },
   { text: "AI & ML Salary Trends" },
@@ -260,8 +262,20 @@ export const CTA_DATA: CtaData = {
     text: "Request Salary Report",
     href: "/contacts",
   },
+  whyCTAPrimary: {
+    text: "Let's talk about your strategy",
+    href: "/contacts",
+  },
+  methodologyCTA: {
+    text: "See the roles we hire for",
+    href: "/tech-recruitment",
+  },
   secondaryButton: {
     text: "Speak to our team",
     href: "/#contact",
+  },
+  lastCTA: {
+    text: "See how we work",
+    href: "/process",
   },
 }

@@ -146,7 +146,7 @@ export default function SalaryBenchmarkingPage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-[clamp(3rem,9vw,6rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+            <h1 className="text-[clamp(2.5rem,9vw,6rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
               {HERO_DATA.title}
             </h1>
 
@@ -163,24 +163,22 @@ export default function SalaryBenchmarkingPage() {
           </div>
         </div>
 
-        {/* Stats — editorial strip */}
-        <div className="relative w-full border-t border-white/10">
+        <div className="relative w-full">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
-            <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
               {STATS.map((stat, i) => (
                 <div
                   key={i}
-                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${
-                    i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
-                  }`}
+                  className={`py-8 lg:py-12 px-4 sm:px-6 group ${i >= 2 ? "border-t lg:border-t-0 border-white/10" : ""
+                    }`}
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[10px] font-mono text-brand-coral/80">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div className="h-px w-6 bg-white/20" />
+                    <div className="w-6 bg-white/20" />
                   </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-brand-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
                     {stat.value}
                   </p>
                   <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
@@ -237,7 +235,6 @@ export default function SalaryBenchmarkingPage() {
                 </div>
               </div>
 
-              {/* Right: 2×2 outcome cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-t border-brand-navy/10 border-l">
                 {[
                   {
@@ -280,6 +277,11 @@ export default function SalaryBenchmarkingPage() {
               </div>
             </div>
           </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+            <AppButton href={CTA_DATA.whyCTAPrimary.href} icon="arrow" className="sm:w-auto">
+              {CTA_DATA.whyCTAPrimary.text}
+            </AppButton>
+          </div>
         </section>
       </ScrollReveal>
 
@@ -319,9 +321,8 @@ export default function SalaryBenchmarkingPage() {
                 return (
                   <div
                     key={i}
-                    className={`group grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 py-6 lg:py-8 px-6 lg:px-8 items-start transition-all duration-300 hover:bg-brand-white/5 hover:border-brand-coral/20 ${
-                      i % 2 === 0 ? "bg-brand-white/3" : "bg-brand-white/1.5"
-                    } ${i < BENCHMARK_CATEGORIES.length - 1 ? "border-b border-white/08" : ""}`}
+                    className={`group grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 py-6 lg:py-8 px-6 lg:px-8 items-start transition-all duration-300 hover:bg-brand-white/5 hover:border-brand-coral/20 ${i % 2 === 0 ? "bg-brand-white/3" : "bg-brand-white/1.5"
+                      } ${i < BENCHMARK_CATEGORIES.length - 1 ? "border-b border-white/08" : ""}`}
                   >
                     <div className="md:col-span-1 hidden md:flex pt-1">
                       <span className="text-[13px] font-mono text-brand-coral/40">
@@ -403,11 +404,6 @@ export default function SalaryBenchmarkingPage() {
                 const Icon = step.icon
                 return (
                   <div key={i} className="relative">
-                    {/* Node dot (desktop) */}
-                    <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 -top-11.5 w-4 h-4 rounded-full bg-brand-white border-2 border-brand-coral z-10 items-center justify-center">
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand-coral" />
-                    </div>
-
                     {/* Card */}
                     <div className="group relative rounded-2xl border border-brand-navy/10 bg-brand-navy/2 p-6 lg:p-7 hover:bg-brand-navy/5 hover:border-brand-coral/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
                       {/* Watermark step number */}
@@ -447,6 +443,11 @@ export default function SalaryBenchmarkingPage() {
               })}
             </div>
           </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+            <AppButton href={CTA_DATA.methodologyCTA.href} icon="arrow" className="sm:w-auto">
+              {CTA_DATA.methodologyCTA.text}
+            </AppButton>
+          </div>
         </section>
       </ScrollReveal>
 
@@ -485,7 +486,7 @@ export default function SalaryBenchmarkingPage() {
                 </div>
 
                 <div className="relative flex flex-wrap items-center gap-4 mt-8 pt-8 border-t border-white/10">
-                  {["Quarterly refresh", "30+ markets", "200+ roles"].map((tag, i) => (
+                  {["200+ Tech Roles benchmarked", "30+ markets covered", "12 months of data", "10k+ compensation points"].map((tag, i) => (
                     <span
                       key={i}
                       className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/50"
@@ -576,12 +577,15 @@ export default function SalaryBenchmarkingPage() {
                 <AppButton href={CTA_DATA.primaryButton.href} icon="arrow" className="sm:w-auto">
                   {CTA_DATA.primaryButton.text}
                 </AppButton>
+                 <AppButton href={CTA_DATA.lastCTA.href} variant="navy" icon="arrow" className="sm:w-auto">
+                  {CTA_DATA.lastCTA.text}
+                </AppButton>
               </div>
             </div>
           </div>
         </section>
       </ScrollReveal>
-          < BackToTop hideOnMobile />
+      < BackToTop hideOnMobile />
     </>
   )
 }
