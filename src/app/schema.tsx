@@ -9,6 +9,8 @@ export function OrganizationSchema() {
         "foundingDate": "2009",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "",
+            "postalCode": "1000",
             "addressLocality": "Sofia",
             "addressCountry": "BG"
         },
@@ -48,8 +50,10 @@ export function LocalBusinessSchema() {
         "description": "IT recruitment agency in Sofia, Bulgaria. Specialising in executive search, IT headhunting, and tech talent placement across Bulgaria and Europe.",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Sofia",
+            "streetAddress": "your street address here",
+            "postalCode": "1000",
             "addressRegion": "Sofia-City Province",
+            "addressLocality": "Sofia",
             "addressCountry": "BG"
         },
         "geo": {

@@ -147,7 +147,7 @@ export function Footer() {
 
         <div className="flex items-center gap-10">
           <Link
-            href="#"
+            href="/privacy-policy"
             className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-navy/70 hover:text-brand-coral transition-colors"
           >
             Privacy Policy

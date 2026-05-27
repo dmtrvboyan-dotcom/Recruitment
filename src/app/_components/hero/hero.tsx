@@ -16,7 +16,7 @@ export const Hero = memo(function Hero() {
   }, [])
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white">
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white mt-12 sm:mt-6">
 
       <div
         aria-hidden
@@ -34,7 +34,7 @@ export const Hero = memo(function Hero() {
           blur-[130px] pointer-events-none"
       />
 
-      <div
+      {/* <div
         aria-hidden
         className="hidden lg:block absolute top-[42%] left-1/2 -translate-x-1/2
           text-[clamp(14rem,26vw,22rem)] font-bold uppercase
@@ -42,7 +42,7 @@ export const Hero = memo(function Hero() {
           select-none pointer-events-none whitespace-nowrap"
       >
         HIRE
-      </div>
+      </div> */}
 
       <div className="relative z-10 flex-1 flex items-center justify-center
         px-5 sm:px-8 lg:px-16 max-w-7xl mx-auto w-full
@@ -53,11 +53,11 @@ export const Hero = memo(function Hero() {
           <div className="flex items-center justify-center gap-3 sm:gap-3.5
             mb-5 sm:mb-7 animate-fade-in-up delay-100"
           >
-            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            {/* <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
             <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-navy/75">
               IT Recruitment Agency
             </span>
-            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            <span className="block w-6 sm:w-9 h-px bg-brand-coral" /> */}
           </div>
 
           <h1 className="text-[clamp(2.25rem,9vw,6rem)] font-bold
