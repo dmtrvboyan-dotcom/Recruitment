@@ -48,7 +48,6 @@ export default function ClientsPage() {
         <HowItWorks />
       </section>
 
-
       <section id="whyus">
         <WhyChooseUs />
       </section>

@@ -7,6 +7,9 @@ import {
   Zap,
   LineChart,
   CheckCircle,
+  Layers,
+  Smartphone,
+  Crown,
   type LucideIcon,
 } from "lucide-react"
 
@@ -118,54 +121,94 @@ export const PROCESS_STEPS: ProcessStep[] = [
 export const SERVICE_CARDS: ServiceCard[] = [
   {
     icon: Code2,
-    title: "Full-Stack & Web",
+    title: "Software Engineers & Developers",
     description:
-      "Frontend and backend engineers who can own features end-to-end across modern web stacks - from design system to database.",
-    tags: ["React", "Node.js", "TypeScript", "Next.js", "PostgreSQL"],
+      "Full-stack, backend, and frontend engineers who build robust, scalable products - from early-stage MVPs to complex enterprise systems.",
+    tags: ["React", "Node.js", "Java", ".NET", "Vue", "Angular", "TypeScript"],
     accent: "#085689",
     iconBg: "bg-[#e8f3ff]",
-    href: "/services/full-stack-web-developers",
+    href: "/tech-recruitment/#software-engineering",
   },
   {
-    icon: LineChart,
-    title: "Data & AI/ML",
+    icon: Globe,
+    title: "DevOps, Cloud & Platform Engineers",
     description:
-      "Data engineers, ML practitioners, and analytics specialists who move fast and integrate cleanly with your existing data infrastructure.",
-    tags: ["Python", "AI/ML", "dbt", "Spark", "LLMs"],
+      "Infrastructure and platform specialists who design, automate, and scale cloud environments for reliability and speed.",
+    tags: ["AWS", "Azure", "Kubernetes", "Terraform", "CI/CD"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-    href: "/services/data-ai-ml-developers",
-  },
-  {
-    icon: Zap,
-    title: "Mobile Development",
-    description:
-      "iOS, Android, and cross-platform engineers who build polished, performant apps and slot seamlessly into your product team.",
-    tags: ["React Native", "Swift", "Kotlin", "Flutter"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
-    href: "/services/mobile-developers",
+    href: "/tech-recruitment/#devops",
   },
   {
     icon: ShieldCheck,
-    title: "DevOps & Cloud",
+    title: "QA Automation & Security",
     description:
-      "Infrastructure, platform, and SRE engineers to build, automate, and scale your cloud environment without the permanent headcount.",
-    tags: ["AWS", "Kubernetes", "Terraform", "CI/CD"],
+      "Quality and security professionals who embed testing and protection throughout the development lifecycle.",
+    tags: ["Selenium", "Cypress", "QA Automation", "DevSecOps", "Manual Testing"],
+    accent: "#085689",
+    iconBg: "bg-[#e8f3ff]",
+    href: "/tech-recruitment/#qa-security",
+  },
+  {
+    icon: LineChart,
+    title: "Data Engineering & BI",
+    description:
+      "Data engineers and BI specialists who build reliable pipelines and turn raw data into actionable business intelligence.",
+    tags: ["SQL", "Power BI", "Tableau", "Snowflake", "Spark", "BigQuery"],
     accent: "#ff5d77",
     iconBg: "bg-[#fff0f3]",
-    href: "/services/devops-cloud-engineers",
+    href: "/tech-recruitment/#data-engineering",
+  },
+  {
+    icon: Zap,
+    title: "AI / ML Engineers",
+    description:
+      "Machine learning engineers and AI researchers who design, train, and deploy models that power intelligent products.",
+    tags: ["Python", "TensorFlow", "PyTorch", "Deep Learning", "LLMs"],
+    accent: "#085689",
+    iconBg: "bg-[#e8f3ff]",
+    href: "/tech-recruitment/#ai-ml",
+  },
+  {
+    icon: Layers,
+    title: "UI / UX & Product Design",
+    description:
+      "Designers and researchers who craft intuitive, visually compelling experiences that users love and businesses stand behind.",
+    tags: ["Figma", "Sketch", "Adobe XD", "InVision", "Prototyping"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
+    href: "/tech-recruitment/#ux-ui-design",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Development",
+    description:
+      "iOS and Android engineers who deliver polished, performant native and cross-platform apps for modern mobile users.",
+    tags: ["iOS", "Android", "React Native", "Kotlin", "Swift", "Flutter"],
+    accent: "#085689",
+    iconBg: "bg-[#e8f3ff]",
+    href: "/tech-recruitment/#mobile-development",
   },
   {
     icon: Users,
-    title: "Backend & APIs",
+    title: "Engineering Leadership",
     description:
-      "Experienced backend engineers who design and build reliable services, APIs, and integrations - ready to contribute from day one.",
-    tags: ["Java", "Go", ".NET", "Python", "Microservices"],
-    accent: "#085689",
-    iconBg: "bg-[#e8f3ff]",
-    href: "/services/backend-api-developers",
+      "CTOs, VPs of Engineering, Tech Leads, and Engineering Managers who set technical direction and build high-performing teams.",
+    tags: ["CTO", "Tech Lead", "Engineering Manager"],
+    accent: "#ff5d77",
+    iconBg: "bg-[#fff0f3]",
+    href: "/tech-recruitment/#engineering-leadership",
   },
+  // {
+  //   icon: Crown,
+  //   title: "VP Engineering & Executive Search",
+  //   description:
+  //     "Confidential, partner-led search for VP Engineering, CTO, and C-suite technology leaders. We go beyond the active market — mapping, approaching, and securing the best operators regardless of whether they're looking.",
+  //   tags: ["VP Engineering", "CTO", "C-Suite", "Executive Search", "Confidential", "Headhunting"],
+  //   accent: "#ff5d77",
+  //   iconBg: "bg-[#fff0f3]",
+  //   href: "/services/confidential-headhunting-executive-search",
+  // },
 ]
 // ─── Benefits ─────────────────────────────────────────────────────────────────
 export const BENEFITS: BenefitItem[] = [

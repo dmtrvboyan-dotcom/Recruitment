@@ -165,13 +165,9 @@ export default function EmployerOfRecordPage() {
             </h1>
 
             {/* Description */}
-            <p className="text-base lg:text-lg text-white/65 leading-relaxed text-pretty max-w-2xl mx-auto mb-8 lg:mb-10">
+            <p className="text-base lg:text-lg text-brand-white/65 leading-relaxed text-pretty max-w-2xl mx-auto mb-8 lg:mb-10">
               {HERO.description}
             </p>
-
-            {/* ✅ FIX 1: Removed the "See Permanent IT Recruitment" leak.
-                That link was sending users away before they'd read the page.
-                Moved to the cross-sell strip at the very bottom instead. */}
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <AppButton href={CTA.primaryButton.href} icon="arrow" className="sm:w-auto">
@@ -278,7 +274,7 @@ export default function EmployerOfRecordPage() {
                         <h3 className="flex-1 text-base sm:text-lg font-bold text-brand-navy leading-tight pt-1 group-hover:text-brand-coral transition-colors duration-200">
                           {card.title}
                         </h3>
-                        <ArrowUpRight className="w-4 h-4 text-brand-navy/25 group-hover:text-brand-coral group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 shrink-0 mt-2" />
+
                       </div>
 
                       <p className="text-sm text-brand-navy/55 leading-relaxed mb-4">

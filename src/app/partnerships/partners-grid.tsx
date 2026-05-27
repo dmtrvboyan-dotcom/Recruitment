@@ -145,10 +145,9 @@ export const PartnersGrid = memo(function PartnersGrid() {
             We've helped fast-growing startups, scale-ups, and established international businesses hire top talent across Bulgaria and Europe.
           </p>
 
-          {/* CTA: dual audience — candidates land here too and need a clear path to open roles */}
           <div className="shrink-0">
-            <AppButton href="/job-listings" icon="arrow" className="sm:w-auto whitespace-nowrap">
-              Candidate? Browse open roles
+            <AppButton href="/contacts" icon="arrow" className="sm:w-auto whitespace-nowrap">
+              Start your search
             </AppButton>
           </div>
         </div>

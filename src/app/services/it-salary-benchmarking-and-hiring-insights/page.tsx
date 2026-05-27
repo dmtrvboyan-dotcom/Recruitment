@@ -356,7 +356,6 @@ export default function SalaryBenchmarkingPage() {
                           {ex}
                         </span>
                       ))}
-                      <ArrowUpRight className="w-4 h-4 text-white/20 group-hover:text-brand-coral group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 mt-0.5" />
                     </div>
                   </div>
                 )

@@ -63,15 +63,16 @@ export const HeroSection = memo(function HeroSection() {
 
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mb-12 sm:mb-14">
-          
-          
+            <AppButton href={HERO_DATA.primaryCta.href} className="sm:w-auto">
+              {HERO_DATA.primaryCta.text}
+            </AppButton>
 
-            <AppButton href={HERO_DATA.secondaryCta.href} className="sm:w-auto">
-                  {HERO_DATA.secondaryCta.text}
+            <AppButton href={HERO_DATA.secondaryCta.href} variant="outline" className="sm:w-auto">
+              {HERO_DATA.secondaryCta.text}
             </AppButton>
           </div>
 
-  
+
 
           {/* Tech pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-12 sm:mb-14 max-w-3xl mx-auto">
@@ -94,8 +95,8 @@ export const HeroSection = memo(function HeroSection() {
             <div
               key={stat.label}
               className={`px-4 py-5 sm:px-6 sm:py-7 text-center ${i !== HERO_DATA.stats.length - 1
-                  ? "border-r border-brand-white/8"
-                  : ""
+                ? "border-r border-brand-white/8"
+                : ""
                 }`}
             >
               <div className="flex items-baseline justify-center gap-1.5 mb-1.5">

@@ -511,7 +511,6 @@ export default function ContractHiringPage() {
         </section>
       </ScrollReveal>
 
-      {/* ── CTA: Dramatic finale ────────────────────────────────────────── */}
       <ScrollReveal>
         <section className="relative w-full px-3 sm:px-5 lg:px-10 pb-12 lg:pb-20">
           <div className="relative bg-brand-navy rounded-3xl lg:rounded-[2.5rem] overflow-hidden">

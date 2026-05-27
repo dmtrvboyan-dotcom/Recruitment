@@ -1,5 +1,6 @@
 "use client"
 
+import { AppButton } from "@/components/ui/app-button"
 import { memo, useRef, useState, useEffect } from "react"
 
 const FEATURED = {
@@ -308,7 +309,12 @@ export const Testimonials = memo(function Testimonials() {
             <span className="text-lg leading-none">↓</span>
           </div>
         </div>
-
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12"
+        >
+          <AppButton href="/contacts" className="sm:w-auto">
+            Ready to join these companies?
+          </AppButton>
+        </div>
       </div>
     </section>
   )

@@ -262,10 +262,10 @@ export default function PayrollCompliancePage() {
               {SERVICE_CARDS.map((card, i) => {
                 const Icon = card.icon
                 return (
-                  <Link
+                  <div
                     key={i}
-                    href={card.href ?? "#"}
-                    className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/2.5 transition-all duration-500 ease-out overflow-hidden"
+                    // href={card.href ?? "#"}
+                    className="group relative flex gap-3 sm:gap-5 p-6 lg:p-8 items-start border-b border-r border-brand-navy/10 hover:bg-brand-navy/2.5 transition-all duration-500 ease-out overflow-hidden cursor-auto"
                   >
                     {/* Index */}
                     <div className="pt-1 shrink-0">
@@ -285,7 +285,7 @@ export default function PayrollCompliancePage() {
                         <h3 className="flex-1 text-base sm:text-lg font-bold text-brand-navy leading-tight pt-1 group-hover:text-brand-coral transition-colors duration-200">
                           {card.title}
                         </h3>
-                        <ArrowUpRight className="w-4 h-4 text-brand-navy/25 group-hover:text-brand-coral group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 shrink-0 mt-2" />
+                        
                       </div>
 
                       <p className="text-sm text-brand-navy/55 leading-relaxed mb-4">
@@ -308,7 +308,7 @@ export default function PayrollCompliancePage() {
                       aria-hidden
                       className="absolute left-0 right-0 bottom-0 h-px w-0 bg-brand-coral group-hover:w-full transition-all duration-700 ease-out"
                     />
-                  </Link>
+                  </div>
                 )
               })}
             </div>

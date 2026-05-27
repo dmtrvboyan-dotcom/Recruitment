@@ -261,10 +261,9 @@ export default function ExecutiveSearchPage() {
                   key={i}
                   className="group relative p-6 lg:p-8 border-b border-r border-brand-white/10 hover:bg-brand-white/2.5] transition-all duration-300 overflow-hidden"
                 >
-                  {/* Ghost index */}
                   <span
                     aria-hidden
-                    className="absolute top-4 right-5 text-[clamp(2rem,5vw,3.5rem)] font-bold text-brand-white/[0.07] leading-none pointer-events-none select-none group-hover:text-brand-coral/20 transition-colors duration-500"
+                    className="absolute top-4 right-5 text-[clamp(2rem,5vw,3.5rem)] font-bold text-brand-white/20 leading-none pointer-events-none select-none group-hover:text-brand-coral/90 transition-colors duration-500"
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -280,7 +279,6 @@ export default function ExecutiveSearchPage() {
                     {item.detail}
                   </p>
 
-                  {/* Animated coral underline */}
                   <span
                     aria-hidden
                     className="absolute left-0 right-0 bottom-0 h-px w-0 bg-brand-coral group-hover:w-full transition-all duration-700 ease-out"
