@@ -16,11 +16,38 @@ import { AppButton } from '@/components/ui/app-button';
 
 
 export const metadata: Metadata = {
-  title: "Fintech Recruitment Bulgaria | Hire Fintech Talent",
+  title: "Fintech Recruitment Bulgaria | Hire Fintech & Banking Tech Talent | Recruitment.bg",
   description:
-    "Specialized fintech recruitment in Bulgaria. Hire backend engineers, risk & compliance specialists, data analysts, and product roles for your fintech company.",
+    "Specialist fintech recruitment in Bulgaria. We place backend engineers, payments specialists, risk & compliance, data analysts and product roles for fintech, banking and crypto companies. 200+ placements.",
+  keywords: [
+    "fintech recruitment Bulgaria",
+    "hire fintech developers Bulgaria",
+    "banking tech recruitment Sofia",
+    "payments engineer Bulgaria",
+    "crypto recruitment Bulgaria",
+    "fintech jobs Bulgaria",
+    "financial technology hiring Bulgaria",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "Fintech Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "200+ fintech placements in Bulgaria. Engineers, compliance, data and product roles for fintech and banking companies.",
+    url: "https://recruitment.bg/expertise-services/fintech-recruitment",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fintech Recruitment Bulgaria | Recruitment.bg",
+    description: "200+ fintech placements. Specialists for fintech and banking companies in Bulgaria.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/expertise-services/fintech-recruitment",
+  },
 }
-
+ 
 export default function FintechRecruitmentPage() {
   return (
     <>

@@ -16,9 +16,36 @@ import {
 import { BackToTop } from "@/components/navigation/back-to-top"
 
 export const metadata: Metadata = {
-  title: "Permanent IT Recruitment Services | Tech Talent Acquisition",
+  title: "Permanent IT Recruitment Bulgaria | Hire Full-Time Developers | Recruitment.bg",
   description:
-    "Strategic permanent IT recruitment. We help companies hire high-performing tech professionals who align technically and culturally for long-term success.",
+    "Permanent IT recruitment in Bulgaria focused on long-term retention and cultural fit. We place software engineers, DevOps, data and leadership roles full-time. First candidates in 2–10 days.",
+  keywords: [
+    "permanent IT recruitment Bulgaria",
+    "hire full-time developers Bulgaria",
+    "software engineer recruitment Bulgaria",
+    "permanent tech hiring Sofia",
+    "IT staff Bulgaria",
+    "full-time IT jobs Bulgaria",
+    "tech talent Bulgaria permanent",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "Permanent IT Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "Place full-time tech professionals in Bulgaria. Long-term retention focus. First candidates in 2–10 days.",
+    url: "https://recruitment.bg/services/permanent-it-recruitment",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Permanent IT Recruitment Bulgaria | Recruitment.bg",
+    description: "Full-time tech hiring in Bulgaria. First candidates in 2–10 days.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/services/permanent-it-recruitment",
+  },
 }
 
 // ─── Atoms ────────────────────────────────────────────────────────────────────
@@ -538,10 +565,10 @@ export default function ExecutiveSearchPage() {
           </div>
         </section>
       </ScrollReveal>
-          < BackToTop hideOnMobile />
+      < BackToTop hideOnMobile />
 
     </>
-    
+
   )
 
 }

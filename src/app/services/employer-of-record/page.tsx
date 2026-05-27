@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { ScrollReveal } from "@/components/layout"
 import { AppButton } from "@/components/ui/app-button"
-import { ArrowUpRight, ArrowRight } from "lucide-react"
 
 import {
   HERO,
@@ -21,9 +19,39 @@ import { BackToTop } from "@/components/navigation/back-to-top"
 
 
 export const metadata: Metadata = {
-  title: "Employer of Record (EoR) Services | Hire Globally Without a Local Entity",
+  title: "Employer of Record Bulgaria | Hire in Eastern Europe Without an Entity | Recruitment.bg",
   description:
-    "Hire employees in Bulgaria and Eastern Europe without setting up a local entity. Full employment compliance, payroll, and benefits — handled end to end.",
+    "Hire employees in Bulgaria and Eastern Europe without setting up a local company. Full employment compliance, payroll, tax and contracts handled end-to-end. 6+ countries covered.",
+  keywords: [
+    "employer of record Bulgaria",
+    "EOR Bulgaria",
+    "hire in Bulgaria without entity",
+    "hire Eastern Europe",
+    "employment compliance Bulgaria",
+    "payroll Bulgaria",
+    "hire remote workers Bulgaria",
+    "international hiring Bulgaria",
+    "PEO Bulgaria",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "Employer of Record Bulgaria | Recruitment.bg",
+    description:
+      "Hire in Bulgaria and Eastern Europe without a local entity. Full compliance, payroll and contracts handled.",
+    url: "https://recruitment.bg/services/employer-of-record",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Employer of Record Bulgaria | Recruitment.bg",
+    description:
+      "Hire in Bulgaria without a local entity. Full compliance handled.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/services/employer-of-record",
+  },
 }
 
 

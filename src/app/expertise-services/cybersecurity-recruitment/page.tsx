@@ -13,11 +13,39 @@ import { AppButton } from '@/components/ui/app-button';
 
 
 export const metadata: Metadata = {
-  title: "Cybersecurity Recruitment | Hire Security Engineers & SOC Analysts",
+  title: "Cybersecurity Recruitment Bulgaria | Hire Security Engineers & SOC Analysts | Recruitment.bg",
   description:
-    "Cybersecurity recruitment for security engineers, SOC analysts, and DevSecOps specialists. Hire top information security talent.",
+    "Cybersecurity recruitment in Bulgaria. We place security engineers, SOC analysts, DevSecOps specialists, penetration testers and CISO-level leadership. 120+ placements.",
+  keywords: [
+    "cybersecurity recruitment Bulgaria",
+    "security engineer jobs Bulgaria",
+    "SOC analyst recruitment Bulgaria",
+    "DevSecOps hiring Bulgaria",
+    "penetration tester Bulgaria",
+    "CISO recruitment Bulgaria",
+    "information security jobs Sofia",
+    "cybersecurity talent Bulgaria",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "Cybersecurity Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "120+ cybersecurity placements in Bulgaria. Security engineers, SOC analysts and DevSecOps specialists.",
+    url: "https://recruitment.bg/expertise-services/cybersecurity-recruitment",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cybersecurity Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "Security engineers and SOC analysts placed in Bulgaria. 120+ placements.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/expertise-services/cybersecurity-recruitment",
+  },
 }
-
 export default function RecruitmentAgencyBulgariaPage() {
   return (
     <>

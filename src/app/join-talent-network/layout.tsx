@@ -1,17 +1,38 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Join Our Talent Network - Get Matched with Top Companies",
+  title: "Join Our IT Talent Network Bulgaria | Freelance & Contract Roles | Recruitment.bg",
   description:
-    "Join our IT talent network and get matched with top companies hiring remote, freelance, contract, and full-time tech talent. Free for candidates. Reviewed within 48 hours.",
+    "Register as a freelance or contract IT professional in Bulgaria. Get matched with top companies hiring remote, hybrid and on-site tech talent. Free, confidential, reviewed within 48 hours.",
+  keywords: [
+    "IT talent network Bulgaria",
+    "freelance IT Bulgaria",
+    "contract developer network Bulgaria",
+    "register IT professional Bulgaria",
+    "B2B IT consultant Bulgaria",
+    "remote developer opportunities Bulgaria",
+    "join talent network Sofia",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
   openGraph: {
-    title: "Join Our Talent Network",
+    title: "Join Our IT Talent Network | Recruitment.bg",
     description:
-      "Get matched with top companies hiring remote, freelance, contract, and full-time talent.",
+      "Register as freelance or contract IT professional in Bulgaria. Matched with top companies. Free and confidential.",
+    url: "https://recruitment.bg/join-talent-network",
+    siteName: "Recruitment.bg",
     type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Join Our IT Talent Network | Recruitment.bg",
+    description:
+      "Freelance and contract IT roles in Bulgaria. Free to join. Reviewed within 48 hours.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/join-talent-network",
   },
 }
-
 export default function TalentNetworkLayout({
   children,
 }: {

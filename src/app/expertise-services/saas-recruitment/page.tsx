@@ -16,9 +16,36 @@ import { AppButton } from '@/components/ui/app-button';
 
 
 export const metadata: Metadata = {
-  title: "Hire SaaS Talent | SaaS Engineers, DevOps & Product Hiring",
+  title: "SaaS Recruitment Bulgaria | Hire Cloud Engineers & Product Teams | Recruitment.bg",
   description:
-    "Hire top SaaS talent across cloud engineering, DevOps, product management, and B2B software. Scale your SaaS team with experienced professionals at competitive EU rates.",
+    "SaaS and B2B software recruitment in Bulgaria. We place cloud engineers, DevOps, product managers and technical leaders for SaaS companies scaling across Europe. 300+ placements.",
+  keywords: [
+    "SaaS recruitment Bulgaria",
+    "cloud engineer recruitment Bulgaria",
+    "B2B software hiring Bulgaria",
+    "product manager recruitment Sofia",
+    "SaaS developer Bulgaria",
+    "tech startup recruitment Bulgaria",
+    "cloud platform engineer Bulgaria",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "SaaS Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "300+ SaaS placements in Bulgaria. Cloud engineers, DevOps and product teams for scaling SaaS companies.",
+    url: "https://recruitment.bg/expertise-services/saas-recruitment",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SaaS Recruitment Bulgaria | Recruitment.bg",
+    description: "300+ SaaS placements. Cloud and product teams for SaaS companies in Bulgaria.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/expertise-services/saas-recruitment",
+  },
 }
 
 export default function SaasRecruitmentPage() {
@@ -232,11 +259,11 @@ export default function SaasRecruitmentPage() {
                 )
               })}
             </div>
-           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
               <AppButton href={CTA_DATA.perfectForCTA.href} icon="arrow" className="sm:w-auto">
                 {CTA_DATA.perfectForCTA.text}
               </AppButton>
-              
+
             </div>
           </div>
         </section>

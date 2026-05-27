@@ -22,34 +22,51 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   verification: {
-    google: 'x17AHWY5n5BIYrURpsxjSb-bItOjBV12WZzUsXngxtc',  // paste your code here
+    google: 'x17AHWY5n5BIYrURpsxjSb-bItOjBV12WZzUsXngxtc',  
   },
-  title: "IT Recruitment Agency in Bulgaria & Executive Headhunting",
+  title: "IT Recruitment Agency Bulgaria | Hire Tech Talent | Recruitment.bg",
   description:
-    "Bulgaria's premier executive search and IT headhunting agency. We connect top talent with leading companies through personalized recruitment solutions.",
+    "Bulgaria's #1 IT recruitment agency. We place software engineers, DevOps, AI/ML, and tech leaders for companies in Sofia, Plovdiv and across Europe. 15+ years experience. First candidates in 2–10 days.",
   keywords: [
-    "recruitment", "bulgaria", "headhunting", "executive search",
-    "IT recruitment", "tech talent", "HR consulting",
+    "IT recruitment Bulgaria",
+    "IT agency Bulgaria",
+    "hire developers Bulgaria",
+    "tech recruitment Sofia",
+    "software engineer recruitment Bulgaria",
+    "IT headhunting Bulgaria",
+    "recruitment agency Sofia",
+    "hire tech talent Bulgaria",
+    "IT jobs Bulgaria",
+    "executive search Bulgaria",
   ],
   authors: [{ name: "Recruitment.bg" }],
   openGraph: {
-    title: "IT Recruitment Agency in Bulgaria & Executive Headhunting",
-    description: "Bulgaria's premier executive search and IT headhunting agency.",
-    type: "website",
-    locale: "en_US",
+    title: "IT Recruitment Agency Bulgaria | Recruitment.bg",
+    description:
+      "Bulgaria's #1 IT recruitment agency. Software engineers, DevOps, AI/ML, and tech leaders placed in 2–10 days. 15+ years experience.",
+    url: "https://recruitment.bg",
     siteName: "Recruitment.bg",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    type: "website",
+    locale: "en_BG",
+    images: [
+      {
+        url: "https://recruitment.bg/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Recruitment.bg — IT Recruitment Agency Bulgaria",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Recruitment.bg - Executive Search & IT Headhunting",
-    description: "Bulgaria's Premier Executive Search and IT Recruit Agency.",
-    images: ["/og-image.jpg"],
+    title: "IT Recruitment Agency Bulgaria | Recruitment.bg",
+    description:
+      "Bulgaria's #1 IT recruitment agency. First candidates in 2–10 days.",
+    images: ["https://recruitment.bg/og-image.jpg"],
   },
   alternates: {
     canonical: "https://recruitment.bg",
   },
-
 }
 
 export const viewport: Viewport = {

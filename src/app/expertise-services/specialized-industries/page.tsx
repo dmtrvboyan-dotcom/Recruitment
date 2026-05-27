@@ -8,27 +8,37 @@ import { AppButton } from '@/components/ui/app-button';
 
 
 export const metadata: Metadata = {
-  title: "Specialized Industry Recruitment | Manufacturing, Energy, Fintech & More",
+  title: "Specialized Industry IT Recruitment | Manufacturing, Energy, LegalTech & More | Recruitment.bg",
   description:
-    "Expert tech recruitment across specialized industries including Manufacturing IT, Renewable Energy, Logistics, Hospitality, Retail, Media, LegalTech, Banking, and EdTech. Find industry-specific talent that understands your domain.",
+    "IT recruitment across specialized industries in Bulgaria — Manufacturing, Renewable Energy, Logistics, Hospitality, Retail, Media, LegalTech, Banking Tech and EdTech. Domain-specific tech talent.",
   keywords: [
-    "industry recruitment",
+    "specialized IT recruitment Bulgaria",
     "manufacturing IT recruitment",
-    "renewable energy tech jobs",
-    "logistics technology hiring",
-    "hospitality tech recruitment",
-    "retail ecommerce developers",
-    "media entertainment engineers",
-    "legaltech recruitment",
-    "banking fintech jobs",
-    "edtech hiring",
-    "specialized tech talent",
+    "renewable energy tech hiring Bulgaria",
+    "logistics technology recruitment",
+    "LegalTech recruitment Bulgaria",
+    "EdTech hiring Bulgaria",
+    "industry specific recruitment Bulgaria",
+    "niche IT recruitment Sofia",
   ],
+  authors: [{ name: "Recruitment.bg" }],
   openGraph: {
-    title: "Specialized Industry Tech Recruitment",
+    title: "Specialized Industry IT Recruitment | Recruitment.bg",
     description:
-      "Connect with tech talent that understands your industry. Expert recruitment across 9+ specialized sectors.",
+      "Domain-specific IT recruitment across 9+ industries in Bulgaria — from manufacturing to LegalTech and EdTech.",
+    url: "https://recruitment.bg/expertise-services/specialized-industries",
+    siteName: "Recruitment.bg",
     type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Specialized Industry IT Recruitment | Recruitment.bg",
+    description:
+      "IT recruitment across 9+ specialized industries in Bulgaria.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/expertise-services/specialized-industries",
   },
 }
 

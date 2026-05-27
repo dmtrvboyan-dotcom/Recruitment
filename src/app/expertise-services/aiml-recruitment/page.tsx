@@ -15,9 +15,37 @@ import { AppButton } from '@/components/ui/app-button';
 
 
 export const metadata: Metadata = {
-  title: "AI Recruitment | Hire Machine Learning Engineers & Data Scientists",
+  title: "AI & ML Recruitment Bulgaria | Hire Data Scientists & ML Engineers | Recruitment.bg",
   description:
-    "AI recruitment for machine learning engineers, data scientists, and MLOps specialists. Hire top AI talent for deep learning, NLP, and computer vision.",
+    "AI and machine learning recruitment in Bulgaria. We place ML engineers, data scientists, MLOps specialists, NLP and computer vision experts for product companies and AI startups. 100+ placements.",
+  keywords: [
+    "AI recruitment Bulgaria",
+    "ML engineer recruitment Bulgaria",
+    "data scientist jobs Bulgaria",
+    "machine learning hiring Bulgaria",
+    "MLOps recruitment Bulgaria",
+    "AI talent Bulgaria",
+    "deep learning engineer Bulgaria",
+    "NLP engineer Sofia",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "AI & ML Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "100+ AI/ML placements in Bulgaria. ML engineers, data scientists and MLOps specialists.",
+    url: "https://recruitment.bg/expertise-services/aiml-recruitment",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI & ML Recruitment Bulgaria | Recruitment.bg",
+    description: "ML engineers and data scientists placed in Bulgaria. 100+ placements.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/expertise-services/aiml-recruitment",
+  },
 }
 
 export default function AiMlRecruitment() {

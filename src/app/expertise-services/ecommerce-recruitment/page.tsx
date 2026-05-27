@@ -17,9 +17,36 @@ import { AppButton } from '@/components/ui/app-button';
 
 
 export const metadata: Metadata = {
-  title: "Ecommerce Recruitment | Hire Shopify, Magento & Ecommerce Talent",
+  title: "Ecommerce Recruitment Bulgaria | Hire Shopify & Magento Developers | Recruitment.bg",
   description:
-    "Ecommerce recruitment for Shopify, Magento, and online retail teams. Hire ecommerce developers, marketers, and growth specialists.",
+    "Ecommerce recruitment in Bulgaria. We place Shopify, Magento and WooCommerce developers, ecommerce managers and growth specialists for online retail companies across Europe. 180+ placements.",
+  keywords: [
+    "ecommerce recruitment Bulgaria",
+    "Shopify developer recruitment Bulgaria",
+    "Magento developer Bulgaria",
+    "ecommerce developer jobs Bulgaria",
+    "online retail hiring Bulgaria",
+    "ecommerce tech talent Bulgaria",
+    "WooCommerce developer Sofia",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "Ecommerce Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "180+ ecommerce placements. Shopify, Magento and online retail teams placed in Bulgaria.",
+    url: "https://recruitment.bg/expertise-services/ecommerce-recruitment",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ecommerce Recruitment Bulgaria | Recruitment.bg",
+    description: "Shopify and Magento developers placed in Bulgaria. 180+ placements.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/expertise-services/ecommerce-recruitment",
+  },
 }
 
 export default function EcommerceRecruitment() {

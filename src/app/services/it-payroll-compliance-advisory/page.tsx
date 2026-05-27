@@ -17,9 +17,38 @@ import { BackToTop } from "@/components/navigation/back-to-top"
 
 
 export const metadata: Metadata = {
-  title: "IT Payroll, Compliance & Business Advisory | Recruitment.bg",
+  title: "IT Payroll & Compliance Bulgaria | Business Advisory for Tech Companies | Recruitment.bg",
   description:
-    "Payroll management, tax coordination, contractor compliance, labor law guidance, and international expansion support — built exclusively for IT and technology companies. 400+ clients served.",
+    "Payroll management, contractor compliance, tax coordination and labour law guidance for IT companies in Bulgaria. International expansion support included. 400+ IT clients served.",
+  keywords: [
+    "IT payroll Bulgaria",
+    "payroll compliance Bulgaria",
+    "contractor compliance Bulgaria",
+    "labour law IT Bulgaria",
+    "tax compliance tech company Bulgaria",
+    "business advisory Bulgaria IT",
+    "international expansion Bulgaria",
+    "IT company setup Bulgaria",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "IT Payroll & Compliance Bulgaria | Recruitment.bg",
+    description:
+      "Payroll, compliance and business advisory for IT companies in Bulgaria. 400+ clients served.",
+    url: "https://recruitment.bg/services/it-payroll-compliance-advisory",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IT Payroll & Compliance Bulgaria | Recruitment.bg",
+    description:
+      "Payroll and compliance for IT companies in Bulgaria. 400+ clients.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/services/it-payroll-compliance-advisory",
+  },
 }
 
 // ─── Atoms ────────────────────────────────────────────────────────────────────

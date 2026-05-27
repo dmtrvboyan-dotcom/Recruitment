@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { About } from "./about"
 import { InvestInPeople } from "./invest-in-ppl"
 import { WhatYouGet } from "./what-you-get"

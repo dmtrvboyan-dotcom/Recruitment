@@ -14,7 +14,6 @@ export type ProcessStep = {
   heading: string
   body: string
   icon: LucideIcon
-  // Optional CTA rendered inline between this step and the next
   ctaAfter?: {
     text: string
     href: string

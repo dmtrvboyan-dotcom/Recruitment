@@ -17,11 +17,40 @@ import { BackToTop } from "@/components/navigation/back-to-top"
 
 
 export const metadata: Metadata = {
-  title: "IT Salary Benchmarking & Hiring Insights | Tech Compensation Data",
+  title: "IT Salary Benchmarking Bulgaria | Tech Compensation Data 2026 | Recruitment.bg",
   description:
-    "Access real-time IT salary benchmarks and tech hiring insights across 200+ roles, 30+ markets, and every major tech stack. Make competitive offers, retain top talent, and budget with confidence.",
+    "Real-time IT salary benchmarks for Bulgaria and Eastern Europe. Compare developer salaries by role, seniority and tech stack. Make competitive offers and hire faster in 2026.",
+  keywords: [
+    "IT salary Bulgaria 2026",
+    "developer salary Bulgaria",
+    "software engineer salary Sofia",
+    "tech salary benchmark Bulgaria",
+    "IT compensation Bulgaria",
+    "DevOps salary Bulgaria",
+    "data scientist salary Bulgaria",
+    "IT market rates Bulgaria",
+    "salary guide Bulgaria tech",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "IT Salary Benchmarking Bulgaria 2026 | Recruitment.bg",
+    description:
+      "Real-time developer salary benchmarks for Bulgaria. Compare by role, seniority and stack.",
+    url: "https://recruitment.bg/services/it-salary-benchmarking-and-hiring-insights",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IT Salary Benchmarking Bulgaria 2026 | Recruitment.bg",
+    description: "Real-time developer salary data for Bulgaria and Eastern Europe.",
+  },
+  alternates: {
+    canonical:
+      "https://recruitment.bg/services/it-salary-benchmarking-and-hiring-insights",
+  },
 }
-
 // ─── Atoms ────────────────────────────────────────────────────────────────────
 
 function Eyebrow({

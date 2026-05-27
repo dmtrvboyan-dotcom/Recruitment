@@ -20,8 +20,39 @@ import { BackToTop } from "@/components/navigation/back-to-top"
 
 
 export const metadata: Metadata = {
-  title: PAGE_METADATA.title,
-  description: PAGE_METADATA.description,
+  title: "Executive Search & IT Headhunting Bulgaria | CTO, VP Eng & Tech Leaders | Recruitment.bg",
+  description:
+    "Confidential executive search and IT headhunting in Bulgaria for CTO, VP Engineering, CISO, CPO and senior tech leadership roles. Discreet, partner-led, first candidates in 6–15 days.",
+  keywords: [
+    "executive search Bulgaria",
+    "IT headhunting Bulgaria",
+    "CTO recruitment Bulgaria",
+    "VP Engineering recruitment Bulgaria",
+    "tech leadership hiring Bulgaria",
+    "senior IT recruitment Bulgaria",
+    "confidential recruitment Bulgaria",
+    "headhunting Sofia",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "Executive Search & IT Headhunting Bulgaria | Recruitment.bg",
+    description:
+      "Confidential search for CTO, VP Engineering and senior tech leaders in Bulgaria. Partner-led, discreet process.",
+    url: "https://recruitment.bg/services/confidential-headhunting-executive-search",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Executive Search & IT Headhunting Bulgaria | Recruitment.bg",
+    description:
+      "Confidential CTO and tech leadership search in Bulgaria. First candidates in 6–15 days.",
+  },
+  alternates: {
+    canonical:
+      "https://recruitment.bg/services/confidential-headhunting-executive-search",
+  },
 }
 
 

@@ -16,9 +16,38 @@ import { AppButton } from '@/components/ui/app-button';
 import { BackToTop } from "@/components/navigation/back-to-top";
 
 export const metadata: Metadata = {
-  title: "Hire Contract & Freelance Developers | Start in 3–10 Days",
+  title: "Contract & Freelance IT Recruitment Bulgaria | B2B & Remote | Recruitment.bg",
   description:
-    "Pre-vetted contract developers and freelance programmers ready to join your team in days. Flexible contracts, no long-term commitment, immediate impact.",
+    "Hire pre-vetted contract developers, freelance engineers and B2B consultants in Bulgaria. Start in 3–10 days. Flexible contracts, no long-term commitment. Remote and hybrid options.",
+  keywords: [
+    "contract IT recruitment Bulgaria",
+    "freelance developers Bulgaria",
+    "hire contractors Bulgaria",
+    "B2B IT Bulgaria",
+    "remote developers Bulgaria",
+    "freelance software engineer Bulgaria",
+    "contract developer Sofia",
+    "IT outsourcing Bulgaria",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "Contract & Freelance IT Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "Pre-vetted contractors and freelance developers in Bulgaria. Start in 3–10 days. Flexible, no commitment.",
+    url: "https://recruitment.bg/services/contract-freelance-b2b-remote-recruitment",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contract & Freelance IT Recruitment Bulgaria | Recruitment.bg",
+    description: "Vetted contractors in Bulgaria. Start in 3–10 days.",
+  },
+  alternates: {
+    canonical:
+      "https://recruitment.bg/services/contract-freelance-b2b-remote-recruitment",
+  },
 }
 
 // ─── Atoms ────────────────────────────────────────────────────────────────────
@@ -502,11 +531,11 @@ export default function ContractHiringPage() {
               })}
             </div>
           </div>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300 mt-12">
             <AppButton href={CTA_DATA.advantageCTA.href} icon="arrow" className="sm:w-auto">
               {CTA_DATA.advantageCTA.text}
             </AppButton>
-           
+
           </div>
         </section>
       </ScrollReveal>

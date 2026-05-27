@@ -16,9 +16,36 @@ import { AppButton } from '@/components/ui/app-button';
 
 
 export const metadata: Metadata = {
-  title: "iGaming Recruitment Bulgaria | Hire Gaming Talent",
+  title: "iGaming Recruitment Bulgaria | Hire Casino & Betting Tech Talent | Recruitment.bg",
   description:
-    "Specialized iGaming and gaming recruitment in Bulgaria. Hire developers, game designers, multilingual support, and product specialists for your gaming company.",
+    "Dedicated iGaming and online betting recruitment in Bulgaria. We place developers, QA engineers, product managers and data specialists for casino, sports betting and gaming platforms. 150+ placements.",
+  keywords: [
+    "iGaming recruitment Bulgaria",
+    "casino recruitment Bulgaria",
+    "sports betting jobs Bulgaria",
+    "gaming industry recruitment Sofia",
+    "online gambling tech hiring Bulgaria",
+    "iGaming developer Bulgaria",
+    "betting platform recruitment",
+  ],
+  authors: [{ name: "Recruitment.bg" }],
+  openGraph: {
+    title: "iGaming Recruitment Bulgaria | Recruitment.bg",
+    description:
+      "150+ iGaming placements. Developers, QA and product specialists for casino and betting companies in Bulgaria.",
+    url: "https://recruitment.bg/expertise-services/igaming-recruitment",
+    siteName: "Recruitment.bg",
+    type: "website",
+    locale: "en_BG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "iGaming Recruitment Bulgaria | Recruitment.bg",
+    description: "150+ placements for casino and betting companies in Bulgaria.",
+  },
+  alternates: {
+    canonical: "https://recruitment.bg/expertise-services/igaming-recruitment",
+  },
 }
 
 export default function IGamingRecruitmentPage() {
