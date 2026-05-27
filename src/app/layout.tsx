@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Fira_Code, Poppins } from "next/font/google"
 import "./globals.css"
+import { LocalBusinessSchema, OrganizationSchema } from "./schema"
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
@@ -88,6 +89,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`${firaCode.variable} min-h-screen font-sans antialiased`}>
+        <OrganizationSchema />
+        <LocalBusinessSchema />
         {children}
       </body>
     </html>

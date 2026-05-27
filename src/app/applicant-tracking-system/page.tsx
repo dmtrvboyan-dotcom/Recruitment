@@ -8,6 +8,7 @@ import { IntegrationsSection } from "./integrations/integrations-section";
 import { SecuritySection } from "./security/security-section";
 import { ShowcaseSection } from "./showcase/showcase-section";
 import { BackToTop } from "@/components/navigation/back-to-top";
+import { ATSSchema } from "../schema";
 
 const sections = [
   { id: "hero", label: "Overview" },
@@ -24,6 +25,8 @@ const sections = [
 export default function Page() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
+
+      <ATSSchema />
 
       <section id="hero">
         <HeroSection />

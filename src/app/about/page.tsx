@@ -3,11 +3,15 @@ import { InvestInPeople } from "./invest-in-ppl"
 import { WhatYouGet } from "./what-you-get"
 import { AboutCTA } from "./about-cta"
 import { BackToTop } from "@/components/navigation/back-to-top"
+import { AboutPageSchema } from "../schema";
+
 
 
 export default function Page() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
+
+      <AboutPageSchema />
 
       <About />
       <InvestInPeople />

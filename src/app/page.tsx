@@ -5,6 +5,7 @@ import { Hero } from "@/app/_components/hero/hero"
 import { HashCleaner } from "../components/layout/hash-cleaner"
 import { SectionNav } from "@/components/navigation/section-nav"
 import { BackToTop } from "@/components/navigation/back-to-top"
+import { WebsiteSchema, HomepageFAQSchema } from "./schema"
 
 const TrustedBySection = dynamic(() =>
   import("@/app/_components/companies-record/companies-record").then(m => m.TrustedBySection)
@@ -47,6 +48,9 @@ const sections = [
 export default function LandingPage() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
+      <WebsiteSchema />
+      <HomepageFAQSchema />
+
       <HashCleaner />
       <Header />
       <SocialSidebar />
