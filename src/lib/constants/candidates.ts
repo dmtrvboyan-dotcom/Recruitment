@@ -1,7 +1,3 @@
-/**
- * Candidates section content
- */
-
 import { User, Target, HeartHandshake, type LucideIcon } from "lucide-react"
 
 export interface CandidateStep {

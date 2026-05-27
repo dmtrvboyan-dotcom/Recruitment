@@ -98,11 +98,11 @@ export function MeetTheTeam() {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <AppButton
-                href="/about"
+                href="/partnerships#companies-testimonials"
                 icon="arrow"
                 className="w-full sm:w-auto"
               >
-                Learn More About Us
+                Our clients feedback
               </AppButton>
 
               <AppButton
@@ -110,7 +110,7 @@ export function MeetTheTeam() {
                 variant="outline"
                 className="w-full sm:w-auto"
               >
-                Candidate feedback
+                Our candidates feedback
               </AppButton>
             </div>
           </div>

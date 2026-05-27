@@ -67,7 +67,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Permanent IT Recruitment",
-    subtitle: "Permanent Tech Hiring Built Around Retention & Long-Term Team Stability",
+    subtitle: "Permanent tech hiring built around retention & long-term team stability",
     intro: "",
     sections: [
       {
@@ -101,7 +101,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Contract / Freelance / B2B / Remote Hiring",
-    subtitle: "Pre-Vetted Contract & Freelance IT Talent",
+    subtitle: "Pre-vetted contract & freelance IT talent",
     intro: "",
     sections: [
       {
@@ -135,7 +135,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Confidential Headhunting and Executive search",
-    subtitle: "Discreet IT Executive Search for CTOs, Tech Leads & Senior Engineers",
+    subtitle: "Discreet IT executive search for CTOs, tech leads & senior engineers",
     intro: "",
     sections: [
       {
@@ -169,7 +169,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "Employer of Record (EOR)",
-    subtitle: "Hire in Eastern Europe - No Local Entity Needed",
+    subtitle: "Hire in Eastern Europe - no local entity needed",
     intro: "",
     sections: [
       {
@@ -203,7 +203,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "IT Salary Benchmarking & Hiring Insights",
-    subtitle: "Real-Time IT Salary Benchmarks by Role, Seniority & Tech Stack",
+    subtitle: "Real-time IT salary benchmarks by role, seniority & tech stack",
     intro: "",
     sections: [
       {
@@ -237,7 +237,7 @@ export const SERVICES: Service[] = [
     iconColor: "text-[#1A1A2E]",
     iconBg: "bg-[#1A1A2E]/5",
     title: "IT Payroll, Compliance & Business Advisory",
-    subtitle: "Operational & Compliance Support for International Tech Companies",
+    subtitle: "Operational & compliance support for international tech companies",
     intro: "",
     sections: [
       {

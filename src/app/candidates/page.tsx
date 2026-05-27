@@ -524,22 +524,34 @@ const OpportunitiesSection = memo(function OpportunitiesSection() {
                 <span className="text-xs font-bold tracking-[0.25em] uppercase text-brand-navy/40">Roles</span>
               </div>
               <ul className="space-y-0">
-                {opportunitiesData.roles.map((item, i) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-4 py-4 border-b border-brand-navy/8 last:border-b-0 group"
-                    style={{
-                      opacity: rightVisible ? 1 : 0,
-                      transform: rightVisible ? "translateX(0)" : "translateX(16px)",
-                      transition: `opacity 0.5s ease ${200 + i * 70}ms, transform 0.5s ease ${200 + i * 70}ms`,
-                    }}
-                  >
-                    <div className="w-6 h-6 rounded-full bg-brand-navy/8 flex items-center justify-center shrink-0 group-hover:bg-brand-coral/15 transition-colors duration-300">
-                      <CheckCircle className="w-3.5 h-3.5 text-brand-navy/40 group-hover:text-brand-coral transition-colors duration-300" strokeWidth={2} />
-                    </div>
-                    <span className="text-sm text-brand-navy font-medium">{item}</span>
-                  </li>
-                ))}
+                {opportunitiesData.roles.map((item, i, arr) => {
+                  const isLast = i === arr.length - 1
+                  return (
+                    <li
+                      key={item}
+                      className="flex items-center gap-4 py-4 border-b border-brand-navy/8 last:border-b-0 group"
+                      style={{
+                        opacity: rightVisible ? 1 : 0,
+                        transform: rightVisible ? "translateX(0)" : "translateX(16px)",
+                        transition: `opacity 0.5s ease ${200 + i * 70}ms, transform 0.5s ease ${200 + i * 70}ms`,
+                      }}
+                    >
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${isLast
+                          ? "bg-brand-coral/20 group-hover:bg-brand-coral/40"
+                          : "bg-brand-navy/8 group-hover:bg-brand-coral/15"
+                        }`}>
+                        <CheckCircle className={`w-3.5 h-3.5 transition-colors duration-300 ${isLast
+                            ? "text-brand-navy"
+                            : "text-brand-navy group-hover:text-brand-coral"
+                          }`} strokeWidth={2} />
+                      </div>
+                      <span className={`text-sm font-medium ${isLast ? "text-brand-coral" : "text-brand-navy"
+                        }`}>
+                        {item}
+                      </span>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           </div>

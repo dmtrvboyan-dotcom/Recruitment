@@ -340,6 +340,7 @@ export const opportunitiesData = {
     "Engineering Managers",
     "CTOs & Tech Leaders",
     "QA & Test Engineers",
+    "And more"
   ],
 }
 
@@ -399,9 +400,6 @@ export const faqData: SectionData<FAQ> = {
   ],
 }
 
-// ============================================================================
-// CTA Section
-// ============================================================================
 
 export const ctaData = {
   title: "Ready to Find Your Next Opportunity?",
