@@ -21,6 +21,9 @@ const firaCode = Fira_Code({
 })
 
 export const metadata: Metadata = {
+  verification: {
+    google: 'x17AHWY5n5BIYrURpsxjSb-bItOjBV12WZzUsXngxtc',  // paste your code here
+  },
   title: "IT Recruitment Agency in Bulgaria & Executive Headhunting",
   description:
     "Bulgaria's premier executive search and IT headhunting agency. We connect top talent with leading companies through personalized recruitment solutions.",
@@ -46,6 +49,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://recruitment.bg",
   },
+
 }
 
 export const viewport: Viewport = {
