@@ -48,11 +48,13 @@ const INTEREST_TAGS: Record<Interest, string[]> = {
   ITPayroll: ["payroll", "compliance", "advisory", "business-services", "contractor-management", ...SHARED_TAGS],
 }
 
+// Style tokens
+
 const fieldLabelClass =
   "text-[10px] font-bold uppercase tracking-[0.2em] text-brand-navy/60 mb-2 block"
 
 const inputClass =
-  "sm:h-12 h-8  rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30"
+  "h-12 rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30"
 
 function SectionMarker({ num, label }: { num: string; label: string }) {
   return (
@@ -73,6 +75,15 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const [file, setFile] = React.useState<File | null>(null)
   const [captchaToken, setCaptchaToken] = React.useState<string | null>(null)
   const recaptchaRef = React.useRef<ReCAPTCHA>(null)
+  const successRef = React.useRef<HTMLDivElement>(null)
+
+  // When the form switches to the success state, bring the confirmation
+  // into view so the user sees it immediately instead of having to scroll up.
+  React.useEffect(() => {
+    if (isSubmitted) {
+      successRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+    }
+  }, [isSubmitted])
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(createContactFormSchema(mode)),
@@ -124,7 +135,10 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
   if (isSubmitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 sm:py-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div
+        ref={successRef}
+        className="flex flex-col items-center justify-center py-12 sm:py-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-500 scroll-mt-28"
+      >
         <div className="relative mb-6 sm:mb-8">
           <div className="absolute inset-0 bg-brand-teal/10 blur-2xl rounded-full animate-pulse" />
           <div className="relative w-20 h-20 rounded-full bg-brand-navy flex items-center justify-center">
