@@ -213,13 +213,13 @@ export const NAV_ITEMS: NavItem[] = [
         items: [
           {
             label: "Why Us?",
-            description: "How we advocate for candidates — not just clients",
+            description: "How we advocate for candidates",
             icon: "Star",
             href: "/candidates",
           },
           {
-            label: "Browse Open Jobs",
-            description: "Explore live roles across tech, data & leadership",
+            label: "Open Jobs",
+            description: "Explore roles across tech, data, leadership & more",
             icon: "Briefcase",
             href: "/job-listings",
           },

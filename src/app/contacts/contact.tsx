@@ -127,9 +127,7 @@ export function Contact() {
           </h1>
 
           <p className="mt-6 sm:mt-8 text-base sm:text-lg text-brand-navy/60 leading-relaxed max-w-xl">
-            Whether you&apos;re scaling a tech team or hunting for your next
-            challenge - our senior partners are listening. Real humans.
-            Sharp questions. Honest answers.
+            Whether you're hiring or looking for a new job, get in touch with us. We'll be happy to assist you.
           </p>
         </header>
 

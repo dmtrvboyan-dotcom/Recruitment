@@ -6,7 +6,7 @@ import { CalendarDays, Clock, ArrowRight, CheckCircle } from "lucide-react"
 
 
 const CAL_NAMESPACE = process.env.NEXT_PUBLIC_CAL_NAMESPACE
-const CAL_LINK      = process.env.NEXT_PUBLIC_CAL_LINK
+const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK
 
 if (!CAL_NAMESPACE || !CAL_LINK) {
   throw new Error(
@@ -19,7 +19,7 @@ export function BookACall() {
   const [booked, setBooked] = React.useState(false)
 
   React.useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       const cal = await getCalApi({ namespace: CAL_NAMESPACE })
 
       cal("ui", {
@@ -87,7 +87,7 @@ export function BookACall() {
         active:translate-y-0 active:shadow-none
       "
     >
-     
+
       <div
         aria-hidden
         className="
@@ -103,25 +103,8 @@ export function BookACall() {
         className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-brand-teal/15 blur-2xl pointer-events-none"
       />
 
-      <div className="relative flex items-center justify-between mb-4 sm:mb-5">
 
-        <span className="inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.3em] text-brand-coral">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-coral animate-pulse" />
-          Available now
-        </span>
-
-
-        <span className="
-          inline-flex items-center gap-1
-          px-2.5 py-1 rounded-full
-          border border-white/10 bg-white/6
-          text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50
-        ">
-          Free · 30 min
-        </span>
-      </div>
-
-      <div className="relative flex items-start gap-3 sm:gap-4">
+      <div className="relative flex items-start gap-3 sm:gap-4 mt-5">
 
         <span className="
           shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl
@@ -136,10 +119,10 @@ export function BookACall() {
 
         <div className="flex-1 min-w-0 pt-0.5">
           <p className="text-sm sm:text-base font-bold text-white leading-tight mb-1">
-            Schedule a 30-min intro call
+            Schedule a free intro call
           </p>
           <p className="text-[11px] sm:text-xs text-white/50 leading-snug">
-            Pick a slot that works - no back-and-forth
+            Choose a time that suits you — we'll take it from there
           </p>
         </div>
       </div>

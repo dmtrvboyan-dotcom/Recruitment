@@ -27,10 +27,8 @@ import { createContactFormSchema, type ContactFormData } from "@/lib/schemas"
 import { MessageField } from "./message-field"
 import { TagInput } from "./tag-input"
 
-// Types 
-
 type Mode = "candidate" | "company"
-type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "projectIT" | "remoteIT" | "executiveSearch" | "salary"
+type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "confidentialSearch" | "eorSearch" | "ITSalary" | "ITPayroll"
 type ContactMethod = "email" | "phone"
 
 interface ContactFormProps {
@@ -44,11 +42,11 @@ const INTEREST_TAGS: Record<Interest, string[]> = {
   hiring: ["hiring", "recruitment", "open-roles", "budget", "timeline", ...SHARED_TAGS],
   demo: ["demo", "product-tour", "sales", "pricing", "meeting", ...SHARED_TAGS],
   permanentIT: ["full-time", "tech-talent", "staffing", "acquisition", ...SHARED_TAGS],
-  hireContract: ["contractors", "freelance-devs", "contracts", ...SHARED_TAGS],
-  projectIT: ["project-based", "outsourcing", "delivery", "expertise", ...SHARED_TAGS],
-  remoteIT: ["international", "offshore", "teams", "market-data", ...SHARED_TAGS],
-  executiveSearch: ["headhunting", "leadership", "c-level", "confidential", ...SHARED_TAGS],
-  salary: ["salary", "benchmarking", "compensation", "market-data", ...SHARED_TAGS],
+  hireContract: ["contractors", "freelance-devs", "b2b", "remote", "contracts", ...SHARED_TAGS],
+  confidentialSearch: ["headhunting", "executive-search", "leadership", "c-level", "confidential", ...SHARED_TAGS],
+  eorSearch: ["eor", "international", "global-hiring", "remote-teams", ...SHARED_TAGS],
+  ITSalary: ["salary", "benchmarking", "compensation", "market-data", "hiring-insights", ...SHARED_TAGS],
+  ITPayroll: ["payroll", "compliance", "advisory", "business-services", "contractor-management", ...SHARED_TAGS],
 }
 
 const CONTACT_METHOD_OPTIONS: {
@@ -69,8 +67,6 @@ const fieldLabelClass =
 const inputClass =
   "h-12 rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30"
 
-// SectionMarker 
-
 function SectionMarker({ num, label }: { num: string; label: string }) {
   return (
     <div className="flex items-center gap-3 mb-5">
@@ -80,8 +76,6 @@ function SectionMarker({ num, label }: { num: string; label: string }) {
     </div>
   )
 }
-
-// ContactMethodPill 
 
 function ContactMethodPill({
   option,
@@ -211,8 +205,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
   if (!siteKey) throw new Error("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not set")
 
-  // if there's a success
-
   if (isSubmitted) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
@@ -250,10 +242,29 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
             <section>
               <SectionMarker num="01" label="Your company" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
                 <FormField control={form.control} name="name" render={({ field }) => (
                   <FormItem>
                     <FormLabel className={fieldLabelClass}>Your name</FormLabel>
-                    <FormControl><Input className={inputClass} placeholder="Jane Doe" {...field} /></FormControl>
+                    <FormControl><Input className={inputClass} placeholder="E.g Maria Ivanova" {...field} /></FormControl>
+                    <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="email" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className={fieldLabelClass}>Work email</FormLabel>
+                    <FormControl><Input className={inputClass} type="email" placeholder="name@company.com" {...field} /></FormControl>
+                    <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="phone" render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className={fieldLabelClass}>
+                      Phone <span className="font-normal opacity-50 normal-case tracking-normal">— optional</span>
+                    </FormLabel>
+                    <FormControl><Input className={inputClass} type="tel" placeholder="+359 888 888 888" {...field} /></FormControl>
                     <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
                   </FormItem>
                 )} />
@@ -261,7 +272,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                 <FormField control={form.control} name="company" render={({ field }) => (
                   <FormItem>
                     <FormLabel className={fieldLabelClass}>Company name</FormLabel>
-                    <FormControl><Input className={inputClass} placeholder="TechCorp Ltd." {...field} /></FormControl>
+                    <FormControl><Input className={inputClass} placeholder="THE ONES EOOD" {...field} /></FormControl>
                     <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
                   </FormItem>
                 )} />
@@ -273,10 +284,10 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                     <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
                   </FormItem>
                 )} />
+
               </div>
             </section>
 
-            {/* 02 - What are you looking for */}
             <section className="animate-in fade-in slide-in-from-top-2 duration-300">
               <SectionMarker num="02" label="What are you looking for" />
               <div className="space-y-5">
@@ -288,11 +299,11 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                       <SelectItem value="hiring">Hiring for my company</SelectItem>
                       <SelectItem value="demo">Smart.r ATS demonstration</SelectItem>
                       <SelectItem value="permanentIT">Permanent IT Recruitment</SelectItem>
-                      <SelectItem value="hireContract">Hire Contract or Freelance Developers</SelectItem>
-                      <SelectItem value="projectIT">Project-Based IT Recruitment</SelectItem>
-                      <SelectItem value="remoteIT">Remote IT Hiring &amp; Global Talent</SelectItem>
-                      <SelectItem value="executiveSearch">Executive Search &amp; IT Headhunting</SelectItem>
-                      <SelectItem value="salary">IT Salary Benchmarking</SelectItem>
+                      <SelectItem value="hireContract">Contract / Freelance / B2B / Remote</SelectItem>
+                      <SelectItem value="confidentialSearch">Confidential Headhunting &amp; Executive Search</SelectItem>
+                      <SelectItem value="eorSearch">Employer of Record (EOR)</SelectItem>
+                      <SelectItem value="ITSalary">IT Salary Benchmarking &amp; Hiring Insights</SelectItem>
+                      <SelectItem value="ITPayroll">IT Payroll, Compliance &amp; Business Advisory</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -305,64 +316,11 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
               </div>
             </section>
 
-            {/* 03 - How should we contact you */}
-            <section className="animate-in fade-in slide-in-from-top-2 duration-300">
-              <SectionMarker num="03" label="How should we contact you" />
-
-              <div className="flex gap-3">
-                {CONTACT_METHOD_OPTIONS.map((opt) => (
-                  <ContactMethodPill
-                    key={opt.value}
-                    option={opt}
-                    selected={contactMethods.includes(opt.value)}
-                    onToggle={() => toggleMethod(opt.value)}
-                  />
-                ))}
-              </div>
-
-              {/* Revealed fields */}
-              {(contactMethods.includes("email") || contactMethods.includes("phone")) && (
-                <div className="mt-5 space-y-4">
-                  {contactMethods.includes("email") && (
-                    <div className="animate-in fade-in slide-in-from-top-3 duration-300">
-                      <FormField control={form.control} name="email" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className={fieldLabelClass}>Work email</FormLabel>
-                          <FormControl>
-                            <Input className={inputClass} type="email" placeholder="name@company.com" {...field} />
-                          </FormControl>
-                          <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
-                        </FormItem>
-                      )} />
-                    </div>
-                  )}
-
-                  {contactMethods.includes("phone") && (
-                    <div className="animate-in fade-in slide-in-from-top-3 duration-300">
-                      <FormField control={form.control} name="phone" render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className={fieldLabelClass}>Phone number</FormLabel>
-                          <FormControl>
-                            <Input className={inputClass} type="tel" placeholder="+359 …" {...field} />
-                          </FormControl>
-                          <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
-                        </FormItem>
-                      )} />
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {contactMethods.length === 0 && (
-                <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-brand-navy/35">
-                  Select at least one option above
-                </p>
-              )}
-            </section>
+         
 
             {/* 04 - Message */}
             <section>
-              <SectionMarker num="04" label="Your message" />
+              <SectionMarker num="03" label="Your message" />
               <MessageField form={form} interest={interest} mode={mode} />
             </section>
           </>
@@ -376,28 +334,28 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                 <FormField control={form.control} name="name" render={({ field }) => (
                   <FormItem>
                     <FormLabel className={fieldLabelClass}>Full Name</FormLabel>
-                    <FormControl><Input className={inputClass} placeholder="Jane Doe" {...field} /></FormControl>
+                    <FormControl><Input className={inputClass} placeholder="Alexander Dimitrov" {...field} /></FormControl>
                     <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
                   </FormItem>
                 )} />
                 <FormField control={form.control} name="email" render={({ field }) => (
                   <FormItem>
                     <FormLabel className={fieldLabelClass}>Email</FormLabel>
-                    <FormControl><Input className={inputClass} type="email" placeholder="name@work.com" {...field} /></FormControl>
+                    <FormControl><Input className={inputClass} type="email" placeholder="email@example.com" {...field} /></FormControl>
                     <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
                   </FormItem>
                 )} />
                 <FormField control={form.control} name="phone" render={({ field }) => (
                   <FormItem>
                     <FormLabel className={fieldLabelClass}>Phone</FormLabel>
-                    <FormControl><Input className={inputClass} type="tel" placeholder="+359 …" {...field} /></FormControl>
+                    <FormControl><Input className={inputClass} type="tel" placeholder="+359 888 888 888" {...field} /></FormControl>
                     <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
                   </FormItem>
                 )} />
                 <FormField control={form.control} name="title" render={({ field }) => (
                   <FormItem>
                     <FormLabel className={fieldLabelClass}>Position</FormLabel>
-                    <FormControl><Input className={inputClass} placeholder="Lead Developer" {...field} /></FormControl>
+                    <FormControl><Input className={inputClass} placeholder="React Developer" {...field} /></FormControl>
                     <FormMessage className="text-brand-coral text-[10px] font-bold uppercase tracking-wide mt-1.5" />
                   </FormItem>
                 )} />
@@ -413,7 +371,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
               <SectionMarker num="03" label="Attach CV" />
               <div className="relative group">
 
-                {/* Hide the file input when a file is already selected */}
                 {!file && (
                   <input
                     type="file"
@@ -440,7 +397,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                     </p>
                   </div>
 
-                  {/* Remove button - only shown when a file is selected */}
                   {file && (
                     <button
                       type="button"
@@ -457,7 +413,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
           </>
         )}
 
-        {/* ── SECURITY CHECK ────────────────────────────────────────────────── */}
         <section>
           <SectionMarker num={mode === "company" ? "05" : "04"} label="Security check" />
           <div className="flex justify-center">
