@@ -189,6 +189,12 @@ export const NAV_ITEMS: NavItem[] = [
             href: "/tech-recruitment",
           },
           {
+            label: "Free Hiring Insights",
+            description: "Hiring guides, salary trends & recruitment market insights",
+            icon: "BarChart3",
+            href: "/blog?tab=companies",
+          },
+          {
             label: "Why Us",
             description: "What makes us different",
             icon: "Star",
@@ -229,6 +235,12 @@ export const NAV_ITEMS: NavItem[] = [
             icon: "Users",
             href: "/join-talent-network",
           },
+          {
+            label: "Free Career Resources",
+            description: "Career advice, interview tips & job search guidance",
+            icon: "GraduationCap",
+            href: "/blog?tab=candidates",
+          },
         ],
       },
     ],
@@ -257,7 +269,7 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
-   label: "About Us",
+    label: "About Us",
     hasMegaMenu: true,
     megaSections: [
       {

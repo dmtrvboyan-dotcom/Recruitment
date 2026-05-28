@@ -22,6 +22,8 @@ import {
   Star,
   Users,
   UserCheck,
+  GraduationCap,
+  BarChart3,
   type LucideIcon,
   Search,
 } from "lucide-react"
@@ -51,4 +53,6 @@ export const ICON_MAP: Record<string, LucideIcon> = {
   Star,
   Users,
   UserCheck,
+  GraduationCap,
+  BarChart3,
 }
