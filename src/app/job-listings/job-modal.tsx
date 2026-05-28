@@ -68,13 +68,13 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
 
           <div className="relative space-y-3 sm:space-y-5">
             <div className="flex items-center gap-2.5">
-              <span className="block w-6 h-px bg-brand-coral" />
+              <span className="block w-6 bg-brand-coral" />
               <span className="text-brand-coral font-semibold uppercase tracking-[0.28em] text-[10px] sm:text-[11px]">
                 {job.seniority} Position
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-[0.95] tracking-tight pr-12 max-w-3xl">
+            <h2 className="text-xl sm:text-3xl font-bold uppercase leading-[0.95] tracking-tight pr-12 max-w-3xl">
               {job.title}
             </h2>
 
@@ -109,7 +109,7 @@ export const JobModal = memo(function JobModal({ job, onClose }: JobModalProps) 
                 Role Overview
               </h4>
             </div>
-            <p className="text-base sm:text-lg lg:text-xl text-brand-navy/80 leading-relaxed max-w-4xl font-light">
+            <p className="sm:text-lg text-sm text-brand-navy/80 leading-relaxed max-w-4xl font-light">
               {details.overview}
             </p>
           </section>

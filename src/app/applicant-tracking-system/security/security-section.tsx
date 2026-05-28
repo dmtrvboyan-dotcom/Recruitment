@@ -25,7 +25,7 @@ export const SecuritySection = memo(function SecuritySection() {
   const { ref: listRef, visible: listVisible } = useInView(0.1)
 
   return (
-    <section className="relative w-full bg-brand-white overflow-hidden">
+    <section className="relative w-full bg-brand-navy overflow-hidden">
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-75 bg-brand-coral/6 rounded-full blur-3xl pointer-events-none" />
 
@@ -44,7 +44,7 @@ export const SecuritySection = memo(function SecuritySection() {
             {securityData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white">
             {securityData.title}
           </h2>
         </div>
@@ -53,15 +53,15 @@ export const SecuritySection = memo(function SecuritySection() {
           {securityData.items.map((item, index) => (
             <div
               key={index}
-              className="group border-t border-brand-navy/8 last:border-b py-6 flex items-center gap-5
-                         transition-colors duration-200 hover:bg-brand-navy/1.5 px-3 -mx-3 rounded-xl"
+              className="group border-t border-brand-white/8 last:border-b py-6 flex items-center gap-5
+                         transition-colors duration-200 hover:bg-brand-white/1.5 px-3 -mx-3 rounded-xl"
               style={{
                 opacity: listVisible ? 1 : 0,
                 transform: listVisible ? "translateX(0)" : "translateX(-16px)",
                 transition: `opacity 0.5s ease ${index * 80}ms, transform 0.5s ease ${index * 80}ms`,
               }}
             >
-              <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 border-[1.5px] bg-brand-coral border-brand-coral/20 text-brand-white shadow-[0_4px_14px_rgba(114,145,199,0.35)]">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 border-[1.5px] bg-brand-coral border-brand-coral/20 text-brand-navy shadow-[0_4px_14px_rgba(114,145,199,0.35)]">
                 {index + 1}
               </div>
 
@@ -70,10 +70,10 @@ export const SecuritySection = memo(function SecuritySection() {
               </div>
 
               <div className="flex-1">
-                <h3 className="font-bold uppercase tracking-tight text-sm text-brand-navy mb-1">
+                <h3 className="font-bold uppercase tracking-tight text-sm text-brand-white mb-1">
                   {item.title}
                 </h3>
-                <p className="text-sm text-brand-navy/50 leading-relaxed">
+                <p className="text-sm text-brand-white/50 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -83,18 +83,17 @@ export const SecuritySection = memo(function SecuritySection() {
           ))}
 
           <div
-            className="mt-10 pt-8 border-t border-brand-navy/8 flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4"
+            className="mt-10 pt-8 border-t border-brand-white/8 flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4"
             style={{
               opacity: listVisible ? 1 : 0,
               transition: `opacity 0.5s ease ${securityData.items.length * 80 + 100}ms`,
             }}
           >
-            <p className="text-sm text-brand-navy/50 leading-relaxed max-w-xs">
+            <p className="text-sm text-brand-white/50 leading-relaxed max-w-xs">
               Hiring across borders? Compliance is only one piece of the puzzle.
             </p>
             <AppButton
               href="/services/employer-of-record"
-              variant="navy"
               icon="arrow"
               className="sm:w-auto shrink-0"
             >

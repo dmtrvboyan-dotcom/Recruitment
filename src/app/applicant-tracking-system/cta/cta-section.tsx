@@ -4,7 +4,7 @@ import { AppButton } from '@/components/ui/app-button';
 
 export function CTASection() {
   return (
-    <section className="py-20 md:py-40 bg-brand-white relative overflow-hidden">
+    <section className="py-20 md:py-40 bg-brand-navy relative overflow-hidden">
 
       <div
         className="pointer-events-none absolute inset-0"
@@ -20,11 +20,11 @@ export function CTASection() {
 
         </span>
 
-        <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-6">
+        <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white mb-6">
           {ctaData.title}
         </h2>
 
-        <p className="text-sm sm:text-base text-brand-navy/45 leading-relaxed mb-12 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base text-brand-white/45 leading-relaxed mb-12 max-w-2xl mx-auto">
           {ctaData.description}
         </p>
 

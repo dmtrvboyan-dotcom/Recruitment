@@ -125,23 +125,23 @@ function FaqRow({
   index: number
 }) {
   return (
-    <details className="group border-t border-brand-navy/10 last:border-b last:border-brand-navy/10">
+    <details className="group border-t border-brand-white/10 last:border-b last:border-brand-white/10">
       <summary className="flex items-center justify-between gap-6 py-5 lg:py-6 cursor-pointer list-none select-none">
         <div className="flex items-start gap-4">
-          <span className="text-[11px] font-mono text-brand-navy/25 pt-0.5 shrink-0 hidden sm:block">
+          <span className="text-[11px] font-mono text-brand-white/25 pt-0.5 shrink-0 hidden sm:block">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="text-[15px] lg:text-[16px] font-semibold text-brand-navy leading-snug">
+          <span className="text-[15px] lg:text-[16px] font-semibold text-brand-white leading-snug">
             {question}
           </span>
         </div>
-        <span className="shrink-0 w-7 h-7 rounded-full border border-brand-navy/15 flex items-center justify-center">
-          <span className="text-brand-navy/40 group-open:hidden text-lg leading-none">+</span>
+        <span className="shrink-0 w-7 h-7 rounded-full border border-brand-white/15 flex items-center justify-center">
+          <span className="text-brand-white/40 group-open:hidden text-lg leading-none">+</span>
           <span className="text-brand-coral hidden group-open:block text-lg leading-none">−</span>
         </span>
       </summary>
       <div className="pb-5 lg:pb-6 sm:pl-9">
-        <p className="text-sm lg:text-[14px] text-brand-navy/50 leading-relaxed max-w-2xl">
+        <p className="text-sm lg:text-[14px] text-brand-white/50 leading-relaxed max-w-2xl">
           {answer}
         </p>
       </div>
@@ -506,21 +506,19 @@ export default function EmployerOfRecordPage() {
         </section>
       </ScrollReveal>
 
-  
+
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="relative w-full bg-brand-white py-20 lg:py-28 border-t border-brand-navy/8">
+        <section className="relative w-full bg-brand-navy py-20 lg:py-28 border-t border-brand-navy/8">
           <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-20">
             <div className="mb-12 lg:mb-16 text-center">
               <SectionIndicator index={4} label="Your questions answered" centered />
-              <h2 className="mt-8 text-[clamp(2rem,5vw,3.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-navy">
-                Employer of Record (EoR)
-                <br />
-                <span className="text-brand-coral">your questions answered</span>
+              <h2 className="mt-8 text-[clamp(2rem,5vw,3.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-white">
+                your questions,<br />
+                <span className="text-brand-coral"> answered</span>
               </h2>
             </div>
 
-            {/* Two-column FAQ grid on lg */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16">
               <div>
                 {FAQ_ITEMS.slice(0, 5).map((item, i) => (
@@ -537,14 +535,12 @@ export default function EmployerOfRecordPage() {
         </section>
       </ScrollReveal>
 
+
+
       <ScrollReveal>
         <section className="relative w-full px-3 sm:px-5 lg:px-10 pb-12 lg:pb-20">
-          <div className="relative bg-brand-navy rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
-            {/* Glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-brand-coral/20 blur-[150px] pointer-events-none" />
-            <div className="absolute -top-20 -left-20 w-75 h-75 rounded-full bg-brand-coral/15 blur-[100px] pointer-events-none" />
-            <div className="absolute -bottom-20 -right-20 w-75 h-75 rounded-full bg-brand-coral/10 blur-[100px] pointer-events-none" />
-
+          <div className="relative bg-brand-white rounded-3xl lg:rounded-[2.5rem] overflow-hidden">
+        
             {/* Corner brackets */}
             <div aria-hidden className="absolute top-5 left-5 w-8 h-8 border-l-2 border-t-2 border-brand-coral/40 rounded-tl-xl pointer-events-none" />
             <div aria-hidden className="absolute top-5 right-5 w-8 h-8 border-r-2 border-t-2 border-brand-coral/40 rounded-tr-xl pointer-events-none" />
@@ -566,11 +562,11 @@ export default function EmployerOfRecordPage() {
                 <span className="block h-px w-10 bg-brand-coral" />
               </div>
 
-              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-brand-navy mb-6 lg:mb-8 text-balance">
                 {CTA.title}
               </h2>
 
-              <p className="text-base lg:text-lg text-white/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
+              <p className="text-base lg:text-lg text-brand-navy/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
                 {CTA.description}
               </p>
 
@@ -585,7 +581,7 @@ export default function EmployerOfRecordPage() {
                 ].map((label) => (
                   <span
                     key={label}
-                    className="text-[11px] font-semibold px-3 py-1.5 rounded-full border border-white/15 text-white/40"
+                    className="text-[11px] font-semibold px-3 py-1.5 rounded-full border border-brand-navy/15 text-brand-navy/40"
                   >
                     {label}
                   </span>
@@ -596,7 +592,7 @@ export default function EmployerOfRecordPage() {
                 <AppButton href={CTA.primaryButton.href} icon="arrow" className="sm:w-auto">
                   {CTA.primaryButton.text}
                 </AppButton>
-                <AppButton href={CTA.secondaryButton.href} variant="outline" className="sm:w-auto">
+                <AppButton href={CTA.secondaryButton.href} variant="navy" className="sm:w-auto">
                   {CTA.secondaryButton.text}
                 </AppButton>
               </div>

@@ -3,7 +3,6 @@ import { Filter, X, Check, RotateCcw, Search } from "lucide-react"
 import {
   JOB_LOCATIONS,
   SENIORITY_OPTIONS,
-  CONTRACT_OPTIONS,
   TECH_OPTIONS,
 } from "@/lib/data/jobs"
 import { toggleArrayItem } from "@/lib/utils/filters"
@@ -95,7 +94,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
         <Filter className="w-4 h-4" strokeWidth={1.5} />
         {showFilters ? "Close filters" : "Filter positions"}
         {activeCount > 0 && !showFilters && (
-          <span className="ml-1 inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-brand-navy text-brand-coral text-[10px] tabular-nums">
+          <span className="ml-1 inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-brand-white text-brand-coral text-[10px] tabular-nums">
             {activeCount}
           </span>
         )}
@@ -107,23 +106,23 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
           showFilters ? "block opacity-100" : "hidden opacity-0"
         } lg:block lg:opacity-100`}
       >
-        <div className="rounded-3xl p-6 lg:sticky lg:top-8 bg-brand-white/3 border border-brand-white/10 backdrop-blur-sm">
+        <div className="rounded-3xl p-6 lg:sticky lg:top-8 bg-brand-navy/3 border border-brand-navy/5 backdrop-blur-sm">
           {/* Filter header */}
-          <div className="flex items-center justify-between mb-2 pb-5 border-b border-brand-white/10">
+          <div className="flex items-center justify-between mb-2 pb-5 border-b border-brand-navy/10">
             <div className="flex items-center gap-2.5">
               <span className="block w-6 h-px bg-brand-coral" />
               <span className="text-[10px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
                 Refine
               </span>
               {activeCount > 0 && (
-                <span className="text-[10px] font-semibold tabular-nums text-brand-white/40">
+                <span className="text-[10px] font-semibold tabular-nums text-brand-navy/40">
                   · {activeCount}
                 </span>
               )}
             </div>
             <button
               onClick={resetAll}
-              className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-white/40 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-navy/40 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
             >
               <RotateCcw className="w-3 h-3" strokeWidth={1.5} />
               Reset
@@ -140,7 +139,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
               {/* Search input */}
               <div className="relative">
                 <Search
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-brand-white/40"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-brand-navy/40"
                   strokeWidth={1.5}
                 />
                 <input
@@ -148,12 +147,12 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                   value={techQuery}
                   onChange={(e) => setTechQuery(e.target.value)}
                   placeholder="Search stack..."
-                  className="w-full bg-brand-white/4 border border-brand-white/10 rounded-lg pl-9 pr-8 py-2 text-[12px] text-brand-white placeholder:text-brand-white/30 focus:outline-none focus:border-brand-coral/50 transition-colors duration-200"
+                  className="w-full bg-brand-navy/4 border border-brand-navy/10 rounded-lg pl-9 pr-8 py-2 text-[12px] text-brand-navy placeholder:text-brand-navy/50 focus:outline-none focus:border-brand-coral/50 transition-colors duration-200"
                 />
                 {techQuery && (
                   <button
                     onClick={() => setTechQuery("")}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-brand-white/40 hover:text-brand-coral transition-colors"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-brand-navy/40 hover:text-brand-coral transition-colors"
                   >
                     <X className="w-3.5 h-3.5" strokeWidth={1.5} />
                   </button>
@@ -172,7 +171,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                         className={`py-2.5 px-3 rounded-lg text-[10px] font-semibold tracking-[0.15em] uppercase transition-colors duration-200 cursor-pointer ${
                           active
                             ? "bg-brand-coral text-brand-navy border border-brand-coral"
-                            : "bg-transparent text-brand-white/55 border border-brand-white/10 hover:border-brand-coral/40 hover:text-brand-coral"
+                            : "bg-transparent text-brand-navy/55 border border-brand-navy/10 hover:border-brand-coral/40 hover:text-brand-coral"
                         }`}
                       >
                         {tech.label}
@@ -181,7 +180,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                   })}
                 </div>
               ) : (
-                <p className="text-[11px] text-brand-white/40 italic font-serif px-1 py-2">
+                <p className="text-[11px] text-brand-navy/40 italic font-serif px-1 py-2">
                   No stack matches "{techQuery}"
                 </p>
               )}
@@ -200,7 +199,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                 return (
                   <label
                     key={s}
-                    className="group flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-brand-white/5 transition-colors duration-200"
+                    className="group flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-brand-navy/5 transition-colors duration-200"
                   >
                     <input
                       type="checkbox"
@@ -216,12 +215,12 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                       className={`w-4 h-4 rounded flex items-center justify-center transition-colors duration-200 ${
                         checked
                           ? "bg-brand-coral border border-brand-coral"
-                          : "bg-transparent border border-brand-white/20 group-hover:border-brand-coral/40"
+                          : "bg-transparent border border-brand-navy/20 group-hover:border-brand-coral/40"
                       }`}
                     >
                       {checked && (
                         <Check
-                          className="w-2.5 h-2.5 text-brand-navy"
+                          className="w-2.5 h-2.5 text-brand-white"
                           strokeWidth={3}
                         />
                       )}
@@ -229,8 +228,8 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                     <span
                       className={`text-sm transition-colors duration-200 ${
                         checked
-                          ? "text-brand-white"
-                          : "text-brand-white/55 group-hover:text-brand-white/80"
+                          ? "text-brand-navy"
+                          : "text-brand-navy/55 group-hover:text-brand-navy/80"
                       }`}
                     >
                       {s}
@@ -253,7 +252,7 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                 return (
                   <label
                     key={loc}
-                    className="group flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-brand-white/5 transition-colors duration-200"
+                    className="group flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-brand-navy/5 transition-colors duration-200"
                   >
                     <input
                       type="checkbox"
@@ -269,12 +268,12 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                       className={`w-4 h-4 rounded flex items-center justify-center transition-colors duration-200 ${
                         checked
                           ? "bg-brand-coral border border-brand-coral"
-                          : "bg-transparent border border-brand-white/20 group-hover:border-brand-coral/40"
+                          : "bg-transparent border border-brand-navy/20 group-hover:border-brand-coral/40"
                       }`}
                     >
                       {checked && (
                         <Check
-                          className="w-2.5 h-2.5 text-brand-navy"
+                          className="w-2.5 h-2.5 text-brand-white"
                           strokeWidth={3}
                         />
                       )}
@@ -282,8 +281,8 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                     <span
                       className={`text-sm transition-colors duration-200 ${
                         checked
-                          ? "text-brand-white"
-                          : "text-brand-white/55 group-hover:text-brand-white/80"
+                          ? "text-brand-navy"
+                          : "text-brand-navy/55 group-hover:text-brand-navy/80"
                       }`}
                     >
                       {loc}
@@ -310,13 +309,13 @@ export const JobFilters = memo(function JobFilters(props: JobFiltersProps) {
                     className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors duration-200 cursor-pointer ${
                       active
                         ? "bg-brand-coral/10 text-brand-coral"
-                        : "text-brand-white/55 hover:bg-brand-white/5 hover:text-brand-white/80"
+                        : "text-brand-navy/55 hover:bg-brand-white/5 hover:text-brand-navy/80"
                     }`}
                   >
                     <span className="inline-flex items-center gap-2.5">
                       <span
                         className={`w-1.5 h-1.5 rounded-full ${
-                          active ? "bg-brand-coral" : "bg-brand-white/20"
+                          active ? "bg-brand-coral" : "bg-brand-navy/20"
                         }`}
                       />
                       {label}

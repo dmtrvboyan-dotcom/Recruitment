@@ -21,10 +21,9 @@ export interface SocialLink {
 export const FOOTER_LINKS: FooterLinks = {
   services: [
     { label: "Permanent IT Recruitment", href: "/services/permanent-it-recruitment" },
-    { label: "Contract freelance, B2B, Remote Hiring", href: "/services/contract-freelance-b2b-remote-recruitment" },
+    { label: "Contract Freelance / B2B / Remote Hiring", href: "/services/contract-freelance-b2b-remote-recruitment" },
     { label: "Confidential Headhunting & Executive Search", href: "/services/confidential-headhunting-executive-search" },
     { label: "Employer of Record (EoR)", href: "/services/employer-of-record" },
-    { label: "Executive Search & Headhunting", href: "/services/executive-search-and-it-headhunting" },
     { label: "IT Salary Benchmarking & Hiring Insights", href: "/services/it-salary-benchmarking-and-hiring-insights" },
     { label: "IT Payroll, Compliance & Business Advisory", href: "/services/it-payroll-compliance-advisory" },
     { label: "Smart.R ATS", href: "/applicant-tracking-system" },

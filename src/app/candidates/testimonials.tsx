@@ -62,7 +62,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
     })()
 
     return (
-        <section id="client-testimonials" className="relative w-full bg-brand-white overflow-hidden">
+        <section id="client-testimonials" className="relative w-full bg-brand-navy overflow-hidden">
           
             <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
@@ -79,7 +79,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                     <span className="text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
                         Candidate Stories
                     </span>
-                    <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase text-center">
+                    <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white uppercase text-center">
                         Words from the
                         <br />
                         <span className="text-brand-coral">People We've Placed.</span>
@@ -101,7 +101,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                         {/* Left: featured */}
                         <div className="flex-1 min-w-0">
                             <div className="sticky top-8">
-                                <div className="relative rounded-3xl overflow-hidden bg-brand-navy shadow-2xl">
+                                <div className="relative rounded-3xl overflow-hidden bg-brand-white shadow-2xl">
                                     <div className="absolute -top-20 -left-20 w-72 h-72 bg-brand-coral/15 rounded-full blur-3xl pointer-events-none" />
 
                                     {/* fixed-size image container so controls never shift */}
@@ -126,21 +126,21 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                     </div>
 
                                     {/* bottom bar — always same height */}
-                                    <div className="flex items-center justify-between px-6 py-4 border-t border-white/10 bg-brand-navy">
-                                        <span className="text-xs font-bold tracking-[0.2em] uppercase text-brand-white/30">
+                                    <div className="flex items-center justify-between px-6 py-4 border-t border-brand-navy/10 bg-brand-white">
+                                        <span className="text-xs font-bold tracking-[0.2em] uppercase text-brand-navy/30">
                                             {String(active + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                                         </span>
                                         <div className="flex gap-2">
                                             <button
                                                 onClick={() => selectTestimonial((active - 1 + total) % total)}
-                                                className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-brand-white/40 hover:border-brand-coral/60 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
+                                                className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-brand-navy/40 hover:border-brand-coral/60 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
                                                 aria-label="Previous"
                                             >
                                                 <ArrowLeft className="w-3.5 h-3.5" />
                                             </button>
                                             <button
                                                 onClick={() => selectTestimonial((active + 1) % total)}
-                                                className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center text-brand-white hover:bg-brand-coral-hover transition-colors duration-200 cursor-pointer"
+                                                className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center text-brand-navy hover:bg-brand-coral-hover transition-colors duration-200 cursor-pointer"
                                                 aria-label="Next"
                                             >
                                                 <ArrowRight className="w-3.5 h-3.5" />
@@ -160,7 +160,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                     <button
                                         onClick={prevPage}
                                         disabled={page === 0}
-                                        className="w-8 h-8 rounded-full border border-brand-navy/12 bg-brand-white flex items-center justify-center text-brand-navy/40 hover:border-brand-coral/40 hover:text-brand-coral disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-200 cursor-pointer"
+                                        className="w-8 h-8 rounded-full border border-brand-navy/12 bg-brand-white/10 flex items-center justify-center text-brand-white/90 hover:border-brand-coral/40 hover:text-brand-coral disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-200 cursor-pointer"
                                         aria-label="Previous page"
                                     >
                                         <ArrowLeft className="w-3.5 h-3.5" />
@@ -168,7 +168,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                     <button
                                         onClick={nextPage}
                                         disabled={page >= totalPages - 1}
-                                        className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center text-brand-white hover:bg-brand-coral-hover disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-200 cursor-pointer"
+                                        className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center text-brand-navy hover:bg-brand-coral-hover disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-200 cursor-pointer"
                                         aria-label="Next page"
                                     >
                                         <ArrowRight className="w-3.5 h-3.5" />
@@ -186,7 +186,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                             onClick={() => selectTestimonial(t.id - 1)}
                                             className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 text-left ${isActive
                                                 ? "ring-2 ring-brand-coral shadow-lg shadow-brand-coral/20 scale-[1.02]"
-                                                : "ring-1 ring-brand-navy/8 hover:ring-brand-coral/40 hover:scale-[1.01] opacity-60 hover:opacity-100"
+                                                : "ring-1 ring-brand-white/8 hover:ring-brand-coral/40 hover:scale-[1.01] opacity-60 hover:opacity-100"
                                                 }`}
                                         >
                                             {/* fixed ratio container */}
@@ -203,7 +203,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                     )
                                 })}
                                 {Array.from({ length: PAGE_SIZE - gridSlice.length }).map((_, i) => (
-                                    <div key={`empty-${i}`} className="rounded-2xl bg-brand-navy/4" style={{ aspectRatio: "4/3" }} />
+                                    <div key={`empty-${i}`} className="rounded-2xl bg-brand-white/4" style={{ aspectRatio: "4/3" }} />
                                 ))}
                             </div>
 
@@ -216,7 +216,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                             onClick={() => setPage(i)}
                                             className={`rounded-full transition-all duration-300 cursor-pointer ${i === page
                                                 ? "w-6 h-2 bg-brand-coral"
-                                                : "w-2 h-2 bg-brand-navy/15 hover:bg-brand-coral/40"
+                                                : "w-2 h-2 bg-brand-white/15 hover:bg-brand-coral/40"
                                                 }`}
                                             aria-label={`Page ${i + 1}`}
                                         />
@@ -230,7 +230,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                     <div className="flex lg:hidden flex-col gap-4">
 
                         {/* Featured */}
-                        <div className="relative rounded-3xl overflow-hidden bg-brand-navy shadow-xl">
+                        <div className="relative rounded-3xl overflow-hidden bg-brand-white shadow-xl">
                             <div className="absolute -top-20 -left-20 w-64 h-64 bg-brand-coral/15 rounded-full blur-3xl pointer-events-none" />
 
                             <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
@@ -253,21 +253,21 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                 </div>
                             </div>
 
-                            <div className="flex items-center justify-between px-5 py-3.5 border-t border-white/10 bg-brand-navy">
+                            <div className="flex items-center justify-between px-5 py-3.5 border-t border-brand-navy/10 bg-brand-white">
                                 <span className="text-xs font-bold tracking-[0.2em] uppercase text-brand-white/30">
                                     {String(active + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                                 </span>
                                 <div className="flex gap-2">
                                     <button
                                         onClick={() => selectTestimonial((active - 1 + total) % total)}
-                                        className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-brand-white/40 hover:border-brand-coral/60 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
+                                        className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-brand-navy/40 hover:border-brand-coral/60 hover:text-brand-coral transition-colors duration-200 cursor-pointer"
                                         aria-label="Previous"
                                     >
                                         <ArrowLeft className="w-3.5 h-3.5" />
                                     </button>
                                     <button
                                         onClick={() => selectTestimonial((active + 1) % total)}
-                                        className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center text-brand-white transition-colors duration-200 cursor-pointer"
+                                        className="w-8 h-8 rounded-full bg-brand-coral flex items-center justify-center text-brand-navy transition-colors duration-200 cursor-pointer"
                                         aria-label="Next"
                                     >
                                         <ArrowRight className="w-3.5 h-3.5" />
@@ -286,7 +286,7 @@ export const PeopleTestimonialsSection = memo(function PeopleTestimonialsSection
                                         onClick={() => selectTestimonial(t.id - 1)}
                                         className={`relative rounded-xl overflow-hidden cursor-pointer transition-all duration-300 flex-1 max-w-[30%] ${isActive
                                             ? "ring-2 ring-brand-coral shadow-md shadow-brand-coral/20"
-                                            : "ring-1 ring-brand-navy/8 opacity-50 hover:opacity-80"
+                                            : "ring-1 ring-brand-white/8 opacity-50 hover:opacity-80"
                                             }`}
                                     >
                                         <div className="relative w-full" style={{ aspectRatio: "4/3" }}>

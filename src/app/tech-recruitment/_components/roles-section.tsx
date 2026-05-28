@@ -3,29 +3,13 @@
 import { memo } from "react"
 import { TECH_CATEGORIES } from "@/lib/constants/specialized"
 import { RoleCard } from "./role-card"
-import { AppButton } from "@/components/ui/app-button"
 
-// Vertical pages that exist for specific niches — route visitors there
-// for far better conversion than the hub overview.
-const VERTICAL_CALLOUTS = [
-  {
-    label: "AI / ML Recruitment",
-    href: "/industries/ai-ml",
-    // Match against category IDs that belong to this niche
-    matchIds: ["ai-ml", "machine-learning", "artificial-intelligence", "data-science"],
-  },
-  {
-    label: "Cybersecurity Recruitment",
-    href: "/industries/cybersecurity",
-    matchIds: ["cybersecurity", "security", "infosec", "cloud-security"],
-  },
-]
 
 export const RolesSection = memo(function RolesSection() {
   return (
     <section
       id="roles"
-      className="relative py-20 sm:py-24 lg:py-32 bg-brand-navy overflow-hidden"
+      className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
     >
       {/* Coral glow */}
       <div
@@ -36,7 +20,7 @@ export const RolesSection = memo(function RolesSection() {
       {/* Watermark */}
       <div
         aria-hidden
-        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-white/2.5 select-none pointer-events-none whitespace-nowrap"
+        className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(10rem,18vw,16rem)] font-bold uppercase leading-[0.85] tracking-tighter text-brand-navy/1 select-none pointer-events-none whitespace-nowrap"
       >
         ROLES
       </div>
@@ -51,15 +35,15 @@ export const RolesSection = memo(function RolesSection() {
             </span>
             <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,5.5vw,3.25rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
-            Specialist Hiring For Every
+          <h2 className="text-[clamp(1.75rem,5.5vw,3.25rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
+            Hiring For Every
             <br />
             <span className="text-brand-coral">
               Technical Team
             </span>
           </h2>
           <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
-          <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
+          <p className="text-sm sm:text-base text-brand-navy/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
             From software engineering to executive leadership - click any
             specialization to see how we source and deliver.
           </p>

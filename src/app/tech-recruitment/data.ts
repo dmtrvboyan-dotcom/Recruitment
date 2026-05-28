@@ -13,7 +13,7 @@ import {
 
 export const HERO_DATA = {
   tagline: "Technical Specialized Recruitment",
-  title: "Specialist Hiring Across Every",
+  title: "Hiring Across Every",
   subtitle:
     "From software engineering to executive leadership - we help companies hire niche technical talent quickly, across every stack and seniority level.",
   primaryCta: { text: "Hire Tech Talent", href: "/contacts" },

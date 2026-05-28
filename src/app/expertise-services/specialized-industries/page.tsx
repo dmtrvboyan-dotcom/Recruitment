@@ -278,39 +278,11 @@ export default function SpecializedIndustries() {
         </section>
       </ScrollReveal>
 
-      <ScrollReveal>
-        <section className="relative w-full bg-brand-white overflow-hidden border-y border-brand-navy/6">
-          <div className="max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-12">
-
-            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-navy/30 shrink-0">
-                Jump to sector
-              </span>
-              <div className="h-px bg-brand-navy/8 hidden sm:block w-8 shrink-0" />
-              <div className="flex flex-wrap gap-2">
-                {INDUSTRIES.map((industry, i) => {
-                  const Icon = industry.icon
-                  return (
-                    <Link
-                      key={i}
-                      href={`#${industry.slug}`}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-navy/10 text-[11px] font-semibold tracking-wide uppercase text-brand-navy/50 hover:border-brand-coral/40 hover:text-brand-coral transition-all duration-200"
-                    >
-                      <Icon className="w-3 h-3" strokeWidth={1.8} />
-                      {industry.title.split(" ")[0]}
-                    </Link>
-                  )
-                })}
-              </div>
-            </div>
-
-          </div>
-        </section>
-      </ScrollReveal>
+   
 
       {/* ─── CTA ──────────────────────────────────────────────── */}
       <ScrollReveal>
-        <section className="relative w-full bg-brand-navy overflow-hidden">
+        <section className="relative w-full bg-brand-white overflow-hidden">
 
           {/* Glow */}
           <div className="absolute -bottom-40 -right-40 w-130 h-130 rounded-full bg-brand-coral/15 blur-[130px] pointer-events-none" />
@@ -318,7 +290,7 @@ export default function SpecializedIndustries() {
           {/* Watermark */}
           <div
             aria-hidden
-            className="absolute bottom-0 left-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-white/2.5 select-none pointer-events-none"
+            className="absolute bottom-0 left-0 text-[18vw] font-bold uppercase leading-none tracking-tighter text-brand-navy/2.5 select-none pointer-events-none"
           >
             HIRE
           </div>
@@ -328,7 +300,7 @@ export default function SpecializedIndustries() {
             <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-coral block mb-5">
               Ready to Start?
             </span>
-            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-white mb-6">
+            <h2 className="text-[clamp(2.5rem,7vw,4rem)] font-bold uppercase leading-none tracking-tight text-brand-navy mb-6">
               {CTA_DATA.title.split(" ").slice(0, 3).join(" ")}
               <br />
               <span className="text-brand-coral">
@@ -344,17 +316,16 @@ export default function SpecializedIndustries() {
                 {CTA_DATA.primaryButton.text}
               </AppButton>
 
-              <AppButton href={CTA_DATA.secondaryButton.href} variant="outline" className="sm:w-auto">
+              <AppButton href={CTA_DATA.secondaryButton.href} variant="navy" className="sm:w-auto">
                 {CTA_DATA.secondaryButton.text}
               </AppButton>
             </div>
 
-            {/* Bottom row — client portfolio + salary benchmarks replace the plain link */}
-            <div className="mt-16 pt-10 border-t border-brand-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="mt-16 pt-10 border-t border-brand-navy/8 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-1 h-8 rounded-full bg-brand-coral" />
-                <p className="text-xs text-brand-white/40 leading-relaxed max-w-sm text-left">
-                  <span className="font-bold text-brand-white/70">No hire, no invoice.</span>{" "}
+                <p className="text-xs text-brand-navy/40 leading-relaxed max-w-sm text-left">
+                  <span className="font-bold text-brand-navy/70">No hire, no invoice.</span>{" "}
                   Our fee is only due on a successful placement.
                 </p>
               </div>

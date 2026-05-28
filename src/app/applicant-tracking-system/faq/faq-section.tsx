@@ -31,7 +31,7 @@ export function FAQSection() {
   }
 
   return (
-    <section className="relative w-full bg-brand-navy overflow-hidden">
+    <section className="relative w-full bg-brand-white overflow-hidden">
 
       <div
         className="pointer-events-none absolute inset-0"
@@ -57,7 +57,7 @@ export function FAQSection() {
             {faqData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white mb-5">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-5">
             {faqData.title}
           </h2>
         </div>
@@ -76,11 +76,11 @@ export function FAQSection() {
                   transform: listVisible ? "translateY(0)" : "translateY(24px)",
                   transition: `opacity 0.5s ease ${index * 70}ms, transform 0.5s ease ${index * 70}ms`,
                   background: isOpen
-                    ? "rgba(114,145,199,0.12)"
-                    : "rgba(249,249,251,0.04)",
+                    ? "bg-brand-white"
+                    : "bg-brand-white",
                   borderColor: isOpen
-                    ? "rgba(114,145,199,0.25)"
-                    : "rgba(249,249,251,0.08)",
+                    ? "bg-brand-navy/5"
+                    : "bg-brand-navy/5",
                   boxShadow: isOpen
                     ? "0 20px 48px -8px rgba(26,26,46,0.4), 0 0 0 1px rgba(114,145,199,0.15)"
                     : "none",
@@ -90,7 +90,7 @@ export function FAQSection() {
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
                   style={{
                     background:
-                      "linear-gradient(135deg, rgba(114,145,199,0.06) 0%, transparent 60%)",
+                      "linear-gradient(135deg,  0%, transparent 60%)",
                   }}
                 />
 
@@ -106,8 +106,8 @@ export function FAQSection() {
                     </span>
                     <h3
                       className={`font-bold uppercase tracking-tight text-sm leading-snug transition-colors duration-300 ${isOpen
-                          ? "text-brand-white"
-                          : "text-brand-white/70 group-hover/btn:text-brand-white"
+                          ? "text-brand-navy"
+                          : "text-brand-navy/70 group-hover/btn:text-brand-navy"
                         }`}
                     >
                       {item.question}
@@ -145,7 +145,7 @@ export function FAQSection() {
                         className="w-0.5 shrink-0 rounded-full"
                         style={{ background: "rgba(114,145,199,0.4)" }}
                       />
-                      <p className="text-sm text-brand-white/40 leading-relaxed">
+                      <p className="text-sm text-brand-navy/40 leading-relaxed">
                         {item.answer}
                       </p>
                     </div>
@@ -156,7 +156,7 @@ export function FAQSection() {
                   className="absolute bottom-0 left-6 right-6 h-px transition-all duration-500 rounded-full"
                   style={{
                     background: isOpen
-                      ? "linear-gradient(90deg, transparent, rgba(114,145,199,0.5), transparent)"
+                      ? "transparent"
                       : "transparent",
                   }}
                 />
@@ -174,7 +174,7 @@ export function FAQSection() {
             <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
               Contact our team
             </AppButton>
-            <AppButton href="/blog" variant="outline" icon="arrow" className="sm:w-auto">
+            <AppButton href="/blog" variant="navy" icon="arrow" className="sm:w-auto">
               ATS best practice guides
             </AppButton>
           </div>

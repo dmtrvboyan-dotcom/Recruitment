@@ -33,7 +33,7 @@ export function ShowcaseSection() {
   }
 
   return (
-    <section className="relative w-full bg-brand-white overflow-hidden pt-20 lg:pt-32 pb-20">
+    <section className="relative w-full bg-brand-navy overflow-hidden pt-20 lg:pt-32 pb-20">
 
 
 
@@ -44,15 +44,15 @@ export function ShowcaseSection() {
             {showcaseData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-5">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white mb-5">
             {showcaseData.title}
           </h2>
-          <p className="text-sm sm:text-base text-brand-navy/50 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-brand-white/50 max-w-2xl mx-auto leading-relaxed">
             {showcaseData.description}
           </p>
         </div>
 
-        <div className="hidden md:block relative w-full overflow-hidden rounded-3xl aspect-video border border-brand-navy/8 shadow-[0_24px_64px_-16px_rgba(26,26,46,0.18)] bg-brand-navy/5">
+        <div className="hidden md:block relative w-full overflow-hidden rounded-3xl aspect-video border border-brand-white/8 shadow-[0_24px_64px_-16px_rgba(26,26,46,0.18)] bg-brand-white/5">
           {items.map((item, i) => (
             <div
               key={item.id}
@@ -72,11 +72,11 @@ export function ShowcaseSection() {
             </div>
           ))}
 
-          <div className="absolute inset-0 bg-linear-to-r from-brand-navy/40 via-brand-navy/5 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-r from-brand-white/40 via-brand-white/5 to-transparent pointer-events-none" />
           <button
             onClick={handleClose}
             className={cn(
-              "absolute top-5 right-5 z-20 w-9 h-9 rounded-full bg-brand-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-brand-white transition-all shadow-lg text-brand-navy",
+              "absolute top-5 right-5 z-20 w-9 h-9 rounded-full bg-brand-navy/90 backdrop-blur-sm flex items-center justify-center hover:bg-brand-navy transition-all shadow-lg text-brand-white",
               activeIdx >= 0 ? "opacity-100" : "opacity-0 pointer-events-none",
             )}
             aria-label="Close"
@@ -95,14 +95,14 @@ export function ShowcaseSection() {
                       aria-expanded={isActive}
                       className={cn(
                         "flex items-center gap-2.5 px-4 py-2.5 rounded-full backdrop-blur-md transition-all duration-300 ease-out cursor-pointer border",
-                        "bg-brand-white/85 border-brand-navy/10 hover:bg-brand-white hover:border-brand-coral/30",
+                        "bg-brand-navy/85 border-brand-white/10 hover:bg-brand-navy hover:border-brand-coral/30",
                         isActive
                           ? "opacity-0 scale-95 max-h-0 py-0 pointer-events-none overflow-hidden border-transparent"
                           : "opacity-100 scale-100 max-h-12",
                       )}
                     >
                       <Plus className="w-4 h-4 text-brand-coral shrink-0" strokeWidth={2} />
-                      <span className="text-xs font-semibold uppercase tracking-wide text-brand-navy whitespace-nowrap">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-brand-white whitespace-nowrap">
                         {item.label}
                       </span>
                     </button>
@@ -113,10 +113,10 @@ export function ShowcaseSection() {
                         isActive ? "opacity-100 h-auto scale-100" : "opacity-0 max-h-0 scale-95 pointer-events-none",
                       )}
                     >
-                      <div className="bg-brand-white/90 backdrop-blur-md rounded-2xl p-5 border border-brand-navy/8 shadow-[0_8px_32px_-8px_rgba(26,26,46,0.15)]">
+                      <div className="bg-brand-navy/90 backdrop-blur-md rounded-2xl p-5 border border-brand-white/8 shadow-[0_8px_32px_-8px_rgba(26,26,46,0.15)]">
                         <div className="w-8 h-0.5 bg-brand-coral rounded-full mb-3" />
-                        <p className="text-sm leading-relaxed text-brand-navy/70">
-                          <strong className="font-bold uppercase tracking-tight text-brand-navy text-xs">
+                        <p className="text-sm leading-relaxed text-brand-white/70">
+                          <strong className="font-bold uppercase tracking-tight text-brand-white text-xs">
                             {item.label}.
                           </strong>{" "}
                           {item.content}
@@ -130,7 +130,7 @@ export function ShowcaseSection() {
           </div>
         </div>
 
-        <div className="md:hidden relative mx-0 h-screen max-h-170 overflow-hidden rounded-2xl border border-brand-navy/8 shadow-[0_16px_48px_-12px_rgba(26,26,46,0.18)]">
+        <div className="md:hidden relative mx-0 h-screen max-h-170 overflow-hidden rounded-2xl border border-brand-white/8 shadow-[0_16px_48px_-12px_rgba(26,26,46,0.18)]">
           {items.map((item, i) => (
             <div
               key={item.id}
@@ -150,12 +150,12 @@ export function ShowcaseSection() {
             </div>
           ))}
 
-          <div className="absolute inset-0 bg-linear-to-t from-brand-navy/75 via-brand-navy/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-brand-white/75 via-brand-white/20 to-transparent pointer-events-none" />
 
           <button
             onClick={handleClose}
             className={cn(
-              "absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-white/15 backdrop-blur-sm flex items-center justify-center text-brand-white hover:bg-brand-white/25 transition-all",
+              "absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-navy/15 backdrop-blur-sm flex items-center justify-center text-brand-navy hover:bg-brand-navy/25 transition-all",
               activeIdx >= 0 ? "opacity-100" : "opacity-0 pointer-events-none",
             )}
             aria-label="Close"
@@ -165,14 +165,14 @@ export function ShowcaseSection() {
 
           <button
             onClick={navigateUp}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-brand-white/15 backdrop-blur-sm flex items-center justify-center text-brand-white hover:bg-brand-white/25 transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-brand-navy/15 backdrop-blur-sm flex items-center justify-center text-brand-navy hover:bg-brand-white/25 transition-colors"
             aria-label="Previous"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={navigateDown}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-brand-white/15 backdrop-blur-sm flex items-center justify-center text-brand-white hover:bg-brand-white/25 transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-brand-navy/15 backdrop-blur-sm flex items-center justify-center text-brand-navy hover:bg-brand-navy/25 transition-colors"
             aria-label="Next"
           >
             <ChevronRight className="w-4 h-4" />
@@ -186,10 +186,10 @@ export function ShowcaseSection() {
               )}
             >
               {activeIdx >= 0 && (
-                <div className="bg-brand-white/95 backdrop-blur-md rounded-xl p-4 border border-brand-navy/8 shadow-xl">
+                <div className="bg-brand-navy/95 backdrop-blur-md rounded-xl p-4 border border-brand-white/8 shadow-xl">
                   <div className="w-6 h-0.5 bg-brand-coral rounded-full mb-2" />
-                  <p className="text-sm leading-relaxed text-brand-navy/70">
-                    <strong className="font-bold uppercase tracking-tight text-brand-navy text-xs">
+                  <p className="text-sm leading-relaxed text-brand-white/70">
+                    <strong className="font-bold uppercase tracking-tight text-brand-white text-xs">
                       {items[activeIdx].label}.
                     </strong>{" "}
                     {items[activeIdx].content}
@@ -204,22 +204,22 @@ export function ShowcaseSection() {
                   key={item.id}
                   onClick={() => handleItemClick(i)}
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap flex-shrink-0 backdrop-blur-md border",
+                    "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 whitespace-nowrap shrink-0 backdrop-blur-md border",
                     activeIdx === i
-                      ? "bg-brand-white/95 border-brand-coral/20 shadow-md"
-                      : "bg-brand-white/15 border-brand-white/10 hover:bg-brand-white/25",
+                      ? "bg-brand-navy/95 border-brand-coral/20 shadow-md"
+                      : "bg-brand-navy/15 border-brand-navy/10 hover:bg-brand-navy/25",
                   )}
                 >
                   <Plus
                     className={cn(
                       "w-3.5 h-3.5 shrink-0 transition-colors",
-                      activeIdx === i ? "text-brand-coral" : "text-brand-white",
+                      activeIdx === i ? "text-brand-coral" : "text-brand-navy",
                     )}
                   />
                   <span
                     className={cn(
                       "text-xs font-semibold uppercase tracking-wide transition-colors",
-                      activeIdx === i ? "text-brand-navy" : "text-brand-white",
+                      activeIdx === i ? "text-brand-white" : "text-brand-navy",
                     )}
                   >
                     {item.label}

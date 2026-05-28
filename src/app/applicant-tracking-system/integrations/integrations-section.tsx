@@ -26,7 +26,7 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
   const { ref: gridRef, visible: gridVisible } = useInView(0.1)
 
   return (
-    <section className="relative w-full bg-brand-navy overflow-hidden">
+    <section className="relative w-full bg-brand-white overflow-hidden">
 
       <div
         className="pointer-events-none absolute inset-0"
@@ -51,10 +51,10 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
             {integrationsData.tagline}
             <span className="block w-6 h-px bg-brand-coral/40" />
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white mb-5">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-5">
             {integrationsData.title}
           </h2>
-          <p className="text-sm sm:text-base text-brand-white/45 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-brand-navy/45 max-w-xl mx-auto leading-relaxed">
             {integrationsData.subtitle}
           </p>
         </div>
@@ -126,10 +126,10 @@ export const IntegrationsSection = memo(function IntegrationsSection() {
                 </div>
 
                 <div>
-                  <h3 className="font-bold uppercase tracking-tight text-sm text-brand-white mb-2 transition-colors duration-300">
+                  <h3 className="font-bold uppercase tracking-tight text-sm text-brand-navy mb-2 transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-brand-white/40 leading-relaxed group-hover:text-brand-white/55 transition-colors duration-300">
+                  <p className="text-sm text-brand-navy/40 leading-relaxed group-hover:text-brand-navy/55 transition-colors duration-300">
                     {item.description}
                   </p>
                 </div>

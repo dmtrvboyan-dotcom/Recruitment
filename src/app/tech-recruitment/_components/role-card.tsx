@@ -23,17 +23,14 @@ export const RoleCard = memo(function RoleCard({
   index: number
 }) {
   const number = String(index + 1).padStart(2, "0")
-  const code = getElementCode(category.title)
   const sectionId = SECTION_IDS[category.id] ?? category.id
   const visibleTechs = category.techs.slice(0, 4)
-  const remaining = category.techs.length - visibleTechs.length
 
   return (
     <a
       href={`#${sectionId}`}
-      className="group relative w-full text-left bg-brand-white/2 border border-brand-white/10 hover:border-brand-coral/50 hover:bg-brand-white/4 rounded-2xl p-5 sm:p-6 transition-all duration-300 overflow-hidden flex flex-col"
+      className="group relative w-full text-left bg-brand-navy/5 border border-brand-navy/2 hover:border-brand-coral/50 hover:bg-brand-navy/4 rounded-2xl p-5 sm:p-6 transition-all duration-300 overflow-hidden flex flex-col"
     >
-      {/* Top: number + icon-area */}
       <div className="flex items-start justify-between mb-4 sm:mb-5">
         <div className="flex items-center gap-2">
           <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-coral">
@@ -46,12 +43,12 @@ export const RoleCard = memo(function RoleCard({
   
 
       {/* Title */}
-      <h3 className="font-bold uppercase tracking-[-0.01em] leading-[1.05] text-brand-white text-sm sm:text-base mb-1.5">
+      <h3 className="font-bold uppercase tracking-[-0.01em] leading-[1.05] text-brand-navy text-sm sm:text-base mb-1.5">
         {category.title}
       </h3>
 
       {/* Subtitle */}
-      <p className="text-[11px] sm:text-[12px] text-brand-white/45 leading-snug mb-5 line-clamp-2">
+      <p className="text-[11px] sm:text-[12px] text-brand-navy/45 leading-snug mb-5 line-clamp-2">
         {category.subtitle}
       </p>
 
@@ -60,7 +57,7 @@ export const RoleCard = memo(function RoleCard({
         {visibleTechs.map((tech) => (
           <span
             key={tech}
-            className="inline-flex items-center px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-medium uppercase tracking-wide bg-brand-white/5 text-brand-white/60 border border-brand-white/10 group-hover:bg-brand-coral/10 group-hover:text-brand-coral group-hover:border-brand-coral/30 transition-colors duration-300"
+            className="inline-flex items-center px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-medium uppercase tracking-wide bg-brand-navy/10 text-brand-navy/60 border border-brand-navy/10 group-hover:bg-brand-coral/10 group-hover:text-brand-coral group-hover:border-brand-coral/30 transition-colors duration-300"
           >
             {tech}
           </span>

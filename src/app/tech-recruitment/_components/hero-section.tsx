@@ -13,8 +13,6 @@ export const HeroSection = memo(function HeroSection() {
   return (
     <section className="relative w-full min-h-[90vh] bg-brand-navy overflow-hidden flex flex-col">
 
-
-
       {/* Coral glow top */}
       <div
         aria-hidden

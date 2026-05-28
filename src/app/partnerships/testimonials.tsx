@@ -137,7 +137,7 @@ export const Testimonials = memo(function Testimonials() {
   const { ref, visible } = useInView(0.1)
 
   return (
-    <section id="companies-testimonials" className="relative w-full bg-brand-white overflow-hidden py-20 lg:py-32">
+    <section id="companies-testimonials" className="relative w-full bg-brand-navy overflow-hidden py-20 lg:py-32">
       {/* Subtle dot grid background */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.4]"
@@ -166,14 +166,14 @@ export const Testimonials = memo(function Testimonials() {
             Testimonials from HR teams
           </span>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase">
+            <h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-bold leading-none tracking-tight text-brand-white uppercase">
               Feedback from
               <br />
               <span className="text-brand-coral uppercase">our clients</span>
             </h2>
             <div className="flex items-center gap-4 lg:pb-3">
-              <div className="h-px w-12 bg-brand-navy/20" />
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-brand-navy/45">
+              <div className="h-px w-12 bg-brand-white/20" />
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-brand-white">
                 15 verified reviews
               </span>
             </div>
@@ -182,7 +182,7 @@ export const Testimonials = memo(function Testimonials() {
 
         {/* FEATURED TESTIMONIAL */}
         <div
-          className="relative mb-6 sm:mb-8 overflow-hidden rounded-3xl bg-brand-navy p-8 sm:p-12 lg:p-16"
+          className="relative mb-6 sm:mb-8 overflow-hidden rounded-3xl bg-brand-white p-8 sm:p-12 lg:p-16"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(28px)",
@@ -208,7 +208,7 @@ export const Testimonials = memo(function Testimonials() {
               Featured Review
             </div>
 
-            <blockquote className="text-xl sm:text-2xl lg:text-3xl xl:text-[2.5rem] font-medium leading-snug tracking-tight text-brand-white max-w-4xl mb-10">
+            <blockquote className="text-xl sm:text-2xl lg:text-3xl xl:text-[2.5rem] font-semibold leading-snug tracking-tight text-brand-navy max-w-4xl mb-10">
               &ldquo;{FEATURED.quote}&rdquo;
             </blockquote>
 
@@ -219,23 +219,21 @@ export const Testimonials = memo(function Testimonials() {
                 {getInitials(FEATURED.name)}
               </div>
               <div>
-                <div className="text-sm sm:text-base font-bold uppercase tracking-wider text-brand-white">
+                <div className="text-sm sm:text-base font-bold uppercase tracking-wider text-brand-navy">
                   {FEATURED.name}
                 </div>
-                <div className="text-xs sm:text-sm text-white/50 mt-0.5">
+                <div className="text-xs sm:text-sm text-brand-navy/50 mt-0.5">
                   {FEATURED.role}
                   <span className="text-brand-coral mx-2">·</span>
-                  <span className="font-semibold text-white/70">{FEATURED.company}</span>
+                  <span className="font-semibold text-brand-navy/70">{FEATURED.company}</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* MASONRY GRID */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6">
           {TESTIMONIALS.map((t, i) => {
-            // Checkerboard rhythm: 3 dark cards at varied positions
             const isAccent = i === 1 || i === 5 || i === 8
             return (
               <div
@@ -244,8 +242,8 @@ export const Testimonials = memo(function Testimonials() {
                   break-inside-avoid mb-4 sm:mb-6 relative rounded-2xl p-6 sm:p-7
                   border transition-all duration-400 group cursor-default
                   ${isAccent
-                    ? "bg-brand-navy border-brand-navy/10 hover:bg-[#22223e] hover:border-brand-coral/30"
-                    : "bg-white border-brand-navy/8 hover:border-brand-coral/30 hover:shadow-[0_12px_40px_-16px_rgba(26,26,46,0.18)]"
+                    ? "bg-brand-white border-brand-white/10 hover:bg-brand-white/90 hover:border-brand-coral/30"
+                    : "bg-brand-navy border-brand-white/8 hover:bg-brand-white/5 hover:border-brand-coral/30 hover:shadow-[0_12px_40px_-16px_rgba(26,26,46,0.18)]"
                   }
                 `}
                 style={{
@@ -254,7 +252,6 @@ export const Testimonials = memo(function Testimonials() {
                   transition: `opacity 0.5s ease ${300 + i * 70}ms, transform 0.5s ease ${300 + i * 70}ms, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease`,
                 }}
               >
-                {/* Quote mark */}
                 <span
                   aria-hidden
                   className={`absolute top-3 right-4 text-5xl leading-none font-bold select-none pointer-events-none ${isAccent ? "text-brand-coral/35" : "text-brand-coral/25"}`}
@@ -263,24 +260,24 @@ export const Testimonials = memo(function Testimonials() {
                   &ldquo;
                 </span>
 
-                <p className={`relative text-sm sm:text-[15px] leading-relaxed mb-6 pr-6 ${isAccent ? "text-white/85" : "text-brand-navy/75"}`}>
+                <p className={`relative text-sm sm:text-[15px] leading-relaxed mb-6 pr-6 ${isAccent ? "text-brand-navy/85" : "text-brand-white/75"}`}>
                   {t.quote}
                 </p>
 
-                <div className={`h-px w-10 mb-4 ${isAccent ? "bg-brand-coral/40" : "bg-brand-navy/10"}`} />
+                <div className={`h-px w-10 mb-4 ${isAccent ? "bg-brand-coral/40" : "bg-brand-whtie/10"}`} />
 
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-[11px] font-bold shrink-0 ${isAccent
                     ? "bg-brand-coral/20 text-brand-coral border border-brand-coral/30"
-                    : "bg-brand-navy/5 text-brand-navy border border-brand-navy/10"
+                    : "bg-brand-white/5 text-brand-white border border-brand-white/10"
                     }`}>
                     {getInitials(t.name)}
                   </div>
                   <div className="min-w-0">
-                    <div className={`text-xs sm:text-sm font-bold uppercase tracking-wider truncate ${isAccent ? "text-brand-white" : "text-brand-navy"}`}>
+                    <div className={`text-xs sm:text-sm font-bold uppercase tracking-wider truncate ${isAccent ? "text-brand-navy" : "text-brand-white"}`}>
                       {t.name}
                     </div>
-                    <div className={`text-[11px] sm:text-xs mt-0.5 truncate ${isAccent ? "text-white/45" : "text-brand-navy/50"}`}>
+                    <div className={`text-[11px] sm:text-xs mt-0.5 truncate ${isAccent ? "text-navy/45" : "text-brand-white/50"}`}>
                       {t.role}
                       <span className="text-brand-coral mx-1">·</span>
                       <span className="font-semibold">{t.company}</span>
@@ -294,14 +291,14 @@ export const Testimonials = memo(function Testimonials() {
 
         {/* Bridge line into WhyChooseUs */}
         <div
-          className="mt-14 sm:mt-16 pt-10 border-t border-brand-navy/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="mt-14 sm:mt-16 pt-10 border-t border-brand-white/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
           style={{
             opacity: visible ? 1 : 0,
             transition: "opacity 0.7s ease 1100ms",
           }}
         >
-          <p className="text-sm sm:text-base text-brand-navy/55 leading-relaxed">
-            <span className="text-brand-navy font-bold">There's a reason they keep coming back.</span>{" "}
+          <p className="text-sm sm:text-base text-brand-white/55 leading-relaxed">
+            <span className="text-brand-white font-bold">There's a reason they keep coming back.</span>{" "}
             See what makes the partnership work below.
           </p>
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-coral">

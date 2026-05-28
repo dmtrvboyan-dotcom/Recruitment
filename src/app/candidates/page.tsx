@@ -211,7 +211,7 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
   const { ref: ctaRef, visible: ctaVisible } = useInView()
 
   return (
-    <section className="relative w-full bg-brand-white overflow-hidden">
+    <section className="relative w-full bg-brand-navy overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
         <div
@@ -226,11 +226,11 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
             Our Team
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase text-center">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white uppercase text-center">
             Meet the People Behind
             <span className="text-brand-coral"> Your Search.</span>
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-brand-navy/50 leading-relaxed text-center max-w-2xl mx-auto">
+          <p className="mt-6 text-base sm:text-lg text-brand-white/80 leading-relaxed text-center max-w-2xl mx-auto">
             You'll work with recruiters who actually take the time to understand what you want - not just what fits a keyword search.
           </p>
         </div>
@@ -267,7 +267,7 @@ const MeetTheTeamSection = memo(function MeetTheTeamSection() {
             transition: "opacity 0.7s ease 200ms",
           }}
         >
-          <AppButton href="/partnerships" variant="navy" icon="arrow" className="sm:w-auto">
+          <AppButton href="/partnerships"  icon="arrow" className="sm:w-auto">
             See our partner companies
           </AppButton>
         </div>
@@ -283,7 +283,7 @@ const YourGoalsSection = memo(function YourGoalsSection() {
   const { ref: headerRef, visible: headerVisible } = useInView()
 
   return (
-    <section className="relative w-full bg-brand-navy overflow-hidden">
+    <section className="relative w-full bg-brand-white overflow-hidden">
 
       <div className="absolute top-0 right-0 w-125 h-125 rounded-full bg-brand-coral/8 blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
@@ -301,7 +301,7 @@ const YourGoalsSection = memo(function YourGoalsSection() {
           <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3 text-center">
             {yourGoalsData.tagline}
           </span>
-          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white uppercase text-center">
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase text-center">
             {yourGoalsData.title}
             <br />
             <span className="text-brand-coral">Matters to You</span>
@@ -316,8 +316,8 @@ const YourGoalsSection = memo(function YourGoalsSection() {
               <div
                 key={goal.title}
                 ref={ref}
-                className="group relative flex flex-col gap-5 p-8 sm:p-10 rounded-2xl border border-white/8 hover:border-brand-coral/30
-                  hover:bg-brand-white/3 transition-all duration-400 cursor-default overflow-hidden"
+                className="group relative flex flex-col gap-5 p-8 sm:p-10 rounded-2xl border border-brand-navy/8 hover:border-brand-coral/30
+                  hover:bg-brand-navy/3 transition-all duration-400 cursor-default overflow-hidden"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateY(0)" : "translateY(20px)",
@@ -329,10 +329,10 @@ const YourGoalsSection = memo(function YourGoalsSection() {
                   <Icon className="w-6 h-6 text-brand-coral" strokeWidth={1.6} />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold uppercase tracking-tight text-brand-white mb-2">
+                  <h3 className="text-base font-bold uppercase tracking-tight text-brand-navy mb-2">
                     {goal.title}
                   </h3>
-                  <p className="text-sm text-brand-white/45 leading-relaxed">
+                  <p className="text-sm text-brand-navy/45 leading-relaxed">
                     {goal.description}
                   </p>
                 </div>
@@ -352,7 +352,7 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
   const { ref: headerRef, visible: headerVisible } = useInView()
 
   return (
-    <section className="relative w-full bg-brand-white overflow-hidden">
+    <section className="relative w-full bg-brand-navy overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.02]"
         style={{
@@ -375,7 +375,7 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
             <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-3">
               {whatYouGetData.tagline}
             </span>
-            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy uppercase">
+            <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white uppercase">
               {whatYouGetData.title}
               <br />
               <span className="text-brand-coral">ADVANTAGE.</span>
@@ -383,12 +383,12 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
           </div>
           <div className="hidden lg:flex flex-col items-end gap-1 pb-2 shrink-0">
             <div className="flex items-baseline gap-2">
-              <span className="text-[3.5rem] font-bold leading-none text-brand-navy tracking-tight">
+              <span className="text-[3.5rem] font-bold leading-none text-brand-white tracking-tight">
                 {whatYouGetData.items.length}
               </span>
               <span className="text-sm font-bold uppercase tracking-widest text-brand-coral pb-2">services</span>
             </div>
-            <span className="text-xs text-brand-navy/40 tracking-widest uppercase">included, zero cost</span>
+            <span className="text-xs text-brand-white/40 tracking-widest uppercase">included, zero cost</span>
           </div>
         </div>
 
@@ -400,7 +400,7 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
               <div
                 key={item.title}
                 ref={ref}
-                className="group flex flex-col gap-5 p-7 xl:p-8 bg-brand-white border border-brand-navy/8 rounded-2xl
+                className="group flex flex-col gap-5 p-7 xl:p-8 bg-brand-navy border border-brand-white/8 rounded-2xl
                   hover:border-brand-coral/30 hover:shadow-[0_0_0_1px_rgba(114,145,199,0.15),0_8px_32px_-8px_rgba(114,145,199,0.12)]
                   transition-all duration-500 cursor-default"
                 style={{
@@ -413,8 +413,8 @@ const WhatYouGetSection = memo(function WhatYouGetSection() {
                   <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.6} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold uppercase tracking-tight text-brand-navy mb-2">{item.title}</h3>
-                  <p className="text-sm text-brand-navy/50 leading-relaxed">{item.description}</p>
+                  <h3 className="text-sm font-bold uppercase tracking-tight text-brand-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-brand-white/50 leading-relaxed">{item.description}</p>
                 </div>
               </div>
             )
