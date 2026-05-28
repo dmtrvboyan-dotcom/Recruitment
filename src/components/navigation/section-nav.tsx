@@ -192,7 +192,7 @@ function ExpandedRail({
           className={cn(
             "mt-0.5 inline-flex h-6 w-full items-center justify-center rounded-md",
             "text-muted-foreground transition-colors hover:bg-foreground/3 hover:text-foreground",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer",
           )}
         >
           <ChevronRight className="h-3.5 w-3.5" aria-hidden />
@@ -234,7 +234,7 @@ function SectionItem({ section, isActive, onSelect, reduced, motion: m }: Sectio
         className={cn(
           "group relative flex w-full items-center gap-2 rounded-lg pl-3 pr-2.5 py-1.5",
           "text-xs font-medium transition-colors",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer",
           isActive
             ? "text-foreground"
             : "text-muted-foreground hover:text-foreground",
@@ -282,7 +282,7 @@ function CollapsedTrigger({ onClick, hydrated, motion: m, useReducedMotion }: Co
         "inline-flex h-9 w-9 items-center justify-center rounded-full",
         "border border-border/60 bg-background/70 text-muted-foreground shadow-sm backdrop-blur-md",
         "transition-colors hover:text-foreground",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background cursor-pointer",
       )}
     >
       <ChevronLeft className="h-4 w-4" aria-hidden />

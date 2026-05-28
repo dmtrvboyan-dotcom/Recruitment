@@ -55,7 +55,7 @@ export function BackToTop({
     "border border-border/60 bg-background/80 text-foreground shadow-sm backdrop-blur-md",
     "transition-colors hover:bg-background",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-    hideOnMobile && "hidden lg:inline-flex",
+    hideOnMobile && "hidden lg:inline-flex cursor-pointer",
     "bottom-5 right-6",
     className,
   )
