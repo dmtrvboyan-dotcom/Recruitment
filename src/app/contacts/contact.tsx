@@ -96,22 +96,22 @@ export function Contact() {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 sm:py-24 lg:py-32">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-12 sm:py-24 lg:py-32">
 
         {/* ─── HEADER ─────────────────────────────────────── */}
-        <header className="max-w-3xl mb-12 sm:mb-16 lg:mb-24">
-          <div className="flex items-center gap-3 mb-6">
+        <header className="max-w-3xl mb-10 sm:mb-16 lg:mb-24">
+          <div className="flex items-center gap-3 mb-5 sm:mb-6">
             <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-brand-coral font-semibold">
               Contact
             </span>
             <span className="block flex-1 h-px bg-linear-to-r from-brand-coral/40 to-transparent max-w-35" />
           </div>
 
-          <h1 className="font-bold text-brand-navy leading-[0.92] tracking-tight">
-            <span className="block text-[clamp(2.5rem,8vw,5.5rem)]">
+          <h1 className="font-bold text-brand-navy leading-[0.95] sm:leading-[0.92] tracking-tight">
+            <span className="block text-[clamp(2.25rem,8vw,5.5rem)]">
               Let&apos;s start
             </span>
-            <span className="block text-[clamp(2.5rem,8vw,5.5rem)]">
+            <span className="block text-[clamp(2.25rem,8vw,5.5rem)]">
               a{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-brand-teal">
@@ -126,16 +126,16 @@ export function Contact() {
             </span>
           </h1>
 
-          <p className="mt-6 sm:mt-8 text-base sm:text-lg text-brand-navy/60 leading-relaxed max-w-xl">
+          <p className="mt-5 sm:mt-8 text-base sm:text-lg text-brand-navy/60 leading-relaxed max-w-xl">
             Whether you're hiring or looking for a new job, get in touch with us. We'll be happy to assist you.
           </p>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
 
           {/* LEFT RAIL - Contact methods + meta */}
           <aside className="lg:col-span-4 lg:order-1 order-2">
-            <div className="lg:sticky lg:top-24 space-y-10">
+            <div className="lg:sticky lg:top-24 space-y-8 lg:space-y-10">
 
               {/* Contact cards */}
               <div className="space-y-1">
@@ -194,7 +194,7 @@ export function Contact() {
                   A partner will be in touch.
                 </p>
               </div>
-              <div className="  pt-10 border-t border-brand-navy/10">
+              <div className="pt-8 sm:pt-10 border-t border-brand-navy/10">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                   <div>
                     <p className="text-[10px] tracking-[0.3em] uppercase text-brand-coral font-semibold mb-2">
@@ -231,8 +231,8 @@ export function Contact() {
               <div className="relative bg-white border border-brand-navy/8 rounded-[1.75rem] sm:rounded-4xl shadow-[0_20px_60px_-15px_rgba(26,26,46,0.12)] overflow-hidden">
 
                 {/* Top bar with tabs */}
-                <div className="bg-brand-navy text-white px-6 sm:px-10 pt-7 pb-6">
-                  <div className="flex items-center justify-between gap-4 mb-5">
+                <div className="bg-brand-navy text-white px-5 sm:px-10 pt-6 pb-5 sm:pt-7 sm:pb-6">
+                  <div className="flex items-center justify-between gap-4 mb-4 sm:mb-5">
                     <span className="text-[10px] tracking-[0.3em] uppercase text-brand-coral font-semibold">
                       Tell us about you
                     </span>
@@ -256,7 +256,7 @@ export function Contact() {
                 </div>
 
                 {/* Form body */}
-                <div className="px-6 sm:px-10 py-8 sm:py-10">
+                <div className="px-5 sm:px-10 py-6 sm:py-10">
                   <ContactForm key={activeTab} mode={activeTab} />
                 </div>
               </div>

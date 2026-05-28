@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha"
 import * as React from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { CheckCircle, Upload, Mail, Phone, X } from "lucide-react"
+import { CheckCircle, Upload, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Spinner } from "@/components/ui/spinner"
@@ -29,7 +29,6 @@ import { TagInput } from "./tag-input"
 
 type Mode = "candidate" | "company"
 type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "confidentialSearch" | "eorSearch" | "ITSalary" | "ITPayroll"
-type ContactMethod = "email" | "phone"
 
 interface ContactFormProps {
   mode?: Mode
@@ -49,88 +48,19 @@ const INTEREST_TAGS: Record<Interest, string[]> = {
   ITPayroll: ["payroll", "compliance", "advisory", "business-services", "contractor-management", ...SHARED_TAGS],
 }
 
-const CONTACT_METHOD_OPTIONS: {
-  value: ContactMethod
-  label: string
-  hint: string
-  icon: React.ElementType
-}[] = [
-    { value: "email", label: "Email", hint: "Reply within 24h", icon: Mail },
-    { value: "phone", label: "Phone", hint: "We'll call you back", icon: Phone },
-  ]
-
-// Style tokens
-
 const fieldLabelClass =
   "text-[10px] font-bold uppercase tracking-[0.2em] text-brand-navy/60 mb-2 block"
 
 const inputClass =
-  "h-12 rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30"
+  "sm:h-12 h-8  rounded-xl border border-brand-navy/10 bg-brand-white focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus:bg-white transition-all placeholder:text-brand-navy/30"
 
 function SectionMarker({ num, label }: { num: string; label: string }) {
   return (
-    <div className="flex items-center gap-3 mb-5">
+    <div className="flex items-center gap-3 mb-4 sm:mb-5">
       <span className="text-[10px] tracking-[0.3em] uppercase text-brand-coral font-semibold">{num}</span>
       <span className="text-[10px] tracking-[0.2em] uppercase text-brand-navy/40 font-semibold">{label}</span>
       <span className="block flex-1 h-px bg-brand-navy/8" />
     </div>
-  )
-}
-
-function ContactMethodPill({
-  option,
-  selected,
-  onToggle,
-}: {
-  option: (typeof CONTACT_METHOD_OPTIONS)[number]
-  selected: boolean
-  onToggle: () => void
-}) {
-  const Icon = option.icon
-  return (
-    <button
-      type="button"
-      onClick={onToggle}
-      aria-pressed={selected}
-      className={`
-        group relative flex-1 flex flex-col items-center gap-2 px-3 py-4
-        rounded-2xl border-2 transition-all duration-300 cursor-pointer select-none text-center
-        ${selected
-          ? "border-brand-teal bg-brand-teal/8 shadow-sm shadow-brand-teal/20"
-          : "border-brand-navy/10 bg-brand-white hover:border-brand-navy/25 hover:bg-brand-navy/2"
-        }
-      `}
-    >
-
-      <span className={`
-        absolute top-2.5 right-2.5 w-4 h-4 rounded-full border-2 flex items-center justify-center
-        transition-all duration-200
-        ${selected ? "border-brand-teal bg-brand-teal" : "border-brand-navy/20 bg-transparent"}
-      `}>
-        {selected && (
-          <svg viewBox="0 0 8 6" className="w-2 h-2 text-white fill-none stroke-current stroke-[1.5]">
-            <polyline points="1,3 3,5 7,1" />
-          </svg>
-        )}
-      </span>
-
-      <span className={`
-        w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
-        ${selected
-          ? "bg-brand-teal text-white"
-          : "bg-brand-navy/6 text-brand-navy/50 group-hover:bg-brand-navy/10 group-hover:text-brand-navy"
-        }
-      `}>
-        <Icon className="w-4 h-4" strokeWidth={1.75} />
-      </span>
-
-      <span className={`text-[11px] font-bold uppercase tracking-[0.15em] transition-colors leading-tight ${selected ? "text-brand-teal" : "text-brand-navy/60"}`}>
-        {option.label}
-      </span>
-      <span className={`text-[10px] leading-snug transition-colors ${selected ? "text-brand-teal/70" : "text-brand-navy/35"}`}>
-        {option.hint}
-      </span>
-    </button>
   )
 }
 
@@ -142,13 +72,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const [tags, setTags] = React.useState<string[]>([])
   const [file, setFile] = React.useState<File | null>(null)
   const [captchaToken, setCaptchaToken] = React.useState<string | null>(null)
-  const [contactMethods, setContactMethods] = React.useState<ContactMethod[]>([])
   const recaptchaRef = React.useRef<ReCAPTCHA>(null)
-
-  const toggleMethod = (m: ContactMethod) =>
-    setContactMethods((prev) =>
-      prev.includes(m) ? prev.filter((x) => x !== m) : [...prev, m]
-    )
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(createContactFormSchema(mode)),
@@ -158,14 +82,9 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
     setIsSubmitted(false)
     setFile(null)
     setTags([])
-    setContactMethods([])
   }
 
   async function onSubmit(data: ContactFormData) {
-    if (mode === "company" && contactMethods.length === 0) {
-      alert("Please select at least one preferred contact method.")
-      return
-    }
     if (!captchaToken) {
       alert("Please complete the reCAPTCHA")
       return
@@ -179,7 +98,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
       if (mode === "company") {
         formData.append("interest", interest)
         formData.append("tags", JSON.stringify(tags))
-        formData.append("contactMethods", JSON.stringify(contactMethods))
       }
       if (mode === "candidate" && file) formData.append("cv", file)
       formData.append("recaptchaToken", captchaToken)
@@ -191,7 +109,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
       form.reset()
       setFile(null)
       setTags([])
-      setContactMethods([])
       recaptchaRef.current?.reset()
       setCaptchaToken(null)
     } catch (err) {
@@ -207,8 +124,8 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
   if (isSubmitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
-        <div className="relative mb-8">
+      <div className="flex flex-col items-center justify-center py-12 sm:py-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="relative mb-6 sm:mb-8">
           <div className="absolute inset-0 bg-brand-teal/10 blur-2xl rounded-full animate-pulse" />
           <div className="relative w-20 h-20 rounded-full bg-brand-navy flex items-center justify-center">
             <CheckCircle className="w-9 h-9 text-brand-coral" strokeWidth={1.5} />
@@ -234,14 +151,14 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 sm:space-y-10">
 
         {mode === "company" ? (
           <>
             {/* 01 - Your company */}
             <section>
               <SectionMarker num="01" label="Your company" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
 
                 <FormField control={form.control} name="name" render={({ field }) => (
                   <FormItem>
@@ -290,7 +207,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
 
             <section className="animate-in fade-in slide-in-from-top-2 duration-300">
               <SectionMarker num="02" label="What are you looking for" />
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 <div>
                   <FormLabel className={fieldLabelClass}>I&apos;m interested in</FormLabel>
                   <Select value={interest} onValueChange={(v) => { setInterest(v as Interest); setTags([]) }}>
@@ -316,9 +233,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
               </div>
             </section>
 
-         
-
-            {/* 04 - Message */}
+            {/* 03 - Message */}
             <section>
               <SectionMarker num="03" label="Your message" />
               <MessageField form={form} interest={interest} mode={mode} />
@@ -330,7 +245,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
           <>
             <section>
               <SectionMarker num="01" label="About you" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <FormField control={form.control} name="name" render={({ field }) => (
                   <FormItem>
                     <FormLabel className={fieldLabelClass}>Full Name</FormLabel>
@@ -381,7 +296,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                   />
                 )}
 
-                <div className={`relative flex items-center gap-4 p-5 rounded-xl border-2 border-dashed transition-all ${file ? "border-brand-teal bg-brand-teal/5" : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
+                <div className={`relative flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border-2 border-dashed transition-all ${file ? "border-brand-teal bg-brand-teal/5" : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
                   }`}>
                   <span className={`shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
                     }`}>
@@ -414,13 +329,15 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
         )}
 
         <section>
-          <SectionMarker num={mode === "company" ? "05" : "04"} label="Security check" />
-          <div className="flex justify-center">
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={siteKey}
-              onChange={(token) => setCaptchaToken(token)}
-            />
+          <SectionMarker num="04" label="Security check" />
+          <div className="flex justify-center overflow-hidden">
+            <div className="origin-center scale-90 sm:scale-100 shrink-0">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={siteKey}
+                onChange={(token) => setCaptchaToken(token)}
+              />
+            </div>
           </div>
         </section>
 
@@ -438,7 +355,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
               )}
             </span>
           </Button>
-          <p className="text-center text-[10px] tracking-[0.2em] uppercase text-brand-navy/40 mt-5">
+          <p className="text-center text-[10px] tracking-[0.2em] uppercase text-brand-navy/40 mt-4 sm:mt-5">
             By submitting, you agree to our privacy policy
           </p>
         </div>
