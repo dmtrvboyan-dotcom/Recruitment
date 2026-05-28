@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { getAllPosts } from "./lib/posts"
 import { HERO_DATA, TABS, TAB_CHIPS } from "./data"
 import { BlogClient } from "./BlogClient"
@@ -8,7 +9,7 @@ export default function BlogPage() {
 
   return (
 
-    <>
+    <Suspense fallback={null}>
       <BlogClient
         posts={posts}
         heroData={HERO_DATA}
@@ -17,7 +18,8 @@ export default function BlogPage() {
       />
 
       <BackToTop hideOnMobile />
-    </>
+    </Suspense>
+
   )
 }
 

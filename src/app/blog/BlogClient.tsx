@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react"
 import { ArrowRight, BookOpen, Building2, User, Cpu, ChevronDown } from "lucide-react"
 import { ScrollReveal } from "@/components/layout"
 import { HERO_DATA, TABS, TAB_CHIPS, type TabKey } from "./data"
+import { useSearchParams } from "next/navigation"
 import type { Post } from "./lib/posts"
 
 type Props = {
@@ -96,11 +97,10 @@ function MobileTabDropdown({
       </button>
 
       <div
-        className={`absolute top-full left-0 right-0 mt-2 rounded-2xl border border-brand-white/15 bg-brand-navy/95 backdrop-blur-sm overflow-hidden z-50 transition-all duration-300 origin-top ${
-          open
-            ? "opacity-100 scale-y-100 pointer-events-auto"
-            : "opacity-0 scale-y-90 pointer-events-none"
-        }`}
+        className={`absolute top-full left-0 right-0 mt-2 rounded-2xl border border-brand-white/15 bg-brand-navy/95 backdrop-blur-sm overflow-hidden z-50 transition-all duration-300 origin-top ${open
+          ? "opacity-100 scale-y-100 pointer-events-auto"
+          : "opacity-0 scale-y-90 pointer-events-none"
+          }`}
       >
         {tabs.map((tab) => {
           const Icon = TAB_ICONS[tab.key]
@@ -113,20 +113,18 @@ function MobileTabDropdown({
                 handleTabChange(tab.key)
                 setOpen(false)
               }}
-              className={`w-full flex items-center gap-3 px-5 py-3.5 text-xs font-semibold tracking-widest uppercase transition-colors duration-200 cursor-pointer ${
-                isActive
-                  ? "text-brand-coral bg-brand-coral/10"
-                  : "text-brand-white/50 hover:text-brand-coral hover:bg-brand-coral/5"
-              }`}
+              className={`w-full flex items-center gap-3 px-5 py-3.5 text-xs font-semibold tracking-widest uppercase transition-colors duration-200 cursor-pointer ${isActive
+                ? "text-brand-coral bg-brand-coral/10"
+                : "text-brand-white/50 hover:text-brand-coral hover:bg-brand-coral/5"
+                }`}
             >
               <Icon className="w-3.5 h-3.5 shrink-0" strokeWidth={2} />
               {tab.label}
               <span
-                className={`ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                  isActive
-                    ? "bg-brand-coral/20 text-brand-coral"
-                    : "bg-brand-white/10"
-                }`}
+                className={`ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded-full ${isActive
+                  ? "bg-brand-coral/20 text-brand-coral"
+                  : "bg-brand-white/10"
+                  }`}
               >
                 {count}
               </span>
@@ -160,7 +158,7 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
           className="w-full h-36 sm:h-40 rounded-xl bg-brand-navy/4 group-hover:bg-brand-coral/[0.07] mb-5
             flex items-center justify-center transition-colors duration-500 relative overflow-hidden"
         >
-          
+
           <div
             className="w-10 h-10 rounded-xl bg-brand-coral/10 group-hover:bg-brand-coral/20 flex items-center justify-center
               transition-colors duration-300 relative"
@@ -204,13 +202,22 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
 }
 
 export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
-  const [activeTab, setActiveTab] = useState<TabKey>("ats")
+
+  const searchParams = useSearchParams()  
+
+  const initialTab = (searchParams.get("tab") as TabKey) ?? "ats"  
+  const validTabs = tabs.map((t) => t.key)
+
+  const [activeTab, setActiveTab] = useState<TabKey>(
+    validTabs.includes(initialTab) ? initialTab : "ats"  
+  )
+  
   const [activeChip, setActiveChip] = useState("All")
   const [animKey, setAnimKey] = useState(0)
 
   const { ref: heroRef, visible: heroVisible } = useInView(0.1)
-const gridRef = useRef<HTMLDivElement>(null)
-const gridVisible = true
+  const gridRef = useRef<HTMLDivElement>(null)
+  const gridVisible = true
 
   const handleTabChange = (tab: TabKey) => {
     setActiveTab(tab)
@@ -234,7 +241,7 @@ const gridVisible = true
   return (
     <>
       <section className="relative w-full bg-brand-navy overflow-hidden pt-32 h-[90vh] lg:pt-44 lg:pb-32">
-      
+
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-coral/10 rounded-full -translate-y-1/2 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-brand-teal/10 rounded-full translate-y-1/2 blur-3xl pointer-events-none" />
 
@@ -288,18 +295,16 @@ const gridVisible = true
                 <button
                   key={tab.key}
                   onClick={() => handleTabChange(tab.key)}
-                  className={`flex items-center gap-2.5 px-4 py-2.5 rounded-full border text-xs font-semibold tracking-widest uppercase transition-all cursor-pointer duration-300 ${
-                    activeTab === tab.key
-                      ? "bg-brand-coral text-white border-brand-coral"
-                      : "border-brand-white/15 text-brand-white/40 hover:border-brand-coral/40 hover:text-brand-coral"
-                  }`}
+                  className={`flex items-center gap-2.5 px-4 py-2.5 rounded-full border text-xs font-semibold tracking-widest uppercase transition-all cursor-pointer duration-300 ${activeTab === tab.key
+                    ? "bg-brand-coral text-white border-brand-coral"
+                    : "border-brand-white/15 text-brand-white/40 hover:border-brand-coral/40 hover:text-brand-coral"
+                    }`}
                 >
                   <Icon className="w-3.5 h-3.5" strokeWidth={2} />
                   {tab.label}
                   <span
-                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-                      activeTab === tab.key ? "bg-white/20" : "bg-brand-white/10"
-                    }`}
+                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? "bg-white/20" : "bg-brand-white/10"
+                      }`}
                   >
                     {count}
                   </span>
@@ -320,7 +325,7 @@ const gridVisible = true
 
       <ScrollReveal>
         <section className="relative w-full bg-brand-white overflow-hidden">
-         
+
 
           <div className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 py-16 lg:py-24">
 
@@ -330,11 +335,10 @@ const gridVisible = true
                   key={chip}
                   onClick={() => handleChipChange(chip)}
                   style={{ transitionDelay: `${i * 30}ms` }}
-                  className={`px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase border transition-all duration-300 ${
-                    activeChip === chip
-                      ? "bg-brand-navy text-brand-white border-brand-navy"
-                      : "border-brand-navy/15 text-brand-navy/40 hover:border-brand-coral/40 hover:text-brand-coral"
-                  }`}
+                  className={`px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase border transition-all duration-300 ${activeChip === chip
+                    ? "bg-brand-navy text-brand-white border-brand-navy"
+                    : "border-brand-navy/15 text-brand-navy/40 hover:border-brand-coral/40 hover:text-brand-coral"
+                    }`}
                 >
                   {chip}
                 </button>

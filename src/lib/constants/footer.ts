@@ -32,11 +32,14 @@ export const FOOTER_LINKS: FooterLinks = {
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contacts" },
     { label: "Hire developers Bulgaria", href: "/tech-recruitment" },
+    { label: "Hiring Hub", href: "/blog?tab=companies" },
+
   ],
   candidates: [
     { label: "Find a Job", href: "/job-listings" },
     { label: "Submit CV", href: "/contacts" },
-    { label: "Blog", href: "/blog" },
+    { label: "Career Hub", href: "/blog?tab=candidates" },
+    
   ],
 }
 
