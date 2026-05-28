@@ -126,7 +126,7 @@ export function Footer() {
         />
 
         <FooterLinkSection
-          title="Company"
+          title="For Companies"
           links={FOOTER_LINKS.company}
           onNavigate={handleNavigate}
         />
@@ -153,7 +153,7 @@ export function Footer() {
             Privacy Policy
           </Link>
           <Link
-            href="#"
+            href="/terms-conditions"
             className="text-[10px] font-bold uppercase tracking-[0.15em] text-brand-navy/70 hover:text-brand-coral transition-colors"
           >
             Terms of Service

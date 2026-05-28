@@ -37,13 +37,7 @@ export const JobCard = memo(function JobCard({
           <div className="h-px w-5 bg-brand-coral/40" />
         </div>
 
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-coral/10 border border-brand-coral/30 text-[9px] tracking-[0.22em] uppercase font-semibold text-brand-coral">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-coral opacity-75" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-coral" />
-          </span>
-          Hiring
-        </span>
+    
       </div>
 
       <span className=" text-[13px] font-bold tracking-[0.05em] text-brand-coral leading-none">
