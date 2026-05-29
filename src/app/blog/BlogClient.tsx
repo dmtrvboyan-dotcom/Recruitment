@@ -221,9 +221,9 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
         )}
 
         {/* Category badge on image */}
-        <span className="absolute top-3 left-3 text-[10px] font-bold tracking-[0.16em] uppercase text-brand-white bg-brand-navy/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+        {/* <span className="absolute top-3 left-3 text-[10px] font-bold tracking-[0.16em] uppercase text-brand-white bg-brand-navy/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
           {post.category}
-        </span>
+        </span> */}
       </div>
 
       {/* Body */}
@@ -274,7 +274,8 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
   const [animKey, setAnimKey] = useState(0)
 
   const { ref: heroRef, visible: heroVisible } = useInView(0.1)
-  const { ref: gridRef, visible: gridVisible } = useInView(0.05)
+  const gridRef = useRef<HTMLDivElement>(null)
+  const gridVisible = true
 
   const handleTabChange = (tab: TabKey) => {
     setActiveTab(tab)
