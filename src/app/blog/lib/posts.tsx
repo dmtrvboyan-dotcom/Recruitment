@@ -12,6 +12,7 @@ export type PostMeta = {
   date: string
   category: string
   tab: TabKey
+  image?: string        // ← thumbnail / hero image URL (optional)
   draft?: boolean
 }
 
@@ -39,6 +40,7 @@ export const getAllPosts = (): Post[] => {
         date: data.date ?? "",
         category: data.category ?? "",
         tab: (data.tab ?? "ats") as TabKey,
+        image: data.image ?? undefined,   // ← new
         draft: data.draft ?? false,
       } satisfies Post
     })
@@ -66,6 +68,7 @@ export const getPostBySlug = (slug: string): Post | null => {
     date: data.date ?? "",
     category: data.category ?? "",
     tab: (data.tab ?? "ats") as TabKey,
+    image: data.image ?? undefined,       // ← new
     draft: data.draft ?? false,
   }
 }
@@ -77,7 +80,6 @@ export const getAllPostSlugs = (): string[] => {
     .readdirSync(postsDir)
     .filter((f) => f.endsWith(".md"))
     .filter((f) => {
-
       if (process.env.NODE_ENV !== "production") return true
       const filePath = path.join(postsDir, f)
       const { data } = matter(fs.readFileSync(filePath, "utf8"))

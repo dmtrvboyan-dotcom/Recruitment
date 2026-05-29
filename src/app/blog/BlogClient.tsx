@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
 import { ArrowRight, BookOpen, Building2, User, Cpu, ChevronDown } from "lucide-react"
 import { ScrollReveal } from "@/components/layout"
@@ -30,7 +31,6 @@ function useInView(threshold = 0.15) {
     const el = ref.current
     if (!el) return
 
-    // If already in viewport on mount, show immediately
     const rect = el.getBoundingClientRect()
     if (rect.top < window.innerHeight && rect.bottom > 0) {
       setVisible(true)
@@ -52,6 +52,7 @@ function useInView(threshold = 0.15) {
 
   return { ref, visible }
 }
+
 function MobileTabDropdown({
   tabs,
   posts,
@@ -78,7 +79,6 @@ function MobileTabDropdown({
         transition: "opacity 0.7s ease 280ms",
       }}
     >
-
       <button
         onClick={() => setOpen((o) => !o)}
         className="w-full flex items-center justify-between gap-3 px-5 py-3.5 rounded-full border border-brand-coral bg-brand-coral text-white text-xs font-semibold tracking-widest uppercase cursor-pointer transition-all duration-300"
@@ -150,21 +150,34 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
         transition: `opacity 0.55s ease ${index * 70}ms, transform 0.55s ease ${index * 70}ms, box-shadow 0.3s ease, border-color 0.3s ease`,
       }}
     >
-
       <div className="h-1 w-full bg-brand-navy/5 group-hover:bg-brand-coral/40 transition-colors duration-500" />
 
       <div className="flex flex-col flex-1 p-6 xl:p-7">
-        <div
-          className="w-full h-36 sm:h-40 rounded-xl bg-brand-navy/4 group-hover:bg-brand-coral/[0.07] mb-5
-            flex items-center justify-center transition-colors duration-500 relative overflow-hidden"
-        >
 
-          <div
-            className="w-10 h-10 rounded-xl bg-brand-coral/10 group-hover:bg-brand-coral/20 flex items-center justify-center
-              transition-colors duration-300 relative"
-          >
-            <ArrowRight className="w-5 h-5 text-brand-coral group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={1.8} />
-          </div>
+        {/* ── Thumbnail image (or fallback placeholder) ── */}
+        <div
+          className="w-full h-36 sm:h-40 rounded-xl overflow-hidden mb-5 relative
+            bg-brand-navy/4 group-hover:bg-brand-coral/[0.07] transition-colors duration-500"
+        >
+          {post.image ? (
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          ) : (
+            // Fallback when no image is set
+            <div className="w-full h-full flex items-center justify-center">
+              <div
+                className="w-10 h-10 rounded-xl bg-brand-coral/10 group-hover:bg-brand-coral/20 flex items-center justify-center
+                  transition-colors duration-300"
+              >
+                <ArrowRight className="w-5 h-5 text-brand-coral group-hover:translate-x-0.5 transition-transform duration-300" strokeWidth={1.8} />
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="flex items-center justify-between mb-3">
@@ -202,16 +215,13 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
 }
 
 export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
-
-  const searchParams = useSearchParams()  
-
-  const initialTab = (searchParams.get("tab") as TabKey) ?? "ats"  
+  const searchParams = useSearchParams()
+  const initialTab = (searchParams.get("tab") as TabKey) ?? "ats"
   const validTabs = tabs.map((t) => t.key)
 
   const [activeTab, setActiveTab] = useState<TabKey>(
-    validTabs.includes(initialTab) ? initialTab : "ats"  
+    validTabs.includes(initialTab) ? initialTab : "ats"
   )
-  
   const [activeChip, setActiveChip] = useState("All")
   const [animKey, setAnimKey] = useState(0)
 
@@ -241,7 +251,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
   return (
     <>
       <section className="relative w-full bg-brand-navy overflow-hidden pt-32 h-[90vh] lg:pt-44 lg:pb-32">
-
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-coral/10 rounded-full -translate-y-1/2 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-brand-teal/10 rounded-full translate-y-1/2 blur-3xl pointer-events-none" />
 
@@ -325,10 +334,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
 
       <ScrollReveal>
         <section className="relative w-full bg-brand-white overflow-hidden">
-
-
           <div className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 py-16 lg:py-24">
-
             <div className="flex flex-wrap gap-2 mb-10 sm:mb-12">
               {chips.map((chip, i) => (
                 <button
@@ -368,7 +374,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
                 </div>
               )}
             </div>
-
           </div>
         </section>
       </ScrollReveal>

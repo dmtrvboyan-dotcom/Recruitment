@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 interface Draft {
   slug: string;
@@ -27,6 +27,93 @@ const THEME_COLORS: Record<string, string> = {
   "it-news": "bg-amber-100 text-amber-700",
 };
 
+// ── Small image uploader component ──────────────────────────
+function ImageUploader({ onInsert }: { onInsert: (markdown: string) => void }) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [uploading, setUploading] = useState(false);
+  const [lastUrl, setLastUrl] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleFile(file: File) {
+    setUploading(true);
+    setError(null);
+    const form = new FormData();
+    form.append("image", file);
+
+    const res = await fetch("/api/admin/upload-image", {
+      method: "POST",
+      body: form,
+    });
+
+    if (!res.ok) {
+      const data = await res.json();
+      setError(data.error ?? "Upload failed");
+      setUploading(false);
+      return;
+    }
+
+    const { url } = await res.json();
+    setLastUrl(url);
+    setUploading(false);
+    // Return the URL so the caller can decide how to use it
+    onInsert(url);
+  }
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) handleFile(file);
+    // reset input so same file can be re-selected
+    e.target.value = "";
+  }
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => inputRef.current?.click()}
+          disabled={uploading}
+          className="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-200 transition disabled:opacity-50 flex items-center gap-1.5"
+        >
+          {uploading ? (
+            <>
+              <span className="w-3 h-3 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+              Uploading…
+            </>
+          ) : (
+            "Upload image"
+          )}
+        </button>
+
+        {lastUrl && (
+          <span className="text-[10px] text-emerald-600 font-medium truncate max-w-[180px]">
+            ✓ Uploaded
+          </span>
+        )}
+      </div>
+
+      {error && <p className="text-[10px] text-red-500">{error}</p>}
+
+      <p className="text-[10px] text-gray-400">
+        To set as thumbnail: paste the URL into the frontmatter as{" "}
+        <code className="bg-gray-100 px-1 rounded">image: &quot;URL&quot;</code>.
+        To insert inline: paste the URL into the body as{" "}
+        <code className="bg-gray-100 px-1 rounded">![alt text](URL)</code>.
+      </p>
+
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/jpeg,image/png,image/webp,image/gif"
+        onChange={handleChange}
+        className="hidden"
+      />
+    </div>
+  );
+}
+
+// ────────────────────────────────────────────────────────────
+
 export default function AdminPage() {
   const [tab, setTab] = useState<"drafts" | "published">("drafts");
   const [drafts, setDrafts] = useState<Draft[]>([]);
@@ -47,6 +134,10 @@ export default function AdminPage() {
   const [editPostContent, setEditPostContent] = useState("");
   const [loadingPost, setLoadingPost] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
+
+  // Ref to the draft textarea so we can insert at cursor
+  const draftTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const publishedTextareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (tab === "drafts") fetchDrafts();
@@ -72,6 +163,33 @@ export default function AdminPage() {
   function showToast(msg: string, type: "success" | "error") {
     setToast({ msg, type });
     setTimeout(() => setToast(null), 4000);
+  }
+
+  // Insert text at current cursor position in a textarea
+  function insertAtCursor(textarea: HTMLTextAreaElement | null, text: string, setter: (v: string) => void) {
+    if (!textarea) return;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const current = textarea.value;
+    const updated = current.slice(0, start) + text + current.slice(end);
+    setter(updated);
+    // Restore cursor after the inserted text
+    requestAnimationFrame(() => {
+      textarea.selectionStart = textarea.selectionEnd = start + text.length;
+      textarea.focus();
+    });
+  }
+
+  // Called when an image is uploaded while editing a draft
+  function handleDraftImageUpload(url: string) {
+    showToast("Image uploaded! URL copied — paste it where needed.", "success");
+    navigator.clipboard.writeText(url).catch(() => {});
+  }
+
+  // Called when an image is uploaded while editing a published post
+  function handlePublishedImageUpload(url: string) {
+    showToast("Image uploaded! URL copied — paste it where needed.", "success");
+    navigator.clipboard.writeText(url).catch(() => {});
   }
 
   async function publish(slug: string) {
@@ -309,7 +427,6 @@ export default function AdminPage() {
               </ul>
             )
           ) : (
-            // Published tab
             published.length === 0 ? (
               <div className="p-8 text-center text-gray-400 text-sm">No published posts found.</div>
             ) : (
@@ -397,13 +514,21 @@ export default function AdminPage() {
                   )}
                 </div>
               </div>
+
               {isEditing ? (
-                <div>
-                  <p className="text-xs text-gray-400 mb-2">Editing raw markdown — frontmatter at the top, post body below.</p>
+                <div className="flex flex-col gap-3">
+                  {/* ── Image uploader for drafts ── */}
+                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                    <p className="text-xs font-medium text-gray-700 mb-2">Images</p>
+                    <ImageUploader onInsert={handleDraftImageUpload} />
+                  </div>
+
+                  <p className="text-xs text-gray-400">Editing raw markdown — frontmatter at the top, post body below.</p>
                   <textarea
+                    ref={draftTextareaRef}
                     value={editContent}
                     onChange={(e) => setEditContent(e.target.value)}
-                    className="w-full h-[65vh] bg-gray-900 text-gray-100 text-xs p-6 rounded-2xl font-mono leading-relaxed resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full h-[60vh] bg-gray-900 text-gray-100 text-xs p-6 rounded-2xl font-mono leading-relaxed resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                     spellCheck={false}
                   />
                 </div>
@@ -452,15 +577,23 @@ export default function AdminPage() {
                   )}
                 </div>
               </div>
+
               {loadingPost ? (
                 <div className="text-sm text-gray-400 text-center py-20">Loading post…</div>
               ) : isEditingPost ? (
-                <div>
-                  <p className="text-xs text-gray-400 mb-2">Editing raw markdown — changes go live on Vercel after saving.</p>
+                <div className="flex flex-col gap-3">
+                  {/* ── Image uploader for published posts ── */}
+                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                    <p className="text-xs font-medium text-gray-700 mb-2">Images</p>
+                    <ImageUploader onInsert={handlePublishedImageUpload} />
+                  </div>
+
+                  <p className="text-xs text-gray-400">Editing raw markdown — changes go live on Vercel after saving.</p>
                   <textarea
+                    ref={publishedTextareaRef}
                     value={editPostContent}
                     onChange={(e) => setEditPostContent(e.target.value)}
-                    className="w-full h-[65vh] bg-gray-900 text-gray-100 text-xs p-6 rounded-2xl font-mono leading-relaxed resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full h-[60vh] bg-gray-900 text-gray-100 text-xs p-6 rounded-2xl font-mono leading-relaxed resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                     spellCheck={false}
                   />
                 </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
@@ -14,6 +15,7 @@ export function BlogPostView({ post }: Props) {
   return (
     <main className="min-h-screen bg-brand-white">
 
+      {/* ── Sticky nav ── */}
       <div className="sticky top-0 z-50 bg-brand-white/80 backdrop-blur-md border-b border-brand-navy/8">
         <div className="max-w-3xl mx-auto px-5 sm:px-10 py-4 flex items-center justify-between">
           <Link
@@ -30,8 +32,8 @@ export function BlogPostView({ post }: Props) {
         </div>
       </div>
 
+      {/* ── Hero section ── */}
       <section className="relative w-full bg-brand-navy overflow-hidden py-16 sm:py-20 lg:py-28">
-
         <div className="absolute top-0 left-0 w-96 h-96 bg-brand-coral/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-3xl mx-auto px-5 sm:px-10">
@@ -56,8 +58,24 @@ export function BlogPostView({ post }: Props) {
         </div>
       </section>
 
-      <article className="max-w-3xl mx-auto px-5 sm:px-10 py-14 sm:py-20">
+      {/* ── Hero thumbnail image (shown below the dark header if image exists) ── */}
+      {post.image && (
+        <div className="relative w-full max-w-3xl mx-auto px-5 sm:px-10 -mt-8 mb-4 z-10">
+          <div className="relative w-full h-56 sm:h-72 lg:h-80 rounded-2xl overflow-hidden shadow-xl">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
+        </div>
+      )}
 
+      {/* ── Article body ── */}
+      <article className="max-w-3xl mx-auto px-5 sm:px-10 py-14 sm:py-20">
         <div className="h-px bg-linear-to-r from-brand-coral/20 via-brand-coral/10 to-transparent mb-12" />
 
         <div className="
@@ -81,7 +99,7 @@ export function BlogPostView({ post }: Props) {
 
           prose-blockquote:not-italic
           prose-blockquote:border-l-2 prose-blockquote:border-brand-coral
-         prose-blockquote:bg-brand-coral/5
+          prose-blockquote:bg-brand-coral/5
           prose-blockquote:rounded-r-xl
           prose-blockquote:py-3 prose-blockquote:pr-5
           prose-blockquote:text-brand-navy/60
@@ -95,13 +113,40 @@ export function BlogPostView({ post }: Props) {
 
           prose-hr:border-brand-navy/8
 
-          prose-img:rounded-2xl prose-img:shadow-lg
+          prose-img:rounded-2xl prose-img:shadow-lg prose-img:w-full
         ">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              // Render inline images from markdown using next/image
+              img: ({ src, alt }) => {
+                if (!src || typeof src !== "string") return null
+                return (
+                  <span className="block my-8">
+                    <span className="relative block w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
+                      <Image
+                        src={src}
+                        alt={alt ?? ""}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 768px"
+                      />
+                    </span>
+                    {alt && (
+                      <span className="block text-center text-xs text-brand-navy/40 mt-2 italic">
+                        {alt}
+                      </span>
+                    )}
+                  </span>
+                )
+              },
+            }}
+          >
             {post.content}
           </ReactMarkdown>
         </div>
 
+        {/* ── CTA footer ── */}
         <div className="mt-16 pt-10 border-t border-brand-navy/8">
           <div className="relative rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-10 py-10 sm:py-12
             flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
@@ -130,7 +175,6 @@ export function BlogPostView({ post }: Props) {
             </Link>
           </div>
         </div>
-
       </article>
     </main>
   )
