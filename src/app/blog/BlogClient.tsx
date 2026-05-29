@@ -108,7 +108,7 @@ function MobileTabDropdown({
   )
 }
 
-// ── Featured card (first post in list) ──────────────────────
+// ── Featured card ────────────────────────────────────────────
 function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
   return (
     <Link
@@ -122,8 +122,7 @@ function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
         transition: "opacity 0.6s ease, transform 0.6s ease",
       }}
     >
-      {/* Image side */}
-      <div className="relative h-52 sm:h-full min-h-[220px] overflow-hidden bg-brand-navy">
+      <div className="relative h-52 sm:h-full min-h-55 overflow-hidden bg-brand-navy">
         {post.image ? (
           <>
             <Image
@@ -134,16 +133,15 @@ function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/50 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-brand-navy/50 to-transparent" />
           </>
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-navy-mid to-brand-navy">
+          <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-brand-navy-mid to-brand-navy">
             <div className="w-14 h-14 rounded-2xl bg-brand-coral/15 flex items-center justify-center">
               <ArrowRight className="w-6 h-6 text-brand-coral" strokeWidth={1.5} />
             </div>
           </div>
         )}
-        {/* Featured label on image */}
         <div className="absolute top-4 left-4 flex items-center gap-2">
           <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-brand-white/90 bg-brand-coral/80 backdrop-blur-sm px-3 py-1.5 rounded-full">
             Featured
@@ -151,12 +149,9 @@ function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
         </div>
       </div>
 
-      {/* Content side */}
       <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
         <div className="flex items-center gap-2 mb-4">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-coral">
-            {post.category}
-          </span>
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-coral">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-brand-navy/20" />
           <span className="text-[10px] text-brand-navy/35 font-medium tracking-wider">{post.date}</span>
         </div>
@@ -178,7 +173,7 @@ function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
   )
 }
 
-// ── Regular post card ────────────────────────────────────────
+// ── Normal post card ─────────────────────────────────────────
 function PostCard({ post, index, parentVisible }: { post: Post; index: number; parentVisible: boolean }) {
   return (
     <Link
@@ -193,14 +188,12 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
         transition: `opacity 0.55s ease ${index * 70}ms, transform 0.55s ease ${index * 70}ms, box-shadow 0.3s ease, border-color 0.3s ease`,
       }}
     >
-      {/* Sliding accent bar */}
       <div
-        className="absolute top-0 left-0 right-0 h-[3px] z-10 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+        className="absolute top-0 left-0 right-0 h-0.75 z-10 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
         style={{ background: "linear-gradient(90deg, #7291C7 0%, #085689 100%)" }}
       />
 
-      {/* Thumbnail */}
-      <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-brand-navy/5 group-hover:bg-brand-coral/[0.06] transition-colors duration-500 shrink-0">
+      <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-brand-navy/5 group-hover:bg-brand-coral/6transition-colors duration-500 shrink-0">
         {post.image ? (
           <>
             <Image
@@ -210,7 +203,7 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
               className="object-cover transition-transform duration-600 group-hover:scale-[1.04]"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-linear-to-t from-brand-navy/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </>
         ) : (
           <div className="w-full h-full flex items-center justify-center">
@@ -220,36 +213,26 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
           </div>
         )}
 
-        {/* Category badge on image */}
-        {/* <span className="absolute top-3 left-3 text-[10px] font-bold tracking-[0.16em] uppercase text-brand-white bg-brand-navy/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+        <span className="absolute top-3 left-3 text-[10px] font-bold tracking-[0.16em] uppercase text-brand-white bg-brand-navy/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
           {post.category}
-        </span> */}
+        </span>
       </div>
 
-      {/* Body */}
       <div className="flex flex-col flex-1 p-5 sm:p-6">
-        {/* Meta row */}
         <div className="flex items-center justify-between mb-3">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-coral">
-            {post.category}
-          </span>
-          <span className="text-[10px] text-brand-navy/30 font-medium tracking-wider">
-            {post.date}
-          </span>
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-coral">{post.category}</span>
+          <span className="text-[10px] text-brand-navy/30 font-medium tracking-wider">{post.date}</span>
         </div>
 
-        {/* Title */}
         <h3 className="text-sm sm:text-[15px] font-bold leading-snug tracking-tight text-brand-navy mb-3
           group-hover:text-brand-teal transition-colors duration-300 uppercase">
           {post.title}
         </h3>
 
-        {/* Description */}
         <p className="text-[13px] text-brand-navy/50 leading-relaxed flex-1 line-clamp-3">
           {post.description}
         </p>
 
-        {/* Footer */}
         <div className="mt-5 pt-4 border-t border-brand-navy/6 flex items-center justify-end">
           <span className="text-[11px] font-bold tracking-widest uppercase text-brand-coral flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300">
             Read more
@@ -261,7 +244,7 @@ function PostCard({ post, index, parentVisible }: { post: Post; index: number; p
   )
 }
 
-// ── Main BlogClient ──────────────────────────────────────────
+// ── Main client ─────────────────────────────────────────────
 export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
   const searchParams = useSearchParams()
   const initialTab = (searchParams.get("tab") as TabKey) ?? "ats"
@@ -296,11 +279,12 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
     return tabMatch && chipMatch
   })
 
-  const [featuredPost, ...restPosts] = filteredPosts
+  // ── Featured separation: only show featured card if a post is explicitly marked featured ──
+  const featuredPost = filteredPosts.find((p) => p.featured === true) ?? null
+  const restPosts = filteredPosts.filter((p) => p.slug !== featuredPost?.slug)
 
   return (
     <>
-      {/* ── Hero ── */}
       <section className="relative w-full bg-brand-navy overflow-hidden pt-32 h-[90vh] lg:pt-44 lg:pb-32">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-coral/10 rounded-full -translate-y-1/2 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-brand-teal/10 rounded-full translate-y-1/2 blur-3xl pointer-events-none" />
@@ -329,7 +313,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
             {heroData.description}
           </p>
 
-          {/* Desktop tabs */}
           <div
             className="hidden lg:flex items-center justify-center gap-6 mt-12"
             style={{ opacity: heroVisible ? 1 : 0, transition: "opacity 0.7s ease 280ms" }}
@@ -355,12 +338,9 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
         </div>
       </section>
 
-      {/* ── Posts grid ── */}
       <ScrollReveal>
         <section className="relative w-full bg-brand-white overflow-hidden">
           <div className="relative max-w-6xl mx-auto px-4 sm:px-10 xl:px-16 py-12 sm:py-16 lg:py-24">
-
-            {/* Chip filters */}
             <div className="flex flex-wrap gap-2 mb-8 sm:mb-12">
               {chips.map((chip, i) => (
                 <button
@@ -385,12 +365,9 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
                 </div>
               ) : (
                 <div className="flex flex-col gap-4 sm:gap-5">
-                  {/* Featured post — full width */}
-                  {featuredPost && (
-                    <FeaturedCard post={featuredPost} visible={gridVisible} />
-                  )}
+                  {/* Featured only renders if a post is explicitly marked featured */}
+                  {featuredPost && <FeaturedCard post={featuredPost} visible={gridVisible} />}
 
-                  {/* Rest — responsive grid */}
                   {restPosts.length > 0 && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                       {restPosts.map((post, i) => (
@@ -401,7 +378,6 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
                 </div>
               )}
             </div>
-
           </div>
         </section>
       </ScrollReveal>

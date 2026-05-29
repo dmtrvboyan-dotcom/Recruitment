@@ -12,7 +12,8 @@ export type PostMeta = {
   date: string
   category: string
   tab: TabKey
-  image?: string        // ← thumbnail / hero image URL (optional)
+  image?: string
+  featured?: boolean
   draft?: boolean
 }
 
@@ -40,7 +41,8 @@ export const getAllPosts = (): Post[] => {
         date: data.date ?? "",
         category: data.category ?? "",
         tab: (data.tab ?? "ats") as TabKey,
-        image: data.image ?? undefined,   // ← new
+        image: data.image ?? undefined,
+        featured: data.featured === true,
         draft: data.draft ?? false,
       } satisfies Post
     })
@@ -68,7 +70,8 @@ export const getPostBySlug = (slug: string): Post | null => {
     date: data.date ?? "",
     category: data.category ?? "",
     tab: (data.tab ?? "ats") as TabKey,
-    image: data.image ?? undefined,       // ← new
+    image: data.image ?? undefined,
+    featured: data.featured === true,
     draft: data.draft ?? false,
   }
 }

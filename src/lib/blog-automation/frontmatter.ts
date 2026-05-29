@@ -1,7 +1,7 @@
 // lib/blog-automation/frontmatter.ts
 // ─────────────────────────────────────────────────────────────
-// Tiny helpers to parse and rebuild the frontmatter block
-// at the top of a markdown post.
+// Parse and rebuild the frontmatter block at the top of markdown.
+// Prevents duplicate keys (the bug we hit) and supports `featured`.
 // ─────────────────────────────────────────────────────────────
 
 export interface Frontmatter {
@@ -12,6 +12,7 @@ export interface Frontmatter {
   tab: string;
   keyword: string;
   image?: string;
+  featured?: boolean;
   draft?: boolean;
 }
 
@@ -24,16 +25,15 @@ export function parseFrontmatter(markdown: string): { fm: Partial<Frontmatter>; 
 
   const fmBlock = match[1];
   const body = markdown.slice(match[0].length);
-
   const fm: Partial<Frontmatter> = {};
-  const lines = fmBlock.split("\n");
 
-  for (const line of lines) {
-    const m = line.match(/^([a-zA-Z_]+):\s*(.+)$/);
+  for (const line of fmBlock.split("\n")) {
+    // Allow optional quoted keys ("image": ... or image: ...)
+    const m = line.match(/^"?([a-zA-Z_]+)"?:\s*(.+)$/);
     if (!m) continue;
     const [, key, rawValue] = m;
     const value = rawValue.trim().replace(/^["']|["']$/g, "");
-    if (key === "draft") {
+    if (key === "draft" || key === "featured") {
       (fm as Record<string, unknown>)[key] = value === "true";
     } else {
       (fm as Record<string, unknown>)[key] = value;
@@ -43,7 +43,7 @@ export function parseFrontmatter(markdown: string): { fm: Partial<Frontmatter>; 
   return { fm, body };
 }
 
-/** Rebuild a markdown string with new frontmatter + existing body */
+/** Rebuild a markdown string with new frontmatter + existing body. Single source of truth — no duplicates. */
 export function buildMarkdown(fm: Frontmatter, body: string): string {
   const lines = [
     "---",
@@ -56,13 +56,14 @@ export function buildMarkdown(fm: Frontmatter, body: string): string {
   ];
 
   if (fm.image) lines.push(`image: "${fm.image}"`);
+  if (fm.featured) lines.push(`featured: true`);
   lines.push(`draft: ${fm.draft ?? false}`);
   lines.push("---", "");
 
   return lines.join("\n") + body.replace(/^\n+/, "\n");
 }
 
-/** Convenience: update specific fields in a markdown string */
+/** Update specific fields and rebuild markdown — guarantees no duplicate keys */
 export function updateFrontmatter(markdown: string, updates: Partial<Frontmatter>): string {
   const { fm, body } = parseFrontmatter(markdown);
   const merged: Frontmatter = {
@@ -72,8 +73,9 @@ export function updateFrontmatter(markdown: string, updates: Partial<Frontmatter
     category: updates.category ?? fm.category ?? "",
     tab: updates.tab ?? fm.tab ?? "",
     keyword: updates.keyword ?? fm.keyword ?? "",
-    image: updates.image ?? fm.image,
-    draft: updates.draft ?? fm.draft ?? false,
+    image: updates.image !== undefined ? updates.image : fm.image,
+    featured: updates.featured !== undefined ? updates.featured : fm.featured,
+    draft: updates.draft !== undefined ? updates.draft : fm.draft ?? false,
   };
   return buildMarkdown(merged, body);
 }

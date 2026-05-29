@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { updateFrontmatter } from "@/lib/blog-automation/frontmatter";
+import { updateFrontmatter, parseFrontmatter } from "@/lib/blog-automation/frontmatter";
 
 export const runtime = "nodejs";
+export const maxDuration = 30;
 
 const BASE = "https://api.github.com";
 
@@ -14,13 +15,67 @@ function headers() {
   };
 }
 
+function repoBase() {
+  return `${BASE}/repos/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}`;
+}
+
+function branch() {
+  return process.env.GITHUB_BRANCH ?? "main";
+}
+
+function postsPath() {
+  return process.env.POSTS_PATH ?? "posts";
+}
+
+async function getFile(slug: string): Promise<{ content: string; sha: string } | null> {
+  const filePath = `${postsPath()}/${slug}.md`;
+  const res = await fetch(
+    `${repoBase()}/contents/${filePath}?ref=${branch()}`,
+    { headers: headers() }
+  );
+  if (!res.ok) return null;
+  const data = await res.json();
+  return {
+    content: Buffer.from(data.content, "base64").toString("utf8"),
+    sha: data.sha,
+  };
+}
+
+async function listAllPostFiles(): Promise<string[]> {
+  const res = await fetch(
+    `${repoBase()}/contents/${postsPath()}?ref=${branch()}`,
+    { headers: headers() }
+  );
+  if (!res.ok) return [];
+  const files = await res.json();
+  if (!Array.isArray(files)) return [];
+  return files
+    .filter((f: { name: string }) => f.name.endsWith(".md"))
+    .map((f: { name: string }) => f.name.replace(/\.md$/, ""));
+}
+
+async function writeFile(slug: string, content: string, sha: string, message: string) {
+  const filePath = `${postsPath()}/${slug}.md`;
+  const res = await fetch(`${repoBase()}/contents/${filePath}`, {
+    method: "PUT",
+    headers: headers(),
+    body: JSON.stringify({
+      message,
+      content: Buffer.from(content).toString("base64"),
+      sha,
+      branch: branch(),
+    }),
+  });
+  return res.ok;
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const {
     slug,
-    content,    // raw markdown (when user edited the body directly)
+    content,
     sha,
-    metadata,   // optional structured metadata updates
+    metadata,
   } = body as {
     slug: string;
     content?: string;
@@ -31,42 +86,32 @@ export async function POST(req: NextRequest) {
       category?: string;
       tab?: string;
       keyword?: string;
+      featured?: boolean;
     };
   };
 
   if (!slug || !sha) {
-    return NextResponse.json(
-      { error: "slug and sha required" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "slug and sha required" }, { status: 400 });
   }
 
   let finalContent = content ?? "";
 
-  // If only metadata was sent (no content), we need to fetch current file
+  // If only metadata sent (no content), fetch current file
   if (!content && metadata) {
-    const filePath = `${process.env.POSTS_PATH}/${slug}.md`;
-    const branch = process.env.GITHUB_BRANCH ?? "main";
-    const getRes = await fetch(
-      `${BASE}/repos/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/contents/${filePath}?ref=${branch}`,
-      { headers: headers() }
-    );
-    if (!getRes.ok) {
-      return NextResponse.json({ error: "Post not found" }, { status: 404 });
-    }
-    const data = await getRes.json();
-    finalContent = Buffer.from(data.content, "base64").toString("utf8");
+    const file = await getFile(slug);
+    if (!file) return NextResponse.json({ error: "Post not found" }, { status: 404 });
+    finalContent = file.content;
   }
 
-  // Apply metadata updates to frontmatter if provided
+  // Apply metadata
   if (metadata) {
-    const updates: Record<string, string> = {};
+    const updates: Record<string, string | boolean> = {};
     if (metadata.title) updates.title = metadata.title;
     if (metadata.description) updates.description = metadata.description;
     if (metadata.category) updates.category = metadata.category;
     if (metadata.tab) updates.tab = metadata.tab;
     if (metadata.keyword) updates.keyword = metadata.keyword;
-
+    if (metadata.featured !== undefined) updates.featured = metadata.featured;
     finalContent = updateFrontmatter(finalContent, updates);
   }
 
@@ -74,28 +119,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "content required" }, { status: 400 });
   }
 
-  const filePath = `${process.env.POSTS_PATH}/${slug}.md`;
+  // Write the main file
+  const ok = await writeFile(slug, finalContent, sha, `content(blog): update post "${slug}"`);
+  if (!ok) {
+    return NextResponse.json({ error: "GitHub update failed" }, { status: 500 });
+  }
 
-  const res = await fetch(
-    `${BASE}/repos/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/contents/${filePath}`,
-    {
-      method: "PUT",
-      headers: headers(),
-      body: JSON.stringify({
-        message: `content(blog): update post "${slug}"`,
-        content: Buffer.from(finalContent).toString("base64"),
-        sha,
-        branch: process.env.GITHUB_BRANCH ?? "main",
-      }),
+  // ── Auto-unfeature: if marking this post featured, unfeature siblings in same tab ──
+  if (metadata?.featured === true) {
+    const { fm } = parseFrontmatter(finalContent);
+    const thisTab = fm.tab;
+    if (thisTab) {
+      const allSlugs = await listAllPostFiles();
+      for (const otherSlug of allSlugs) {
+        if (otherSlug === slug) continue;
+        const otherFile = await getFile(otherSlug);
+        if (!otherFile) continue;
+        const { fm: otherFm } = parseFrontmatter(otherFile.content);
+        if (otherFm.tab === thisTab && otherFm.featured === true) {
+          const cleared = updateFrontmatter(otherFile.content, { featured: false });
+          await writeFile(otherSlug, cleared, otherFile.sha, `chore(blog): unfeature "${otherSlug}"`);
+        }
+      }
     }
-  );
-
-  if (!res.ok) {
-    const err = await res.text();
-    return NextResponse.json(
-      { error: `GitHub update failed: ${err}` },
-      { status: 500 }
-    );
   }
 
   return NextResponse.json({ success: true });

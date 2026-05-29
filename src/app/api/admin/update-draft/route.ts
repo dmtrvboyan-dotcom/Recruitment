@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDraft, saveDraft, deleteDraft } from "@/lib/blog-automation/kv-storage";
+import { getDraft, saveDraft, deleteDraft, getAllDrafts } from "@/lib/blog-automation/kv-storage";
 import { updateFrontmatter } from "@/lib/blog-automation/frontmatter";
 
 export const runtime = "nodejs";
@@ -17,9 +17,9 @@ function slugify(s: string): string {
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const {
-    slug,           // current slug (key in KV)
-    content,        // raw markdown (optional, if user edited the body)
-    metadata,       // optional structured metadata updates
+    slug,
+    content,
+    metadata,
   } = body as {
     slug: string;
     content?: string;
@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
       tab?: string;
       keyword?: string;
       slug?: string;
+      featured?: boolean;
     };
   };
 
@@ -45,14 +46,14 @@ export async function POST(req: NextRequest) {
   let nextContent = content ?? draft.content;
   let nextDraft = { ...draft };
 
-  // ── Apply metadata changes ──
   if (metadata) {
-    const updates: Record<string, string> = {};
+    const updates: Record<string, string | boolean> = {};
     if (metadata.title) updates.title = metadata.title;
     if (metadata.description) updates.description = metadata.description;
     if (metadata.category) updates.category = metadata.category;
     if (metadata.tab) updates.tab = metadata.tab;
     if (metadata.keyword) updates.keyword = metadata.keyword;
+    if (metadata.featured !== undefined) updates.featured = metadata.featured;
 
     nextContent = updateFrontmatter(nextContent, updates);
 
@@ -68,10 +69,24 @@ export async function POST(req: NextRequest) {
 
   nextDraft.content = nextContent;
 
-  // ── Handle slug rename (drafts only — published posts have locked slugs) ──
+  // ── Auto-unfeature: if we're marking THIS draft as featured, unfeature any other drafts in the same tab ──
+  if (metadata?.featured === true) {
+    const allDrafts = await getAllDrafts();
+    for (const other of allDrafts) {
+      if (other.slug !== slug && other.tab === nextDraft.tab) {
+        // Check if other was featured by looking at its content
+        const wasFeatured = /^featured:\s*true/m.test(other.content);
+        if (wasFeatured) {
+          const cleared = updateFrontmatter(other.content, { featured: false });
+          await saveDraft({ ...other, content: cleared });
+        }
+      }
+    }
+  }
+
+  // ── Slug rename (drafts only) ──
   const requestedSlug = metadata?.slug ? slugify(metadata.slug) : null;
   if (requestedSlug && requestedSlug !== slug) {
-    // Delete old, save under new key
     await deleteDraft(slug);
     nextDraft.slug = requestedSlug;
     await saveDraft(nextDraft);
