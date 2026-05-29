@@ -151,6 +151,7 @@ function FeaturedCard({ post, visible }: { post: Post; visible: boolean }) {
 
       <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
         <div className="flex items-center gap-2 mb-4">
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-coral">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-brand-navy/20" />
           <span className="text-[10px] text-brand-navy/35 font-medium tracking-wider">{post.date}</span>
         </div>
