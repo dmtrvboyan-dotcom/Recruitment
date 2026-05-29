@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
-import { buildTalentEmailHtml, buildTalentEmailText } from "../../join-talent-network/email-template"
+import { buildTalentEmailHtml, buildTalentEmailText } from "@/app/join-talent-network/email-template"
+import { buildCandidateConfirmationHtml, buildCandidateConfirmationText } from "../../join-talent-network/candidate-confirmation"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -40,6 +41,7 @@ export async function POST(req: Request) {
     const openToFulltime = (formData.get("openToFulltime") as string) || "depends"
     const remote         = (formData.get("remote") as string) || ""
     const availability   = (formData.get("availability") as string) || ""
+    const firstName      = fullName.split(" ")[0]
 
     // ── CV attachment ────────────────────────────────────────────────
     const attachments: { filename: string; content: Buffer }[] = []
@@ -49,22 +51,13 @@ export async function POST(req: Request) {
       attachments.push({ filename: cv.name, content: buffer })
     }
 
-    // ── Send email ───────────────────────────────────────────────────
     const templateProps = {
-      fullName,
-      email,
-      linkedin,
-      techStack,
-      techFreeText,
-      rateAmount,
-      rateCurrency,
-      rateBasis,
-      openToFulltime,
-      remote,
-      availability,
+      fullName, email, linkedin, techStack, techFreeText,
+      rateAmount, rateCurrency, rateBasis, openToFulltime, remote, availability,
     }
 
-    const { error } = await resend.emails.send({
+    // ── 1. Notify your team ──────────────────────────────────────────
+    const { error: teamError } = await resend.emails.send({
       from: process.env.CONTACT_FROM_EMAIL!,
       to: process.env.CONTACT_TO_EMAIL!,
       replyTo: email,
@@ -74,9 +67,26 @@ export async function POST(req: Request) {
       ...(attachments.length > 0 && { attachments }),
     })
 
-    if (error) {
-      console.error("Resend error:", error)
+    if (teamError) {
+      console.error("Resend team email error:", teamError)
       return NextResponse.json({ error: "Failed to send email" }, { status: 500 })
+    }
+
+    // ── 2. Confirm to candidate ──────────────────────────────────────
+    // TEMP: using onboarding@resend.dev until domain is verified.
+    // Once verified, add TALENT_CONFIRM_FROM=no-reply@yourdomain.com to .env
+    // and replace process.env.CONTACT_FROM_EMAIL with process.env.TALENT_CONFIRM_FROM
+    const { error: confirmError } = await resend.emails.send({
+      from: process.env.TALENT_CONFIRM_FROM ?? process.env.CONTACT_FROM_EMAIL!,
+      to: email,
+      subject: "We've received your application — Recruitment.bg",
+      html: buildCandidateConfirmationHtml(firstName),
+      text: buildCandidateConfirmationText(firstName),
+    })
+
+    if (confirmError) {
+      // Non-fatal — team already notified, don't fail the whole request
+      console.error("Resend confirmation email error:", confirmError)
     }
 
     return NextResponse.json({ success: true })
