@@ -1,4 +1,6 @@
 import { buildEmailHtml, buildEmailText } from "@/app/contacts/email-template"
+import { buildCandidateConfirmationHtml, buildCandidateConfirmationText } from "../../contacts/candidate-confirmation"
+import { buildCompanyConfirmationHtml, buildCompanyConfirmationText } from "../../contacts/company-confirmation"
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
 
@@ -8,6 +10,7 @@ export async function POST(req: Request) {
   try {
     const formData = await req.formData()
 
+    // ── reCAPTCHA verification ───────────────────────────────────────
     const token = formData.get("recaptchaToken")
     if (!token || typeof token !== "string") {
       return NextResponse.json({ error: "Missing reCAPTCHA token" }, { status: 400 })
@@ -23,7 +26,6 @@ export async function POST(req: Request) {
     })
 
     const verifyData = await verifyRes.json()
-
     console.log("reCAPTCHA verify response:", JSON.stringify(verifyData))
 
     if (!verifyData.success) {
@@ -31,7 +33,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Bot detected" }, { status: 403 })
     }
 
-
+    // ── Parse fields ─────────────────────────────────────────────────
     const mode = (formData.get("mode") as string) ?? "candidate"
     const name = (formData.get("name") as string) ?? ""
     const email = (formData.get("email") as string) || undefined
@@ -39,12 +41,9 @@ export async function POST(req: Request) {
     const title = (formData.get("title") as string) || undefined
     const company = (formData.get("company") as string) || undefined
     const message = (formData.get("message") as string) ?? ""
-
-
     const interest = (formData.get("interest") as string) || undefined
     const tags = JSON.parse((formData.get("tags") as string) || "[]") as string[]
     const contactMethods = JSON.parse((formData.get("contactMethods") as string) || "[]") as string[]
-
 
     const templateProps = { mode: mode as "candidate" | "company", name, email, phone, title, company, message, interest, tags, contactMethods }
 
@@ -52,9 +51,8 @@ export async function POST(req: Request) {
       ? `New company inquiry from ${name}${company ? ` · ${company}` : ""}`
       : `New candidate application from ${name}`
 
-
+    // ── CV attachment ────────────────────────────────────────────────
     const attachments: { filename: string; content: Buffer }[] = []
-
     if (mode === "candidate") {
       const cv = formData.get("cv") as File | null
       if (cv && cv.size > 0) {
@@ -63,6 +61,7 @@ export async function POST(req: Request) {
       }
     }
 
+    // ── 1. Notify your team ──────────────────────────────────────────
     const { error } = await resend.emails.send({
       from: process.env.CONTACT_FROM_EMAIL!,
       to: process.env.CONTACT_TO_EMAIL!,
@@ -76,6 +75,32 @@ export async function POST(req: Request) {
     if (error) {
       console.error("Resend error:", error)
       return NextResponse.json({ error: "Failed to send email" }, { status: 500 })
+    }
+
+    // ── 2. Confirm to sender ─────────────────────────────────────────
+    // Only sends once TALENT_CONFIRM_FROM is set to a verified domain address.
+    if (process.env.TALENT_CONFIRM_FROM && email) {
+      const isCompany = mode === "company"
+
+      const { error: confirmError } = await resend.emails.send({
+        from: process.env.TALENT_CONFIRM_FROM,
+        to: email,
+        replyTo: process.env.CONTACT_TO_EMAIL,
+        subject: isCompany
+          ? "We've received your inquiry — Recruitment.bg"
+          : "We've received your message — Recruitment.bg",
+        html: isCompany
+          ? buildCompanyConfirmationHtml(name, interest)
+          : buildCandidateConfirmationHtml(name),
+        text: isCompany
+          ? buildCompanyConfirmationText(name, interest)
+          : buildCandidateConfirmationText(name),
+      })
+
+      if (confirmError) {
+        // Non-fatal — team already notified
+        console.error("Resend confirmation error:", confirmError)
+      }
     }
 
     return NextResponse.json({ success: true })
