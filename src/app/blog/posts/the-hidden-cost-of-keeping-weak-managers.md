@@ -4,7 +4,7 @@ description: "Most companies focus on the cost of firing bad managers. But keepi
 date: "May 28, 2026"
 category: "HR Trends"
 tab: "companies"
-image: https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/hidden-cost-weak-managers.jpg
+image: https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/1780065632878-image-1.jpg
 keyword: "weak managers"
 draft: false
 ---
