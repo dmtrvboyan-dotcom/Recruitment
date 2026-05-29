@@ -4,11 +4,11 @@ description: "Rushing candidates with 'we need someone yesterday' might feel pro
 date: "May 29, 2026"
 category: "Recruitment"
 tab: "companies"
-image: https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/1780064646955-image.jpg
 keyword: "toxic urgency in recruitment"
+image: "https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/1780064646955-image.jpg"
+featured: true
 draft: false
 ---
-
 Most hiring managers believe that creating urgency helps close candidates faster. The reality is very different.
 
 **Toxic urgency** — the constant pressure of “we need someone ASAP” — is one of the fastest ways to lose strong talent and damage your employer brand.
