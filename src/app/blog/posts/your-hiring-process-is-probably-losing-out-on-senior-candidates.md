@@ -3,7 +3,6 @@ title: "Your Hiring Process Is Probably Losing Out on Senior Candidates"
 description: "The best senior candidates aren't rejecting your company because of salary. They're leaving because of what your hiring process signals about how your business operates."
 date: "May 29, 2026"
 category: "Scaling"
-image: "https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/senior_candidate_hiring_process_thumbnail.png"
 tab: "companies"
 "image": https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/1780062523424-5b92b86a-4c8f-4d53-bcc4-eb97fe6ab7d8.png
 keyword: "losing senior candidates"
