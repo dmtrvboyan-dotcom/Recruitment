@@ -2,7 +2,7 @@
 title: "The Candidate Who Turned Down a 40% Higher Salary"
 description: "Why top candidates reject higher salaries — and what it reveals about what today's talent actually wants from work."
 date: "May 29, 2026"
-category: "Talent Retention"
+category: "HR Trends"
 image: "https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/1780060445231-salary_rejection_thumbnail.png"
 tab: "companies"
 
