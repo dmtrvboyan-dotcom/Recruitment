@@ -2,7 +2,7 @@
 title: "How Toxic Urgency Kills Your Recruitment"
 description: "Rushing candidates with 'we need someone yesterday' might feel productive, but toxic urgency is quietly destroying your ability to hire quality talent. Here's why it backfires."
 date: "May 29, 2026"
-category: "Recruitment"
+category: "Case Studies"
 tab: "companies"
 keyword: "toxic urgency in recruitment"
 image: "https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/1780064646955-image.jpg"
