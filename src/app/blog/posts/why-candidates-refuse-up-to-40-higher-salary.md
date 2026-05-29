@@ -6,6 +6,7 @@ category: "Salary Tips"
 tab: "candidates"
 keyword: "interview prep strategies"
 image: "https://pub-2e44b458d83f45af99300367d0b52938.r2.dev/blog/1780065926380-image-2.jpg"
+featured: true
 draft: false
 ---
 Most recruiters believe money is the ultimate decider. 
