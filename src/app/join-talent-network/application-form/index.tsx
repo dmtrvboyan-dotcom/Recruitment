@@ -1,6 +1,7 @@
 "use client"
 
-import { memo, useCallback, useState } from "react"
+import ReCAPTCHA from "react-google-recaptcha"
+import { memo, useCallback, useRef, useState } from "react"
 import Link from "next/link"
 
 import { useInView } from "./use-in-view"
@@ -18,16 +19,15 @@ export type FieldErrors = Record<string, string | undefined>
 
 function isValidEmail(v: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
-}
+};
 
 function isValidLinkedin(v: string) {
-    if (!v) return true // optional
+    if (!v) return true
     return /^https?:\/\/(www\.)?linkedin\.com\/in\/.+/i.test(v)
-}
+};
 
 export const ApplicationForm = memo(function ApplicationForm() {
     const { ref: formRef, visible: formVisible } = useInView<HTMLFormElement>()
-
     const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [linkedin, setLinkedin] = useState("")
@@ -42,6 +42,9 @@ export const ApplicationForm = memo(function ApplicationForm() {
     const [availability, setAvailability] = useState("2-weeks")
     const [submitting, setSubmitting] = useState(false)
     const [submitted, setSubmitted] = useState(false)
+
+    const [captchaToken, setCaptchaToken] = useState<string | null>(null)
+    const recaptchaRef = useRef<ReCAPTCHA>(null)
 
     // Track which fields have been blurred / interacted with
     const [touched, setTouched] = useState<Record<string, boolean>>({})
@@ -99,16 +102,46 @@ export const ApplicationForm = memo(function ApplicationForm() {
             const errs = computeErrors()
             if (Object.keys(errs).length > 0) return
 
+            if (!captchaToken) {
+                alert("Please complete the reCAPTCHA")
+                return
+            }
+
             setSubmitting(true)
+            try {
+                const formData = new FormData()
+                formData.append("fullName", fullName)
+                formData.append("email", email)
+                formData.append("linkedin", linkedin)
+                formData.append("techStack", JSON.stringify(stacks))
+                formData.append("techFreeText", stackFreeText)
+                formData.append("rateAmount", rateAmount)
+                formData.append("rateCurrency", rateCurrency)
+                formData.append("rateBasis", rateBasis)
+                formData.append("openToFulltime", openFulltime)
+                formData.append("remote", remote)
+                formData.append("availability", availability)
+                formData.append("recaptchaToken", captchaToken)
+                if (resume) formData.append("resume", resume)
 
-            // TODO: replace with a real API route
-            await new Promise((r) => setTimeout(r, 1200))
+                const res = await fetch("/api/talent", { method: "POST", body: formData })
+                if (!res.ok) throw new Error("Submission failed")
 
-            setSubmitting(false)
-            setSubmitted(true)
+                setSubmitted(true)
+                recaptchaRef.current?.reset()
+                setCaptchaToken(null)
+            } catch (err) {
+                console.error(err)
+                alert("Something went wrong. Please try again.")
+            } finally {
+                setSubmitting(false)
+            }
         },
-        [computeErrors]
+        [computeErrors, captchaToken, fullName, email, linkedin, stacks, stackFreeText, rateAmount, rateCurrency, rateBasis, openFulltime, remote, availability, resume]
     )
+
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+    if (!siteKey) throw new Error("NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not set")
 
     if (submitted) {
         return <SuccessState firstName={fullName.split(" ")[0]} />
@@ -209,6 +242,16 @@ export const ApplicationForm = memo(function ApplicationForm() {
                             onRemoteChange={setRemote}
                             onAvailabilityChange={setAvailability}
                         />
+
+                        {/* reCAPTCHA */}
+                        <div className="flex justify-center mb-6">
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={siteKey}
+                                onChange={(token) => setCaptchaToken(token)}
+                                theme="dark"
+                            />
+                        </div>
 
                         <SubmitButton submitting={submitting} />
 
