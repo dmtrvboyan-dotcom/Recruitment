@@ -10,88 +10,63 @@ export function ExpertiseSection() {
   return (
     <section
       id="expertise-services"
-      className="relative py-20 sm:py-24 lg:py-32 bg-brand-white overflow-hidden"
+      className="relative py-16 sm:py-20 lg:py-28 bg-brand-white overflow-hidden"
     >
+      {/* Background glows */}
       <div
         aria-hidden
-        className="absolute -top-32 right-1/4 w-100 h-100 lg:w-130 lg:h-130 rounded-full bg-brand-coral/15 blur-[120px] pointer-events-none"
+        className="absolute -top-32 right-1/4 w-80 h-80 lg:w-md lg:h-112 rounded-full bg-brand-coral/10 blur-[120px] pointer-events-none"
       />
-
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 w-90 h-90 lg:w-130 lg:h-130 rounded-full bg-brand-coral/18 blur-[100px] lg:blur-[120px] pointer-events-none"
+        className="absolute top-1/2 -left-20 w-72 h-72 rounded-full bg-brand-teal/10 blur-[100px] pointer-events-none"
       />
 
-      <div
-        aria-hidden
-        className="hidden lg:block absolute top-[48%] -right-32 w-105 h-105 rounded-full bg-brand-teal/18 blur-[130px] pointer-events-none"
-      />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-14 lg:mb-20">
-          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-5 sm:mb-6">
-            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+        {/* ── Section header ── */}
+        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 lg:mb-16">
+          <div className="flex items-center justify-center gap-3 sm:gap-3.5 mb-4 sm:mb-5">
+            <span className="block w-6 sm:w-8 h-px bg-brand-coral" />
             <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-brand-navy/75">
               Our Expertise
             </span>
-            <span className="block w-6 sm:w-9 h-px bg-brand-coral" />
+            <span className="block w-6 sm:w-8 h-px bg-brand-coral" />
           </div>
-          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-5 sm:mb-6">
+
+          <h2 className="text-[clamp(1.75rem,6vw,3.5rem)] font-bold leading-[0.95] sm:leading-[0.92] tracking-tight uppercase text-brand-navy mb-4 sm:mb-5">
             We help companies hire across
             <span className="text-brand-coral"> different industries.</span>
           </h2>
-          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />
-          <p className="text-sm sm:text-base lg:text-lg text-brand-navy/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
-            From specialized technical roles to executive leadership - tailored
+
+          <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-5 sm:mb-7" />
+
+          <p className="text-sm sm:text-base lg:text-[1.0625rem] text-brand-navy/55 leading-relaxed max-w-xl mx-auto px-2 sm:px-0">
+            From specialized technical roles to executive leadership — tailored
             recruitment across every sector that matters.
           </p>
         </div>
 
-        <div
-          className={[
-            "grid gap-3 sm:gap-4",
-            "grid-cols-1",                         
-            "md:grid-cols-2",                   
-            "lg:grid-cols-12 lg:auto-rows-[260px]", 
-          ].join(" ")}
-        >
-          <ExpertiseCard
-            item={fintech}
-            index={0}
-            className="h-64 md:h-auto lg:col-[1/6] lg:row-[1/3]"
-          />
+        {/* ── Main grid: rows list (left) + dark panel (right) ── */}
+        {/*
+          items-stretch makes both columns the same height.
+          The left column is a flex column that distributes its cards.
+          The right panel uses h-full so it fills the entire row height.
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_360px] gap-3 sm:gap-4 lg:gap-4 items-stretch">
 
-          <ExpertiseCard
-            item={igaming}
-            index={1}
-            className="h-64 md:h-auto lg:col-[6/13] lg:row-[1/2]"
-          />
+          {/* Left: stacked row cards — flex column, each card grows equally */}
+          <div className="flex flex-col gap-2 sm:gap-2.5">
+            <ExpertiseCard item={fintech}   index={0} className="flex-1" />
+            <ExpertiseCard item={igaming}   index={1} className="flex-1" />
+            <ExpertiseCard item={aiml}      index={2} className="flex-1" />
+            <ExpertiseCard item={cyber}     index={3} className="flex-1" />
+            <ExpertiseCard item={it}        index={4} className="flex-1" />
+            <ExpertiseCard item={ecommerce} index={5} className="flex-1" />
+          </div>
 
-          <ExpertiseCard
-            item={aiml}
-            index={2}
-            className="h-64 md:h-auto lg:col-[6/13] lg:row-[2/3]"
-          />
-
-          <ExpertiseCard
-            item={cyber}
-            index={3}
-            className="h-64 md:h-auto lg:col-[1/8] lg:row-[3/4]"
-          />
-
-          <ExpertiseCard
-            item={it}
-            index={4}
-            className="h-64 md:h-auto lg:col-[8/13] lg:row-[3/4]"
-          />
-
-          <ExpertiseCard
-            item={ecommerce}
-            index={5}
-            className="h-64 md:h-auto lg:col-[1/5] lg:row-[4/5]"
-          />
-
-          <div className="h-64 md:h-auto lg:col-[5/13] lg:row-[4/5]">
+          {/* Right: featured dark panel — h-full stretches to match left column */}
+          <div className="h-full min-h-90">
             <FeaturedExpertiseCard
               data={EXPERTISE_FEATURED_AREA}
               compact
@@ -99,7 +74,8 @@ export function ExpertiseSection() {
           </div>
         </div>
 
-        <div className="mt-16 sm:mt-20 text-center">
+        {/* ── Footer nudge ── */}
+        <div className="mt-12 sm:mt-14 text-center">
           <p className="text-sm font-medium text-brand-navy/45">
             Not sure where to start?{" "}
             <a
