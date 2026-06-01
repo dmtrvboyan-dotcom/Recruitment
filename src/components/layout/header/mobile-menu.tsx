@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { NAV_ITEMS } from "@/lib/constants/navigation"
 import { COMPANY_INFO } from "@/lib/constants/footer"
-import { EMAIL_HREF, PHONE_HREF, PHONE_NUMBER } from "./constants"
+import { EMAIL_HREF, PHONE_HREF } from "./constants"
 import { MobileDropdown } from "./mobile-dropdown"
 import { MobileMegaMenu } from "./mobile-mega-menu"
 
@@ -24,9 +24,8 @@ interface MobileMenuProps {
   onNavigate: (href: string, openInNewTab?: boolean) => void
 }
 
-/* Small helper so the four icon links share one source of truth. */
 const ICON_LINK_CLASS =
-  "flex items-center justify-center w-8 h-8 rounded-full border border-white/20 text-white/60 hover:text-white hover:border-brand-coral transition-colors"
+  "flex items-center justify-center w-8 h-8 sm:w-16 sm:h-16 rounded-full border border-brand-white/20 text-brand-white/60 hover:text-brand-coral hover:border-brand-coral hover:bg-brand-white transition-colors"
 
 function IconLink({
   href,
@@ -47,7 +46,7 @@ function IconLink({
       aria-label={label}
       className={ICON_LINK_CLASS}
     >
-      <Icon size={14} />
+      <Icon className="sm:w-8 sm:h-8" size={14} />
     </a>
   )
 }
@@ -61,9 +60,8 @@ export function MobileMenu({
 }: MobileMenuProps) {
   return (
     <div
-      className={`fixed inset-0 z-999 transition-all duration-500 ${
-        isOpen ? "visible opacity-100" : "invisible opacity-0"
-      }`}
+      className={`fixed inset-0 z-999 transition-all duration-500 ${isOpen ? "visible opacity-100" : "invisible opacity-0"
+        }`}
       aria-hidden={!isOpen}
     >
       {/* Backdrop */}
@@ -74,9 +72,8 @@ export function MobileMenu({
 
       {/* Panel */}
       <div
-        className={`absolute top-0 right-0 h-full w-full lg:w-120 shadow-2xl transform transition-transform duration-500 ease-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`absolute top-0 right-0 h-full w-full lg:w-1/3 shadow-2xl transform transition-transform duration-500 ease-out ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         style={{ background: "linear-gradient(160deg, #1A1A2E 0%, #2C3E50 100%)" }}
         role="dialog"
         aria-modal="true"
@@ -87,13 +84,13 @@ export function MobileMenu({
         <button
           onClick={onClose}
           aria-label="Close menu"
-          className="absolute top-7 right-7 text-white/60 hover:text-white transition-colors duration-200 z-10"
+          className="absolute top-7 right-7 text-brand-white/60 hover:text-white transition-colors duration-200 z-10"
         >
           <X size={22} strokeWidth={2} />
         </button>
 
         <div className="flex flex-col h-full overflow-y-auto pt-20 pb-10 px-8">
-          <div className="flex flex-col gap-1 text-base text-white">
+          <div className="flex flex-col gap-1 text-base text-brand-white">
             {NAV_ITEMS.map((item) => {
               if (item.hasMegaMenu) {
                 return (
@@ -130,44 +127,35 @@ export function MobileMenu({
           </div>
 
           <div className="mt-auto pt-10 flex flex-col gap-5">
-            <div className="flex items-end gap-3">
-              <a
+            <div className="flex flex-row justify-center items-center gap-5 sm:gap-10">
+              <IconLink
                 href={PHONE_HREF}
-                aria-label="Call us"
-                className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
-              >
-                <span className="flex items-center justify-center w-8 h-8 rounded-full border border-white/20 hover:border-brand-coral transition-colors">
-                  <Phone size={14} />
-                </span>
-                <span>{PHONE_NUMBER}</span>
-              </a>
-
-              {/* Stacked column: LinkedIn → Instagram → Facebook → Email */}
-              <div className="ml-auto flex flex-col gap-2">
-                <IconLink
-                  href={COMPANY_INFO.linkedinUrl}
-                  label="LinkedIn"
-                  icon={Linkedin}
-                  external
-                />
-                <IconLink
-                  href={COMPANY_INFO.instagramUrl}
-                  label="Instagram"
-                  icon={Instagram}
-                  external
-                />
-                <IconLink
-                  href={COMPANY_INFO.facebookUrl}
-                  label="Facebook"
-                  icon={Facebook}
-                  external
-                />
-                <IconLink
-                  href={EMAIL_HREF}
-                  label="Send us an email"
-                  icon={Mail}
-                />
-              </div>
+                label="Call us"
+                icon={Phone}
+              />
+              <IconLink
+                href={COMPANY_INFO.linkedinUrl}
+                label="LinkedIn"
+                icon={Linkedin}
+                external
+              />
+              <IconLink
+                href={COMPANY_INFO.instagramUrl}
+                label="Instagram"
+                icon={Instagram}
+                external
+              />
+              <IconLink
+                href={COMPANY_INFO.facebookUrl}
+                label="Facebook"
+                icon={Facebook}
+                external
+              />
+              <IconLink
+                href={EMAIL_HREF}
+                label="Send us an email"
+                icon={Mail}
+              />
             </div>
 
             <Button

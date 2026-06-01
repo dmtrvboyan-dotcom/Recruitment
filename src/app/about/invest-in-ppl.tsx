@@ -105,7 +105,7 @@ const TrainingCard = memo(function TrainingCard({
   return (
     <div
       ref={ref}
-      className="group relative flex flex-col gap-4 p-6 xl:p-7 bg-white border border-brand-navy/8 rounded-2xl
+      className="group relative flex flex-col gap-4 p-6 xl:p-7 bg-brand-white border border-brand-navy/8 rounded-2xl
         hover:border-brand-coral/30 hover:shadow-[0_0_0_1px_--theme(--color-brand-coral/15),0_8px_32px_-8px_--theme(--color-brand-coral/12)]
         transition-all duration-500 cursor-default overflow-hidden"
       style={{
@@ -121,7 +121,7 @@ const TrainingCard = memo(function TrainingCard({
           group-hover:bg-brand-coral/15 transition-colors duration-300">
           <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.6} />
         </div>
-        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-navy/20 mt-1">
+        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-brand-navy mt-1">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
@@ -156,12 +156,12 @@ export const InvestInPeople = memo(function InvestInPeople() {
   return (
     <section className="relative w-full bg-brand-white overflow-hidden">
 
-      <div
+      {/* <div
         className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
           backgroundImage: "repeating-linear-gradient(135deg, #1b2235 0px, #1b2235 1px, transparent 1px, transparent 40px)",
         }}
-      />
+      /> */}
 
       <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 py-20 lg:py-32">
 
@@ -190,7 +190,7 @@ export const InvestInPeople = memo(function InvestInPeople() {
               <span className="text-[3.5rem] font-bold leading-none text-brand-navy tracking-tight">9</span>
               <span className="text-sm font-bold uppercase tracking-widest text-brand-coral pb-2">pillars</span>
             </div>
-            <span className="text-xs text-brand-navy/40 tracking-widest uppercase">of team development</span>
+            <span className="text-xs text-brand-coral tracking-widest uppercase">of team development</span>
           </div>
         </div>
 

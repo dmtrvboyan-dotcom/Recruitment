@@ -1,8 +1,6 @@
 "use client"
 
 import { memo } from "react"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 import { PROCESS_DATA, PROCESS_STEPS } from "../data"
 import { AppButton } from "@/components/ui/app-button"
 

@@ -26,6 +26,7 @@ import {
 import { createContactFormSchema, type ContactFormData } from "@/lib/schemas"
 import { MessageField } from "./message-field"
 import { TagInput } from "./tag-input"
+import { BookACall } from "./book-a-call"
 
 type Mode = "candidate" | "company"
 type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "confidentialSearch" | "eorSearch" | "ITSalary" | "ITPayroll"
@@ -33,7 +34,6 @@ type Interest = "hiring" | "demo" | "permanentIT" | "hireContract" | "confidenti
 interface ContactFormProps {
   mode?: Mode
 }
-
 
 const SHARED_TAGS = ["urgent", "follow-up", "question", "custom-request"]
 
@@ -47,8 +47,6 @@ const INTEREST_TAGS: Record<Interest, string[]> = {
   ITSalary: ["salary", "benchmarking", "compensation", "market-data", "hiring-insights", ...SHARED_TAGS],
   ITPayroll: ["payroll", "compliance", "advisory", "business-services", "contractor-management", ...SHARED_TAGS],
 }
-
-// Style tokens
 
 const fieldLabelClass =
   "text-[10px] font-bold uppercase tracking-[0.2em] text-brand-navy/60 mb-2 block"
@@ -66,7 +64,6 @@ function SectionMarker({ num, label }: { num: string; label: string }) {
   )
 }
 
-
 export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [isSubmitted, setIsSubmitted] = React.useState(false)
@@ -77,8 +74,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
   const recaptchaRef = React.useRef<ReCAPTCHA>(null)
   const successRef = React.useRef<HTMLDivElement>(null)
 
-  // When the form switches to the success state, bring the confirmation
-  // into view so the user sees it immediately instead of having to scroll up.
   React.useEffect(() => {
     if (isSubmitted) {
       successRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
@@ -89,6 +84,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
     resolver: zodResolver(createContactFormSchema(mode)),
     defaultValues: { name: "", company: "", email: "", phone: "", title: "", message: "" },
   })
+
   const resetForm = () => {
     setIsSubmitted(false)
     setFile(null)
@@ -100,7 +96,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
       alert("Please complete the reCAPTCHA")
       return
     }
-
     setIsSubmitting(true)
     try {
       const formData = new FormData()
@@ -161,14 +156,15 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
     )
   }
 
-  // Form
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 sm:space-y-10">
 
         {mode === "company" ? (
           <>
+            {/* Book a call banner — company only */}
+            <BookACall />
+
             {/* 01 - Your company */}
             <section>
               <SectionMarker num="01" label="Your company" />
@@ -247,7 +243,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
               </div>
             </section>
 
-            {/* 03 - Message */}
             <section>
               <SectionMarker num="03" label="Your message" />
               <MessageField form={form} interest={interest} mode={mode} />
@@ -255,7 +250,7 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
           </>
         ) : (
 
-          /* ── CANDIDATE FLOW (unchanged) ──────────────────────────────── */
+          /* ── CANDIDATE FLOW ──────────────────────────────── */
           <>
             <section>
               <SectionMarker num="01" label="About you" />
@@ -299,7 +294,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
             <section className="animate-in fade-in slide-in-from-top-2 duration-300">
               <SectionMarker num="03" label="Attach CV" />
               <div className="relative group">
-
                 {!file && (
                   <input
                     type="file"
@@ -309,14 +303,10 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                     aria-label="Upload CV"
                   />
                 )}
-
-                <div className={`relative flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border-2 border-dashed transition-all ${file ? "border-brand-teal bg-brand-teal/5" : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"
-                  }`}>
-                  <span className={`shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"
-                    }`}>
+                <div className={`relative flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl border-2 border-dashed transition-all ${file ? "border-brand-teal bg-brand-teal/5" : "border-brand-navy/15 bg-brand-white group-hover:border-brand-teal group-hover:bg-brand-teal/5"}`}>
+                  <span className={`shrink-0 w-11 h-11 rounded-full flex items-center justify-center transition-colors ${file ? "bg-brand-teal text-white" : "bg-brand-navy/5 text-brand-navy group-hover:bg-brand-teal group-hover:text-white"}`}>
                     {file ? <CheckCircle className="w-5 h-5" strokeWidth={1.75} /> : <Upload className="w-5 h-5" strokeWidth={1.75} />}
                   </span>
-
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-brand-navy truncate">
                       {file ? file.name : "Drop your CV here or click to browse"}
@@ -325,7 +315,6 @@ export function ContactForm({ mode = "candidate" }: ContactFormProps) {
                       {file ? `${(file.size / 1024).toFixed(0)} KB - attached` : "PDF, DOC, DOCX - max 10MB"}
                     </p>
                   </div>
-
                   {file && (
                     <button
                       type="button"

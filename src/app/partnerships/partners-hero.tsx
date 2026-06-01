@@ -25,7 +25,7 @@ export const PartnersHero = memo(function PartnersHero() {
   const { ref, visible } = useInView(0.1)
 
   return (
-    <section className="relative w-full bg-brand-navy overflow-hidden min-h-[80dvh] sm:min-h-[90dvh] flex flex-col justify-end">
+    <section className="relative w-full h  bg-brand-navy overflow-hidden min-h-[80dvh] sm:min-h-[90dvh] flex flex-col justify-center">
 
       {/* Radial glow top-right */}
       <div className="absolute top-0 right-0 w-[50vw] h-[50vw] max-w-150 max-h-150 bg-brand-coral/10 rounded-full blur-3xl pointer-events-none -translate-y-1/3 translate-x-1/4" />

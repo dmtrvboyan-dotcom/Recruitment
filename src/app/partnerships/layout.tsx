@@ -33,13 +33,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ClientsLayout({
+export default function PartnershipsLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <div className="relative min-h-screen">
+    <div className="">
       <Header />
       <SocialSidebar />
 

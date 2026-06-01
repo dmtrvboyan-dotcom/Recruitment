@@ -13,7 +13,7 @@ import {
 } from "@/lib/hooks"
 import { scrollToSection, scrollToTop } from "@/lib/utils/scroll"
 import { Breadcrumb } from "../breadcrump"
-import { PHONE_HREF, PHONE_NUMBER } from "./constants"
+import { PHONE_HREF, PHONE_NUMBER, } from "./constants"
 import { DesktopNav } from "./desktop-nav"
 import { MobileMenu } from "./mobile-menu"
 
@@ -97,7 +97,7 @@ export function Header() {
                 alt="Recruitment.bg"
                 width={328}
                 height={88}
-                style={{ width: 'auto', height: '44px' }}
+                className="w-auto h-9 sm:h-12.5"
                 priority
               />
             </Link>

@@ -4,10 +4,7 @@ import { memo } from "react"
 
 export const ProcessHero = memo(function ProcessHero() {
   return (
-    <section className="relative w-full min-h-[60vh] bg-brand-navy overflow-hidden flex items-end">
-
-      {/* Decorative grid lines */}
-     
+    <section className="relative w-full min-h-[60vh] bg-brand-navy overflow-hidden flex flex-col items-center justify-center">
 
       {/* Coral glow blob */}
       <div className="absolute -bottom-32 -left-32 w-120 h-120 rounded-full bg-brand-coral/20 blur-[120px] pointer-events-none" />
@@ -21,7 +18,15 @@ export const ProcessHero = memo(function ProcessHero() {
         06
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 pt-28 pb-16 lg:pb-24 w-full mt-20">
+      <div
+        className="relative w-full px-5 sm:px-10 xl:px-16 pt-28 pb-16 lg:pb-24 mt-20"
+        style={{
+          maxWidth: "80rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          boxSizing: "border-box",
+        }}
+      >
         <span className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4">
           Our Process
         </span>
@@ -35,7 +40,7 @@ export const ProcessHero = memo(function ProcessHero() {
         </h1>
 
         <p className="text-sm sm:text-base lg:text-lg text-white/50 max-w-xl leading-relaxed">
-          Six deliberate steps. Zero guesswork. Every engagement runs the same rigorous way - because consistency is what creates results.
+          Six deliberate steps that bring the right people, opportunities, and goals together.
         </p>
 
         {/* Horizontal divider rule */}

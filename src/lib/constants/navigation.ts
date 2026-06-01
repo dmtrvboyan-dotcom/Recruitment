@@ -37,7 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
         items: [
           {
             label: "Permanent IT Recruitment",
-            description: "Full-time placements for long-term team building",
+            description: "Permanent Tech Hiring",
             icon: "Users",
             href: "/services/permanent-it-recruitment",
           },
@@ -48,8 +48,8 @@ export const NAV_ITEMS: NavItem[] = [
             href: "/services/contract-freelance-b2b-remote-recruitment",
           },
           {
-            label: "Confidential Headhunting & Executive Search",
-            description: "Discreet search for senior & leadership roles",
+            label: "Discreet search for senior & leadership roles",
+            description: "Confidential headhunting & executive search",
             icon: "Search",
             href: "/services/confidential-headhunting-executive-search",
           },
@@ -60,14 +60,14 @@ export const NAV_ITEMS: NavItem[] = [
             href: "/services/employer-of-record",
           },
           {
-            label: "IT Salary Benchmarking & Hiring Insights",
-            description: "Data-driven compensation & market intelligence",
+            label: "IT Salary Benchmarking",
+            description: "Salary & market intelligence",
             icon: "UserCheck",
             href: "/services/it-salary-benchmarking-and-hiring-insights",
           },
           {
-            label: "IT Payroll, Compliance & Business Advisory",
-            description: "End-to-end payroll, legal & advisory support",
+            label: "IT Payroll, Compliance & Legal Advisory",
+            description: "End-to-end payroll, legal & compliance support",
             icon: "Globe",
             href: "/services/it-payroll-compliance-advisory",
           },

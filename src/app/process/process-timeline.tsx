@@ -117,7 +117,7 @@ export const ProcessTimeline = memo(function ProcessTimeline() {
             Step by Step
           </span>
           <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-navy mb-5">
-            THE SIX PHASES
+            THE <span className="text-brand-coral">SIX</span> PHASES
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-brand-navy/50 max-w-lg mx-auto leading-relaxed">
             From first conversation to signed offer - here is exactly what happens and when.

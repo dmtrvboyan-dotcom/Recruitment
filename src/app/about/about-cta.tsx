@@ -19,7 +19,7 @@ export const AboutCTA = memo(function AboutCTA() {
                     <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-none tracking-tight text-brand-white">
                         READY TO HIRE
                         <br />
-                        <span className="text-brand-coral">SMARTER?</span>
+                        <span className="text-brand-coral">SMART.R?</span>
                     </h2>
                 </div>
 

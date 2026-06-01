@@ -11,7 +11,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-svh bg-brand-navy overflow-hidden flex flex-col">
+    <section className="relative min-h-svh bg-brand-navy overflow-hidden flex flex-col justify-center">
 
 
       <div
@@ -31,22 +31,23 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col">
-        <div className="max-w-7xl mx-auto w-full px-5 sm:px-8 lg:px-12 pt-24 sm:pt-28 lg:pt-32">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral tabular-nums">
-              01
-            </span>
-            <span className="block w-10 sm:w-14 h-px bg-brand-coral" />
-            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
-              Careers
-            </span>
-          </div>
-        </div>
+
 
         <div className="flex-1 flex items-center">
           <div className="max-w-7xl mx-auto w-full px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
             <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-end">
               <div className="lg:col-span-8">
+                <div className="max-w-7xl mx-auto w-full lg:px-4 pt-24 sm:pt-28 lg:pt-32 mb-10">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral tabular-nums">
+                      01
+                    </span>
+                    <span className="block w-10 sm:w-14 h-px bg-brand-coral" />
+                    <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
+                      Careers
+                    </span>
+                  </div>
+                </div>
                 <h1 className="font-bold uppercase leading-[0.9] tracking-[-0.02em] text-brand-white">
                   <span className="block text-[clamp(2.75rem,9vw,7.5rem)]">
                     Get

@@ -72,7 +72,7 @@ export const Hero = memo(function Hero() {
           <div className="flex flex-col items-center max-w-lg w-full
             mb-8 sm:mb-10 animate-fade-in-up delay-200 px-4 sm:px-0 text-center justify-center p-4"
           >
-            <div className="text-sm sm:text-base lg:text-xl text-brand-navy/65 leading-relaxed text-center w-full">
+            <div className="text-sm sm:text-base lg:text-xl text-brand-navy leading-relaxed text-center w-full">
               <span className="block">Your One-stop Partner For</span>
               <RotatingText active={animationsReady} />
             </div>
