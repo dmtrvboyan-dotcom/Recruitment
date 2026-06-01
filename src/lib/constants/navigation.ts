@@ -36,7 +36,7 @@ export const NAV_ITEMS: NavItem[] = [
         title: "What We Offer",
         items: [
           {
-            label: "Permanent IT Recruitment",
+            label: "Permanent IT Recruitment & Staffing",
             description: "Permanent Tech Hiring",
             icon: "Users",
             href: "/services/permanent-it-recruitment",
@@ -71,6 +71,12 @@ export const NAV_ITEMS: NavItem[] = [
             icon: "Globe",
             href: "/services/it-payroll-compliance-advisory",
           },
+          {
+            label: "Dedicated Development Teams",
+            description: "Build and scale your engineering team in Bulgaria",
+            icon: "Users",
+            href: "/services/dedicated-development-teams",
+          }
         ],
       },
     ],

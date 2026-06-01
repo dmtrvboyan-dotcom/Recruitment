@@ -1,9 +1,9 @@
 "use client"
 
 import { memo } from "react"
-import { X, ArrowUpRight } from "lucide-react"
+import { X, ArrowUpRight, CheckCircle } from "lucide-react"
 import { type Service } from "@/lib/constants/services"
-import { AppButton } from '@/components/ui/app-button';
+import { AppButton } from '@/components/ui/app-button'
 
 export const DesktopPanel = memo(function DesktopPanel({
   service,
@@ -12,21 +12,23 @@ export const DesktopPanel = memo(function DesktopPanel({
   service: Service | null
   onClose: () => void
 }) {
-
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${service ? "visible" : "invisible"
-        }`}
+      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${
+        service ? "visible" : "invisible"
+      }`}
     >
       <div
-        className={`absolute inset-0 bg-brand-navy/40 backdrop-blur-sm transition-opacity duration-300 ${service ? "opacity-100" : "opacity-0"
-          }`}
+        className={`absolute inset-0 bg-brand-navy/40 backdrop-blur-sm transition-opacity duration-300 ${
+          service ? "opacity-100" : "opacity-0"
+        }`}
         onClick={onClose}
       />
 
       <div
-        className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${service ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${
+          service ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="sticky top-0 left-0 right-0 h-0.75 bg-brand-coral z-20" />
 
@@ -40,7 +42,8 @@ export const DesktopPanel = memo(function DesktopPanel({
               <X className="w-5 h-5" strokeWidth={2} />
             </button>
 
-            <div className="px-6 lg:px-12 pt-14 lg:pt-16 pb-12 flex flex-col items-center text-center ">
+            <div className="px-6 lg:px-12 pt-14 lg:pt-16 pb-12 flex flex-col items-center text-center">
+              {/* Eyebrow */}
               <div className="flex items-center gap-3.5 mb-7">
                 <span className="block w-9 h-px bg-brand-coral" />
                 <span className="text-[11px] font-semibold tracking-[0.32em] uppercase text-brand-coral">
@@ -49,95 +52,113 @@ export const DesktopPanel = memo(function DesktopPanel({
                 <span className="block w-9 h-px bg-brand-coral" />
               </div>
 
-              <div
-                className={`w-6 h-6 lg:w-8 lg:h-8 rounded-2xl ${service.iconBg} flex items-center bg-transparent justify-center mb-7`}
-              >
+              {/* Service icon */}
+              <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-brand-navy/5 flex items-center justify-center mb-7">
                 <service.icon
-                  className={`w-8 h-8 lg:w-10 lg:h-10 ${service.iconColor}`}
+                  className={`w-6 h-6 lg:w-7 lg:h-7 ${service.iconColor}`}
                   strokeWidth={1.5}
                 />
               </div>
 
+              {/* Title */}
               <h3 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold uppercase tracking-tight leading-[1.05] text-brand-navy mb-3 max-w-xl">
                 {service.title}
               </h3>
 
-              {service.subtitle && (
-                <p className="text-base lg:text-lg text-brand-coral font-semibold mb-5">
-                  {service.subtitle}
-                </p>
-              )}
-
-              <div className="h-0.5 w-12 bg-brand-coral mb-7" />
-
+              {/* Intro */}
               {service.intro && (
-                <p className="text-base lg:text-lg leading-relaxed text-brand-navy/60 mb-10 max-w-2xl">
+                <p className="text-base lg:text-lg text-brand-coral font-semibold mb-5 max-w-lg">
                   {service.intro}
                 </p>
               )}
 
-              <div className="w-full grid grid-cols-1 [@media(min-width:1235px)]:grid-cols-2 gap-8 lg:gap-12 mb-12 text-left">
-                {service.sections.map((section, idx) => (
-                  <div key={idx}>
-                    <h4 className="text-[11px] font-semibold tracking-[0.22em] uppercase text-brand-coral mb-4">
-                      {section.heading}
-                    </h4>
-                    <ul className="space-y-3">
-                      {section.points.map((point, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-3 text-[15px] lg:text-base leading-relaxed text-brand-navy/70"
-                        >
-                          <span className="text-brand-coral text-lg leading-none mt-0.5 shrink-0">
-                            &bull;
-                          </span>
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div className="h-0.5 w-12 bg-brand-coral mb-10" />
+
+              {/* Sections — two columns */}
+              <div className="w-full grid grid-cols-1 [@media(min-width:1235px)]:grid-cols-2 gap-8 lg:gap-10 mb-12 text-left">
+                {service.sections.map((section, idx) => {
+                  const HeadingIcon = section.headingIcon
+                  return (
+                    <div key={idx}>
+                      {/* Section heading with icon */}
+                      <div className="flex items-center gap-2.5 mb-5">
+                        <div className="w-8 h-8 rounded-lg bg-brand-navy flex items-center justify-center shrink-0">
+                          <HeadingIcon className="w-4 h-4 text-brand-white" strokeWidth={1.75} />
+                        </div>
+                        <h4 className="text-sm font-bold tracking-[0.15em] uppercase text-brand-navy">
+                          {section.heading}
+                        </h4>
+                      </div>
+
+                      {/* Points with checkmark + bold title + description */}
+                      <ul className="space-y-4">
+                        {section.points.map((point, i) => (
+                          point.title ? (
+                            <li key={i} className="flex items-start gap-3">
+                              <CheckCircle
+                                className="w-5 h-5 text-brand-coral shrink-0 mt-0.5"
+                                strokeWidth={1.75}
+                              />
+                              <div>
+                                <p className="text-sm font-bold text-brand-navy leading-snug">
+                                  {point.title}
+                                </p>
+                                {point.description && (
+                                  <p className="text-sm text-brand-navy/60 leading-relaxed mt-0.5">
+                                    {point.description}
+                                  </p>
+                                )}
+                              </div>
+                            </li>
+                          ) : null
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                })}
               </div>
 
+              {/* CTA */}
               <div className="flex flex-row items-center justify-center gap-4">
                 <AppButton href={service.href} ping>
                   Learn more about our service{" "}
                   <span className="sr-only">about {service.title}</span>
                   <ArrowUpRight
-                    className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
-                    strokeWidth={1.5}
-                  />
-                </AppButton>
-
-                <AppButton href="/contacts" variant="navy" >
-                  Talk to Us
-                  <ArrowUpRight
-                    className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 animate-bounce-x"
+                    className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
                     strokeWidth={1.5}
                   />
                 </AppButton>
               </div>
-
             </div>
 
+            {/* Stats bar */}
             <div className="bg-brand-navy text-brand-white px-6 lg:px-12 py-10 lg:py-12">
-              <div className="grid grid-cols-3 gap-4 lg:gap-8 max-w-2xl mx-auto">
-                {service.stats.map((stat, idx) => (
-                  <div
-                    key={idx}
-                    className={`text-center ${idx !== service.stats.length - 1
-                      ? "border-r border-brand-white/10 pr-4 lg:pr-8"
-                      : ""
-                      }`}
-                  >
-                    <div className="text-3xl lg:text-[2.5rem] font-bold text-brand-white leading-none tracking-tight mb-2">
-                      {stat.value}
+              <div className="flex flex-wrap justify-center gap-6 lg:gap-10 max-w-3xl mx-auto">
+                {service.stats.filter(s => s.value).map((stat, idx) => {
+                  const StatIcon = stat.icon
+                  return (
+                    <div key={idx} className="flex items-start gap-3">
+                      {/* Icon */}
+                      <div className="shrink-0 w-10 h-10 rounded-full border border-brand-white/15 flex items-center justify-center mt-0.5">
+                        <StatIcon className="w-4 h-4 text-brand-white/60" strokeWidth={1.5} />
+                      </div>
+                      {/* Text */}
+                      <div>
+                        <div className="text-xl lg:text-2xl font-bold text-brand-white leading-none tracking-tight">
+                          {stat.value}
+                        </div>
+                        <div className="text-[10px] tracking-[0.2em] uppercase text-brand-coral font-semibold mt-1.5 leading-snug">
+                          {stat.label}
+                        </div>
+                        {stat.sublabel && (
+                          <div className="text-[11px] text-brand-white/40 mt-0.5 leading-snug">
+                            {stat.sublabel}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <div className="text-[10px] tracking-[0.22em] uppercase text-brand-coral font-semibold leading-snug">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </div>

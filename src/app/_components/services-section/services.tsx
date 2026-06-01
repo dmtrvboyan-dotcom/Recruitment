@@ -101,8 +101,7 @@ export function Services() {
         </div>
 
         <p className="text-center sm:text-lg text-sm text-brand-navy/50 leading-relaxed mt-12 sm:mt-16 lg:mt-20 max-w-2xl mx-auto">
-          End-to-end IT recruitment, helping companies hire tech professionals
-          locally and globally.
+          End-to-end recruitment and talent aquistion, EOR, Payroll, Legal and workforce solutions in Bulgaria
         </p>
       </div>
 

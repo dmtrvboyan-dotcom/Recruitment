@@ -20,12 +20,13 @@ export interface SocialLink {
 
 export const FOOTER_LINKS: FooterLinks = {
   services: [
-    { label: "Permanent IT Recruitment", href: "/services/permanent-it-recruitment" },
+    { label: "Permanent IT Recruitment & Staffing", href: "/services/permanent-it-recruitment" },
     { label: "Contract Freelance / B2B / Remote Hiring", href: "/services/contract-freelance-b2b-remote-recruitment" },
     { label: "Discreet Search for Senior & Leadership Roles", href: "/services/confidential-headhunting-executive-search" },
     { label: "Employer of Record (EoR)", href: "/services/employer-of-record" },
     { label: "IT Salary Benchmarking", href: "/services/it-salary-benchmarking-and-hiring-insights" },
     { label: "IT Payroll, Compliance & Legal Advisory", href: "/services/it-payroll-compliance-advisory" },
+    { label: "Dedicated Development Teams", href: "/services/dedicated-development-teams" },
     { label: "Smart.R ATS", href: "/applicant-tracking-system" },
   ],
   company: [
