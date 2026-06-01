@@ -17,7 +17,7 @@ export const EXPERTISE_AREAS = [
     href: "/expertise-services/fintech-recruitment",
     icon: Briefcase,
     image: "/expertise/fintech.jpg",
-    stats: "200+ placements",
+    stats: "200+",
   },
   {
     title: "iGaming Recruitment",
@@ -25,7 +25,7 @@ export const EXPERTISE_AREAS = [
     href: "/expertise-services/igaming-recruitment",
     icon: Gamepad2,
     image: "/expertise/igaming.jpg",
-    stats: "150+ placements",
+    stats: "150+",
   },
   {
     title: "AI/ML/Data Recruitment",
@@ -33,7 +33,7 @@ export const EXPERTISE_AREAS = [
     href: "/expertise-services/aiml-recruitment",
     icon: Users,
     image: "/expertise/aiml.jpg",
-    stats: "100+ placements",
+    stats: "100+",
   },
   {
     title: "Cybersecurity Recruitment",
@@ -41,7 +41,7 @@ export const EXPERTISE_AREAS = [
     href: "/expertise-services/cybersecurity-recruitment",
     icon: Building2,
     image: "/expertise/cybersecurity.jpg",
-    stats: "120+ placements",
+    stats: "120+",
   },
   {
     title: "IT Services & SaaS Recruitment",
@@ -49,7 +49,7 @@ export const EXPERTISE_AREAS = [
     href: "/expertise-services/saas-recruitment",
     icon: Code2,
     image: "/expertise/saas.jpg",
-    stats: "300+ placements",
+    stats: "300+",
   },
   {
     title: "E-commerce Recruitment",
@@ -57,7 +57,7 @@ export const EXPERTISE_AREAS = [
     href: "/expertise-services/ecommerce-recruitment",
     icon: Globe,
     image: "/expertise/ecommerce.jpg",
-    stats: "180+ placements",
+    stats: "180+",
   },
 
 ]

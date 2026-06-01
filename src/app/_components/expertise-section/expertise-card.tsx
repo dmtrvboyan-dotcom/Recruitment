@@ -9,7 +9,7 @@ import { type EXPERTISE_AREAS } from "@/lib/constants/expertise"
 type CardItem = (typeof EXPERTISE_AREAS)[0]
 
 const STAT_COLORS = [
-  "text-[#]",
+  "text-[#a8c0f0]",
   "text-[#c4b0f0]",
   "text-[#90d4b0]",
   "text-[#80e0a0]",
@@ -18,12 +18,12 @@ const STAT_COLORS = [
 ]
 
 const NUMBER_COLORS = [
-  "text-[#a8c0f0]",
-  "text-[#c4b0f0]",
-  "text-[#90d4b0]",
-  "text-[#80e0a0]",
-  "text-[#90c8e0]",
-  "text-[#FFC067]",
+  "text-[#4a7ad4]",  // blue
+  "text-[#7a5cd4]",  // purple
+  "text-[#2e9966]",  // mint
+  "text-[#1ea855]",  // green
+  "text-[#2e88bb]",  // sky
+  "text-[#d4820a]",  // amber
 ]
 
 export const ExpertiseCard = memo(function ExpertiseCard({
@@ -56,7 +56,7 @@ export const ExpertiseCard = memo(function ExpertiseCard({
       />
 
       {/* Dark overlay — heavier on left for text legibility, lighter on right */}
-      <div className="absolute inset-0 bg-linear-to-r from-brand-navy/35 via-brand-white/80 to-brand-white" />
+      <div className="absolute inset-0 bg-linear-to-r from-brand-navy/10 via-brand-white/80 to-brand-white" />
 
       {/* Number */}
       <span
@@ -68,10 +68,10 @@ export const ExpertiseCard = memo(function ExpertiseCard({
 
       {/* Text */}
       <div className="relative flex-1 min-w-0">
-        <h3 className="font-bold uppercase tracking-wide text-brand-white text-sm sm:text-base lg:text-[0.9375rem] leading-tight mb-0.5 sm:mb-1">
+        <h3 className="font-bold uppercase tracking-wide text-brand-navy text-sm sm:text-base lg:text-[1.2rem] leading-tight mb-0.5 sm:mb-1">
           {item.title}
         </h3>
-        <p className="text-brand-white/60 text-xs sm:text-[0.8125rem] leading-snug line-clamp-2 max-w-md">
+        <p className="text-brand-navy/60 text-xs sm:text-[0.8125rem] leading-snug line-clamp-2 max-w-md">
           {item.description}
         </p>
       </div>
@@ -81,7 +81,7 @@ export const ExpertiseCard = memo(function ExpertiseCard({
         <p className="font-bold text-xl sm:text-2xl lg:text-[1.75rem] leading-none">
           {item.stats}
         </p>
-        <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-white/35 mt-0.5">
+        <p className="text-[9px] sm:text-[10px] font-semibold tracking-[0.18em] uppercase text-brand-navy mt-0.5">
           Placements
         </p>
       </div>

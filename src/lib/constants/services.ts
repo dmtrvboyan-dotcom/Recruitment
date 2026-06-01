@@ -202,9 +202,9 @@ export const SERVICES: Service[] = [
       },
     ],
     stats: [
-      { icon: Award, value: "CTO, VP Engineering & Leadership", label: "Specialized in senior", sublabel: "roles" },
-      { icon: ShieldCheck, value: "6-15 days", label: "days to present", sublabel: "present" },
-      { icon: Clock, value: "Passive executive talent network", label: "Access to leaders not actively looking", sublabel: "actively looking" },
+      { icon: Award, value: "CTO, VP Engineering & Leadership", label: "Specialized in senior roles", sublabel: "" },
+      { icon: ShieldCheck, value: "6-15 days", label: "days to present present", sublabel: "" },
+      { icon: Clock, value: "Passive executive talent network", label: "Access to leaders not actively looking", sublabel: "" },
     ],
     href: "/services/confidential-headhunting-executive-search",
   },

@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { memo, useCallback } from "react"
 import { scrollToSection } from "@/lib/utils/scroll"
 import { AppButton } from "@/components/ui/app-button"
@@ -17,6 +18,17 @@ export const Hero = memo(function Hero() {
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex flex-col bg-brand-white mt-12 sm:mt-6">
+
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/uploaded/background-hero.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-brand-white/60" />
+      </div>
 
       <div
         aria-hidden
@@ -87,7 +99,7 @@ export const Hero = memo(function Hero() {
               icon="arrow"
               className="sm:w-auto"
             >
-             Learn more
+              Learn more
             </AppButton>
 
             <AppButton href="/job-listings" variant="navy" className="sm:w-auto">

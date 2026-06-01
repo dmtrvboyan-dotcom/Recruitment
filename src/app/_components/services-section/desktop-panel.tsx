@@ -14,21 +14,18 @@ export const DesktopPanel = memo(function DesktopPanel({
 }) {
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${
-        service ? "visible" : "invisible"
-      }`}
+      className={`fixed inset-0 z-50 flex items-start justify-end transition-all duration-300 ${service ? "visible" : "invisible"
+        }`}
     >
       <div
-        className={`absolute inset-0 bg-brand-navy/40 backdrop-blur-sm transition-opacity duration-300 ${
-          service ? "opacity-100" : "opacity-0"
-        }`}
+        className={`absolute inset-0 bg-brand-navy/40 backdrop-blur-sm transition-opacity duration-300 ${service ? "opacity-100" : "opacity-0"
+          }`}
         onClick={onClose}
       />
 
       <div
-        className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${
-          service ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`relative h-full w-full md:w-[55%] lg:w-[50%] bg-brand-white shadow-2xl transform transition-transform duration-500 ease-out overflow-y-auto ${service ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="sticky top-0 left-0 right-0 h-0.75 bg-brand-coral z-20" />
 
@@ -133,18 +130,18 @@ export const DesktopPanel = memo(function DesktopPanel({
 
             {/* Stats bar */}
             <div className="bg-brand-navy text-brand-white px-6 lg:px-12 py-10 lg:py-12">
-              <div className="flex flex-wrap justify-center gap-6 lg:gap-10 max-w-3xl mx-auto">
+              <div className="grid grid-cols-3 gap-4 lg:gap-6 max-w-3xl mx-auto w-full">
                 {service.stats.filter(s => s.value).map((stat, idx) => {
                   const StatIcon = stat.icon
                   return (
-                    <div key={idx} className="flex items-start gap-3">
+                    <div key={idx} className="flex items-start gap-3 min-w-0">
                       {/* Icon */}
                       <div className="shrink-0 w-10 h-10 rounded-full border border-brand-white/15 flex items-center justify-center mt-0.5">
                         <StatIcon className="w-4 h-4 text-brand-white/60" strokeWidth={1.5} />
                       </div>
                       {/* Text */}
                       <div>
-                        <div className="text-xl lg:text-2xl font-bold text-brand-white leading-none tracking-tight">
+                        <div className="text-lg lg:text-xl font-bold text-brand-white leading-tight tracking-tight break-words">
                           {stat.value}
                         </div>
                         <div className="text-[10px] tracking-[0.2em] uppercase text-brand-coral font-semibold mt-1.5 leading-snug">
