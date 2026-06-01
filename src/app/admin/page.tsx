@@ -25,13 +25,15 @@ const THEME_COLORS: Record<string, string> = {
   "for-companies": "bg-violet-100 text-violet-700",
   "for-candidates": "bg-emerald-100 text-emerald-700",
   "it-news": "bg-amber-100 text-amber-700",
-};
+  "why-so-serious": "bg-pink-100 text-pink-700",
+}
 
 const TAB_OPTIONS = [
   { value: "ats", label: "ATS Software" },
   { value: "companies", label: "For Companies" },
   { value: "candidates", label: "For Candidates" },
   { value: "it", label: "IT News" },
+  { value: "fun", label: "Why So Serious?" },
 ];
 
 // ── Image uploader ──────────────────────────────
@@ -201,9 +203,8 @@ function MetadataEditor({
           value={form.slug}
           onChange={(e) => update("slug", e.target.value)}
           disabled={slugLocked}
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-            slugLocked ? "bg-gray-50 text-gray-400 border-gray-200 cursor-not-allowed" : "border-gray-200"
-          }`}
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${slugLocked ? "bg-gray-50 text-gray-400 border-gray-200 cursor-not-allowed" : "border-gray-200"
+            }`}
         />
       </div>
 
@@ -280,7 +281,7 @@ export default function AdminPage() {
 
   function handleImageUploaded(url: string) {
     showToast("Image uploaded! URL copied to clipboard.", "success");
-    navigator.clipboard.writeText(url).catch(() => {});
+    navigator.clipboard.writeText(url).catch(() => { });
   }
 
   async function saveDraftMetadata(updated: MetadataState) {
@@ -476,9 +477,8 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {toast && (
-        <div className={`fixed top-4 right-4 z-50 max-w-sm px-4 py-3 rounded-xl shadow-lg text-sm font-medium ${
-          toast.type === "success" ? "bg-emerald-600 text-white" : "bg-red-600 text-white"
-        }`}>
+        <div className={`fixed top-4 right-4 z-50 max-w-sm px-4 py-3 rounded-xl shadow-lg text-sm font-medium ${toast.type === "success" ? "bg-emerald-600 text-white" : "bg-red-600 text-white"
+          }`}>
           {toast.msg}
         </div>
       )}
