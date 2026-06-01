@@ -13,7 +13,7 @@ I want to start by saying I love my job.
 
 I really do.
 
-But six years of recruiting in tech will do something to a person. Not break them, exactly. More like... season them. Like a cast iron pan. I've absorbed so much that nothing sticks anymore and I run slightly hotter than I used to.
+But 20 years of recruiting in tech will do something to a person. Not break them, exactly. More like... season them. Like a cast iron pan. I've absorbed so much that nothing sticks anymore and I run slightly hotter than I used to.
 
 This is a collection of true stories. Details changed, names gone, dignity mostly intact.
 
