@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
-import { ArrowRight, BookOpen, Building2, User, Cpu, ChevronDown } from "lucide-react"
+import { ArrowRight, BookOpen, Building2, User, Cpu, ChevronDown, Laugh } from "lucide-react"
 import { ScrollReveal } from "@/components/layout"
 import { HERO_DATA, TABS, TAB_CHIPS, type TabKey } from "./data"
 import { useSearchParams } from "next/navigation"
@@ -21,6 +21,7 @@ const TAB_ICONS: Record<TabKey, React.ElementType> = {
   companies: Building2,
   candidates: User,
   it: Cpu,
+  fun: Laugh,
 }
 
 function useInView(threshold = 0.15) {
@@ -289,7 +290,7 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-coral/10 rounded-full -translate-y-1/2 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-brand-teal/10 rounded-full translate-y-1/2 blur-3xl pointer-events-none" />
 
-        <div ref={heroRef} className="relative max-w-6xl mx-auto px-5 sm:px-10 xl:px-16 text-center lg:mt-20 mt-5">
+        <div ref={heroRef} className="relative max-w-7xl mx-auto px-5 sm:px-10 xl:px-16 text-center lg:mt-20 mt-5">
           <span
             className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-brand-coral block mb-4"
             style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(16px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}
@@ -341,6 +342,51 @@ export function BlogClient({ posts, heroData, tabs, tabChips }: Props) {
       <ScrollReveal>
         <section className="relative w-full bg-brand-white overflow-hidden">
           <div className="relative max-w-6xl mx-auto px-4 sm:px-10 xl:px-16 py-12 sm:py-16 lg:py-24">
+
+            {activeTab === "fun" && (
+              <div className="relative mb-10 rounded-3xl bg-brand-navy overflow-hidden px-8 sm:px-10 py-10">
+                <div className="absolute top-0 left-0 w-64 h-64 bg-brand-coral/10 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none blur-2xl" />
+                <div className="absolute bottom-0 right-0 w-48 h-48 bg-brand-teal/10 rounded-full translate-x-1/3 translate-y-1/3 pointer-events-none blur-2xl" />
+
+                <div className="relative">
+                  <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase
+        text-brand-coral bg-brand-coral/15 px-3 py-1.5 rounded-full mb-5">
+                    <Laugh className="w-3 h-3" strokeWidth={2} />
+                    The lighter side
+                  </span>
+
+                  <h2 className="text-2xl sm:text-3xl font-bold leading-tight tracking-tight text-brand-white mb-5">
+                    Why So Serious? <span className="not-italic">😏</span>
+                  </h2>
+
+                  <div className="h-px w-8 bg-brand-coral/40 mb-5" />
+
+                  <div className="space-y-3 text-sm sm:text-base text-brand-white/55 leading-relaxed max-w-2xl">
+                    <p>
+                      We've reviewed thousands of CVs, scheduled countless interviews, and heard more
+                      variations of <span className="text-brand-white/80 italic">"I'm definitely not actively looking"</span> than
+                      we can remember.
+                    </p>
+                    <p>Some moments are too good to keep to ourselves.</p>
+                    <p>
+                      Welcome to the less corporate side of recruitment — stories, memes, observations, and a
+                      few things that might feel suspiciously familiar if you've ever hired, interviewed, or
+                      worked in tech.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-brand-white/10">
+                    {["Stories", "Memes", "Observations", "Relatable content"].map((tag) => (
+                      <span key={tag} className="text-[11px] font-medium text-brand-white/40
+            bg-brand-white/5 border border-brand-white/10 px-3 py-1 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="flex flex-wrap gap-2 mb-8 sm:mb-12">
               {chips.map((chip, i) => (
                 <button

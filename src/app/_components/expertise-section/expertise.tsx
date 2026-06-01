@@ -47,15 +47,8 @@ export function ExpertiseSection() {
           </p>
         </div>
 
-        {/* ── Main grid: rows list (left) + dark panel (right) ── */}
-        {/*
-          items-stretch makes both columns the same height.
-          The left column is a flex column that distributes its cards.
-          The right panel uses h-full so it fills the entire row height.
-        */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] xl:grid-cols-[1fr_360px] gap-3 sm:gap-4 lg:gap-4 items-stretch">
 
-          {/* Left: stacked row cards — flex column, each card grows equally */}
           <div className="flex flex-col gap-2 sm:gap-2.5">
             <ExpertiseCard item={fintech}   index={0} className="flex-1" />
             <ExpertiseCard item={igaming}   index={1} className="flex-1" />
@@ -65,7 +58,6 @@ export function ExpertiseSection() {
             <ExpertiseCard item={ecommerce} index={5} className="flex-1" />
           </div>
 
-          {/* Right: featured dark panel — h-full stretches to match left column */}
           <div className="h-full min-h-90">
             <FeaturedExpertiseCard
               data={EXPERTISE_FEATURED_AREA}
@@ -74,7 +66,6 @@ export function ExpertiseSection() {
           </div>
         </div>
 
-        {/* ── Footer nudge ── */}
         <div className="mt-12 sm:mt-14 text-center">
           <p className="text-sm font-medium text-brand-navy/45">
             Not sure where to start?{" "}

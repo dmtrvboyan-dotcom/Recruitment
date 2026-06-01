@@ -9,12 +9,12 @@ import { type EXPERTISE_AREAS } from "@/lib/constants/expertise"
 type CardItem = (typeof EXPERTISE_AREAS)[0]
 
 const STAT_COLORS = [
-  "text-[#a8c0f0]",
+  "text-[#]",
   "text-[#c4b0f0]",
   "text-[#90d4b0]",
   "text-[#80e0a0]",
   "text-[#90c8e0]",
-  "text-brand-coral",
+  "text-[#FFC067]",
 ]
 
 const NUMBER_COLORS = [
@@ -23,7 +23,7 @@ const NUMBER_COLORS = [
   "text-[#90d4b0]",
   "text-[#80e0a0]",
   "text-[#90c8e0]",
-  "text-brand-coral",
+  "text-[#FFC067]",
 ]
 
 export const ExpertiseCard = memo(function ExpertiseCard({
@@ -56,7 +56,7 @@ export const ExpertiseCard = memo(function ExpertiseCard({
       />
 
       {/* Dark overlay — heavier on left for text legibility, lighter on right */}
-      <div className="absolute inset-0 bg-linear-to-r from-brand-navy/35 via-brand-navy/22 to-brand-navy/60" />
+      <div className="absolute inset-0 bg-linear-to-r from-brand-navy/35 via-brand-white/80 to-brand-white" />
 
       {/* Number */}
       <span
