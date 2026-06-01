@@ -77,8 +77,8 @@ function SectionIndicator({
   tone?: "light" | "dark"
   centered?: boolean
 }) {
-  const muted = tone === "dark" ? "text-white/30" : "text-brand-navy/30"
-  const line = tone === "dark" ? "bg-white/15" : "bg-brand-navy/15"
+  const muted = tone === "dark" ? "text-brand-white/30" : "text-brand-navy/30"
+  const line = tone === "dark" ? "bg-brand-white/15" : "bg-brand-navy/15"
 
   if (centered) {
     return (
@@ -130,14 +130,14 @@ export default function ExecutiveSearchPage() {
 
         {/* Vertical text rail */}
         <div className="hidden lg:flex absolute left-7 top-1/2 -translate-y-1/2 flex-col items-center gap-6 pointer-events-none z-10">
-          <div className="h-16 w-px bg-white/15" />
+          <div className="h-16 w-px bg-brand-white/15" />
           <span
             className="text-[10px] font-bold tracking-[0.4em] uppercase text-brand-white/40 whitespace-nowrap"
             style={{ writingMode: "vertical-rl" }}
           >
             {HERO_DATA.eyebrow}
           </span>
-          <div className="h-16 w-px bg-white/15" />
+          <div className="h-16 w-px bg-brand-white/15" />
         </div>
 
         {/* Main — centered */}
@@ -149,11 +149,11 @@ export default function ExecutiveSearchPage() {
               <span className="block h-px w-12 bg-brand-coral" />
             </div>
 
-            <h1 className="text-[clamp(3rem,9vw,7rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white text-balance mb-8 lg:mb-12">
+            <h1 className="text-[clamp(3rem,9vw,5rem)] font-bold uppercase leading-[0.88] tracking-[-0.02em] text-brand-white text-balance mb-8 lg:mb-12">
               {HERO_DATA.title}
             </h1>
 
-            <p className="text-base lg:text-lg text-white/65 leading-relaxed text-pretty max-w-2xl mx-auto mb-8 lg:mb-10">
+            <p className="text-base lg:text-lg text-brand-white/65 leading-relaxed text-pretty max-w-2xl mx-auto mb-8 lg:mb-10">
               {HERO_DATA.description}
             </p>
 
@@ -182,12 +182,12 @@ export default function ExecutiveSearchPage() {
                     <span className="text-[10px] font-mono text-brand-coral/80">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div className="h-px w-6 bg-white/20" />
+                    <div className="h-px w-6 bg-brand-white/20" />
                   </div>
-                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
+                  <p className="text-3xl lg:text-5xl xl:text-6xl font-bold text-brand-white tracking-tight leading-none mb-3 group-hover:text-brand-coral transition-colors duration-300">
                     {stat.value}
                   </p>
-                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-white/45 leading-snug">
+                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.22em] text-brand-white/45 leading-snug">
                     {stat.label}
                   </p>
                 </div>
@@ -203,9 +203,9 @@ export default function ExecutiveSearchPage() {
           {[...TRUST_ITEMS, ...TRUST_ITEMS, ...TRUST_ITEMS].map((item, i) => (
             <span
               key={i}
-              className="inline-flex items-center gap-3 sm:gap-4 px-5 sm:px-8 text-[11px] sm:text-[13px] font-semibold text-white uppercase tracking-[0.15em]"
+              className="inline-flex items-center gap-3 sm:gap-4 px-5 sm:px-8 text-[11px] sm:text-[13px] font-semibold text-brand-white uppercase tracking-[0.15em]"
             >
-              <span className="text-white/50">✦</span>
+              <span className="text-brand-white/50">✦</span>
               {item.text}
             </span>
           ))}
@@ -321,13 +321,13 @@ export default function ExecutiveSearchPage() {
                     <div className="relative flex-1 flex flex-col justify-between p-6 lg:p-8">
                       <div>
                         <div className="flex items-start justify-between gap-4 mb-4">
-                          <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight group-hover:text-brand-coral transition-colors duration-200">
+                          <h3 className="text-xl sm:text-2xl font-bold text-brand-white leading-tight group-hover:text-brand-coral transition-colors duration-200">
                             {featuredCard.title}
                           </h3>
-                          <ArrowUpRight className="w-5 h-5 text-white/25 group-hover:text-brand-coral group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 shrink-0 mt-1" />
+                          <ArrowUpRight className="w-5 h-5 text-brand-white/25 group-hover:text-brand-coral group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 shrink-0 mt-1" />
                         </div>
 
-                        <p className="text-sm lg:text-base text-white/55 leading-relaxed mb-6 max-w-2xl">
+                        <p className="text-sm lg:text-base text-brand-white/55 leading-relaxed mb-6 max-w-2xl">
                           {featuredCard.description}
                         </p>
                       </div>
@@ -336,7 +336,7 @@ export default function ExecutiveSearchPage() {
                         {featuredCard.tags.map((tag, j) => (
                           <span
                             key={j}
-                            className="text-[11px] font-semibold px-3 py-1 rounded-full bg-white/[0.07] text-white/60 group-hover:bg-brand-coral/20 group-hover:text-brand-coral transition-colors duration-300"
+                            className="text-[11px] font-semibold px-3 py-1 rounded-full bg-brand-white/[0.07] text-brand-white/60 group-hover:bg-brand-coral/20 group-hover:text-brand-coral transition-colors duration-300"
                           >
                             {tag}
                           </span>
@@ -381,11 +381,11 @@ export default function ExecutiveSearchPage() {
               <SectionIndicator index={2} label="HOW WE WORK" tone="dark" centered />
             </div>
             <div className="text-center">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-white mb-4">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tight text-brand-white mb-4">
                 Our search{" "}
                 <span className="text-brand-coral">methodology</span>
               </h2>
-              <p className="text-white/45 text-sm lg:text-base leading-relaxed max-w-xl mx-auto">
+              <p className="text-brand-white/45 text-sm lg:text-base leading-relaxed max-w-xl mx-auto">
                 A five-stage process refined across 300+ senior mandates.
               </p>
             </div>
@@ -419,18 +419,18 @@ export default function ExecutiveSearchPage() {
                           <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-coral/15 group-hover:bg-brand-coral/25 transition-colors duration-300 shrink-0">
                             <Icon className="w-5 h-5 text-brand-coral" strokeWidth={1.7} />
                           </div>
-                          <div className="flex-1 h-px bg-white/10 group-hover:bg-brand-coral/40 transition-colors duration-300" />
+                          <div className="flex-1 h-px bg-brand-white/10 group-hover:bg-brand-coral/40 transition-colors duration-300" />
                         </div>
 
                         <p className="text-[10px] font-bold text-brand-coral/80 uppercase tracking-[0.3em] mb-2">
                           STEP {step.number}
                         </p>
 
-                        <h3 className="text-base lg:text-lg font-bold text-white mb-3 leading-tight tracking-tight">
+                        <h3 className="text-base lg:text-lg font-bold text-brand-white mb-3 leading-tight tracking-tight">
                           {step.title}
                         </h3>
 
-                        <p className="text-[13px] text-white/45 leading-relaxed">
+                        <p className="text-[13px] text-brand-white/45 leading-relaxed">
                           {step.description}
                         </p>
                       </div>
@@ -460,7 +460,7 @@ export default function ExecutiveSearchPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 lg:gap-4">
-              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-navy text-white p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-80 lg:min-h-110">
+              <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 rounded-3xl bg-brand-navy text-brand-white p-8 lg:p-10 relative overflow-hidden flex flex-col justify-between min-h-80 lg:min-h-110">
                 <div className="absolute -top-24 -right-24 w-[320px] h-80 rounded-full bg-brand-coral/20 blur-[100px] pointer-events-none" />
 
                 <div className="relative">
@@ -469,7 +469,7 @@ export default function ExecutiveSearchPage() {
                     <br />
                     <span className="text-brand-coral">hiring</span>
                   </h2>
-                  <p className="text-sm lg:text-base text-white/60 leading-relaxed max-w-sm">
+                  <p className="text-sm lg:text-base text-brand-white/60 leading-relaxed max-w-sm">
                     We don't compete on volume. Every mandate we accept gets a
                     partner's full attention from brief to onboarding.
                   </p>
@@ -477,13 +477,13 @@ export default function ExecutiveSearchPage() {
 
                 <Link
                   href="/partnerships"
-                  className="relative inline-flex items-center justify-between gap-4 mt-8 group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-coral/40 rounded-2xl px-5 py-4 transition-all duration-300"
+                  className="relative inline-flex items-center justify-between gap-4 mt-8 group bg-brand-white/5 hover:bg-brand-white/10 border border-white/10 hover:border-brand-coral/40 rounded-2xl px-5 py-4 transition-all duration-300"
                 >
-                  <span className="text-sm font-bold text-white">
+                  <span className="text-sm font-bold text-brand-white">
                     Meet the companies we've worked with
                   </span>
                   <span className="flex items-center justify-center w-9 h-9 rounded-full bg-brand-coral group-hover:rotate-45 transition-transform duration-300">
-                    <ArrowUpRight className="w-4 h-4 text-white" />
+                    <ArrowUpRight className="w-4 h-4 text-brand-white" />
                   </span>
                 </Link>
               </div>
@@ -536,7 +536,7 @@ export default function ExecutiveSearchPage() {
 
             <p
               aria-hidden
-              className="hidden lg:block absolute inset-x-0 -bottom-8 text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-white/3 leading-[0.8] pointer-events-none select-none whitespace-nowrap"
+              className="hidden lg:block absolute inset-x-0 -bottom-8 text-center text-[20rem] xl:text-[24rem] font-bold uppercase tracking-tighter text-brand-white/3 leading-[0.8] pointer-events-none select-none whitespace-nowrap"
             >
               EXEC
             </p>
@@ -548,11 +548,11 @@ export default function ExecutiveSearchPage() {
                 <span className="block h-px w-10 bg-brand-coral" />
               </div>
 
-              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-white mb-6 lg:mb-8 text-balance">
+              <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight text-brand-white mb-6 lg:mb-8 text-balance">
                 {CTA_DATA.title}
               </h2>
 
-              <p className="text-base lg:text-ig text-white/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
+              <p className="text-base lg:text-ig text-brand-white/60 leading-relaxed max-w-xl mx-auto mb-10 lg:mb-12">
                 {CTA_DATA.description}
               </p>
 

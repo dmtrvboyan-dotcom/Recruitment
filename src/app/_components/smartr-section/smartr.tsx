@@ -122,7 +122,7 @@ export const SmartRSection = memo(function SmartRSection() {
           <h2 className="text-[clamp(2.2rem,7vw,4.5rem)] font-bold leading-[0.92] tracking-tight uppercase text-brand-white mb-5 sm:mb-6">
             <span className="text-brand-coral">Smart.R</span>
             <br />
-            Our Own Applicant Tracking
+            Our Own Applicant Tracking ATS Software
           </h2>
 
           <div className="mx-auto h-0.5 w-12 sm:w-16 bg-brand-coral mb-6 sm:mb-8" />

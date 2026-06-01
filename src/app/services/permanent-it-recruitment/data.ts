@@ -67,7 +67,7 @@ export interface CtaData {
 export const HERO_DATA: HeroData = {
   tagline: "Permanent IT Recruitment",
   eyebrow: "Strategic Talent Acquisition",
-  title: "Permanent IT Recruitment Services",
+  title: "Permanent IT Recruitment Services & Staffing",
   description:
     "Building high-performing tech teams with top-tier professionals who deliver long-term value. We combine technical excellence with deep cultural alignment.",
 }

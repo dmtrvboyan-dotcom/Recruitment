@@ -11,8 +11,8 @@ import { HashCleaner } from "../../components/layout/hash-cleaner"
 const sections = [
   { id: "hero", label: "Overview" },
   { id: "partners", label: "Our Partners" },
-  { id: "process", label: "How it Works" },
   { id: "tetimonials", label: "See What They Say" },
+  { id: "process", label: "How it Works" },
   { id: "whyus", label: "Why They Choose Us" },
 ]
 

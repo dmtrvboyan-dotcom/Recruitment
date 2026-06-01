@@ -4,11 +4,10 @@ import { memo, useRef, useState, useEffect } from "react"
 import { Check } from "lucide-react"
 
 const REASONS = [
-  "Boutique and personalized recruitment approach",
+  "Personalized recruitment approach",
   "Strong network in Bulgaria and Europe",
   "Fast communication and full transparency",
   "Reduced hiring delays",
-  "Long-term partnerships, not one-off placements",
   "High-quality candidate experience",
   "Proven track record with leading tech companies",
 ]

@@ -42,7 +42,7 @@ export const ClientsCTA = memo(function ClientsCTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
           <AppButton href="/contacts" icon="arrow" className="sm:w-auto">
-            Join 30+ partner companies
+            Contact Us
           </AppButton>
         </div>
 
